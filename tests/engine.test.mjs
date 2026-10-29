@@ -6,8 +6,8 @@ function stock(g,word){const chars=[...word];while(chars.length<HAND_SIZE)chars.
 function build(g,word,pad){stock(g,word);assert.ok(g.build(word,pad));return g.towers.at(-1);}
 function runWave(g){assert.ok(g.startWave());let steps=0;while(g.phase==='battle'&&steps++<5000)g.step(.1);assert.ok(steps<5000);}
 
-test('common words, ten schools and four increasing starting tiers',()=>{
- assert.ok(WORDS.length>39000);assert.equal(new Set(WORDS.map(w=>w.word)).size,WORDS.length);assert.equal(new Set(WORDS.map(w=>w.type)).size,10);for(const word of ['冰霜箭','毒云','你好','谢谢','守护者','魔法箭'])assert.ok(getWord(word),word);
+test('common words, fourteen schools and four increasing starting tiers',()=>{
+ assert.ok(WORDS.length>39000);assert.equal(new Set(WORDS.map(w=>w.word)).size,WORDS.length);assert.equal(new Set(WORDS.map(w=>w.type)).size,14);for(const word of ['冰霜箭','毒云','你好','谢谢','守护者','魔法箭'])assert.ok(getWord(word),word);
  for(const w of WORDS){assert.equal(w.tier,[...w.word].length);assert.ok(w.tier>=1&&w.tier<=4);assert.equal(w.maxLevel,w.tier+2);assert.ok(w.cost>0);}
  for(const type of new Set(WORDS.map(w=>w.type))){const group=WORDS.filter(w=>w.type===type);for(let tier=2;tier<=4;tier++){const a=group.find(w=>w.tier===tier-1),b=group.find(w=>w.tier===tier);assert.ok(b.cost>a.cost);assert.ok(b.damage>a.damage||b.aura>a.aura||b.income>a.income);}}
  assert.equal(matchWord(['鸣','雷','闪','电']),null);assert.equal(matchWord(['电','闪','雷','鸣']).word,'电闪雷鸣');assert.equal(matchWord(['火']).word,'火');assert.equal(matchWord(['假','词']),null);assert.equal(matchWord(['火','火','火','火','火']),null);
@@ -26,10 +26,10 @@ test('refresh discards the old tray, increases price and cannot charge insuffici
  const g=new Game(0,5),old=g.hand.map(t=>t.id);assert.equal(g.refreshCost(),15);assert.ok(g.refreshHand());assert.equal(g.ink,185);assert.equal(g.refreshCost(),20);assert.ok(g.hand.every(t=>!old.includes(t.id)&&!t.used));g.ink=1000;for(let i=0;i<10;i++)g.refreshHand();assert.equal(g.refreshCost(),40);g.ink=0;const before=g.export();assert.equal(g.refreshHand(),false);assert.deepEqual(g.export(),before);
 });
 test('each round resets refresh price; clear and income rewards happen once',()=>{
- const g=new Game();g.refreshHand();g.phase='battle';g.wave=3;build(g,'生财',0);const ink=g.ink;g.step(.1);assert.equal(g.phase,'prepare');assert.equal(g.ink,ink+33+14);assert.equal(g.refreshCost(),15);const paid=g.ink;g.step(.1);assert.equal(g.ink,paid);
+ const g=new Game();g.refreshHand();g.phase='battle';g.wave=3;build(g,'生财',0);const ink=g.ink;g.step(.1);assert.equal(g.phase,'prepare');assert.equal(g.ink,ink+33+10);assert.equal(g.refreshCost(),15);const paid=g.ink;g.step(.1);assert.equal(g.ink,paid);
 });
 test('income is capped across towers and all tiers can be enhanced exactly twice',()=>{
- const g=new Game();g.ink=10000;for(let i=0;i<4;i++){const t=build(g,'招财进宝',i);assert.ok(g.upgrade(t.id));assert.ok(g.upgrade(t.id));assert.equal(g.upgrade(t.id),false);assert.equal(t.level,6);}g.phase='battle';g.wave=3;const before=g.ink;g.step(.1);assert.equal(g.ink-before,33+80);
+ const g=new Game();g.ink=10000;for(let i=0;i<4;i++){const t=build(g,'招财进宝',i);assert.ok(g.upgrade(t.id));assert.ok(g.upgrade(t.id));assert.equal(g.upgrade(t.id),false);assert.equal(t.level,6);}g.phase='battle';g.wave=3;const before=g.ink;g.step(.1);assert.equal(g.ink-before,33+100);
  for(const word of ['火','火球','火焰山','火树银花']){const h=new Game();h.ink=1000;const t=build(h,word,0);assert.equal(t.level,getWord(word).tier);h.upgrade(t.id);h.upgrade(t.id);assert.equal(t.level,getWord(word).maxLevel);assert.equal(h.upgrade(t.id),false);}
 });
 test('selling refunds 70% of actual investment but never returns spent tiles',()=>{
@@ -55,7 +55,7 @@ test('save keeps tray, consumption, refresh prices and next random draw',()=>{
  const g=new Game(1,9);const w=g.availableWords().find(w=>w.tier===2&&w.damage);g.build(w.word,2);g.refreshHand();g.startWave();for(let i=0;i<90;i++)g.step(.1);const copy=Game.restore(JSON.parse(JSON.stringify(g.export())));assert.deepEqual(copy.export(),g.export());for(let i=0;i<20;i++){g.step(.1);copy.step(.1);}assert.deepEqual(copy.export(),g.export());g.refreshHand();copy.refreshHand();assert.deepEqual(g.export(),copy.export());const snapshot=g.export();snapshot.hand[0].used=!snapshot.hand[0].used;assert.notDeepEqual(snapshot.hand,g.hand);
 });
 test('legacy saves migrate towers and preserve hp, currency and chapter',()=>{
- const g=new Game(1,1);g.ink=500;const t=build(g,'火球',2);g.upgrade(t.id);const old=g.export();old.version=1;old.towers[0].level=2;delete old.towers[0].spent;delete old.hand;delete old.rngState;delete old.refreshes;delete old.handSerial;const migrated=Game.restore(old);assert.equal(migrated.towers[0].level,3);assert.equal(migrated.towers[0].spent,105);assert.equal(migrated.ink,g.ink);assert.equal(migrated.hp,18);assert.equal(migrated.chapter,1);assert.equal(migrated.hand.length,16);assert.equal(migrated.export().version,3);
+ const g=new Game(1,1);g.ink=500;const t=build(g,'火球',2);g.upgrade(t.id);const old=g.export();old.version=1;old.towers[0].level=2;delete old.towers[0].spent;delete old.hand;delete old.rngState;delete old.refreshes;delete old.handSerial;const migrated=Game.restore(old);assert.equal(migrated.towers[0].level,3);assert.equal(migrated.towers[0].spent,105);assert.equal(migrated.ink,g.ink);assert.equal(migrated.hp,20);assert.equal(migrated.chapter,1);assert.equal(migrated.hand.length,16);assert.equal(migrated.export().version,3);
 });
 test('corrupt saves cannot duplicate tiles, bypass tiers or replace methods',()=>{
  const g=new Game();const data=g.export();assert.throws(()=>Game.restore({...data,version:4}));assert.throws(()=>Game.restore({...data,rngState:0}));assert.throws(()=>Game.restore({...data,refreshes:-1}));const duplicate=structuredClone(data);duplicate.hand[1].id=duplicate.hand[0].id;assert.throws(()=>Game.restore(duplicate));const bad=structuredClone(data);bad.hand[0].ch='🧱';assert.throws(()=>Game.restore(bad));assert.throws(()=>Game.restore({...data,towers:[{word:'火球',pad:0,level:1,spent:60,id:1,cooldown:0}]}));assert.equal(typeof Game.restore({...data,step:'bad'}).step,'function');
@@ -74,7 +74,7 @@ test('hint falls back through 3, 2 and 1 characters and expires when its tiles a
  const g=new Game();g.ink=1000;stock(g,'火焰山');g.hand.forEach(t=>{if(t.ch==='光')t.used=true;});assert.equal(g.requestHint().word,'火焰山');assert.ok(g.build('火焰山',0));assert.equal(g.hintWord,null);stock(g,'火球');g.hand.forEach(t=>{if(t.ch==='光')t.used=true;});assert.equal(getWord(g.requestHint().word).tier,2);stock(g,'火');g.hintWord=null;g.hand.forEach(t=>{if(t.ch==='光')t.used=true;});assert.equal(g.requestHint().word,'火');
 });
 test('endless continuation retains campaign investments and continues past the final wave',()=>{
- const g=new Game(0,42);const w=g.availableWords().find(w=>w.tier===2&&w.damage);g.build(w.word,2);g.wave=18;g.phase='won';g.skillUses=2;const before=g.export();assert.ok(g.continueEndless());assert.equal(g.phase,'prepare');assert.equal(g.endless,true);assert.equal(g.skillCost(),60);assert.equal(g.ink,before.ink);assert.equal(g.hp,before.hp);assert.deepEqual(g.towers,before.towers);assert.deepEqual(g.hand,before.hand);assert.equal(g.continueEndless(),false);assert.ok(g.startWave());assert.equal(g.wave,19);g.queue=[];g.step(.1);assert.equal(g.phase,'intermission');assert.equal(g.events.filter(e=>e.type==='won').length,0);const copy=Game.restore(g.export());assert.deepEqual(copy.export(),g.export());g.wave=89;g.phase='prepare';g.startWave();assert.equal(g.queue.length,80);assert.equal(g.queue.at(-1).kind,'boss');
+ const g=new Game(0,42);const w=g.availableWords().find(w=>w.tier===2&&w.damage);g.build(w.word,2);g.wave=18;g.phase='won';g.skillUses=2;const before=g.export();assert.ok(g.continueEndless());assert.equal(g.phase,'prepare');assert.equal(g.endless,true);assert.equal(g.skillCost(),60);assert.equal(g.ink,before.ink);assert.equal(g.hp,before.hp);assert.deepEqual(g.towers,before.towers);assert.deepEqual(g.hand,before.hand);assert.equal(g.continueEndless(),false);assert.ok(g.startWave());assert.equal(g.wave,19);g.queue=[];g.step(.1);assert.equal(g.phase,'intermission');assert.equal(g.events.filter(e=>e.type==='won').length,0);const copy=Game.restore(g.export());assert.deepEqual(copy.export(),g.export());g.wave=89;g.phase='prepare';g.startWave();assert.equal(g.queue.length,80);assert.equal(ENEMIES[g.queue.at(-1).kind].boss,true);
 });
 test('endless requires victory; failures and invalid mode saves cannot enable it',()=>{
  const g=new Game();assert.equal(g.continueEndless(),false);g.phase='lost';assert.equal(g.continueEndless(),false);assert.throws(()=>Game.restore({...new Game().export(),endless:'yes'}));assert.throws(()=>Game.restore({...new Game().export(),wave:19,endless:false}));
@@ -84,7 +84,7 @@ test('skill has 30 second cooldown, increases each cost by 15, persists and rese
 });
 
 test('chapters have multiple rounds with three waves and bosses every three rounds plus the finale',()=>{
- assert.deepEqual(CHAPTERS.map(c=>[c.rounds,c.waves]),[[6,18],[8,24],[10,30]]);
+ assert.deepEqual(CHAPTERS.slice(0,3).map(c=>[c.rounds,c.waves]),[[6,18],[8,24],[10,30]]);
  for(let ch=0;ch<3;ch++){const bosses=Array.from({length:CHAPTERS[ch].waves},(_,i)=>wavePlan(ch,i+1)).filter(p=>p.boss);assert.ok(bosses.every(p=>p.part===3));assert.deepEqual(bosses.map(p=>p.round),ch===0?[3,6]:ch===1?[3,6,8]:[3,6,9,10]);}
  const a=wavePlan(0,1);assert.equal(a.count,11);assert.ok(wavePlan(0,9).count>a.count);
 });

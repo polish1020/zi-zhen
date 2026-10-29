@@ -30,12 +30,13 @@ python3 scripts/prepare-vercel.py
 
 - 正式域名的十个文件全部 HTTP 200，Content-Type 正确，内容与上传文件逐字节一致，包括常用词库与许可声明。
 - `BASE_URL=https://game.polishwb1020.com node tests/browser.cjs` 通过：开始界面、同屏布局、付费提示、技能、跳关、终局恢复、无尽与失败重试。
-- 线上 `tests/responsive.cjs` 十种尺寸通过：页面无溢出、字牌无空格、地图比例一致、严格词序、点击效果、范围后二次升级、恢复和旋转。
-- 线上 `tests/expansion.cjs` 通过：冰霜箭建造、毒云搜索、解锁涨价、手势保护、整备计时、十类怪物与周期 Boss 实际出场。
+- 线上 `tests/responsive.cjs` 十种尺寸通过：页面无溢出、字牌无空格、地图比例一致、严格词序、点击效果、单次点击显示范围、详情与升级、恢复和旋转。
+- 线上 `tests/expansion.cjs` 通过：冰霜箭建造、毒云搜索、解锁涨价、手势保护、整备计时、二十类怪物与周期 Boss 实际出场。
+- 线上 `tests/campaign.cjs` 验证十章主题与入口、六种 Boss、属性详情、音效静音、升级和提示栏。
 - 测试期间 JavaScript 运行错误为零；数值平衡和规则测试见 `TESTING.md`。
 
 ## 域名与原生资源
 
 `game.polishwb1020.com` 已绑定生产项目并验证，复用阿里云原有泛域名解析，本次未修改 DNS。HTTPS 和匿名访问正常。注册商仍为阿里云，无需转移域名。
 
-`python3 scripts/prepare-mobile.py` 生成包含词库和许可的本地资源包。该包已通过相同的三组浏览器流程。Capacitor 配置和尚未完成的原生签名/构建事项见 `MOBILE-APP.md`；当前未生成安装包。
+`python3 scripts/prepare-mobile.py` 生成包含词库和许可的本地资源包。该包与本次公开部署资源逐字节一致。Capacitor 配置和尚未完成的原生签名/构建事项见 `MOBILE-APP.md`；当前未生成安装包。

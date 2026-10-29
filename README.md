@@ -1,6 +1,6 @@
 # 字阵 WORDWARD
 
-以字为兵，以词筑塔。原创中文组词塔防，纸墨与山河主题，浏览器单人游戏。当前版本使用 16 张一次性随机字牌，支持近 4 万个 1—4 字词语和十类词塔；墨点可用于建塔、升级或刷新手牌。先显示玩法开始界面；手机进入后地图与字库同屏显示，组词严格按选字顺序，支持付费提示与通关后的无尽模式。
+以字为兵，以词筑塔。原创中文组词塔防，纸墨与山河主题，浏览器单人游戏。当前版本使用 16 张一次性随机字牌，支持近 4 万个 1—4 字词语和十四类词塔；墨点可用于建塔、升级或刷新手牌。先显示玩法开始界面；手机进入后地图与字库同屏显示，组词严格按选字顺序，支持付费提示与通关后的无尽模式。
 
 ## 运行与测试
 
@@ -8,7 +8,7 @@
 
 ```sh
 python3 -m http.server 4173 --directory dist
-node --test tests/engine.test.mjs
+node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs
 ```
 
 浏览器回归使用 Playwright Core 与 Chromium。`tests/browser.cjs` 默认使用本执行环境已安装的模块路径与 Chromium 路径；其他环境请修改这两处路径，或安装 Playwright 后替换 require 为 `require('playwright')`。预览服务运行时执行 `node tests/browser.cjs`。
@@ -32,7 +32,7 @@ node --test tests/engine.test.mjs
 
 ## 存档
 
-使用当前域名下的 localStorage：`wordward-save-v1` 保存战局，`wordward-record-v1` 保存三章最佳星级。操作后、每 5 秒及离开页面时保存。刷新恢复进行中的战斗后先暂停。设置内可重开当前战局或确认后清除全部进度。浏览器清理数据、使用隐私模式或更换设备可能使存档不可用；没有云端同步。
+使用当前域名下的 localStorage：`wordward-save-v1` 保存战局，`wordward-record-v1` 保存十章最佳星级，自动保留旧版三章记录。操作后、每 5 秒及离开页面时保存。刷新恢复进行中的战斗后先暂停。设置内可重开当前战局或确认后清除全部进度。浏览器清理数据、使用隐私模式或更换设备可能使存档不可用；没有云端同步。
 
 ## IGA Pages
 
@@ -46,4 +46,4 @@ node --test tests/engine.test.mjs
 
 运行 `python3 scripts/prepare-mobile.py` 生成原生 WebView 可用的本地资源；Capacitor 配置已提供，封装步骤和边界见 `docs/MOBILE-APP.md`。当前没有生成 APK 或 iOS 安装包。
 
-新增玩法：每轮 3 波、周期 Boss、额外阵位逐价解锁、技能冷却与费用递增。当前数值和验证结果见 `docs/DESIGN.md` 与 `docs/TESTING.md`。
+新增玩法：10 章主题地图、轮流/同时多入口、20 类怪物（含 6 种 Boss）、14 类词塔与品阶特性、点金赏金和圣光照明、攻击音效与升级动画。当前数值和验证结果见 `docs/DESIGN.md` 与 `docs/TESTING.md`。
