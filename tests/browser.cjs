@@ -1,0 +1,31 @@
+const assert=require('node:assert/strict');
+const {chromium}=require('/opt/codex/cua_node/lib/node_modules/playwright-core');
+(async()=>{
+const browser=await chromium.launch({headless:true,executablePath:'/usr/bin/chromium',args:['--no-sandbox']});
+const page=await browser.newPage({viewport:{width:1440,height:1000}});page.setDefaultTimeout(10000);const errors=[];page.on('pageerror',e=>errors.push(e.message));
+await page.goto('http://127.0.0.1:4173');await page.waitForTimeout(300);
+const ink=()=>page.locator('#ink').innerText();
+assert.equal(await ink(),'200');
+await page.locator('#start').click();await page.waitForTimeout(100);assert.match(await page.locator('#toast').innerText(),/至少一座/);
+await page.locator('#forge').click();await page.getByRole('button',{name:'空阵位3，点击放置词塔',exact:true}).click();assert.equal(await ink(),'140');
+await page.getByRole('button',{name:'阵位3：火球，1级，点击查看或升级',exact:true}).click();await page.locator('#upgrade').click();assert.equal(await ink(),'95');await page.locator('#back-forge').click();
+await page.locator('#clear-chars').click();await page.locator('[data-char="冰"]').click();await page.locator('[data-char="霜"]').click();await page.locator('#forge').click();await page.getByRole('button',{name:'空阵位2，点击放置词塔',exact:true}).click();assert.equal(await ink(),'45');
+await page.locator('#start').click();await page.waitForTimeout(1200);assert.match(await page.locator('#phase-label').innerText(),/进行中/);assert.ok(await page.locator('#skill').isEnabled());await page.locator('#skill').click();assert.ok(Number(await ink())<45||await page.locator('#skill').isDisabled());
+await page.locator('#start').click();assert.equal(await page.locator('#pause-overlay').isVisible(),true);await page.reload();await page.waitForTimeout(300);assert.equal(await page.locator('#pause-overlay').isVisible(),true);assert.match(await page.getByRole('button',{name:/阵位3：火球/}).getAttribute('aria-label'),/2级/);await page.locator('#resume').click();
+await page.locator('[data-nav="codex"]').click();assert.equal(await page.locator('.codex-card').count(),6);await page.locator('#close-modal').click();
+await page.locator('#guide-link').click();assert.equal(await page.locator('.guide-step').count(),4);await page.locator('#guide-done').click();
+await page.locator('#start').click();await page.locator('#chapters').click();await page.locator('[data-chapter="1"]').click();await page.locator('#stay').click();assert.equal(await page.locator('#chapter-name').innerText(),'青山初试');await page.locator('#chapters').click();await page.locator('[data-chapter="1"]').click();await page.locator('#switch-chapter').click();assert.equal(await page.locator('#chapter-name').innerText(),'竹海听风');assert.equal(await ink(),'230');
+await page.locator('#clear-chars').click();await page.locator('[data-char="火"]').click();await page.locator('[data-char="霜"]').click();assert.equal(await page.locator('#forge').isDisabled(),true);
+await page.locator('#sound').click();assert.equal(await page.locator('#sound').getAttribute('aria-label'),'关闭音效');
+await page.screenshot({path:'desktop.png',fullPage:true});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+console.log('PASS desktop: build, upgrade, frost, wave, skill, pause, restore, codex, guide, chapter confirmation, invalid word, audio');
+await page.setViewportSize({width:390,height:844});await page.reload();await page.waitForTimeout(350);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);await page.locator('#forge').click();await page.getByRole('button',{name:'空阵位3，点击放置词塔',exact:true}).click();assert.equal(await ink(),'170');await page.getByRole('button',{name:'阵位3：火球，1级，点击查看或升级',exact:true}).click();assert.equal(await page.locator('#upgrade').isVisible(),true);await page.locator('#sell').click();assert.equal(await ink(),'212');await page.screenshot({path:'mobile.png',fullPage:true});
+console.log('PASS mobile 390px: no overflow, build, inspect, sell and return to forge');
+// Load a valid near-complete saved battle to exercise real engine -> victory modal -> next chapter.
+const {Game}=await import('../dist/engine.mjs');const g=new Game();g.wave=6;g.phase='battle';g.build('火球',0);
+const ending=await browser.newPage({viewport:{width:1440,height:1000}});ending.setDefaultTimeout(10000);ending.on('pageerror',e=>errors.push(e.message));
+await ending.addInitScript(data=>localStorage.setItem('wordward-save-v1',JSON.stringify(data)),g.export());await ending.goto('http://127.0.0.1:4173');await ending.locator('#resume').click();await ending.waitForSelector('.result');assert.match(await ending.locator('.modal-title').innerText(),/山河无恙/);assert.equal(await ending.locator('.result-stars').innerText(),'★★★');await ending.locator('#next').click();assert.equal(await ending.locator('#chapter-name').innerText(),'竹海听风');console.log('PASS victory, 3-star save and next chapter');
+const lost=new Game();lost.wave=2;lost.phase='battle';lost.hp=1;lost.spawn('boss');lost.enemies[0].d=9999;
+const losing=await browser.newPage();losing.setDefaultTimeout(10000);losing.on('pageerror',e=>errors.push(e.message));await losing.addInitScript(data=>localStorage.setItem('wordward-save-v1',JSON.stringify(data)),lost.export());await losing.goto('http://127.0.0.1:4173');await losing.locator('#resume').click();await losing.waitForSelector('.result');assert.match(await losing.locator('.modal-title').innerText(),/来日再战/);await losing.locator('#retry').click();assert.equal(await losing.locator('#ink').innerText(),'200');console.log('PASS loss and retry');
+assert.deepEqual(errors,[]);console.log('PASS zero runtime errors');await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});
