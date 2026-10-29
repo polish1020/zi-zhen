@@ -10,12 +10,6 @@
 .char.used { opacity: .35; background: #21362b; }
 .char.used small { display: block; font: 8px system-ui; position: absolute; bottom: 2px; left: 0; right: 0; }
 .recipe-preview { min-height: 92px; padding-top: 10px; }
-.word-suggestions { margin: 10px 0 12px; }
-.word-suggestions > small { font-size: 10px; color: #aaba99; }
-.word-suggestions > div { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-top: 6px; }
-.word-suggestions button { border: 1px solid #617657; background: #344c37; border-radius: 4px; padding: 6px 4px; font-size: 11px; }
-.word-suggestions button span { display: block; font-size: 9px; color: #9caf8a; margin-top: 3px; }
-.no-hints { grid-column: 1 / -1; color: #aaba99; font-size: 11px; }
 .forge-tools { display: flex; gap: 8px; align-items: center; margin-top: 6px; }
 .forge-tools .clear-button { margin: 0; min-height: 42px; padding: 8px 12px; font-size: 11px; }
 .refresh-button { flex: 1; min-height: 42px; border: 1px solid #81956f; border-radius: 4px; font-size: 11px; }
@@ -38,14 +32,11 @@
   .forge-separator { grid-row: 5; margin: 12px 0 8px; }
   .character-grid { grid-row: 6; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 0; }
   .char { min-height: 44px; height: 44px; font-size: 24px; }
-  .word-suggestions { grid-column: 1 / -1; grid-row: 7; margin: 12px 0; }
-  .word-suggestions button { min-height: 44px; font-size: 12px; }
-  .word-suggestions button span { font-size: 10px; }
-  .forge-button { grid-row: 8; }
-  .forge-tools { grid-column: 1 / -1; grid-row: 9; }
+  .forge-button { grid-row: 7; }
+  .forge-tools { grid-column: 1 / -1; grid-row: 8; }
   .forge-tools .clear-button, .refresh-button { min-height: 44px; font-size: 12px; }
   .refresh-button span { font-size: 11px; }
-  .forge-footnote { grid-row: 10; margin-top: 6px; }
+  .forge-footnote { grid-row: 9; margin-top: 6px; }
   .mobile-dock { grid-template-columns: 1fr 1fr .7fr; }
   .mobile-dock button { background: #e6e9dc; color: var(--ink); font-size: 12px; }
   .mobile-dock button:last-child { background: #e6e9dc; color: var(--ink); }
@@ -75,7 +66,7 @@
   body.playing .wave-info { gap: 0; }
   body.playing .wave-info strong { font-size: 12px; }
   body.playing .wave-info small { font-size: 10px; margin-top: 4px; }
-  body.playing .forge-panel { padding: 12px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto auto auto minmax(0, 1fr) auto auto auto; gap: 5px 10px; align-content: stretch; overflow: hidden; }
+  body.playing .forge-panel { padding: 12px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto auto auto minmax(0, 1fr) auto auto; gap: 5px 10px; align-content: stretch; overflow: hidden; }
   body.playing .forge-panel:before { display: none; }
   body.playing .forge-heading { grid-row: 1; min-height: 22px; }
   body.playing .forge-subtitle, body.playing .forge-footnote, body.playing .forge-panel h2 { display: none; }
@@ -89,14 +80,8 @@
   body.playing .character-grid { grid-row: 5; height: 100%; min-height: 0; grid-template-rows: repeat(4, minmax(44px, 1fr)); align-content: stretch; gap: 5px; }
   body.playing .char { height: auto; min-height: 44px; aspect-ratio: auto; }
   body.playing .map-target { width: 44px; height: 44px; }
-  body.playing .word-suggestions { grid-row: 6; margin: 0; }
-  body.playing .word-suggestions > small { display: none; }
-  body.playing .word-suggestions > div { margin: 0; }
-  body.playing .word-suggestions button { min-height: 34px; padding: 4px; font-size: 11px; }
-  body.playing .word-suggestions button:nth-child(n+3) { display: none; }
-  body.playing .word-suggestions button span { display: inline; margin-left: 5px; font-size: 9px; }
-  body.playing .forge-button { grid-row: 7; min-height: 44px; }
-  body.playing .forge-tools { grid-row: 8; margin: 0; }
+  body.playing .forge-button { grid-row: 6; min-height: 44px; }
+  body.playing .forge-tools { grid-row: 7; margin: 0; }
   body.playing .forge-panel.inspecting.panel-active { display: flex; flex-direction: column; }
   body.playing .tower-detail { min-height: 0; flex: 1; display: flex; flex-direction: column; }
   body.playing .tower-detail h3 { margin: 8px 0; font-size: 23px; }
@@ -110,7 +95,6 @@
   body.playing dialog { max-height: calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 16px); }
 }
 @media (max-width: 900px) and (max-height: 700px), (pointer: coarse) and (max-height: 700px), (display-mode: standalone) and (max-height: 700px) {
-  body.playing .word-suggestions { display: none; }
   body.playing .forge-panel { gap: 3px 8px; padding: 8px; }
   body.playing .forge-slots { gap: 5px; }
   body.playing .detail-stats { gap: 10px; padding: 8px 0; }
