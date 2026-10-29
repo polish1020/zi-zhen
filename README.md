@@ -30,3 +30,7 @@ node --test tests/engine.test.mjs
 ## 存档
 
 使用当前域名下的 localStorage：`wordward-save-v1` 保存战局，`wordward-record-v1` 保存三章最佳星级。操作后、每 5 秒及离开页面时保存。刷新恢复进行中的战斗后先暂停。设置内可重开当前战局或确认后清除全部进度。浏览器清理数据、使用隐私模式或更换设备可能使存档不可用；没有云端同步。
+
+## IGA Pages
+
+本项目也已接入火山引擎 IGA Pages。后续更新请使用 `scripts/prepare-iga.py` 准备上传目录，再部署至已有项目；操作流程、平台适配与域名接入见 `docs/DEPLOYMENT-IGA.md`。
