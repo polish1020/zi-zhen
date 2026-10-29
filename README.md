@@ -34,3 +34,7 @@ node --test tests/engine.test.mjs
 ## IGA Pages
 
 本项目也已接入火山引擎 IGA Pages。后续更新请使用 `scripts/prepare-iga.py` 准备上传目录，再部署至已有项目；操作流程、平台适配与域名接入见 `docs/DEPLOYMENT-IGA.md`。
+
+## Vercel
+
+当前生产站点：https://zi-zhen.vercel.app 。使用 `python3 scripts/prepare-vercel.py` 准备发布目录，既有项目标识、更新方法和线上验证结果见 `docs/DEPLOYMENT-VERCEL.md`。当前未关联 Git 自动部署，自定义域名尚未接入。
