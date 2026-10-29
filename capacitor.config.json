@@ -1,0 +1,7 @@
+{
+  "appId": "com.polishwb.wordward",
+  "appName": "字阵",
+  "webDir": "mobile/www",
+  "backgroundColor": "#f4f1e8",
+  "ios": {"contentInset": "never"}
+}

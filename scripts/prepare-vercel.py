@@ -10,7 +10,7 @@ stage = parser.parse_args().output.resolve()
 root = Path(__file__).resolve().parents[1]
 public = stage / 'public'
 public.mkdir(parents=True, exist_ok=True)
-for name in ['index.html', 'style.css', 'responsive.css', 'icon.svg']:
+for name in ['index.html', 'style.css', 'responsive.css', 'gameplay.css', 'manifest.webmanifest', 'icon.svg']:
     content = (root / 'dist' / name).read_text(encoding='utf-8')
     if name == 'index.html':
         content = content.replace('./app.mjs', './app.js')

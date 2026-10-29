@@ -11,7 +11,7 @@ button { touch-action: manipulation; }
   .battle-controls { width: 100%; }
   .start-button { flex: 1; }
 }
-@media (max-width: 900px) {
+@media (max-width: 900px), (pointer: coarse), (display-mode: standalone) {
   body { font-size: 14px; }
   .site-header {
     height: auto; min-height: 70px; display: grid;

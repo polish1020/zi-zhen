@@ -14,7 +14,7 @@ stage.mkdir(parents=True,exist_ok=True)
 (stage/'.iga').mkdir(exist_ok=True)
 for old in ['app.mjs','engine.mjs']:
  (stage/old).unlink(missing_ok=True)
-for name in ['index.html','style.css','responsive.css','icon.svg']:
+for name in ['index.html','style.css','responsive.css','gameplay.css','manifest.webmanifest','icon.svg']:
  text=(root/'dist'/name).read_text()
  if name=='index.html':text=text.replace('./app.mjs','./app.js')
  (stage/name).write_text(text)

@@ -1,6 +1,6 @@
 # 字阵 WORDWARD
 
-以字为兵，以词筑塔。原创中文组词塔防，纸墨与山河主题，浏览器单人游戏。
+以字为兵，以词筑塔。原创中文组词塔防，纸墨与山河主题，浏览器单人游戏。v2 使用 16 张一次性随机字牌，支持 99 个 1—4 字配方和九大流派；墨点可用于建塔、升级或刷新手牌。手机进入游戏后使用单屏沉浸布局。
 
 ## 运行与测试
 
@@ -18,7 +18,8 @@ node --test tests/engine.test.mjs
 - `dist/engine.mjs`：与页面分离的战斗引擎、词塔定义、路径、关卡、存档序列化。
 - `dist/app.mjs`：Canvas 绘制、界面交互、音效、本地存档、弹窗与结算。
 - `dist/style.css`：响应式纸墨主题。
-- `dist/responsive.css`：手机、平板的布局和触控适配，包含安全区域与底部快捷操作。
+- `dist/responsive.css`：基础响应式布局。
+- `dist/gameplay.css`：随机字牌工坊和移动端单屏游戏界面。
 - `dist/index.html`：语义化页面与可访问操作。
 - `docs/DESIGN.md`：游戏规则、数值与技术设计。
 - `docs/TESTING.md`：测试范围和验收结果。
@@ -39,3 +40,7 @@ node --test tests/engine.test.mjs
 ## Vercel
 
 当前生产站点：https://game.polishwb1020.com ，默认地址 https://zi-zhen.vercel.app 也可访问。使用 `python3 scripts/prepare-vercel.py` 准备发布目录，既有项目标识、更新方法和线上验证结果见 `docs/DEPLOYMENT-VERCEL.md`。当前未关联 Git 自动部署。
+
+## 移动应用准备
+
+运行 `python3 scripts/prepare-mobile.py` 生成原生 WebView 可用的本地资源；Capacitor 配置已提供，封装步骤和边界见 `docs/MOBILE-APP.md`。当前没有生成 APK 或 iOS 安装包。
