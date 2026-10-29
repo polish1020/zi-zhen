@@ -1,6 +1,6 @@
 # 移动端封装准备
 
-已准备单屏沉浸 UI、横竖屏地图、44 像素触控、安全区域、动态视口、后台自动暂停、完整随机状态存档和本地资源。网页不依赖远程字体；游戏可以使用本地 WebView 资源运行。
+已准备开始界面、竖屏地图/字库上下同屏、短横屏左右并列、地图等比绘制和触控适配、安全区域、动态视口、后台自动暂停、完整随机状态存档和本地资源。网页不依赖远程字体；游戏可以使用本地 WebView 资源运行。
 
 ## 本地资源包
 
@@ -8,7 +8,7 @@
 python3 scripts/prepare-mobile.py
 ```
 
-输出为 `mobile/www/`，包含 HTML、三个 CSS、两个 JavaScript 模块、图标和 Web App Manifest。`.mjs` 适配为 `.js`，HTML 与 import 引用一并改写。生成目录不提交。可以先用静态服务器预览该目录。
+输出为 `mobile/www/`，包含 HTML、三个 CSS、三个 JavaScript 模块（含本地词库）、图标、Web App Manifest 与第三方许可声明。`.mjs` 适配为 `.js`，HTML 与 import 引用一并改写。生成目录不提交。可以先用静态服务器预览该目录。
 
 根目录的 `capacitor.config.json` 指定：
 

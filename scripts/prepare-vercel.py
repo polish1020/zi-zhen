@@ -10,7 +10,7 @@ stage = parser.parse_args().output.resolve()
 root = Path(__file__).resolve().parents[1]
 public = stage / 'public'
 public.mkdir(parents=True, exist_ok=True)
-for name in ['index.html', 'style.css', 'responsive.css', 'gameplay.css', 'manifest.webmanifest', 'icon.svg']:
+for name in ['index.html', 'style.css', 'responsive.css', 'gameplay.css', 'manifest.webmanifest', 'THIRD-PARTY-NOTICES.txt', 'icon.svg']:
     content = (root / 'dist' / name).read_text(encoding='utf-8')
     if name == 'index.html':
         content = content.replace('./app.mjs', './app.js')
@@ -19,7 +19,8 @@ for name in ['index.html', 'style.css', 'responsive.css', 'gameplay.css', 'manif
     (root / 'dist/app.mjs').read_text(encoding='utf-8').replace("'./engine.mjs'", "'./engine.js'"),
     encoding='utf-8',
 )
-(public / 'engine.js').write_bytes((root / 'dist/engine.mjs').read_bytes())
+(public / 'engine.js').write_text((root / 'dist/engine.mjs').read_text().replace('./lexicon.mjs', './lexicon.js'), encoding='utf-8')
+(public / 'lexicon.js').write_bytes((root / 'dist/lexicon.mjs').read_bytes())
 (stage / 'vercel.json').write_text(json.dumps({
     'version': 2, 'framework': None, 'outputDirectory': 'public',
 }, indent=2) + '\n', encoding='utf-8')

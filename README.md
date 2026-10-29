@@ -1,6 +1,6 @@
 # 字阵 WORDWARD
 
-以字为兵，以词筑塔。原创中文组词塔防，纸墨与山河主题，浏览器单人游戏。v2 使用 16 张一次性随机字牌，支持 99 个 1—4 字配方和九大流派；墨点可用于建塔、升级或刷新手牌。手机进入游戏后使用单屏沉浸布局。
+以字为兵，以词筑塔。原创中文组词塔防，纸墨与山河主题，浏览器单人游戏。当前版本使用 16 张一次性随机字牌，支持近 4 万个 1—4 字词语和十类词塔；墨点可用于建塔、升级或刷新手牌。先显示玩法开始界面；手机进入后地图与字库同屏显示，组词严格按选字顺序，支持付费提示与通关后的无尽模式。
 
 ## 运行与测试
 
@@ -15,7 +15,8 @@ node --test tests/engine.test.mjs
 
 ## 文件
 
-- `dist/engine.mjs`：与页面分离的战斗引擎、词塔定义、路径、关卡、存档序列化。
+- `dist/engine.mjs`：战斗引擎、轮次、多类型怪物、解锁和存档。
+- `dist/lexicon.mjs`：本地常用词与成语词表；来源许可见 `dist/THIRD-PARTY-NOTICES.txt`。
 - `dist/app.mjs`：Canvas 绘制、界面交互、音效、本地存档、弹窗与结算。
 - `dist/style.css`：响应式纸墨主题。
 - `dist/responsive.css`：基础响应式布局。
@@ -44,3 +45,5 @@ node --test tests/engine.test.mjs
 ## 移动应用准备
 
 运行 `python3 scripts/prepare-mobile.py` 生成原生 WebView 可用的本地资源；Capacitor 配置已提供，封装步骤和边界见 `docs/MOBILE-APP.md`。当前没有生成 APK 或 iOS 安装包。
+
+新增玩法：每轮 3 波、周期 Boss、额外阵位逐价解锁、技能冷却与费用递增。当前数值和验证结果见 `docs/DESIGN.md` 与 `docs/TESTING.md`。

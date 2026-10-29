@@ -1,12 +1,16 @@
 import assert from 'node:assert/strict';
-import {Game,getWord,towerStats,PADS} from '../dist/engine.mjs';
-const spots=[2,4,6,8,1,9,0,7,10,3,5,11];
-function invest(g){let spent=0;for(let loop=0;loop<24;loop++){
- const pad=spots.find(i=>!g.towers.some(t=>t.pad===i));
- const candidates=g.availableWords().filter(w=>w.damage&&w.cost<=g.ink).sort((a,b)=>(b.damage/b.rate)*(b.type==='slow'?1.9:b.type==='splash'?1.7:b.type==='chain'?1.5:1)/b.cost-(a.damage/a.rate)*(a.type==='slow'?1.9:a.type==='splash'?1.7:a.type==='chain'?1.5:1)/a.cost);
- if(pad!==undefined&&candidates.length){g.build(candidates[0].word,pad);continue;}
+import {Game,getWord,towerStats,CHAPTERS,enemyLength} from '../dist/engine.mjs';
+const spots=[2,4,6,8,1,9,0,7,10,3,5,11,12,13,14,15];
+function invest(g){let refresh=0;for(let loop=0;loop<30;loop++){
+ let pad=spots.find(i=>!g.towers.some(t=>t.pad===i)&&g.padUnlocked(i));
+ const needAir=g.towers.filter(t=>getWord(t.word).damage&&getWord(t.word).type!=='heavy').length<Math.max(3,Math.ceil(g.towers.length/2));
+ const words=g.availableWords().filter(w=>w.damage&&w.cost<=g.ink&&(!needAir||w.type!=='heavy')).sort((a,b)=>score(b)-score(a));
+ function score(w){const count=type=>g.towers.filter(t=>getWord(t.word).type===type).length;const diversity=w.type==='slow'&&count('slow')<2?2.8:w.type==='poison'&&count('poison')<1?1.5:w.type==='heavy'&&count('heavy')>=3?.65:1;return diversity* w.damage/w.rate*(w.type==='slow'?1.6:w.type==='splash'?1.6:w.type==='chain'?1.5:w.type==='poison'?1.4:1)/w.cost;}
+ if(pad!==undefined&&words.length){g.build(words[0].word,pad);continue;}
  const up=g.towers.filter(t=>t.level<getWord(t.word).maxLevel&&g.upgradeCost(t)<=g.ink).sort((a,b)=>towerStats(b).damage/towerStats(b).rate-towerStats(a).damage/towerStats(a).rate)[0];
  if(up){g.upgrade(up.id);continue;}
- if(pad!==undefined&&g.ink>g.refreshCost()+55&&spent<3){g.refreshHand();spent++;continue;}break;
+ if(pad===undefined){const locked=spots.find(i=>!g.padUnlocked(i));if(locked!==undefined&&g.ink>=g.unlockCost()+50){g.unlockPad(locked);continue;}}
+ if(pad!==undefined&&g.ink>g.refreshCost()+55&&refresh<2){g.refreshHand();refresh++;continue;}break;
 }}
-for(let chapter=0;chapter<3;chapter++){let wins=0,minHP=100;for(let seed=1;seed<=40;seed++){const g=new Game(chapter,seed);while(g.phase==='prepare'){invest(g);g.startWave();let tick=0;while(g.phase==='battle'&&tick++<5000)g.step(.1);if(tick>=5000)throw Error('hung');}if(g.phase==='won')wins++;minHP=Math.min(minHP,g.hp);}assert.equal(wins,40,`Chapter ${chapter+1} legal-play simulation`);console.log({chapter,wins,total:40,minHP});}
+const n=Number(process.argv[2]||40),skills=process.argv.includes('--skills');
+for(let ch=0;ch<3;ch++){let wins=0,hps=[],rounds=[];for(let seed=1;seed<=n;seed++){const g=new Game(ch,seed);let lastWave=-1,steps=0;while(!['won','lost'].includes(g.phase)&&steps++<50000){if(g.phase==='prepare'){invest(g);g.startWave();}if(g.phase==='intermission'&&g.wave!==lastWave){lastWave=g.wave;invest(g);}if(skills&&g.phase==='battle'&&g.skillCost()<=90&&g.ink>=g.skillCost()+40&&g.enemies.filter(e=>e.d/enemyLength(e)>.72).length>=3)g.skill();g.step(.1);}if(g.phase==='won')wins++;hps.push(g.hp);rounds.push(Math.ceil(g.wave/3));}assert.ok(wins>=Math.ceil(n*(ch===0?.95:ch===1?.90:.85)),`Chapter ${ch+1} exceeds the intended casual difficulty`);console.log({chapter:ch+1,skills,wins,total:n,minHP:Math.min(...hps),meanHP:Math.round(hps.reduce((a,b)=>a+b,0)/n*10)/10,minRound:Math.min(...rounds)});}

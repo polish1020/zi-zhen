@@ -10,6 +10,6 @@ for source in (root / 'dist').iterdir():
         continue
     name = source.name.replace('.mjs', '.js')
     content = source.read_text(encoding='utf-8')
-    content = content.replace('./app.mjs', './app.js').replace('./engine.mjs', './engine.js')
+    content = content.replace('./app.mjs', './app.js').replace('./engine.mjs', './engine.js').replace('./lexicon.mjs', './lexicon.js')
     (target / name).write_text(content, encoding='utf-8')
 print(f'Prepared bundled app assets: {target}')

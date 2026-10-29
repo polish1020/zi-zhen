@@ -20,113 +20,211 @@
 .codex-filters button { min-height: 44px; flex: 1; border: 1px solid #d4dbc8; border-radius: 4px; }
 .codex-filters button.active { background: #344f3e; color: #f7f5eb; }
 .codex-pick { margin-top: 12px; padding: 8px; min-height: 44px; width: 100%; border: 1px solid #b8c4a5; border-radius: 4px; font-size: 12px; }
+/* Start screen appears before any battle, including restored saves. */
+body:not(.playing) .site-header, body:not(.playing) main,
+body:not(.playing) .mobile-dock { display: none; }
+body.playing .start-screen { display: none; }
+.start-screen { min-height: 100dvh; width: min(860px, 100%); margin: auto; padding: 40px 32px; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
+.home-heading { display: flex; align-items: center; gap: 14px; color: #8a937e; font-size: 10px; letter-spacing: 2px; }
+.home-seal { display: grid; place-items: center; width: 44px; height: 44px; background: #a65039; color: #f8edda; border-radius: 4px; font: 21px var(--serif); letter-spacing: 2px; transform: rotate(-4deg); }
+.home-hero h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.4; letter-spacing: 3px; margin: 12px 0; }
+.home-hero p { color: #89937d; font-size: 13px; line-height: 1.8; }
+.home-facts { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.home-facts span { padding: 6px 10px; border: 1px solid #d5dcc8; border-radius: 3px; font-size: 11px; color: #6e8062; }
+.home-rules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; border-top: 1px solid #d8decd; padding-top: 24px; }
+.home-rules article { display: flex; gap: 12px; }
+.home-rules article > b { font: 22px Georgia; color: #b6986b; }
+.home-rules h2 { margin: 0 0 7px; font: 17px var(--serif); }
+.home-rules p { font-size: 12px; line-height: 1.9; color: #859176; margin: 0; }
+.home-actions { max-width: 440px; width: 100%; }
+.home-actions .enter-game { display: flex; width: 100%; min-height: 52px; align-items: center; justify-content: space-between; margin: 0; font-size: 16px; }
+.home-actions .enter-game span { font-size: 11px; color: #c3d0b4; }
+.home-links { display: flex; justify-content: space-between; gap: 12px; margin-top: 6px; }
+.home-links button { min-height: 44px; font-size: 11px; color: #708163; padding: 0; }
+#home-save-note { font-size: 10px; color: #969e89; margin: 0; line-height: 1.7; }
+body.playing #exit-game { display: block; }
+.hint-button { min-height: 42px; padding: 4px; border: 1px solid #9a9e6c; border-radius: 4px; font-size: 11px; color: #d6d7ae; }
+.hint-button span { display: block; font-size: 10px; color: #aebc93; margin-top: 2px; }
+.forge-tools { display: grid; grid-template-columns: auto 1fr 1.3fr; }
 @media (min-width: 901px) {
   .canvas-wrap { min-height: 420px; }
 }
 @media (max-width: 900px), (pointer: coarse), (display-mode: standalone) {
-  .enter-game { display: flex; align-items: center; justify-content: space-between; width: 100%; margin: 0 0 16px; min-height: 50px; font-size: 15px; }
-  .enter-game span { font-size: 11px; color: #c0ceb2; }
-  .forge-slots { grid-column: 1 / -1; grid-row: 3; gap: 8px; margin: 0 0 10px; }
-  .forge-slot { width: 52px; height: 48px; font-size: 26px; }
-  .recipe-preview { grid-column: 1 / -1; grid-row: 4; min-height: 0; padding: 0; }
-  .forge-separator { grid-row: 5; margin: 12px 0 8px; }
-  .character-grid { grid-row: 6; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 0; }
-  .char { min-height: 44px; height: 44px; font-size: 24px; }
-  .forge-button { grid-row: 7; }
-  .forge-tools { grid-column: 1 / -1; grid-row: 8; }
-  .forge-tools .clear-button, .refresh-button { min-height: 44px; font-size: 12px; }
-  .refresh-button span { font-size: 11px; }
-  .forge-footnote { grid-row: 9; margin-top: 6px; }
-  .mobile-dock { grid-template-columns: 1fr 1fr .7fr; }
-  .mobile-dock button { background: #e6e9dc; color: var(--ink); font-size: 12px; }
-  .mobile-dock button:last-child { background: #e6e9dc; color: var(--ink); }
-  .mobile-dock button[aria-pressed="true"] { background: #344f3e; color: #f7f5eb; }
+  .start-screen { padding: max(20px, env(safe-area-inset-top)) max(22px, env(safe-area-inset-right)) max(20px, env(safe-area-inset-bottom)) max(22px, env(safe-area-inset-left)); gap: 22px; }
+  .home-hero h1 { font-size: clamp(30px, 8vw, 42px); letter-spacing: 1px; margin: 10px 0; }
+  .home-hero p { font-size: 12px; margin: 0; }
+  .home-facts { margin-top: 12px; }
+  .home-facts span { font-size: 10px; padding: 5px 8px; }
+  .home-rules { grid-template-columns: 1fr; gap: 16px; padding-top: 18px; }
+  .home-rules h2 { font-size: 15px; margin-bottom: 4px; }
+  .home-rules p { font-size: 11px; line-height: 1.7; }
+  .home-actions { max-width: none; }
   body.playing { position: fixed; inset: 0; width: 100%; height: 100dvh; overflow: hidden; display: flex; flex-direction: column; overscroll-behavior: none; }
-  body.playing .site-header { flex: none; height: calc(52px + env(safe-area-inset-top)); min-height: 0; padding: env(safe-area-inset-top) max(12px, env(safe-area-inset-right)) 0 max(12px, env(safe-area-inset-left)); gap: 0; }
-  body.playing .site-header nav, body.playing .intro, body.playing .enter-game, body.playing .underbar, body.playing .bottom-note { display: none; }
-  body.playing .seal { font-size: 13px; line-height: 13px; padding: 2px 4px; }
-  body.playing .brand-name { font-size: 20px; }
+  body.playing .site-header { flex: none; height: calc(42px + env(safe-area-inset-top)); min-height: 0; grid-template-rows: 1fr; padding: env(safe-area-inset-top) max(8px, env(safe-area-inset-right)) 0 max(8px, env(safe-area-inset-left)); gap: 0; }
+  body.playing .site-header nav, body.playing .intro, body.playing .underbar, body.playing .bottom-note { display: none; }
+  body.playing .seal { font-size: 12px; line-height: 12px; padding: 2px 4px; }
+  body.playing .brand { gap: 8px; }
+  body.playing .brand-name { font-size: 18px; letter-spacing: 2px; }
   body.playing .brand-name small { display: none; }
-  body.playing #exit-game { display: block; font-size: 25px; }
-  body.playing main { min-height: 0; flex: 1; width: 100%; max-width: none; display: flex; padding: 8px max(8px, env(safe-area-inset-right)) calc(72px + env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left)); overflow: hidden; }
-  body.playing .game-layout { min-height: 0; flex: 1; width: 100%; display: block; }
-  body.playing .battle-panel, body.playing .forge-panel { display: none; height: 100%; }
-  body.playing .battle-panel.panel-active { display: flex; }
-  body.playing .forge-panel.panel-active { display: grid; }
-  body.playing .battle-top { flex: none; min-height: 48px; padding: 8px 10px; flex-wrap: nowrap; gap: 8px; }
-  body.playing .status { flex-wrap: wrap; font-size: 11px; gap: 4px; }
-  body.playing #wave-label { font-size: 10px; }
-  body.playing .resources { width: auto; gap: 12px; }
-  body.playing .resources b { font-size: 18px; }
+  body.playing .header-right { gap: 1px; }
+  body.playing .icon-button { width: 34px; height: 40px; font-size: 18px; }
+  body.playing .sound-off { left: 10px; top: 7px; }
+  body.playing main { min-height: 0; flex: 1; width: 100%; max-width: none; display: flex; padding: 4px max(6px, env(safe-area-inset-right)) max(6px, env(safe-area-inset-bottom)) max(6px, env(safe-area-inset-left)); overflow: hidden; }
+  body.playing .game-layout { flex: 1; width: 100%; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) minmax(262px, 1fr); gap: 6px; }
+  body.playing .battle-panel { height: auto; min-height: 0; display: flex; }
+  body.playing .battle-top { flex: none; min-height: 28px; height: 28px; padding: 4px 8px; gap: 6px; flex-wrap: nowrap; }
+  body.playing .status { gap: 4px; font-size: 10px; }
+  body.playing #wave-label { font-size: 9px; }
+  body.playing .thin-divider { margin: 0 2px; }
+  body.playing .resources { width: auto; gap: 10px; }
+  body.playing .resources b { font-size: 16px; }
+  body.playing .resources i { font-size: 15px; margin: 0; }
   body.playing .resources small { display: none; }
   body.playing .canvas-wrap { flex: 1 1 0; height: 0; min-height: 0; aspect-ratio: auto; }
-  body.playing .map-message { font-size: 10px; bottom: 8px; }
-  body.playing .map-label { top: 10px; left: 12px; }
-  body.playing .battle-bottom { flex: none; padding: 10px; gap: 9px; }
-  body.playing .wave-info { gap: 0; }
-  body.playing .wave-info strong { font-size: 12px; }
-  body.playing .wave-info small { font-size: 10px; margin-top: 4px; }
-  body.playing .forge-panel { padding: 12px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto auto auto minmax(0, 1fr) auto auto; gap: 5px 10px; align-content: stretch; overflow: hidden; }
-  body.playing .forge-panel:before { display: none; }
-  body.playing .forge-heading { grid-row: 1; min-height: 22px; }
-  body.playing .forge-subtitle, body.playing .forge-footnote, body.playing .forge-panel h2 { display: none; }
-  body.playing .forge-slots { grid-row: 2; margin: 0; }
-  body.playing .forge-slot { height: 44px; width: 48px; font-size: 24px; }
-  body.playing .recipe-preview { grid-row: 3; min-height: 26px; }
-  body.playing .recipe-title { font-size: 16px; }
-  body.playing .recipe-preview p, body.playing .recipe-stats { display: none; }
-  body.playing .invalid-recipe { font-size: 12px; line-height: 1.7; }
-  body.playing .forge-separator { grid-row: 4; margin: 0; font-size: 10px; min-height: 16px; }
-  body.playing .character-grid { grid-row: 5; height: 100%; min-height: 0; grid-template-rows: repeat(4, minmax(44px, 1fr)); align-content: stretch; gap: 5px; }
-  body.playing .char { height: auto; min-height: 44px; aspect-ratio: auto; }
+  body.playing .map-label { top: 6px; left: 8px; }
+  body.playing .map-label span { font-size: 10px; letter-spacing: 2px; }
+  body.playing .map-label small, body.playing .map-message { display: none; }
+  body.playing.placing .map-message { display: block; font-size: 9px; bottom: 4px; padding: 4px 8px; }
   body.playing .map-target { width: 44px; height: 44px; }
-  body.playing .forge-button { grid-row: 6; min-height: 44px; }
-  body.playing .forge-tools { grid-row: 7; margin: 0; }
-  body.playing .forge-panel.inspecting.panel-active { display: flex; flex-direction: column; }
-  body.playing .tower-detail { min-height: 0; flex: 1; display: flex; flex-direction: column; }
-  body.playing .tower-detail h3 { margin: 8px 0; font-size: 23px; }
-  body.playing .tower-level { font-size: 11px; letter-spacing: 1px; line-height: 1.5; }
-  body.playing .tower-detail p { font-size: 11px; margin: 8px 0; line-height: 1.7; }
-  body.playing .detail-stats { flex: 1; align-content: center; padding: 16px 0; }
-  body.playing .tower-actions { grid-template-columns: 1fr 1fr; gap: 8px; margin-top: auto; padding-top: 8px; }
-  body.playing .tower-actions .forge-button { grid-row: auto; grid-column: auto; flex-direction: column; justify-content: center; gap: 3px; padding: 6px; font-size: 13px; }
-  body.playing .tower-actions .forge-button span { font-size: 10px; }
-  body.playing .sell-button { margin: 0; font-size: 11px; line-height: 1.5; }
+  body.playing .battle-bottom { flex: none; display: block; min-height: 0; padding: 4px 6px; }
+  body.playing .wave-info { display: none; }
+  body.playing .battle-controls { display: grid; grid-template-columns: 80px 44px minmax(0, 1fr); gap: 6px; }
+  body.playing .skill-button, body.playing .speed-button, body.playing .start-button { min-height: 40px; height: 40px; min-width: 0; font-size: 12px; padding: 6px; }
+  body.playing .skill-button span { display: inline; font-size: 11px; }
+  body.playing .skill-button small { font-size: 10px; }
+  body.playing .forge-panel { min-height: 0; height: auto; display: grid; grid-template-columns: minmax(146px, 1fr) minmax(0, 1fr); grid-template-rows: 16px 36px minmax(140px, 1fr) 44px; padding: 6px; gap: 4px 8px; overflow: hidden; border-radius: 8px; }
+  body.playing .forge-panel:before { display: none; }
+  body.playing .forge-heading { grid-column: 1; grid-row: 1; min-height: 0; }
+  body.playing .forge-heading > span { font-size: 11px; letter-spacing: 1px; }
+  body.playing .forge-heading small, body.playing .forge-panel h2, body.playing .forge-subtitle, body.playing .forge-footnote { display: none; }
+  body.playing .forge-separator { grid-column: 2; grid-row: 1; min-height: 0; justify-content: flex-end; font-size: 0; margin: 0; gap: 0; }
+  body.playing .forge-separator > span { display: none; }
+  body.playing #hand-meta { font-size: 10px; }
+  body.playing .forge-slots { grid-column: 1; grid-row: 2; margin: 0; gap: 4px; justify-content: flex-start; }
+  body.playing .forge-slot { width: 34px; height: 34px; font-size: 22px; }
+  body.playing .recipe-preview { grid-column: 2; grid-row: 2; min-height: 0; padding: 0; border: 0; align-self: center; }
+  body.playing .recipe-title { font-size: 14px; gap: 3px; letter-spacing: 0; flex-wrap: wrap; }
+  body.playing .recipe-title .recipe-tag { font-size: 8px; padding: 2px 3px; }
+  body.playing .recipe-preview p, body.playing .recipe-stats { display: none; }
+  body.playing .invalid-recipe { font-size: 10px; line-height: 1.6; margin: 0; }
+  body.playing .character-grid { grid-column: 1 / -1; grid-row: 3; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-template-rows: repeat(3, minmax(44px, 1fr)); gap: 4px; margin: 0; height: 100%; min-height: 0; }
+  body.playing .char { min-width: 0; min-height: 44px; height: auto; aspect-ratio: auto; font-size: 23px; }
+  body.playing .char.used small { font-size: 7px; }
+  body.playing .forge-button { grid-column: 1; grid-row: 4; min-height: 44px; height: 44px; margin: 0; padding: 5px 7px; font-size: 12px; gap: 4px; }
+  body.playing .forge-button span { font-size: 10px; }
+  body.playing .forge-tools { grid-column: 2; grid-row: 4; display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin: 0; }
+  body.playing .forge-tools .clear-button { display: none; }
+  body.playing .hint-button, body.playing .refresh-button { min-width: 0; min-height: 44px; font-size: 11px; padding: 3px; line-height: 1.4; }
+  body.playing .hint-button span, body.playing .refresh-button span { display: block; margin: 0; font-size: 9px; }
+  body.playing .forge-panel.inspecting { display: flex; flex-direction: column; gap: 4px; }
+  body.playing .forge-panel.inspecting .forge-heading { min-height: 32px; flex: none; }
+  body.playing #back-forge { min-height: 32px; font-size: 11px; padding: 4px 0 4px 10px; }
+  body.playing .tower-detail { flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto minmax(0, 1fr) 44px; gap: 4px 8px; }
+  body.playing .tower-detail h3 { grid-column: 1; grid-row: 1; font-size: 20px; letter-spacing: 1px; margin: 0; }
+  body.playing .tower-level { grid-column: 2; grid-row: 1; font-size: 9px; letter-spacing: 0; align-self: center; }
+  body.playing .tower-detail > p { grid-column: 1 / -1; grid-row: 2; font-size: 10px; line-height: 1.5; margin: 0; }
+  body.playing .detail-stats { grid-column: 1 / -1; grid-row: 3; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; padding: 4px 0; align-content: center; }
+  body.playing .detail-stats small { font-size: 9px; margin-bottom: 4px; }
+  body.playing .detail-stats b { font-size: 17px; }
+  body.playing .tower-actions { grid-column: 1 / -1; grid-row: 4; display: grid; grid-template-columns: 1fr 1fr; margin: 0; gap: 8px; }
+  body.playing .tower-actions .forge-button { grid-column: auto; grid-row: auto; width: auto; flex-direction: row; }
+  body.playing .sell-button { min-height: 44px; margin: 0; font-size: 10px; }
+  body.playing .pause-overlay > span { font-size: 22px; letter-spacing: 3px; }
+  body.playing .pause-overlay > small { display: none; }
+  body.playing .pause-overlay .primary { margin-top: 12px; min-height: 40px; padding: 8px 16px; }
+  body.playing .toast { bottom: max(12px, env(safe-area-inset-bottom)); padding: 10px 14px; font-size: 11px; }
   body.playing dialog { max-height: calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 16px); }
 }
-@media (max-width: 900px) and (max-height: 700px), (pointer: coarse) and (max-height: 700px), (display-mode: standalone) and (max-height: 700px) {
-  body.playing .forge-panel { gap: 3px 8px; padding: 8px; }
-  body.playing .forge-slots { gap: 5px; }
-  body.playing .detail-stats { gap: 10px; padding: 8px 0; }
+@media (max-width: 900px) and (max-height: 650px), (pointer: coarse) and (max-height: 650px) {
+  .start-screen { gap: 14px; padding-top: 14px; padding-bottom: 14px; }
+  .home-hero h1 { font-size: 28px; line-height: 1.3; margin: 7px 0; }
+  .home-heading { font-size: 9px; }
+  .home-seal { width: 34px; height: 34px; font-size: 17px; }
+  .home-rules { gap: 10px; padding-top: 12px; }
+  .home-rules p { font-size: 10px; }
+  .home-facts { margin-top: 8px; }
+  body.playing .game-layout { grid-template-rows: minmax(0, 1fr) 262px; }
 }
-@media (max-width: 900px) and (min-width: 600px) and (max-height: 500px), (pointer: coarse) and (min-width: 600px) and (max-height: 500px), (display-mode: standalone) and (min-width: 600px) and (max-height: 500px) {
-  body.playing .site-header { height: calc(44px + env(safe-area-inset-top)); }
-  body.playing .battle-panel.panel-active { display: grid; grid-template-columns: minmax(0, 1fr) 220px; grid-template-rows: auto minmax(0, 1fr); }
-  body.playing .canvas-wrap { grid-column: 1; grid-row: 1 / 3; height: 100%; }
-  body.playing .battle-top { grid-column: 2; grid-row: 1; flex-wrap: wrap; }
-  body.playing .resources { width: 100%; justify-content: space-between; }
-  body.playing .battle-bottom { grid-column: 2; grid-row: 2; justify-content: flex-end; }
-  body.playing .battle-controls { grid-template-columns: 1fr 1fr; }
-  body.playing .start-button { grid-column: 1 / -1; }
-  body.playing .forge-panel { grid-template-columns: 190px minmax(0, 1fr); grid-template-rows: 24px minmax(0, 1fr) 44px; gap: 5px 12px; }
+@media (min-width: 420px) and (max-width: 900px) and (min-height: 501px), (pointer: coarse) and (min-width: 420px) and (min-height: 501px) {
+  body.playing .character-grid { grid-template-columns: repeat(8, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(44px, 1fr)); }
+  body.playing .game-layout { grid-template-rows: minmax(0, 1.1fr) minmax(220px, 1fr); }
+}
+@media (min-width: 500px) and (max-width: 900px) and (max-height: 500px), (pointer: coarse) and (min-width: 500px) and (max-height: 500px) {
+  .start-screen { width: min(800px, 100%); display: grid; grid-template-columns: 1fr 1fr; gap: 12px 28px; }
+  .home-heading { grid-column: 1; }
+  .home-hero { grid-column: 1; grid-row: 2 / 4; }
+  .home-hero h1 { font-size: 28px; }
+  .home-rules { grid-column: 2; grid-row: 1 / 3; border: 0; padding: 0; }
+  .home-actions { grid-column: 2; grid-row: 3; }
+  .home-actions .enter-game { min-height: 44px; }
+  #home-save-note { font-size: 9px; }
+  body.playing .site-header { height: calc(36px + env(safe-area-inset-top)); }
+  body.playing .game-layout { grid-template-rows: minmax(0, 1fr) 152px; gap: 4px; }
+  body.playing .battle-top { height: 22px; min-height: 22px; }
+  body.playing .battle-controls { grid-template-columns: 80px 44px minmax(0, 1fr); }
+  body.playing .skill-button, body.playing .speed-button, body.playing .start-button { height: 32px; min-height: 32px; padding: 4px; }
+  body.playing .battle-bottom { padding: 2px 6px; }
+  body.playing .forge-panel { grid-template-columns: 180px minmax(0, 1fr) 180px; grid-template-rows: 28px minmax(0, 1fr); padding: 6px 8px; gap: 4px 10px; }
   body.playing .forge-heading { grid-column: 1; grid-row: 1; }
-  body.playing .forge-heading small { display: none; }
-  body.playing .forge-slots { grid-column: 1; grid-row: 2; align-self: start; gap: 4px; }
-  body.playing .forge-slot { width: 44px; }
-  body.playing .recipe-preview { grid-column: 1; grid-row: 2; align-self: start; margin-top: 52px; }
-  body.playing .forge-separator { display: none; }
-  body.playing .character-grid { grid-column: 2; grid-row: 1 / 3; grid-template-columns: repeat(8, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(44px, 1fr)); }
-  body.playing .char { max-height: none; }
-  body.playing .forge-button { grid-column: 1; grid-row: 3; font-size: 12px; }
-  body.playing .forge-button span { font-size: 10px; }
-  body.playing .forge-tools { grid-column: 2; grid-row: 3; }
-  body.playing .forge-panel.inspecting.panel-active { display: block; }
-  body.playing .tower-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
-  body.playing .tower-detail h3 { margin: 2px 0 6px; }
-  body.playing .tower-level { grid-column: 1; font-size: 11px; }
-  body.playing .tower-detail p { grid-column: 1; margin: 8px 0; }
-  body.playing .detail-stats { grid-column: 2; grid-row: 1 / 4; padding: 0; border: 0; }
-  body.playing .detail-stats b { font-size: 18px; }
-  body.playing .tower-actions { grid-column: 1 / -1; display: flex; gap: 10px; padding: 0; margin-top: 8px; }
-  body.playing .tower-actions .forge-button { flex: 1; }
+  body.playing .forge-separator { grid-column: 3; grid-row: 1; }
+  body.playing .forge-slots { grid-column: 1; grid-row: 2; align-self: start; }
+  body.playing .recipe-preview { grid-column: 1; grid-row: 2; align-self: end; margin: 0; }
+  body.playing .character-grid { grid-column: 2; grid-row: 1 / -1; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(4, minmax(32px, 1fr)); }
+  body.playing .char { min-height: 32px; font-size: 20px; }
+  body.playing .forge-button { grid-column: 3; grid-row: 2; align-self: start; }
+  body.playing .forge-tools { grid-column: 3; grid-row: 2; align-self: end; }
+  body.playing .forge-panel.inspecting .forge-heading { min-height: 24px; }
+  body.playing .tower-detail { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto 44px; }
+  body.playing .tower-detail h3 { grid-column: 1; grid-row: 1; }
+  body.playing .tower-level { grid-column: 1; grid-row: 2; align-self: start; }
+  body.playing .tower-detail > p { display: none; }
+  body.playing .detail-stats { grid-column: 2 / -1; grid-row: 1; }
+  body.playing .tower-actions { grid-column: 2 / -1; grid-row: 2; }
+}
+.recipe-details { font: inherit; letter-spacing: inherit; padding: 0; text-align: left; border-bottom: 1px dashed #9caf83; }
+.recipe-details small { font: 11px system-ui; color: #aabc92; }
+.effect-tag { font: 11px system-ui; margin-left: 12px; color: #89967c; letter-spacing: 0; }
+.word-effect-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 20px 0; border-block: 1px solid #dce2cf; }
+.word-effect-stats small { display: block; color: #8c987e; font-size: 11px; margin-bottom: 7px; }
+.word-effect-stats b { font-size: 18px; font-weight: 500; }
+body.playing.range-preview .map-message { display: block; font-size: 9px; bottom: 4px; padding: 4px 8px; }
+/* Every hand forms a complete rectangle; short landscape screens use two columns. */
+@media (max-width: 900px), (pointer: coarse), (display-mode: standalone) {
+  body.playing .character-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(4, minmax(32px, 1fr)); }
+  body.playing .char { min-height: 32px; }
+}
+@media (min-width: 700px) and (max-width: 900px) and (min-height: 501px), (pointer: coarse) and (min-width: 700px) and (min-height: 501px) {
+  body.playing .character-grid { grid-template-columns: repeat(8, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(44px, 1fr)); }
+  body.playing .game-layout { grid-template-rows: minmax(0, 1fr) minmax(220px, 1fr); }
+  body.playing .forge-panel { grid-template-rows: 16px 36px minmax(92px, 1fr) 44px; }
+}
+@media (min-width: 500px) and (max-width: 900px) and (max-height: 500px), (pointer: coarse) and (min-width: 500px) and (max-height: 500px) {
+  body.playing .game-layout { grid-template-columns: minmax(0, 1fr) 300px; grid-template-rows: minmax(0, 1fr); gap: 6px; }
+  body.playing .battle-top { height: 28px; min-height: 28px; }
+  body.playing .skill-button, body.playing .speed-button, body.playing .start-button { height: 40px; min-height: 40px; }
+  body.playing .forge-panel { grid-template-columns: 140px minmax(0, 1fr); grid-template-rows: 16px 36px minmax(140px, 1fr) 44px; gap: 4px 6px; padding: 6px; }
+  body.playing .forge-heading { grid-column: 1; grid-row: 1; }
+  body.playing .forge-separator { grid-column: 2; grid-row: 1; }
+  body.playing .forge-slots { grid-column: 1; grid-row: 2; align-self: center; }
+  body.playing .recipe-preview { grid-column: 2; grid-row: 2; align-self: center; }
+  body.playing .character-grid { grid-column: 1 / -1; grid-row: 3; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(4, minmax(32px, 1fr)); }
+  body.playing .forge-button { grid-column: 1; grid-row: 4; }
+  body.playing .forge-tools { grid-column: 2; grid-row: 4; }
+  body.playing .tower-detail { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto minmax(0, 1fr) 44px; }
+  body.playing .tower-detail h3 { grid-column: 1; grid-row: 1; }
+  body.playing .tower-level { grid-column: 2; grid-row: 1; }
+  body.playing .tower-detail > p { display: block; grid-column: 1 / -1; grid-row: 2; }
+  body.playing .detail-stats { grid-column: 1 / -1; grid-row: 3; }
+  body.playing .tower-actions { grid-column: 1 / -1; grid-row: 4; }
+}
+.enemy-preview { position: absolute; top: 6px; right: 8px; color: #6f8063; background: #f5f7e9dd; border: 1px solid #cad5bc; border-radius: 3px; min-height: 28px; padding: 3px 7px; font-size: 9px; }
+.codex-pagination { display: flex; gap: 16px; justify-content: center; align-items: center; margin-top: 20px; color: #78886d; font-size: 12px; }
+.codex-pagination button { min-height: 44px; padding: 8px 16px; border: 1px solid #c6d1b8; border-radius: 4px; }
+html, body { touch-action: pan-x pan-y; }
+*, *:before, *:after { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+.enemy-preview { position: static; flex: none; min-height: 36px; height: auto; font-size: 10px; }
+@media (max-width: 900px), (pointer: coarse), (display-mode: standalone) {
+  body.playing .battle-controls { grid-template-columns: 32px 68px 40px minmax(0, 1fr); }
+  body.playing .enemy-preview { width: 32px; min-height: 40px; height: 40px; padding: 2px; font-size: 0; }
+  body.playing .enemy-preview:after { content: '敌情'; font-size: 10px; }
 }
