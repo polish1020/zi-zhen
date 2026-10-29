@@ -8,8 +8,8 @@ Vercel 默认地址：https://zi-zhen.vercel.app
 - 项目：`zi-zhen`，团队：`changsheng`
 - 项目 ID：`prj_knArbjGsckakBpEb06lLwiWsHlyb`
 - 团队 ID：`team_azaP3oGtfy4m7CDhqfxdNiLP`
-- 生产部署 ID：`dpl_kdFE9Dsk5qjcpUW6LSVJ4jGG5bvu`
-- 本次部署地址：https://zi-zhen-j0taagwfz-changsheng.vercel.app
+- 生产部署 ID：`dpl_EYfTUQue6bZUBP1FdjW98V3b4EGF`
+- 本次部署地址：https://zi-zhen-bckm47grn-changsheng.vercel.app
 - 发布时间：2026-10-29，状态：`READY`，环境：`production`
 - 控制台：https://vercel.com/changsheng/zi-zhen
 
@@ -30,10 +30,10 @@ python3 scripts/prepare-vercel.py
 ## 本次验证
 
 - 未登录 HTTPS 请求访问自定义域名成功，首页及七个资源均为 HTTP 200，线上八个文件与上传文件逐字节一致，Content-Type 正确。
-- v2 随机字牌和单屏布局源码提交：`9268c3e560cb767cb01a7a0b06c4e7abfcf8b037`。
+- v2 随机字牌和单屏布局源码提交：`e6ffde5358d73d470a3631b1357474acdf962c96`。
 - 独立 Chromium 访问自定义域名，通过十种尺寸的单屏响应式和触屏输入回归；包含一次性字牌、取消不扣牌、建塔扣费、淬炼、付费刷新、刷新网页保持原牌与价格、暂停恢复、词典筛选及横竖屏切换。完整浏览器流程（含四字初始 4 级、结算、下一章和失败重试）亦通过。JavaScript 运行错误为零。
 - 浏览器截图：`/workspace/shared/zi-zhen-v2-390-forge.png`、`/workspace/shared/zi-zhen-v2-1440-battle.png`。
-- Vercel 构建输出耗时 42ms，从 buildingAt 至 ready 约 1.8 秒。
+- Vercel 构建输出耗时 35ms，从 buildingAt 至 ready 约 1.6 秒。
 - Vercel 构建日志完成，无构建错误。此发布是文件上传，没有对应的 Vercel Git 部署提交记录。
 
 ## 自定义域名
@@ -49,3 +49,7 @@ python3 scripts/prepare-vercel.py
 ## 原生封装准备
 
 `python3 scripts/prepare-mobile.py` 生成本地资源包，已使用独立浏览器验证仅请求本地资源时可选字、建塔并战斗。Capacitor 配置和待办见 `MOBILE-APP.md`。尚未生成原生安装包。
+
+## 取消默认答案提示
+
+工坊已移除自动展示的可组词及其快捷按钮，玩家自行选择字牌。词典仍需主动打开。十种尺寸本地布局回归与线上完整游戏流程通过；首页、脚本和玩法样式与本次上传一致，均不包含自动提示元素。
