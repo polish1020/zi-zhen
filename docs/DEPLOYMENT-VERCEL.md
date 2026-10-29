@@ -1,6 +1,8 @@
 # Vercel 部署
 
-当前生产站点：https://zi-zhen.vercel.app
+当前生产站点：https://game.polishwb1020.com
+
+Vercel 默认地址：https://zi-zhen.vercel.app
 
 - 备用正式别名：https://zi-zhen-changsheng.vercel.app
 - 项目：`zi-zhen`，团队：`changsheng`
@@ -35,6 +37,10 @@ python3 scripts/prepare-vercel.py
 
 ## 自定义域名
 
-`game.polishwb1020.com` 尚未绑定到 Vercel，阿里云 DNS 未修改。若继续使用它，需先在此 Vercel 项目添加该域名，再依据 Vercel 实际返回的记录配置阿里云 DNS，并验证所有权、证书和页面访问。不要沿用其他托管平台的 CNAME，也不要修改无关解析。
+2026-10-29 已将 `game.polishwb1020.com` 绑定到该项目的生产环境，Vercel 返回 `verified: true`，DNS 配置检查 `misconfigured: false`。没有设置重定向。
+
+复用用户在阿里云已有的泛域名解析，没有修改 DNS。公共 DNS 查询显示该子域名 CNAME 指向 `e6fc46e6b7fd7c8f.vercel-dns-017.com`。此记录是发布当时的实际解析值，后续如需修改应重新获取 Vercel 的要求。
+
+已使用独立 Chromium 通过该域名的 HTTPS 地址完成模块加载、建塔扣费、战斗和暂停测试，JavaScript 运行错误为零。首页、两个 JavaScript 模块、CSS 和 SVG 均返回 HTTP 200，与上传文件一致；未绕过证书校验。
 
 旧域名上的 localStorage 存档不会自动迁移到 Vercel 域名。

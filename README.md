@@ -37,4 +37,4 @@ node --test tests/engine.test.mjs
 
 ## Vercel
 
-当前生产站点：https://zi-zhen.vercel.app 。使用 `python3 scripts/prepare-vercel.py` 准备发布目录，既有项目标识、更新方法和线上验证结果见 `docs/DEPLOYMENT-VERCEL.md`。当前未关联 Git 自动部署，自定义域名尚未接入。
+当前生产站点：https://game.polishwb1020.com ，默认地址 https://zi-zhen.vercel.app 也可访问。使用 `python3 scripts/prepare-vercel.py` 准备发布目录，既有项目标识、更新方法和线上验证结果见 `docs/DEPLOYMENT-VERCEL.md`。当前未关联 Git 自动部署。
