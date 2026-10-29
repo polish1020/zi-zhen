@@ -1,0 +1,145 @@
+/* Responsive play area: touch controls and a compact forge on small screens. */
+html { scroll-padding-bottom: 100px; }
+.mobile-dock { display: none; }
+.battle-panel, .forge-panel { scroll-margin-top: 16px; }
+button { touch-action: manipulation; }
+@media (hover: none) {
+  .char:hover { transform: none; }
+}
+@media (min-width: 801px) and (max-width: 1100px) {
+  .battle-bottom { flex-wrap: wrap; gap: 14px; }
+  .battle-controls { width: 100%; }
+  .start-button { flex: 1; }
+}
+@media (max-width: 900px) {
+  body { font-size: 14px; }
+  .site-header {
+    height: auto; min-height: 70px; display: grid;
+    grid-template-columns: 1fr auto; gap: 8px;
+    padding: max(12px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 0 max(16px, env(safe-area-inset-left));
+  }
+  .brand { gap: 12px; }
+  .brand-name { font-size: 23px; }
+  .brand-name small { font-size: 8px; }
+  .seal { font-size: 17px; line-height: 16px; padding: 4px 6px; }
+  .site-header nav { grid-column: 1 / -1; grid-row: 2; margin: 0; height: 44px; gap: 0; }
+  .nav-item { flex: 1; padding: 0 6px; font-size: 12px; letter-spacing: 1px; }
+  .nav-item span { display: none; }
+  .header-right { display: flex; grid-column: 2; grid-row: 1; gap: 4px; }
+  .header-right #settings { display: block; }
+  .edition { display: none; }
+  .icon-button { width: 44px; height: 44px; }
+  .sound-off { left: 16px; top: 8px; }
+  main { padding: 18px max(12px, env(safe-area-inset-right)) 94px max(12px, env(safe-area-inset-left)); }
+  .intro { align-items: center; gap: 12px; margin-bottom: 18px; }
+  .intro > div { min-width: 0; }
+  .eyebrow { font-size: 9px; letter-spacing: 1px; }
+  h1 { font-size: clamp(19px, 4.8vw, 28px); line-height: 1.5; letter-spacing: 0; margin: 7px 0 0; }
+  .intro p { display: none; }
+  .chapter-switch { min-width: 0; min-height: 56px; padding: 10px 12px; gap: 8px; flex-shrink: 0; }
+  .chapter-mark { display: none; }
+  .chapter-switch small { font-size: 9px; letter-spacing: 1px; margin-bottom: 5px; }
+  .chapter-switch strong { font-size: 13px; letter-spacing: 0; }
+  .chevron { display: block; font-size: 14px; }
+  .game-layout { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .journey-panel { display: none; }
+  .battle-panel { border-radius: 10px; }
+  .battle-top { height: auto; min-height: 76px; padding: 12px 14px; flex-wrap: wrap; gap: 10px; }
+  .status { font-size: 12px; gap: 7px; }
+  #wave-label { font-size: 11px; }
+  .resources { width: 100%; justify-content: space-between; gap: 12px; }
+  .resources b { font-size: 21px; }
+  .resources small { font-size: 11px; }
+  .canvas-wrap { min-height: 0; aspect-ratio: 900 / 520; flex: auto; }
+  .map-label { top: 12px; left: 14px; }
+  .map-label span { font-size: 12px; }
+  .map-label small, .map-bottom-note, .map-corner { display: none; }
+  .map-message { bottom: 7px; padding: 6px 9px; font-size: 10px; letter-spacing: 0; white-space: normal; text-align: center; width: max-content; max-width: calc(100% - 16px); }
+  .map-target { min-width: 44px; min-height: 44px; }
+  .battle-bottom { display: flex; flex-direction: column; align-items: stretch; gap: 12px; padding: 12px; }
+  .wave-symbol { display: none; }
+  .wave-info strong { font-size: 13px; letter-spacing: 0; }
+  .wave-info small { font-size: 11px; margin-top: 5px; }
+  .battle-controls { width: 100%; display: grid; grid-template-columns: auto 48px minmax(0, 1fr); gap: 8px; }
+  .skill-button, .speed-button, .start-button { min-width: 44px; min-height: 46px; width: auto; height: auto; font-size: 14px; }
+  .skill-button { padding: 0 12px; }
+  .skill-button span { display: inline; font-size: 12px; }
+  .skill-button small { font-size: 11px; }
+  .start-button { padding: 12px 9px; }
+  .start-button > span { margin-left: 6px; }
+  .forge-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 12px; padding: 18px 16px; border-radius: 10px; }
+  .forge-heading { grid-column: 1 / -1; grid-row: 1; min-height: 28px; }
+  .forge-heading > span { font-size: 13px; }
+  .forge-heading small { font-size: 9px; }
+  .forge-panel h2 { display: none; }
+  .forge-subtitle { grid-column: 1 / -1; grid-row: 2; margin: 4px 0 14px; font-size: 12px; line-height: 1.6; }
+  .forge-slots { grid-column: 1; grid-row: 3; margin: 0; gap: 7px; align-self: center; }
+  .forge-slot { width: 48px; height: 54px; font-size: 28px; }
+  .forge-plus { font-size: 16px; }
+  .recipe-preview { grid-column: 2; grid-row: 3; min-height: 0; padding: 0; border: 0; }
+  .recipe-title { flex-wrap: wrap; gap: 5px; font-size: 18px; letter-spacing: 1px; }
+  .recipe-title .recipe-tag { font-size: 10px; padding: 3px 5px; }
+  .recipe-preview p { font-size: 11px; line-height: 1.7; margin: 6px 0; }
+  .recipe-stats { gap: 6px 10px; flex-wrap: wrap; font-size: 11px; }
+  .recipe-stats small { font-size: 10px; margin-right: 3px; }
+  .invalid-recipe { font-size: 14px; margin: 0; }
+  .forge-separator { grid-column: 1 / -1; grid-row: 4; font-size: 11px; margin: 18px 0 10px; }
+  .forge-separator small { font-size: 10px; }
+  .character-grid { grid-column: 1 / -1; grid-row: 5; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 7px; margin: 0 0 14px; }
+  .char { height: 46px; min-width: 0; font-size: 24px; }
+  .forge-button { grid-column: 1 / -1; grid-row: 6; min-height: 48px; height: auto; margin: 0; padding: 12px; align-items: center; font-size: 14px; }
+  .forge-button span { font-size: 12px; }
+  .clear-button { grid-column: 1 / -1; grid-row: 7; min-height: 44px; margin: 4px auto 0; font-size: 12px; padding: 10px 18px; }
+  .forge-footnote { grid-column: 1 / -1; grid-row: 8; margin: 0; font-size: 10px; line-height: 1.7; }
+  .forge-panel.inspecting { display: block; }
+  #back-forge { min-height: 44px; font-size: 13px; padding: 8px 0 8px 12px; }
+  .tower-detail { min-height: 0; }
+  .tower-detail h3 { margin: 14px 0 10px; }
+  .tower-detail p { font-size: 13px; }
+  .detail-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; padding: 20px 0; }
+  .detail-stats small { font-size: 11px; }
+  .tower-actions { display: grid; gap: 4px; margin-top: 18px; }
+  .tower-actions .forge-button { max-width: none; }
+  .sell-button { font-size: 12px; min-height: 44px; margin: 4px auto; }
+  .mobile-dock { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; z-index: 20; left: 0; right: 0; bottom: 0; padding: 8px max(12px, env(safe-area-inset-right)) max(8px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)); background: #f4f1e8f5; border-top: 1px solid #d8ddcc; box-shadow: 0 -4px 20px #273c310a; backdrop-filter: blur(12px); }
+  .mobile-dock button { min-height: 48px; border-radius: 7px; font-size: 13px; background: #e6e9dc; }
+  .mobile-dock button:last-child { background: #344f3e; color: #f7f5eb; }
+  .mobile-dock button > span:first-child { margin-right: 6px; }
+  .toast { bottom: calc(84px + env(safe-area-inset-bottom)); font-size: 13px; padding: 12px 16px; }
+  .underbar { font-size: 10px; align-items: center; flex-wrap: wrap; margin: 16px 0; gap: 8px; }
+  .underbar > div:last-child { font-size: 0; }
+  .underbar kbd, .under-sep, .under-muted, .mobile-settings { display: none; }
+  #save-status { font-size: 10px; }
+  .bottom-note { padding: 18px 0; gap: 12px; }
+  .bottom-note > span { font-size: 10px; letter-spacing: 0; }
+  .bottom-note > small { font-size: 8px; letter-spacing: 1px; }
+  .bottom-note > small > span { display: none; }
+  dialog { width: calc(100% - 24px); max-height: calc(100dvh - 32px); padding: 30px 20px 22px; }
+  .modal-close { width: 44px; height: 44px; right: 6px; top: 4px; }
+  .modal-title { font-size: 25px; padding-right: 8px; }
+  .modal-intro, .guide-step p { font-size: 13px; }
+  .codex-grid { grid-template-columns: 1fr; }
+  .codex-card { padding: 16px; }
+  .codex-card p { font-size: 12px; }
+  .chapter-card { gap: 10px; padding: 16px 10px; }
+  .chapter-card h3 { font-size: 17px; }
+  .chapter-card small { font-size: 10px; }
+  .chapter-card .chapter-stars { font-size: 12px; letter-spacing: 0; }
+  .setting-row { gap: 10px; font-size: 13px; }
+  .setting-row p { font-size: 11px; }
+  .setting-row button, .result-actions button, #guide-done { min-height: 44px; }
+  .result-actions { flex-wrap: wrap; }
+  .result-stats { gap: 24px; }
+}
+@media (max-width: 360px) {
+  .intro { gap: 7px; }
+  h1 { font-size: 18px; }
+  .chapter-switch { padding: 8px; }
+  .chapter-switch .chevron { display: none; }
+  .forge-panel { padding: 16px 12px; }
+  .forge-slots { gap: 5px; }
+  .forge-slot { width: 44px; height: 50px; }
+  .character-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; }
+  .char { height: 44px; font-size: 22px; }
+  .skill-button { padding: 0 8px; }
+}

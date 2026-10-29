@@ -18,6 +18,7 @@ node --test tests/engine.test.mjs
 - `dist/engine.mjs`：与页面分离的战斗引擎、词塔定义、路径、关卡、存档序列化。
 - `dist/app.mjs`：Canvas 绘制、界面交互、音效、本地存档、弹窗与结算。
 - `dist/style.css`：响应式纸墨主题。
+- `dist/responsive.css`：手机、平板的布局和触控适配，包含安全区域与底部快捷操作。
 - `dist/index.html`：语义化页面与可访问操作。
 - `docs/DESIGN.md`：游戏规则、数值与技术设计。
 - `docs/TESTING.md`：测试范围和验收结果。
