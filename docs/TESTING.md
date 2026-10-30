@@ -4,7 +4,7 @@
 
 ## 规则回归
 
-`node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs tests/timing.test.mjs tests/specialties.test.mjs tests/word-traits.test.mjs tests/endless-bosses.test.mjs tests/boss-pools.test.mjs tests/word-meanings.test.mjs tests/minions.test.mjs tests/progression.test.mjs tests/quality.test.mjs tests/boss-pressure.test.mjs tests/minion-tactics.test.mjs tests/pricing.test.mjs tests/campaign-economy.test.mjs tests/siege.test.mjs tests/vocabulary.test.mjs`：188 项通过。
+`node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs tests/timing.test.mjs tests/specialties.test.mjs tests/word-traits.test.mjs tests/endless-bosses.test.mjs tests/boss-pools.test.mjs tests/word-meanings.test.mjs tests/minions.test.mjs tests/progression.test.mjs tests/quality.test.mjs tests/boss-pressure.test.mjs tests/minion-tactics.test.mjs tests/pricing.test.mjs tests/campaign-economy.test.mjs tests/siege.test.mjs tests/vocabulary.test.mjs tests/boss-presence.test.mjs`：198 项通过。
 
 覆盖 107,374 词与十四类词塔、严格词序、500 随机手牌、一次性扣牌扣费、重复字、刷新费、轮末收入与修补、财塔上限、升级及拆塔、毒伤/减速/破甲/连锁/光环/斩杀、100 起每次增加 100 的最长词提示及无词不收费、提示保存、技能 30 秒冷却与涨价、无尽续战、三波固定间隔、叠波和倒计时恢复、周期及收尾 Boss、飞行路线与防空、护盾、回血与分裂、阵位解锁及涨价、旧存档迁移、非法存档拒绝、前缀词库缓存与序列化。
 
@@ -12,14 +12,16 @@
 
 `node tests/balance.mjs 20 --efficient --report-only --details` 与加 `--skills` 的同配置，对十章各测 20 个种子，共 400 场。使用真实手牌、收入、升级、解锁、付费刷新与拆塔回收，不注入额外资源。`--efficient` 策略允许同属性低品质词塔向更强长词替换，并在没有质量提升空间时停止盲刷；原策略保留用于比较经济盲点。技能策略在近门威胁时使用落墨，最高支付 90、预留 40 墨点。
 
-下表为当前扩展词库、递增重建与 Boss 强化版本的实际结果。无技能 193/200（96.5%），使用技能 195/200（97.5%），全部对局正常结束；原有每章门槛保持，未放宽断言。Boss 血量乘 1.15、攻塔伤害乘 1.25、间隔乘 0.8，重建依次为投入的 50%/65%/80%/95%/100%，维护策略按实际墨点支付。词库和候选手牌增加也让自动策略更容易形成长词阵容，因此不能将胜率变化全归因于怪物数值，更不能当作儿童玩家胜率。
+下表为当前 Boss 护军光环、主题大招、反伤/封塔与递增重建版本的结果。无技能 193/200（96.5%），使用技能 190/200（95%）。十章均通过原有每章标准，未降低难度断言。每场使用真实手牌与维护支出；未注入墨点。策略会寻找长词并维护塔，结果不能当作儿童玩家胜率。
 
 | 策略 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 不使用技能 | 20/20 | 20/20 | 20/20 | 18/20 | 20/20 | 20/20 | 18/20 | 20/20 | 20/20 | 17/20 |
-| 近门时使用技能 | 20/20 | 20/20 | 20/20 | 18/20 | 20/20 | 20/20 | 18/20 | 20/20 | 20/20 | 19/20 |
+| 不使用技能 | 20/20 | 19/20 | 19/20 | 18/20 | 20/20 | 20/20 | 20/20 | 20/20 | 20/20 | 17/20 |
+| 近门时使用技能 | 20/20 | 19/20 | 19/20 | 17/20 | 20/20 | 20/20 | 17/20 | 20/20 | 20/20 | 18/20 |
 
-汇总见 [vocabulary-balance-summary.json](reports/vocabulary-balance-summary.json)。这是固定种子、会寻找长词和主动维护的策略结果，覆盖主线，不宣称完成无尽经济审计。
+Boss 生命/攻塔伤害/间隔系数为 1.7/1.9/0.7，范围大招冷却 9 秒，狂暴 6.75 秒。初测第四章无技能 14/20，诊断为友军盾量随 Boss 血量过度放大，已给友军补盾增加自身生命 35% 上限，并在该章 Boss 波减少 15% 护卫。Boss 能力保留，其他地图未调整护卫预算。阵型计数测试随该规则改为分别检查普通/Boss 编队的增长和精确预算；平衡性通关门槛保持不变。
+
+汇总见 [boss-presence-summary.json](reports/boss-presence-summary.json)；之前词库版结果保留在 [vocabulary-balance-summary.json](reports/vocabulary-balance-summary.json)。这是主线检查，不宣称完成无尽经济审计。
 
 以下调参过程与旧版回归记录作为历史保留；本次经济审计及三组数据见 [ECONOMY.md](ECONOMY.md)。
 
@@ -151,3 +153,9 @@
 - `python3 scripts/build-lexicon.py --dictionary /tmp/wordward-jieba-dict.txt --license /tmp/wordward-jieba-LICENSE --check` 检查生成文件与固定版本来源及自有数据完全一致。
 
 正式域名上线后的验证另记发布记录；WebKit 自动化不等于实体 iPhone。
+
+## Boss 护军与范围压阵
+
+`tests/boss-presence.test.mjs` 新增 10 项因果测试：42 种 Boss 实际蓄力并命中多塔、狂暴四塔攻击与冷却、提前入场且不多生成 Boss、冰冻/缄默打断、目标移除和离开范围、保存/恢复不重复施放、非法目标拒绝；军阵真实减伤/回血/攻塔增伤/提速、控制与死亡时失效、效果取最强且不帮助其他 Boss、中毒阻疗、持续伤害减伤；补盾不叠加且按接收者上限、封禁阻止攻击并可修复清除、反伤有真实扣血且被冷却/单次上限约束，其他战吼不能突破反伤上限。
+
+Chromium/WebKit `tests/boss-presence.cjs` 在 320×568、393×852、667×375、1440×1000 下验证：军阵与大招实际绘制，四塔受击及封禁反馈，友军回血，完整技能图鉴，暂停和重载保留冷却，无独立 Boss HUD、无页面溢出、无脚本错误。横屏同时覆盖减少动态效果。`tests/enemy-tactics.cjs` 复验 3 秒首次支援技与实际凝盾，十尺寸响应式回归通过。WebKit 不是实体 iPhone 测试。

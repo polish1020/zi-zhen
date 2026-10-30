@@ -16,17 +16,17 @@ test('bosses gain substantial health while early minions retain their previous c
  assert.ok(wavePlan(0,36).count>Math.min(80,8+12*3+4+Math.floor(8*1.2)));
 });
 
-test('all 42 bosses cast their distinct active skill at four seconds, with saved finite limits',()=>{
+test('all 42 bosses cast their distinct active skill at three seconds, with saved finite limits',()=>{
  const seen=new Set();
  for(const [kind,meta]of Object.entries(ENEMIES).filter(([,e])=>e.boss)){
   const {g,e}=arena(kind),p=meta.pulse;assert.ok(p,kind);seen.add(p.kind);
-  assert.equal(e.pulseAt,4,kind);g.time=3.8;g.step(.1);assert.equal(e.pulses,undefined,kind);
+  assert.equal(e.pulseAt,3,kind);g.time=2.8;g.step(.1);assert.equal(e.pulses,undefined,kind);
   g.step(.1);g.step(.1);assert.equal(e.pulses,1,kind);
   for(let i=1;i<p.limit+2;i++){e.pulseAt=0;g.step(.01);}
   assert.equal(e.pulses,p.limit,kind);
   const h=Game.restore(JSON.parse(JSON.stringify(g.export())));h.enemies[0].pulseAt=0;h.step(.01);
   assert.equal(h.enemies[0].pulses,p.limit,kind);
-  assert.ok(bossSkillName(kind));assert.match(bossSkillText(kind),/4 秒.*最多.*半血.*25%/);
+  assert.ok(bossSkillName(kind));assert.match(bossSkillText(kind),/3 秒.*最多.*半血.*25%/);
  }
  assert.deepEqual([...seen].sort(),['blink','haste','heal','shield','summon']);
 });
@@ -34,7 +34,7 @@ test('all 42 bosses cast their distinct active skill at four seconds, with saved
 test('half-health accelerates pending and subsequent casts once, without resetting cast limits on reload',()=>{
  const {g,e}=arena('boss');e.hp=e.maxHp*.49;g.step(.1);
  assert.equal(e.pulseAt,g.time+2);assert.equal(g.events.filter(x=>x.type==='boss-phase').length,1);
- e.pulseAt=0;g.step(.1);assert.equal(e.pulses,1);assert.equal(e.pulseAt-g.time,6.75);
+ e.pulseAt=0;g.step(.1);assert.equal(e.pulses,1);assert.equal(e.pulseAt-g.time,5.4);
  const h=Game.restore(JSON.parse(JSON.stringify(g.export()))),next=h.enemies[0].pulseAt;
  h.step(.1);assert.equal(h.enemies[0].pulseAt,next);assert.equal(h.enemies[0].pulses,1);
  assert.equal(h.events.filter(x=>x.type==='boss-phase').length,0);

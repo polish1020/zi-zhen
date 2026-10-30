@@ -175,7 +175,7 @@ test('rebuild prices rise per tower from 50 percent to 100 percent without infla
  for(const value of [-1,NaN,Infinity,1.5,'1']){const bad=g.export();bad.towers[0].rebuilds=value;assert.throws(()=>Game.restore(bad));}
 });
 test('boss combat boost applies to new HP and actual attack profiles without recalculating saved HP',()=>{
- close(enemyWeapon('ironboss').damage,20);close(enemyWeapon('ironboss').interval,3.52);
- close(enemyWeapon('frostboss').damage,13.75);close(enemyWeapon('frostboss').interval,3.68);
+ close(enemyWeapon('ironboss').damage,30.4);close(enemyWeapon('ironboss').interval,3.08);
+ close(enemyWeapon('frostboss').damage,20.9);close(enemyWeapon('frostboss').interval,3.22);
  const {g,e}=arena('文','ironboss');e.hp=1234;e.maxHp=2468;const restored=Game.restore(g.export());assert.equal(restored.enemies[0].hp,1234);assert.equal(restored.enemies[0].maxHp,2468);
 });

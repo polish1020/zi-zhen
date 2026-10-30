@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-30",
+  "scope": "10 main chapters, 20 fixed seeds per chapter per policy, actual resources and maintenance",
+  "policies": {
+    "efficient": {
+      "wins": 193,
+      "total": 200,
+      "chapterWins": [
+        20,
+        19,
+        19,
+        18,
+        20,
+        20,
+        20,
+        20,
+        20,
+        17
+      ]
+    },
+    "efficientWithSkills": {
+      "wins": 190,
+      "total": 200,
+      "chapterWins": [
+        20,
+        19,
+        19,
+        17,
+        20,
+        20,
+        17,
+        20,
+        20,
+        18
+      ]
+    }
+  },
+  "thresholdsUnchanged": {
+    "chapter1": 0.95,
+    "chapter2": 0.9,
+    "others": 0.85
+  },
+  "allThresholdsPassed": true,
+  "rules": {
+    "passed": 198,
+    "failed": 0
+  },
+  "boss": {
+    "healthMultiplier": 1.7,
+    "towerAttackDamageMultiplier": 1.9,
+    "towerAttackIntervalMultiplier": 0.7,
+    "spawnIndexFraction": 0.35,
+    "auraRadius": 175,
+    "auras": {
+      "bulwark": {
+        "guard": 0.18,
+        "regen": 0.003
+      },
+      "renewal": {
+        "guard": 0.1,
+        "regen": 0.007
+      },
+      "swift": {
+        "guard": 0.1,
+        "regen": 0.003,
+        "haste": 0.12
+      },
+      "war": {
+        "guard": 0.1,
+        "regen": 0.003,
+        "siegeDamage": 0.2
+      }
+    },
+    "power": {
+      "targets": [
+        2,
+        3
+      ],
+      "enragedTargets": [
+        3,
+        4
+      ],
+      "windup": 1.6,
+      "cooldown": 9,
+      "enragedCooldown": 6.75,
+      "durabilityFraction": 0.06,
+      "reflectionFraction": 0.12,
+      "reflectionPerTowerCooldown": 0.8,
+      "reflectionDurabilityCap": 0.03,
+      "attackSealSeconds": 1.2
+    },
+    "alliedShieldMaxHpCap": 0.35,
+    "chapter4BossEscortBudget": 0.85
+  },
+  "limitations": [
+    "Automated strategy finds long words and maintains towers; not human or child win rates.",
+    "Main campaign only; no fresh endless economy audit.",
+    "WebKit emulation does not substitute for physical iPhone testing."
+  ]
+}

@@ -10,7 +10,7 @@ const engine=process.env.BROWSER||'chromium',base=process.env.BASE_URL||'http://
   const g=new Game(0,42);g.wave=18;g.phase='battle';g.pendingWaves=[18];g.bossDraws=[{wave:18,kind:'boss'}];
   const boss=g.spawn('boss',250),ward=g.spawn('ward',370),armor=g.spawn('armor',420);
   for(const e of g.enemies)e.speed=.01;
-  g.time=3.2;ward.jamUntil=6.2;armor.guardUntil=6.2;armor.guardPower=.12;
+  g.time=2.2;ward.jamUntil=6.2;armor.guardUntil=6.2;armor.guardPower=.12;
   const context=await browser.newContext({viewport:{width,height},isMobile:width<=900,hasTouch:width<=900});
   const page=await context.newPage(),errors=[];page.setDefaultTimeout(15000);page.on('pageerror',e=>errors.push(e.message));
   await page.addInitScript(save=>{
@@ -27,7 +27,7 @@ const engine=process.env.BROWSER||'chromium',base=process.env.BASE_URL||'http://
   await page.locator('#enemy-preview').click();
   assert.match(await page.locator('.modal-intro').innerText(),/第 4 轮.*冲刺.*第 6 轮.*列盾.*扰墨/);
   assert.equal(await page.locator('.enemy-card .boss-skill-description').count(),42);
-  assert.match(await page.locator('.boss-brief').innerText(),/主动技能.*凝盾.*4 秒.*25%/s);
+  assert.match(await page.locator('.boss-brief').innerText(),/主动技能.*凝盾.*3 秒.*25%/s);
   assert.match(await page.locator('[data-enemy-kind="ward"]').innerText(),/第 6 轮.*扰墨.*20%/s);
   assert.match(await page.locator('[data-enemy-kind="healer"]').innerText(),/生命比例最低.*3 名.*5%.*最多 4 次/s);
   assert.match(await page.locator('[data-enemy-kind="cloudraptor"]').innerText(),/第 4 轮.*领飞.*飞行友军/s);

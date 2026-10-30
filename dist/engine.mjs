@@ -369,7 +369,7 @@ export const ENEMY_ATTACK_ART={
  star:{name:'星芒轰击',color:'#8263a1',sigil:'星'},
  cannon:{name:'机括炮击',color:'#876a49',sigil:'炮'},
 };
-export const BOSS_HEALTH_BOOST=1.15,BOSS_SIEGE_DAMAGE=1.25,BOSS_SIEGE_INTERVAL=.8;
+export const BOSS_HEALTH_BOOST=1.7,BOSS_SIEGE_DAMAGE=1.9,BOSS_SIEGE_INTERVAL=.7;
 export const rebuildPercent=t=>Math.min(100,50+15*(t.rebuilds||0));
 const ENEMY_WEAPON_CACHE=new Map();
 export function enemyWeapon(kind){
@@ -411,7 +411,7 @@ export const MAPS=[
  {name:'青山曲径',mode:'single',routes:[PATH],pads:PADS,color:'#e9eddf'},
  {name:'竹谷回环',mode:'single',routes:[points([[-30,100],[300,100],[300,280],[110,280],[110,430],[650,430],[650,250],[940,250]])],pads:points([[100,170],[230,200],[370,180],[210,350],[380,350],[530,350],[570,200],[730,160],[750,330],[835,330],[460,490],[690,490],[100,30],[400,40],[55,370],[850,180]]),color:'#e2ebdc'},
  {name:'长夜折道',mode:'single',routes:[points([[-30,400],[250,400],[250,150],[520,150],[520,380],[750,380],[750,100],[940,100]])],pads:points([[100,330],[170,250],[330,300],[360,80],[450,230],[610,220],[640,310],[820,270],[670,60],[850,180],[430,460],[650,460],[100,470],[180,80],[560,70],[850,40]]),color:'#293c4a'},
- {name:'双溪汇阵',mode:'staggered',routes:[points([[-30,100],[180,100],[180,260],[350,260],[350,80],[650,80],[650,380],[940,380]]),points([[-30,420],[180,420],[180,260],[350,260],[350,80],[650,80],[650,380],[940,380]])],pads:points([[100,190],[100,330],[260,190],[265,335],[430,180],[510,150],[570,255],[725,240],[730,450],[850,300],[470,350],[400,460],[260,40],[540,25],[810,450],[70,490]]),color:'#e1ece5'},
+ {name:'双溪汇阵',bossEscortBudget:.85,mode:'staggered',routes:[points([[-30,100],[180,100],[180,260],[350,260],[350,80],[650,80],[650,380],[940,380]]),points([[-30,420],[180,420],[180,260],[350,260],[350,80],[650,80],[650,380],[940,380]])],pads:points([[100,190],[100,330],[260,190],[265,335],[430,180],[510,150],[570,255],[725,240],[730,450],[850,300],[470,350],[400,460],[260,40],[540,25],[810,450],[70,490]]),color:'#e1ece5'},
  {name:'云关双翼',mode:'simultaneous',routes:[points([[120,-30],[120,180],[400,180],[400,300],[650,300],[650,80],[850,80],[850,370],[940,370]]),points([[120,550],[120,380],[400,380],[400,300],[650,300],[650,80],[850,80],[850,370],[940,370]])],pads:points([[200,90],[210,260],[210,460],[320,250],[480,230],[480,440],[570,380],[570,160],[730,160],[760,300],[780,440],[470,70],[50,260],[320,100],[730,30],[900,240]]),color:'#e4e7ef'},
  {name:'回廊折返',mode:'single',routes:[points([[-30,120],[650,120],[650,410],[250,410],[250,260],[800,260],[800,370],[940,370]])],pads:points([[100,60],[220,190],[390,190],[550,190],[730,180],[570,330],[410,335],[320,480],[190,330],[730,340],[875,280],[480,480],[100,190],[400,60],[720,450],[870,440]]),color:'#eae5d9'},
  {name:'霜河轮袭',mode:'staggered',routes:[points([[-30,90],[320,90],[320,260],[550,260],[550,100],[780,100],[780,420],[940,420]]),points([[-30,440],[320,440],[320,260],[550,260],[550,100],[780,100],[780,420],[940,420]])],pads:points([[130,165],[130,365],[240,255],[390,175],[390,350],[470,60],[620,180],[690,270],[690,440],[850,310],[850,160],[460,460],[110,30],[100,500],[620,350],[850,490]]),color:'#e0eaf0'},
@@ -615,9 +615,26 @@ export const bossSkillName=kind=>({shield:'凝盾',heal:'回春',haste:'战吼',
 export function bossSkillText(kind){
  const p=ENEMIES[kind]?.pulse;if(!p||!ENEMIES[kind].boss)return'';
  const target=p.targets||3;
- const effect=p.kind==='shield'?`为${target===1?'自身':`自身及附近最多 ${target-1} 名友军`}凝结本体最大生命 ${Math.round(p.ratio*100)}% 的护盾，不叠加；雷霆拆盾、毒伤绕盾。`:p.kind==='heal'?`治疗自身及附近最多 ${target-1} 名友军各自最大生命的 ${Math.round(p.ratio*100)}%；中毒或禁疗阻止回复。`:p.kind==='haste'?`使${target===1?'自身':`自身及附近最多 ${target-1} 名友军`}提速 30%，持续 3 秒，不叠加。`:p.kind==='summon'?`召来 ${p.count} 名${ENEMIES[p.unit].name}，继承路线与波次；范围攻击清理援军。`:`向前闪进 ${p.distance} 距离；减速与冰冻可阻断。`;
- return `${bossSkillName(kind)}：通常出场 ${Math.min(4,p.interval)} 秒后首次施放，半血可提前；之后每 ${p.interval} 秒一次，最多 ${p.limit} 次；半血后剩余间隔缩短 25%。${effect}缄默可延迟主动技能。`;
+ const effect=p.kind==='shield'?`为${target===1?'自身':`自身及附近最多 ${target-1} 名友军`}凝结本体最大生命 ${Math.round(p.ratio*100)}% 的护盾；友军单次补盾最多为其最大生命 35%，不叠加；雷霆拆盾、毒伤绕盾。`:p.kind==='heal'?`治疗自身及附近最多 ${target-1} 名友军各自最大生命的 ${Math.round(p.ratio*100)}%；中毒或禁疗阻止回复。`:p.kind==='haste'?`使${target===1?'自身':`自身及附近最多 ${target-1} 名友军`}提速 30%，持续 3 秒，不叠加。`:p.kind==='summon'?`召来 ${p.count} 名${ENEMIES[p.unit].name}，继承路线与波次；范围攻击清理援军。`:`向前闪进 ${p.distance} 距离；减速与冰冻可阻断。`;
+ return `${bossSkillName(kind)}：通常出场 ${Math.min(3,p.interval)} 秒后首次施放，半血可提前；之后每 ${bossPulseInterval(kind)} 秒一次，最多 ${p.limit} 次；半血后剩余间隔缩短 25%。${effect}缄默可延迟主动技能。`;
 }
+const BOSS_POWER_NAMES={claw:'裂阵狂爪',rush:'破阵突袭',quake:'山崩震阵',dive:'苍穹俯击',shadow:'暗影刃舞',ink:'墨潮覆阵',flame:'焚阵烈焰',frost:'极寒风暴',acid:'腐蚀毒潮',thunder:'雷霆轰阵',tide:'怒涛拍岸',vine:'万藤缠阵',prism:'镜刃折射',seal:'镇阵符咒',star:'星陨天击',cannon:'重炮齐鸣'};
+export function bossPower(kind){
+ if(!ENEMIES[kind]?.boss)return null;const w=enemyWeapon(kind);
+ return {reflect:w.visual==='prism'||kind==='ironcarapace',shield:['quake','cannon','seal'].includes(w.visual),name:BOSS_POWER_NAMES[w.visual],range:Math.max(145,w.range+35),windup:1.6,interval:9,targets:['thunder','star','tide','prism'].includes(w.visual)?3:2,ratio:1.6,durability:.06};
+}
+export function bossPowerText(kind){
+ const p=bossPower(kind);if(!p)return '';const v=enemyWeapon(kind).visual;
+ const extra=['flame','acid'].includes(v)?'命中后削甲 6 秒。':['frost','tide'].includes(v)?'命中后冰滞 4 秒。':['seal','ink','vine','shadow','prism'].includes(v)?'命中后封禁攻击 1.2 秒，修复和升级仍可操作。':'';
+ return `${p.name}：附近有词塔时蓄力 ${p.windup} 秒，打击最多 ${p.targets} 座；半血狂暴后最多 ${p.targets+1} 座，冷却 9→6.75 秒。伤害含目标最大耐久的 6%，仍受护甲、保护和群袭递减限制。${extra}${p.shield?'施放后为自己和附近最多 3 名小怪补盾，取最强而不相加。':''}${p.reflect?'蓄力及施放后 3 秒反弹直伤 12%，每塔每 0.8 秒最多一次且单次不超过该塔耐久的 3%。':''}冰冻或缄默可打断蓄力；离开范围、拆除目标会避开打击。`;
+}
+export function bossAura(kind){
+ if(!ENEMIES[kind]?.boss)return null;const w=enemyWeapon(kind),v=w.visual;
+ const heal=['vine','tide','acid'].includes(v),guard=['quake','cannon','seal'].includes(v),swift=['dive','shadow','frost','prism'].includes(v);
+ return {name:heal?'生息军阵':guard?'铁壁军阵':swift?'流影军阵':'战意军阵',radius:175,guard:guard?.18:.1,regen:heal?.007:.003,attack:heal||guard||swift?0:.2,haste:swift?.12:0,reflect:w.visual==='prism'?.12:0,color:w.color,sigil:w.sigil};
+}
+export function bossAuraText(kind){const a=bossAura(kind);return a?`${a.name}：周围 ${a.radius} 范围内的小怪减伤 ${Math.round(a.guard*100)}%，每秒恢复 ${(a.regen*100).toFixed(1)}% 最大生命${a.attack?'，攻塔伤害 +20%':''}${a.haste?'，移动速度 +12%':''}${a.reflect?'，反弹直伤 12%（有单塔冷却及单次上限）':''}。自身和其他 Boss 不享受；同类效果取最强值，中毒/禁疗阻止恢复，冰冻/缄默令光环失效，Boss 击败后光环立即消失。`:'';}
+export const bossPulseInterval=(kind,enraged=false)=>ENEMIES[kind].pulse.interval*.8*(enraged?.75:1);
 export const COMMON_BOSSES=['boss','ironboss','broodqueen','stormboss','frostboss','inkking','drumking','shadeknight','lifetree','ironcarapace','emberhound','plaguequeen'];
 export const MAP_BOSS_POOLS=[
  ['hillboss','stonewarden','peakelder'],['bambooboss','bambooswords','bamboowitch'],['scrollboss','inkarchivist','silencewarden'],['tideboss','pearlclam','riverturtle'],['cloudboss','thunderkite','cloudwhale'],['gearboss','ballistalord','pendulumlord'],['frostlord','icephoenix','glaciergolem'],['mirrorqueen','glasswyrm','dreamweaver'],['beaconlord','embermarshal','emberbeast'],['astralboss','sunsovereign','moonsovereign']
@@ -671,7 +688,7 @@ export function wavePlan(chapter,wave){
  if(stage===3){pool=['normal','swift','armor','tank','shield',...(chapter>0?['lancer']:[])];formation='重阵推进';counter='雷霆破盾、山石迎击重甲';}
  if(stage>=4){const f=FORMATIONS[(stage-4+part-1+chapter*2)%FORMATIONS.length];pool=[...f.pool,'normal','normal','swift'];formation=f.name;counter=f.counter;if(round>=7)pool.push(...FORMATIONS[(round+part+chapter)%FORMATIONS.length].pool.slice(0,2));if(round>=9)pool.push('ward','healer');}
  const signature=round>=4?MAP_MINION_POOLS[chapter][(round-4+part-1)%3]:THEME_UNITS[chapter].kind;if(round>=2)pool.push(signature);if(round>=4){pool.push(COMMON_MINIONS[(round+part+chapter)%COMMON_MINIONS.length],...MAP_MINION_POOLS[chapter]);}
- return{bossPool,endlessRound,signature,round,part,stage,pool,boss,bossKind,formation,counter,count:Math.min(80,8+round*3+chapter*2+(part-1)*2+Math.floor(Math.max(0,round-4)*1.4)),title:boss?'随机 Boss · '+formation:formation};
+ return{bossPool,endlessRound,signature,round,part,stage,pool,boss,bossKind,formation,counter,count:Math.min(80,Math.floor((8+round*3+chapter*2+(part-1)*2+Math.floor(Math.max(0,round-4)*1.4))*(boss?(getMap(chapter).bossEscortBudget??1):1))),title:boss?'随机 Boss · '+formation:formation};
 }
 export function enemyHealthScale(chapter,wave,kind){
  const round=Math.max(1,Math.ceil(wave/3)),part=(Math.max(1,wave)-1)%3,boss=!!ENEMIES[kind].boss;
@@ -685,15 +702,16 @@ export class Game {
  get activeTowers(){return this.towers.filter(towerActive);}
  repairCost(t){if(!t)return 0;const max=towerDefense(t).maxHp,hp=t.hp??max;if(hp>=max-1e-6)return 0;if(hp<=0)return Math.max(3,Math.ceil(t.spent*rebuildPercent(t)/100));const w=getWord(t.word),p=this.pads[t.pad],gold=this.activeTowers.some(a=>getWord(a.word).type==='income'&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range);return Math.max(3,Math.ceil(t.spent*.18*(1-hp/max)*(gold?.85:1)*(hasRune(w,'study')?.92:1)*(hasRune(w,'rescue')&&hp<max*.3?.9:1)));}
  salvageValue(t){return Math.floor(t.spent*(towerActive(t)?.7:.35));}
- repair(id){const t=this.towers.find(t=>t.id===id),cost=this.repairCost(t);if(!t||!cost||this.ink<cost||(t.repairReadyAt||0)>this.time||['won','lost'].includes(this.phase))return false;const rebuilt=!towerActive(t);this.ink-=cost;if(rebuilt)t.rebuilds=Math.min(Number.MAX_SAFE_INTEGER,(t.rebuilds||0)+1);t.hp=towerDefense(t).maxHp;t.chillUntil=0;t.corrodedUntil=0;t.repairReadyAt=this.time+8;this.emit('repair',{pad:t.pad,word:t.word,cost,rebuilt});return true;}
+ repair(id){const t=this.towers.find(t=>t.id===id),cost=this.repairCost(t);if(!t||!cost||this.ink<cost||(t.repairReadyAt||0)>this.time||['won','lost'].includes(this.phase))return false;const rebuilt=!towerActive(t);this.ink-=cost;if(rebuilt)t.rebuilds=Math.min(Number.MAX_SAFE_INTEGER,(t.rebuilds||0)+1);t.hp=towerDefense(t).maxHp;t.disruptedUntil=0;t.chillUntil=0;t.corrodedUntil=0;t.repairReadyAt=this.time+8;this.emit('repair',{pad:t.pad,word:t.word,cost,rebuilt});return true;}
  cancelTowerAim(id){for(const e of this.enemies)if(e.towerTarget===id||e.towerLastTarget===id){delete e.towerLastTarget;delete e.towerTarget;delete e.towerStrikeAt;e.towerAttackAt=Math.max(e.towerAttackAt||0,this.time+.8);}}
- towerPressure(t,attacker){const p=this.pads[t.pad];return this.enemies.filter(e=>e.hp>0&&(e===attacker||e.towerTarget!==undefined||e.towerLastTarget!==undefined&&e.towerAttackAt>this.time)&&Math.hypot(enemyPosition(e).x-p.x,enemyPosition(e).y-p.y)<=enemyWeapon(e.kind).range+22).length;}
- damageTower(t,raw,enemy){
+ towerPressure(t,attacker){const p=this.pads[t.pad];return this.enemies.filter(e=>e.hp>0&&(e===attacker||e.bossTargets?.includes(t.id)||e.towerTarget!==undefined||e.towerLastTarget!==undefined&&e.towerAttackAt>this.time)&&Math.hypot(enemyPosition(e).x-p.x,enemyPosition(e).y-p.y)<=enemyWeapon(e.kind).range+22).length;}
+ damageTower(t,raw,enemy,boost=true){
   if(!towerActive(t))return 0;const defense=towerDefense(t),p=this.pads[t.pad];
   const cover=Math.max(0,...this.activeTowers.filter(a=>a!==t&&getWord(a.word).type==='aura'&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range).map(a=>getWord(a.word).trait==='radiance'?.15:.12));
+  if(boost)raw*=1+this.bossSupport(enemy).attack;
   const w=getWord(t.word),weapon=enemyWeapon(enemy.kind),weaken=Math.max(enemy.siegeWeakUntil>this.time?.15:0,enemy.markUntil>this.time||enemy.weakenUntil>this.time?.1:0);
   if(weapon.debuff==='flame'&&w.type==='splash')raw*=.7;
-  if(weapon.style==='stalker'&&!(enemy.lightUntil>this.time||enemy.markUntil>this.time))raw*=1.15;
+  if(boost&&weapon.style==='stalker'&&!(enemy.lightUntil>this.time||enemy.markUntil>this.time))raw*=1.15;
   const crowd=this.towerPressure(t,enemy),crowdScale=crowd<=2?1:(2+.35*Math.log2(crowd/2))/crowd;raw*=ENEMIES[enemy.kind].boss?Math.sqrt(crowdScale):crowdScale;
   const armor=Math.max(0,defense.armor-(t.corrodedUntil>this.time?.1:0));
   const damage=Math.min(defense.maxHp*.22,raw*(1-weaken)*(1-Math.min(.5,armor+cover)));
@@ -712,11 +730,47 @@ export class Game {
   if(!towerActive(t)){this.cancelTowerAim(t.id);this.emit('tower-down',{pad:t.pad,word:t.word});}
   return damage;
  }
+ bossSupport(e){
+  const result={guard:0,regen:0,attack:0,haste:0,reflect:0};if(ENEMIES[e.kind].boss)return result;
+  const pos=enemyPosition(e);
+  for(const a of this.enemies){if(a.hp<=0||a.d>=enemyLength(a)||!ENEMIES[a.kind].boss||a.freezeUntil>this.time||a.silencedUntil>this.time)continue;
+   const aura=bossAura(a.kind);if(Math.hypot(enemyPosition(a).x-pos.x,enemyPosition(a).y-pos.y)>aura.radius)continue;
+   for(const key of Object.keys(result))result[key]=Math.max(result[key],aura[key]);
+  }return result;
+ }
+ updateBossPower(e){
+  const p=bossPower(e.kind);if(!p)return false;
+  e.bossReadyAt??=(e.bornAt??this.time)+4;
+  const cancel=()=>{delete e.bossStrikeAt;delete e.bossTargets;};
+  if(e.freezeUntil>this.time||e.silencedUntil>this.time){cancel();e.bossReadyAt=Math.max(e.bossReadyAt,this.time+2);return false;}
+  const origin=enemyPosition(e),near=t=>towerActive(t)&&Math.hypot(this.pads[t.pad].x-origin.x,this.pads[t.pad].y-origin.y)<=p.range+22;
+  if(e.bossStrikeAt!==undefined){
+   const targets=this.towers.filter(t=>e.bossTargets.includes(t.id)&&near(t));
+   if(!targets.length){cancel();e.bossReadyAt=this.time+2;return false;}
+   if(this.time+1e-9<e.bossStrikeAt)return true;
+   const w=enemyWeapon(e.kind),round=Math.max(1,Math.ceil((e.wave||1)/3)),scale=(1+(round-1)*.035+this.chapter*.02)*(round<=3?.5:.7)*(e.enraged?1.25:1);
+   for(const t of targets){
+    this.effects.push({kind:'siege',from:{...origin},to:{...this.pads[t.pad]},style:w.style,visual:w.visual,color:w.color,sigil:w.sigil,name:p.name,boss:true,power:true,enemy:e.kind,life:1,max:1});
+    this.damageTower(t,w.damage*scale*p.ratio+towerDefense(t).maxHp*p.durability,e);
+    if(towerActive(t)){if(['flame','acid'].includes(w.visual))t.corrodedUntil=this.time+6;if(['frost','tide'].includes(w.visual))t.chillUntil=this.time+4;if(['seal','ink','vine','shadow','prism'].includes(w.visual))t.disruptedUntil=this.time+1.2;}
+   }
+   if(p.reflect)e.reflectUntil=this.time+3;
+   if(p.shield){for(const a of [e,...this.enemies.filter(a=>a!==e&&a.hp>0&&!ENEMIES[a.kind].boss&&Math.hypot(enemyPosition(a).x-origin.x,enemyPosition(a).y-origin.y)<=175).slice(0,3)]){const shield=a.maxHp*(a===e?.06:.15);a.shield=Math.max(a.shield||0,shield);a.maxShield=Math.max(a.maxShield||0,a.shield);}}
+   e.bossCasts=(e.bossCasts||0)+1;this.effects.push({kind:'boss-burst',to:{...origin},color:w.color,life:1,max:1});this.emit('boss-cast',{enemy:e.kind,name:p.name,targets:targets.length});
+   cancel();e.bossReadyAt=this.time+p.interval*(e.enraged?.75:1);e.towerAttackAt=this.time+1;return true;
+  }
+  if(this.time<e.bossReadyAt)return false;
+  const options=this.activeTowers.filter(near).sort((a,b)=>Number(towerDefense(b).guard)-Number(towerDefense(a).guard)||Math.hypot(this.pads[a.pad].x-origin.x,this.pads[a.pad].y-origin.y)-Math.hypot(this.pads[b.pad].x-origin.x,this.pads[b.pad].y-origin.y)||a.id-b.id);
+  if(!options.length){e.bossReadyAt=this.time+.5;return false;}
+  e.bossTargets=options.slice(0,p.targets+(e.enraged?1:0)).map(t=>t.id);e.bossStrikeAt=this.time+p.windup;
+  delete e.towerTarget;delete e.towerStrikeAt;delete e.towerLastTarget;return true;
+ }
  updateTowerAttacks(){
   const assigned=new Map();for(const e of this.enemies){if(e.hp<=0)continue;const id=e.towerTarget??(e.towerAttackAt>this.time?e.towerLastTarget:undefined),t=this.towers.find(t=>t.id===id);if(t&&towerActive(t)&&Math.hypot(this.pads[t.pad].x-enemyPosition(e).x,this.pads[t.pad].y-enemyPosition(e).y)<=enemyWeapon(e.kind).range+22)assigned.set(id,(assigned.get(id)||0)+1);}
   for(const e of this.enemies){
    if(e.hp<=0||e.d>=enemyLength(e))continue;const weapon=enemyWeapon(e.kind),p=enemyPosition(e),boss=!!ENEMIES[e.kind].boss;
    e.towerAttackAt??=this.time+1.1+(e.id%8)*.08;
+   if(boss&&this.updateBossPower(e))continue;
    const cancel=()=>{if(e.towerTarget!==undefined)assigned.set(e.towerTarget,Math.max(0,(assigned.get(e.towerTarget)||0)-1));delete e.towerTarget;delete e.towerStrikeAt;};
    if(e.freezeUntil>this.time||weapon.style==='spell'&&e.silencedUntil>this.time){cancel();e.towerAttackAt=Math.max(e.towerAttackAt,this.time+.8);continue;}
    if(e.towerTarget!==undefined){
@@ -741,7 +795,7 @@ export class Game {
  }
  restoreTowers(){
   const supports=this.activeTowers.filter(t=>getWord(t.word).type==='aura'||hasRune(getWord(t.word),'mend'));let recovered=0;
-  for(const t of this.towers){t.repairReadyAt=0;t.chillUntil=0;t.corrodedUntil=0;t.hitUntil=0;if(!towerActive(t))continue;const max=towerDefense(t).maxHp,before=t.hp??max,p=this.pads[t.pad];
+  for(const t of this.towers){t.repairReadyAt=0;t.disruptedUntil=0;t.chillUntil=0;t.corrodedUntil=0;t.hitUntil=0;if(!towerActive(t))continue;const max=towerDefense(t).maxHp,before=t.hp??max,p=this.pads[t.pad];
    const extra=supports.some(a=>a!==t&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range)?.1:0;
    t.hp=Math.min(max,before+max*(.3+extra+(getWord(t.word).type==='basic'?.05:0)));recovered+=t.hp-before;
   }return recovered;
@@ -787,11 +841,11 @@ export class Game {
   this.wave++;this.phase='battle';const plan=wavePlan(this.chapter,this.wave),map=getMap(this.chapter);
   if(plan.boss){const last=this.bossDraws.at(-1)?.kind,choices=[...COMMON_BOSSES,...MAP_BOSS_POOLS[this.chapter].flatMap(k=>Array(COMMON_BOSSES.length/MAP_BOSS_POOLS[this.chapter].length).fill(k))].filter(k=>k!==last);plan.bossKind=choices[Math.floor(this.random()*choices.length)];this.bossDraws.push({wave:this.wave,kind:plan.bossKind});this.bossDraws=this.bossDraws.slice(-12);}
   const batch=map.mode==='simultaneous'?map.routes.length:1,interval=Math.max(.4,1.03-plan.round*.035);
-  const entries=Array.from({length:plan.count},(_,i)=>({kind:plan.boss&&i===plan.count-1?plan.bossKind:i===0&&plan.round>=2?plan.signature:i<Math.min(3,plan.pool.length)&&plan.stage>=4?plan.pool[i]:plan.pool[Math.floor(this.random()*plan.pool.length)],route:map.mode==='staggered'?Math.floor(i/4)%map.routes.length:i%map.routes.length,wave:this.wave,at:at+Math.floor(i/batch)*interval*batch}));
+  const entries=Array.from({length:plan.count},(_,i)=>({kind:plan.boss&&i===Math.floor(plan.count*.35)?plan.bossKind:i===0&&plan.round>=2?plan.signature:i<Math.min(3,plan.pool.length)&&plan.stage>=4?plan.pool[i]:plan.pool[Math.floor(this.random()*plan.pool.length)],route:map.mode==='staggered'?Math.floor(i/4)%map.routes.length:i%map.routes.length,wave:this.wave,at:at+Math.floor(i/batch)*interval*batch}));
   this.queue.push(...entries);this.queue.sort((a,b)=>(a.at??this.time)-(b.at??this.time));
   this.pendingWaves??=[];this.pendingWaves.push(this.wave);this.autoWaveAt=plan.part<3?at+WAVE_INTERVAL:0;this.emit('wave',{wave:this.wave});
  }
- spawn(kind,distance=0,route=0,wave=this.wave){const st=ENEMIES[kind],scale=enemyHealthScale(this.chapter,wave,kind),id=this.nextId++;const e={map:this.chapter,route,wave,bornAt:this.time,id,kind,towerAttackAt:this.time+1.1+(id%8)*.08,hp:st.hp*scale,maxHp:st.hp*scale,speed:st.speed*(1+Math.min(this.chapter,4)*.05),reward:st.reward,harm:st.harm,d:Math.max(0,distance),slowUntil:0};if(kind==='shield'||st.shield){e.shield=(st.shield||55)*scale;e.maxShield=e.shield;}const behavior=st.behavior||kind;if(['healer','broodqueen','hillrunner','scrollguard','tideshaper','cloudraptor','rallyboss'].includes(behavior))e.abilityAt=this.time+({healer:4,broodqueen:8,hillrunner:st.boss?8:6,scrollguard:st.boss?9:8,tideshaper:st.boss?8:6,cloudraptor:st.boss?8:7,rallyboss:8}[behavior]);if(st.boss&&e.abilityAt!==undefined)e.abilityAt=Math.min(e.abilityAt,this.time+4);const pulse=enemyPulse(e);if(pulse)e.pulseAt=this.time+(st.boss?Math.min(4,pulse.interval):pulse.interval);if(st.initialPhase!==undefined)e.astralMode=st.initialPhase;this.enemies.push(e);return e;}
+ spawn(kind,distance=0,route=0,wave=this.wave){const st=ENEMIES[kind],scale=enemyHealthScale(this.chapter,wave,kind),id=this.nextId++;const e={map:this.chapter,route,wave,bornAt:this.time,id,kind,towerAttackAt:this.time+1.1+(id%8)*.08,hp:st.hp*scale,maxHp:st.hp*scale,speed:st.speed*(1+Math.min(this.chapter,4)*.05),reward:st.reward,harm:st.harm,d:Math.max(0,distance),slowUntil:0};if(kind==='shield'||st.shield){e.shield=(st.shield||55)*scale;e.maxShield=e.shield;}const behavior=st.behavior||kind;if(['healer','broodqueen','hillrunner','scrollguard','tideshaper','cloudraptor','rallyboss'].includes(behavior))e.abilityAt=this.time+({healer:4,broodqueen:8,hillrunner:st.boss?8:6,scrollguard:st.boss?9:8,tideshaper:st.boss?8:6,cloudraptor:st.boss?8:7,rallyboss:8}[behavior]);if(st.boss&&e.abilityAt!==undefined)e.abilityAt=Math.min(e.abilityAt,this.time+4);const pulse=enemyPulse(e);if(pulse)e.pulseAt=this.time+(st.boss?Math.min(3,pulse.interval):pulse.interval);if(st.initialPhase!==undefined)e.astralMode=st.initialPhase;if(st.boss){e.bossReadyAt=this.time+4;this.effects.push({kind:'boss-arrival',to:enemyPosition(e),color:enemyWeapon(kind).color,life:2,max:2});this.emit('boss-arrive',{enemy:kind,name:st.name});}this.enemies.push(e);return e;}
  skillCost(){return SKILL_BASE_COST+this.skillUses*SKILL_COST_STEP;}
  skill(){const cost=this.skillCost();if(this.phase!=='battle'||this.time<this.skillReady||this.ink<cost)return false;this.ink-=cost;this.skillUses++;this.skillReady=this.time+SKILL_COOLDOWN;for(const e of this.enemies){e.hp-=100;if(!(hasIceShell(e)))e.slowUntil=this.time+3;}this.effects.push({kind:'rain',life:1,max:1});this.emit('skill',{cost,nextCost:this.skillCost()});return true;}
  step(dt){dt=Math.max(0,Math.min(dt,.1));for(const fx of this.effects)fx.life-=dt;this.effects=this.effects.filter(f=>f.life>0);if(this.phase==='intermission'){this.phase='battle';this.pendingWaves=[];}
@@ -808,7 +862,7 @@ export class Game {
  this.updateEnemies(dt);
  this.updateTowerAttacks();
  for(const t of this.activeTowers)this.attack(t,dt);
- for(const e of this.enemies){if(e.hp<=0){const cap=Math.max(this.activeTowers.some(t=>hasRune(getWord(t.word),'luck'))?10:0,...this.activeTowers.filter(t=>getWord(t.word).type==='income').map(t=>getWord(t.word).tier>=4?35:getWord(t.word).tier>=3?25:15));const bounty=e.bountyUntil>this.time?Math.min(e.bounty||0,Math.max(0,cap-this.bountyEarned)):0;this.bountyEarned+=bounty;const earned=this.killInk(e)+bounty;this.ink+=earned;this.totalEarned+=earned;if(bounty)this.effects.push({kind:'coin',to:enemyPosition(e),amount:bounty,life:.8,max:.8});if(e.soulUntil>this.time&&this.soulHealed<1&&this.hp<CHAPTERS[this.chapter].hp){this.hp++;this.soulHealed++;}this.kills++;this.effects.push({kind:'pop',to:enemyPosition(e),color:'#556b58',life:.45,max:.45});if(e.kind==='beaconrunner'){const p=enemyPosition(e);for(const ally of this.enemies)if(ally!==e&&ally.hp>0&&Math.hypot(enemyPosition(ally).x-p.x,enemyPosition(ally).y-p.y)<110)ally.rallyUntil=Math.max(ally.rallyUntil||0,this.time+3);this.effects.push({kind:'blast',to:p,color:'#bd7a43',life:.5,max:.5});}if(e.kind==='split'){this.spawn('small',e.d,e.route,e.wave);this.spawn('small',e.d-12,e.route,e.wave);}}else if(e.d>=enemyLength(e)){const harm=Math.max(1,e.harm-(e.weakenUntil>this.time?1:0)),blocked=Math.min(harm,this.barrierRemaining());this.barrierSpent+=blocked;this.hp=Math.max(0,this.hp-harm+blocked);if(this.hp===0&&!this.reviveUsed&&this.activeTowers.some(t=>hasRune(getWord(t.word),'revive'))){this.hp=1;this.reviveUsed=true;this.emit('revive');}this.emit('leak',{blocked,damage:harm-blocked});}}
+ for(const e of this.enemies){if(e.hp<=0){const cap=Math.max(this.activeTowers.some(t=>hasRune(getWord(t.word),'luck'))?10:0,...this.activeTowers.filter(t=>getWord(t.word).type==='income').map(t=>getWord(t.word).tier>=4?35:getWord(t.word).tier>=3?25:15));const bounty=e.bountyUntil>this.time?Math.min(e.bounty||0,Math.max(0,cap-this.bountyEarned)):0;this.bountyEarned+=bounty;const earned=this.killInk(e)+bounty;this.ink+=earned;this.totalEarned+=earned;if(bounty)this.effects.push({kind:'coin',to:enemyPosition(e),amount:bounty,life:.8,max:.8});if(e.soulUntil>this.time&&this.soulHealed<1&&this.hp<CHAPTERS[this.chapter].hp){this.hp++;this.soulHealed++;}this.kills++;if(ENEMIES[e.kind].boss)this.emit('boss-defeated',{name:ENEMIES[e.kind].name});this.effects.push({kind:'pop',to:enemyPosition(e),color:'#556b58',life:.45,max:.45});if(e.kind==='beaconrunner'){const p=enemyPosition(e);for(const ally of this.enemies)if(ally!==e&&ally.hp>0&&Math.hypot(enemyPosition(ally).x-p.x,enemyPosition(ally).y-p.y)<110)ally.rallyUntil=Math.max(ally.rallyUntil||0,this.time+3);this.effects.push({kind:'blast',to:p,color:'#bd7a43',life:.5,max:.5});}if(e.kind==='split'){this.spawn('small',e.d,e.route,e.wave);this.spawn('small',e.d-12,e.route,e.wave);}}else if(e.d>=enemyLength(e)){const harm=Math.max(1,e.harm-(e.weakenUntil>this.time?1:0)),blocked=Math.min(harm,this.barrierRemaining());this.barrierSpent+=blocked;this.hp=Math.max(0,this.hp-harm+blocked);if(this.hp===0&&!this.reviveUsed&&this.activeTowers.some(t=>hasRune(getWord(t.word),'revive'))){this.hp=1;this.reviveUsed=true;this.emit('revive');}this.emit('leak',{blocked,damage:harm-blocked});}}
  this.enemies=this.enemies.filter(e=>e.hp>0&&e.d<enemyLength(e));if(this.hp<=0){this.phase='lost';this.emit('lost');}else this.settleWaves();
  }
  settleWaves(){
@@ -838,10 +892,10 @@ export class Game {
   const living=this.enemies.filter(e=>e.hp>0&&e.d<enemyLength(e));
   for(const e of living){
    const behavior=enemyBehavior(e),boss=ENEMIES[e.kind].boss,canAct=!(e.silencedUntil>this.time||e.freezeUntil>this.time);
-   const wasEnraged=e.enraged;const data=ENEMIES[e.kind],regen=data.regenRate||(e.kind==='regen'?.02:0);if(regen&&!(e.poisonUntil>this.time||e.healBlockUntil>this.time))e.hp=Math.min(e.maxHp,e.hp+e.maxHp*regen*dt);
-   if(e.poisonUntil>this.time-dt)e.hp-=Math.min(dt,Math.max(0,e.poisonUntil-(this.time-dt)))*e.poisonDps*(1-((e.lightUntil>this.time||e.markUntil>this.time)?0:(data.poisonResist||0)));
-   if(e.bleedUntil>this.time-dt)e.hp-=Math.min(dt,Math.max(0,e.bleedUntil-(this.time-dt)))*e.bleedDps;
-   if(e.burnUntil>this.time-dt)e.hp-=Math.min(dt,Math.max(0,e.burnUntil-(this.time-dt)))*e.burnDps*(1-(data.burnResist||0));
+   const support=this.bossSupport(e),wasEnraged=e.enraged;const data=ENEMIES[e.kind],regen=Math.max(support.regen,data.regenRate||(e.kind==='regen'?.02:0));if(regen&&!(e.poisonUntil>this.time||e.healBlockUntil>this.time))e.hp=Math.min(e.maxHp,e.hp+e.maxHp*regen*dt);
+   if(e.poisonUntil>this.time-dt)e.hp-=Math.min(dt,Math.max(0,e.poisonUntil-(this.time-dt)))*e.poisonDps*(1-support.guard)*(1-((e.lightUntil>this.time||e.markUntil>this.time)?0:(data.poisonResist||0)));
+   if(e.bleedUntil>this.time-dt)e.hp-=Math.min(dt,Math.max(0,e.bleedUntil-(this.time-dt)))*e.bleedDps*(1-support.guard);
+   if(e.burnUntil>this.time-dt)e.hp-=Math.min(dt,Math.max(0,e.burnUntil-(this.time-dt)))*e.burnDps*(1-support.guard)*(1-(data.burnResist||0));
    if(e.hp<=0)continue;
    if(['brood','ironboss','inkking'].includes(e.kind)&&e.hp<=e.maxHp*.5&&!e.enraged){
     e.enraged=true;
@@ -859,19 +913,19 @@ export class Game {
     if(phase.mode!==undefined)e.astralMode=phase.mode;
     if(data.boss)this.emit('boss-phase',{name:data.name});
    }
-   if(boss&&e.enraged&&!wasEnraged){if(e.pulseAt!==undefined)e.pulseAt=Math.min(e.pulseAt,this.time+2);if(e.abilityAt!==undefined)e.abilityAt=Math.min(e.abilityAt,this.time+2);}
+   if(boss&&e.enraged&&!wasEnraged){e.bossReadyAt=Math.min(e.bossReadyAt??this.time+2,this.time+2);if(e.pulseAt!==undefined)e.pulseAt=Math.min(e.pulseAt,this.time+2);if(e.abilityAt!==undefined)e.abilityAt=Math.min(e.abilityAt,this.time+2);}
    const pulse=enemyPulse(e);
-   if(pulse&&e.pulseAt===undefined)e.pulseAt=(e.bornAt??this.time)+(boss?Math.min(4,pulse.interval):pulse.interval);
+   if(pulse&&e.pulseAt===undefined)e.pulseAt=(e.bornAt??this.time)+(boss?Math.min(3,pulse.interval):pulse.interval);
    if(pulse&&canAct&&this.time>=e.pulseAt&&(e.pulses||0)<pulse.limit){
     const allies=[e,...living.filter(a=>a!==e&&a.hp>0&&nearby(e,a,pulse.radius||110)&&(!pulse.airOnly||isAir(a)))].slice(0,pulse.targets||3);
     if(pulse.kind==='heal')for(const a of allies){if(!(a.poisonUntil>this.time||a.healBlockUntil>this.time))a.hp=Math.min(a.maxHp,a.hp+a.maxHp*pulse.ratio);}
-    if(pulse.kind==='shield')for(const a of allies){a.shield=Math.max(a.shield||0,e.maxHp*pulse.ratio);a.maxShield=Math.max(a.maxShield||0,a.shield);}
+    if(pulse.kind==='shield')for(const a of allies){const shield=boss&&a!==e?Math.min(e.maxHp*pulse.ratio,a.maxHp*.35):e.maxHp*pulse.ratio;a.shield=Math.max(a.shield||0,shield);a.maxShield=Math.max(a.maxShield||0,a.shield);}
     if(pulse.kind==='guard')for(const a of allies){a.guardPower=Math.max(a.guardUntil>this.time?a.guardPower||0:0,pulse.ratio);a.guardUntil=Math.max(a.guardUntil||0,this.time+3);}
     if(pulse.kind==='jam')e.jamUntil=this.time+pulse.duration;
     if(pulse.kind==='haste'&&(boss||!(e.slowUntil>this.time)))for(const a of allies)a.rallyUntil=Math.max(a.rallyUntil||0,this.time+3);
     if(pulse.kind==='summon')for(let i=0;i<pulse.count;i++)this.spawn(pulse.unit,e.d-18*(i+1),e.route,e.wave);
     if(pulse.kind==='blink'&&!(e.slowUntil>this.time)&&!(e.freezeUntil>this.time))e.d+=pulse.distance;
-    e.pulses=(e.pulses||0)+1;e.pulseAt=this.time+pulse.interval*(boss&&e.enraged?.75:1);this.effects.push({kind:'enemy-skill',to:enemyPosition(e),color:enemyWeapon(e.kind).color,skill:pulse.kind,boss,enemy:e.kind,name:boss?bossSkillName(e.kind):data.name,life:.8,max:.8});
+    e.pulses=(e.pulses||0)+1;e.pulseAt=this.time+(boss?bossPulseInterval(e.kind,!!e.enraged):pulse.interval);this.effects.push({kind:'enemy-skill',to:enemyPosition(e),color:enemyWeapon(e.kind).color,skill:pulse.kind,boss,enemy:e.kind,name:boss?bossSkillName(e.kind):data.name,life:.8,max:.8});
    }
    if(behavior==='rallyboss'&&canAct&&this.time>=e.abilityAt&&(e.charges||0)<3){for(const ally of living)if(ally!==e&&ally.hp>0&&nearby(e,ally,150))ally.rallyUntil=Math.max(ally.rallyUntil||0,this.time+3);e.charges=(e.charges||0)+1;e.abilityAt=this.time+(e.enraged?6:8);this.effects.push({kind:'blast',to:enemyPosition(e),color:'#c68b46',life:.5,max:.5});}
    if(e.kind==='mirrorling'&&!e.mirrored&&e.hp<=e.maxHp*.5){
@@ -881,7 +935,7 @@ export class Game {
    if(behavior==='hillrunner'&&canAct&&this.time>=e.abilityAt){if(!(e.slowUntil>this.time)&&!(e.freezeUntil>this.time)){e.d+=50;this.effects.push({kind:'pop',to:enemyPosition(e),color:ENEMIES.hillrunner.color,life:.4,max:.4});}e.abilityAt=this.time+(boss?(e.enraged?6:8):6);}
    if(behavior==='scrollguard'&&canAct&&this.time>=e.abilityAt&&(e.charges||0)<(boss?3:2)){e.shield=e.maxShield=Math.max(e.shield||0,e.maxHp*.38);e.charges=(e.charges||0)+1;e.abilityAt=this.time+(boss?(e.enraged?6.75:9):8);}
    if(behavior==='tideshaper'&&canAct&&this.time>=e.abilityAt&&(e.charges||0)<(boss?3:2)){
-    for(const ally of living.filter(a=>a!==e&&a.hp>0&&nearby(e,a,100)).slice(0,3)){const shield=e.maxHp*.25;ally.shield=Math.max(ally.shield||0,shield);ally.maxShield=Math.max(ally.maxShield||0,shield);}
+    for(const ally of living.filter(a=>a!==e&&a.hp>0&&nearby(e,a,100)).slice(0,3)){const shield=boss?ally.maxHp*.3:e.maxHp*.25;ally.shield=Math.max(ally.shield||0,shield);ally.maxShield=Math.max(ally.maxShield||0,shield);}
     e.charges=(e.charges||0)+1;e.abilityAt=this.time+(boss?(e.enraged?6:8):6);this.effects.push({kind:'blast',to:enemyPosition(e),color:ENEMIES.tideshaper.color,life:.4,max:.4});
    }
    if(behavior==='cloudraptor'&&(e.slowUntil>this.time||e.freezeUntil>this.time))e.diveUntil=Math.min(e.diveUntil||0,this.time);
@@ -898,6 +952,7 @@ export class Game {
    let movement=e.slowUntil>this.time?(e.slowFactor??.55):1;
    if(guarded&&!(hasIceShell(e)))movement=Math.min(movement,.9);
    if(e.freezeUntil>this.time)movement=0;
+   movement*=1+support.haste;
    if(e.rallyUntil>this.time)movement*=1.3;
    if(behavior==='cloudraptor'&&e.diveUntil>this.time&&!(e.slowUntil>this.time))movement*=1.55;
    if(e.kind==='lancer'&&e.hp<=e.maxHp*.5)movement*=1.35;
@@ -905,12 +960,12 @@ export class Game {
    if(e.kind==='ironboss'&&e.enraged)movement*=1.2;
    if(e.kind==='inkking'&&e.enraged)movement*=1.15;
    if(!isAir(e)&&living.some(a=>a.kind==='banner'&&a.id!==e.id&&a.hp>0&&nearby(e,a,110)))movement*=1.15;
-   if(e.towerStrikeAt>this.time)movement*=.45;
+   if(e.towerStrikeAt>this.time||e.bossStrikeAt>this.time)movement*=.45;
    e.d+=e.speed*dt*movement;
   }
  }
  attack(t,dt){
-  if(!towerActive(t))return;
+  if(!towerActive(t)||t.disruptedUntil>this.time)return;
   const w=getWord(t.word),p=this.pads[t.pad],stats=towerStats(t),rules=wordRules(w),trait=WORD_TRAITS[w.trait];
   t.cooldown-=dt;if(t.cooldown>0)return;
   const inRange=e=>Math.hypot(enemyPosition(e).x-p.x,enemyPosition(e).y-p.y)<=stats.range;
@@ -937,7 +992,7 @@ export class Game {
    if(behavior==='astral'&&!revealed&&!(w.type==='heavy'&&astralPhase(e,this.time)===0)&&PHYSICAL_TYPES.has(w.type)===(astralPhase(e,this.time)===0))special*=.65;
    if(ENEMIES[e.kind].resistTypes?.includes(w.type)&&!revealed)special*=1-(ENEMIES[e.kind].resistance||0);
    const protectedByWard=!revealed&&this.enemies.some(a=>a.hp>0&&a.kind==='ward'&&a.id!==e.id&&Math.hypot(enemyPosition(a).x-enemyPosition(e).x,enemyPosition(a).y-enemyPosition(e).y)<110);
-   const protection=Math.max(protectedByWard?.12:0,!revealed&&e.guardUntil>this.time?(e.guardPower||0):0);
+   const protection=Math.max(this.bossSupport(e).guard,protectedByWard?.12:0,!revealed&&e.guardUntil>this.time?(e.guardPower||0):0);
    let amount=damage*m*special*(1-armor)*(1-protection)*(e.markUntil>this.time?1+e.markPower:1);
    if(hasRune(w,'edge')&&['heavy','pierce'].includes(w.type))amount*=1.05;
    if(hasRune(w,'slayer')&&ENEMIES[e.kind].boss)amount*=1.12;
@@ -952,6 +1007,8 @@ export class Game {
    if(w.type==='heavy'&&n>=4)amount+=Math.min(60,e.maxHp*.02);
    if(e.shield>0){const bonus=(w.type==='chain'?2:w.trait==='purify'?1.5:1)+(hasRune(w,'storm')?.25:0),absorbed=Math.min(e.shield,amount*bonus);e.shield-=absorbed;amount-=absorbed/bonus;}
    e.hp-=Math.max(0,amount);
+   const reflected=Math.max(this.bossSupport(e).reflect,ENEMIES[e.kind].boss&&bossPower(e.kind).reflect&&(e.bossStrikeAt>this.time||e.reflectUntil>this.time)?.12:0);
+   if(e.hp>0&&amount>0&&reflected&&!(t.reflectReadyAt>this.time)){t.reflectReadyAt=this.time+.8;const raw=Math.min(amount*reflected,towerDefense(t).maxHp*.03);this.damageTower(t,raw,e,false);this.effects.push({kind:'reflected',from:enemyPosition(e),to:{...p},color:'#9a70a2',life:.6,max:.6});}
    if(w.type==='pulse')e.siegeWeakUntil=Math.max(e.siegeWeakUntil||0,this.time+2.5);
    if(w.type==='chain'&&e.towerStrikeAt>this.time&&!(e.staggerReady>this.time)){e.towerStrikeAt+=.25;e.staggerReady=this.time+1;}
    if(w.type==='mark'){e.markPower=Math.max(e.markUntil>this.time?e.markPower:0,n>=4?.3:n>=3?.22:.15);e.markUntil=this.time+(n>=4?5:3);}
@@ -1010,18 +1067,19 @@ export class Game {
   if(hasRune(w,'bloom')){const q=enemyPosition(target);for(const side of targets.filter(e=>e!==target&&Math.hypot(enemyPosition(e).x-q.x,enemyPosition(e).y-q.y)<45).slice(0,2))hit(side,.15);}
   t.cooldown=stats.rate*(hasRune(w,'tempo')&&t.shots%4===0?.88:1)*(1+disruption)/(1+haste);
  }
- export(){const {effects,events,_wordCacheKey,_wordCache,...data}=this;return {...data,towers:this.towers.map(t=>({...t})),enemies:this.enemies.map(e=>({...e})),queue:this.queue.map(e=>({...e})),hand:this.hand.map(t=>({...t})),unlockedPads:[...this.unlockedPads],bossDraws:this.bossDraws.map(x=>({...x})),zones:this.zones.map(z=>({...z})),pendingWaves:this.pendingWaves?[...this.pendingWaves]:this.phase==='battle'&&this.wave>0?[this.wave]:[],version:4};}
+ export(){const {effects,events,_wordCacheKey,_wordCache,...data}=this;return {...data,towers:this.towers.map(t=>({...t})),enemies:this.enemies.map(e=>({...e,...(e.bossTargets?{bossTargets:[...e.bossTargets]}:{})})),queue:this.queue.map(e=>({...e})),hand:this.hand.map(t=>({...t})),unlockedPads:[...this.unlockedPads],bossDraws:this.bossDraws.map(x=>({...x})),zones:this.zones.map(z=>({...z})),pendingWaves:this.pendingWaves?[...this.pendingWaves]:this.phase==='battle'&&this.wave>0?[this.wave]:[],version:4};}
  static restore(data){
  const finite=n=>typeof n==='number'&&Number.isFinite(n),int=n=>Number.isInteger(n)&&n>=0,kind=k=>Object.hasOwn(ENEMIES,k);
  if(!data||![1,2,3,4].includes(data.version)||!int(data.chapter)||!CHAPTERS[data.chapter]||!int(data.wave)||(data.endless!==undefined&&typeof data.endless!=='boolean')||(!data.endless&&data.wave>(data.version<3?CHAPTERS[data.chapter].rounds:CHAPTERS[data.chapter].waves))||!['prepare','battle','intermission','won','lost'].includes(data.phase)||!['ink','hp','time','skillReady','totalEarned'].every(k=>finite(data[k])&&data[k]>=0)||data.hp>CHAPTERS[data.chapter].hp||!['kills','nextId'].every(k=>int(data[k]))||!finite(data.spawnTime)||!Array.isArray(data.towers)||!Array.isArray(data.enemies)||!Array.isArray(data.queue))throw Error('Invalid save');
  if(data.towers.length>PADS.length||new Set(data.towers.map(t=>t?.pad)).size!==data.towers.length||data.towers.some(t=>!t||!WORDS.some(w=>w.word===t.word)||!int(t.pad)||!PADS[t.pad]||(!Number.isInteger(t.level)||(data.version===1?![1,2,3].includes(t.level):t.level<getWord(t.word).tier||t.level>getWord(t.word).maxLevel))||!int(t.id)||!finite(t.cooldown))||data.enemies.some(e=>!e||!kind(e.kind)||!int(e.id)||!['hp','maxHp','speed','reward','harm','d','slowUntil'].every(k=>finite(e[k]))||e.maxHp<=0||e.speed<=0||e.d<0)||data.queue.some(e=>!e||!kind(e.kind)))throw Error('Invalid save');
  if(data.enemies.some(e=>(e.shield!==undefined&&(!finite(e.shield)||e.shield<0))||(e.maxShield!==undefined&&(!finite(e.maxShield)||e.maxShield<0))))throw Error('Invalid shield state');
- if(data.towers.some(t=>(t.hp!==undefined&&(!finite(t.hp)||t.hp<0))||['repairReadyAt','hitUntil','chillUntil','corrodedUntil','counterReady'].some(k=>t[k]!==undefined&&(!finite(t[k])||t[k]<0))))throw Error('Invalid tower durability');
+ if(data.towers.some(t=>(t.hp!==undefined&&(!finite(t.hp)||t.hp<0))||['repairReadyAt','hitUntil','chillUntil','corrodedUntil','disruptedUntil','reflectReadyAt','counterReady'].some(k=>t[k]!==undefined&&(!finite(t[k])||t[k]<0))))throw Error('Invalid tower durability');
  if(data.towers.some(t=>t.rebuilds!==undefined&&(!Number.isSafeInteger(t.rebuilds)||t.rebuilds<0)))throw Error('Invalid rebuild count');
  if(data.reviveUsed!==undefined&&typeof data.reviveUsed!=='boolean')throw Error('Invalid revival');
  if(data.barrierSpent!==undefined&&(!int(data.barrierSpent)||data.barrierSpent>2)||data.soulHealed!==undefined&&(!int(data.soulHealed)||data.soulHealed>1))throw Error('Invalid semantic round state');
  if(data.bountyEarned!==undefined&&(!int(data.bountyEarned)||data.bountyEarned>35))throw Error('Invalid bounty');
- if(data.enemies.some(e=>['abilityAt','poisonDps','poisonUntil','burnDps','burnUntil','markUntil','markPower','breakUntil','lightUntil','bountyUntil','bounty','freezeUntil','freezeReady','slowFactor','summons','bornAt','rallyUntil','diveUntil','charges','shellHits','astralPeriod','pulseAt','pulses','soulUntil','weakenUntil','healBlockUntil','recoilReady','bleedDps','bleedUntil','silencedUntil','silenceReady','guardUntil','guardPower','jamUntil','towerAttackAt','towerStrikeAt','siegeWeakUntil','staggerReady'].some(k=>e[k]!==undefined&&(!finite(e[k])||e[k]<0))||(e.enraged!==undefined&&typeof e.enraged!=='boolean')||['mirrored','isCopy'].some(k=>e[k]!==undefined&&typeof e[k]!=='boolean')||['burn','bleed'].some(prefix=>e[prefix+'Until']!==undefined&&!finite(e[prefix+'Dps']))))throw Error('Invalid enemy ability');
+ if(data.enemies.some(e=>['abilityAt','poisonDps','poisonUntil','burnDps','burnUntil','markUntil','markPower','breakUntil','lightUntil','bountyUntil','bounty','freezeUntil','freezeReady','slowFactor','summons','bornAt','rallyUntil','diveUntil','charges','shellHits','astralPeriod','pulseAt','pulses','soulUntil','weakenUntil','healBlockUntil','recoilReady','bleedDps','bleedUntil','silencedUntil','silenceReady','guardUntil','guardPower','jamUntil','towerAttackAt','towerStrikeAt','bossReadyAt','bossStrikeAt','reflectUntil','siegeWeakUntil','staggerReady'].some(k=>e[k]!==undefined&&(!finite(e[k])||e[k]<0))||(e.enraged!==undefined&&typeof e.enraged!=='boolean')||['mirrored','isCopy'].some(k=>e[k]!==undefined&&typeof e[k]!=='boolean')||['burn','bleed'].some(prefix=>e[prefix+'Until']!==undefined&&!finite(e[prefix+'Dps']))))throw Error('Invalid enemy ability');
+ if(data.enemies.some(e=>(e.bossCasts!==undefined&&(!int(e.bossCasts)||e.bossCasts>Number.MAX_SAFE_INTEGER))||(e.bossTargets!==undefined&&(!ENEMIES[e.kind].boss||!Array.isArray(e.bossTargets)||e.bossTargets.length<1||e.bossTargets.length>4||new Set(e.bossTargets).size!==e.bossTargets.length||!e.bossTargets.every(int)))||(e.bossTargets!==undefined)!==(e.bossStrikeAt!==undefined)))throw Error('Invalid boss cast');
  if(data.enemies.some(e=>['towerTarget','towerLastTarget'].some(k=>e[k]!==undefined&&!int(e[k]))))throw Error('Invalid tower target');
  if(data.enemies.some(e=>e.guardPower!==undefined&&e.guardPower>.3))throw Error('Invalid guard power');
  if(data.enemies.some(e=>e.astralMode!==undefined&&![0,1].includes(e.astralMode)))throw Error('Invalid astral mode');
@@ -1056,6 +1114,6 @@ export class Game {
   if(g.phase==='intermission'){g.phase='battle';g.autoWaveAt=Math.max(g.time,g.autoWaveAt)||g.time+.001;}
   else g.autoWaveAt=g.phase==='battle'&&g.wave%3!==0?g.time+WAVE_INTERVAL:0;
  }else g.pendingWaves=[...data.pendingWaves];
- g.towers=g.towers.map(t=>({...t,hp:Math.min(t.hp??towerDefense(t).maxHp,towerDefense(t).maxHp),repairReadyAt:t.repairReadyAt??0}));g.enemies=g.enemies.map(e=>({...e,towerAttackAt:e.towerAttackAt??g.time+1.4,map:g.chapter,route:e.route??0,wave:e.wave??g.wave}));g.queue=g.queue.map(e=>({...e}));if(!data.bossDraws){const seen=new Map([...g.enemies,...g.queue].filter(e=>ENEMIES[e.kind]?.boss).map(e=>[e.wave??g.wave,e.kind]));g.bossDraws=[...seen].map(([wave,kind])=>({wave,kind})).slice(-12);}g.hand=g.hand.map(t=>({...t}));return g;
+ g.towers=g.towers.map(t=>({...t,hp:Math.min(t.hp??towerDefense(t).maxHp,towerDefense(t).maxHp),repairReadyAt:t.repairReadyAt??0}));g.enemies=g.enemies.map(e=>({...e,...(e.bossTargets?{bossTargets:[...e.bossTargets]}:{}),towerAttackAt:e.towerAttackAt??g.time+1.4,map:g.chapter,route:e.route??0,wave:e.wave??g.wave}));g.queue=g.queue.map(e=>({...e}));if(!data.bossDraws){const seen=new Map([...g.enemies,...g.queue].filter(e=>ENEMIES[e.kind]?.boss).map(e=>[e.wave??g.wave,e.kind]));g.bossDraws=[...seen].map(([wave,kind])=>({wave,kind})).slice(-12);}g.hand=g.hand.map(t=>({...t}));return g;
  }
 }
