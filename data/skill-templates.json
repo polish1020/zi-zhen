@@ -1,0 +1,976 @@
+{
+  "suffixes": {
+    "符咒": {
+      "school": "mark",
+      "trait": "balanced",
+      "extra": "seal",
+      "suffixFirst": false
+    },
+    "咒": {
+      "school": "mark",
+      "trait": "balanced",
+      "extra": "seal",
+      "suffixFirst": false
+    },
+    "印": {
+      "school": "mark",
+      "trait": "balanced",
+      "extra": "seal",
+      "suffixFirst": false
+    },
+    "印记": {
+      "school": "mark",
+      "trait": "balanced",
+      "extra": "seal",
+      "suffixFirst": false
+    },
+    "之印": {
+      "school": "mark",
+      "trait": "balanced",
+      "extra": "seal",
+      "suffixFirst": false
+    },
+    "之力": {
+      "school": null,
+      "trait": null,
+      "extra": "inspire",
+      "suffixFirst": true
+    },
+    "箭": {
+      "school": null,
+      "trait": "ranged",
+      "extra": "focus",
+      "suffixFirst": false
+    },
+    "之箭": {
+      "school": null,
+      "trait": "ranged",
+      "extra": "focus",
+      "suffixFirst": false
+    },
+    "剑": {
+      "school": "pierce",
+      "trait": "blade",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "刃": {
+      "school": "pierce",
+      "trait": "blade",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "之剑": {
+      "school": "pierce",
+      "trait": "blade",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "之刃": {
+      "school": "pierce",
+      "trait": "blade",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "斩": {
+      "school": "pierce",
+      "trait": "blade",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "斩击": {
+      "school": "pierce",
+      "trait": "blade",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "枪": {
+      "school": "pierce",
+      "trait": "ranged",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "矛": {
+      "school": "pierce",
+      "trait": "ranged",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "之枪": {
+      "school": "pierce",
+      "trait": "ranged",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "之矛": {
+      "school": "pierce",
+      "trait": "ranged",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "弹": {
+      "school": null,
+      "trait": "impact",
+      "extra": "focus",
+      "suffixFirst": false
+    },
+    "飞弹": {
+      "school": null,
+      "trait": "impact",
+      "extra": "focus",
+      "suffixFirst": false
+    },
+    "球": {
+      "school": null,
+      "trait": "impact",
+      "extra": "focus",
+      "suffixFirst": false
+    },
+    "法球": {
+      "school": null,
+      "trait": "impact",
+      "extra": "focus",
+      "suffixFirst": false
+    },
+    "之球": {
+      "school": null,
+      "trait": "impact",
+      "extra": "focus",
+      "suffixFirst": false
+    },
+    "盾": {
+      "school": null,
+      "trait": "ward",
+      "extra": "barrier",
+      "suffixFirst": false
+    },
+    "护盾": {
+      "school": null,
+      "trait": "ward",
+      "extra": "barrier",
+      "suffixFirst": false
+    },
+    "之盾": {
+      "school": null,
+      "trait": "ward",
+      "extra": "barrier",
+      "suffixFirst": false
+    },
+    "守护": {
+      "school": null,
+      "trait": "ward",
+      "extra": "barrier",
+      "suffixFirst": false
+    },
+    "结界": {
+      "school": null,
+      "trait": "ward",
+      "extra": "barrier",
+      "suffixFirst": false
+    },
+    "领域": {
+      "school": null,
+      "trait": "ward",
+      "extra": "barrier",
+      "suffixFirst": false
+    },
+    "阵": {
+      "school": null,
+      "trait": "ward",
+      "extra": "thorn",
+      "suffixFirst": false
+    },
+    "法阵": {
+      "school": null,
+      "trait": "ward",
+      "extra": "thorn",
+      "suffixFirst": false
+    },
+    "之阵": {
+      "school": null,
+      "trait": "ward",
+      "extra": "thorn",
+      "suffixFirst": false
+    },
+    "光环": {
+      "school": "aura",
+      "trait": "radiance",
+      "extra": "inspire",
+      "suffixFirst": false
+    },
+    "风暴": {
+      "school": null,
+      "trait": "spread",
+      "extra": "tide",
+      "suffixFirst": false
+    },
+    "新星": {
+      "school": null,
+      "trait": "spread",
+      "extra": "tide",
+      "suffixFirst": false
+    },
+    "之雨": {
+      "school": null,
+      "trait": "spread",
+      "extra": "tide",
+      "suffixFirst": false
+    },
+    "箭雨": {
+      "school": null,
+      "trait": "spread",
+      "extra": "tide",
+      "suffixFirst": false
+    },
+    "冲击": {
+      "school": "pulse",
+      "trait": "spread",
+      "extra": "tide",
+      "suffixFirst": false
+    },
+    "冲击波": {
+      "school": "pulse",
+      "trait": "spread",
+      "extra": "tide",
+      "suffixFirst": false
+    },
+    "术": {
+      "school": null,
+      "trait": null,
+      "extra": "focus",
+      "suffixFirst": false
+    },
+    "法术": {
+      "school": null,
+      "trait": null,
+      "extra": "focus",
+      "suffixFirst": false
+    },
+    "吐息": {
+      "school": null,
+      "trait": "dragon",
+      "extra": "valor",
+      "suffixFirst": false
+    },
+    "龙息": {
+      "school": null,
+      "trait": "dragon",
+      "extra": "valor",
+      "suffixFirst": false
+    },
+    "祝福": {
+      "school": "aura",
+      "trait": "purify",
+      "extra": "inspire",
+      "suffixFirst": false
+    },
+    "之术": {
+      "school": null,
+      "trait": null,
+      "extra": "focus",
+      "suffixFirst": false
+    },
+    "长枪": {
+      "school": "pierce",
+      "trait": "ranged",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "长矛": {
+      "school": "pierce",
+      "trait": "ranged",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "长剑": {
+      "school": "pierce",
+      "trait": "blade",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "短剑": {
+      "school": "pierce",
+      "trait": "blade",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "飞剑": {
+      "school": "pierce",
+      "trait": "blade",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "利刃": {
+      "school": "pierce",
+      "trait": "blade",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "盾牌": {
+      "school": null,
+      "trait": "ward",
+      "extra": "barrier",
+      "suffixFirst": false
+    },
+    "剑气": {
+      "school": "pierce",
+      "trait": "blade",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "剑雨": {
+      "school": "pierce",
+      "trait": "spread",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "刀": {
+      "school": "pierce",
+      "trait": "blade",
+      "extra": "bleed",
+      "suffixFirst": false
+    },
+    "飞刀": {
+      "school": "pierce",
+      "trait": "ranged",
+      "extra": "bleed",
+      "suffixFirst": false
+    },
+    "爪": {
+      "school": "pierce",
+      "trait": "blade",
+      "extra": "bleed",
+      "suffixFirst": false
+    },
+    "斧": {
+      "school": "pierce",
+      "trait": "blade",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "战斧": {
+      "school": "pierce",
+      "trait": "blade",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "锤": {
+      "school": "heavy",
+      "trait": "impact",
+      "extra": "gravity",
+      "suffixFirst": false
+    },
+    "战锤": {
+      "school": "heavy",
+      "trait": "impact",
+      "extra": "gravity",
+      "suffixFirst": false
+    },
+    "炮": {
+      "school": null,
+      "trait": "ranged",
+      "extra": "gravity",
+      "suffixFirst": false
+    },
+    "火炮": {
+      "school": null,
+      "trait": "ranged",
+      "extra": "gravity",
+      "suffixFirst": false
+    },
+    "矢": {
+      "school": null,
+      "trait": "ranged",
+      "extra": "focus",
+      "suffixFirst": false
+    },
+    "飞矢": {
+      "school": null,
+      "trait": "ranged",
+      "extra": "focus",
+      "suffixFirst": false
+    },
+    "镖": {
+      "school": "pierce",
+      "trait": "ranged",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "飞镖": {
+      "school": "pierce",
+      "trait": "ranged",
+      "extra": "edge",
+      "suffixFirst": false
+    },
+    "护甲": {
+      "school": null,
+      "trait": "ward",
+      "extra": "barrier",
+      "suffixFirst": false
+    },
+    "铠甲": {
+      "school": null,
+      "trait": "ward",
+      "extra": "barrier",
+      "suffixFirst": false
+    },
+    "屏障": {
+      "school": null,
+      "trait": "ward",
+      "extra": "barrier",
+      "suffixFirst": false
+    },
+    "壁": {
+      "school": null,
+      "trait": "ward",
+      "extra": "barrier",
+      "suffixFirst": false
+    },
+    "墙": {
+      "school": null,
+      "trait": null,
+      "extra": "barrier",
+      "suffixFirst": false
+    },
+    "之墙": {
+      "school": null,
+      "trait": null,
+      "extra": "barrier",
+      "suffixFirst": false
+    },
+    "锁链": {
+      "school": "mark",
+      "trait": "bind",
+      "extra": "thorn",
+      "suffixFirst": false
+    },
+    "之环": {
+      "school": "aura",
+      "trait": "radiance",
+      "extra": "inspire",
+      "suffixFirst": false
+    },
+    "环": {
+      "school": null,
+      "trait": "spread",
+      "extra": "tide",
+      "suffixFirst": false
+    },
+    "步": {
+      "school": "fast",
+      "trait": "rapid",
+      "extra": "tempo",
+      "suffixFirst": false
+    }
+  },
+  "prefixes": {
+    "火": {
+      "school": "splash",
+      "rune": "ember"
+    },
+    "火焰": {
+      "school": "splash",
+      "rune": "ember"
+    },
+    "烈焰": {
+      "school": "splash",
+      "rune": "ember"
+    },
+    "炎": {
+      "school": "splash",
+      "rune": "ember"
+    },
+    "冰": {
+      "school": "slow",
+      "rune": "frost"
+    },
+    "寒冰": {
+      "school": "slow",
+      "rune": "frost"
+    },
+    "冰霜": {
+      "school": "slow",
+      "rune": "frost"
+    },
+    "霜": {
+      "school": "slow",
+      "rune": "frost"
+    },
+    "雪": {
+      "school": "slow",
+      "rune": "frost"
+    },
+    "雷": {
+      "school": "chain",
+      "rune": "storm"
+    },
+    "雷电": {
+      "school": "chain",
+      "rune": "storm"
+    },
+    "雷霆": {
+      "school": "chain",
+      "rune": "storm"
+    },
+    "闪电": {
+      "school": "chain",
+      "rune": "storm"
+    },
+    "电": {
+      "school": "chain",
+      "rune": "storm"
+    },
+    "风": {
+      "school": "fast",
+      "rune": "tempo"
+    },
+    "疾风": {
+      "school": "fast",
+      "rune": "tempo"
+    },
+    "狂风": {
+      "school": "fast",
+      "rune": "tempo"
+    },
+    "旋风": {
+      "school": "fast",
+      "rune": "tempo"
+    },
+    "风暴": {
+      "school": "fast",
+      "rune": "tempo"
+    },
+    "水": {
+      "school": "pulse",
+      "rune": "tide"
+    },
+    "流水": {
+      "school": "pulse",
+      "rune": "tide"
+    },
+    "潮汐": {
+      "school": "pulse",
+      "rune": "tide"
+    },
+    "海潮": {
+      "school": "pulse",
+      "rune": "tide"
+    },
+    "海浪": {
+      "school": "pulse",
+      "rune": "tide"
+    },
+    "石": {
+      "school": "heavy",
+      "rune": "gravity"
+    },
+    "岩": {
+      "school": "heavy",
+      "rune": "barrier"
+    },
+    "山": {
+      "school": "heavy",
+      "rune": "gravity"
+    },
+    "山石": {
+      "school": "heavy",
+      "rune": "barrier"
+    },
+    "岩石": {
+      "school": "heavy",
+      "rune": "barrier"
+    },
+    "大地": {
+      "school": "heavy",
+      "rune": "gravity"
+    },
+    "土": {
+      "school": "heavy",
+      "rune": "barrier"
+    },
+    "光": {
+      "school": "aura",
+      "rune": "shine"
+    },
+    "圣光": {
+      "school": "aura",
+      "rune": "shine"
+    },
+    "神圣": {
+      "school": "aura",
+      "rune": "shine"
+    },
+    "光明": {
+      "school": "aura",
+      "rune": "shine"
+    },
+    "星": {
+      "school": "aura",
+      "rune": "sky"
+    },
+    "星辰": {
+      "school": "aura",
+      "rune": "sky"
+    },
+    "日": {
+      "school": "aura",
+      "rune": "ember"
+    },
+    "月": {
+      "school": "aura",
+      "rune": "frost"
+    },
+    "日月": {
+      "school": "aura",
+      "rune": "shine"
+    },
+    "太阳": {
+      "school": "aura",
+      "rune": "ember"
+    },
+    "月光": {
+      "school": "aura",
+      "rune": "shine"
+    },
+    "暗影": {
+      "school": "echo",
+      "rune": "backstab"
+    },
+    "幻": {
+      "school": "echo",
+      "rune": "echo"
+    },
+    "幻影": {
+      "school": "echo",
+      "rune": "echo"
+    },
+    "梦": {
+      "school": "echo",
+      "rune": "soul"
+    },
+    "影": {
+      "school": "echo",
+      "rune": "flank"
+    },
+    "毒": {
+      "school": "poison",
+      "rune": "toxin"
+    },
+    "剧毒": {
+      "school": "poison",
+      "rune": "venom"
+    },
+    "腐蚀": {
+      "school": "poison",
+      "rune": "venom"
+    },
+    "自然": {
+      "school": "basic",
+      "rune": "thorn"
+    },
+    "生命": {
+      "school": "basic",
+      "rune": "mend"
+    },
+    "复苏": {
+      "school": "basic",
+      "rune": "mend"
+    },
+    "治愈": {
+      "school": "basic",
+      "rune": "mend"
+    },
+    "守护": {
+      "school": "aura",
+      "rune": "barrier"
+    },
+    "防御": {
+      "school": "heavy",
+      "rune": "barrier"
+    },
+    "金": {
+      "school": "income",
+      "rune": "prosper"
+    },
+    "黄金": {
+      "school": "income",
+      "rune": "prosper"
+    },
+    "财富": {
+      "school": "income",
+      "rune": "prosper"
+    },
+    "剑": {
+      "school": "pierce",
+      "rune": "edge"
+    },
+    "剑气": {
+      "school": "pierce",
+      "rune": "edge"
+    },
+    "刀": {
+      "school": "pierce",
+      "rune": "bleed"
+    },
+    "锐刃": {
+      "school": "pierce",
+      "rune": "edge"
+    },
+    "勇气": {
+      "school": "basic",
+      "rune": "valor"
+    },
+    "力量": {
+      "school": "heavy",
+      "rune": "valor"
+    },
+    "智慧": {
+      "school": "basic",
+      "rune": "study"
+    },
+    "精神": {
+      "school": "basic",
+      "rune": "focus"
+    },
+    "灵魂": {
+      "school": "echo",
+      "rune": "soul"
+    },
+    "战斗": {
+      "school": "basic",
+      "rune": "slayer"
+    },
+    "奥术": {
+      "school": "basic",
+      "rune": "focus"
+    },
+    "魔法": {
+      "school": "basic",
+      "rune": "focus"
+    },
+    "能量": {
+      "school": "basic",
+      "rune": "valor"
+    },
+    "猛虎": {
+      "school": "basic",
+      "rune": "valor"
+    },
+    "白虎": {
+      "school": "basic",
+      "rune": "slayer"
+    },
+    "神龙": {
+      "school": "aura",
+      "rune": "shine"
+    },
+    "巨龙": {
+      "school": "heavy",
+      "rune": "gravity"
+    },
+    "苍龙": {
+      "school": "fast",
+      "rune": "tempo"
+    },
+    "凤凰": {
+      "school": "splash",
+      "rune": "revive"
+    },
+    "朱雀": {
+      "school": "splash",
+      "rune": "ember"
+    },
+    "玄武": {
+      "school": "heavy",
+      "rune": "barrier"
+    },
+    "麒麟": {
+      "school": "aura",
+      "rune": "luck"
+    },
+    "雄鹰": {
+      "school": "sniper",
+      "rune": "sky"
+    },
+    "猎豹": {
+      "school": "fast",
+      "rune": "tempo"
+    },
+    "野狼": {
+      "school": "fast",
+      "rune": "bleed"
+    },
+    "巨熊": {
+      "school": "heavy",
+      "rune": "gravity"
+    },
+    "毒蛇": {
+      "school": "poison",
+      "rune": "toxin"
+    },
+    "烈火": {
+      "school": "splash",
+      "rune": "ember"
+    },
+    "寒霜": {
+      "school": "slow",
+      "rune": "frost"
+    },
+    "极寒": {
+      "school": "slow",
+      "rune": "frost"
+    },
+    "暴雪": {
+      "school": "slow",
+      "rune": "frost"
+    },
+    "毒雾": {
+      "school": "poison",
+      "rune": "toxin"
+    },
+    "岩浆": {
+      "school": "splash",
+      "rune": "ember"
+    },
+    "熔岩": {
+      "school": "splash",
+      "rune": "ember"
+    },
+    "天雷": {
+      "school": "chain",
+      "rune": "storm"
+    },
+    "流光": {
+      "school": "aura",
+      "rune": "shine"
+    },
+    "圣灵": {
+      "school": "aura",
+      "rune": "shine"
+    },
+    "黑暗": {
+      "school": "echo",
+      "rune": "soul"
+    },
+    "冥火": {
+      "school": "splash",
+      "rune": "ember"
+    },
+    "暴风雪": {
+      "school": "slow",
+      "rune": "frost"
+    },
+    "火凤凰": {
+      "school": "splash",
+      "rune": "revive"
+    },
+    "地狱火": {
+      "school": "splash",
+      "rune": "ember"
+    },
+    "火球": {
+      "school": "splash",
+      "rune": "ember"
+    },
+    "冰封": {
+      "school": "slow",
+      "rune": "frost"
+    },
+    "暴风": {
+      "school": "fast",
+      "rune": "tempo"
+    },
+    "毒云": {
+      "school": "poison",
+      "rune": "toxin"
+    },
+    "毒液": {
+      "school": "poison",
+      "rune": "toxin"
+    },
+    "瘴气": {
+      "school": "poison",
+      "rune": "toxin"
+    },
+    "法力": {
+      "school": "basic",
+      "rune": "focus"
+    },
+    "魔力": {
+      "school": "basic",
+      "rune": "focus"
+    },
+    "缄默": {
+      "school": "mark",
+      "rune": "silence"
+    },
+    "召唤": {
+      "school": "basic",
+      "rune": "brood"
+    },
+    "隐身": {
+      "school": "echo",
+      "rune": "backstab"
+    },
+    "潜行": {
+      "school": "echo",
+      "rune": "backstab"
+    },
+    "净化": {
+      "school": "aura",
+      "rune": "shine"
+    },
+    "祝福": {
+      "school": "aura",
+      "rune": "luck"
+    },
+    "复活": {
+      "school": "basic",
+      "rune": "revive"
+    },
+    "重生": {
+      "school": "basic",
+      "rune": "revive"
+    },
+    "生长": {
+      "school": "basic",
+      "rune": "growth"
+    },
+    "盘古": {
+      "school": "heavy",
+      "rune": "gravity"
+    },
+    "女娲": {
+      "school": "basic",
+      "rune": "mend"
+    },
+    "伏羲": {
+      "school": "mark",
+      "rune": "study"
+    },
+    "神农": {
+      "school": "basic",
+      "rune": "mend"
+    },
+    "后羿": {
+      "school": "sniper",
+      "rune": "sky"
+    },
+    "嫦娥": {
+      "school": "aura",
+      "rune": "shine"
+    },
+    "精卫": {
+      "school": "basic",
+      "rune": "valor"
+    },
+    "大禹": {
+      "school": "pulse",
+      "rune": "tide"
+    },
+    "悟空": {
+      "school": "pierce",
+      "rune": "edge"
+    }
+  }
+}

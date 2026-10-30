@@ -322,6 +322,21 @@ html[data-standalone="true"].game-open body.playing .forge-panel { padding-botto
 .tower-meaning-row + .tower-meaning-row { margin-top:8px; }
 .tower-meaning-row .meaning-badge { margin-top:2px; }
 .tower-effects .crowd-defense-note { margin-top:6px; font-size:10px; color:#b8c9ae; }
+.vocabulary-badge { display:inline-block; vertical-align:middle; padding:2px 5px; margin-left:7px; border:1px solid #a4b69c; border-radius:4px; color:#54734d; background:#e9efe0; font:10px system-ui; letter-spacing:0; }
+.word-learning-card { margin:14px 0; padding:12px 14px; border-left:3px solid #829b72; border-radius:4px; background:#eaf0df; }
+.word-learning-card b { color:#4b6343; font-size:12px; }
+.word-learning-card p { margin:7px 0 0; font-size:14px; color:#344c30; line-height:1.85; }
+.codex-card .codex-definition { color:#4d6545; font-size:12px; line-height:1.8; border-left:2px solid #acbd97; padding-left:8px; }
+.tower-effect-section[aria-labelledby="tower-section-learning"] { background:#d2dfb81a; padding:9px; border-radius:4px; }
+.recipe-meaning-tags { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:6px 0; }
+.recipe-meaning-tags > span { padding:2px 5px; border-radius:3px; font-size:10px; line-height:1.35; white-space:nowrap; }
+.recipe-kind-chip { color:#c7d3ba; border:1px solid #7b9472; }
+.recipe-attack-chip { color:#f0dbac; border:1px solid #af9a6f; background:#796a3822; }
+.recipe-meaning-chip { color:#e7d7ed; border:1px solid #aa90b5; background:#917c9c22; }
+@media (max-width:900px),(pointer:coarse),(display-mode:standalone) {
+ body.playing .recipe-meaning-tags { gap:3px; margin:2px 0 0; }
+ body.playing .recipe-meaning-tags > span { font-size:8px; line-height:1.3; padding:1px 3px; }
+}
 .tower-detail .tower-actions { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; margin-top:0; }
 .tower-detail .tower-actions .forge-button { width:auto; }
 @media (max-width:900px),(pointer:coarse),(display-mode:standalone) {

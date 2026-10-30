@@ -4,20 +4,22 @@
 
 ## 规则回归
 
-`node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs tests/timing.test.mjs tests/specialties.test.mjs tests/word-traits.test.mjs tests/endless-bosses.test.mjs tests/boss-pools.test.mjs tests/word-meanings.test.mjs tests/minions.test.mjs tests/progression.test.mjs tests/quality.test.mjs tests/boss-pressure.test.mjs tests/minion-tactics.test.mjs tests/pricing.test.mjs tests/campaign-economy.test.mjs tests/siege.test.mjs`：178 项通过。
+`node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs tests/timing.test.mjs tests/specialties.test.mjs tests/word-traits.test.mjs tests/endless-bosses.test.mjs tests/boss-pools.test.mjs tests/word-meanings.test.mjs tests/minions.test.mjs tests/progression.test.mjs tests/quality.test.mjs tests/boss-pressure.test.mjs tests/minion-tactics.test.mjs tests/pricing.test.mjs tests/campaign-economy.test.mjs tests/siege.test.mjs tests/vocabulary.test.mjs`：188 项通过。
 
-覆盖约 4 万词与十四类词塔、严格词序、500 随机手牌、一次性扣牌扣费、重复字、刷新费、轮末收入与修补、财塔上限、升级及拆塔、毒伤/减速/破甲/连锁/光环/斩杀、100 起每次增加 100 的最长词提示及无词不收费、提示保存、技能 30 秒冷却与涨价、无尽续战、三波固定间隔、叠波和倒计时恢复、周期及收尾 Boss、飞行路线与防空、护盾、回血与分裂、阵位解锁及涨价、旧存档迁移、非法存档拒绝、前缀词库缓存与序列化。
+覆盖 107,374 词与十四类词塔、严格词序、500 随机手牌、一次性扣牌扣费、重复字、刷新费、轮末收入与修补、财塔上限、升级及拆塔、毒伤/减速/破甲/连锁/光环/斩杀、100 起每次增加 100 的最长词提示及无词不收费、提示保存、技能 30 秒冷却与涨价、无尽续战、三波固定间隔、叠波和倒计时恢复、周期及收尾 Boss、飞行路线与防空、护盾、回血与分裂、阵位解锁及涨价、旧存档迁移、非法存档拒绝、前缀词库缓存与序列化。
 
 ## 平衡性
 
 `node tests/balance.mjs 20 --efficient --report-only --details` 与加 `--skills` 的同配置，对十章各测 20 个种子，共 400 场。使用真实手牌、收入、升级、解锁、付费刷新与拆塔回收，不注入额外资源。`--efficient` 策略允许同属性低品质词塔向更强长词替换，并在没有质量提升空间时停止盲刷；原策略保留用于比较经济盲点。技能策略在近门威胁时使用落墨，最高支付 90、预留 40 墨点。
 
-下表为当前全员攻塔、元素招式与群袭递减版本的实际结果，不是真人通关率。两策略均 177/200（88.5%）；第一章均 20/20，最低章节 65%。部分章节仍低于历史 casual 标准，因此不宣称通过原有每章 85% 门槛，也未降低断言。资源、价格、怪量和生命曲线没有因本轮调整而改动；维护策略按实际墨点支付修复和重建。
+下表为当前扩展词库、递增重建与 Boss 强化版本的实际结果。无技能 193/200（96.5%），使用技能 195/200（97.5%），全部对局正常结束；原有每章门槛保持，未放宽断言。Boss 血量乘 1.15、攻塔伤害乘 1.25、间隔乘 0.8，重建依次为投入的 50%/65%/80%/95%/100%，维护策略按实际墨点支付。词库和候选手牌增加也让自动策略更容易形成长词阵容，因此不能将胜率变化全归因于怪物数值，更不能当作儿童玩家胜率。
 
 | 策略 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 不使用技能 | 20/20 | 17/20 | 19/20 | 15/20 | 17/20 | 19/20 | 16/20 | 20/20 | 20/20 | 14/20 |
-| 近门时使用技能 | 20/20 | 19/20 | 19/20 | 17/20 | 17/20 | 19/20 | 13/20 | 20/20 | 18/20 | 15/20 |
+| 不使用技能 | 20/20 | 20/20 | 20/20 | 18/20 | 20/20 | 20/20 | 18/20 | 20/20 | 20/20 | 17/20 |
+| 近门时使用技能 | 20/20 | 20/20 | 20/20 | 18/20 | 20/20 | 20/20 | 18/20 | 20/20 | 20/20 | 19/20 |
+
+汇总见 [vocabulary-balance-summary.json](reports/vocabulary-balance-summary.json)。这是固定种子、会寻找长词和主动维护的策略结果，覆盖主线，不宣称完成无尽经济审计。
 
 以下调参过程与旧版回归记录作为历史保留；本次经济审计及三组数据见 [ECONOMY.md](ECONOMY.md)。
 
@@ -49,7 +51,7 @@
 
 `tests/word-meanings.cjs` 在 320×568、390×844、667×375、1440×1000 下检查：冰毒组合词塔双标识和说明、移动端同屏可升级、39 个附加词义筛选与索引、重生次数、成语词义、距离词实际数值、无运行错误。
 
-## 本次生产验收
+## 上一版攻塔生产验收
 
 正式域名 `https://game.polishwb1020.com` 的本轮攻塔发布复验 WebKit 四尺寸耐久、精确维修/重建扣费、实际损毁、暂停/重载、94 条攻塔说明和手机按钮同屏；线上 Chromium 基本游戏与 94 张图鉴检查通过。十个静态文件 HTTP 200，与上传内容、原生包和新增 Git 构建结果逐字节一致。规则测试 173 项通过；当前平衡实测及其限制见上表。生产部署标识和更新方法见 `DEPLOYMENT-VERCEL.md`，此前版本的验收记录保留在下文。
 
@@ -139,3 +141,13 @@
 `tests/enemy-attacks.cjs` 在 Chromium/WebKit 逐一覆盖 16 类真实攻塔渲染，另测 320×568、横屏减少动态效果、1440×1000，以及 Boss 与 24 小怪同时攻击：验证蓄力、实际掉耐久、伤害数字被画出、暂停修缮和存档状态不变。`tests/siege.cjs` 四尺寸维修流程、`tests/enemy-tactics.cjs` 四尺寸 Boss 实际施法及十尺寸响应式回归通过，无脚本错误。400 场最终主线仿真结果见上表与 `reports/enemy-attacks-summary.json`。
 
 此前两人围攻位版本的经济审计和调参记录保留为历史，最新战斗平衡以本节为准。
+
+## 本轮词库、学习释义、Boss 与重建
+
+- 188 项规则全部通过。`tests/vocabulary.test.mjs` 覆盖十类 965 条常见词审计、77 类技能后缀、非法词与超长词拒绝、寒冰符咒实际扣牌/扣费/控制、四字词与成语区分、736 条学习释义、文化分类、500 组随机手牌中的学习成语覆盖、提示优先最长词。旧版 39,900 词全部保留，新增 67,474 词，详见 [vocabulary-summary.json](reports/vocabulary-summary.json)。
+- `tests/siege.test.mjs` 验证递增重建及封顶、精确扣费、存活修复不涨次数、资本与拆除返还不增、跨轮/存档保留、旧计数缺省与非法计数；Boss 实际攻塔伤害/间隔及旧敌人生命保持。
+- Chromium/WebKit `tests/vocabulary.cjs` 四种尺寸验证暴雪、寒冰符咒、组词标签不盖字牌、成语学习释义、建造与字牌消费、成语/技能词/释义/传统文化筛选、关闭控件无聚焦框及重载恢复。详情按分类全部铺开，长内容在面板内部滚动；主游戏页面保持一屏。
+- Chromium 十尺寸响应式、四尺寸品质/攻塔/敌人技能，以及冰系 Boss 与雷霆 Boss 的真实命中和耐久反馈回归通过。构建静态包与原生资源使用同一份源文件。
+- `python3 scripts/build-lexicon.py --dictionary /tmp/wordward-jieba-dict.txt --license /tmp/wordward-jieba-LICENSE --check` 检查生成文件与固定版本来源及自有数据完全一致。
+
+正式域名上线后的验证另记发布记录；WebKit 自动化不等于实体 iPhone。

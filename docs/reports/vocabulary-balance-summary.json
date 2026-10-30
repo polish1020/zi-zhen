@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-30",
+  "scope": "Ten main chapters; 20 fixed seeds per chapter per policy; actual hand, income and maintenance; no resource injection",
+  "policies": {
+    "efficient": {
+      "wins": 193,
+      "total": 200,
+      "chapterWins": [
+        20,
+        20,
+        20,
+        18,
+        20,
+        20,
+        18,
+        20,
+        20,
+        17
+      ]
+    },
+    "efficientWithSkills": {
+      "wins": 195,
+      "total": 200,
+      "chapterWins": [
+        20,
+        20,
+        20,
+        18,
+        20,
+        20,
+        18,
+        20,
+        20,
+        19
+      ]
+    }
+  },
+  "thresholdsUnchanged": {
+    "chapter1": 0.95,
+    "chapter2": 0.9,
+    "others": 0.85
+  },
+  "allThresholdsPassed": true,
+  "allGamesTerminated": true,
+  "boss": {
+    "healthMultiplier": 1.15,
+    "towerAttackDamageMultiplier": 1.25,
+    "towerAttackIntervalMultiplier": 0.8,
+    "windupUnchanged": true
+  },
+  "rebuildPercent": [
+    50,
+    65,
+    80,
+    95,
+    100
+  ],
+  "repairBaseFractionOfMissingInvestment": 0.18,
+  "refreshCost": 50,
+  "hintBaseAndStep": 100,
+  "rules": {
+    "passed": 188,
+    "failed": 0
+  },
+  "limitations": [
+    "Automated strategy finds long words and maintains towers; results are not human or child win rates.",
+    "Vocabulary and hand candidate expansion can improve formation despite stronger bosses.",
+    "No new round-by-round economy audit or endless balance claim.",
+    "Browser WebKit emulation does not verify physical iPhone home-screen behavior."
+  ]
+}

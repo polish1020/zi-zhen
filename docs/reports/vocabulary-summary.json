@@ -1,0 +1,68 @@
+{
+  "before": 39900,
+  "after": 107374,
+  "added": 67474,
+  "removed": 0,
+  "idioms": 21811,
+  "skills": 9913,
+  "templateSkills": 9507,
+  "prefixes": 127,
+  "suffixes": 77,
+  "explanations": 736,
+  "learningIdioms": 480,
+  "culturalWords": 370,
+  "runeWords": 67212,
+  "meaningCombinations": 2731,
+  "categories": {
+    "天气气象": {
+      "checked": 108,
+      "previouslyMissing": 31,
+      "stillMissing": 0
+    },
+    "山川水土": {
+      "checked": 97,
+      "previouslyMissing": 10,
+      "stillMissing": 0
+    },
+    "动物神兽": {
+      "checked": 131,
+      "previouslyMissing": 50,
+      "stillMissing": 0
+    },
+    "植物花木": {
+      "checked": 75,
+      "previouslyMissing": 17,
+      "stillMissing": 0
+    },
+    "日常生活": {
+      "checked": 114,
+      "previouslyMissing": 6,
+      "stillMissing": 0
+    },
+    "动作状态": {
+      "checked": 102,
+      "previouslyMissing": 7,
+      "stillMissing": 0
+    },
+    "兵器战斗": {
+      "checked": 102,
+      "previouslyMissing": 39,
+      "stillMissing": 0
+    },
+    "出行职业": {
+      "checked": 75,
+      "previouslyMissing": 5,
+      "stillMissing": 0
+    },
+    "情感品德": {
+      "checked": 83,
+      "previouslyMissing": 2,
+      "stillMissing": 0
+    },
+    "科学颜色": {
+      "checked": 78,
+      "previouslyMissing": 10,
+      "stillMissing": 0
+    }
+  }
+}

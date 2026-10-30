@@ -98,3 +98,9 @@ python3 scripts/prepare-vercel.py
 正式域名 WebKit 四尺寸 `tests/siege.cjs` 验证耐久、精确扣费、修复/重建、实际攻塔损毁、暂停和存档恢复、94 条攻塔说明与移动端按钮同屏；线上 Chromium 基本游戏与图鉴检查通过，未发现脚本错误。十个静态文件 HTTP 200，与已测试发布包、原生包逐字节一致。实体 iPhone 未直接验证。
 
 仓库根目录新增 `vercel.json` 和无依赖的 `scripts/build-static.mjs`。执行 `node scripts/build-static.mjs` 生成 `public/`，与当前生产十个文件逐字节一致；Git 部署使用此构建命令、输出目录 `public`，框架为 Other（null），无需安装依赖。`public/`、`.vercel/`、`.env*` 不提交。已推送完整提交历史并关联 GitHub 仓库 `polish1020/zi-zhen`，生产分支 `main`；Git 远端 `github` 与原 Sites 远端 `origin` 并存。仓库沿用用户创建的公开可见性。生产自定义域名与现有预览访问保护保持。部署对应的 Git SHA 和最新状态可在 Vercel 控制台查看；文档中的初次上线 ID 是攻塔版本的手工发布基准，不固定指向后续每次 Git 构建。
+
+## 扩展词库、学习内容与 Boss/重建调参
+
+本轮源码包含 107,374 个词、736 条简明释义及传统文化筛选；已知词根支持咒/箭/剑/术/盾/风暴/之力等 77 类后缀，组词面板直接显示生效标签。同塔重建费用从投入的 50% 逐次增加 15 个百分点至 100%；Boss 在既有成长曲线上生命乘 1.15、攻塔伤害乘 1.25、攻击间隔乘 0.8。已有敌人生命和词塔投入保留，旧塔不追算重建次数。
+
+发布前 188 项规则、400 场真实主线仿真通过原有门槛；Chromium/WebKit 新词与学习流程、Chromium 响应式/品质/维修/怪物技能回归通过。完整统计与范围见 `TESTING.md`、`VOCABULARY.md` 和 `reports/vocabulary-balance-summary.json`。推送 `main` 后通过既有 Git 关联自动发布；上线检查匹配此提交的 READY 状态、十个静态文件字节、正式域名的新词/学习与递增重建流程。上述历史部署 ID 不作为本轮生产 ID。

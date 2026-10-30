@@ -163,3 +163,19 @@ test('all 42 bosses cast their own finite active skill with visible skill metada
  }
  assert.deepEqual([...kinds].sort(),['blink','haste','heal','shield','summon']);
 });
+
+test('rebuild prices rise per tower from 50 percent to 100 percent without inflating resale capital',()=>{
+ const {g,t}=arena('寒冰毒箭');g.ink=10000;const spent=t.spent;
+ for(const [index,percent]of [50,65,80,95,100,100].entries()){
+  t.hp=0;g.time=index*9;const quote=Math.max(3,Math.ceil(spent*percent/100)),before=g.ink;assert.equal(g.repairCost(t),quote);assert.ok(g.repair(t.id));assert.equal(g.ink,before-quote);assert.equal(t.rebuilds,index+1);assert.equal(t.spent,spent);assert.equal(g.salvageValue(t),Math.floor(spent*.7));
+  const restored=Game.restore(g.export());assert.equal(restored.towers[0].rebuilds,index+1);
+ }
+ g.time+=9;t.hp-=10;const count=t.rebuilds;assert.ok(g.repair(t.id));assert.equal(t.rebuilds,count,'ordinary repair does not raise rebuild prices');
+ const old=g.export();delete old.towers[0].rebuilds;old.towers[0].hp=0;assert.equal(Game.restore(old).repairCost(old.towers[0]),Math.ceil(spent*.5));
+ for(const value of [-1,NaN,Infinity,1.5,'1']){const bad=g.export();bad.towers[0].rebuilds=value;assert.throws(()=>Game.restore(bad));}
+});
+test('boss combat boost applies to new HP and actual attack profiles without recalculating saved HP',()=>{
+ close(enemyWeapon('ironboss').damage,20);close(enemyWeapon('ironboss').interval,3.52);
+ close(enemyWeapon('frostboss').damage,13.75);close(enemyWeapon('frostboss').interval,3.68);
+ const {g,e}=arena('文','ironboss');e.hp=1234;e.maxHp=2468;const restored=Game.restore(g.export());assert.equal(restored.enemies[0].hp,1234);assert.equal(restored.enemies[0].maxHp,2468);
+});

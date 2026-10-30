@@ -1,4 +1,9 @@
-import {COMMON_WORDS} from './lexicon.mjs';
+import {COMMON_WORDS,IDIOM_WORDS,SKILL_SCHOOLS,WORD_LEARNING,SKILL_TEMPLATES} from './lexicon.mjs';
+const IDIOM_SET=new Set(IDIOM_WORDS);
+export const wordCategory=word=>IDIOM_SET.has(word)?'idiom':SKILL_SCHOOLS[word]?'skill':word.length===4?'phrase':'common';
+export const wordLearning=word=>WORD_LEARNING[word]||null;
+export const isGameSkill=word=>Object.hasOwn(SKILL_SCHOOLS,word);
+export const isCultureWord=word=>WORD_LEARNING[word]?.culture===true;
 // Each recipe has a distinct word; length determines its starting tier.
 const SCHOOLS = [
  {type:'splash',icon:'火',name:'烈焰',color:'#c56843',cost:60,damage:24,range:155,rate:1.05,tag:'范围伤害',desc:'爆裂攻击，对目标周围的敌人造成范围伤害。',words:['火','火球','烈火','火焰','流火','火焰山','三昧火','火流星','火树银花','星火燎原','火上浇油']},
@@ -230,7 +235,7 @@ RUNE_PATTERNS.push(
 );
 function readNumber(word){const match=word.match(/^[零一二两三四五六七八九十百千万]+/);if(!match)return 4;let total=0,section=0,n=0;const digits={零:0,一:1,二:2,两:2,三:3,四:4,五:5,六:6,七:7,八:8,九:9};for(const ch of match[0]){if(ch in digits)n=digits[ch];else if(ch==='万'){total+=(section+n||1)*10000;section=0;n=0;}else{section+=(n||1)*({十:10,百:100,千:1000}[ch]);n=0;}}return Math.max(1,total+section+n);}
 function distanceSpan(word){const unit=word.match(/(公里|千米|米|里|丈|尺|寸)$/)?.[1];const factor={公里:1000,千米:1000,米:1,里:500,丈:3.33,尺:.333,寸:.0333}[unit]||1;return Math.min(24,5+Math.round(Math.log10(1+readNumber(word)*factor)*3));}
-function chooseRunes(word){const exact=SYNONYM_RUNES.find(([re])=>re.test(word));if(exact)return exact[1].slice();if(/^[零一二两三四五六七八九十百千万]+(个|只|位|名|件|次|倍|岁|米|里|丈|尺|寸|公里|千米|分|点|章|轮|波|枚|朵|杯|斤|吨|人|户|元|块|天|年|月)?$/.test(word))return[/(米|里|丈|尺|寸)$/.test(word)?'measure':'count',/(元|块)$/.test(word)?'prosper':/(年|月|天|岁)$/.test(word)?'growth':'focus'];const found=[];for(const [id,re]of RUNE_PATTERNS)if(re.test(word)&&!found.includes(id)){found.push(id);if(found.length===2)break;}return found;}
+function chooseRunes(word){const template=SKILL_TEMPLATES[word];if(template){const extra=template.suffixFirst?[template.extra,template.rune]:[template.rune,template.extra];return[...new Set(extra)];}const exact=SYNONYM_RUNES.find(([re])=>re.test(word));if(exact)return exact[1].slice();if(/^[零一二两三四五六七八九十百千万]+(个|只|位|名|件|次|倍|岁|米|里|丈|尺|寸|公里|千米|分|点|章|轮|波|枚|朵|杯|斤|吨|人|户|元|块|天|年|月)?$/.test(word))return[/(米|里|丈|尺|寸)$/.test(word)?'measure':'count',/(元|块)$/.test(word)?'prosper':/(年|月|天|岁)$/.test(word)?'growth':'focus'];const found=[];for(const [id,re]of RUNE_PATTERNS)if(re.test(word)&&!found.includes(id)){found.push(id);if(found.length===2)break;}return found;}
 export const runeLimit=tier=>tier<=1?0:tier>=4?2:1;
 function qualityRunes(w){
  const candidates=chooseRunes(w.word),limit=runeLimit(w.tier);
@@ -243,10 +248,13 @@ function qualityRunes(w){
 export const hasRune=(w,id)=>w.runes?.includes(id)||false;
 export const runeEffect=w=>w.runes.length?w.runes.map(id=>WORD_RUNES[id].name+'：'+(id==='count'?`每 ${w.semanticCycle} 次攻击蓄发一次，触发时直接伤害 +${w.semanticCycle*10}%。`:id==='measure'?`射程额外 +${distanceSpan(w.word)}，攻击间隔 +4%。`:WORD_RUNES[id].desc)).join(' '):w.tier===1?'凡字没有附加特性，保留基础属性、攻击形态和品阶效果。':'此词保留基础词意，没有匹配的附加特性。';
 function chooseTrait(w){
- const text=w.word;
+ const text=w.word,template=SKILL_TEMPLATES[text];
+ if(template?.trait)return template.trait;
  if(w.type==='income'){if(/聚|宝|库|藏|树|盆|财源|斗金/.test(text))return'fortune';if(/币|钱|银|点石/.test(text))return'coin';if(/招|财运|发财/.test(text))return'entice';return'balanced';}
  if(w.type==='aura'){if(/盾|守|护|界|阵/.test(text))return'ward';if(/环|辉|万丈/.test(text))return'radiance';if(/圣|神|祝|明/.test(text))return'purify';if(/月/.test(text))return'moon';if(/星/.test(text))return'spread';return'balanced';}
  if(/破甲|穿甲|破阵/.test(text))return'sunder';
+ if(/新星|龙卷|暴雪|雪暴|冰环|寒冰环|冰霜之环/.test(text))return'spread';
+ if(/护甲|铠甲|冰甲|石甲|岩甲|藤甲/.test(text))return'ward';
  if(w.type==='poison'&&/剧|腐|蚀|疫/.test(text)&&!/[箭弓弩枪云雾雨海]/.test(text))return'venom';
  if(/封|缚|牢|冻|禁|镇/.test(text))return'bind';
  if(/连|珠|双|分身|幻影/.test(text))return'combo';
@@ -266,7 +274,7 @@ export function wordRules(w){const n=w.tier,t=WORD_TRAITS[w.trait];return{radius
 export function traitEffect(w){const t=WORD_TRAITS[w.trait];let extra='';if(w.trait==='spread')extra=w.type==='poison'?`毒伤最多扩散至附近 ${wordRules(w).poisonTargets} 个额外目标。`:w.type==='slow'?'减速扩散至附近 2 个额外目标。':w.type==='splash'?'爆炸半径额外 +25。':w.type==='chain'?'额外连锁 1 个目标。':w.type==='pulse'?'震荡命中上限 +2。':'追加最多 2 个各 35% 伤害的副目标。';if(w.trait==='bind')extra=w.type==='slow'?'减速更强、持续更久，并有定身。':'命中施加短暂定身（同目标 4 秒间隔）。';if(w.trait==='spread'&&w.type==='poison')extra='命中处留下 3 秒毒域，后来进入的敌人也会受到每秒 35% 攻击的毒伤，离开后持续 2 秒；最多保留 2 片。'+extra;return extra+t.desc;}
 // Curated game vocabulary supplements the frequency-filtered common dictionary.
 const AUTHORED_MEANING_WORDS='火蛇 火焰蛇 烈焰蛇 冰蛇 寒冰蛇 冰霜蛇 雷蛇 雷电蛇 寒冰毒箭 冰霜毒箭 冰火箭 冰毒箭 火毒箭 雷火箭 雷冰箭 火焰毒云 寒冰毒云 冰霜毒雾 雷霆毒箭 圣光箭 神圣箭 月光箭 星辰箭 追魂毒箭 剧毒之箭 腐蚀之箭 冰火双刃 冰火风暴 风雷之箭 浴火重生 死而复生 起死回生 涅槃重生 水滴石穿 滴水穿石 破釜沉舟 釜底抽薪 一心一意 全神贯注 三心二意 七上八下 老马识途 守株待兔 画蛇添足 南辕北辙 一米 两米 三米 十米 百米 千米 一里 十里 百里 千里 三尺 一寸 一丈 十丈 一公里 十公里 千里眼 顺风耳 侧翼 背刺 缄默 裂伤 灵兽 伏魔'.split(' ');
-export const WORDS=[...COMBAT_WORDS,...[...new Set([...COMMON_WORDS,...AUTHORED_MEANING_WORDS])].filter(word=>!combatSet.has(word)).map(word=>{const type=SCHOOL_ALIASES.find(([re])=>re.test(word))?.[1]||SEMANTIC_SCHOOLS.find(([re])=>re.test(word))?.[1];const s=type&&type!=='basic'?SCHOOLS.find(s=>s.type===type):BASIC_SCHOOL;const tier=[...word].length;return {...s,words:undefined,word,tier,maxLevel:tier+2,cost:Math.round(s.cost*PRICE[tier]),damage:Math.round(s.damage*POWER[tier]),range:s.range+(tier-2)*12,aura:.15+tier*.1,income:5*tier};})].map(applyWordTrait);
+export const WORDS=[...COMBAT_WORDS,...[...new Set([...COMMON_WORDS,...AUTHORED_MEANING_WORDS])].filter(word=>!combatSet.has(word)).map(word=>{const type=SKILL_SCHOOLS[word]||SCHOOL_ALIASES.find(([re])=>re.test(word))?.[1]||SEMANTIC_SCHOOLS.find(([re])=>re.test(word))?.[1];const s=type&&type!=='basic'?SCHOOLS.find(s=>s.type===type):BASIC_SCHOOL;const tier=[...word].length;return {...s,words:undefined,word,tier,maxLevel:tier+2,cost:Math.round(s.cost*PRICE[tier]),damage:Math.round(s.damage*POWER[tier]),range:s.range+(tier-2)*12,aura:.15+tier*.1,income:5*tier};})].map(applyWordTrait);
 const MEANING_HAND_WORDS='学习 读书 知识 朋友 伙伴 合作 团结 勇敢 英雄 努力 奋斗 成长 医生 健康 康复 和平 安宁 守护 母亲 家人 开心 快乐 感谢 谢谢 欢迎 工作 旅行 音乐 歌声 回声 沉默 缄默 撕裂 切割 背刺 侧翼 正面 冲锋 复活 重生 祝福 财富 丰收 秋天 夏天 冬天 春天 花朵 玫瑰 莲花 草木 森林 老虎 白虎 灵兽 人参 三七 五个 三倍 三尺 百米 千米 火毒箭 冰毒箭 冰火箭 月光箭 圣光箭 星辰箭 千里眼 顺风耳 寒冰毒箭 冰霜毒箭 冰霜毒雾 火焰毒云 雷霆毒箭 冰火双刃 冰火风暴 风雷之箭 浴火重生 涅槃重生 死而复生 起死回生 滴水穿石 水滴石穿 一心一意 全神贯注 老马识途 守株待兔 画龙点睛 破釜沉舟 釜底抽薪 乘风破浪 声东击西 暗度陈仓 春暖花开 百花齐放 众志成城 坚不可摧 日积月累 厚积薄发 积少成多 自强不息 齐心协力 同舟共济'.split(' ').map(word=>WORDS.find(w=>w.word===word)).filter(Boolean);
 export const GRADES=['','凡字','灵词','妙语','天成'];
 export function gradeEffect(w){
@@ -296,6 +304,9 @@ export const clearInk=(round,endless=false)=>8+Math.min(round,endless?Infinity:6
 export const roundInk=(round,endless=false)=>20+Math.min(round,endless?Infinity:6)*3;
 export const SKILL_COOLDOWN=30, SKILL_BASE_COST=30, SKILL_COST_STEP=15;
 const WORD_INDEX=new Map(WORDS.map(w=>[w.word,w]));
+const LEARNING_HAND_WORDS=Object.keys(WORD_LEARNING).filter(word=>WORD_LEARNING[word].kind==='idiom').map(word=>WORD_INDEX.get(word)).filter(Boolean);
+const SKILL_HAND_WORDS=Object.keys(SKILL_SCHOOLS).map(word=>WORD_INDEX.get(word)).filter(Boolean);
+const CULTURE_HAND_WORDS=Object.keys(WORD_LEARNING).filter(word=>isCultureWord(word)&&WORD_LEARNING[word].kind!=='idiom').map(word=>WORD_INDEX.get(word)).filter(Boolean);
 const WORD_PREFIXES=new Set(WORDS.flatMap(w=>Array.from({length:w.tier},(_,i)=>w.word.slice(0,i+1))));
 export const getWord=word=>WORD_INDEX.get(word);
 export function towerStats(t){const w=getWord(t.word),up=t.level-w.tier;return {damage:Math.round(w.damage*(1+up*(.65+(hasRune(w,'growth')?.1:0)))),range:w.range+up*15,rate:w.rate/(1+up*.14),aura:w.aura,income:Math.round(w.income*(1+up*.5))};}
@@ -358,6 +369,8 @@ export const ENEMY_ATTACK_ART={
  star:{name:'星芒轰击',color:'#8263a1',sigil:'星'},
  cannon:{name:'机括炮击',color:'#876a49',sigil:'炮'},
 };
+export const BOSS_HEALTH_BOOST=1.15,BOSS_SIEGE_DAMAGE=1.25,BOSS_SIEGE_INTERVAL=.8;
+export const rebuildPercent=t=>Math.min(100,50+15*(t.rebuilds||0));
 const ENEMY_WEAPON_CACHE=new Map();
 export function enemyWeapon(kind){
  if(ENEMY_WEAPON_CACHE.has(kind))return ENEMY_WEAPON_CACHE.get(kind);
@@ -373,6 +386,7 @@ export function enemyWeapon(kind){
  if(profile.style==='cleave'){profile.sideRatio=.45;profile.sideRadius=110;}
  if(visual==='thunder'){profile.sideRatio=.3;profile.sideRadius=100;profile.windup+=.15;profile.interval+=.45;}
  if(visual==='tide'){profile.sideRatio=.25;profile.sideRadius=100;profile.interval+=.3;}
+ if(data.boss){profile.damage*=BOSS_SIEGE_DAMAGE;profile.interval=Math.max(profile.windup+.8,profile.interval*BOSS_SIEGE_INTERVAL);}
  const art=ENEMY_ATTACK_ART[visual],result=Object.freeze({...profile,visual,color:art.color,sigil:art.sigil,name:art.name});
  ENEMY_WEAPON_CACHE.set(kind,result);return result;
 }
@@ -664,14 +678,14 @@ export function enemyHealthScale(chapter,wave,kind){
  const opening=chapter>=3&&round<=3&&!boss?.9:1;
  const pressure=Math.max(0,round-3),ramp=Math.min(1,pressure/3);
  const growth=boss?1.95+round*.13:1+pressure*(.02+.006*ramp);
- return(1+(round-1)*.36+pressure*.065*ramp+part*.08+CHAPTERS[chapter].difficulty)*1.25*(1+Math.max(0,round-5)*.02)*opening*growth;
+ return(1+(round-1)*.36+pressure*.065*ramp+part*.08+CHAPTERS[chapter].difficulty)*1.25*(1+Math.max(0,round-5)*.02)*opening*growth*(boss?BOSS_HEALTH_BOOST:1);
 }
 export class Game {
  get pads(){return getMap(this.chapter).pads;}
  get activeTowers(){return this.towers.filter(towerActive);}
- repairCost(t){if(!t)return 0;const max=towerDefense(t).maxHp,hp=t.hp??max;if(hp>=max-1e-6)return 0;if(hp<=0)return Math.max(3,Math.ceil(t.spent*.4));const w=getWord(t.word),p=this.pads[t.pad],gold=this.activeTowers.some(a=>getWord(a.word).type==='income'&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range);return Math.max(3,Math.ceil(t.spent*.18*(1-hp/max)*(gold?.85:1)*(hasRune(w,'study')?.92:1)*(hasRune(w,'rescue')&&hp<max*.3?.9:1)));}
+ repairCost(t){if(!t)return 0;const max=towerDefense(t).maxHp,hp=t.hp??max;if(hp>=max-1e-6)return 0;if(hp<=0)return Math.max(3,Math.ceil(t.spent*rebuildPercent(t)/100));const w=getWord(t.word),p=this.pads[t.pad],gold=this.activeTowers.some(a=>getWord(a.word).type==='income'&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range);return Math.max(3,Math.ceil(t.spent*.18*(1-hp/max)*(gold?.85:1)*(hasRune(w,'study')?.92:1)*(hasRune(w,'rescue')&&hp<max*.3?.9:1)));}
  salvageValue(t){return Math.floor(t.spent*(towerActive(t)?.7:.35));}
- repair(id){const t=this.towers.find(t=>t.id===id),cost=this.repairCost(t);if(!t||!cost||this.ink<cost||(t.repairReadyAt||0)>this.time||['won','lost'].includes(this.phase))return false;const rebuilt=!towerActive(t);this.ink-=cost;t.hp=towerDefense(t).maxHp;t.chillUntil=0;t.corrodedUntil=0;t.repairReadyAt=this.time+8;this.emit('repair',{pad:t.pad,word:t.word,cost,rebuilt});return true;}
+ repair(id){const t=this.towers.find(t=>t.id===id),cost=this.repairCost(t);if(!t||!cost||this.ink<cost||(t.repairReadyAt||0)>this.time||['won','lost'].includes(this.phase))return false;const rebuilt=!towerActive(t);this.ink-=cost;if(rebuilt)t.rebuilds=Math.min(Number.MAX_SAFE_INTEGER,(t.rebuilds||0)+1);t.hp=towerDefense(t).maxHp;t.chillUntil=0;t.corrodedUntil=0;t.repairReadyAt=this.time+8;this.emit('repair',{pad:t.pad,word:t.word,cost,rebuilt});return true;}
  cancelTowerAim(id){for(const e of this.enemies)if(e.towerTarget===id||e.towerLastTarget===id){delete e.towerLastTarget;delete e.towerTarget;delete e.towerStrikeAt;e.towerAttackAt=Math.max(e.towerAttackAt||0,this.time+.8);}}
  towerPressure(t,attacker){const p=this.pads[t.pad];return this.enemies.filter(e=>e.hp>0&&(e===attacker||e.towerTarget!==undefined||e.towerLastTarget!==undefined&&e.towerAttackAt>this.time)&&Math.hypot(enemyPosition(e).x-p.x,enemyPosition(e).y-p.y)<=enemyWeapon(e.kind).range+22).length;}
  damageTower(t,raw,enemy){
@@ -740,7 +754,7 @@ export class Game {
   const pick=xs=>xs[Math.floor(this.random()*xs.length)];
   const attack=COMBAT_WORDS.filter(w=>w.tier===2&&w.damage>0&&!['aura','income'].includes(w.type));
   const short=COMBAT_WORDS.filter(w=>w.tier===2),medium=COMBAT_WORDS.filter(w=>w.tier===3),long=COMBAT_WORDS.filter(w=>w.tier===4);
-  const themed=(list,tier)=>this.random()<.15?pick(MEANING_HAND_WORDS.filter(w=>w.tier===tier)):pick(list);
+  const themed=(list,tier)=>{const roll=this.random();if(roll<.15)return pick(MEANING_HAND_WORDS.filter(w=>w.tier===tier));if(tier===4&&roll<.65)return pick(LEARNING_HAND_WORDS);if(roll<(tier===4?.85:.45))return pick(SKILL_HAND_WORDS.filter(w=>w.tier===tier));if(roll<(tier===4?.95:.65))return pick(CULTURE_HAND_WORDS.filter(w=>w.tier===tier));return pick(list);};
   const starter=pick(attack);
   const letters=[...starter.word,starter.icon,...themed(short,2).word,...themed(medium,3).word,...themed(long,4).word];
   const pool=COMBAT_WORDS.flatMap(w=>[...w.word]);
@@ -758,7 +772,7 @@ export class Game {
  tilesFor(word){const ids=[];for(const ch of word){const tile=this.hand.find(t=>!t.used&&t.ch===ch&&!ids.includes(t.id));if(!tile)return null;ids.push(tile.id);}return ids;}
  availableWords(){const key=this.hand.map(t=>t.used?'_':t.ch).join('');if(this._wordCacheKey!==key){const counts=new Map();for(const t of this.hand)if(!t.used)counts.set(t.ch,(counts.get(t.ch)||0)+1);const found=[];const visit=prefix=>{for(const [ch,count]of counts){if(!count)continue;const next=prefix+ch;if(!WORD_PREFIXES.has(next))continue;const w=getWord(next);if(w)found.push(w);if(next.length<4){counts.set(ch,count-1);visit(next);counts.set(ch,count);}}};visit('');this._wordCacheKey=key;this._wordCache=found;}return this._wordCache.slice();}
  canBuild(word,ids){const w=getWord(word);if(!w||this.ink<w.cost||['won','lost'].includes(this.phase))return false;const chosen=ids??this.tilesFor(word);if(!chosen||chosen.length!==w.tier||new Set(chosen).size!==chosen.length)return false;const tiles=chosen.map(id=>this.hand.find(t=>t.id===id&&!t.used));return tiles.every(Boolean)&&tiles.map(t=>t.ch).join('')===word;}
- build(word,pad,ids){const w=getWord(word),chosen=ids??this.tilesFor(word);if(!this.pads[pad]||!this.padUnlocked(pad)||this.towers.some(t=>t.pad===pad)||!this.canBuild(word,chosen))return false;this.ink-=w.cost;for(const id of chosen)this.hand.find(t=>t.id===id).used=true;if(this.hintWord&&!this.tilesFor(this.hintWord))this.hintWord=null;const tower={word,pad,level:w.tier,spent:w.cost,cooldown:0,id:this.nextId++,repairReadyAt:0};tower.hp=towerDefense(tower).maxHp;this.towers.push(tower);this.emit('build',{word});return true;}
+ build(word,pad,ids){const w=getWord(word),chosen=ids??this.tilesFor(word);if(!this.pads[pad]||!this.padUnlocked(pad)||this.towers.some(t=>t.pad===pad)||!this.canBuild(word,chosen))return false;this.ink-=w.cost;for(const id of chosen)this.hand.find(t=>t.id===id).used=true;if(this.hintWord&&!this.tilesFor(this.hintWord))this.hintWord=null;const tower={word,pad,level:w.tier,spent:w.cost,cooldown:0,id:this.nextId++,repairReadyAt:0,rebuilds:0};tower.hp=towerDefense(tower).maxHp;this.towers.push(tower);this.emit('build',{word});return true;}
  upgrade(id){const t=this.towers.find(t=>t.id===id);if(!t||!towerActive(t)||t.level>=getWord(t.word).maxLevel||['won','lost'].includes(this.phase))return false;const cost=this.upgradeCost(t);if(this.ink<cost)return false;const max=towerDefense(t).maxHp;this.ink-=cost;t.spent+=cost;t.level++;t.hp=(t.hp??max)+towerDefense(t).maxHp-max;this.emit('upgrade',{pad:t.pad,level:t.level});return true;}
  upgradeCost(t){const w=getWord(t.word);return Math.round(w.cost*(t.level===w.tier?.75:1.15)*(hasRune(w,'study')?.92:1));}
  barrierRemaining(){return Math.max(0,Math.max(0,...this.activeTowers.filter(t=>hasRune(getWord(t.word),'barrier')).map(t=>Math.min(2,getWord(t.word).tier)))-this.barrierSpent);}
@@ -777,7 +791,7 @@ export class Game {
   this.queue.push(...entries);this.queue.sort((a,b)=>(a.at??this.time)-(b.at??this.time));
   this.pendingWaves??=[];this.pendingWaves.push(this.wave);this.autoWaveAt=plan.part<3?at+WAVE_INTERVAL:0;this.emit('wave',{wave:this.wave});
  }
- spawn(kind,distance=0,route=0,wave=this.wave){const st=ENEMIES[kind],scale=enemyHealthScale(this.chapter,wave,kind);const e={map:this.chapter,route,wave,bornAt:this.time,id:this.nextId++,kind,towerAttackAt:this.time+1.4,hp:st.hp*scale,maxHp:st.hp*scale,speed:st.speed*(1+Math.min(this.chapter,4)*.05),reward:st.reward,harm:st.harm,d:Math.max(0,distance),slowUntil:0};if(kind==='shield'||st.shield){e.shield=(st.shield||55)*scale;e.maxShield=e.shield;}const behavior=st.behavior||kind;if(['healer','broodqueen','hillrunner','scrollguard','tideshaper','cloudraptor','rallyboss'].includes(behavior))e.abilityAt=this.time+({healer:4,broodqueen:8,hillrunner:st.boss?8:6,scrollguard:st.boss?9:8,tideshaper:st.boss?8:6,cloudraptor:st.boss?8:7,rallyboss:8}[behavior]);if(st.boss&&e.abilityAt!==undefined)e.abilityAt=Math.min(e.abilityAt,this.time+4);const pulse=enemyPulse(e);if(pulse)e.pulseAt=this.time+(st.boss?Math.min(4,pulse.interval):pulse.interval);if(st.initialPhase!==undefined)e.astralMode=st.initialPhase;this.enemies.push(e);return e;}
+ spawn(kind,distance=0,route=0,wave=this.wave){const st=ENEMIES[kind],scale=enemyHealthScale(this.chapter,wave,kind),id=this.nextId++;const e={map:this.chapter,route,wave,bornAt:this.time,id,kind,towerAttackAt:this.time+1.1+(id%8)*.08,hp:st.hp*scale,maxHp:st.hp*scale,speed:st.speed*(1+Math.min(this.chapter,4)*.05),reward:st.reward,harm:st.harm,d:Math.max(0,distance),slowUntil:0};if(kind==='shield'||st.shield){e.shield=(st.shield||55)*scale;e.maxShield=e.shield;}const behavior=st.behavior||kind;if(['healer','broodqueen','hillrunner','scrollguard','tideshaper','cloudraptor','rallyboss'].includes(behavior))e.abilityAt=this.time+({healer:4,broodqueen:8,hillrunner:st.boss?8:6,scrollguard:st.boss?9:8,tideshaper:st.boss?8:6,cloudraptor:st.boss?8:7,rallyboss:8}[behavior]);if(st.boss&&e.abilityAt!==undefined)e.abilityAt=Math.min(e.abilityAt,this.time+4);const pulse=enemyPulse(e);if(pulse)e.pulseAt=this.time+(st.boss?Math.min(4,pulse.interval):pulse.interval);if(st.initialPhase!==undefined)e.astralMode=st.initialPhase;this.enemies.push(e);return e;}
  skillCost(){return SKILL_BASE_COST+this.skillUses*SKILL_COST_STEP;}
  skill(){const cost=this.skillCost();if(this.phase!=='battle'||this.time<this.skillReady||this.ink<cost)return false;this.ink-=cost;this.skillUses++;this.skillReady=this.time+SKILL_COOLDOWN;for(const e of this.enemies){e.hp-=100;if(!(hasIceShell(e)))e.slowUntil=this.time+3;}this.effects.push({kind:'rain',life:1,max:1});this.emit('skill',{cost,nextCost:this.skillCost()});return true;}
  step(dt){dt=Math.max(0,Math.min(dt,.1));for(const fx of this.effects)fx.life-=dt;this.effects=this.effects.filter(f=>f.life>0);if(this.phase==='intermission'){this.phase='battle';this.pendingWaves=[];}
@@ -1003,6 +1017,7 @@ export class Game {
  if(data.towers.length>PADS.length||new Set(data.towers.map(t=>t?.pad)).size!==data.towers.length||data.towers.some(t=>!t||!WORDS.some(w=>w.word===t.word)||!int(t.pad)||!PADS[t.pad]||(!Number.isInteger(t.level)||(data.version===1?![1,2,3].includes(t.level):t.level<getWord(t.word).tier||t.level>getWord(t.word).maxLevel))||!int(t.id)||!finite(t.cooldown))||data.enemies.some(e=>!e||!kind(e.kind)||!int(e.id)||!['hp','maxHp','speed','reward','harm','d','slowUntil'].every(k=>finite(e[k]))||e.maxHp<=0||e.speed<=0||e.d<0)||data.queue.some(e=>!e||!kind(e.kind)))throw Error('Invalid save');
  if(data.enemies.some(e=>(e.shield!==undefined&&(!finite(e.shield)||e.shield<0))||(e.maxShield!==undefined&&(!finite(e.maxShield)||e.maxShield<0))))throw Error('Invalid shield state');
  if(data.towers.some(t=>(t.hp!==undefined&&(!finite(t.hp)||t.hp<0))||['repairReadyAt','hitUntil','chillUntil','corrodedUntil','counterReady'].some(k=>t[k]!==undefined&&(!finite(t[k])||t[k]<0))))throw Error('Invalid tower durability');
+ if(data.towers.some(t=>t.rebuilds!==undefined&&(!Number.isSafeInteger(t.rebuilds)||t.rebuilds<0)))throw Error('Invalid rebuild count');
  if(data.reviveUsed!==undefined&&typeof data.reviveUsed!=='boolean')throw Error('Invalid revival');
  if(data.barrierSpent!==undefined&&(!int(data.barrierSpent)||data.barrierSpent>2)||data.soulHealed!==undefined&&(!int(data.soulHealed)||data.soulHealed>1))throw Error('Invalid semantic round state');
  if(data.bountyEarned!==undefined&&(!int(data.bountyEarned)||data.bountyEarned>35))throw Error('Invalid bounty');
