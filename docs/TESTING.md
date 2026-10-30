@@ -49,7 +49,7 @@
 
 ## 本次生产验收
 
-正式域名 `https://game.polishwb1020.com` 上八组浏览器流程、十种尺寸和扩展玩法本轮回归通过；最终整词解释修订后另重跑四种尺寸词义流程与基本游戏流程。十个静态文件 HTTP 200，与上传内容逐字节一致。封装资源目录 `mobile/www/` 与 Vercel 上传的十个公开文件逐字节一致。生产部署标识和更新方法见 `DEPLOYMENT-VERCEL.md`。
+正式域名 `https://game.polishwb1020.com` 的本轮发布已复验 WebKit 独立窗口、WebKit 图鉴、Chromium 塔与攻击组合、Chromium 基本游戏流程；其余回归在本地/发布包执行。十个静态文件 HTTP 200，与上传内容逐字节一致；封装资源目录 `mobile/www/` 与十个公开文件逐字节一致。生产部署标识和更新方法见 `DEPLOYMENT-VERCEL.md`。
 
 ## iOS 独立窗口与组合特效
 

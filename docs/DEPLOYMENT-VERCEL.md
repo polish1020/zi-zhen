@@ -6,12 +6,12 @@
 
 - 团队：`changsheng`，ID `team_azaP3oGtfy4m7CDhqfxdNiLP`
 - 项目：`zi-zhen`，ID `prj_knArbjGsckakBpEb06lLwiWsHlyb`
-- 生产部署：`dpl_rtaSiZ8msYVaBw8MLoSPBuG9pP8p`
-- 部署地址：https://zi-zhen-qgasyyhd8-changsheng.vercel.app
-- 生产源码提交：`6ba57ff1ce0a0b80a6a5d18a4267e05c96735773`
+- 生产部署：`dpl_JBiwAwFNrMgQ5kxs1hvLP6UgtPZb`
+- 部署地址：https://zi-zhen-9gdvkzf1q-changsheng.vercel.app
+- 生产源码提交：`5aab3148898779d2372f25b00348bd845b68751f`
 - 发布时间：2026-10-30；状态 `READY`，环境 `production`
 - 框架：静态站点，`framework: null`，输出 `public`，无安装/构建依赖。
-- Vercel 输出构建 50ms；从 buildingAt 到 ready 约 1.8 秒；日志无构建错误。
+- Vercel 输出构建 49ms；从 buildingAt 到 ready 约 1.7 秒；日志无构建错误。
 - 控制台：https://vercel.com/changsheng/zi-zhen
 
 ## 更新方法
@@ -31,8 +31,8 @@ python3 scripts/prepare-vercel.py
 - 正式域名的十个文件全部 HTTP 200，Content-Type 正确，内容与上传文件逐字节一致，包括常用词库与许可声明。
 - `BASE_URL=https://game.polishwb1020.com node tests/browser.cjs` 通过：开始界面、同屏布局、付费提示、技能、跳关、终局恢复、无尽与失败重试。
 - 线上 `tests/responsive.cjs` 十种尺寸通过：页面无溢出、字牌无空格、地图比例一致、严格词序、点击效果、单次点击显示范围、详情与升级、恢复和旋转。
-- 线上 `tests/expansion.cjs` 通过：冰霜箭建造、毒云搜索、解锁涨价、手势保护、固定波次计时及叠波、六十六类怪物与周期 Boss 实际出场。
-- 线上 `tests/campaign.cjs` 验证十章主题与入口、四十二种 Boss、24 种普通怪轮廓、各章特色兵说明、属性详情、音效静音、升级和提示栏。
+- 线上 `tests/expansion.cjs` 通过：冰霜箭建造、毒云搜索、解锁涨价、手势保护、固定波次计时及叠波、九十四类怪物与周期 Boss 实际出场。
+- 线上 `tests/campaign.cjs` 验证十章主题与入口、四十二种 Boss、52 种普通怪轮廓、各章特色兵说明、属性详情、音效静音、升级和提示栏。
 - 线上 `tests/pause.cjs` 验证四种尺寸暂停布阵与时钟冻结、继续后的定时出波。
 - 线上 `tests/word-traits.cjs` 验证毒箭与毒云不同词意、数值、区域和存档；`tests/endless-bosses.cjs` 验证密集无尽 Boss 的预告、出场和数量显示。
 - 线上 `tests/word-meanings.cjs` 验证四种尺寸下的 39 类词义筛选与索引、组合词标识、成语精确解释、重生次数、距离词面板；最终精确词义修订后重跑该流程和基本游戏流程。
@@ -43,3 +43,14 @@ python3 scripts/prepare-vercel.py
 `game.polishwb1020.com` 已绑定生产项目并验证，复用阿里云原有泛域名解析，本次未修改 DNS。HTTPS 和匿名访问正常。注册商仍为阿里云，无需转移域名。
 
 `python3 scripts/prepare-mobile.py` 生成包含词库和许可的本地资源包。该包与本次公开部署资源逐字节一致。Capacitor 配置和尚未完成的原生签名/构建事项见 `MOBILE-APP.md`；当前未生成安装包。
+
+## 本轮新增线上验收
+
+生产状态 READY、域名自动别名无错误，十个公开文件均 HTTP 200，逐字节匹配已测试的发布包与 native 资源。构建日志无错误，静态站点没有服务端运行日志。
+
+- 线上 WebKit `tests/standalone.cjs`：五种独立窗口尺寸、安全区与高度恢复、旋转、键盘可视高度、暂停升级、存档重入、无独立 Boss 遮挡层。
+- 线上 WebKit `tests/enemy-codex.cjs`：三种尺寸的 94 张不同形象解码、52 小怪/42 Boss/每章六种专属筛选，图鉴前后战场画布一致。
+- 线上 Chromium `tests/tower-art.cjs`：十四类属性、十九种形态、三十九种附加特性及升级渲染，真实混合攻击、减少动态效果、暂停不改变战斗状态。
+- 线上 Chromium `tests/browser.cjs`：基础游戏、提示、技能、跳关、无尽、失败及重试全流程。
+
+实体 iPhone 的系统状态栏仍未验证；WebKit 模拟不等于 iOS 主屏幕安装环境。更新后先彻底关闭再重新打开桌面应用，保留本地数据。
