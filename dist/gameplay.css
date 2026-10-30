@@ -310,7 +310,6 @@ html[data-standalone="true"].game-open body.playing .forge-panel { padding-botto
 .tower-detail .detail-stats b { font-size:18px; }
 .tower-effects { grid-row:4; min-width:0; min-height:0; display:grid; grid-template-rows:minmax(0,1fr); border-top:1px solid #71896b66; overflow:hidden; }
 .tower-effect-content { min-width:0; min-height:0; max-height:340px; overflow:auto; overscroll-behavior:contain; padding:10px 4px 10px 0; scrollbar-width:thin; scrollbar-color:#91a27c #263d30; }
-.tower-effect-content:focus-visible { outline:1px solid #b7c293; outline-offset:-1px; }
 .tower-effect-section { min-width:0; }
 .tower-effect-section + .tower-effect-section { border-top:1px solid #71896b66; margin-top:12px; padding-top:12px; }
 .tower-effect-section h4 { margin:0 0 8px; padding-left:7px; border-left:3px solid #b7c293; color:#f0e3bd; font-size:12px; font-weight:600; letter-spacing:1px; }
