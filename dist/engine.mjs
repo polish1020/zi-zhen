@@ -436,6 +436,44 @@ Object.assign(ENEMIES,{
  astralbat:{"name":"星陨蝠","hp":47,"speed":45,"reward":4,"harm":1,"sprite":"flying","trim":"meteor","color":"#9a8ab8","icon":"星","role":"空中换相","desc":"空中轻兵，每 5 秒切换抗性；用光、咒或混搭对空伤害迎击。","air":true,"behavior":"astral"},
  astralweaver:{"name":"聚星侍","hp":84,"speed":24,"reward":4,"harm":1,"sprite":"ward","trim":"orbit","color":"#a29cc0","icon":"聚","role":"一次星盾","desc":"为附近至多三名友军加一次薄盾，半血回复 4%；毒或封息可阻止回复。","pulse":{"kind":"shield","interval":10,"limit":1,"ratio":0.05,"targets":3,"radius":85},"phase":{"heal":0.04}}
 });
+ENEMIES.healer.desc='急救：每 4 秒治疗附近生命比例最低的 3 名友军，各回复最大生命 5%，最多 4 次；毒伤或禁疗阻止回复。';
+// Reinforcements gain limited tactics from round four; opening lessons stay readable.
+const MINION_TACTICS={
+ swift:{pulse:{kind:'haste',interval:8,limit:1,targets:1},text:'疾奔：一次短冲刺，自身提速 30%、持续 3 秒，寒霜减速可打断此次冲刺，冰冻可延迟施放。'},
+ armor:{pulse:{kind:'guard',interval:10,limit:1,ratio:.12,targets:2,radius:85},text:'列盾：自身及附近一名友军直接减伤 12%、持续 3 秒；不与护阵叠加，光照、咒印或破甲解除减伤。'},
+ flying:{pulse:{kind:'haste',interval:9,limit:1,targets:1},text:'顺风：一次提速 30%、持续 3 秒，寒霜可打断此次提速，远射对空拦截。'},
+ shield:{pulse:{kind:'shield',interval:11,limit:1,ratio:.12,targets:2,radius:85},text:'护援：给自身及附近一名友军补一次薄盾，不叠加；雷霆破盾、毒伤绕盾。'},
+ lancer:{pulse:{kind:'blink',interval:10,limit:1,distance:30},text:'突阵：一次向前跃进 30 距离；减速或冰冻可阻断。'},
+ healer:{pulse:{kind:'guard',interval:12,limit:1,ratio:.1,targets:3,radius:100},text:'救护：给自身及附近两名友军 10% 直接减伤、持续 3 秒；光照、咒印和破甲可克制，原有回复仍被毒伤禁疗。'},
+ ward:{pulse:{kind:'jam',interval:12,limit:1,radius:95,duration:3},text:'扰墨：一次在自身 95 范围形成 3 秒干扰域，词塔攻击间隔 +20%；击败施法者即解除，远程火力和缄默克制。'},
+ bamboostalker:{pulse:{kind:'blink',interval:10,limit:1,distance:25},text:'影步：一次向前闪进 25 距离；减速和冰冻阻断，光照破隐。'},
+ scrollguard:{pulse:{kind:'jam',interval:12,limit:1,radius:85,duration:2.5},text:'封页：一次在自身 85 范围干扰词塔 2.5 秒，攻击间隔 +20%；远射或先破盾集火。'},
+ cloudraptor:{pulse:{kind:'haste',interval:11,limit:1,targets:3,radius:100,airOnly:true},text:'领飞：自身及附近最多两名飞行友军提速 30%、持续 3 秒；不会加速地面军队，减速可打断领飞，对空范围攻击清理。'},
+ ironvanguard:{pulse:{kind:'guard',interval:10,limit:1,ratio:.1,targets:2,radius:80},text:'并盾：自身及近邻一次减伤 10%、持续 3 秒；光、咒与破甲解除，不叠加护阵。'},
+ duskwing:{pulse:{kind:'haste',interval:10,limit:1,targets:2,radius:85,airOnly:true},text:'夜航：自身和一名飞行近邻一次提速 30%、持续 3 秒；光照破隐，减速可打断提速。'},
+ bamboodart:{pulse:{kind:'blink',interval:11,limit:1,distance:25},text:'穿竹：一次向前闪进 25 距离；寒霜与冰冻阻断。'},
+ scrollwisp:{pulse:{kind:'jam',interval:12,limit:1,radius:80,duration:2},text:'飞页扰阵：一次近身干扰 2 秒，80 范围词塔攻击间隔 +20%；对空远射与缄默克制。'},
+ frostshade:{pulse:{kind:'jam',interval:12,limit:1,radius:85,duration:2.5},text:'雪幕：一次近身干扰 2.5 秒，85 范围词塔攻击间隔 +20%；光照破隐、远射集火。'},
+ mirrorguard:{pulse:{kind:'guard',interval:12,limit:1,ratio:.12,targets:2,radius:85},text:'映盾：自身及近邻一次直接减伤 12%、持续 3 秒；光照、咒印和破甲解除。'}
+};
+for(const [kind,{pulse,text}]of Object.entries(MINION_TACTICS)){
+ const from=['guard','shield','jam'].includes(pulse.kind)?6:4;
+ Object.assign(ENEMIES[kind],{pulse,pulseFromRound:from});ENEMIES[kind].desc+=` 第 ${from} 轮起，`+text;
+}
+const MINION_PHASES={
+ tank:{shield:.1,text:'重盾：第 6 轮起，半血时凝结一次最大生命 10% 的护盾；雷霆破盾、毒伤绕盾。'},
+ regen:{haste:.12,text:'求生：第 6 轮起，半血提速 12%；毒伤禁疗后用减速拦截。'},
+ shieldscout:{shield:.15,text:'应急盾：第 6 轮起，半血补一次最大生命 15% 的薄盾。'},
+ shellmite:{haste:.15,text:'脱壳疾行：第 6 轮起，半血提速 15%；破壳后寒霜拦截。'},
+ gearglider:{shield:.12,text:'备用盾：第 6 轮起，半血补一次最大生命 12% 的护盾。'},
+ astralbat:{haste:.12,text:'掠星：第 6 轮起，半血提速 12%，换相机制保留。'}
+};
+for(const [kind,{text,...phase}]of Object.entries(MINION_PHASES)){
+ Object.assign(ENEMIES[kind],{phase,phaseFromRound:6});ENEMIES[kind].desc+=' '+text;
+}
+ENEMIES.cloudmender.pulse.airOnly=true;
+ENEMIES.cloudmender.desc+='护援仅作用于飞行单位。';
+export const enemyPulse=e=>Math.max(1,Math.ceil((e.wave||1)/3))>=(ENEMIES[e.kind].pulseFromRound||1)?ENEMIES[e.kind].pulse:null;
 ENEMIES.boss.phase={shield:.12,haste:.12};
 ENEMIES.boss.desc='高血墨魁，半血凝结护盾并提速 12%；雷霆拆盾、冰控与集中输出迎击。生命随轮数额外成长，漏过山门损失 4 点生命。';
 ENEMIES.stormboss.phase={haste:.12};
@@ -447,6 +485,44 @@ ENEMIES.frostboss.desc='寒域使近身词塔攻击间隔增加 25%；半血附�
 const BASE_MAP_BOSSES=['hillboss','bambooboss','scrollboss','tideboss','cloudboss','gearboss','frostlord','mirrorqueen','beaconlord','astralboss'];
 const BASE_PHASES=[{haste:.12},{summon:'bamboostalker',count:2},{summon:'scrollguard',count:2},{heal:.08},{shield:.15},{haste:.2},{shell:true},{summon:'mirrorling',count:2},{haste:.2},{shield:.15,period:3}];
 BASE_MAP_BOSSES.forEach((k,i)=>ENEMIES[k].phase=BASE_PHASES[i]);
+// Every boss has a bounded active skill as well as its distinct half-health phase.
+const BOSS_EXTRA_PULSES={
+ boss:{kind:'shield',interval:9,limit:3,ratio:.1,targets:1},
+ ironboss:{kind:'haste',interval:9,limit:3,targets:4,radius:130},
+ broodqueen:{kind:'shield',interval:10,limit:2,ratio:.08,targets:3},
+ stormboss:{kind:'haste',interval:8,limit:3,targets:1},
+ frostboss:{kind:'shield',interval:10,limit:3,ratio:.09,targets:1},
+ inkking:{kind:'summon',interval:10,limit:3,unit:'armor',count:1},
+ hillboss:{kind:'shield',interval:10,limit:2,ratio:.1,targets:1},
+ bambooboss:{kind:'summon',interval:10,limit:2,unit:'bamboostalker',count:1},
+ scrollboss:{kind:'summon',interval:11,limit:2,unit:'scrollguard',count:1},
+ tideboss:{kind:'heal',interval:9,limit:3,ratio:.04,targets:3,radius:120},
+ cloudboss:{kind:'summon',interval:10,limit:2,unit:'flying',count:1},
+ gearboss:{kind:'summon',interval:11,limit:2,unit:'clockwork',count:1},
+ frostlord:{kind:'shield',interval:10,limit:2,ratio:.1,targets:1},
+ mirrorqueen:{kind:'summon',interval:11,limit:2,unit:'mirrorling',count:1},
+ beaconlord:{kind:'shield',interval:10,limit:2,ratio:.08,targets:3,radius:120},
+ astralboss:{kind:'shield',interval:9,limit:3,ratio:.1,targets:1},
+ drumking:{kind:'summon',interval:10,limit:2,unit:'lancer',count:1},
+ peakelder:{kind:'haste',interval:9,limit:2,targets:3,radius:110},
+ silencewarden:{kind:'summon',interval:11,limit:2,unit:'ward',count:1},
+ pearlclam:{kind:'heal',interval:10,limit:2,ratio:.04,targets:2,radius:100},
+ thunderkite:{kind:'haste',interval:9,limit:2,targets:3,radius:110},
+ icephoenix:{kind:'shield',interval:10,limit:2,ratio:.1,targets:1},
+ glaciergolem:{kind:'summon',interval:12,limit:2,unit:'frostbeast',count:1},
+ embermarshal:{kind:'summon',interval:10,limit:2,unit:'emberscout',count:2},
+ emberbeast:{kind:'haste',interval:9,limit:2,targets:3,radius:110},
+ sunsovereign:{kind:'haste',interval:9,limit:3,targets:3,radius:120},
+ moonsovereign:{kind:'heal',interval:10,limit:3,ratio:.04,targets:3,radius:120}
+};
+for(const [kind,pulse]of Object.entries(BOSS_EXTRA_PULSES))ENEMIES[kind].pulse=pulse;
+export const bossSkillName=kind=>({shield:'凝盾',heal:'回春',haste:'战吼',summon:'召援',blink:'闪进'}[ENEMIES[kind]?.pulse?.kind]||'');
+export function bossSkillText(kind){
+ const p=ENEMIES[kind]?.pulse;if(!p||!ENEMIES[kind].boss)return'';
+ const target=p.targets||3;
+ const effect=p.kind==='shield'?`为${target===1?'自身':`自身及附近最多 ${target-1} 名友军`}凝结本体最大生命 ${Math.round(p.ratio*100)}% 的护盾，不叠加；雷霆拆盾、毒伤绕盾。`:p.kind==='heal'?`治疗自身及附近最多 ${target-1} 名友军各自最大生命的 ${Math.round(p.ratio*100)}%；中毒或禁疗阻止回复。`:p.kind==='haste'?`使${target===1?'自身':`自身及附近最多 ${target-1} 名友军`}提速 30%，持续 3 秒，不叠加。`:p.kind==='summon'?`召来 ${p.count} 名${ENEMIES[p.unit].name}，继承路线与波次；范围攻击清理援军。`:`向前闪进 ${p.distance} 距离；减速与冰冻可阻断。`;
+ return `${bossSkillName(kind)}：通常出场 ${Math.min(4,p.interval)} 秒后首次施放，半血可提前；之后每 ${p.interval} 秒一次，最多 ${p.limit} 次；半血后剩余间隔缩短 25%。${effect}缄默可延迟主动技能。`;
+}
 export const COMMON_BOSSES=['boss','ironboss','broodqueen','stormboss','frostboss','inkking','drumking','shadeknight','lifetree','ironcarapace','emberhound','plaguequeen'];
 export const MAP_BOSS_POOLS=[
  ['hillboss','stonewarden','peakelder'],['bambooboss','bambooswords','bamboowitch'],['scrollboss','inkarchivist','silencewarden'],['tideboss','pearlclam','riverturtle'],['cloudboss','thunderkite','cloudwhale'],['gearboss','ballistalord','pendulumlord'],['frostlord','icephoenix','glaciergolem'],['mirrorqueen','glasswyrm','dreamweaver'],['beaconlord','embermarshal','emberbeast'],['astralboss','sunsovereign','moonsovereign']
@@ -500,13 +576,14 @@ export function wavePlan(chapter,wave){
  if(stage===3){pool=['normal','swift','armor','tank','shield',...(chapter>0?['lancer']:[])];formation='重阵推进';counter='雷霆破盾、山石迎击重甲';}
  if(stage>=4){const f=FORMATIONS[(stage-4+part-1+chapter*2)%FORMATIONS.length];pool=[...f.pool,'normal','normal','swift'];formation=f.name;counter=f.counter;if(round>=7)pool.push(...FORMATIONS[(round+part+chapter)%FORMATIONS.length].pool.slice(0,2));if(round>=9)pool.push('ward','healer');}
  const signature=round>=4?MAP_MINION_POOLS[chapter][(round-4+part-1)%3]:THEME_UNITS[chapter].kind;if(round>=2)pool.push(signature);if(round>=4){pool.push(COMMON_MINIONS[(round+part+chapter)%COMMON_MINIONS.length],...MAP_MINION_POOLS[chapter]);}
- return{bossPool,endlessRound,signature,round,part,stage,pool,boss,bossKind,formation,counter,count:Math.min(80,8+round*3+chapter*2+(part-1)*2+Math.floor(Math.max(0,round-4)*1.2)),title:boss?'随机 Boss · '+formation:formation};
+ return{bossPool,endlessRound,signature,round,part,stage,pool,boss,bossKind,formation,counter,count:Math.min(80,8+round*3+chapter*2+(part-1)*2+Math.floor(Math.max(0,round-4)*1.4)),title:boss?'随机 Boss · '+formation:formation};
 }
 export function enemyHealthScale(chapter,wave,kind){
  const round=Math.max(1,Math.ceil(wave/3)),part=(Math.max(1,wave)-1)%3,boss=!!ENEMIES[kind].boss;
  const opening=chapter>=3&&round<=3&&!boss?.9:1;
- const growth=boss?1.65+round*.06:1+Math.max(0,round-3)*.02;
- return(1+(round-1)*.36+part*.08+CHAPTERS[chapter].difficulty)*1.25*(1+Math.max(0,round-5)*.015)*opening*growth;
+ const pressure=Math.max(0,round-3),ramp=Math.min(1,pressure/3);
+ const growth=boss?1.95+round*.13:1+pressure*(.02+.006*ramp);
+ return(1+(round-1)*.36+pressure*.065*ramp+part*.08+CHAPTERS[chapter].difficulty)*1.25*(1+Math.max(0,round-5)*.02)*opening*growth;
 }
 export class Game {
  get pads(){return getMap(this.chapter).pads;}
@@ -554,7 +631,7 @@ export class Game {
   this.queue.push(...entries);this.queue.sort((a,b)=>(a.at??this.time)-(b.at??this.time));
   this.pendingWaves??=[];this.pendingWaves.push(this.wave);this.autoWaveAt=plan.part<3?at+WAVE_INTERVAL:0;this.emit('wave',{wave:this.wave});
  }
- spawn(kind,distance=0,route=0,wave=this.wave){const st=ENEMIES[kind],scale=enemyHealthScale(this.chapter,wave,kind);const e={map:this.chapter,route,wave,bornAt:this.time,id:this.nextId++,kind,hp:st.hp*scale,maxHp:st.hp*scale,speed:st.speed*(1+Math.min(this.chapter,4)*.05),reward:st.reward,harm:st.harm,d:Math.max(0,distance),slowUntil:0};if(kind==='shield'||st.shield){e.shield=(st.shield||55)*scale;e.maxShield=e.shield;}const behavior=st.behavior||kind;if(['healer','broodqueen','hillrunner','scrollguard','tideshaper','cloudraptor','rallyboss'].includes(behavior))e.abilityAt=this.time+({healer:4,broodqueen:8,hillrunner:st.boss?8:6,scrollguard:st.boss?9:8,tideshaper:st.boss?8:6,cloudraptor:st.boss?8:7,rallyboss:8}[behavior]);if(st.pulse)e.pulseAt=this.time+st.pulse.interval;if(st.initialPhase!==undefined)e.astralMode=st.initialPhase;this.enemies.push(e);return e;}
+ spawn(kind,distance=0,route=0,wave=this.wave){const st=ENEMIES[kind],scale=enemyHealthScale(this.chapter,wave,kind);const e={map:this.chapter,route,wave,bornAt:this.time,id:this.nextId++,kind,hp:st.hp*scale,maxHp:st.hp*scale,speed:st.speed*(1+Math.min(this.chapter,4)*.05),reward:st.reward,harm:st.harm,d:Math.max(0,distance),slowUntil:0};if(kind==='shield'||st.shield){e.shield=(st.shield||55)*scale;e.maxShield=e.shield;}const behavior=st.behavior||kind;if(['healer','broodqueen','hillrunner','scrollguard','tideshaper','cloudraptor','rallyboss'].includes(behavior))e.abilityAt=this.time+({healer:4,broodqueen:8,hillrunner:st.boss?8:6,scrollguard:st.boss?9:8,tideshaper:st.boss?8:6,cloudraptor:st.boss?8:7,rallyboss:8}[behavior]);if(st.boss&&e.abilityAt!==undefined)e.abilityAt=Math.min(e.abilityAt,this.time+4);const pulse=enemyPulse(e);if(pulse)e.pulseAt=this.time+(st.boss?Math.min(4,pulse.interval):pulse.interval);if(st.initialPhase!==undefined)e.astralMode=st.initialPhase;this.enemies.push(e);return e;}
  skillCost(){return SKILL_BASE_COST+this.skillUses*SKILL_COST_STEP;}
  skill(){const cost=this.skillCost();if(this.phase!=='battle'||this.time<this.skillReady||this.ink<cost)return false;this.ink-=cost;this.skillUses++;this.skillReady=this.time+SKILL_COOLDOWN;for(const e of this.enemies){e.hp-=100;if(!(hasIceShell(e)))e.slowUntil=this.time+3;}this.effects.push({kind:'rain',life:1,max:1});this.emit('skill',{cost,nextCost:this.skillCost()});return true;}
  step(dt){dt=Math.max(0,Math.min(dt,.1));for(const fx of this.effects)fx.life-=dt;this.effects=this.effects.filter(f=>f.life>0);if(this.phase==='intermission'){this.phase='battle';this.pendingWaves=[];}
@@ -599,8 +676,8 @@ export class Game {
   // Iterate a snapshot so summons never recursively execute abilities this frame.
   const living=this.enemies.filter(e=>e.hp>0&&e.d<enemyLength(e));
   for(const e of living){
-   const behavior=enemyBehavior(e),boss=ENEMIES[e.kind].boss,canAct=!(e.silencedUntil>this.time);
-   const data=ENEMIES[e.kind],regen=data.regenRate||(e.kind==='regen'?.02:0);if(regen&&!(e.poisonUntil>this.time||e.healBlockUntil>this.time))e.hp=Math.min(e.maxHp,e.hp+e.maxHp*regen*dt);
+   const behavior=enemyBehavior(e),boss=ENEMIES[e.kind].boss,canAct=!(e.silencedUntil>this.time||e.freezeUntil>this.time);
+   const wasEnraged=e.enraged;const data=ENEMIES[e.kind],regen=data.regenRate||(e.kind==='regen'?.02:0);if(regen&&!(e.poisonUntil>this.time||e.healBlockUntil>this.time))e.hp=Math.min(e.maxHp,e.hp+e.maxHp*regen*dt);
    if(e.poisonUntil>this.time-dt)e.hp-=Math.min(dt,Math.max(0,e.poisonUntil-(this.time-dt)))*e.poisonDps*(1-((e.lightUntil>this.time||e.markUntil>this.time)?0:(data.poisonResist||0)));
    if(e.bleedUntil>this.time-dt)e.hp-=Math.min(dt,Math.max(0,e.bleedUntil-(this.time-dt)))*e.bleedDps;
    if(e.burnUntil>this.time-dt)e.hp-=Math.min(dt,Math.max(0,e.burnUntil-(this.time-dt)))*e.burnDps*(1-(data.burnResist||0));
@@ -611,7 +688,7 @@ export class Game {
     if(e.kind==='inkking'){e.shield=e.maxShield=e.maxHp*.18;this.spawn('swift',e.d-12,e.route,e.wave);this.spawn('swift',e.d-24,e.route,e.wave);}
     if(ENEMIES[e.kind].boss)this.emit('boss-phase',{name:ENEMIES[e.kind].name});
    }
-   if(data.phase&&!e.enraged&&e.hp<=e.maxHp*.5){
+   if(data.phase&&Math.max(1,Math.ceil((e.wave||1)/3))>=(data.phaseFromRound||1)&&!e.enraged&&e.hp<=e.maxHp*.5){
     e.enraged=true;const phase=data.phase;
     if(phase.summon)for(let i=0;i<(phase.count||1);i++)this.spawn(phase.summon,e.d-18*(i+1),e.route,e.wave);
     if(phase.heal&&!(e.poisonUntil>this.time||e.healBlockUntil>this.time))e.hp=Math.min(e.maxHp,e.hp+e.maxHp*phase.heal);
@@ -621,32 +698,37 @@ export class Game {
     if(phase.mode!==undefined)e.astralMode=phase.mode;
     if(data.boss)this.emit('boss-phase',{name:data.name});
    }
-   const pulse=data.pulse;
+   if(boss&&e.enraged&&!wasEnraged){if(e.pulseAt!==undefined)e.pulseAt=Math.min(e.pulseAt,this.time+2);if(e.abilityAt!==undefined)e.abilityAt=Math.min(e.abilityAt,this.time+2);}
+   const pulse=enemyPulse(e);
+   if(pulse&&e.pulseAt===undefined)e.pulseAt=(e.bornAt??this.time)+(boss?Math.min(4,pulse.interval):pulse.interval);
    if(pulse&&canAct&&this.time>=e.pulseAt&&(e.pulses||0)<pulse.limit){
-    const allies=[e,...living.filter(a=>a!==e&&a.hp>0&&nearby(e,a,pulse.radius||110))].slice(0,pulse.targets||3);
+    const allies=[e,...living.filter(a=>a!==e&&a.hp>0&&nearby(e,a,pulse.radius||110)&&(!pulse.airOnly||isAir(a)))].slice(0,pulse.targets||3);
     if(pulse.kind==='heal')for(const a of allies){if(!(a.poisonUntil>this.time||a.healBlockUntil>this.time))a.hp=Math.min(a.maxHp,a.hp+a.maxHp*pulse.ratio);}
     if(pulse.kind==='shield')for(const a of allies){a.shield=Math.max(a.shield||0,e.maxHp*pulse.ratio);a.maxShield=Math.max(a.maxShield||0,a.shield);}
-    if(pulse.kind==='haste')for(const a of allies)a.rallyUntil=Math.max(a.rallyUntil||0,this.time+3);
+    if(pulse.kind==='guard')for(const a of allies){a.guardPower=Math.max(a.guardUntil>this.time?a.guardPower||0:0,pulse.ratio);a.guardUntil=Math.max(a.guardUntil||0,this.time+3);}
+    if(pulse.kind==='jam')e.jamUntil=this.time+pulse.duration;
+    if(pulse.kind==='haste'&&(boss||!(e.slowUntil>this.time)))for(const a of allies)a.rallyUntil=Math.max(a.rallyUntil||0,this.time+3);
     if(pulse.kind==='summon')for(let i=0;i<pulse.count;i++)this.spawn(pulse.unit,e.d-18*(i+1),e.route,e.wave);
     if(pulse.kind==='blink'&&!(e.slowUntil>this.time)&&!(e.freezeUntil>this.time))e.d+=pulse.distance;
-    e.pulses=(e.pulses||0)+1;e.pulseAt=this.time+pulse.interval;this.effects.push({kind:'blast',to:enemyPosition(e),color:data.color||'#9a8260',life:.4,max:.4});
+    e.pulses=(e.pulses||0)+1;e.pulseAt=this.time+pulse.interval*(boss&&e.enraged?.75:1);this.effects.push({kind:'blast',to:enemyPosition(e),color:data.color||'#9a8260',life:.4,max:.4});
    }
-   if(behavior==='rallyboss'&&canAct&&this.time>=e.abilityAt&&(e.charges||0)<3){for(const ally of living)if(ally!==e&&ally.hp>0&&nearby(e,ally,150))ally.rallyUntil=Math.max(ally.rallyUntil||0,this.time+3);e.charges=(e.charges||0)+1;e.abilityAt=this.time+8;this.effects.push({kind:'blast',to:enemyPosition(e),color:'#c68b46',life:.5,max:.5});}
+   if(behavior==='rallyboss'&&canAct&&this.time>=e.abilityAt&&(e.charges||0)<3){for(const ally of living)if(ally!==e&&ally.hp>0&&nearby(e,ally,150))ally.rallyUntil=Math.max(ally.rallyUntil||0,this.time+3);e.charges=(e.charges||0)+1;e.abilityAt=this.time+(e.enraged?6:8);this.effects.push({kind:'blast',to:enemyPosition(e),color:'#c68b46',life:.5,max:.5});}
    if(e.kind==='mirrorling'&&!e.mirrored&&e.hp<=e.maxHp*.5){
     e.mirrored=true;const copy=this.spawn('mirrorling',e.d-18,e.route,e.wave);copy.mirrored=true;copy.isCopy=true;copy.hp=copy.maxHp=e.maxHp*.35;copy.reward=1;
     this.effects.push({kind:'blast',to:enemyPosition(e),color:ENEMIES.mirrorling.color,life:.5,max:.5});
    }
    if(behavior==='hillrunner'&&canAct&&this.time>=e.abilityAt){if(!(e.slowUntil>this.time)&&!(e.freezeUntil>this.time)){e.d+=50;this.effects.push({kind:'pop',to:enemyPosition(e),color:ENEMIES.hillrunner.color,life:.4,max:.4});}e.abilityAt=this.time+(boss?(e.enraged?6:8):6);}
-   if(behavior==='scrollguard'&&canAct&&this.time>=e.abilityAt&&(e.charges||0)<(boss?3:2)){e.shield=e.maxShield=Math.max(e.shield||0,e.maxHp*.38);e.charges=(e.charges||0)+1;e.abilityAt=this.time+(boss?9:8);}
+   if(behavior==='scrollguard'&&canAct&&this.time>=e.abilityAt&&(e.charges||0)<(boss?3:2)){e.shield=e.maxShield=Math.max(e.shield||0,e.maxHp*.38);e.charges=(e.charges||0)+1;e.abilityAt=this.time+(boss?(e.enraged?6.75:9):8);}
    if(behavior==='tideshaper'&&canAct&&this.time>=e.abilityAt&&(e.charges||0)<(boss?3:2)){
     for(const ally of living.filter(a=>a!==e&&a.hp>0&&nearby(e,a,100)).slice(0,3)){const shield=e.maxHp*.25;ally.shield=Math.max(ally.shield||0,shield);ally.maxShield=Math.max(ally.maxShield||0,shield);}
-    e.charges=(e.charges||0)+1;e.abilityAt=this.time+(boss?8:6);this.effects.push({kind:'blast',to:enemyPosition(e),color:ENEMIES.tideshaper.color,life:.4,max:.4});
+    e.charges=(e.charges||0)+1;e.abilityAt=this.time+(boss?(e.enraged?6:8):6);this.effects.push({kind:'blast',to:enemyPosition(e),color:ENEMIES.tideshaper.color,life:.4,max:.4});
    }
    if(behavior==='cloudraptor'&&(e.slowUntil>this.time||e.freezeUntil>this.time))e.diveUntil=Math.min(e.diveUntil||0,this.time);
-   if(behavior==='cloudraptor'&&canAct&&this.time>=e.abilityAt){e.diveUntil=e.slowUntil>this.time||e.freezeUntil>this.time?this.time:this.time+2;e.abilityAt=this.time+(boss?8:7);}
-   if(e.kind==='healer'&&canAct&&this.time>=e.abilityAt){
-    for(const ally of living)if(ally.hp>0&&nearby(e,ally,110)&&!(ally.poisonUntil>this.time||ally.healBlockUntil>this.time))ally.hp=Math.min(ally.maxHp,ally.hp+ally.maxHp*.03);
-    e.abilityAt=this.time+4;this.effects.push({kind:'blast',to:enemyPosition(e),color:'#719b65',life:.5,max:.5});
+   if(behavior==='cloudraptor'&&canAct&&this.time>=e.abilityAt){e.diveUntil=e.slowUntil>this.time||e.freezeUntil>this.time?this.time:this.time+2;e.abilityAt=this.time+(boss?(e.enraged?6:8):7);}
+   if(e.kind==='healer'&&canAct&&this.time>=e.abilityAt&&(e.charges||0)<4){
+    const patients=living.filter(a=>a.hp>0&&nearby(e,a,110)&&!(a.poisonUntil>this.time||a.healBlockUntil>this.time)).sort((a,b)=>a.hp/a.maxHp-b.hp/b.maxHp).slice(0,3);
+    for(const ally of patients)ally.hp=Math.min(ally.maxHp,ally.hp+ally.maxHp*.05);
+    e.charges=(e.charges||0)+1;e.abilityAt=this.time+4;this.effects.push({kind:'blast',to:enemyPosition(e),color:'#719b65',life:.5,max:.5});
    }
    if(e.kind==='broodqueen'&&canAct&&this.time>=e.abilityAt&&(e.summons||0)<3){
     this.spawn('small',e.d-12,e.route,e.wave);this.spawn('small',e.d-24,e.route,e.wave);e.summons=(e.summons||0)+1;e.abilityAt=this.time+(e.hp<e.maxHp*.5?5:8);
@@ -676,6 +758,8 @@ export class Game {
   const buff=Math.max(0,...lights.map(a=>towerStats(a).aura));
   const inspired=this.towers.some(a=>a.id!==t.id&&hasRune(getWord(a.word),'inspire')&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range*.65);const haste=Math.max(inspired?.03:0,...lights.map(a=>getWord(a.word).tier>=4?.12:getWord(a.word).tier>=3?.06:0));
   const chilled=this.enemies.some(e=>e.hp>0&&enemyBehavior(e)==='frostboss'&&Math.hypot(enemyPosition(e).x-p.x,enemyPosition(e).y-p.y)<=130);
+  const jammed=this.enemies.some(e=>e.hp>0&&e.jamUntil>this.time&&Math.hypot(enemyPosition(e).x-p.x,enemyPosition(e).y-p.y)<=(ENEMIES[e.kind].pulse?.radius||95));
+  const disruption=Math.max(chilled?.25:0,jammed?.2:0);
   const damage=stats.damage*(1+buff);
   const shotNumber=(t.shots||0)+1;let hitNumber=0;
   const hit=(e,m=1)=>{
@@ -689,8 +773,9 @@ export class Game {
    if(hasIceShell(e)){special*=ENEMIES[e.kind].boss?.8:.85;e.shellHits=Math.min(shellLimit(e),(e.shellHits||0)+(['splash','heavy'].includes(w.type)?2:1));}
    if(behavior==='astral'&&!revealed&&!(w.type==='heavy'&&astralPhase(e,this.time)===0)&&PHYSICAL_TYPES.has(w.type)===(astralPhase(e,this.time)===0))special*=.65;
    if(ENEMIES[e.kind].resistTypes?.includes(w.type)&&!revealed)special*=1-(ENEMIES[e.kind].resistance||0);
-   const protectedByWard=!(e.lightUntil>this.time)&&this.enemies.some(a=>a.hp>0&&a.kind==='ward'&&a.id!==e.id&&Math.hypot(enemyPosition(a).x-enemyPosition(e).x,enemyPosition(a).y-enemyPosition(e).y)<110);
-   let amount=damage*m*special*(1-armor)*(protectedByWard?.88:1)*(e.markUntil>this.time?1+e.markPower:1);
+   const protectedByWard=!revealed&&this.enemies.some(a=>a.hp>0&&a.kind==='ward'&&a.id!==e.id&&Math.hypot(enemyPosition(a).x-enemyPosition(e).x,enemyPosition(a).y-enemyPosition(e).y)<110);
+   const protection=Math.max(protectedByWard?.12:0,!revealed&&e.guardUntil>this.time?(e.guardPower||0):0);
+   let amount=damage*m*special*(1-armor)*(1-protection)*(e.markUntil>this.time?1+e.markPower:1);
    if(hasRune(w,'edge')&&['heavy','pierce'].includes(w.type))amount*=1.05;
    if(hasRune(w,'slayer')&&ENEMIES[e.kind].boss)amount*=1.12;
    if(hasRune(w,'valor')&&e.hp/e.maxHp>.85)amount*=1.15;
@@ -758,7 +843,7 @@ export class Game {
   if(hasRune(w,'echo')){const side=targets.find(e=>e!==target&&e.hp>0);if(side)hit(side,.2);}
   if(hasRune(w,'brood')&&t.shots%3===0)hit(targets.find(e=>e.hp>0)||target,.2);
   if(hasRune(w,'bloom')){const q=enemyPosition(target);for(const side of targets.filter(e=>e!==target&&Math.hypot(enemyPosition(e).x-q.x,enemyPosition(e).y-q.y)<45).slice(0,2))hit(side,.15);}
-  t.cooldown=stats.rate*(hasRune(w,'tempo')&&t.shots%4===0?.88:1)*(chilled?1.25:1)/(1+haste);
+  t.cooldown=stats.rate*(hasRune(w,'tempo')&&t.shots%4===0?.88:1)*(1+disruption)/(1+haste);
  }
  export(){const {effects,events,_wordCacheKey,_wordCache,...data}=this;return {...data,towers:this.towers.map(t=>({...t})),enemies:this.enemies.map(e=>({...e})),queue:this.queue.map(e=>({...e})),hand:this.hand.map(t=>({...t})),unlockedPads:[...this.unlockedPads],bossDraws:this.bossDraws.map(x=>({...x})),zones:this.zones.map(z=>({...z})),pendingWaves:this.pendingWaves?[...this.pendingWaves]:this.phase==='battle'&&this.wave>0?[this.wave]:[],version:4};}
  static restore(data){
@@ -769,7 +854,8 @@ export class Game {
  if(data.reviveUsed!==undefined&&typeof data.reviveUsed!=='boolean')throw Error('Invalid revival');
  if(data.barrierSpent!==undefined&&(!int(data.barrierSpent)||data.barrierSpent>2)||data.soulHealed!==undefined&&(!int(data.soulHealed)||data.soulHealed>1))throw Error('Invalid semantic round state');
  if(data.bountyEarned!==undefined&&(!int(data.bountyEarned)||data.bountyEarned>35))throw Error('Invalid bounty');
- if(data.enemies.some(e=>['abilityAt','poisonDps','poisonUntil','burnDps','burnUntil','markUntil','markPower','breakUntil','lightUntil','bountyUntil','bounty','freezeUntil','freezeReady','slowFactor','summons','bornAt','rallyUntil','diveUntil','charges','shellHits','astralPeriod','pulseAt','pulses','soulUntil','weakenUntil','healBlockUntil','recoilReady','bleedDps','bleedUntil','silencedUntil','silenceReady'].some(k=>e[k]!==undefined&&(!finite(e[k])||e[k]<0))||(e.enraged!==undefined&&typeof e.enraged!=='boolean')||['mirrored','isCopy'].some(k=>e[k]!==undefined&&typeof e[k]!=='boolean')||['burn','bleed'].some(prefix=>e[prefix+'Until']!==undefined&&!finite(e[prefix+'Dps']))))throw Error('Invalid enemy ability');
+ if(data.enemies.some(e=>['abilityAt','poisonDps','poisonUntil','burnDps','burnUntil','markUntil','markPower','breakUntil','lightUntil','bountyUntil','bounty','freezeUntil','freezeReady','slowFactor','summons','bornAt','rallyUntil','diveUntil','charges','shellHits','astralPeriod','pulseAt','pulses','soulUntil','weakenUntil','healBlockUntil','recoilReady','bleedDps','bleedUntil','silencedUntil','silenceReady','guardUntil','guardPower','jamUntil'].some(k=>e[k]!==undefined&&(!finite(e[k])||e[k]<0))||(e.enraged!==undefined&&typeof e.enraged!=='boolean')||['mirrored','isCopy'].some(k=>e[k]!==undefined&&typeof e[k]!=='boolean')||['burn','bleed'].some(prefix=>e[prefix+'Until']!==undefined&&!finite(e[prefix+'Dps']))))throw Error('Invalid enemy ability');
+ if(data.enemies.some(e=>e.guardPower!==undefined&&e.guardPower>.3))throw Error('Invalid guard power');
  if(data.enemies.some(e=>e.astralMode!==undefined&&![0,1].includes(e.astralMode)))throw Error('Invalid astral mode');
  if(data.towers.some(t=>t.shots!==undefined&&!int(t.shots)))throw Error('Invalid tower attack counter');
  if(data.enemies.some(e=>(e.map!==undefined&&e.map!==data.chapter)||(e.route!==undefined&&(!int(e.route)||e.route>=getMap(data.chapter).routes.length)))||data.queue.some(e=>e.route!==undefined&&(!int(e.route)||e.route>=getMap(data.chapter).routes.length)))throw Error('Invalid route');

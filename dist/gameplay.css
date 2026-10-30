@@ -292,3 +292,5 @@ html[data-standalone="true"].game-open body.playing main { padding-bottom:6px; }
 html[data-standalone="true"].game-open body.playing .forge-panel { padding-bottom:max(6px,var(--safe-bottom)); }
 
 .rune-capacity{display:block;margin-bottom:3px;font-size:10px;color:#d0c399}.meaning-names{font-weight:600;color:#796383}
+
+.boss-skill-description{padding-top:8px;border-top:1px solid #b9ae9633}.boss-skill-description strong{color:#986348}

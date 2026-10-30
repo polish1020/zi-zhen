@@ -4,7 +4,7 @@
 
 ## 规则回归
 
-`node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs tests/timing.test.mjs tests/specialties.test.mjs tests/word-traits.test.mjs tests/endless-bosses.test.mjs tests/boss-pools.test.mjs tests/word-meanings.test.mjs tests/minions.test.mjs tests/progression.test.mjs tests/quality.test.mjs`：132 项通过。
+`node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs tests/timing.test.mjs tests/specialties.test.mjs tests/word-traits.test.mjs tests/endless-bosses.test.mjs tests/boss-pools.test.mjs tests/word-meanings.test.mjs tests/minions.test.mjs tests/progression.test.mjs tests/quality.test.mjs tests/boss-pressure.test.mjs tests/minion-tactics.test.mjs`：145 项通过。
 
 覆盖约 4 万词与十四类词塔、严格词序、500 随机手牌、一次性扣牌扣费、重复字、刷新费、轮末收入与修补、财塔上限、升级及拆塔、毒伤/减速/破甲/连锁/光环/斩杀、100 墨点最长词提示及无词不收费、提示保存、技能 30 秒冷却与涨价、无尽续战、三波固定间隔、叠波和倒计时恢复、周期及收尾 Boss、飞行路线与防空、护盾、回血与分裂、阵位解锁及涨价、旧存档迁移、非法存档拒绝、前缀词库缓存与序列化。
 
@@ -17,7 +17,7 @@
 | 策略 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 不使用技能 | 20/20 | 20/20 | 19/20 | 17/20 | 20/20 | 20/20 | 17/20 | 20/20 | 20/20 | 17/20 |
-| 近门时使用技能 | 20/20 | 20/20 | 19/20 | 18/20 | 20/20 | 20/20 | 18/20 | 20/20 | 20/20 | 17/20 |
+| 近门时使用技能 | 20/20 | 20/20 | 20/20 | 17/20 | 20/20 | 20/20 | 18/20 | 20/20 | 20/20 | 17/20 |
 
 初次扩展测试发现，后期章第一轮直接加入完整支援阵容容易因随机手牌失守，已改为前两轮留出布阵时间，再逐步开放组合。每种 Boss 的能力、召唤上限和存档恢复均单独测试。本次扩大词义手牌后，再次发现第四、七、十章早期在部分随机组合下偏难；已对第四至十章前三轮普通怪生命和护盾乘 0.9，Boss 与后续轮次不变。最终 400 场通过原有阈值，没有降低测试标准。采用固定 35 秒叠波，并允许自动策略在战斗中每 8 秒使用真实收入补强；25 秒的初版在后期多入口场景偏难，已延长固定间隔。
 
@@ -80,3 +80,11 @@
 `tests/quality.test.mjs` 验证全词库 0/1/1/2 上限、39 种效果都有可用词条、单字火无隐藏灼烧而冰保留基础减速、被裁剪的数值代价与升级折扣确实移除、混合元素优先保留差异、升级和旧存档不越过品质限制。既有词义因果测试使用足够品质的词来验证需要两项组合的效果，低品质例子明确裁剪。
 
 `tests/quality.cjs` 在 Chromium 与 WebKit 的 320×568、393×852、667×375、1440×1000 验证实际符印数量、0/1/1/2 说明、被裁剪特性不进入筛选结果、灵词升至 4 级仍只有一个附加项、刷新后保持、详情按钮在移动端完整可见。新增规则后报告模式重跑 400 场自动对局，并按原有 95%/90%/85% 门槛校验全部通过，结果更新在上表；未修改怪物或原难度门槛。
+
+## Boss 压力与小怪战术回归
+
+`tests/boss-pressure.test.mjs` 新增 6 项：生命相比旧曲线显著提高、全部 42 种主动技能真实施放与次数上限、半血提前并加快、缄默/冰冻/暂停、护盾不叠加/中毒阻止治疗/战吼真实移动、召援路线波次与旧存档缺少计时器恢复。`tests/minion-tactics.test.mjs` 新增 7 项：16 种主动技能按轮开放、减伤与护阵取最大值且可克制、干扰实际改变攻速且不叠加 Boss 寒域、飞行专属领飞与减速阻断、6 种半血反应保存、状态恢复和非法值拒绝、墨医优先三名残血/四次上限/禁疗。总规则 145 项通过。
+
+400 场按原有策略和 95%/90%/85% 标准运行并通过，未更改难度阈值或注入资源。数值和战术初稿发现第四章过渡压力高，最终采用第 4 轮机动、第 6 轮支援和干扰的分期开放；同时把无上限群疗改为限次残血急救。最新结果更新在上表。`balance.mjs` 新增 `--chapter=4 --seed-start=19` 定位组合，完整验收仍是十章各 20 个种子、两种策略。
+
+`tests/enemy-tactics.cjs` 在 Chromium 与 WebKit 四种尺寸检查战场实际绘制、Boss 蓄势与实际凝盾施放、42 份技能说明、分期小怪技能和克制说明、暂停/重载计时保持、没有独立 Boss 遮挡层、手机无页面溢出。既有三尺寸图鉴、手机和桌面密集无尽 Boss、四尺寸暂停布阵流程回归通过。
