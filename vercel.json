@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "framework": null,
+  "buildCommand": "node scripts/build-static.mjs",
+  "installCommand": "",
+  "outputDirectory": "public"
+}

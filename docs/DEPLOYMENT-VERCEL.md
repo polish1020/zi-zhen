@@ -6,12 +6,12 @@
 
 - 团队：`changsheng`，ID `team_azaP3oGtfy4m7CDhqfxdNiLP`
 - 项目：`zi-zhen`，ID `prj_knArbjGsckakBpEb06lLwiWsHlyb`
-- 生产部署：`dpl_CXDDKr3P7H15ckW2aAy9f73vJaun`
-- 部署地址：https://zi-zhen-pfk7mmqzu-changsheng.vercel.app
-- 生产源码提交：`8490a45db07660bb69754fa0f22ba676dfed150a`
+- 生产部署：`dpl_7ScA9mQTqdN8rygwxXdWr2QHsRM8`
+- 部署地址：https://zi-zhen-hwdfd6ih6-changsheng.vercel.app
+- 生产源码提交：`52528367b7da3cd2acb090ccbf8916434e91e377`
 - 发布时间：2026-10-30；状态 `READY`，环境 `production`
 - 框架：静态站点，`framework: null`，输出 `public`，无安装/构建依赖。
-- Vercel 输出构建 64ms；从 buildingAt 到 ready 约 2.0 秒；日志无构建错误。
+- Vercel 输出构建 52ms；从 buildingAt 到 ready 约 1.9 秒；日志无构建错误。
 - 控制台：https://vercel.com/changsheng/zi-zhen
 
 ## 更新方法
@@ -88,3 +88,13 @@ python3 scripts/prepare-vercel.py
 156 项规则通过；100 场仅主线资源审计与 400 场最终战斗仿真完成。最终两策略整体通关率 86%/87.5%，未声称通过历史每章 casual 阈值。主线第 6 轮收入配对中位数 599→503，第 10 轮 974→765；统计见 `ECONOMY.md`。
 
 线上 WebKit `tests/campaign-economy.cjs` 在四种尺寸分别核验主线和无尽的实际掉落与过关结算、已有钱包保留、重载不重复发奖和玩法说明；线上 Chromium 基本游戏全流程通过。十个公开文件 HTTP 200，逐字节匹配测试包与原生资源；构建和浏览器无运行错误。
+
+## 沿途攻塔、维护经济与 Git 构建
+
+94 种怪物沿路蓄力攻塔，加入耐久、十四类守备、修复/重建、废墟和轮末自修；两围攻位覆盖收招，前三轮攻塔伤害减轻。主线第 4/5 轮起普通掉落改为 95%/90%，用于承担维护；提示、换字与波次间隔未改。
+
+173 项规则通过；400 场自动主线策略通关率 85%/86%，最低章节 65%，并非所有历史每章 casual 门槛均通过。100 场主线维护账本审计与 50 场同种子禁维修对照完成。详细数据见 `TESTING.md`、`ECONOMY.md` 和 `reports/siege-summary.json`。
+
+正式域名 WebKit 四尺寸 `tests/siege.cjs` 验证耐久、精确扣费、修复/重建、实际攻塔损毁、暂停和存档恢复、94 条攻塔说明与移动端按钮同屏；线上 Chromium 基本游戏与图鉴检查通过，未发现脚本错误。十个静态文件 HTTP 200，与已测试发布包、原生包逐字节一致。实体 iPhone 未直接验证。
+
+仓库根目录新增 `vercel.json` 和无依赖的 `scripts/build-static.mjs`。执行 `node scripts/build-static.mjs` 生成 `public/`，与当前生产十个文件逐字节一致；Git 部署使用此构建命令、输出目录 `public`，框架为 Other（null），无需安装依赖。`public/`、`.vercel/`、`.env*` 不提交。GitHub 仓库创建与已有 Vercel 项目的 Git 关联仍需完成授权，未声称自动部署已启用。

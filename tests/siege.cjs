@@ -9,11 +9,11 @@ const base=process.env.BASE_URL||'http://127.0.0.1:4173',engine=process.env.BROW
  const browser=await (engine==='webkit'?webkit:chromium).launch({headless:true,
   ...(engine==='chromium'?{executablePath:'/usr/bin/chromium',args:['--no-sandbox']}:{}),
   ...(base.startsWith('https://')?{proxy:{server:process.env.HTTPS_PROXY}}:{})});
- try{for(const [width,height]of[[320,568],[393,852],[667,375],[1440,1000]]){
+ try{for(const [width,height]of[[320,568],[393,852],[667,375],[1440,1000]].filter(([w])=>!process.env.SIEGE_WIDTH||w===Number(process.env.SIEGE_WIDTH))){
   const g=fixture(),initial=g.ink,repair=g.repairCost(g.towers[0]),rebuild=g.repairCost(g.towers[1]),hand=JSON.stringify(g.hand);
   const context=await browser.newContext({viewport:{width,height},isMobile:width<=900,hasTouch:width<=900}),page=await context.newPage(),errors=[];
   page.setDefaultTimeout(15000);page.on('pageerror',e=>errors.push(e.message));
-  await page.addInitScript(save=>{if(!sessionStorage.getItem('siege-fixture')){localStorage.setItem('wordward-save-v1',JSON.stringify(save));sessionStorage.setItem('siege-fixture','1');}localStorage.setItem('wordward-audio-v1','off');if(innerWidth<=900)Object.defineProperty(navigator,'standalone',{value:true});},g.export());
+  await page.addInitScript(save=>{const pending=sessionStorage.getItem('next-siege-fixture');if(pending){localStorage.setItem('wordward-save-v1',pending);sessionStorage.removeItem('next-siege-fixture');}else if(!sessionStorage.getItem('siege-fixture')){localStorage.setItem('wordward-save-v1',JSON.stringify(save));sessionStorage.setItem('siege-fixture','1');}localStorage.setItem('wordward-audio-v1','off');if(innerWidth<=900)Object.defineProperty(navigator,'standalone',{value:true});},g.export());
   const state=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('wordward-save-v1')));
   const fits=async()=>{if(width<=900){assert.equal(await page.evaluate(()=>document.documentElement.scrollHeight>document.documentElement.clientHeight+1),false);for(const id of ['upgrade','repair','sell']){const b=await page.locator('#'+id).boundingBox();assert.ok(b.y+b.height<=height+1,`${id} outside viewport`);}}};
   await page.goto(base,{waitUntil:'domcontentloaded'});await page.locator('#enter-game').click();
@@ -27,7 +27,7 @@ const base=process.env.BASE_URL||'http://127.0.0.1:4173',engine=process.env.BROW
   const hp=s.towers[0].hp,time=s.time,enemyTimer=s.enemies[0].towerAttackAt;
   await page.reload();await page.locator('#enter-game').click();const restored=await state();assert.equal(restored.time,time);assert.equal(restored.towers[0].hp,hp);assert.equal(restored.enemies[0].towerAttackAt,enemyTimer);
   // Prove a live strike really creates a persistent, repairable ruin.
-  const doomed=fixture();doomed.towers[0].hp=1;await page.addInitScript(save=>localStorage.setItem('wordward-save-v1',JSON.stringify(save)),doomed.export());await page.reload();await page.locator('#enter-game').click();await page.locator('#resume').click();
+  const doomed=fixture();doomed.towers[0].hp=1;await page.evaluate(save=>sessionStorage.setItem('next-siege-fixture',JSON.stringify(save)),doomed.export());await page.reload();await page.locator('#enter-game').click();await page.locator('#resume').click().catch(async error=>{console.error('resume diagnostic',await page.evaluate(()=>({save:JSON.parse(localStorage.getItem('wordward-save-v1')),body:document.body.className,phase:document.querySelector('#phase-label')?.textContent,pause:document.querySelector('#pause-overlay')?.className})));throw error;});
   await page.waitForFunction(()=>JSON.parse(localStorage.getItem('wordward-save-v1')).towers[0].hp===0);await page.locator('#start').click();await page.locator('#pause-overlay').waitFor({state:'visible'});
   await page.locator('.map-target').nth(0).click();assert.match(await page.locator('#tower-hp').innerText(),/废墟/);assert.ok(await page.locator('#upgrade').isDisabled());assert.ok(await page.locator('#repair').isEnabled());await fits();
   if(width===393){await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));await page.screenshot({path:`/workspace/shared/wordward-siege-${engine}.png`});}

@@ -4,7 +4,7 @@
 
 ## 运行与测试
 
-无构建步骤，无运行时依赖。需要 Node.js 20+ 运行逻辑测试；Python 3 可启动静态预览。
+本地源码无需构建，无运行时依赖；Vercel Git 部署使用无依赖的 `node scripts/build-static.mjs` 生成 `public/`。需要 Node.js 20+ 运行逻辑测试；Python 3 可启动静态预览。
 
 ```sh
 python3 -m http.server 4173 --directory dist
@@ -40,7 +40,7 @@ node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs test
 
 ## Vercel
 
-当前生产站点：https://game.polishwb1020.com ，默认地址 https://zi-zhen.vercel.app 也可访问。使用 `python3 scripts/prepare-vercel.py` 准备发布目录，既有项目标识、更新方法和线上验证结果见 `docs/DEPLOYMENT-VERCEL.md`。当前未关联 Git 自动部署。
+当前生产站点：https://game.polishwb1020.com ，默认地址 https://zi-zhen.vercel.app 也可访问。使用 `python3 scripts/prepare-vercel.py` 准备发布目录，既有项目标识、更新方法和线上验证结果见 `docs/DEPLOYMENT-VERCEL.md`。Git 自动部署配置已准备，仓库创建和已有项目关联待授权后完成。
 
 ## 移动应用准备
 
