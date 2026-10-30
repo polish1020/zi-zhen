@@ -7,7 +7,7 @@ function build(g,word,pad){stock(g,word);assert.ok(g.build(word,pad));return g.t
 function runWave(g){assert.ok(g.startWave());let steps=0;while(g.phase==='battle'&&steps++<5000)g.step(.1);assert.ok(steps<5000);}
 
 test('common words, fourteen schools and four increasing starting tiers',()=>{
- assert.ok(WORDS.length>39000);assert.equal(new Set(WORDS.map(w=>w.word)).size,WORDS.length);assert.equal(new Set(WORDS.map(w=>w.type)).size,14);for(const word of ['冰霜箭','毒云','你好','谢谢','守护者','魔法箭'])assert.ok(getWord(word),word);
+ assert.ok(WORDS.length>39000);assert.equal(new Set(WORDS.map(w=>w.word)).size,WORDS.length);assert.equal(new Set(WORDS.map(w=>w.type)).size,14);for(const word of ['冰霜箭','毒云','你好','谢谢','守护者','魔法箭','火蛇','火焰蛇','烈焰蛇','冰蛇','寒冰蛇','冰霜蛇','雷蛇','雷电蛇'])assert.ok(getWord(word),word);
  for(const w of WORDS){assert.equal(w.tier,[...w.word].length);assert.ok(w.tier>=1&&w.tier<=4);assert.equal(w.maxLevel,w.tier+2);assert.ok(w.cost>0);}
  for(const type of new Set(WORDS.map(w=>w.type))){const group=WORDS.filter(w=>w.type===type);for(let tier=2;tier<=4;tier++){const a=group.find(w=>w.tier===tier-1),b=group.find(w=>w.tier===tier);assert.ok(b.cost>a.cost);assert.ok(b.damage>a.damage||b.aura>a.aura||b.income>a.income);}}
  assert.equal(matchWord(['鸣','雷','闪','电']),null);assert.equal(matchWord(['电','闪','雷','鸣']).word,'电闪雷鸣');assert.equal(matchWord(['火']).word,'火');assert.equal(matchWord(['假','词']),null);assert.equal(matchWord(['火','火','火','火','火']),null);
