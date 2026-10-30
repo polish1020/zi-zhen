@@ -6,12 +6,12 @@
 
 - 团队：`changsheng`，ID `team_azaP3oGtfy4m7CDhqfxdNiLP`
 - 项目：`zi-zhen`，ID `prj_knArbjGsckakBpEb06lLwiWsHlyb`
-- 生产部署：`dpl_EdCmUfFnmCABTJT629aS2nh3btRp`
-- 部署地址：https://zi-zhen-dyegzas4j-changsheng.vercel.app
-- 生产源码提交：`29f8f1ecd54a8b9df378de6e663b1783d5435f56`
+- 生产部署：`dpl_9NRDFkFUxcH6bqzM3v8iwz9bdFir`
+- 部署地址：https://zi-zhen-2fbqmyr5i-changsheng.vercel.app
+- 生产源码提交：`a2e7cdcb99b833ed8dabe62bfa7e0b1c9874e43c`
 - 发布时间：2026-10-30；状态 `READY`，环境 `production`
 - 框架：静态站点，`framework: null`，输出 `public`，无安装/构建依赖。
-- Vercel 输出构建 47ms；从 buildingAt 到 ready 约 1.8 秒；日志无构建错误。
+- Vercel 输出构建 48ms；从 buildingAt 到 ready 约 1.7 秒；日志无构建错误。
 - 控制台：https://vercel.com/changsheng/zi-zhen
 
 ## 更新方法
@@ -66,3 +66,9 @@ python3 scripts/prepare-vercel.py
 本次按原词字数限制附加特性为 0/1/1/2，升级不扩槽；低品质不再获得被裁剪项的效果或数值取舍，基础属性与攻击形态保留。详情、预览、词典筛选、塔身符印读取同一份生效列表。132 项规则与 400 场自动对局通过原有标准。
 
 线上 WebKit `tests/quality.cjs` 覆盖四种尺寸、实际生效数量和筛选、升级到 4 级仍保持灵词品质、重载恢复；`tests/standalone-bounds.cjs` 覆盖五种独立窗口尺寸、旋转与恢复，没有新增底部空白。十个文件均 HTTP 200，与测试发布包及原生资源逐字节一致。
+
+## Boss 强化与小怪战术发布
+
+本次提升 Boss 与轮间生命成长，42 种 Boss 均有有限主动技能和半血加速；16 种小怪新增限次主动战术，6 种新增半血反应，第 4/6 轮逐步加入。墨医优先限次救援残血；保护与干扰取最高值，不无限叠加。
+
+145 项规则、400 场十章自动对局按原有阈值通过。发布包 Chromium/WebKit 四尺寸新技能流程通过；本地 94 张图鉴、无尽多 Boss、暂停布阵和基本游戏流程回归通过。线上 WebKit 四尺寸 `tests/enemy-tactics.cjs` 验证 Boss 蓄势与实际凝盾、技能说明和状态保存、手机无页面溢出且无独立 Boss 遮挡层；线上 Chromium 基本游戏全流程通过。十个静态文件均 HTTP 200，并与发布包及原生资源逐字节一致。原 iOS 独立窗口四边定位没有更改，实体 iPhone 未直接验证。

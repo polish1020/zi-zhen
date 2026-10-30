@@ -49,7 +49,7 @@
 
 ## 本次生产验收
 
-正式域名 `https://game.polishwb1020.com` 的本轮品质规则发布复验 WebKit 四尺寸品质流程、五尺寸独立窗口边界；Chromium 十尺寸响应式、词义/攻击形态流程、塔与攻击组合在本地执行。此前版本的图鉴和基本游戏流程结果保留在下文。十个静态文件 HTTP 200，与上传内容逐字节一致；封装资源目录 `mobile/www/` 与十个公开文件逐字节一致。生产部署标识和更新方法见 `DEPLOYMENT-VERCEL.md`。
+正式域名 `https://game.polishwb1020.com` 的本轮 Boss/小怪战术发布复验 WebKit 四尺寸新技能流程与 Chromium 基本游戏全流程；发布包 Chromium/WebKit 四尺寸新技能流程、本地图鉴/无尽多 Boss/暂停布阵回归通过。此前版本的响应式、品质词义与独立窗口结果保留在下文。十个静态文件 HTTP 200，与上传内容逐字节一致；封装资源目录 `mobile/www/` 与十个公开文件逐字节一致。生产部署标识和更新方法见 `DEPLOYMENT-VERCEL.md`。
 
 ## iOS 独立窗口与组合特效
 
