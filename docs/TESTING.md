@@ -4,7 +4,7 @@
 
 ## 规则回归
 
-`node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs tests/timing.test.mjs tests/specialties.test.mjs tests/word-traits.test.mjs tests/endless-bosses.test.mjs tests/boss-pools.test.mjs tests/word-meanings.test.mjs tests/minions.test.mjs tests/progression.test.mjs tests/quality.test.mjs tests/boss-pressure.test.mjs tests/minion-tactics.test.mjs tests/pricing.test.mjs tests/campaign-economy.test.mjs tests/siege.test.mjs`：173 项通过。
+`node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs tests/timing.test.mjs tests/specialties.test.mjs tests/word-traits.test.mjs tests/endless-bosses.test.mjs tests/boss-pools.test.mjs tests/word-meanings.test.mjs tests/minions.test.mjs tests/progression.test.mjs tests/quality.test.mjs tests/boss-pressure.test.mjs tests/minion-tactics.test.mjs tests/pricing.test.mjs tests/campaign-economy.test.mjs tests/siege.test.mjs`：178 项通过。
 
 覆盖约 4 万词与十四类词塔、严格词序、500 随机手牌、一次性扣牌扣费、重复字、刷新费、轮末收入与修补、财塔上限、升级及拆塔、毒伤/减速/破甲/连锁/光环/斩杀、100 起每次增加 100 的最长词提示及无词不收费、提示保存、技能 30 秒冷却与涨价、无尽续战、三波固定间隔、叠波和倒计时恢复、周期及收尾 Boss、飞行路线与防空、护盾、回血与分裂、阵位解锁及涨价、旧存档迁移、非法存档拒绝、前缀词库缓存与序列化。
 
@@ -12,12 +12,12 @@
 
 `node tests/balance.mjs 20 --efficient --report-only --details` 与加 `--skills` 的同配置，对十章各测 20 个种子，共 400 场。使用真实手牌、收入、升级、解锁、付费刷新与拆塔回收，不注入额外资源。`--efficient` 策略允许同属性低品质词塔向更强长词替换，并在没有质量提升空间时停止盲刷；原策略保留用于比较经济盲点。技能策略在近门威胁时使用落墨，最高支付 90、预留 40 墨点。
 
-下表为本轮沿途攻塔、守备与维护经济的实际结果，不是真人通关率。两策略整体分别 85% 与 86%；部分章节低于历史 casual 基准，最低 65%，因此不宣称通过原有每章 85% 的标准，也未降低断言阈值。价格与波次按用户指定方向收紧，本轮保留阶段、怪量、初始墨点与价格，调整主线掉落以承担维护，增加维修与重建支出。
+下表为当前全员攻塔、元素招式与群袭递减版本的实际结果，不是真人通关率。两策略均 177/200（88.5%）；第一章均 20/20，最低章节 65%。部分章节仍低于历史 casual 标准，因此不宣称通过原有每章 85% 门槛，也未降低断言。资源、价格、怪量和生命曲线没有因本轮调整而改动；维护策略按实际墨点支付修复和重建。
 
 | 策略 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 不使用技能 | 20/20 | 16/20 | 18/20 | 15/20 | 17/20 | 19/20 | 13/20 | 19/20 | 19/20 | 14/20 |
-| 近门时使用技能 | 20/20 | 18/20 | 18/20 | 15/20 | 17/20 | 19/20 | 14/20 | 19/20 | 19/20 | 13/20 |
+| 不使用技能 | 20/20 | 17/20 | 19/20 | 15/20 | 17/20 | 19/20 | 16/20 | 20/20 | 20/20 | 14/20 |
+| 近门时使用技能 | 20/20 | 19/20 | 19/20 | 17/20 | 17/20 | 19/20 | 13/20 | 20/20 | 18/20 | 15/20 |
 
 以下调参过程与旧版回归记录作为历史保留；本次经济审计及三组数据见 [ECONOMY.md](ECONOMY.md)。
 
@@ -128,3 +128,14 @@
 ## 元素蛇类词补录（2026-10-30）
 
 补入火蛇、火焰蛇、烈焰蛇、冰蛇、寒冰蛇、冰霜蛇、雷蛇、雷电蛇八个游戏词，词表共 39,900 项。通过项目自有补充词表维护，重建通用词库不会删掉；按既有火/冰/雷属性与字数品质计算，随机手牌候选池不变。173 项规则通过；逐词检查匹配、可组词列表、精确建造消耗、字牌和存档恢复。移动端扩展流程验证“火 → 蛇”实际组词落塔、扣费、词典搜索，以及原有解锁和定时叠波流程，未出现脚本错误。
+
+
+## 全员攻塔与主题招式（2026-10-30）
+
+取消两个围攻位的硬限制。射程内的敌人都能蓄力和命中，同优先级目标按压力分散；群袭伤害递减，Boss 受衰减影响较小。不增加存档字段，旧蓄力和冷却保持。修正小墨点原射程在部分地图够不到任何塔的问题。冰、火、腐蚀、雷链、潮汐、炮击与根须按敌方主题赋予实际机制；16 类动画和图鉴读取同一攻塔配置。
+
+178 项规则全部通过：94 种敌人×十章的 940 个合法地图命中用例、雷/潮的实际副目标比例、冰滞/腐蚀、炮击取舍、Boss 与普通怪共同出手、20 怪各自产生正伤害且不瞬间拆塔、目标分散、短时间伤害数字合并、42 Boss 的实际主动施放及原规则回归。
+
+`tests/enemy-attacks.cjs` 在 Chromium/WebKit 逐一覆盖 16 类真实攻塔渲染，另测 320×568、横屏减少动态效果、1440×1000，以及 Boss 与 24 小怪同时攻击：验证蓄力、实际掉耐久、伤害数字被画出、暂停修缮和存档状态不变。`tests/siege.cjs` 四尺寸维修流程、`tests/enemy-tactics.cjs` 四尺寸 Boss 实际施法及十尺寸响应式回归通过，无脚本错误。400 场最终主线仿真结果见上表与 `reports/enemy-attacks-summary.json`。
+
+此前两人围攻位版本的经济审计和调参记录保留为历史，最新战斗平衡以本节为准。

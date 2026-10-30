@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-30",
+  "rules": 178,
+  "enemies": 94,
+  "bosses": 42,
+  "visual_families": 16,
+  "geometry_hit_cases": 940,
+  "crowd_limit": null,
+  "balance": {
+    "without_skill": {
+      "games": 200,
+      "wins": 177,
+      "chapter_wins": [
+        20,
+        17,
+        19,
+        15,
+        17,
+        19,
+        16,
+        20,
+        20,
+        14
+      ],
+      "chapter_total": 20,
+      "win_percent": 88.5
+    },
+    "with_skill": {
+      "games": 200,
+      "wins": 177,
+      "chapter_wins": [
+        20,
+        19,
+        19,
+        17,
+        17,
+        19,
+        13,
+        20,
+        18,
+        15
+      ],
+      "chapter_total": 20,
+      "win_percent": 88.5
+    }
+  },
+  "limits": [
+    "Automated strategies, not player win rates.",
+    "Some chapters remain below historical casual thresholds; assertions unchanged.",
+    "WebKit emulation is not a physical iPhone test."
+  ]
+}

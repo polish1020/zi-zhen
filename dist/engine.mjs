@@ -322,7 +322,7 @@ export function towerDefense(t){
  const health=(140+w.tier*70+up*(hasRune(w,'growth')?60:45))*TOWER_DEFENSES[w.type].health*shape;
  return{maxHp:Math.round(health),armor:Math.min(.32,(w.type==='heavy'?.2:w.type==='pierce'?.12:w.type==='fast'?.1:0)+(w.trait==='ward'?.08:w.trait==='blade'?.05:0)+(hasRune(w,'barrier')?.08:0)),guard:w.type==='heavy'||w.trait==='ward',role:TOWER_DEFENSES[w.type].role};
 }
-export function enemyWeapon(kind){
+function siegeBaseWeapon(kind){
  const e=ENEMIES[kind],base=e.sprite||e.behavior||kind;
  if(e.boss){
   if(e.air||['flying','cloudraptor'].includes(base))return{name:'空袭',style:'air',range:130,damage:10,interval:4.5,windup:.65};
@@ -330,7 +330,7 @@ export function enemyWeapon(kind){
   if(['frostboss','astral','scrollguard','tideshaper','mirrorboss'].includes(base)||['lifetree','inkarchivist','dreamweaver'].includes(kind))return{name:'法术轰击',style:'spell',range:150,damage:11,interval:4.6,windup:.85};
   return{name:'破阵重击',style:'cleave',debuff:base==='frostbeast'?'chill':e.poisonResist?'corrode':e.burnResist?'flame':null,range:115,damage:16,interval:4.4,windup:.9};
  }
- if(kind==='small')return{name:'啃咬',style:'melee',range:65,damage:2,interval:4,windup:.5};
+ if(kind==='small')return{name:'啃咬',style:'melee',range:80,damage:2,interval:4,windup:.5};
  if(e.air||['flying','cloudraptor'].includes(base))return{name:'掠袭',style:'air',range:100,damage:4,interval:4.3,windup:.4};
  if(base==='bamboostalker')return{name:'偷袭',style:'stalker',range:96,damage:6,interval:4,windup:.4};
  if(['tank','armor','clockwork','frostbeast'].includes(base))return{name:'撞击',style:'cleave',debuff:base==='frostbeast'?'chill':null,range:92,damage:8,interval:4.2,windup:.7};
@@ -339,6 +339,42 @@ export function enemyWeapon(kind){
  if(['healer','ward','scrollguard','tideshaper','astral'].includes(base))return{name:'墨弹',style:'spell',range:125,damage:4,interval:4.5,windup:.65};
  if(['swift','lancer','beaconrunner','banner'].includes(base))return{name:'突袭',style:'melee',range:80,damage:3,interval:4,windup:.35};
  return{name:'近袭',style:'melee',range:88,damage:5,interval:3.5,windup:.55};
+}
+export const ENEMY_ATTACK_ART={
+ claw:{name:'撕裂爪击',color:'#a15042',sigil:'爪'},
+ rush:{name:'突进刺击',color:'#aa723d',sigil:'刺'},
+ quake:{name:'震地重击',color:'#986347',sigil:'震'},
+ dive:{name:'翎羽空袭',color:'#417e9c',sigil:'羽'},
+ shadow:{name:'影刃突袭',color:'#805b9c',sigil:'影'},
+ ink:{name:'墨弹轰击',color:'#665a85',sigil:'墨'},
+ flame:{name:'烈焰轰击',color:'#c65d2e',sigil:'焰'},
+ frost:{name:'冰晶突刺',color:'#3887a1',sigil:'冰'},
+ acid:{name:'腐液喷吐',color:'#74862e',sigil:'蚀'},
+ thunder:{name:'雷霆轰击',color:'#9d7824',sigil:'雷'},
+ tide:{name:'潮汐冲击',color:'#327da0',sigil:'潮'},
+ vine:{name:'根须鞭击',color:'#4d8053',sigil:'藤'},
+ prism:{name:'碎镜斩击',color:'#9b648e',sigil:'镜'},
+ seal:{name:'符印轰击',color:'#856039',sigil:'符'},
+ star:{name:'星芒轰击',color:'#8263a1',sigil:'星'},
+ cannon:{name:'机括炮击',color:'#876a49',sigil:'炮'},
+};
+const ENEMY_WEAPON_CACHE=new Map();
+export function enemyWeapon(kind){
+ if(ENEMY_WEAPON_CACHE.has(kind))return ENEMY_WEAPON_CACHE.get(kind);
+ const data=ENEMIES[kind],weapon=siegeBaseWeapon(kind),base=data.sprite||data.behavior||kind;
+ const visual=/ember|beacon/.test(kind)||weapon.debuff==='flame'?'flame':/frost|ice|glacier/.test(kind)?'frost':/thunder|stormboss/.test(kind)?'thunder':/tide|river|pearl/.test(kind)?'tide':/lifetree|bambooent|bamboowitch/.test(kind)?'vine':/mirror|glass|dream/.test(kind)?'prism':/scroll|inkarchivist|silence/.test(kind)?'seal':/astral|sunsovereign|moonsovereign/.test(kind)?'star':/gear|clockwork|ballista/.test(kind)?'cannon':weapon.debuff==='corrode'||/plague/.test(kind)?'acid':weapon.style==='air'?'dive':weapon.style==='stalker'?'shadow':weapon.style==='spell'||kind==='inkking'?'ink':weapon.style==='cleave'?'quake':['swift','lancer','beaconrunner','banner','hillrunner'].includes(base)?'rush':'claw';
+ const profile={...weapon};
+ if(data.boss&&['ink','vine','acid'].includes(visual)&&profile.style==='cleave')Object.assign(profile,{style:'spell',range:145,damage:11,interval:4.6,windup:.85});
+ if(!data.boss&&visual==='vine'&&profile.style==='melee')Object.assign(profile,{style:'spell',range:118,damage:3,interval:4.2,windup:.75});
+ if(visual==='cannon'){profile.range+=20;profile.windup+=.15;profile.interval+=.35;}
+ if(visual==='frost')profile.debuff='chill';
+ if(visual==='flame')profile.debuff='flame';
+ if(visual==='acid')profile.debuff='corrode';
+ if(profile.style==='cleave'){profile.sideRatio=.45;profile.sideRadius=110;}
+ if(visual==='thunder'){profile.sideRatio=.3;profile.sideRadius=100;profile.windup+=.15;profile.interval+=.45;}
+ if(visual==='tide'){profile.sideRatio=.25;profile.sideRadius=100;profile.interval+=.3;}
+ const art=ENEMY_ATTACK_ART[visual],result=Object.freeze({...profile,visual,color:art.color,sigil:art.sigil,name:art.name});
+ ENEMY_WEAPON_CACHE.set(kind,result);return result;
 }
 export function matchWord(chars){if(chars.length<1||chars.length>4)return null;return getWord(chars.join(''))||null;}
 export const CHAPTERS=[
@@ -637,16 +673,19 @@ export class Game {
  salvageValue(t){return Math.floor(t.spent*(towerActive(t)?.7:.35));}
  repair(id){const t=this.towers.find(t=>t.id===id),cost=this.repairCost(t);if(!t||!cost||this.ink<cost||(t.repairReadyAt||0)>this.time||['won','lost'].includes(this.phase))return false;const rebuilt=!towerActive(t);this.ink-=cost;t.hp=towerDefense(t).maxHp;t.chillUntil=0;t.corrodedUntil=0;t.repairReadyAt=this.time+8;this.emit('repair',{pad:t.pad,word:t.word,cost,rebuilt});return true;}
  cancelTowerAim(id){for(const e of this.enemies)if(e.towerTarget===id||e.towerLastTarget===id){delete e.towerLastTarget;delete e.towerTarget;delete e.towerStrikeAt;e.towerAttackAt=Math.max(e.towerAttackAt||0,this.time+.8);}}
+ towerPressure(t,attacker){const p=this.pads[t.pad];return this.enemies.filter(e=>e.hp>0&&(e===attacker||e.towerTarget!==undefined||e.towerLastTarget!==undefined&&e.towerAttackAt>this.time)&&Math.hypot(enemyPosition(e).x-p.x,enemyPosition(e).y-p.y)<=enemyWeapon(e.kind).range+22).length;}
  damageTower(t,raw,enemy){
   if(!towerActive(t))return 0;const defense=towerDefense(t),p=this.pads[t.pad];
   const cover=Math.max(0,...this.activeTowers.filter(a=>a!==t&&getWord(a.word).type==='aura'&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range).map(a=>getWord(a.word).trait==='radiance'?.15:.12));
   const w=getWord(t.word),weapon=enemyWeapon(enemy.kind),weaken=Math.max(enemy.siegeWeakUntil>this.time?.15:0,enemy.markUntil>this.time||enemy.weakenUntil>this.time?.1:0);
   if(weapon.debuff==='flame'&&w.type==='splash')raw*=.7;
   if(weapon.style==='stalker'&&!(enemy.lightUntil>this.time||enemy.markUntil>this.time))raw*=1.15;
+  const crowd=this.towerPressure(t,enemy),crowdScale=crowd<=2?1:(2+.35*Math.log2(crowd/2))/crowd;raw*=ENEMIES[enemy.kind].boss?Math.sqrt(crowdScale):crowdScale;
   const armor=Math.max(0,defense.armor-(t.corrodedUntil>this.time?.1:0));
   const damage=Math.min(defense.maxHp*.22,raw*(1-weaken)*(1-Math.min(.5,armor+cover)));
-  t.hp=Math.max(0,(t.hp??defense.maxHp)-damage);t.hitUntil=this.time+.24;
-  this.effects.push({kind:'tower-hit',to:p,life:.3,max:.3,color:'#b26a50'});
+  t.hp=Math.max(0,(t.hp??defense.maxHp)-damage);t.hitUntil=this.time+.55;
+  const hit=this.effects.find(f=>f.kind==='tower-hit'&&f.pad===t.pad&&f.max-f.life<.18);
+  if(hit){hit.damage+=damage;if(ENEMIES[enemy.kind].boss){hit.boss=true;hit.color=weapon.color;}}else this.effects.push({kind:'tower-hit',pad:t.pad,to:{...p},damage,enemy:enemy.kind,visual:weapon.visual,boss:!!ENEMIES[enemy.kind].boss,life:.85,max:.85,color:weapon.color});
   this.emit('tower-hit',{pad:t.pad,word:t.word,damage,enemy:enemy.kind});
   if(weapon.debuff==='corrode')t.corrodedUntil=this.time+4;
   if(weapon.debuff==='chill')t.chillUntil=this.time+2.5;
@@ -663,7 +702,7 @@ export class Game {
   const assigned=new Map();for(const e of this.enemies){if(e.hp<=0)continue;const id=e.towerTarget??(e.towerAttackAt>this.time?e.towerLastTarget:undefined),t=this.towers.find(t=>t.id===id);if(t&&towerActive(t)&&Math.hypot(this.pads[t.pad].x-enemyPosition(e).x,this.pads[t.pad].y-enemyPosition(e).y)<=enemyWeapon(e.kind).range+22)assigned.set(id,(assigned.get(id)||0)+1);}
   for(const e of this.enemies){
    if(e.hp<=0||e.d>=enemyLength(e))continue;const weapon=enemyWeapon(e.kind),p=enemyPosition(e),boss=!!ENEMIES[e.kind].boss;
-   e.towerAttackAt??=this.time+1.4;
+   e.towerAttackAt??=this.time+1.1+(e.id%8)*.08;
    const cancel=()=>{if(e.towerTarget!==undefined)assigned.set(e.towerTarget,Math.max(0,(assigned.get(e.towerTarget)||0)-1));delete e.towerTarget;delete e.towerStrikeAt;};
    if(e.freezeUntil>this.time||weapon.style==='spell'&&e.silencedUntil>this.time){cancel();e.towerAttackAt=Math.max(e.towerAttackAt,this.time+.8);continue;}
    if(e.towerTarget!==undefined){
@@ -671,18 +710,18 @@ export class Game {
     if(!t||!towerActive(t)||Math.hypot(this.pads[t.pad].x-p.x,this.pads[t.pad].y-p.y)>weapon.range+22){cancel();e.towerAttackAt=this.time+1;continue;}
     if(this.time+1e-9<e.towerStrikeAt)continue;
     const round=Math.max(1,Math.ceil((e.wave||1)/3)),scale=(1+(round-1)*.035+this.chapter*.02)*(round<=3?.5:.7)*(boss&&e.enraged?1.25:1);
-    this.effects.push({kind:'siege',from:p,to:this.pads[t.pad],style:weapon.style,color:boss?'#ac6652':'#8e735f',life:.35,max:.35});
+    this.effects.push({kind:'siege',from:{...p},to:{...this.pads[t.pad]},style:weapon.style,visual:weapon.visual,color:weapon.color,sigil:weapon.sigil,name:weapon.name,boss,enemy:e.kind,life:.65,max:.65});
     this.damageTower(t,weapon.damage*scale,e);
-    if(weapon.style==='cleave'){
-     const side=this.activeTowers.filter(a=>a!==t&&Math.hypot(this.pads[a.pad].x-this.pads[t.pad].x,this.pads[a.pad].y-this.pads[t.pad].y)<=110&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=weapon.range).sort((a,b)=>a.id-b.id)[0];
-     if(side)this.damageTower(side,weapon.damage*scale*.45,e);
+    if(weapon.sideRatio){
+     const side=this.activeTowers.filter(a=>a!==t&&Math.hypot(this.pads[a.pad].x-this.pads[t.pad].x,this.pads[a.pad].y-this.pads[t.pad].y)<=weapon.sideRadius&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=weapon.range).sort((a,b)=>a.id-b.id)[0];
+     if(side){this.effects.push({kind:'siege',from:{...p},to:{...this.pads[side.pad]},style:weapon.style,visual:weapon.visual,color:weapon.color,sigil:weapon.sigil,name:weapon.name,boss,enemy:e.kind,secondary:true,life:.65,max:.65});this.damageTower(side,weapon.damage*scale*weapon.sideRatio,e);}
     }
     cancel();e.towerAttackAt=this.time+weapon.interval;if(towerActive(t)){e.towerLastTarget=t.id;assigned.set(t.id,(assigned.get(t.id)||0)+1);}continue;
    }
    if(this.time<e.towerAttackAt)continue;
-   const options=this.activeTowers.map(t=>({t,d:Math.hypot(this.pads[t.pad].x-p.x,this.pads[t.pad].y-p.y)})).filter(x=>x.d<=weapon.range&&(assigned.get(x.t.id)||0)<2);
+   const options=this.activeTowers.map(t=>({t,d:Math.hypot(this.pads[t.pad].x-p.x,this.pads[t.pad].y-p.y)})).filter(x=>x.d<=weapon.range);
    const rank=x=>towerDefense(x.t).guard&&x.d<=weapon.range*.82?0:weapon.style==='stalker'&&['aura','income'].includes(getWord(x.t.word).type)?1:2;
-   const choice=options.sort((a,b)=>rank(a)-rank(b)||a.d-b.d||a.t.id-b.t.id)[0];
+   const choice=options.sort((a,b)=>rank(a)-rank(b)||(assigned.get(a.t.id)||0)-(assigned.get(b.t.id)||0)||a.d-b.d||a.t.id-b.t.id)[0];
    if(choice){e.towerTarget=choice.t.id;e.towerStrikeAt=this.time+weapon.windup+(getWord(choice.t.word).type==='echo'?.18:0);assigned.set(choice.t.id,(assigned.get(choice.t.id)||0)+1);}
   }
  }
@@ -818,7 +857,7 @@ export class Game {
     if(pulse.kind==='haste'&&(boss||!(e.slowUntil>this.time)))for(const a of allies)a.rallyUntil=Math.max(a.rallyUntil||0,this.time+3);
     if(pulse.kind==='summon')for(let i=0;i<pulse.count;i++)this.spawn(pulse.unit,e.d-18*(i+1),e.route,e.wave);
     if(pulse.kind==='blink'&&!(e.slowUntil>this.time)&&!(e.freezeUntil>this.time))e.d+=pulse.distance;
-    e.pulses=(e.pulses||0)+1;e.pulseAt=this.time+pulse.interval*(boss&&e.enraged?.75:1);this.effects.push({kind:'blast',to:enemyPosition(e),color:data.color||'#9a8260',life:.4,max:.4});
+    e.pulses=(e.pulses||0)+1;e.pulseAt=this.time+pulse.interval*(boss&&e.enraged?.75:1);this.effects.push({kind:'enemy-skill',to:enemyPosition(e),color:enemyWeapon(e.kind).color,skill:pulse.kind,boss,enemy:e.kind,name:boss?bossSkillName(e.kind):data.name,life:.8,max:.8});
    }
    if(behavior==='rallyboss'&&canAct&&this.time>=e.abilityAt&&(e.charges||0)<3){for(const ally of living)if(ally!==e&&ally.hp>0&&nearby(e,ally,150))ally.rallyUntil=Math.max(ally.rallyUntil||0,this.time+3);e.charges=(e.charges||0)+1;e.abilityAt=this.time+(e.enraged?6:8);this.effects.push({kind:'blast',to:enemyPosition(e),color:'#c68b46',life:.5,max:.5});}
    if(e.kind==='mirrorling'&&!e.mirrored&&e.hp<=e.maxHp*.5){

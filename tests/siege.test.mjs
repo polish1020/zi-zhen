@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {Game,ENEMIES,WORDS,TOWER_DEFENSES,towerDefense,towerStats,towerActive,getWord,enemyWeapon,enemyPosition} from '../dist/engine.mjs';
+import {Game,ENEMIES,WORDS,TOWER_DEFENSES,towerDefense,towerStats,towerActive,getWord,enemyWeapon,enemyPosition,enemyLength,getMap,ENEMY_ATTACK_ART} from '../dist/engine.mjs';
 function build(g,word,pad=0){const chars=[...word];while(chars.length<16)chars.push('文');g.hand=chars.map(ch=>({id:++g.handSerial,ch,used:false}));assert.ok(g.build(word,pad));return g.towers.at(-1);}
 function arena(word='文',kind='normal'){const g=new Game(0,42);g.ink=5000;const t=build(g,word);t.cooldown=1e6;g.phase='battle';g.wave=12;g.pendingWaves=[12];const e=g.spawn(kind,110);e.hp=e.maxHp=10000;e.speed=1;e.towerAttackAt=0;return{g,t,e};}
 function advance(g,seconds){for(let i=0;i<Math.round(seconds*10);i++)g.step(.1);}
@@ -15,17 +15,60 @@ test('every word has valid grade/level defense and all 94 monsters have an expli
  for(const [kind]of Object.entries(ENEMIES)){const w=enemyWeapon(kind);assert.ok(w.name&&w.range>0&&w.damage>0&&w.interval>w.windup&&w.windup>0,kind);}
  assert.ok(towerDefense({word:'石',level:1}).maxHp>towerDefense({word:'弓',level:1}).maxHp);
 });
+test('all 94 enemies can land a real attack on a legal tower in every chapter',()=>{
+ const forms=new Set();
+ for(let chapter=0;chapter<10;chapter++)for(const kind of Object.keys(ENEMIES)){
+  const g=new Game(chapter,42),w=enemyWeapon(kind);let nearest={distance:Infinity};
+  for(let route=0;route<getMap(chapter).routes.length;route++)for(let d=20;d<enemyLength({kind,map:chapter,route});d+=10){const p=enemyPosition({kind,map:chapter,route,d});for(let pad=0;pad<12;pad++){const distance=Math.hypot(g.pads[pad].x-p.x,g.pads[pad].y-p.y);if(distance<nearest.distance)nearest={distance,pad,d,route};}}
+  assert.ok(nearest.distance<=w.range,`${kind} cannot reach a tower in chapter ${chapter+1}`);
+  g.ink=5000;const t=build(g,'文',nearest.pad);t.cooldown=1e6;g.phase='battle';g.wave=12;g.pendingWaves=[12];
+  const e=g.spawn(kind,nearest.d,nearest.route,12);e.hp=e.maxHp=100000;e.speed=.01;e.towerAttackAt=0;e.abilityAt=e.pulseAt=1e6;
+  g.updateTowerAttacks();assert.equal(e.towerTarget,t.id,kind);const hp=t.hp;advance(g,Math.ceil((w.windup+.15)*10)/10);
+  assert.ok(t.hp<hp,kind);assert.ok(g.effects.some(f=>f.kind==='siege'&&f.enemy===kind&&f.visual===w.visual),kind);
+  assert.ok(g.effects.some(f=>f.kind==='tower-hit'&&f.damage>0&&f.boss===!!ENEMIES[kind].boss),kind);
+  forms.add(w.visual);
+ }
+ assert.deepEqual([...forms].sort(),Object.keys(ENEMY_ATTACK_ART).sort());
+});
+test('bosses and minions can all attack without cancelling each other or waiting for recovery slots',()=>{
+ const {g,t,e:boss}=arena('文','boss');const minions=Array.from({length:12},()=>g.spawn('normal',110));
+ for(const e of minions){e.hp=e.maxHp=10000;e.speed=.01;e.towerAttackAt=0;}
+ g.updateTowerAttacks();assert.ok(g.enemies.every(e=>e.towerTarget===t.id));advance(g,1.1);
+ assert.equal(g.events.filter(e=>e.type==='tower-hit').length,13);assert.ok(t.hp>0);assert.ok(boss.towerAttackAt>g.time);
+ assert.ok(minions.every(e=>e.towerLastTarget===t.id));
+ const late=g.spawn('normal',110);late.towerAttackAt=0;g.updateTowerAttacks();assert.equal(late.towerTarget,t.id);
+});
+test('elemental attack mechanics follow the enemy theme and artillery trades range for preparation',()=>{
+ for(const kind of ['frostboss','icephoenix','frostshade']){const {g,t,e}=arena('文',kind);g.damageTower(t,10,e);assert.ok(t.chillUntil>g.time,kind);}
+ for(const kind of ['plaguequeen','plaguebeetle']){const {g,t,e}=arena('文',kind);g.damageTower(t,10,e);assert.ok(t.corrodedUntil>g.time,kind);}
+ assert.equal(enemyWeapon('bambooent').style,'spell');assert.equal(enemyWeapon('inkking').style,'spell');assert.equal(enemyWeapon('plaguequeen').style,'spell');
+ assert.ok(enemyWeapon('gearroller').range>enemyWeapon('armor').range);assert.ok(enemyWeapon('gearroller').windup>enemyWeapon('armor').windup);
+ for(const [kind,ratio]of [['stormboss',.3],['tideboss',.25]]){
+  const w=enemyWeapon(kind);let chosen;
+  for(let chapter=0;chapter<10&&!chosen;chapter++){const g=new Game(chapter,42);for(let d=20;d<1400&&!chosen;d+=5){const p=enemyPosition({kind,map:chapter,route:0,d});for(let i=0;i<12&&!chosen;i++)for(let j=i+1;j<12&&!chosen;j++)if(Math.hypot(g.pads[i].x-g.pads[j].x,g.pads[i].y-g.pads[j].y)<=w.sideRadius&&[i,j].every(k=>Math.hypot(g.pads[k].x-p.x,g.pads[k].y-p.y)<w.range-5))chosen={g,d,i,j};}}
+  assert.ok(chosen,kind);const {g,d,i,j}=chosen;g.ink=5000;const a=build(g,'文',i),b=build(g,'文',j);a.cooldown=b.cooldown=1e6;g.phase='battle';g.wave=12;g.pendingWaves=[12];const e=g.spawn(kind,d);e.hp=e.maxHp=100000;e.speed=.01;e.towerAttackAt=0;e.abilityAt=e.pulseAt=1e6;
+  g.updateTowerAttacks();const primary=e.towerTarget;advance(g,Math.ceil((w.windup+.15)*10)/10);const first=primary===a.id?a:b,second=primary===a.id?b:a;
+  close(towerDefense(second).maxHp-second.hp,(towerDefense(first).maxHp-first.hp)*ratio);assert.equal(g.effects.filter(f=>f.kind==='siege').length,2);
+ }
+});
 test('a passing monster telegraphs, hits, recovers and continues on its original route',()=>{
  const {g,t,e}=arena(),hp=t.hp,start=e.d;g.updateTowerAttacks();assert.equal(e.towerTarget,t.id);assert.ok(e.towerStrikeAt>g.time);
  advance(g,.4);assert.equal(t.hp,hp);advance(g,.3);assert.ok(t.hp<hp);assert.ok(e.d>start);assert.equal(e.route,0);
  const after=t.hp;advance(g,1);assert.equal(t.hp,after);assert.ok(e.towerAttackAt>g.time);
 });
-test('two siege slots include recovery; other monsters move on until a slot opens',()=>{
- const {g,t,e}=arena();const second=g.spawn('normal',110),third=g.spawn('normal',110);
- for(const a of [second,third]){a.hp=10000;a.speed=1;a.towerAttackAt=0;}
- g.updateTowerAttacks();assert.equal(g.enemies.filter(x=>x.towerTarget===t.id).length,2);advance(g,.8);
- assert.equal(third.towerTarget,undefined);assert.equal(e.towerLastTarget,t.id);assert.equal(second.towerLastTarget,t.id);
- e.d=1000;g.updateTowerAttacks();assert.equal(third.towerTarget,t.id);
+test('dense groups all land real hits with sublinear collective damage and readable merged numbers',()=>{
+ const {g,t,e}=arena();const group=[e,...Array.from({length:19},()=>g.spawn('normal',110))];
+ for(const a of group){a.hp=a.maxHp=10000;a.speed=.01;a.towerAttackAt=0;}
+ g.updateTowerAttacks();assert.equal(group.filter(x=>x.towerTarget===t.id).length,20);const hp=t.hp;advance(g,.8);
+ const hits=g.events.filter(x=>x.type==='tower-hit');assert.equal(hits.length,20);assert.ok(hits.every(x=>x.damage>0));
+ close(hp-t.hp,hits.reduce((n,e)=>n+e.damage,0));assert.ok(hp-t.hp<hp*.2);assert.ok(g.effects.filter(f=>f.kind==='tower-hit').length<20);
+ const a=arena('文','boss');for(let i=0;i<19;i++){const other=a.g.spawn('normal',110);other.towerTarget=a.t.id;}
+ a.e.towerTarget=a.t.id;const ordinary=a.g.damageTower(a.t,10,a.g.enemies[1]),leader=a.g.damageTower(a.t,10,a.e);assert.ok(leader>ordinary&&leader<10);
+});
+test('equal-priority towers share incoming attacks while nearby defenders retain their role',()=>{
+ const g=new Game(0,42);g.ink=5000;const data=pair(g,125),a=build(g,'文',data.pads[0].i),b=build(g,'文',data.pads[1].i);g.phase='battle';g.wave=12;
+ for(let i=0;i<5;i++){const e=g.spawn('ward',data.d);e.towerAttackAt=0;}
+ g.updateTowerAttacks();const count=id=>g.enemies.filter(e=>e.towerTarget===id).length;assert.equal(count(a.id)+count(b.id),5);assert.ok(Math.abs(count(a.id)-count(b.id))<=1);
 });
 test('freeze interrupts a strike; range, death and tower removal prevent ghost hits',()=>{
  for(const cause of ['freeze','range','death','sell']){
@@ -111,4 +154,12 @@ test('durability, attack recovery slots and repairs survive reload and reject ma
  const bad=g.export();bad.enemies[0].towerLastTarget=-1;assert.throws(()=>Game.restore(bad));
  const old=g.export();for(const a of old.towers){delete a.hp;delete a.repairReadyAt;}for(const a of old.enemies){delete a.towerAttackAt;delete a.towerStrikeAt;delete a.towerTarget;delete a.towerLastTarget;}
  const legacy=Game.restore(old);assert.equal(legacy.towers[0].hp,towerDefense(legacy.towers[0]).maxHp);assert.ok(legacy.enemies[0].towerAttackAt>=legacy.time);
+});
+
+test('all 42 bosses cast their own finite active skill with visible skill metadata',()=>{
+ const kinds=new Set();for(const [kind,data]of Object.entries(ENEMIES).filter(([,e])=>e.boss)){
+  const {g,e}=arena('文',kind);e.pulseAt=0;e.abilityAt=e.towerAttackAt=1e6;g.step(.1);
+  assert.equal(e.pulses,1,kind);const fx=g.effects.find(f=>f.kind==='enemy-skill'&&f.enemy===kind);assert.ok(fx?.boss&&fx.name&&fx.color,kind);assert.equal(fx.skill,data.pulse.kind);kinds.add(fx.skill);
+ }
+ assert.deepEqual([...kinds].sort(),['blink','haste','heal','shield','summon']);
 });

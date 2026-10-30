@@ -322,6 +322,7 @@ html[data-standalone="true"].game-open body.playing .forge-panel { padding-botto
 .tower-meaning-row { display:grid; grid-template-columns:auto minmax(0,1fr); gap:8px; align-items:start; }
 .tower-meaning-row + .tower-meaning-row { margin-top:8px; }
 .tower-meaning-row .meaning-badge { margin-top:2px; }
+.tower-effects .crowd-defense-note { margin-top:6px; font-size:10px; color:#b8c9ae; }
 .tower-detail .tower-actions { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; margin-top:0; }
 .tower-detail .tower-actions .forge-button { width:auto; }
 @media (max-width:900px),(pointer:coarse),(display-mode:standalone) {
