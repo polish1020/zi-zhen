@@ -6,12 +6,12 @@
 
 - 团队：`changsheng`，ID `team_azaP3oGtfy4m7CDhqfxdNiLP`
 - 项目：`zi-zhen`，ID `prj_knArbjGsckakBpEb06lLwiWsHlyb`
-- 生产部署：`dpl_HqzgLeN17iTsq2x9rhbhbMJEcrj4`
-- 部署地址：https://zi-zhen-a1p7k7oqu-changsheng.vercel.app
-- 生产源码提交：`bd75a296cc7ae1e557b26487a57869553191d9db`
+- 生产部署：`dpl_EdCmUfFnmCABTJT629aS2nh3btRp`
+- 部署地址：https://zi-zhen-dyegzas4j-changsheng.vercel.app
+- 生产源码提交：`29f8f1ecd54a8b9df378de6e663b1783d5435f56`
 - 发布时间：2026-10-30；状态 `READY`，环境 `production`
 - 框架：静态站点，`framework: null`，输出 `public`，无安装/构建依赖。
-- Vercel 输出构建 42ms；从 buildingAt 到 ready 约 1.7 秒；日志无构建错误。
+- Vercel 输出构建 47ms；从 buildingAt 到 ready 约 1.8 秒；日志无构建错误。
 - 控制台：https://vercel.com/changsheng/zi-zhen
 
 ## 更新方法
@@ -60,3 +60,9 @@ python3 scripts/prepare-vercel.py
 本次生产源码包含独立窗口 CSS 四边定位修复与 Boss/小怪渐进强化。线上 WebKit `tests/standalone-bounds.cjs` 覆盖五种尺寸，两种 JS 高度同时少报仍铺满窗口、前台恢复/旋转/重载、字库外 6px 间距和内部手势区；线上 Chromium 基本游戏流程和 94 种图鉴检查通过。十个静态文件 HTTP 200 并与测试/原生包逐字节一致。
 
 127 项规则回归与 400 场强化后的自动对局通过，未降低难度检查阈值。现存敌人沿用存档生命，新出场敌人应用新曲线；所有 42 种 Boss 的半血阶段各只触发一次。实体 iPhone 的系统窗口仍未直接验证。
+
+## 品质词义上限发布
+
+本次按原词字数限制附加特性为 0/1/1/2，升级不扩槽；低品质不再获得被裁剪项的效果或数值取舍，基础属性与攻击形态保留。详情、预览、词典筛选、塔身符印读取同一份生效列表。132 项规则与 400 场自动对局通过原有标准。
+
+线上 WebKit `tests/quality.cjs` 覆盖四种尺寸、实际生效数量和筛选、升级到 4 级仍保持灵词品质、重载恢复；`tests/standalone-bounds.cjs` 覆盖五种独立窗口尺寸、旋转与恢复，没有新增底部空白。十个文件均 HTTP 200，与测试发布包及原生资源逐字节一致。
