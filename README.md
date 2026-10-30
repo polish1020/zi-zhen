@@ -46,6 +46,8 @@ node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs test
 
 运行 `python3 scripts/prepare-mobile.py` 生成原生 WebView 可用的本地资源；Capacitor 配置已提供，封装步骤和边界见 `docs/MOBILE-APP.md`。当前没有生成 APK 或 iOS 安装包。
 
+暂停时可组词、建塔、解锁阵位、升级、拆塔、刷新与提示；只停止战斗和倒计时，暂停按钮不再遮盖地图。
+
 轮内三波每隔 35 个游戏秒开始，可与前波同时在场；全部清空后结算本轮，暂停/倍速和存档恢复同步计时。
 
-新增玩法：10 章主题地图、轮流/同时多入口、20 类怪物（含 6 种 Boss）、14 类词塔与品阶特性、点金赏金和圣光照明、攻击音效与升级动画。当前数值和验证结果见 `docs/DESIGN.md` 与 `docs/TESTING.md`。
+新增玩法：10 章主题地图、轮流/同时多入口、30 类怪物（含 10 种章节特色兵与 6 种 Boss）、14 类词塔与品阶特性、点金赏金和圣光照明、攻击音效与升级动画。当前数值和验证结果见 `docs/DESIGN.md` 与 `docs/TESTING.md`。
