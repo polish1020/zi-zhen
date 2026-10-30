@@ -6,12 +6,12 @@
 
 - 团队：`changsheng`，ID `team_azaP3oGtfy4m7CDhqfxdNiLP`
 - 项目：`zi-zhen`，ID `prj_knArbjGsckakBpEb06lLwiWsHlyb`
-- 生产部署：`dpl_9NRDFkFUxcH6bqzM3v8iwz9bdFir`
-- 部署地址：https://zi-zhen-2fbqmyr5i-changsheng.vercel.app
-- 生产源码提交：`a2e7cdcb99b833ed8dabe62bfa7e0b1c9874e43c`
+- 生产部署：`dpl_4G9gcE5jd4sspZxSjLH6QKtHg6Vv`
+- 部署地址：https://zi-zhen-e8l5ieecm-changsheng.vercel.app
+- 生产源码提交：`46a6e3de4a24b3a8d02aa5420693b7d49bf3c5bf`
 - 发布时间：2026-10-30；状态 `READY`，环境 `production`
 - 框架：静态站点，`framework: null`，输出 `public`，无安装/构建依赖。
-- Vercel 输出构建 48ms；从 buildingAt 到 ready 约 1.7 秒；日志无构建错误。
+- Vercel 输出构建 36ms；从 buildingAt 到 ready 约 1.6 秒；日志无构建错误。
 - 控制台：https://vercel.com/changsheng/zi-zhen
 
 ## 更新方法
@@ -72,3 +72,11 @@ python3 scripts/prepare-vercel.py
 本次提升 Boss 与轮间生命成长，42 种 Boss 均有有限主动技能和半血加速；16 种小怪新增限次主动战术，6 种新增半血反应，第 4/6 轮逐步加入。墨医优先限次救援残血；保护与干扰取最高值，不无限叠加。
 
 145 项规则、400 场十章自动对局按原有阈值通过。发布包 Chromium/WebKit 四尺寸新技能流程通过；本地 94 张图鉴、无尽多 Boss、暂停布阵和基本游戏流程回归通过。线上 WebKit 四尺寸 `tests/enemy-tactics.cjs` 验证 Boss 蓄势与实际凝盾、技能说明和状态保存、手机无页面溢出且无独立 Boss 遮挡层；线上 Chromium 基本游戏全流程通过。十个静态文件均 HTTP 200，并与发布包及原生资源逐字节一致。原 iOS 独立窗口四边定位没有更改，实体 iPhone 未直接验证。
+
+## 波次与商店价格发布
+
+波次间隔 30 秒；刷新固定 50；提示按成功购买次数为 100/200/300…，跨轮/无尽保留，复看或无词不涨价，重开/切章重置。新增提示计数持久化并校验，旧存档不追算购买次数。当前已保存的在途倒计时保持，后续新安排使用 30 秒。
+
+150 项规则通过，800 场资源账本审计完成。新价格与 30 秒节奏另测 400 场有效提升策略，整体通关率 90%/91%，个别章节为 75%，未宣称原有每章 casual 阈值全部通过；数据与限定条件见 `TESTING.md`、`ECONOMY.md`。
+
+线上 WebKit `tests/pricing.cjs` 四种尺寸验证精确扣费、100/200/300 报价与免费复看、固定 50 刷新、价格存档和说明；线上 Chromium `tests/expansion.cjs` 验证定时叠波，`tests/browser.cjs` 验证基本游戏全流程。十个公开文件均 HTTP 200，逐字节匹配发布和原生资源包。构建和浏览器无运行错误；实体 iPhone 未直接验证。
