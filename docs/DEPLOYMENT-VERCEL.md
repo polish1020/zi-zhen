@@ -6,12 +6,12 @@
 
 - 团队：`changsheng`，ID `team_azaP3oGtfy4m7CDhqfxdNiLP`
 - 项目：`zi-zhen`，ID `prj_knArbjGsckakBpEb06lLwiWsHlyb`
-- 生产部署：`dpl_JBiwAwFNrMgQ5kxs1hvLP6UgtPZb`
-- 部署地址：https://zi-zhen-9gdvkzf1q-changsheng.vercel.app
-- 生产源码提交：`5aab3148898779d2372f25b00348bd845b68751f`
+- 生产部署：`dpl_HqzgLeN17iTsq2x9rhbhbMJEcrj4`
+- 部署地址：https://zi-zhen-a1p7k7oqu-changsheng.vercel.app
+- 生产源码提交：`bd75a296cc7ae1e557b26487a57869553191d9db`
 - 发布时间：2026-10-30；状态 `READY`，环境 `production`
 - 框架：静态站点，`framework: null`，输出 `public`，无安装/构建依赖。
-- Vercel 输出构建 49ms；从 buildingAt 到 ready 约 1.7 秒；日志无构建错误。
+- Vercel 输出构建 42ms；从 buildingAt 到 ready 约 1.7 秒；日志无构建错误。
 - 控制台：https://vercel.com/changsheng/zi-zhen
 
 ## 更新方法
@@ -54,3 +54,9 @@ python3 scripts/prepare-vercel.py
 - 线上 Chromium `tests/browser.cjs`：基础游戏、提示、技能、跳关、无尽、失败及重试全流程。
 
 实体 iPhone 的系统状态栏仍未验证；WebKit 模拟不等于 iOS 主屏幕安装环境。更新后先彻底关闭再重新打开桌面应用，保留本地数据。
+
+## 独立窗口高度与成长曲线复验
+
+本次生产源码包含独立窗口 CSS 四边定位修复与 Boss/小怪渐进强化。线上 WebKit `tests/standalone-bounds.cjs` 覆盖五种尺寸，两种 JS 高度同时少报仍铺满窗口、前台恢复/旋转/重载、字库外 6px 间距和内部手势区；线上 Chromium 基本游戏流程和 94 种图鉴检查通过。十个静态文件 HTTP 200 并与测试/原生包逐字节一致。
+
+127 项规则回归与 400 场强化后的自动对局通过，未降低难度检查阈值。现存敌人沿用存档生命，新出场敌人应用新曲线；所有 42 种 Boss 的半血阶段各只触发一次。实体 iPhone 的系统窗口仍未直接验证。
