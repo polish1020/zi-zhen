@@ -290,3 +290,5 @@ body.playing .tower-effects .meaning-effect{color:#cbb9d8}
 html[data-standalone="true"].game-open body.playing { inset:0; height:auto; }
 html[data-standalone="true"].game-open body.playing main { padding-bottom:6px; }
 html[data-standalone="true"].game-open body.playing .forge-panel { padding-bottom:max(6px,var(--safe-bottom)); }
+
+.rune-capacity{display:block;margin-bottom:3px;font-size:10px;color:#d0c399}.meaning-names{font-weight:600;color:#796383}
