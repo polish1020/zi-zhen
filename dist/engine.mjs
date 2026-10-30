@@ -396,6 +396,37 @@ Object.assign(ENEMIES,{
  sunsovereign:{name:'曜日天尊',boss:true,behavior:'astral',sigil:'曜',hp:390,speed:23,reward:30,harm:5,initialPhase:0,portraitUnit:'astral',ornament:'sun',color:'#c0a15e',phase:{mode:1,shield:.12},desc:'前半场固定日相抵抗兵器，半血转为月相抵抗法术并附盾。混搭伤害类别，用光、咒或毒应对反转。'},
  moonsovereign:{name:'幽月冥后',boss:true,behavior:'astral',sigil:'冥',hp:370,speed:23,reward:30,harm:5,initialPhase:1,portraitUnit:'astral',ornament:'moon',color:'#9688bc',phase:{mode:0,heal:.08},desc:'前半场固定月相抵抗法术，半血转日相并回复生命；毒伤阻止回复，光照与咒印解除相位抗性。'}
 });
+// Small enemy variants use bounded abilities and modest replacement budgets.
+Object.assign(ENEMIES,{
+ shieldscout:{"name":"披盾斥候","hp":38,"speed":62,"reward":4,"harm":1,"sprite":"swift","trim":"shield","color":"#6e91a5","icon":"披","role":"轻盾疾行","desc":"低血快行并携带薄盾；雷霆破盾，寒霜拦截。","shield":18},
+ ironvanguard:{"name":"轻甲先锋","hp":88,"speed":34,"reward":5,"harm":1,"sprite":"armor","trim":"helmet","color":"#8a9081","icon":"轻","role":"轻甲推进","desc":"护甲减伤 15%，没有厚重血量；石、剑无视护甲。","armor":0.15},
+ duskwing:{"name":"暮羽蝠","hp":45,"speed":48,"reward":4,"harm":1,"sprite":"flying","trim":"bat","color":"#82758f","icon":"暮","role":"远距隐匿 · 飞行","desc":"飞行且远于 170 时减伤 30%；光、咒破隐，弓与雷对空。","air":true,"behavior":"bamboostalker","stealthDistance":170},
+ shellmite:{"name":"甲壳虫","hp":64,"speed":34,"reward":4,"harm":1,"sprite":"brood","trim":"shell","color":"#879b9e","icon":"甲","role":"二击冰壳","desc":"冰壳减伤并免控，2 次命中即破；火与石一击算两次。","shellLimit":2},
+ hornacolyte:{"name":"号角徒","hp":72,"speed":27,"reward":4,"harm":1,"sprite":"healer","trim":"horn","color":"#a68a60","icon":"号","role":"限次鼓舞","desc":"只吹响一次号角，附近至多三名友军加速 3 秒；减速可压住冲锋。","pulse":{"kind":"haste","interval":9,"limit":1,"targets":3,"radius":85}},
+ emberscout:{"name":"赤焰卒","hp":54,"speed":43,"reward":4,"harm":1,"sprite":"lancer","trim":"flame","color":"#ba7652","icon":"赤","role":"抗火轻兵","desc":"烈焰直伤与灼烧减免 20%，没有火焰免疫；换用冰、毒、雷可克制。","resistTypes":["splash"],"resistance":0.2,"burnResist":0.2},
+ plaguebeetle:{"name":"瘴甲虫","hp":66,"speed":33,"reward":4,"harm":1,"sprite":"split","trim":"spores","color":"#899654","icon":"瘴","role":"弱抗毒","desc":"毒伤减免 25%；光或咒可揭除毒抗，火与剑适合快速清理。","poisonResist":0.25},
+ pennantguard:{"name":"护旗卫","hp":110,"speed":23,"reward":5,"harm":1,"sprite":"shield","trim":"pennant","color":"#9c966b","icon":"护","role":"一次护援","desc":"给自己与附近一名友军加一次小盾；雷霆、毒伤或集火旗手可克制。","pulse":{"kind":"shield","interval":10,"limit":1,"ratio":0.08,"targets":2,"radius":80}},
+ stonebadger:{"name":"岩背獾","hp":95,"speed":27,"reward":5,"harm":1,"sprite":"tank","trim":"rock","color":"#927b65","icon":"岩","role":"岩甲转锋","desc":"护甲减伤 20%，半血提速 12%；石剑破甲，冰控收尾。","armor":0.2,"phase":{"haste":0.12}},
+ hillkite:{"name":"岚谷雀","hp":36,"speed":49,"reward":4,"harm":1,"sprite":"flying","trim":"gust","color":"#8f9b79","icon":"岚","role":"一次空跃","desc":"空中轻兵，只会跃进一次；减速或定身可阻止这次跃进。","air":true,"pulse":{"kind":"blink","interval":7,"limit":1,"distance":25}},
+ bambooent:{"name":"缠枝木灵","hp":108,"speed":22,"reward":5,"harm":1,"sprite":"regen","trim":"leaves","color":"#6d9363","icon":"缠","role":"缓慢复苏","desc":"每秒回复 0.5% 生命；半血只唤出一只墨点。毒伤禁疗，范围塔清子体。","regenRate":0.005,"phase":{"summon":"small","count":1}},
+ bamboodart:{"name":"竹叶镖客","hp":43,"speed":51,"reward":4,"harm":1,"sprite":"bamboostalker","trim":"dart","color":"#72925a","icon":"竹","role":"近域潜行","desc":"远于 100 时直接减伤 30%，但生命较低；近距塔、光照与咒印克制。","behavior":"bamboostalker","stealthDistance":100},
+ scrollwisp:{"name":"墨页飞灵","hp":40,"speed":44,"reward":4,"harm":1,"sprite":"flying","trim":"pages","color":"#8d81aa","icon":"墨","role":"护盾飞页","desc":"沿空路前进，只有一层薄盾；雷霆破盾，弓与光可对空。","air":true,"shield":14},
+ scrollscribe:{"name":"抄卷侍","hp":80,"speed":24,"reward":4,"harm":1,"sprite":"healer","trim":"brush","color":"#9a8b79","icon":"抄","role":"一次抄愈","desc":"只施放一次小治疗，最多覆盖三名友军；中毒或封息可阻止回复。","pulse":{"kind":"heal","interval":9,"limit":1,"ratio":0.02,"targets":3,"radius":85}},
+ tideskipper:{"name":"浪涌斥候","hp":46,"speed":45,"reward":4,"harm":1,"sprite":"swift","trim":"splash","color":"#5c9d9c","icon":"浪","role":"有限踏浪","desc":"踏浪跃进最多两次，每次 30 距离；减速与定身可阻止跃进。","pulse":{"kind":"blink","interval":7,"limit":2,"distance":30}},
+ tideclam:{"name":"蚌壳守卒","hp":105,"speed":23,"reward":5,"harm":1,"sprite":"shield","trim":"pearl","color":"#7eaaa1","icon":"蚌","role":"换壳守卫","desc":"携带护盾，半血仅换壳一次再加少量护盾；雷霆或绕盾毒伤克制。","shield":24,"phase":{"shield":0.12}},
+ cloudmender:{"name":"浮云使","hp":58,"speed":29,"reward":4,"harm":1,"sprite":"healer","trim":"cloud","color":"#90aabc","icon":"浮","role":"空中护援","desc":"飞行支援兵，只给自己与一名近邻加一次薄盾；雷霆对空并破盾。","air":true,"pulse":{"kind":"shield","interval":9,"limit":1,"ratio":0.06,"targets":2,"radius":85}},
+ thunderchick:{"name":"雷羽雏","hp":37,"speed":56,"reward":4,"harm":1,"sprite":"flying","trim":"bolt","color":"#9b9d6d","icon":"雷","role":"抗雷轻羽","desc":"飞行快怪，雷系直接伤害减免 15%；弓、冰或毒更合适。","air":true,"resistTypes":["chain"],"resistance":0.15},
+ gearroller:{"name":"滚轮侍","hp":68,"speed":39,"reward":4,"harm":1,"sprite":"clockwork","trim":"wheel","color":"#a6926b","icon":"滚","role":"滚轮格挡","desc":"正面有格挡，半血提速 12%；交叉火力、石与剑可绕过格挡。","behavior":"clockwork","phase":{"haste":0.12}},
+ gearglider:{"name":"伞翼机关","hp":48,"speed":38,"reward":4,"harm":1,"sprite":"flying","trim":"glider","color":"#a39b82","icon":"伞","role":"薄盾滑翔","desc":"伞翼沿空中捷径滑翔并携薄盾；雷和弓对空，石塔无法攻击。","air":true,"shield":18},
+ frostshade:{"name":"雪幕灵","hp":48,"speed":40,"reward":4,"harm":1,"sprite":"bamboostalker","trim":"veil","color":"#91aab4","icon":"雪","role":"雪幕折光","desc":"远于 120 时直接伤害减免 30%；光照、咒印与近身火力可破雪幕。","behavior":"bamboostalker","stealthDistance":120},
+ frostcrab:{"name":"冻河蟹","hp":90,"speed":25,"reward":5,"harm":1,"sprite":"frostbeast","trim":"iceclaws","color":"#8ab1bd","icon":"冻","role":"四击冰壳","desc":"低速蟹兵，冰壳需要 4 次命中才破；火与石每击算两次，速射也有效。","shellLimit":4},
+ mirrorbird:{"name":"碎镜鸟","hp":38,"speed":49,"reward":4,"harm":1,"sprite":"flying","trim":"shard","color":"#b194b4","icon":"碎","role":"一次碎镜","desc":"飞行轻兵，半血只落下一只墨点；对空塔拦截，范围火力清理落地子体。","air":true,"phase":{"summon":"small","count":1}},
+ mirrorguard:{"name":"映墨傀","hp":85,"speed":27,"reward":4,"harm":1,"sprite":"astral","trim":"mirror","color":"#9587ae","icon":"映","role":"镜面换相","desc":"每 5 秒切换兵器/法术抗性；光、咒、破甲与持续毒伤克制。","behavior":"astral"},
+ beaconguard:{"name":"烽旗盾兵","hp":92,"speed":25,"reward":5,"harm":1,"sprite":"armor","trim":"warshield","color":"#b48b63","icon":"烽","role":"一次战旗","desc":"携盾且仅号令一次，自己和一名近邻短时加速；雷破盾，冰控截阵。","shield":22,"pulse":{"kind":"haste","interval":8,"limit":1,"targets":2,"radius":80}},
+ beaconkite:{"name":"烽羽信使","hp":39,"speed":51,"reward":4,"harm":1,"sprite":"flying","trim":"spark","color":"#b78762","icon":"烽","role":"半血疾递","desc":"飞行轻兵，半血提速 20%；寒霜能压住加速，对空火力收尾。","air":true,"phase":{"haste":0.2}},
+ astralbat:{"name":"星陨蝠","hp":47,"speed":45,"reward":4,"harm":1,"sprite":"flying","trim":"meteor","color":"#9a8ab8","icon":"星","role":"空中换相","desc":"空中轻兵，每 5 秒切换抗性；用光、咒或混搭对空伤害迎击。","air":true,"behavior":"astral"},
+ astralweaver:{"name":"聚星侍","hp":84,"speed":24,"reward":4,"harm":1,"sprite":"ward","trim":"orbit","color":"#a29cc0","icon":"聚","role":"一次星盾","desc":"为附近至多三名友军加一次薄盾，半血回复 4%；毒或封息可阻止回复。","pulse":{"kind":"shield","interval":10,"limit":1,"ratio":0.05,"targets":3,"radius":85},"phase":{"heal":0.04}}
+});
 const BASE_MAP_BOSSES=['hillboss','bambooboss','scrollboss','tideboss','cloudboss','gearboss','frostlord','mirrorqueen','beaconlord','astralboss'];
 const BASE_PHASES=[{haste:.12},{summon:'bamboostalker',count:2},{summon:'scrollguard',count:2},{heal:.08},{shield:.15},{haste:.2},{shell:true},{summon:'mirrorling',count:2},{haste:.2},{shield:.15,period:3}];
 BASE_MAP_BOSSES.forEach((k,i)=>ENEMIES[k].phase=BASE_PHASES[i]);
@@ -420,6 +451,9 @@ export const THEME_UNITS=[
  {kind:'beaconrunner',counter:'远程提前击败传令使，用减速应对冲锋'},
  {kind:'astral',counter:'兵器与法术混搭，用光、咒或毒应对换相'}
 ];
+export const COMMON_MINIONS=['shieldscout','ironvanguard','duskwing','shellmite','hornacolyte','emberscout','plaguebeetle','pennantguard'];
+export const MAP_MINION_POOLS=[['hillrunner','stonebadger','hillkite'],['bamboostalker','bambooent','bamboodart'],['scrollguard','scrollwisp','scrollscribe'],['tideshaper','tideskipper','tideclam'],['cloudraptor','cloudmender','thunderchick'],['clockwork','gearroller','gearglider'],['frostbeast','frostshade','frostcrab'],['mirrorling','mirrorbird','mirrorguard'],['beaconrunner','beaconguard','beaconkite'],['astral','astralbat','astralweaver']];
+export const minionChapter=kind=>MAP_MINION_POOLS.findIndex(pool=>pool.includes(kind));
 export const astralPhase=(e,time)=>e.astralMode!==undefined?e.astralMode:Math.floor(Math.max(0,time-(e.bornAt??0))/(e.astralPeriod||5))%2;
 const PHYSICAL_TYPES=new Set(['fast','heavy','sniper','pierce']);
 export const damageClass=w=>PHYSICAL_TYPES.has(w.type)?'兵器':'法术';
@@ -448,7 +482,7 @@ export function wavePlan(chapter,wave){
  if(stage===2){pool=['normal','swift','armor',...(part===2?['flying','flying']:['shield'])];formation=part===2?'飞羽突袭':'先锋试阵';counter='补充对空、破甲与减速';}
  if(stage===3){pool=['normal','swift','armor','tank','shield',...(chapter>0?['lancer']:[])];formation='重阵推进';counter='雷霆破盾、山石迎击重甲';}
  if(stage>=4){const f=FORMATIONS[(stage-4+part-1+chapter*2)%FORMATIONS.length];pool=[...f.pool,'normal','normal','swift'];formation=f.name;counter=f.counter;if(round>=7)pool.push(...FORMATIONS[(round+part+chapter)%FORMATIONS.length].pool.slice(0,2));if(round>=9)pool.push('ward','healer');}
- const signature=THEME_UNITS[chapter].kind;if(round>=2)pool.push(signature);
+ const signature=round>=4?MAP_MINION_POOLS[chapter][(round-4+part-1)%3]:THEME_UNITS[chapter].kind;if(round>=2)pool.push(signature);if(round>=4){pool.push(COMMON_MINIONS[(round+part+chapter)%COMMON_MINIONS.length],...MAP_MINION_POOLS[chapter]);}
  return{bossPool,endlessRound,signature,round,part,stage,pool,boss,bossKind,formation,counter,count:Math.min(80,8+round*3+chapter*2+(part-1)*2),title:boss?'随机 Boss · '+formation:formation};
 }
 export class Game {
@@ -562,7 +596,7 @@ export class Game {
     if(phase.shell){e.shellHits=0;e.slowUntil=0;e.freezeUntil=0;}
     if(phase.period)e.astralPeriod=phase.period;
     if(phase.mode!==undefined)e.astralMode=phase.mode;
-    this.emit('boss-phase',{name:data.name});
+    if(data.boss)this.emit('boss-phase',{name:data.name});
    }
    const pulse=data.pulse;
    if(pulse&&canAct&&this.time>=e.pulseAt&&(e.pulses||0)<pulse.limit){
@@ -659,11 +693,11 @@ export class Game {
    if(w.type==='aura')e.lightUntil=Math.max(e.lightUntil||0,this.time+rules.lightDuration);
    if(w.type==='income'){e.bounty=Math.max(e.bountyUntil>this.time?e.bounty:0,rules.bounty);e.bountyUntil=this.time+rules.bountyDuration;}
    if(w.type==='heavy'&&n>=3)e.breakUntil=this.time+3;if(w.trait==='sunder')e.breakUntil=Math.max(e.breakUntil||0,this.time+2.5);
-   const delay=w.trait==='combo'?hitNumber++*.08:0;this.effects.push({kind:'bolt',attackType:w.trait==='ranged'?'arrow':w.trait==='blade'&&w.type!=='pierce'?'slash':w.type,from:p,to:enemyPosition(e),color:w.color,life:.32+delay,max:.32});
+   const delay=w.trait==='combo'?hitNumber++*.08:0;this.effects.push({kind:'bolt',word:w.word,level:t.level,shot:shotNumber,attackType:w.trait==='ranged'?'arrow':w.trait==='blade'&&w.type!=='pierce'?'slash':w.type,from:p,to:enemyPosition(e),color:w.color,life:.32+delay,max:.32});
   };
   const slow=(e,factor,seconds)=>{if(hasIceShell(e))return;e.slowFactor=Math.min(e.slowUntil>this.time?(e.slowFactor??.55):1,factor);e.slowUntil=Math.max(e.slowUntil||0,this.time+seconds);};
   const poison=e=>{e.poisonDps=Math.max(e.poisonUntil>this.time?e.poisonDps:0,damage*rules.poisonRatio);e.poisonUntil=Math.max(e.poisonUntil||0,this.time+rules.poisonDuration);};
-  hit(target);this.effects.push({kind:'cast',attackType:w.type,sound:w.trait==='ranged'?'sniper':w.type,from:p,color:w.color,life:.24,max:.24});t.shots=(t.shots||0)+1;
+  hit(target);this.effects.push({kind:'cast',word:w.word,level:t.level,shot:shotNumber,attackType:w.type,sound:w.trait==='ranged'?'sniper':w.type,from:p,color:w.color,life:.24,max:.24});t.shots=(t.shots||0)+1;
   if(w.type==='poison'){poison(target);if(rules.poisonTargets){const q=enemyPosition(target);for(const e of targets.filter(e=>e!==target&&Math.hypot(enemyPosition(e).x-q.x,enemyPosition(e).y-q.y)<rules.poisonRadius).slice(0,rules.poisonTargets))poison(e);}}
   if(w.type==='slow'){slow(target,rules.slowFactor,rules.slowDuration);if(w.trait==='spread'){const q=enemyPosition(target);for(const e of targets.filter(e=>e!==target&&Math.hypot(enemyPosition(e).x-q.x,enemyPosition(e).y-q.y)<100).slice(0,2))slow(e,rules.slowFactor,rules.slowDuration);}}
   const freeze=w.type==='slow'?rules.freeze:w.trait==='bind'?.15:0;if(freeze&&!(target.freezeReady>this.time)&&!(hasIceShell(target))){target.freezeUntil=this.time+freeze;target.freezeReady=this.time+4;this.effects.push({kind:'bind',to:enemyPosition(target),color:w.color,life:.45,max:.45});}
@@ -676,7 +710,7 @@ export class Game {
   if(w.trait==='dragon'){
    const q=enemyPosition(target),dx=q.x-p.x,dy=q.y-p.y,len=Math.hypot(dx,dy)||1;const cone=targets.filter(e=>{const z=enemyPosition(e),dist=Math.hypot(z.x-p.x,z.y-p.y)||1;return((z.x-p.x)*dx+(z.y-p.y)*dy)/(dist*len)>=Math.cos(Math.PI/5);}).slice(0,6);
    for(const e of cone){if(e!==target)hit(e,.6);if(w.type==='poison')poison(e);if(w.type==='slow')slow(e,rules.slowFactor,rules.slowDuration);if(w.type==='splash'&&n>=4){e.burnDps=Math.max(e.burnUntil>this.time?e.burnDps:0,damage*.18);e.burnUntil=this.time+2;}}
-   this.effects.push({kind:'breath',from:p,to:q,radius:stats.range,color:w.color,life:.5,max:.5});
+   this.effects.push({kind:'breath',word:w.word,level:t.level,shot:shotNumber,from:p,to:q,radius:stats.range,color:w.color,life:.5,max:.5});
   }
   if(w.type==='splash'&&w.trait!=='dragon'){
    const q=enemyPosition(target),radius=rules.radius;
