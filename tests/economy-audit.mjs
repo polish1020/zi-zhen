@@ -8,18 +8,18 @@ const n=Number(process.argv[2]||10),output=process.argv[3]||'/tmp/wordward-econo
 assert.ok(Number.isInteger(n)&&n>0);
 const policies=(process.argv.find(x=>x.startsWith('--policies='))?.split('=')[1]||'adaptive,efficient,hold').split(',');
 assert.ok(policies.length&&new Set(policies).size===policies.length&&policies.every(p=>['adaptive','efficient','hold'].includes(p)));
-const mainOnly=process.argv.includes('--main-only');
+const mainOnly=process.argv.includes('--main-only'),skipRepairs=process.argv.includes('--skip-repairs');
 const source={combat:0,bounty:0,wave:0,round:0,production:0,prosper:0,refund:0};
-const sink={build:0,upgrade:0,unlock:0,refresh:0,skill:0,hint:0};
+const sink={build:0,upgrade:0,unlock:0,refresh:0,skill:0,hint:0,repair:0};
 const sum=o=>Object.values(o).reduce((a,b)=>a+b,0);
 function observe(g){
  const initial=g.ink,income={...source},expense={...sink},rows=[],actions={};
- let bountyAtSettlement;
+ let bountyAtSettlement;const siege={hits:0,damage:0,downs:0,autoRecovered:0};
  const settle=g.settleWaves;
  g.settleWaves=function(){bountyAtSettlement=this.bountyEarned;return settle.call(this);};
- for(const [method,key]of Object.entries({build:'build',upgrade:'upgrade',unlockPad:'unlock',refreshHand:'refresh',skill:'skill',requestHint:'hint',sell:'refund'})){
+ for(const [method,key]of Object.entries({build:'build',upgrade:'upgrade',unlockPad:'unlock',refreshHand:'refresh',skill:'skill',requestHint:'hint',sell:'refund',repair:'repair'})){
   const original=g[method];g[method]=function(...args){
-   const before=this.ink,result=original.apply(this,args),delta=this.ink-before;
+   const before=this.ink,result=method==='repair'&&skipRepairs?false:original.apply(this,args),delta=this.ink-before;
    if(delta<0){expense[key]-=delta;actions[key]=(actions[key]||0)+1;}
    if(delta>0){assert.equal(key,'refund');income.refund+=delta;actions.sell=(actions.sell||0)+1;}
    return result;
@@ -29,10 +29,11 @@ function observe(g){
   const earned=income.combat+income.wave+income.round+income.production+income.prosper;
   assert.ok(Math.abs(g.ink-(initial+earned+income.refund-sum(expense)))<1e-6,'the observed ledger must balance');
  }
- return{initial,income,expense,actions,rows,step(dt){
+ return{initial,income,expense,actions,rows,siege,step(dt){
   const earned=g.totalEarned,bounty=g.bountyEarned;g.events=[];bountyAtSettlement=undefined;g.step(dt);
   income.combat+=g.totalEarned-earned;
   income.bounty+=(bountyAtSettlement??g.bountyEarned)-bounty;
+  for(const event of g.events){if(event.type==='tower-hit'){siege.hits++;siege.damage+=event.damage;}if(event.type==='tower-down')siege.downs++;if(event.roundEnd)siege.autoRecovered+=event.repaired||0;}
   let ended=false;
   for(const event of g.events)if(event.type==='clear'||event.type==='won'){
    if(event.roundEnd){
@@ -42,11 +43,11 @@ function observe(g){
   }
   check();
   if(ended)rows.push({round:g.wave/3,endless:g.endless,ink:g.ink,hp:g.hp,
-   towers:g.towers.length,maxed:g.towers.filter(t=>t.level>=getWord(t.word).maxLevel).length,
+   towers:g.towers.length,active:g.activeTowers.length,ruins:g.towers.length-g.activeTowers.length,siege:{...siege},maxed:g.activeTowers.filter(t=>t.level>=getWord(t.word).maxLevel).length,
    grades:g.towers.reduce((a,t)=>(a[getWord(t.word).tier-1]++,a),[0,0,0,0]),
    assetValue:g.towers.reduce((v,t)=>v+t.spent,0),
-   goldTowers:g.towers.filter(t=>getWord(t.word).type==='income').length,
-   productionPotential:g.towers.filter(t=>getWord(t.word).type==='income').reduce((v,t)=>v+towerStats(t).income,0),
+   goldTowers:g.activeTowers.filter(t=>getWord(t.word).type==='income').length,
+   productionPotential:g.activeTowers.filter(t=>getWord(t.word).type==='income').reduce((v,t)=>v+towerStats(t).income,0),
    income:{...income,kill:income.combat-income.bounty},expense:{...expense},actions:{...actions}});
  },check};
 }
@@ -75,7 +76,7 @@ for(const policy of policies)for(let chapter=0;chapter<CHAPTERS.length;chapter++
    fullBoardAt:audit.rows.find(r=>r.towers===g.pads.length)?.round??null,
    fullMaxAt:audit.rows.find(r=>r.towers===g.pads.length&&r.maxed===g.pads.length)?.round??null,
    finalRound:Math.ceil(g.wave/3),finalInk:g.ink,hp:g.hp,initial:audit.initial,
-   income:audit.income,expense:audit.expense,actions:audit.actions,rows:audit.rows});
+   income:audit.income,expense:audit.expense,actions:audit.actions,siege:audit.siege,rows:audit.rows});
  }
  console.log(JSON.stringify({policy,chapter:chapter+1,runs:n,mainCleared:runs.filter(r=>r.policy===policy&&r.chapter===chapter+1&&r.mainCleared).length}));
 }
@@ -99,7 +100,7 @@ for(const policy of policies)for(const round of mainOnly?Array.from({length:12},
   medianRoundRefund:median(samples.map(x=>x.roundRefund)),medianRoundNetSpent:median(samples.map(x=>x.roundSpent-x.roundRefund)),
   medianTowers:median(samples.map(x=>x.towers)),medianMaxed:median(samples.map(x=>x.maxed))});
 }
-fs.writeFileSync(output,JSON.stringify({version:1,generatedAt:new Date().toISOString(),seeds:n,waveInterval:WAVE_INTERVAL,refreshCost:new Game().refreshCost(),policies,mainOnly,
+fs.writeFileSync(output,JSON.stringify({version:1,generatedAt:new Date().toISOString(),seeds:n,waveInterval:WAVE_INTERVAL,refreshCost:new Game().refreshCost(),policies,mainOnly,skipRepairs,
  methodology:(mainOnly?'Campaign only, stop on main victory. ':'Continue ten endless rounds after main victory. ')+'Actual seeded hands, public purchases, real combat. Adaptive strategy matches balance.mjs, including its repeated late refresh spending. Efficient strategy replaces only with a stronger higher-quality word of the same attribute and stops refreshing at all tier 4. Hold stops investment after all 16 towers max. All retain the same near-gate skill policy (maximum 90 ink). Income includes clear rewards and production; all refunds and expenses are audited with conservation checks. Per-round summaries condition on clearing that round; survivor counts are shown.',
  summaries,runs},null,2));
 console.log(JSON.stringify(summaries,null,2));

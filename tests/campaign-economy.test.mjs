@@ -6,21 +6,21 @@ function battle(wave=18,endless=false){const g=new Game(0,42);g.phase='battle';g
 function stock(g,word){const chars=[...word];while(chars.length<16)chars.push('文');g.hand=chars.map(ch=>({id:++g.handSerial,ch,used:false}));}
 
 test('campaign income tightens after the opening while boss rewards and endless retain full drops',()=>{
- assert.deepEqual([1,2,3,4,5,6,12].map(r=>campaignKillPercent(r)),[100,100,100,90,85,80,80]);
+ assert.deepEqual([1,2,3,4,5,6,12].map(r=>campaignKillPercent(r)),[100,100,100,95,90,90,90]);
  for(const r of [1,2,3,4,12,30]){assert.equal(campaignKillPercent(r,true),100);assert.equal(campaignKillPercent(r,false,true),100);}
  const g=battle(18),before=g.totalEarned;
  for(let i=0;i<10;i++){const e=g.spawn('normal');e.reward=3;e.hp=0;}
- g.step(.01);assert.equal(g.totalEarned-before,24);assert.equal(g.killInkRemainder,0);
+ g.step(.01);assert.equal(g.totalEarned-before,27);assert.equal(g.killInkRemainder,0);
  const h=battle(12,true);for(let i=0;i<10;i++){const e=h.spawn('normal');e.reward=3;e.hp=0;}
  h.step(.01);assert.equal(h.totalEarned,30);
 });
 
 test('fractional drop remainder is conserved across batches and saved without changing enemy rewards',()=>{
  const g=battle(),e=g.spawn('normal');e.reward=1;
- assert.equal(g.killInk(e),0);assert.equal(g.killInkRemainder,80);assert.equal(e.reward,1);
+ assert.equal(g.killInk(e),0);assert.equal(g.killInkRemainder,90);assert.equal(e.reward,1);
  const h=Game.restore(JSON.parse(JSON.stringify(g.export())));
- let paid=0;for(let i=0;i<4;i++)paid+=h.killInk(h.enemies[0]);
- assert.equal(paid,4);assert.equal(h.killInkRemainder,0);
+ let paid=0;for(let i=0;i<9;i++)paid+=h.killInk(h.enemies[0]);
+ assert.equal(paid,9);assert.equal(h.killInkRemainder,0);
  const old=g.export();delete old.killInkRemainder;assert.equal(Game.restore(old).killInkRemainder,0);
  for(const value of [-1,100,.5,NaN,'80']){const bad=g.export();bad.killInkRemainder=value;assert.throws(()=>Game.restore(bad));}
 });

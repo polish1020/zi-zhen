@@ -4,7 +4,7 @@
 
 ## 规则回归
 
-`node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs tests/timing.test.mjs tests/specialties.test.mjs tests/word-traits.test.mjs tests/endless-bosses.test.mjs tests/boss-pools.test.mjs tests/word-meanings.test.mjs tests/minions.test.mjs tests/progression.test.mjs tests/quality.test.mjs tests/boss-pressure.test.mjs tests/minion-tactics.test.mjs tests/pricing.test.mjs tests/campaign-economy.test.mjs`：156 项通过。
+`node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs tests/timing.test.mjs tests/specialties.test.mjs tests/word-traits.test.mjs tests/endless-bosses.test.mjs tests/boss-pools.test.mjs tests/word-meanings.test.mjs tests/minions.test.mjs tests/progression.test.mjs tests/quality.test.mjs tests/boss-pressure.test.mjs tests/minion-tactics.test.mjs tests/pricing.test.mjs tests/campaign-economy.test.mjs tests/siege.test.mjs`：173 项通过。
 
 覆盖约 4 万词与十四类词塔、严格词序、500 随机手牌、一次性扣牌扣费、重复字、刷新费、轮末收入与修补、财塔上限、升级及拆塔、毒伤/减速/破甲/连锁/光环/斩杀、100 起每次增加 100 的最长词提示及无词不收费、提示保存、技能 30 秒冷却与涨价、无尽续战、三波固定间隔、叠波和倒计时恢复、周期及收尾 Boss、飞行路线与防空、护盾、回血与分裂、阵位解锁及涨价、旧存档迁移、非法存档拒绝、前缀词库缓存与序列化。
 
@@ -12,12 +12,12 @@
 
 `node tests/balance.mjs 20 --efficient --report-only --details` 与加 `--skills` 的同配置，对十章各测 20 个种子，共 400 场。使用真实手牌、收入、升级、解锁、付费刷新与拆塔回收，不注入额外资源。`--efficient` 策略允许同属性低品质词塔向更强长词替换，并在没有质量提升空间时停止盲刷；原策略保留用于比较经济盲点。技能策略在近门威胁时使用落墨，最高支付 90、预留 40 墨点。
 
-下表为本轮主线收入收紧、固定 50 刷新与 30 秒波次的实际结果，不是真人通关率。两策略整体分别 86% 与 87.5%；部分章节低于历史 casual 基准，最低 65%，因此不宣称通过原有每章 85% 的标准，也未降低断言阈值。价格与波次按用户指定方向收紧，本轮保留阶段、怪量、初始墨点与价格，调整主线普通掉落和过关奖励。
+下表为本轮沿途攻塔、守备与维护经济的实际结果，不是真人通关率。两策略整体分别 85% 与 86%；部分章节低于历史 casual 基准，最低 65%，因此不宣称通过原有每章 85% 的标准，也未降低断言阈值。价格与波次按用户指定方向收紧，本轮保留阶段、怪量、初始墨点与价格，调整主线掉落以承担维护，增加维修与重建支出。
 
 | 策略 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 不使用技能 | 20/20 | 17/20 | 18/20 | 14/20 | 17/20 | 19/20 | 15/20 | 20/20 | 19/20 | 13/20 |
-| 近门时使用技能 | 20/20 | 18/20 | 17/20 | 16/20 | 17/20 | 19/20 | 15/20 | 20/20 | 20/20 | 13/20 |
+| 不使用技能 | 20/20 | 16/20 | 18/20 | 15/20 | 17/20 | 19/20 | 13/20 | 19/20 | 19/20 | 14/20 |
+| 近门时使用技能 | 20/20 | 18/20 | 18/20 | 15/20 | 17/20 | 19/20 | 14/20 | 19/20 | 19/20 | 13/20 |
 
 以下调参过程与旧版回归记录作为历史保留；本次经济审计及三组数据见 [ECONOMY.md](ECONOMY.md)。
 
@@ -106,3 +106,13 @@
 新增 100 场 `--main-only` 真实资源审计，对比上一版同种子的主线记录，配对检查收入和高品质成型节奏；400 场最终主线战斗结果更新在上表。审计从第 2 轮减收的初稿转为保留前三轮，第 4—6 轮逐步收紧，没有降低测试断言门槛。
 
 `tests/campaign-economy.cjs` 在 Chromium/WebKit 四种尺寸分别加载主线和无尽，验证既有钱包不追扣、真实击杀和过关奖励、胜利/整备状态、重载不重复支付、玩法说明。原基本流程、定时叠波、暂停布阵与无尽 Boss 浏览器流程回归通过。
+
+## 沿途攻塔与守备
+
+`tests/siege.test.mjs` 新增 17 项因果测试，含全词库/94 种攻塔配置、蓄力命中/收招围攻位/沿路行进、冰冻/缄默/目标丢失、真实地图双塔重击、石系接敌、废墟停攻与停止经济/被动、修复扣费和冷却、原词升级保留及反套利、升级伤势、轮末维修与光/金支持、四种反击、水/雷/幻控攻塔、腐蚀冰滞、存档迁移与非法状态。173 项规则全通过。
+
+`tests/siege.cjs` 在 Chromium/WebKit 的 320×568、393×852、667×375、1440×1000 检查耐久显示、暂停修复/重建精确扣费、词与字牌保留、实际被攻击并生成废墟、94 条攻塔说明、重载计时与耐久保持、三个操作按钮同屏。新词塔守备卡有独立语义类，原响应式测试改为明确选择品阶卡；十尺寸响应式、品质/词义、基本流程、暂停、94 张图鉴及所有组合特效回归通过。
+
+400 场完整主线仿真包含合理维修策略，结果在上表。另完成 100 场仅主线维护账本与同种子的 50 场禁用手动维修对照，逐步校验真实收支守恒。维护组每 8 秒及波次转换时检查危急塔，不注入资源；初稿伤害和维护与旧减收叠加时偏难，最终加入含收招的双围攻位、降低攻塔伤害、补回部分普通掉落，未降低断言标准。均为自动策略，个别章节仍有较高挑战。
+
+另完成 20 场主线通关后的无尽延续资源审计，实际运行到失败或各章主线后第十轮，账本守恒且没有模拟超时。

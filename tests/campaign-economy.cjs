@@ -17,14 +17,14 @@ const base=process.env.BASE_URL||'http://127.0.0.1:4173',engine=process.env.BROW
   },g.export());
   await page.goto(base,{waitUntil:'domcontentloaded'});await page.locator('#enter-game').click();
   assert.equal(await page.locator('#ink').innerText(),'500','a restored wallet must never be cut retroactively');
-  await page.locator('#game-guide').click();assert.match(await page.locator('#modal-content').innerText(),/前 3 轮.*第 4\/5\/6 轮.*90%\/85%\/80%.*财塔.*保持完整/s);
+  await page.locator('#game-guide').click();assert.match(await page.locator('#modal-content').innerText(),/前 3 轮.*第 4\/5\/6 轮.*95%\/90%\/90%.*财塔.*保持完整/s);
   await page.locator('#close-modal').click();await page.locator('#resume').click();
   const earned=endless?5:4,expected=500+earned+20+38;
   await page.waitForFunction(({earned,expected})=>{
    const save=JSON.parse(localStorage.getItem('wordward-save-v1'));return save.totalEarned===earned&&save.ink===expected;
   },{earned,expected});
   const state=await page.evaluate(()=>JSON.parse(localStorage.getItem('wordward-save-v1')));
-  assert.equal(state.phase,endless?'prepare':'won');assert.equal(state.killInkRemainder,0);
+  assert.equal(state.phase,endless?'prepare':'won');assert.equal(state.killInkRemainder,endless?0:50);
   await page.reload();const restored=await page.evaluate(()=>JSON.parse(localStorage.getItem('wordward-save-v1')));
   assert.equal(restored.ink,expected);assert.equal(restored.totalEarned,earned);
   assert.deepEqual(errors,[]);await context.close();

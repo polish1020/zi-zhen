@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-30",
+  "mainAuditRuns": 100,
+  "mainAuditWins": 90,
+  "medianCampaignRepair": 199.5,
+  "repairRange": [
+    0,
+    1248
+  ],
+  "maintenanceComparison": {
+    "runsEach": 50,
+    "maintainedWins": 46,
+    "unmaintainedWins": 43,
+    "maintainedRuinRuns": 0,
+    "unmaintainedRuinRuns": 48,
+    "unmaintainedMedianDowns": 5.0
+  },
+  "checkpoints": [
+    {
+      "round": 3,
+      "samples": 96,
+      "medianInk": 100.0,
+      "medianRepair": 0.0,
+      "medianActive": 12.0
+    },
+    {
+      "round": 6,
+      "samples": 93,
+      "medianInk": 158,
+      "medianRepair": 29,
+      "medianActive": 16
+    },
+    {
+      "round": 8,
+      "samples": 81,
+      "medianInk": 211,
+      "medianRepair": 40,
+      "medianActive": 16
+    },
+    {
+      "round": 10,
+      "samples": 45,
+      "medianInk": 215,
+      "medianRepair": 57,
+      "medianActive": 16
+    },
+    {
+      "round": 12,
+      "samples": 8,
+      "medianInk": 260.5,
+      "medianRepair": 104.5,
+      "medianActive": 16.0
+    }
+  ],
+  "combat": {
+    "withoutSkill": {
+      "winsByChapter": [
+        20,
+        16,
+        18,
+        15,
+        17,
+        19,
+        13,
+        19,
+        19,
+        14
+      ],
+      "runsPerChapter": 20,
+      "totalWins": 170,
+      "total": 200
+    },
+    "withSkill": {
+      "winsByChapter": [
+        20,
+        18,
+        18,
+        15,
+        17,
+        19,
+        14,
+        19,
+        19,
+        13
+      ],
+      "runsPerChapter": 20,
+      "totalWins": 172,
+      "total": 200
+    }
+  }
+}

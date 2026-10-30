@@ -294,3 +294,8 @@ html[data-standalone="true"].game-open body.playing .forge-panel { padding-botto
 .rune-capacity{display:block;margin-bottom:3px;font-size:10px;color:#d0c399}.meaning-names{font-weight:600;color:#796383}
 
 .boss-skill-description{padding-top:8px;border-top:1px solid #b9ae9633}.boss-skill-description strong{color:#986348}
+
+.tower-integrity{display:flex;align-items:center;gap:7px;margin-top:4px;font-size:10px;color:#d6d8bd}.tower-integrity progress{width:68px;height:6px;accent-color:#9aba85}.defense-effect{display:block;color:#abc1a0;font-weight:500;margin-top:4px}.tower-actions{grid-template-columns:repeat(3,minmax(0,1fr))}.tower-actions .repair-button{background:#526d5a}.tower-actions .sell-button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}.tower-actions .sell-button span{font-size:10px}.enemy-siege-description{border-top:1px solid #b9ae9633;padding-top:7px;color:#8b6857}
+@media (max-width:900px),(pointer:coarse),(display-mode:standalone){body.playing .tower-actions{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}body.playing .tower-actions .forge-button{flex-direction:column;font-size:12px;gap:2px;padding:3px 2px;justify-content:center}body.playing .tower-actions .forge-button span{font-size:10px}body.playing .tower-actions .sell-button{padding:3px 2px;font-size:12px}body.playing .tower-integrity{font-size:9px;gap:5px;margin-top:3px;min-height:12px}body.playing .tower-integrity progress{flex:1;min-width:30px;max-width:90px}body.playing .defense-effect{font-size:10px}}
+
+.tower-actions .repair-button:not(:disabled){color:#f5f0dc;background:#526d5a}.tower-actions .repair-button:not(:disabled) span{color:#e4e8cc}
