@@ -6,12 +6,12 @@
 
 - 团队：`changsheng`，ID `team_azaP3oGtfy4m7CDhqfxdNiLP`
 - 项目：`zi-zhen`，ID `prj_knArbjGsckakBpEb06lLwiWsHlyb`
-- 生产部署：`dpl_DpE9J4D16jaKu5oTMH6BMKdvmnwC`
-- 部署地址：https://zi-zhen-7ldeq9iej-changsheng.vercel.app
-- 生产源码提交：`dc76bb36a7dd525d8360b6e88108569cf9450626`
-- 发布时间：2026-10-29；状态 `READY`，环境 `production`
+- 生产部署：`dpl_5Ne7csDC9iMXcS5zSRzhJ4toBfDd`
+- 部署地址：https://zi-zhen-mehjoqzer-changsheng.vercel.app
+- 生产源码提交：`6c434d0e736306f3d4ca6d3bc4e027728078ed03`
+- 发布时间：2026-10-30；状态 `READY`，环境 `production`
 - 框架：静态站点，`framework: null`，输出 `public`，无安装/构建依赖。
-- Vercel 输出构建 46ms；从 buildingAt 到 ready 约 1.6 秒；日志无构建错误。
+- Vercel 输出构建 45ms；从 buildingAt 到 ready 约 1.9 秒；日志无构建错误。
 - 控制台：https://vercel.com/changsheng/zi-zhen
 
 ## 更新方法
