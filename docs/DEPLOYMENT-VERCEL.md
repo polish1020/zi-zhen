@@ -6,12 +6,12 @@
 
 - 团队：`changsheng`，ID `team_azaP3oGtfy4m7CDhqfxdNiLP`
 - 项目：`zi-zhen`，ID `prj_knArbjGsckakBpEb06lLwiWsHlyb`
-- 生产部署：`dpl_4G9gcE5jd4sspZxSjLH6QKtHg6Vv`
-- 部署地址：https://zi-zhen-e8l5ieecm-changsheng.vercel.app
-- 生产源码提交：`46a6e3de4a24b3a8d02aa5420693b7d49bf3c5bf`
+- 生产部署：`dpl_CXDDKr3P7H15ckW2aAy9f73vJaun`
+- 部署地址：https://zi-zhen-pfk7mmqzu-changsheng.vercel.app
+- 生产源码提交：`8490a45db07660bb69754fa0f22ba676dfed150a`
 - 发布时间：2026-10-30；状态 `READY`，环境 `production`
 - 框架：静态站点，`framework: null`，输出 `public`，无安装/构建依赖。
-- Vercel 输出构建 36ms；从 buildingAt 到 ready 约 1.6 秒；日志无构建错误。
+- Vercel 输出构建 64ms；从 buildingAt 到 ready 约 2.0 秒；日志无构建错误。
 - 控制台：https://vercel.com/changsheng/zi-zhen
 
 ## 更新方法
@@ -80,3 +80,11 @@ python3 scripts/prepare-vercel.py
 150 项规则通过，800 场资源账本审计完成。新价格与 30 秒节奏另测 400 场有效提升策略，整体通关率 90%/91%，个别章节为 75%，未宣称原有每章 casual 阈值全部通过；数据与限定条件见 `TESTING.md`、`ECONOMY.md`。
 
 线上 WebKit `tests/pricing.cjs` 四种尺寸验证精确扣费、100/200/300 报价与免费复看、固定 50 刷新、价格存档和说明；线上 Chromium `tests/expansion.cjs` 验证定时叠波，`tests/browser.cjs` 验证基本游戏全流程。十个公开文件均 HTTP 200，逐字节匹配发布和原生资源包。构建和浏览器无运行错误；实体 iPhone 未直接验证。
+
+## 主线成型期经济发布
+
+主线前三轮普通怪完整掉落，第 4/5/6 轮起为 90%/85%/80%；清波奖 20、轮末基础奖 38 封顶。Boss、财塔与额外赏金保持完整；无尽沿用原掉落和奖励增长。整数余数随存档累计，旧钱包和投入不追扣。价格、30 秒波次、敌人强度和初始墨点未改。
+
+156 项规则通过；100 场仅主线资源审计与 400 场最终战斗仿真完成。最终两策略整体通关率 86%/87.5%，未声称通过历史每章 casual 阈值。主线第 6 轮收入配对中位数 599→503，第 10 轮 974→765；统计见 `ECONOMY.md`。
+
+线上 WebKit `tests/campaign-economy.cjs` 在四种尺寸分别核验主线和无尽的实际掉落与过关结算、已有钱包保留、重载不重复发奖和玩法说明；线上 Chromium 基本游戏全流程通过。十个公开文件 HTTP 200，逐字节匹配测试包与原生资源；构建和浏览器无运行错误。
