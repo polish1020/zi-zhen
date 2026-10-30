@@ -1,9 +1,9 @@
 const assert=require('node:assert/strict');
-const {chromium}=require('/opt/codex/cua_node/lib/node_modules/playwright-core');
-const baseURL=process.env.BASE_URL||'http://127.0.0.1:4173';
+const {chromium,webkit}=require('/opt/codex/cua_node/lib/node_modules/playwright-core');
+const baseURL=process.env.BASE_URL||'http://127.0.0.1:4173',engine=process.env.BROWSER||'chromium';
 (async()=>{
  const {Game,getWord}=await import('../dist/engine.mjs');const initial=new Game(0,42);initial.hand[0].ch='火';initial.hand[1].ch='球';const attack=getWord('火球'),ids=initial.tilesFor(attack.word);
- const browser=await chromium.launch({headless:true,executablePath:'/usr/bin/chromium',args:['--no-sandbox'],...(baseURL.startsWith('https://')?{proxy:{server:process.env.HTTPS_PROXY}}:{})});
+ const browser=await (engine==='webkit'?webkit:chromium).launch({headless:true,...(engine==='chromium'?{executablePath:'/usr/bin/chromium',args:['--no-sandbox']}:{}),...(baseURL.startsWith('https://')?{proxy:{server:process.env.HTTPS_PROXY}}:{})});
  try{for(const [width,height]of[[320,568],[320,740],[390,844],[430,932],[768,1024],[844,390],[667,375],[900,900],[1024,768],[1440,1000]]){
  const mobile=width<=900,ctx=await browser.newContext({viewport:{width,height},hasTouch:mobile,isMobile:mobile}),p=await ctx.newPage(),errors=[];p.setDefaultTimeout(12000);p.on('pageerror',e=>errors.push(e.message));
  await p.addInitScript(d=>{if(!sessionStorage.getItem('fixture')){localStorage.setItem('wordward-save-v1',JSON.stringify(d));sessionStorage.setItem('fixture','1');}},initial.export());
@@ -19,13 +19,22 @@ const baseURL=process.env.BASE_URL||'http://127.0.0.1:4173';
  await press('#recipe-details');assert.match(await p.locator('#modal-content .attribute-badge').innerText(),/火/);assert.ok(await p.locator('.word-grade-card').isVisible());assert.ok(await p.locator('.word-effect-stats').isVisible());assert.match(await p.locator('#modal-content').innerText(),new RegExp(attack.word));await press('#effect-done');
  await press('#forge');await press('#forge');assert.equal(await p.locator('#ink').innerText(),'200');assert.equal(await p.locator('.char.used').count(),0);
  await press('#forge');await press('.map-target:nth-child(3)');assert.equal(await p.locator('#ink').innerText(),String(200-attack.cost));assert.equal(await p.locator('.char.used').count(),2);
- await press('.map-target:nth-child(3)');assert.equal(await p.locator('.map-target:nth-child(3)').getAttribute('aria-pressed'),'true');await p.waitForSelector('#upgrade');assert.match(await p.locator('.tower-detail h3').innerText(),new RegExp(attack.word));await press('.map-target:nth-child(3)');assert.ok(await p.locator('#upgrade').isVisible(),'repeated tower click keeps details open');if(mobile){await onScreen('#upgrade');await onScreen('.tower-level .attribute-badge');await onScreen('.tower-level .grade-badge');}await press('#upgrade');const left=200-attack.cost-Math.round(attack.cost*.75);assert.equal(await p.locator('#ink').innerText(),String(left));await press('#back-forge');await press('#refresh-letters');assert.equal(await p.locator('#ink').innerText(),String(left-50));
+ await press('.map-target:nth-child(3)');assert.equal(await p.locator('.map-target:nth-child(3)').getAttribute('aria-pressed'),'true');await p.waitForSelector('#upgrade');assert.match(await p.locator('.tower-detail h3').innerText(),new RegExp(attack.word));await press('.map-target:nth-child(3)');assert.ok(await p.locator('#upgrade').isVisible(),'repeated tower click keeps details open');if(mobile){await onScreen('#upgrade');await onScreen('.tower-level .attribute-badge');await onScreen('.tower-level .grade-badge');}assert.deepEqual(await p.locator('.tower-effect-section h4').allTextContents(),['攻击效果','守备能力','附加词义','品质特性']);
+ assert.equal(await p.getByRole('tab').count(),0,'all sections are expanded without tab switching');
+ assert.equal(await p.locator('.tower-effect-section[hidden]').count(),0);
+ assert.match(await p.locator('.tower-effects').innerText(),/基础属性.*攻击形态.*守备能力.*附加词义.*品质特性/s);
+ if(mobile)assert.ok((await p.locator('.tower-effect-content').boundingBox()).height>=40,'effect descriptions need a scrollable reading area');
+ const scrollEffects=async()=>p.locator('.tower-effect-content').evaluate(el=>el.scrollTop=el.scrollHeight);
+ await scrollEffects();if(mobile){await onScreen('#upgrade');await onScreen('#repair');await onScreen('#sell');}
+ await press('#upgrade');assert.equal(await p.locator('.tower-effect-section').count(),4);
+ if(width===390){await p.locator('.tower-effect-content').evaluate(el=>el.scrollTop=0);await p.screenshot({path:'/workspace/shared/wordward-categorized-details.png'});}
+ const left=200-attack.cost-Math.round(attack.cost*.75);assert.equal(await p.locator('#ink').innerText(),String(left));await press('#back-forge');await press('#refresh-letters');assert.equal(await p.locator('#ink').innerText(),String(left-50));
  const tray=await p.locator('.char').evaluateAll(xs=>xs.map(x=>[x.dataset.tile,x.dataset.char]));await p.reload();await enter();assert.deepEqual(await p.locator('.char').evaluateAll(xs=>xs.map(x=>[x.dataset.tile,x.dataset.char])),tray);
  await press('#start');await p.waitForFunction(()=>document.querySelector('#phase-label').textContent.includes('进行中'));await press('#start');assert.ok(await p.locator('#pause-overlay').isVisible());await p.reload();await enter();assert.ok(await p.locator('#pause-overlay').isVisible());
  if(mobile){await p.setViewportSize({width:height,height:width});await fits();await p.setViewportSize({width,height});await fits();}
  await press('#jump-codex');assert.equal(await p.locator('.codex-card').count(),40);await press('[data-length="4"]');assert.ok(await p.locator('.codex-card').count()>0&&await p.locator('.codex-card').count()<=40);await press('#close-modal');
  await press('#settings');await press('#close-modal');
  if(mobile){const scale=await p.locator('.map-target').evaluateAll(xs=>{const c=i=>{const r=xs[i].getBoundingClientRect();return{x:r.x+r.width/2,y:r.y+r.height/2};};return{x:(c(5).x-c(0).x)/(365-100),y:(c(3).y-c(0).y)/(420-78)};});assert.ok(Math.abs(scale.x-scale.y)<.002,'map must use uniform scaling');}
- if(width===390||width===1440)await p.screenshot({path:`/workspace/shared/wordward-combined-${width}.png`,fullPage:!mobile});assert.deepEqual(errors,[]);console.log(`PASS ${width}x${height}: start screen, combined panels, filled hand, uniform map, strict order, word effect, single-click details and upgrade, restore`);await ctx.close();
+ if(width===390||width===1440)await p.screenshot({path:`/workspace/shared/wordward-combined-${width}.png`,fullPage:!mobile});assert.deepEqual(errors,[]);console.log(`PASS ${engine} ${width}x${height}: start screen, combined panels, filled hand, uniform map, strict order, word effect, categorized effects, single-click details and upgrade, restore`);await ctx.close();
  }}finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exit(1);});
