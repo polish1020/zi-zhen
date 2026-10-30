@@ -22,11 +22,11 @@ test('tiles and ink are consumed together only on successful placement',()=>{
 test('repeated characters need separate physical tiles; ids cannot be reused',()=>{
  const g=new Game();stock(g,'百发百中');const ids=g.tilesFor('百发百中');assert.equal(new Set(ids).size,4);assert.equal(g.build('百发百中',0,[ids[0],ids[1],ids[0],ids[3]]),false);assert.equal(g.build('百发百中',0,[...ids].reverse()),false);assert.ok(g.build('百发百中',0,ids));assert.equal(g.towers[0].level,4);assert.equal(g.hand.filter(t=>t.used).length,4);assert.equal(g.tilesFor('百发百中'),null);
 });
-test('refresh discards the old tray, increases price and cannot charge insufficient funds',()=>{
- const g=new Game(0,5),old=g.hand.map(t=>t.id);assert.equal(g.refreshCost(),15);assert.ok(g.refreshHand());assert.equal(g.ink,185);assert.equal(g.refreshCost(),20);assert.ok(g.hand.every(t=>!old.includes(t.id)&&!t.used));g.ink=1000;for(let i=0;i<10;i++)g.refreshHand();assert.equal(g.refreshCost(),40);g.ink=0;const before=g.export();assert.equal(g.refreshHand(),false);assert.deepEqual(g.export(),before);
+test('refresh discards the old tray at a fixed 50 and cannot charge insufficient funds',()=>{
+ const g=new Game(0,5),old=g.hand.map(t=>t.id);assert.equal(g.refreshCost(),50);assert.ok(g.refreshHand());assert.equal(g.ink,150);assert.equal(g.refreshCost(),50);assert.ok(g.hand.every(t=>!old.includes(t.id)&&!t.used));g.ink=1000;for(let i=0;i<10;i++)g.refreshHand();assert.equal(g.refreshCost(),50);g.ink=0;const before=g.export();assert.equal(g.refreshHand(),false);assert.deepEqual(g.export(),before);
 });
-test('each round resets refresh price; clear and income rewards happen once',()=>{
- const g=new Game();g.refreshHand();g.phase='battle';g.wave=3;build(g,'生财',0);const ink=g.ink;g.step(.1);assert.equal(g.phase,'prepare');assert.equal(g.ink,ink+33+10+2);assert.equal(g.refreshCost(),15);const paid=g.ink;g.step(.1);assert.equal(g.ink,paid);
+test('each round retains the fixed refresh price; clear and income rewards happen once',()=>{
+ const g=new Game();g.refreshHand();g.phase='battle';g.wave=3;build(g,'生财',0);const ink=g.ink;g.step(.1);assert.equal(g.phase,'prepare');assert.equal(g.ink,ink+33+10+2);assert.equal(g.refreshCost(),50);const paid=g.ink;g.step(.1);assert.equal(g.ink,paid);
 });
 test('income is capped across towers and all tiers can be enhanced exactly twice',()=>{
  const g=new Game();g.ink=10000;for(let i=0;i<4;i++){const t=build(g,'招财进宝',i);assert.ok(g.upgrade(t.id));assert.ok(g.upgrade(t.id));assert.equal(g.upgrade(t.id),false);assert.equal(t.level,6);}g.phase='battle';g.wave=3;const before=g.ink;g.step(.1);assert.equal(g.ink-before,33+100+10);
@@ -64,8 +64,8 @@ test('unprotected waves lose; terminal games cannot spend ink or tiles',()=>{
  const g=new Game(2);let n=0;while(g.phase!=='lost'&&n++<10)runWave(g);assert.equal(g.phase,'lost');const before=g.export();assert.equal(g.refreshHand(),false);assert.equal(g.build('火',0),false);assert.equal(g.startWave(),false);assert.deepEqual(g.export(),before);
 });
 
-test('paid hints cost 100, prefer longest spellable words, and reuse unlocked hints for free',()=>{
- const g=new Game(0,42);const longest=Math.max(...g.availableWords().map(w=>w.tier));const before=g.ink;const hint=g.requestHint();assert.equal(hint.cost,100);assert.equal(getWord(hint.word).tier,longest);assert.equal(g.ink,before-100);assert.equal(g.hintCost(),0);assert.deepEqual(g.requestHint(),{word:hint.word,cost:0});assert.equal(g.ink,before-100);const copy=Game.restore(g.export());assert.equal(copy.hintWord,hint.word);assert.equal(copy.hintCost(),0);g.refreshHand();assert.equal(g.hintWord,null);assert.equal(g.hintCost(),100);
+test('paid hints start at 100, increase after each purchase, prefer longest spellable words, and reuse unlocked hints for free',()=>{
+ const g=new Game(0,42);const longest=Math.max(...g.availableWords().map(w=>w.tier));const before=g.ink;const hint=g.requestHint();assert.equal(hint.cost,100);assert.equal(getWord(hint.word).tier,longest);assert.equal(g.ink,before-100);assert.equal(g.hintCost(),0);assert.deepEqual(g.requestHint(),{word:hint.word,cost:0});assert.equal(g.ink,before-100);const copy=Game.restore(g.export());assert.equal(copy.hintWord,hint.word);assert.equal(copy.hintCost(),0);g.refreshHand();assert.equal(g.hintWord,null);assert.equal(g.hintCost(),200);
 });
 test('no spellable word or insufficient funds never consumes hint ink or changes letters',()=>{
  const g=new Game();g.hand.forEach(t=>t.used=true);const before=g.export();assert.equal(g.requestHint(),false);assert.deepEqual(g.export(),before);g.drawHand();g.ink=99;const low=g.export();assert.equal(g.requestHint(),false);assert.deepEqual(g.export(),low);
@@ -89,7 +89,7 @@ test('chapters have multiple rounds with three waves and bosses every three roun
  const a=wavePlan(0,1);assert.equal(a.count,11);assert.ok(wavePlan(0,9).count>a.count);
 });
 test('early wave clears retain the original fixed timer; round-end resets refresh price and repairs HP',()=>{
- const g=new Game(0,1);g.startWave();g.queue=[];g.refreshes=2;const before=g.ink;g.step(.1);assert.equal(g.phase,'battle');assert.equal(g.ink,before+10);assert.equal(g.refreshCost(),25);assert.equal(g.autoWaveAt,WAVE_INTERVAL);const copy=Game.restore(g.export());assert.deepEqual(copy.export(),g.export());for(let i=0;i<WAVE_INTERVAL*10;i++)g.step(.1);assert.equal(g.wave,2);assert.equal(g.phase,'battle');g.wave=3;g.autoWaveAt=0;g.pendingWaves=[3];g.queue=[];g.enemies=[];g.hp=10;g.step(.1);assert.equal(g.phase,'prepare');assert.equal(g.hp,12);assert.equal(g.refreshCost(),15);assert.equal(g.roundInfo().round,2);
+ const g=new Game(0,1);g.startWave();g.queue=[];g.refreshes=2;const before=g.ink;g.step(.1);assert.equal(g.phase,'battle');assert.equal(g.ink,before+10);assert.equal(g.refreshCost(),50);assert.equal(g.autoWaveAt,WAVE_INTERVAL);const copy=Game.restore(g.export());assert.deepEqual(copy.export(),g.export());for(let i=0;i<WAVE_INTERVAL*10;i++)g.step(.1);assert.equal(g.wave,2);assert.equal(g.phase,'battle');g.wave=3;g.autoWaveAt=0;g.pendingWaves=[3];g.queue=[];g.enemies=[];g.hp=10;g.step(.1);assert.equal(g.phase,'prepare');assert.equal(g.hp,12);assert.equal(g.refreshCost(),50);assert.equal(g.roundInfo().round,2);
 });
 test('flight uses a shorter direct route; stone cannot attack it but ranged towers can',()=>{
  for(const word of ['巨石','旋风']){const g=new Game();g.ink=1000;build(g,word,0);g.phase='battle';g.spawn('flying');const e=g.enemies[0];e.d=130;e.hp=1000;g.step(.01);assert.ok(enemyLength(e)<LENGTH);assert.equal(e.hp<1000,word==='旋风');assert.ok(enemyPosition(e).y<200);}

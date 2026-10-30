@@ -287,9 +287,9 @@ export function gradeEffect(w){
  basic:n>=4?'每第四次攻击对附近 2 个目标造成 50% 余波':n>=3?'每第四次攻击额外造成 40% 伤害':'稳定的单体攻击'
  };if(w.trait==='dragon')return`龙息扇面最多覆盖 6 个目标${w.type==='slow'?'；减速 '+Math.round((1-r.slowFactor)*100)+'%':w.type==='poison'?'；毒伤持续 '+r.poisonDuration+' 秒':n>=4&&w.type==='splash'?'；天成吐息额外灼烧':''}`;return effects[w.type];
 }
-export const WAVE_INTERVAL=35;
+export const WAVE_INTERVAL=30;
 export const HAND_SIZE=16;
-export const HINT_COST=100;
+export const HINT_COST=100,REFRESH_COST=50;
 export const SKILL_COOLDOWN=30, SKILL_BASE_COST=30, SKILL_COST_STEP=15;
 const WORD_INDEX=new Map(WORDS.map(w=>[w.word,w]));
 const WORD_PREFIXES=new Set(WORDS.flatMap(w=>Array.from({length:w.tier},(_,i)=>w.word.slice(0,i+1))));
@@ -587,7 +587,7 @@ export function enemyHealthScale(chapter,wave,kind){
 }
 export class Game {
  get pads(){return getMap(this.chapter).pads;}
- constructor(chapter=0,seed=(Math.random()*4294967296)>>>0){this.chapter=chapter;this.wave=0;this.endless=false;this.unlockedPads=Array.from({length:FREE_PAD_COUNT},(_,i)=>i);this.hp=CHAPTERS[chapter].hp;this.ink=CHAPTERS[chapter].ink;this.towers=[];this.enemies=[];this.effects=[];this.zones=[];this.queue=[];this.time=0;this.spawnTime=0;this.autoWaveAt=0;this.pendingWaves=null;this.phase='prepare';this.kills=0;this.nextId=1;this.skillReady=0;this.skillUses=0;this.totalEarned=0;this.bountyEarned=0;this.barrierSpent=0;this.soulHealed=0;this.reviveUsed=false;this.bossDraws=[];this.events=[];this.rngState=(seed>>>0)||1;this.refreshes=0;this.handSerial=0;this.hand=[];for(let i=0;i<4;i++)this.random();this.drawHand();}
+ constructor(chapter=0,seed=(Math.random()*4294967296)>>>0){this.chapter=chapter;this.wave=0;this.endless=false;this.unlockedPads=Array.from({length:FREE_PAD_COUNT},(_,i)=>i);this.hp=CHAPTERS[chapter].hp;this.ink=CHAPTERS[chapter].ink;this.towers=[];this.enemies=[];this.effects=[];this.zones=[];this.queue=[];this.time=0;this.spawnTime=0;this.autoWaveAt=0;this.pendingWaves=null;this.phase='prepare';this.kills=0;this.nextId=1;this.skillReady=0;this.skillUses=0;this.hintUses=0;this.totalEarned=0;this.bountyEarned=0;this.barrierSpent=0;this.soulHealed=0;this.reviveUsed=false;this.bossDraws=[];this.events=[];this.rngState=(seed>>>0)||1;this.refreshes=0;this.handSerial=0;this.hand=[];for(let i=0;i<4;i++)this.random();this.drawHand();}
  emit(type,data={}){this.events.push({type,...data});}
  random(){let x=this.rngState;x^=x<<13;x^=x>>>17;x^=x<<5;this.rngState=x>>>0;return this.rngState/4294967296;}
  drawHand(){
@@ -606,9 +606,9 @@ export class Game {
  padUnlocked(pad){return this.unlockedPads.includes(pad);}
  unlockCost(){return 40+(this.unlockedPads.length-FREE_PAD_COUNT)*20;}
  unlockPad(pad){if(!this.pads[pad]||this.padUnlocked(pad)||['won','lost'].includes(this.phase)||this.ink<this.unlockCost())return false;const cost=this.unlockCost();this.ink-=cost;this.unlockedPads.push(pad);this.emit('unlock',{pad,cost});return true;}
- hintCost(){return this.hintWord&&this.tilesFor(this.hintWord)?0:HINT_COST;}
- requestHint(){if(['won','lost'].includes(this.phase))return false;if(this.hintWord&&this.tilesFor(this.hintWord))return {word:this.hintWord,cost:0};const word=this.availableWords().sort((a,b)=>b.tier-a.tier||a.cost-b.cost)[0];if(!word||this.ink<HINT_COST)return false;this.ink-=HINT_COST;this.hintWord=word.word;this.emit('hint',{word:word.word,cost:HINT_COST});return {word:word.word,cost:HINT_COST};}
- refreshCost(){return Math.min(40,15+this.refreshes*5);}
+ hintCost(){return this.hintWord&&this.tilesFor(this.hintWord)?0:HINT_COST*(this.hintUses+1);}
+ requestHint(){if(['won','lost'].includes(this.phase))return false;if(this.hintWord&&this.tilesFor(this.hintWord))return {word:this.hintWord,cost:0};const word=this.availableWords().sort((a,b)=>b.tier-a.tier||a.cost-b.cost)[0],cost=this.hintCost();if(!word||this.ink<cost)return false;this.ink-=cost;this.hintUses++;this.hintWord=word.word;this.emit('hint',{word:word.word,cost});return {word:word.word,cost};}
+ refreshCost(){return REFRESH_COST;}
  refreshHand(){if(['won','lost'].includes(this.phase)||this.ink<this.refreshCost())return false;const cost=this.refreshCost();this.ink-=cost;this.refreshes++;this.drawHand();this.emit('refresh',{cost});return true;}
  tilesFor(word){const ids=[];for(const ch of word){const tile=this.hand.find(t=>!t.used&&t.ch===ch&&!ids.includes(t.id));if(!tile)return null;ids.push(tile.id);}return ids;}
  availableWords(){const key=this.hand.map(t=>t.used?'_':t.ch).join('');if(this._wordCacheKey!==key){const counts=new Map();for(const t of this.hand)if(!t.used)counts.set(t.ch,(counts.get(t.ch)||0)+1);const found=[];const visit=prefix=>{for(const [ch,count]of counts){if(!count)continue;const next=prefix+ch;if(!WORD_PREFIXES.has(next))continue;const w=getWord(next);if(w)found.push(w);if(next.length<4){counts.set(ch,count-1);visit(next);counts.set(ch,count);}}};visit('');this._wordCacheKey=key;this._wordCache=found;}return this._wordCache.slice();}
@@ -866,9 +866,10 @@ export class Game {
  }
  if(data.bossDraws!==undefined&&(!Array.isArray(data.bossDraws)||data.bossDraws.length>12||data.bossDraws.some(x=>!x||!int(x.wave)||x.wave>data.wave||!ENEMIES[x.kind]?.boss)))throw Error('Invalid boss draws');
  if(data.zones!==undefined&&(!Array.isArray(data.zones)||data.zones.length>32||data.zones.some(z=>!z||!['fire','poison'].includes(z.kind)||!int(z.tower)||!getWord(z.word)||!['x','y','radius','power','until'].every(k=>finite(z[k]))||z.radius<=0||z.radius>200||z.power<0||z.until<0)))throw Error('Invalid spell zones');
+ if(data.hintUses!==undefined&&(!Number.isSafeInteger(data.hintUses)||data.hintUses<0||data.hintUses>Number.MAX_SAFE_INTEGER/HINT_COST-1))throw Error('Invalid hint use count');
  if(data.skillUses!==undefined&&!int(data.skillUses))throw Error('Invalid skill use count');
  if(data.autoWaveAt!==undefined&&(!finite(data.autoWaveAt)||data.autoWaveAt<0))throw Error('Invalid wave timer');
- const g=new Game(data.chapter);g.bossDraws=(data.bossDraws||[]).map(x=>({...x}));g.zones=(data.zones||[]).map(z=>({...z}));g.reviveUsed=data.reviveUsed??false;g.barrierSpent=data.barrierSpent??0;g.soulHealed=data.soulHealed??0;g.bountyEarned=data.bountyEarned??0;g.autoWaveAt=data.autoWaveAt??0;g.endless=data.endless===true;g.skillUses=data.skillUses??0;for(const k of ['wave','hp','ink','towers','enemies','queue','time','spawnTime','phase','kills','nextId','skillReady','totalEarned'])g[k]=data[k];
+ const g=new Game(data.chapter);g.bossDraws=(data.bossDraws||[]).map(x=>({...x}));g.zones=(data.zones||[]).map(z=>({...z}));g.reviveUsed=data.reviveUsed??false;g.barrierSpent=data.barrierSpent??0;g.soulHealed=data.soulHealed??0;g.bountyEarned=data.bountyEarned??0;g.autoWaveAt=data.autoWaveAt??0;g.endless=data.endless===true;g.skillUses=data.skillUses??0;g.hintUses=data.hintUses??0;for(const k of ['wave','hp','ink','towers','enemies','queue','time','spawnTime','phase','kills','nextId','skillReady','totalEarned'])g[k]=data[k];
  if(data.version>=2){
   const chars=new Set(WORDS.flatMap(w=>[...w.word]));
   if(!int(data.rngState)||data.rngState===0||data.rngState>4294967295||!int(data.refreshes)||!int(data.handSerial)||!Array.isArray(data.hand)||data.hand.length!==HAND_SIZE||new Set(data.hand.map(t=>t?.id)).size!==HAND_SIZE||data.hand.some(t=>!t||!int(t.id)||t.id===0||t.id>data.handSerial||!chars.has(t.ch)||typeof t.used!=='boolean')||data.towers.some(t=>!finite(t.spent)||t.spent<0)||data.enemies.some(e=>(e.poisonDps!==undefined&&(!finite(e.poisonDps)||e.poisonDps<0))||(e.poisonUntil!==undefined&&(!finite(e.poisonUntil)||!finite(e.poisonDps)))))throw Error('Invalid word tray');
