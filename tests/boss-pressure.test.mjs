@@ -9,8 +9,8 @@ test('bosses gain substantial health while early minions retain their previous c
  for(let ch=0;ch<10;ch++)for(const round of [1,3,6,12,30]){
   assert.ok(enemyHealthScale(ch,round*3,'boss')>oldScale(ch,round,true)*1.2);
   const n=enemyHealthScale(ch,round*3,'normal');
-  if(round<=3)assert.equal(n,oldScale(ch,round,false));
-  else assert.ok(n>oldScale(ch,round,false));
+  if(round<=3)assert.ok(Math.abs(n-oldScale(ch,round,false)*(ch===6?.8/.9:1))<1e-8);
+  else assert.ok(n/(ch===6&&round<=6?.8:1)>oldScale(ch,round,false));
  }
  assert.ok(enemyHealthScale(0,36,'boss')>oldScale(0,12,true)*1.6);
  assert.ok(wavePlan(0,36).count>Math.min(80,8+12*3+4+Math.floor(8*1.2)));

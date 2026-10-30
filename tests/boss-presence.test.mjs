@@ -6,7 +6,7 @@ function add(g,word,pad){g.hand=[...word.padEnd(16,'文')].map(ch=>({id:++g.hand
 function arena(kind='boss',chapter=0){
  const g=new Game(chapter,42);g.ink=10000;const power=bossPower(kind);let best={pads:[]};
  for(let route=0;route<g.pads.length&&route<1;route++)for(let d=20;d<enemyLength({kind,map:chapter,route});d+=10){const p=enemyPosition({kind,map:chapter,route,d}),pads=g.pads.slice(0,12).map((a,i)=>({i,d:Math.hypot(a.x-p.x,a.y-p.y)})).filter(a=>a.d<power.range*.9).sort((a,b)=>a.d-b.d);if(pads.length>best.pads.length)best={d,route,pads};}
- for(const p of best.pads.slice(0,4))add(g,'寒冰毒箭',p.i);
+ for(const p of best.pads.sort((a,b)=>a.d-b.d).slice(0,4))add(g,'寒冰毒箭',p.i);
  g.wave=18;g.phase='battle';g.pendingWaves=[18];const e=g.spawn(kind,best.d,best.route,18);e.speed=.01;e.pulseAt=e.abilityAt=e.towerAttackAt=1e6;e.bossReadyAt=0;return{g,e};
 }
 test('boss enters with an escort instead of at the tail, exactly once per planned wave',()=>{
@@ -35,7 +35,7 @@ test('army aura heals and reduces incoming direct damage, takes strongest value 
  const duplicate=g.spawn('lifetree',e.d,0,18);assert.equal(g.bossSupport(ally).guard,aura.guard);assert.equal(g.bossSupport(ally).regen,aura.regen);assert.equal(g.bossSupport(e).guard,0);
  ally.poisonUntil=g.time+10;ally.poisonDps=0;const hp=ally.hp;g.updateEnemies(.1);close(ally.hp,hp);delete ally.poisonUntil;
  e.silencedUntil=10;duplicate.freezeUntil=10;assert.equal(g.bossSupport(ally).guard,0);delete e.silencedUntil;delete duplicate.freezeUntil;e.hp=duplicate.hp=0;assert.equal(g.bossSupport(ally).regen,0);
- function hit(withBoss){const q=arena('lifetree'),m=q.g.spawn('normal',q.e.d+5,0,18),t=q.g.towers[0];m.hp=m.maxHp=10000;if(!withBoss)q.e.hp=0;t.word='箭';t.level=1;t.cooldown=0;q.g.attack(t,.1);return 10000-m.hp;}
+ function hit(withBoss){const q=arena('lifetree'),m=q.g.spawn('normal',q.e.d+5,0,18),t=q.g.towers[0];m.hp=m.maxHp=10000;if(!withBoss)q.e.hp=0;t.word='文';t.level=1;t.cooldown=0;q.g.attack(t,.1);return 10000-m.hp;}
  close(hit(true)/hit(false),1-aura.guard);
 });
 test('war aura increases allied siege damage and swift aura increases allied movement without helping bosses',()=>{
@@ -48,10 +48,10 @@ test('shield powers protect nearby allies without stacking, seal stops attacks b
  const q=arena('scrollboss');q.g.updateTowerAttacks();q.g.time=q.e.bossStrikeAt;q.g.updateTowerAttacks();const t=q.g.towers.find(t=>t.disruptedUntil>q.g.time);assert.ok(t);t.cooldown=0;const hp=q.e.hp;q.g.attack(t,.1);assert.equal(q.e.hp,hp);q.g.ink=1000;assert.ok(q.g.repair(t.id));assert.equal(t.disruptedUntil,0);
 });
 test('mirror army reflection causes real bounded tower damage, has a per-tower cooldown and no recursive loop',()=>{
- const {g,e}=arena('mirrorqueen'),t=g.towers[0],ally=g.spawn('normal',e.d+10,0,18);ally.hp=ally.maxHp=100000;t.word='箭';t.level=1;t.hp=towerDefense(t).maxHp;t.cooldown=0;const before=t.hp;g.attack(t,.1);assert.ok(t.hp<before);assert.ok(before-t.hp<=towerDefense(t).maxHp*.03);assert.ok(g.effects.some(f=>f.kind==='reflected'));
+ const {g,e}=arena('mirrorqueen'),t=g.towers[0],ally=g.spawn('normal',e.d+10,0,18);ally.hp=ally.maxHp=100000;t.word='文';t.level=1;t.hp=towerDefense(t).maxHp;t.cooldown=0;const before=t.hp;g.attack(t,.1);assert.ok(t.hp<before);assert.ok(before-t.hp<=towerDefense(t).maxHp*.03);assert.ok(g.effects.some(f=>f.kind==='reflected'));
  const hp=t.hp;t.cooldown=0;g.attack(t,.1);close(t.hp,hp);assert.ok(ally.hp<ally.maxHp);
  const war=g.spawn('emberhound',e.d,0,18);war.hp=1e6;t.cooldown=0;g.time=1;const prior=t.hp;g.attack(t,.1);assert.ok(prior-t.hp<=towerDefense(t).maxHp*.03,'war auras cannot amplify reflection beyond its cap');
- const stalker=g.spawn('bamboostalker',e.d,0,18),beforeStealth=t.hp;g.damageTower(t,towerDefense(t).maxHp*.03,stalker,false);assert.ok(beforeStealth-t.hp<=towerDefense(t).maxHp*.03,'stealth bonuses cannot amplify reflection beyond its cap');
+ const stalker=g.spawn('bamboostalker',e.d,0,18),beforeStealth=t.hp;g.damageTower(t,towerDefense(t).maxHp*.03,stalker,false);assert.ok(beforeStealth-t.hp<=towerDefense(t).maxHp*.03+1e-6,'stealth bonuses cannot amplify reflection beyond its cap');
 });
 test('army protection covers damage over time while boss support shields use recipient-sized caps',()=>{
  const {g,e}=arena('boss'),ally=g.spawn('normal',e.d,0,18);ally.hp=5000;ally.maxHp=10000;for(const p of ['burn','bleed','poison']){ally[p+'Dps']=100;ally[p+'Until']=100;}g.updateEnemies(.1);close(ally.hp,5000-30*(1-bossAura(e.kind).guard));

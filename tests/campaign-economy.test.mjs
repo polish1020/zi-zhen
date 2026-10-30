@@ -37,12 +37,12 @@ test('main wave and round bonuses stop growing, while endless keeps its existing
   assert.equal(clearInk(round),8+Math.min(6,round)*2);assert.equal(roundInk(round),20+Math.min(6,round)*3);
   assert.equal(clearInk(round,true),8+round*2);assert.equal(roundInk(round,true),20+round*3);
  }
- const g=new Game(9,42);g.phase='battle';g.wave=36;g.pendingWaves=[36];const before=g.ink;g.step(.01);
+ const g=new Game(9,42);g.phase='battle';g.wave=g.campaignWaves;g.pendingWaves=[g.wave];const before=g.ink;g.step(.01);
  assert.equal(g.ink-before,20+38);assert.equal(g.phase,'won');
  const won=g.events.find(x=>x.type==='won');assert.equal(won.baseReward,38);assert.equal(won.extraIncome,0);
  const ink=g.ink;g.step(.01);assert.equal(g.ink,ink);
- assert.ok(g.continueEndless());g.phase='battle';g.wave=39;g.pendingWaves=[39];const next=g.ink;g.step(.01);
- assert.equal(g.ink-next,clearInk(13,true)+roundInk(13,true));
+ assert.ok(g.continueEndless());g.phase='battle';g.wave=g.campaignWaves+3;g.pendingWaves=[g.wave];const next=g.ink;g.step(.01);
+ assert.equal(g.ink-next,clearInk(g.campaignRounds+1,true)+roundInk(g.campaignRounds+1,true));
 });
 
 test('gold production, prosperity and earned bounties remain available as economic choices',()=>{

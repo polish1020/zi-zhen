@@ -56,14 +56,15 @@ test('a passing monster telegraphs, hits, recovers and continues on its original
  advance(g,.4);assert.equal(t.hp,hp);advance(g,.3);assert.ok(t.hp<hp);assert.ok(e.d>start);assert.equal(e.route,0);
  const after=t.hp;advance(g,1);assert.equal(t.hp,after);assert.ok(e.towerAttackAt>g.time);
 });
-test('dense groups all land real hits with sublinear collective damage and readable merged numbers',()=>{
- const {g,t,e}=arena();const group=[e,...Array.from({length:19},()=>g.spawn('normal',110))];
+test('dense groups deal linear full damage without a crowd penalty and still merge readable numbers',()=>{
+ const {g,t,e}=arena('寒冰毒箭');const group=[e,...Array.from({length:19},()=>g.spawn('normal',110))];
  for(const a of group){a.hp=a.maxHp=10000;a.speed=.01;a.towerAttackAt=0;}
  g.updateTowerAttacks();assert.equal(group.filter(x=>x.towerTarget===t.id).length,20);const hp=t.hp;advance(g,.8);
  const hits=g.events.filter(x=>x.type==='tower-hit');assert.equal(hits.length,20);assert.ok(hits.every(x=>x.damage>0));
- close(hp-t.hp,hits.reduce((n,e)=>n+e.damage,0));assert.ok(hp-t.hp<hp*.2);assert.ok(g.effects.filter(f=>f.kind==='tower-hit').length<20);
+ const solo=arena('寒冰毒箭');solo.g.updateTowerAttacks();advance(solo.g,.8);const single=solo.g.events.find(x=>x.type==='tower-hit').damage;
+ close(hp-t.hp,single*20);assert.ok(hits.every(x=>Math.abs(x.damage-single)<1e-6));assert.ok(g.effects.filter(f=>f.kind==='tower-hit').length<20);
  const a=arena('文','boss');for(let i=0;i<19;i++){const other=a.g.spawn('normal',110);other.towerTarget=a.t.id;}
- a.e.towerTarget=a.t.id;const ordinary=a.g.damageTower(a.t,10,a.g.enemies[1]),leader=a.g.damageTower(a.t,10,a.e);assert.ok(leader>ordinary&&leader<10);
+ a.e.towerTarget=a.t.id;const ordinary=a.g.damageTower(a.t,10,a.g.enemies[1]),leader=a.g.damageTower(a.t,10,a.e);close(leader,ordinary);
 });
 test('equal-priority towers share incoming attacks while nearby defenders retain their role',()=>{
  const g=new Game(0,42);g.ink=5000;const data=pair(g,125),a=build(g,'文',data.pads[0].i),b=build(g,'文',data.pads[1].i);g.phase='battle';g.wave=12;
@@ -127,7 +128,7 @@ test('round recovery helps living towers once, light improves it and ruins requi
 test('light protects, gold discounts repairs, and damaged supports cannot help after becoming ruins',()=>{
  const g=new Game(0,42);g.ink=5000;const data=supportPads(g),t=build(g,'寒冰毒箭',data.pads[0].i),light=build(g,'光',data.pads[1].i);const e=g.spawn('normal',data.d);g.upgrade(t.id);g.upgrade(t.id);const hp=t.hp;
  g.damageTower(t,20,e);close(hp-t.hp,20*.88);light.hp=0;const before=t.hp;g.damageTower(t,20,e);close(before-t.hp,20);
- g.sell(light.id);const gold=build(g,'金',light.pad),plainCost=g.repairCost(t);gold.hp=0;assert.ok(g.repairCost(t)>plainCost);
+ g.sell(light.id);t.hp=towerDefense(t).maxHp*.4;const gold=build(g,'金',light.pad),plainCost=g.repairCost(t);gold.hp=0;assert.ok(g.repairCost(t)>plainCost);
 });
 test('fire, poison, ice and sword have bounded reactive defenses',()=>{
  for(const word of ['火球','毒箭','寒冰','剑气']){
@@ -178,4 +179,8 @@ test('boss combat boost applies to new HP and actual attack profiles without rec
  close(enemyWeapon('ironboss').damage,30.4);close(enemyWeapon('ironboss').interval,3.08);
  close(enemyWeapon('frostboss').damage,20.9);close(enemyWeapon('frostboss').interval,3.22);
  const {g,e}=arena('文','ironboss');e.hp=1234;e.maxHp=2468;const restored=Game.restore(g.export());assert.equal(restored.enemies[0].hp,1234);assert.equal(restored.enemies[0].maxHp,2468);
+});
+test('guards attract the first attack but never force a whole reachable army onto one tower',()=>{
+ const g=new Game(0,42);g.ink=5000;const data=pair(g,125),guard=build(g,'石',data.pads[0].i),other=build(g,'文',data.pads[1].i);g.phase='battle';g.wave=12;
+ const group=Array.from({length:9},()=>g.spawn('ward',data.d));for(const e of group)e.towerAttackAt=0;g.updateTowerAttacks();assert.equal(group[0].towerTarget,guard.id);const a=group.filter(e=>e.towerTarget===guard.id).length,b=group.filter(e=>e.towerTarget===other.id).length;assert.equal(a+b,9);assert.ok(Math.abs(a-b)<=1);assert.ok(a>=b);
 });

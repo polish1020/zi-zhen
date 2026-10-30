@@ -1,0 +1,443 @@
+{
+  "date": "2026-10-30",
+  "engineSha256": "4f4382941619e3c2ecd3bb3ab9bead9e2e3b80473a4394fe75470d58c49a05aa",
+  "rules": {
+    "passed": 222,
+    "failed": 0
+  },
+  "chapterRounds": [
+    8,
+    10,
+    12,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "campaignBossRounds": "3,5,7,8 and every later round; final wave only",
+  "endlessBosses": "Every wave from first endless round",
+  "crowdDamageReduction": false,
+  "roundHeartRecovery": false,
+  "towerRoundRepair": true,
+  "repairInvestmentFraction": 0.25,
+  "minimumRepair": 5,
+  "upgradeDurabilityByOriginalWordLength": [
+    150,
+    200,
+    250,
+    300
+  ],
+  "escortHealthMultiplier": 1.25,
+  "escortAttackMultiplier": 1.2,
+  "escortInitialCount": 4,
+  "escortReinforcementTriggers": [
+    0.45,
+    0.75
+  ],
+  "escortReinforcementLimit": 2,
+  "reinforcementsPerCall": 2,
+  "summonedEscortsHurtGate": false,
+  "policies": {
+    "formation": {
+      "wins": 112,
+      "total": 200,
+      "chapters": [
+        {
+          "chapter": 1,
+          "wins": 19,
+          "total": 20,
+          "meanHP": 9.8,
+          "timeouts": 0,
+          "pressure": {
+            "hits": 31021,
+            "minionDamage": 150512,
+            "bossDamage": 117769,
+            "ruins": 8,
+            "minionRuins": 2,
+            "gamesWithRuins": 6,
+            "secondHalfSamples": 2268,
+            "accompaniedSamples": 1040,
+            "reinforcements": 127
+          }
+        },
+        {
+          "chapter": 2,
+          "wins": 15,
+          "total": 20,
+          "meanHP": 6.5,
+          "timeouts": 0,
+          "pressure": {
+            "hits": 66322,
+            "minionDamage": 368790,
+            "bossDamage": 178915,
+            "ruins": 44,
+            "minionRuins": 26,
+            "gamesWithRuins": 13,
+            "secondHalfSamples": 3889,
+            "accompaniedSamples": 2421,
+            "reinforcements": 198
+          }
+        },
+        {
+          "chapter": 3,
+          "wins": 9,
+          "total": 20,
+          "meanHP": 5.8,
+          "timeouts": 0,
+          "pressure": {
+            "hits": 78669,
+            "minionDamage": 470942,
+            "bossDamage": 200525,
+            "ruins": 22,
+            "minionRuins": 13,
+            "gamesWithRuins": 12,
+            "secondHalfSamples": 4330,
+            "accompaniedSamples": 2296,
+            "reinforcements": 234
+          }
+        },
+        {
+          "chapter": 4,
+          "wins": 12,
+          "total": 20,
+          "meanHP": 9.4,
+          "timeouts": 0,
+          "pressure": {
+            "hits": 45290,
+            "minionDamage": 231425,
+            "bossDamage": 138197,
+            "ruins": 3,
+            "minionRuins": 1,
+            "gamesWithRuins": 3,
+            "secondHalfSamples": 2575,
+            "accompaniedSamples": 1069,
+            "reinforcements": 152
+          }
+        },
+        {
+          "chapter": 5,
+          "wins": 16,
+          "total": 20,
+          "meanHP": 6.4,
+          "timeouts": 0,
+          "pressure": {
+            "hits": 49960,
+            "minionDamage": 323750,
+            "bossDamage": 122989,
+            "ruins": 0,
+            "minionRuins": 0,
+            "gamesWithRuins": 0,
+            "secondHalfSamples": 2754,
+            "accompaniedSamples": 1483,
+            "reinforcements": 246
+          }
+        },
+        {
+          "chapter": 6,
+          "wins": 11,
+          "total": 20,
+          "meanHP": 12.6,
+          "timeouts": 0,
+          "pressure": {
+            "hits": 115099,
+            "minionDamage": 889305,
+            "bossDamage": 293193,
+            "ruins": 131,
+            "minionRuins": 107,
+            "gamesWithRuins": 16,
+            "secondHalfSamples": 4776,
+            "accompaniedSamples": 1420,
+            "reinforcements": 207
+          }
+        },
+        {
+          "chapter": 7,
+          "wins": 7,
+          "total": 20,
+          "meanHP": 2.7,
+          "timeouts": 0,
+          "pressure": {
+            "hits": 87987,
+            "minionDamage": 750806,
+            "bossDamage": 213828,
+            "ruins": 89,
+            "minionRuins": 74,
+            "gamesWithRuins": 17,
+            "secondHalfSamples": 4100,
+            "accompaniedSamples": 1707,
+            "reinforcements": 281
+          }
+        },
+        {
+          "chapter": 8,
+          "wins": 13,
+          "total": 20,
+          "meanHP": 17.2,
+          "timeouts": 0,
+          "pressure": {
+            "hits": 133665,
+            "minionDamage": 1025920,
+            "bossDamage": 343769,
+            "ruins": 54,
+            "minionRuins": 31,
+            "gamesWithRuins": 12,
+            "secondHalfSamples": 2476,
+            "accompaniedSamples": 894,
+            "reinforcements": 204
+          }
+        },
+        {
+          "chapter": 9,
+          "wins": 8,
+          "total": 20,
+          "meanHP": 11.7,
+          "timeouts": 0,
+          "pressure": {
+            "hits": 136586,
+            "minionDamage": 1253352,
+            "bossDamage": 355793,
+            "ruins": 186,
+            "minionRuins": 160,
+            "gamesWithRuins": 18,
+            "secondHalfSamples": 3327,
+            "accompaniedSamples": 997,
+            "reinforcements": 210
+          }
+        },
+        {
+          "chapter": 10,
+          "wins": 2,
+          "total": 20,
+          "meanHP": 2.2,
+          "timeouts": 0,
+          "pressure": {
+            "hits": 104219,
+            "minionDamage": 816369,
+            "bossDamage": 290576,
+            "ruins": 13,
+            "minionRuins": 8,
+            "gamesWithRuins": 7,
+            "secondHalfSamples": 4106,
+            "accompaniedSamples": 1794,
+            "reinforcements": 248
+          }
+        }
+      ]
+    },
+    "formationWithSkills": {
+      "wins": 102,
+      "total": 200,
+      "chapters": [
+        {
+          "chapter": 1,
+          "wins": 18,
+          "total": 20,
+          "meanHP": 9.6,
+          "timeouts": 0,
+          "pressure": {
+            "hits": 31088,
+            "minionDamage": 151300,
+            "bossDamage": 116225,
+            "ruins": 9,
+            "minionRuins": 1,
+            "gamesWithRuins": 8,
+            "secondHalfSamples": 2287,
+            "accompaniedSamples": 1106,
+            "reinforcements": 128
+          }
+        },
+        {
+          "chapter": 2,
+          "wins": 10,
+          "total": 20,
+          "meanHP": 4.7,
+          "timeouts": 0,
+          "pressure": {
+            "hits": 67904,
+            "minionDamage": 376779,
+            "bossDamage": 170435,
+            "ruins": 37,
+            "minionRuins": 24,
+            "gamesWithRuins": 12,
+            "secondHalfSamples": 3899,
+            "accompaniedSamples": 2534,
+            "reinforcements": 196
+          }
+        },
+        {
+          "chapter": 3,
+          "wins": 8,
+          "total": 20,
+          "meanHP": 5.5,
+          "timeouts": 0,
+          "pressure": {
+            "hits": 82686,
+            "minionDamage": 503448,
+            "bossDamage": 203156,
+            "ruins": 22,
+            "minionRuins": 19,
+            "gamesWithRuins": 11,
+            "secondHalfSamples": 4425,
+            "accompaniedSamples": 2351,
+            "reinforcements": 236
+          }
+        },
+        {
+          "chapter": 4,
+          "wins": 12,
+          "total": 20,
+          "meanHP": 8.5,
+          "timeouts": 0,
+          "pressure": {
+            "hits": 49419,
+            "minionDamage": 259718,
+            "bossDamage": 152427,
+            "ruins": 5,
+            "minionRuins": 0,
+            "gamesWithRuins": 5,
+            "secondHalfSamples": 2919,
+            "accompaniedSamples": 1232,
+            "reinforcements": 164
+          }
+        },
+        {
+          "chapter": 5,
+          "wins": 17,
+          "total": 20,
+          "meanHP": 6.9,
+          "timeouts": 0,
+          "pressure": {
+            "hits": 50228,
+            "minionDamage": 329451,
+            "bossDamage": 126930,
+            "ruins": 1,
+            "minionRuins": 0,
+            "gamesWithRuins": 1,
+            "secondHalfSamples": 2986,
+            "accompaniedSamples": 1560,
+            "reinforcements": 252
+          }
+        },
+        {
+          "chapter": 6,
+          "wins": 9,
+          "total": 20,
+          "meanHP": 10.3,
+          "timeouts": 0,
+          "pressure": {
+            "hits": 112119,
+            "minionDamage": 851087,
+            "bossDamage": 272126,
+            "ruins": 178,
+            "minionRuins": 147,
+            "gamesWithRuins": 18,
+            "secondHalfSamples": 4663,
+            "accompaniedSamples": 1538,
+            "reinforcements": 193
+          }
+        },
+        {
+          "chapter": 7,
+          "wins": 4,
+          "total": 20,
+          "meanHP": 1.7,
+          "timeouts": 0,
+          "pressure": {
+            "hits": 82461,
+            "minionDamage": 687842,
+            "bossDamage": 182645,
+            "ruins": 72,
+            "minionRuins": 62,
+            "gamesWithRuins": 17,
+            "secondHalfSamples": 3719,
+            "accompaniedSamples": 1478,
+            "reinforcements": 253
+          }
+        },
+        {
+          "chapter": 8,
+          "wins": 12,
+          "total": 20,
+          "meanHP": 16.3,
+          "timeouts": 0,
+          "pressure": {
+            "hits": 135821,
+            "minionDamage": 1049781,
+            "bossDamage": 348782,
+            "ruins": 92,
+            "minionRuins": 58,
+            "gamesWithRuins": 15,
+            "secondHalfSamples": 2698,
+            "accompaniedSamples": 1076,
+            "reinforcements": 214
+          }
+        },
+        {
+          "chapter": 9,
+          "wins": 10,
+          "total": 20,
+          "meanHP": 13.3,
+          "timeouts": 0,
+          "pressure": {
+            "hits": 137564,
+            "minionDamage": 1263862,
+            "bossDamage": 358919,
+            "ruins": 172,
+            "minionRuins": 148,
+            "gamesWithRuins": 18,
+            "secondHalfSamples": 3357,
+            "accompaniedSamples": 968,
+            "reinforcements": 211
+          }
+        },
+        {
+          "chapter": 10,
+          "wins": 2,
+          "total": 20,
+          "meanHP": 2.2,
+          "timeouts": 0,
+          "pressure": {
+            "hits": 111111,
+            "minionDamage": 870792,
+            "bossDamage": 320469,
+            "ruins": 31,
+            "minionRuins": 28,
+            "gamesWithRuins": 10,
+            "secondHalfSamples": 4885,
+            "accompaniedSamples": 2138,
+            "reinforcements": 278
+          }
+        }
+      ]
+    }
+  },
+  "totals": {
+    "hits": 1709219,
+    "minionDamage": 12625231,
+    "bossDamage": 4507668,
+    "ruins": 1169,
+    "minionRuins": 909,
+    "gamesWithRuins": 219,
+    "secondHalfSamples": 70439,
+    "accompaniedSamples": 31102,
+    "reinforcements": 4232
+  },
+  "allGamesTerminated": true,
+  "legacyCasualThresholds": {
+    "chapter1": 0.95,
+    "chapter2": 0.9,
+    "others": 0.85
+  },
+  "allLegacyCasualThresholdsPassed": false,
+  "limitations": [
+    "Latest full-damage, dense-boss and no-round-heart-recovery rules produce a substantially harder campaign; old casual thresholds are not claimed to pass.",
+    "Formation strategy can replace low-quality towers before maxing all upgrades; original strategies remain available. All operations pay actual ink and consume actual tiles.",
+    "Policies are automated and not representative human/child win rates; they do not optimize each map counter.",
+    "Second-half accompaniment is a once-per-game-second time-weighted sample of a living minion within 175 map units, not a guarantee for every boss.",
+    "No fresh per-round economy ledger or full endless win-rate claim.",
+    "WebKit testing emulates phone dimensions; physical iPhone is not directly verified."
+  ]
+}

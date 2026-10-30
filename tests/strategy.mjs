@@ -35,3 +35,23 @@ export function investEfficient(g){
   if(attempt<2&&g.ink>g.refreshCost()+200)g.refreshHand();else break;
  }
 }
+
+// Explicit alternative for the denser boss campaign: improve word quality
+// before exhausting every low-grade upgrade; pay all actual costs and refunds.
+export function investFormation(g){
+ if(g.activeTowers.length<4)return invest(g);
+ const output=(word,level)=>{const w=getWord(word),s=towerStats({word,level});return s.damage/s.rate*({splash:1.8,pulse:2,chain:1.6,pierce:1.5,poison:1.4,slow:1.3}[w.type]||1);};
+ const choose=()=>{
+  const options=[];for(const t of g.towers){const old=getWord(t.word);if(old.tier>=4||['aura','income'].includes(old.type))continue;
+   for(const w of g.availableWords()){
+    if(!w.damage||w.tier<=old.tier||w.cost>g.ink+g.salvageValue(t)-30)continue;
+    if(['slow','poison'].includes(old.type)&&w.type!==old.type&&g.activeTowers.filter(a=>getWord(a.word).type===old.type).length<=1)continue;
+    if(w.type==='heavy'&&g.activeTowers.filter(a=>a!==t&&getWord(a.word).type!=='heavy').length<3)continue;
+    const gain=output(w.word,w.tier)/Math.max(1,output(t.word,t.level));if(gain>1.2)options.push({t,w,gain});
+   }
+  }return options.sort((a,b)=>b.gain-a.gain||b.w.tier-a.w.tier)[0];
+ };
+ let choice=choose();if(!choice&&g.ink>g.refreshCost()+220&&g.towers.filter(t=>getWord(t.word).tier<3).length>=4){g.refreshHand();choice=choose();}
+ if(choice){const pad=choice.t.pad;g.sell(choice.t.id);if(g.build(choice.w.word,pad)){maintain(g);return;}}
+ invest(g);
+}
