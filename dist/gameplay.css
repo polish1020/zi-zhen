@@ -278,3 +278,7 @@ body.playing .toast { display:none; }
 .enemy-seal { display:inline-grid; place-items:center; vertical-align:middle; width:27px; height:27px; margin-right:7px; border:1px solid var(--enemy-color); color:var(--enemy-color); background:#f8f3e8; border-radius:6px; font:19px serif; }
 .theme-unit-brief { border-color:#b8caa8; background:#edf2e4; }
 .theme-unit-brief > b { display:flex; align-items:center; gap:3px; }
+.trait-badge { padding:3px 6px; border:1px solid #bca77d; color:#8b6c39; background:#f1ead7; border-radius:4px; }
+.trait-effect { display:block; color:#567a70; font-weight:500; margin-top:5px; }
+.word-trait-card { background:#eaf0e7; border-color:#b6c9ad; }
+@media (max-width:900px), (pointer:coarse), (display-mode:standalone) { body.playing .trait-badge { padding:2px 4px; } body.playing .trait-effect { margin-top:3px; } }

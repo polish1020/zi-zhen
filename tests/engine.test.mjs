@@ -36,11 +36,11 @@ test('selling refunds 70% of actual investment but never returns spent tiles',()
  const g=new Game();g.ink=500;const t=build(g,'火球',0);g.upgrade(t.id);g.upgrade(t.id);assert.equal(t.spent,174);assert.equal(g.ink,326);const used=g.hand.filter(t=>t.used).map(t=>t.id);assert.ok(g.sell(t.id));assert.equal(g.ink,326+Math.floor(174*.7));assert.ok(used.every(id=>g.hand.find(t=>t.id===id).used));assert.equal(g.sell(t.id),false);
 });
 test('poison deals timed damage, expires correctly and pays kills only once',()=>{
- const g=new Game();build(g,'毒雾',0);g.phase='battle';g.spawn('boss');const e=g.enemies[0];e.d=130;e.hp=1000;e.maxHp=1000;g.step(.01);assert.equal(e.poisonDps,14*.6);const start=e.hp;g.towers=[];for(let i=0;i<40;i++)g.step(.1);assert.ok(Math.abs(start-e.hp-25.2)<.0001);e.hp=.1;e.poisonUntil=g.time+1;e.poisonDps=10;g.step(.1);assert.equal(g.kills,1);const ink=g.ink;g.step(.1);assert.equal(g.ink,ink);
+ const g=new Game();build(g,'毒蛇',0);g.phase='battle';g.spawn('boss');const e=g.enemies[0];e.d=130;e.hp=1000;e.maxHp=1000;g.step(.01);assert.equal(e.poisonDps,14*.6);const start=e.hp;g.towers=[];for(let i=0;i<40;i++)g.step(.1);assert.ok(Math.abs(start-e.hp-25.2)<.0001);e.hp=.1;e.poisonUntil=g.time+1;e.poisonDps=10;g.step(.1);assert.equal(g.kills,1);const ink=g.ink;g.step(.1);assert.equal(g.ink,ink);
 });
 test('strongest aura applies once across all aura recipes',()=>{
- function hit(words){const g=new Game();g.ink=5000;build(g,'风刃',6);words.forEach((w,i)=>build(g,w,[8,4][i]));g.phase='battle';g.spawn('boss');const e=g.enemies[0];e.d=935;e.hp=1000;g.step(.01);return 1000-e.hp;}
- assert.equal(hit([]),12);assert.ok(Math.abs(hit(['光环'])-16.2)<.001);assert.ok(Math.abs(hit(['光芒万丈'])-18.6)<.001);assert.equal(hit(['光芒万丈','光环']),hit(['光芒万丈']));
+ function hit(words){const g=new Game();g.ink=5000;build(g,'旋风',6);words.forEach((w,i)=>{const light=build(g,w,[8,4][i]);light.cooldown=100;});g.phase='battle';g.spawn('boss');const e=g.enemies[0];e.d=935;e.hp=1000;g.step(.01);return 1000-e.hp;}
+ assert.equal(hit([]),12);assert.ok(Math.abs(hit(['光环'])-12*(1+getWord('光环').aura))<.001);assert.ok(Math.abs(hit(['光芒万丈'])-12*(1+getWord('光芒万丈').aura))<.001);assert.equal(hit(['光芒万丈','光环']),hit(['光芒万丈']));
 });
 test('armor, slow, splash, chain and execute retain distinct combat effects',()=>{
  for(const word of ['冰霜','火球','巨石']){const g=new Game();g.ink=1000;build(g,word,0);g.phase='battle';g.spawn('armor');const e=g.enemies[0];e.d=130;const before=e.hp;g.step(.01);assert.ok(Math.abs(before-e.hp-getWord(word).damage*(word==='巨石'?1:.7))<.001);if(word==='冰霜')assert.ok(e.slowUntil>g.time);}
@@ -48,7 +48,7 @@ test('armor, slow, splash, chain and execute retain distinct combat effects',()=
  const g=new Game();build(g,'弓箭',0);g.phase='battle';g.spawn('boss');const e=g.enemies[0];e.d=130;e.hp=100;e.maxHp=1000;g.step(.01);assert.ok(Math.abs(e.hp-(100-46*1.8))<.001);
 });
 test('wave composition is seeded, changes between seeds, and retains scheduled bosses',()=>{
- const a=new Game(0,3),b=new Game(0,3),c=new Game(0,8);for(const g of [a,b,c]){g.wave=8;g.startWave();assert.equal(g.queue.at(-1).kind,'boss');assert.equal(g.startWave(),false);}assert.deepEqual(a.queue,b.queue);assert.notDeepEqual(a.queue,c.queue);
+ const a=new Game(0,3),b=new Game(0,3),c=new Game(0,8);for(const g of [a,b,c]){g.wave=8;g.startWave();assert.ok(wavePlan(g.chapter,g.wave).bossPool.includes(g.queue.at(-1).kind));assert.equal(g.startWave(),false);}assert.deepEqual(a.queue,b.queue);assert.notDeepEqual(a.queue,c.queue);
 });
 test('skill keeps costs, cooldown and single kill payment',()=>{const g=new Game();assert.equal(g.skill(),false);g.startWave();g.spawn('normal');assert.ok(g.skill());assert.equal(g.ink,170);assert.equal(g.skill(),false);g.step(.01);assert.equal(g.kills,1);const ink=g.ink;g.step(.01);assert.equal(g.ink,ink);g.skillReady=0;g.ink=29;assert.equal(g.skill(),false);});
 test('save keeps tray, consumption, refresh prices and next random draw',()=>{
@@ -92,10 +92,10 @@ test('early wave clears retain the original fixed timer; round-end resets refres
  const g=new Game(0,1);g.startWave();g.queue=[];g.refreshes=2;const before=g.ink;g.step(.1);assert.equal(g.phase,'battle');assert.equal(g.ink,before+10);assert.equal(g.refreshCost(),25);assert.equal(g.autoWaveAt,WAVE_INTERVAL);const copy=Game.restore(g.export());assert.deepEqual(copy.export(),g.export());for(let i=0;i<WAVE_INTERVAL*10;i++)g.step(.1);assert.equal(g.wave,2);assert.equal(g.phase,'battle');g.wave=3;g.autoWaveAt=0;g.pendingWaves=[3];g.queue=[];g.enemies=[];g.hp=10;g.step(.1);assert.equal(g.phase,'prepare');assert.equal(g.hp,12);assert.equal(g.refreshCost(),15);assert.equal(g.roundInfo().round,2);
 });
 test('flight uses a shorter direct route; stone cannot attack it but ranged towers can',()=>{
- for(const word of ['巨石','风刃']){const g=new Game();g.ink=1000;build(g,word,0);g.phase='battle';g.spawn('flying');const e=g.enemies[0];e.d=130;e.hp=1000;g.step(.01);assert.ok(enemyLength(e)<LENGTH);assert.equal(e.hp<1000,word==='风刃');assert.ok(enemyPosition(e).y<200);}
+ for(const word of ['巨石','旋风']){const g=new Game();g.ink=1000;build(g,word,0);g.phase='battle';g.spawn('flying');const e=g.enemies[0];e.d=130;e.hp=1000;g.step(.01);assert.ok(enemyLength(e)<LENGTH);assert.equal(e.hp<1000,word==='旋风');assert.ok(enemyPosition(e).y<200);}
 });
 test('shield absorbs damage, chain attacks damage shields twice, and skill ignores shields',()=>{
- for(const word of ['风刃','雷电']){const g=new Game();g.ink=1000;build(g,word,0);g.phase='battle';g.spawn('shield');const e=g.enemies[0];e.d=130;e.hp=1000;e.shield=100;g.step(.01);assert.equal(e.hp,1000);assert.equal(e.shield,100-getWord(word).damage*(word==='雷电'?2:1));assert.ok(g.skill());assert.equal(e.hp,900);}
+ for(const word of ['旋风','雷电']){const g=new Game();g.ink=1000;build(g,word,0);g.phase='battle';g.spawn('shield');const e=g.enemies[0];e.d=130;e.hp=1000;e.shield=100;g.step(.01);assert.equal(e.hp,1000);assert.equal(e.shield,100-getWord(word).damage*(word==='雷电'?2:1));assert.ok(g.skill());assert.equal(e.hp,900);}
 });
 test('regeneration is suppressed by poison and split enemies create only two valid children once',()=>{
  const g=new Game();g.phase='battle';g.spawn('regen');const e=g.enemies[0];e.maxHp=200;e.hp=100;g.step(.1);assert.ok(Math.abs(e.hp-100.4)<.001);e.poisonUntil=g.time+2;e.poisonDps=10;g.step(.1);assert.ok(Math.abs(e.hp-99.4)<.001);

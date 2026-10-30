@@ -6,12 +6,12 @@
 
 - 团队：`changsheng`，ID `team_azaP3oGtfy4m7CDhqfxdNiLP`
 - 项目：`zi-zhen`，ID `prj_knArbjGsckakBpEb06lLwiWsHlyb`
-- 生产部署：`dpl_5Ne7csDC9iMXcS5zSRzhJ4toBfDd`
-- 部署地址：https://zi-zhen-mehjoqzer-changsheng.vercel.app
-- 生产源码提交：`6c434d0e736306f3d4ca6d3bc4e027728078ed03`
+- 生产部署：`dpl_ApSq9ujSSZNA2QpkHy2YHp8S2CNo`
+- 部署地址：https://zi-zhen-4h1kuzskk-changsheng.vercel.app
+- 生产源码提交：`c1b31de347eb8650335199929d4cb7c3da043503`
 - 发布时间：2026-10-30；状态 `READY`，环境 `production`
 - 框架：静态站点，`framework: null`，输出 `public`，无安装/构建依赖。
-- Vercel 输出构建 45ms；从 buildingAt 到 ready 约 1.9 秒；日志无构建错误。
+- Vercel 输出构建 56ms；从 buildingAt 到 ready 约 1.9 秒；日志无构建错误。
 - 控制台：https://vercel.com/changsheng/zi-zhen
 
 ## 更新方法
@@ -31,9 +31,10 @@ python3 scripts/prepare-vercel.py
 - 正式域名的十个文件全部 HTTP 200，Content-Type 正确，内容与上传文件逐字节一致，包括常用词库与许可声明。
 - `BASE_URL=https://game.polishwb1020.com node tests/browser.cjs` 通过：开始界面、同屏布局、付费提示、技能、跳关、终局恢复、无尽与失败重试。
 - 线上 `tests/responsive.cjs` 十种尺寸通过：页面无溢出、字牌无空格、地图比例一致、严格词序、点击效果、单次点击显示范围、详情与升级、恢复和旋转。
-- 线上 `tests/expansion.cjs` 通过：冰霜箭建造、毒云搜索、解锁涨价、手势保护、固定波次计时及叠波、三十类怪物与周期 Boss 实际出场。
-- 线上 `tests/campaign.cjs` 验证十章主题与入口、六种 Boss、24 种普通怪轮廓、各章特色兵说明、属性详情、音效静音、升级和提示栏。
+- 线上 `tests/expansion.cjs` 通过：冰霜箭建造、毒云搜索、解锁涨价、手势保护、固定波次计时及叠波、四十类怪物与周期 Boss 实际出场。
+- 线上 `tests/campaign.cjs` 验证十章主题与入口、十六种 Boss、24 种普通怪轮廓、各章特色兵说明、属性详情、音效静音、升级和提示栏。
 - 线上 `tests/pause.cjs` 验证四种尺寸暂停布阵与时钟冻结、继续后的定时出波。
+- 线上 `tests/word-traits.cjs` 验证毒箭与毒云不同词意、数值、区域和存档；`tests/endless-bosses.cjs` 验证密集无尽 Boss 的预告、出场和数量显示。
 - 测试期间 JavaScript 运行错误为零；数值平衡和规则测试见 `TESTING.md`。
 
 ## 域名与原生资源
