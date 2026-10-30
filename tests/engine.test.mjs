@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {Game,WORDS,PADS,CHAPTERS,LENGTH,position,getWord,towerStats,matchWord,HAND_SIZE,ENEMIES,wavePlan,enemyPosition,enemyLength,WAVE_INTERVAL} from '../dist/engine.mjs';
+import {Game,WORDS,PADS,CHAPTERS,LENGTH,position,getWord,wordRules,towerStats,matchWord,HAND_SIZE,ENEMIES,wavePlan,enemyPosition,enemyLength,WAVE_INTERVAL} from '../dist/engine.mjs';
 
 function stock(g,word){const chars=[...word];while(chars.length<HAND_SIZE)chars.push('光');g.hand=chars.map(ch=>({id:++g.handSerial,ch,used:false}));}
 function build(g,word,pad){stock(g,word);assert.ok(g.build(word,pad));return g.towers.at(-1);}
@@ -26,17 +26,17 @@ test('refresh discards the old tray, increases price and cannot charge insuffici
  const g=new Game(0,5),old=g.hand.map(t=>t.id);assert.equal(g.refreshCost(),15);assert.ok(g.refreshHand());assert.equal(g.ink,185);assert.equal(g.refreshCost(),20);assert.ok(g.hand.every(t=>!old.includes(t.id)&&!t.used));g.ink=1000;for(let i=0;i<10;i++)g.refreshHand();assert.equal(g.refreshCost(),40);g.ink=0;const before=g.export();assert.equal(g.refreshHand(),false);assert.deepEqual(g.export(),before);
 });
 test('each round resets refresh price; clear and income rewards happen once',()=>{
- const g=new Game();g.refreshHand();g.phase='battle';g.wave=3;build(g,'生财',0);const ink=g.ink;g.step(.1);assert.equal(g.phase,'prepare');assert.equal(g.ink,ink+33+10);assert.equal(g.refreshCost(),15);const paid=g.ink;g.step(.1);assert.equal(g.ink,paid);
+ const g=new Game();g.refreshHand();g.phase='battle';g.wave=3;build(g,'生财',0);const ink=g.ink;g.step(.1);assert.equal(g.phase,'prepare');assert.equal(g.ink,ink+33+10+2);assert.equal(g.refreshCost(),15);const paid=g.ink;g.step(.1);assert.equal(g.ink,paid);
 });
 test('income is capped across towers and all tiers can be enhanced exactly twice',()=>{
- const g=new Game();g.ink=10000;for(let i=0;i<4;i++){const t=build(g,'招财进宝',i);assert.ok(g.upgrade(t.id));assert.ok(g.upgrade(t.id));assert.equal(g.upgrade(t.id),false);assert.equal(t.level,6);}g.phase='battle';g.wave=3;const before=g.ink;g.step(.1);assert.equal(g.ink-before,33+100);
+ const g=new Game();g.ink=10000;for(let i=0;i<4;i++){const t=build(g,'招财进宝',i);assert.ok(g.upgrade(t.id));assert.ok(g.upgrade(t.id));assert.equal(g.upgrade(t.id),false);assert.equal(t.level,6);}g.phase='battle';g.wave=3;const before=g.ink;g.step(.1);assert.equal(g.ink-before,33+100+10);
  for(const word of ['火','火球','火焰山','火树银花']){const h=new Game();h.ink=1000;const t=build(h,word,0);assert.equal(t.level,getWord(word).tier);h.upgrade(t.id);h.upgrade(t.id);assert.equal(t.level,getWord(word).maxLevel);assert.equal(h.upgrade(t.id),false);}
 });
 test('selling refunds 70% of actual investment but never returns spent tiles',()=>{
  const g=new Game();g.ink=500;const t=build(g,'火球',0);g.upgrade(t.id);g.upgrade(t.id);assert.equal(t.spent,174);assert.equal(g.ink,326);const used=g.hand.filter(t=>t.used).map(t=>t.id);assert.ok(g.sell(t.id));assert.equal(g.ink,326+Math.floor(174*.7));assert.ok(used.every(id=>g.hand.find(t=>t.id===id).used));assert.equal(g.sell(t.id),false);
 });
 test('poison deals timed damage, expires correctly and pays kills only once',()=>{
- const g=new Game();build(g,'毒蛇',0);g.phase='battle';g.spawn('boss');const e=g.enemies[0];e.d=130;e.hp=1000;e.maxHp=1000;g.step(.01);assert.equal(e.poisonDps,14*.6);const start=e.hp;g.towers=[];for(let i=0;i<40;i++)g.step(.1);assert.ok(Math.abs(start-e.hp-25.2)<.0001);e.hp=.1;e.poisonUntil=g.time+1;e.poisonDps=10;g.step(.1);assert.equal(g.kills,1);const ink=g.ink;g.step(.1);assert.equal(g.ink,ink);
+ const g=new Game();build(g,'毒蛇',0);g.phase='battle';g.spawn('boss');const e=g.enemies[0];e.d=130;e.hp=1000;e.maxHp=1000;g.step(.01);assert.equal(e.poisonDps,getWord('毒蛇').damage*wordRules(getWord('毒蛇')).poisonRatio);const start=e.hp;g.towers=[];for(let i=0;i<40;i++)g.step(.1);assert.ok(Math.abs(start-e.hp-getWord('毒蛇').damage*wordRules(getWord('毒蛇')).poisonRatio*3)<.0001);e.hp=.1;e.poisonUntil=g.time+1;e.poisonDps=10;g.step(.1);assert.equal(g.kills,1);const ink=g.ink;g.step(.1);assert.equal(g.ink,ink);
 });
 test('strongest aura applies once across all aura recipes',()=>{
  function hit(words){const g=new Game();g.ink=5000;build(g,'旋风',6);words.forEach((w,i)=>{const light=build(g,w,[8,4][i]);light.cooldown=100;});g.phase='battle';g.spawn('boss');const e=g.enemies[0];e.d=935;e.hp=1000;g.step(.01);return 1000-e.hp;}
@@ -95,7 +95,7 @@ test('flight uses a shorter direct route; stone cannot attack it but ranged towe
  for(const word of ['巨石','旋风']){const g=new Game();g.ink=1000;build(g,word,0);g.phase='battle';g.spawn('flying');const e=g.enemies[0];e.d=130;e.hp=1000;g.step(.01);assert.ok(enemyLength(e)<LENGTH);assert.equal(e.hp<1000,word==='旋风');assert.ok(enemyPosition(e).y<200);}
 });
 test('shield absorbs damage, chain attacks damage shields twice, and skill ignores shields',()=>{
- for(const word of ['旋风','雷电']){const g=new Game();g.ink=1000;build(g,word,0);g.phase='battle';g.spawn('shield');const e=g.enemies[0];e.d=130;e.hp=1000;e.shield=100;g.step(.01);assert.equal(e.hp,1000);assert.equal(e.shield,100-getWord(word).damage*(word==='雷电'?2:1));assert.ok(g.skill());assert.equal(e.hp,900);}
+ for(const word of ['旋风','雷电']){const g=new Game();g.ink=1000;build(g,word,0);g.phase='battle';g.spawn('shield');const e=g.enemies[0];e.d=130;e.hp=1000;e.shield=100;g.step(.01);assert.equal(e.hp,1000);assert.equal(e.shield,100-getWord(word).damage*(word==='雷电'?2.25:1));assert.ok(g.skill());assert.equal(e.hp,900);}
 });
 test('regeneration is suppressed by poison and split enemies create only two valid children once',()=>{
  const g=new Game();g.phase='battle';g.spawn('regen');const e=g.enemies[0];e.maxHp=200;e.hp=100;g.step(.1);assert.ok(Math.abs(e.hp-100.4)<.001);e.poisonUntil=g.time+2;e.poisonDps=10;g.step(.1);assert.ok(Math.abs(e.hp-99.4)<.001);

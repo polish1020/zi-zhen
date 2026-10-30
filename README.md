@@ -8,7 +8,7 @@
 
 ```sh
 python3 -m http.server 4173 --directory dist
-node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs tests/timing.test.mjs tests/specialties.test.mjs tests/word-traits.test.mjs tests/endless-bosses.test.mjs tests/boss-pools.test.mjs
+node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs tests/timing.test.mjs tests/specialties.test.mjs tests/word-traits.test.mjs tests/endless-bosses.test.mjs tests/boss-pools.test.mjs tests/word-meanings.test.mjs
 ```
 
 浏览器回归使用 Playwright Core 与 Chromium。`tests/browser.cjs` 默认使用本执行环境已安装的模块路径与 Chromium 路径；其他环境请修改这两处路径，或安装 Playwright 后替换 require 为 `require('playwright')`。预览服务运行时执行 `node tests/browser.cjs`。
@@ -50,8 +50,10 @@ node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs test
 
 轮内三波每隔 35 个游戏秒开始，可与前波同时在场；全部清空后结算本轮，暂停/倍速和存档恢复同步计时。
 
-新增玩法：10 章主题地图、轮流/同时多入口、40 类怪物（含 10 种章节特色兵与 16 种 Boss）、14 类词塔与品阶特性、点金赏金和圣光照明、攻击音效与升级动画。当前数值和验证结果见 `docs/DESIGN.md` 与 `docs/TESTING.md`。
+新增玩法：10 章主题地图、轮流/同时多入口、66 类怪物（含 10 种章节特色兵与 42 种 Boss）、14 类词塔与品阶特性、点金赏金和圣光照明、攻击音效与升级动画。当前数值和验证结果见 `docs/DESIGN.md` 与 `docs/TESTING.md`。
 
 词语按含义获得 19 类固定特性：同属性的毒箭与毒云分别为单体箭矢和持续毒域，火墙留下地焰、龙类喷吐扇面、连珠追击、穿甲辅助破阵。无尽前 3 轮每轮末波有 Boss，第 4 轮起每波都有 Boss。
 
-Boss 扩展为 6 种通用与 10 种地图专属，每张地图从通用与自己的专属池随机抽取，避免连续重复；已抽取结果随战局保存。
+Boss 扩展为 12 种通用与 30 种地图专属（每图 3 种），每张地图从通用与自己的专属池随机抽取，避免连续重复；已抽取结果随战局保存。
+
+附加词义扩展为 39 类，与 19 种攻击形态及 14 流派组合。39,892 个词中，22,853 个有附加词义，产生 1,350 种流派/形态/词义组合；同义词可共享，未匹配词保留基础效果。成语和常见多义词优先人工归类，日常词与混合元素词也会进入随机手牌。完整说明见游戏词典的附加词义筛选与索引，以及 [词义目录](docs/WORD-MEANINGS.md)。

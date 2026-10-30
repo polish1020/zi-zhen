@@ -27,6 +27,7 @@ const COMBAT_WORDS=SCHOOLS.flatMap(s=>s.words.map(word=>{
 const BASIC_SCHOOL={type:'basic',icon:'文',name:'文阵',color:'#748870',cost:55,damage:18,range:155,rate:.9,tag:'均衡单体',desc:'文字凝成灵力，对单个敌人造成稳定伤害。'};
 const SEMANTIC_SCHOOLS=[[/毒|瘴|腐|蚀|疫|蛊/,'poison'],[/冰|雪|霜|寒|冻|冷/,'slow'],[/火|炎|焰|烧|爆|燃/,'splash'],[/雷|电|霆/,'chain'],[/箭|弓|弩|射|狙|穿/,'sniper'],[/财|钱|金|宝|币|银|富/,'income'],[/风|速|疾|旋/,'fast'],[/石|岩|山|地|土|震/,'heavy'],[/光|圣|星|月|灵|护|盾|祝|明/,'aura']];
 SEMANTIC_SCHOOLS.unshift([/剑|刃/,'pierce'],[/水|潮|浪|波|涌/,'pulse'],[/咒|符|诅|封/,'mark'],[/幻|梦|镜/,'echo']);
+const SCHOOL_ALIASES=[[/^(冷静|热爱|热情|热心|火候|心意|历史|文化|文学|艺术|电脑|计算机|数学|算法|程序|地图|地理|光景|时光|明天|今天|昨天|现在|过去|未来|一心一意|全神贯注|水滴石穿|滴水穿石|破釜沉舟|釜底抽薪|画蛇添足|画龙点睛|三心二意|七上八下|老马识途|守株待兔|南辕北辙)$/,'basic'],[/^(火车|汽车|列车|车辆|交通|运输|飞机|轮船|司机|马上|立刻|立即)$/,'fast'],[/^(电话|手机|通讯|通信|音乐|诗歌|歌曲)$/,'echo'],[/^(医生|医师|医疗|治疗|康复|健康)$/,'basic']];
 const combatSet=new Set(COMBAT_WORDS.map(w=>w.word));
 export const WORD_TRAITS={
  firewall:{name:'焰墙',damage:.72,rate:1.25,range:0,desc:'命中处留下 3 秒地面火焰区域，地面敌人受到每秒 40% 攻击的灼烧（不能对空），最多保留 2 片；直接伤害 −28%，攻击间隔 +25%。'},
@@ -49,12 +50,169 @@ export const WORD_TRAITS={
  rapid:{name:'迅捷',damage:.85,rate:.82,range:-5,desc:'伤害 −15%，攻击间隔 −18%，射程 −5；更快补刀和破除冰壳。'},
  sunder:{name:'破甲',damage:.85,rate:1.15,range:0,desc:'命中使目标破甲 2.5 秒，其他词塔也可受益；自身伤害 −15%，攻击间隔 +15%。'}
 };
+// Secondary meanings compose with the attack shape; no hash or reroll determines effects.
+export const WORD_RUNES={
+ ember:{name:'灼热',damage:.96,desc:'命中附带短时灼烧；火系的灼烧更强。'},
+ frost:{name:'凝霜',damage:.96,desc:'附带 10% 短暂减速；冰系改为强化原有减速与持续时间。'},
+ storm:{name:'雷鸣',damage:.96,desc:'护盾伤害额外提高，雷系在原破盾倍率上继续增强。'},
+ toxin:{name:'淬毒',damage:.94,desc:'命中附带弱毒；毒系改为提高原有毒伤比例。'},
+ venom:{name:'腐蚀',damage:.94,desc:'强化毒伤并延长持续时间；非毒系也可附带腐蚀毒。'},
+ thorn:{name:'缠绕',damage:.94,desc:'每第三次攻击可短暂定身；同目标有控制间隔。'},
+ shine:{name:'显形',damage:.97,desc:'命中照明目标，解除隐匿和护阵；光系照明持续更久。'},
+ curse:{name:'衰咒',damage:.94,desc:'命中施加短时 8% 易伤，与更强咒印取最高值。'},
+ edge:{name:'锐意',damage:.97,desc:'额外无视 5 个百分点护甲；已无视护甲的石、剑改为增加少量直伤。'},
+ tide:{name:'震退',damage:.95,desc:'每第四次攻击可小幅推退目标；Boss 位移减半，同目标有间隔。'},
+ valor:{name:'先声',damage:.97,desc:'对生命高于 85% 的目标增加 15% 直接伤害，适合先手。'},
+ execute:{name:'追猎',damage:.97,desc:'对生命低于 20% 的目标再增加 15% 直接伤害，擅长收尾。'},
+ focus:{name:'专注',damage:.97,desc:'每第四次攻击的直接伤害提高 15%。'},
+ study:{name:'研习',damage:.96,desc:'该词塔升级费用减少 8%，拆塔仍按实际投入返还。'},
+ tempo:{name:'奋进',damage:.97,desc:'每第四次攻击后，下一次攻击间隔缩短 12%。'},
+ mend:{name:'回春',damage:.9,desc:'轮末额外修补山门 1 点生命；全场此类修补合计最多 2 点。'},
+ prosper:{name:'盈余',damage:.92,desc:'轮末额外产墨，按字数计算；全场附加产墨合计最多 10。'},
+ barrier:{name:'护佑',damage:.9,desc:'每轮为山门提供屏障，按字数最多抵挡 2 点漏怪伤害；同类不叠加。'},
+ inspire:{name:'鼓舞',damage:.94,desc:'近身友塔攻速提高 3%，与其他攻速光环取最强值。'},
+ sky:{name:'远望',damage:.98,range:12,rate:1.04,desc:'射程额外 +12，攻击间隔 +4%，偏向远程覆盖。'},
+ slayer:{name:'伏魔',damage:.96,desc:'对 Boss 的直接伤害额外提高 12%。'},
+ echo:{name:'回声',damage:.93,desc:'追加一个 20% 伤害的副目标，适合传讯、声响和连携词。'},
+ brood:{name:'灵伴',damage:.96,desc:'每第三次攻击追加一次 20% 直接伤害的灵伴追击。'},
+ luck:{name:'赐福',damage:.9,desc:'命中留下短时赏金标记，任意击杀可额外得 1 墨；受全场赏金上限约束。'},
+ peace:{name:'止戈',damage:.94,desc:'使目标漏过山门时的伤害短暂减少 1，最低仍为 1。'},
+ bloom:{name:'绽放',damage:.93,desc:'命中后向附近最多两个目标溅射 15% 直接伤害。'},
+ soul:{name:'噬魂',damage:.94,desc:'击杀被标记的目标可修补山门 1 点生命，每轮全场最多一次。'},
+ seal:{name:'封息',damage:.95,desc:'命中短暂阻止回血，不需要造成毒伤也能禁疗。'},
+ rescue:{name:'反攻',damage:.96,desc:'对已走过路线 70% 的敌人增加 12% 直接伤害，擅长救险。'},
+ gravity:{name:'镇压',damage:.95,desc:'每第四次攻击附加目标最大生命 0.3% 伤害，上限 8。'},
+ count:{name:'数律',damage:.94,desc:'按词中数值周期蓄发，周期 1—10 次，触发时增加周期 ×10% 直接伤害。'},
+ measure:{name:'尺度',damage:.97,rate:1.04,desc:'按距离词的实际尺度增加射程（有上限），攻击间隔 +4%。'},
+ bleed:{name:'裂伤',damage:.94,desc:'命中造成少量持续裂伤，同类取最高；不属于毒伤或灼烧。'},
+ silence:{name:'缄默',damage:.94,desc:'每第四次攻击可封住主动技能 1 秒，同目标每 4 秒一次；不阻止半血阶段。'},
+ revive:{name:'重生',damage:.85,desc:'山门受到致命伤害时保留 1 点生命；每局仅一次，刷新不重置。'},
+ flank:{name:'侧翼',damage:.96,desc:'从行进方向侧面命中时，直接伤害增加 15%。'},
+ backstab:{name:'背击',damage:.96,desc:'从目标行进方向后方命中时，直接伤害增加 15%。'},
+ front:{name:'正锋',damage:.96,desc:'从目标行进方向正面命中时，直接伤害增加 15%。'},
+ growth:{name:'成长',damage:.95,desc:'每次升级额外提高 10% 基础伤害，仍最多升级两次。'}
+};
+const SYNONYM_RUNES=[
+ [/^(你好|您好|欢迎|问好|问候|早安|晚安)$/,['shine','inspire']],
+ [/^(谢谢|多谢|感谢|感恩|感激|报答)$/,['luck','peace']],
+ [/^(朋友|伙伴|友谊|友情|合作|协作|团结|同伴|齐心协力|同舟共济|风雨同舟)$/,['echo','inspire']],
+ [/^(开心|快乐|欢乐|高兴|幸福|喜悦|欢喜|心花怒放)$/,['inspire','luck']],
+ [/^(和平|安宁|宁静|安静|平静|和谐|安详|心平气和)$/,['peace','seal']],
+ [/^(学习|学问|知识|读书|教育|学校|学生|老师|教师|研究|科学|智慧|聪明|教学相长)$/,['study','focus']],
+ [/^(工作|劳动|奋斗|努力|勤奋|勤劳|勤学苦练|自强不息)$/,['tempo','growth']],
+ [/^(勇敢|勇气|英勇|勇士|英雄|无畏|勇往直前|一往无前)$/,['valor','rescue']],
+ [/^(母亲|妈妈|父亲|爸爸|父母|家人|亲人|关爱|爱护|关怀)$/,['barrier','mend']],
+ [/^(医生|医师|医疗|治疗|康复|健康|痊愈|救死扶伤)$/,['mend','seal']],
+ [/^(火树银花|烟花|礼花|庆祝|庆典|节日|生日|寿辰)$/,['bloom','luck']],
+ [/^(百步穿杨|百发百中|箭无虚发|百无一失|准确|精确|精准)$/,['focus','execute']],
+ [/^(电脑|计算机|计算|算术|数学|程序|算法|工程|技术)$/,['focus','study']],
+ [/^(电话|手机|通讯|通信|消息|新闻|广播|传递|传说)$/,['echo','sky']],
+ [/^(玫瑰|牡丹|桃花|樱花|荷花|莲花|百合|兰花|菊花)$/,['bloom','thorn']],
+ [/^(汽车|火车|列车|飞机|轮船|车辆|交通|运输|旅行|旅游)$/,['tempo','sky']],
+ [/^(政府|国家|祖国|民族|人民|社会|法律|法院|公安|警察)$/,['barrier','rescue']],
+ [/^(吃饭|食物|粮食|食品|面包|米饭|水果|苹果|香蕉|饮食)$/,['mend','growth']],
+ [/^(历史|文化|文学|艺术|音乐|诗歌|故事|小说|书法|绘画)$/,['study','echo']],
+ [/^(坚持|永恒|永远|永久|发展|成长|进步|未来|坚持不懈)$/,['growth','tempo']]
+];
+const RUNE_PATTERNS=[
+ ['venom',/剧毒|腐蚀|瘟|疫|蛊/],['frost',/冰|雪|霜|寒|冻|冷/],['toxin',/毒|瘴/],['ember',/火|炎|焰|燃|热|烧|爆/],['storm',/雷|电|霆|霹/],
+ ['shine',/光|亮|圣|明|真相|诚实|曙/],['soul',/魂|魄|鬼|冥|死|亡|幽/],['slayer',/魔|邪|妖|猎|斩妖|伏/],
+ ['edge',/剑|刃|刀|锋|锐|刺|穿甲/],['tide',/浪|潮|涛|震|浪涌|冲击/],['gravity',/山|岳|岩|石|重|磐|镇/],
+ ['thorn',/藤|根|草|木|竹|林|森林|花园/],['bloom',/花|蕊|绽|盛开|芳|香/],['mend',/春|医|疗|康|愈|生机|复苏|恢复/],
+ ['prosper',/财|宝|富|财富|聚|收获|丰|商|经营/],['luck',/福|幸|吉|币|钱|银|金|礼|祝|恩/],
+ ['barrier',/盾|护|卫|防|城|墙|保|国|家|亲/],['peace',/和|安|宁|静|平|温柔|友好/],
+ ['inspire',/勇|军|战|壮|鼓|喜|乐|欢|爱|心|情/],['rescue',/救|援|助|帮|追|赶|急|警|危/],
+ ['study',/学|书|文|知|识|思|智|理|论|教|研|术|法|史|记|诗|画|考|读|写/],
+ ['focus',/精|准|睛|眼|看|察|算|计|数|机|证|验|测|认|清楚/],['echo',/声|音|鸣|响|歌|唱|钟|语|言|话|信|传|联|连|双|齐|共/],
+ ['brood',/龙|凤|鸟|燕|鹤|鹰|虎|狼|狮|豹|马|牛|羊|鹿|兔|蛇|鱼|虫|蚁|蜂|群|兽|宠/],
+ ['sky',/天|空|星|宇|宙|云|远|望|高|顶|上|外|大|广|长/],['tempo',/风|疾|迅|速|飞|快|动|行|走|奔|跑|来|往|运|流|忙|工|作|劳|勤/],
+ ['growth',/新|初|始|幼|小|苗|种|长大|成|生|育|年|岁|时|日|月|未|后|继|续|久/],
+ ['curse',/咒|恨|怨|悲|痛|忧|愁|怒|恶|苦|难|病|伤|灾|惧|怕/],['seal',/封|闭|禁|锁|定|止|清|净|绝/],['valor',/先|首|开|启|起|前|一|朝|早/],['execute',/末|终|尽|落|消|灭|杀|破|断|完|结|下/]
+];
+SYNONYM_RUNES.unshift(
+ [/^(千里眼|洞察|火眼金睛)$/,['focus','sky']],
+ [/^(顺风耳|耳听八方)$/,['echo','sky']],
+ [/^(弓箭手|战士|军队|军人|将军)$/,['valor','inspire']],
+ [/^(冷静|冷静思考|冰释前嫌|和颜悦色|温柔|温暖|温和|安慰|谅解|宽容)$/,['peace','focus']],
+ [/^(热爱|热情|热心|心意|心想事成|热泪盈眶)$/,['inspire','luck']],
+ [/^(马上|立刻|立即|立马|赶快|赶紧|尽快|迅雷不及)$/,['tempo','rescue']],
+ [/^(电光石火|昙花一现|转瞬即逝|稍纵即逝)$/,['tempo','valor']],
+ [/^(海阔天空|天高地厚|无边无际|一望无际)$/,['sky','peace']],
+ [/^(不动如山|坚不可摧|固若金汤|铜墙铁壁|众志成城)$/,['barrier','gravity']],
+ [/^(百花齐放|万紫千红|姹紫嫣红|春暖花开|繁花似锦)$/,['bloom','mend']],
+ [/^(雪中送炭|助人为乐|扶危济困|见义勇为)$/,['rescue','mend']],
+ [/^(百折不回|日积月累|厚积薄发|积少成多|熟能生巧|持之以恒)$/,['growth','study']],
+ [/^(声东击西|明修栈道|暗度陈仓|出其不意|攻其不备)$/,['flank','valor']],
+ [/^(不劳而获|坐享其成|一本万利|开源节流|量入为出)$/,['prosper','focus']],
+ [/^(一模一样|一成不变|一如既往|别无二致)$/,['focus','growth']],
+ [/^(形影不离|比翼双飞|相辅相成|相得益彰)$/,['echo','inspire']],
+ [/^(落井下石|趁火打劫|乘人之危|痛打落水)$/,['execute','curse']],
+
+ [/^(三七|田七|人参|黄芪|当归|枸杞|药品|药物|药材|良药)$/,['mend','seal']],
+ [/^(浴火重生|死而复生|起死回生|涅槃重生|涅槃|重生|复活)$/,['revive','growth']],
+ [/^(水滴石穿|滴水穿石|锲而不舍|百折不挠)$/,['growth','edge']],
+ [/^(一心一意|全神贯注|专心|专心致志|聚精会神)$/,['focus','growth']],
+ [/^(三心二意|七嘴八舌)$/,['echo','count']],
+ [/^(五雷轰顶|三头六臂)$/,['count','storm']],
+ [/^(老马识途|高瞻远瞩|远见|远见卓识)$/,['focus','sky']],
+ [/^(守株待兔|以逸待劳)$/,['barrier','execute']],
+ [/^(画蛇添足|画龙点睛)$/,['brood','focus']],
+ [/^(南辕北辙|迂回|包抄|背后|背面|后方|背刺|绕后)$/,['backstab','sky']],
+ [/^(正面|前方|前面|迎面|迎击|冲锋)$/,['front','valor']],
+ [/^(侧面|两侧|侧翼|左右|两边|旁边|两翼|左翼|右翼)$/,['flank','echo']],
+ [/^(破釜沉舟|背水一战)$/,['valor','rescue']],
+ [/^(釜底抽薪|清心寡欲)$/,['seal','curse']],
+ [/^(乘风破浪|排山倒海|惊涛骇浪)$/,['tide','gravity']],
+ [/^(沉默|缄默|缄口|禁言|闭口|封口|噤声|三缄其口)$/,['silence','peace']],
+ [/^(撕裂|裂伤|切割|割裂|割伤|切开|斩断)$/,['bleed','edge']],
+ [/^(红色|赤红|火红|鲜红|朱红|绯红)$/,['ember','valor']],
+ [/^(蓝色|深蓝|碧蓝|湛蓝|冰蓝)$/,['frost','sky']],
+ [/^(绿色|翠绿|碧绿|嫩绿)$/,['mend','thorn']],
+ [/^(黑色|漆黑|墨黑|黝黑)$/,['soul','curse']],
+ [/^(白色|雪白|洁白|银白)$/,['shine','seal']],
+ [/^(夏天|夏日|夏季|盛夏|酷暑|炎夏)$/,['ember','growth']],
+ [/^(秋天|秋日|秋季|金秋|丰收)$/,['prosper','growth']],
+ [/^(冬天|冬日|冬季|寒冬|严冬)$/,['frost','growth']],
+ [/^(今天|明天|昨天|昨日|来日|当今|现在|目前|此时|时代|时刻|时候)$/,['growth','focus']],
+ [/^(过去|从前|往昔|往事|回忆|记忆|怀念)$/,['study','focus']],
+ [/^(床|床铺|休息|休养|睡眠|睡觉|安眠|卧室)$/,['mend','peace']],
+ [/^(厨师|厨房|做饭|烹饪|烧菜)$/,['mend','prosper']],
+ [/^(司机|驾驶|航行|航海|船长|飞行员)$/,['tempo','sky']],
+ [/^(裁缝|缝纫|裁剪|剪裁|工匠|手艺)$/,['edge','barrier']],
+ [/^(什么|如何|为何|为什么|哪儿|哪里|何处|谁|疑问|提问|询问)$/,['shine','focus']]
+);
+RUNE_PATTERNS.unshift(['silence',/缄|噤|禁言|闭口|封口|无声/],['revive',/重生|复活|涅槃|还魂/],['bleed',/撕|裂|割|切|斩断|锯|剪|刮|削/]);
+RUNE_PATTERNS.push(
+ ['tide',/撞|砸|锤|推|摧|撼|敲|碰|击|拍|掀|撬|抬|压/],
+ ['barrier',/坚|韧|硬|固|撑|承|支柱|支架|挡|筑|围|门|墙|房|屋|桌|椅|柜|箱|宿|住|舍|盾牌/],
+ ['rescue',/扶|帮|支援|援助|维护|拯救|营救|挽回|挽救|补救|补偿/],
+ ['prosper',/贸|易|买|卖|购|售|税|资|产|利|贷|储|蓄|储存|仓|收|割|获|酬|报酬|支付|经营|市场/],
+ ['mend',/药|食|粮|米饭|果实|苹果|蔬|菜|营养|血|体|生命|肝|肺|脾|胃|肠/],
+ ['brood',/犬|狗|猫|熊|猴|猿|猪|鼠|鸡|鸭|鹅|狐|狸|龟|蟹|虾|虫|蝶|蝉|蛙|雀|蝠|鳄/],
+ ['thorn',/松|柏|杨|柳|梅|桃|杏|李树|榆|槐|桑|枫|杉|椿|桦|苇|棕|蓬|芦|茅|苗|芽|枝|叶|梢|丛|种植/],
+ ['bloom',/桂|菊|莲|荷|兰花|玫瑰|牡丹|芙蓉|丁香|郁金香/],
+ ['focus',/量|度量|衡|称|审|判|核|检|观|视|望|仪|表|电路|仪器|传感|探|究|索|问|求|查|搜|寻|找/],
+ ['study',/章|册|稿|籍|典|卷|刊|报|纸|笔|墨|印|字|符|码|律|策|例|规|制|规程|训练|练习|经验/],
+ ['tempo',/进|退|移|迁|撤|换|转|变|改|调|搬|送|取|拿|抓|握|撒|播|拔|攀|登|跳|跃|舞|摆|踏|骑|乘|车|舟|船|艇|轮|道|路|途/],
+ ['echo',/听|闻|耳|嘴|口|舌|喉|沟通|报道|消息|网络|互联网|广播|新闻|波长|通信/],
+ ['inspire',/人|众|群体|队|团|员|兵|官|将|帅|士|师|者|姓|名|君|群众|伙伴|亲友|欢欣|欣|愉|畅|悦|笑|荣|誉/],
+ ['growth',/期|季|晨|夕|曦|暮|晚|夜|周|星期|年代|代|季节|钟点|时间|永|恒|持|续|延|存|留|保留|积|累|培|养|增|升|扩/],
+ ['curse',/丧|哀|泣|哭|忧|郁|恼|烦|闷|愤|恼怒|愧|羞|惊|恐|慌|险|困|窘|挫|失|败|损|减|消耗|虚|伪|骗|诈/],
+ ['peace',/柔|缓|慢|淡|稳|舒|轻松|休闲|闲|止息|友善|善|慈|仁|恕|谅|容忍/],
+ ['sky',/宽|阔|辽|遥|广泛|浩|洋|洲|江|河|湖|泊|海峡|港|湾|岸|滩|谷|川|原|丘|岭|峰|岛|屿|境|区|域|省|县|乡|村|镇|街|市|里程/],
+ ['edge',/钢|铁|铜|铝|钛|铅|锡|锌|锰|镍|刨|斧|镰|钩|锥|钉|针|铡|镖/]
+);
+function readNumber(word){const match=word.match(/^[零一二两三四五六七八九十百千万]+/);if(!match)return 4;let total=0,section=0,n=0;const digits={零:0,一:1,二:2,两:2,三:3,四:4,五:5,六:6,七:7,八:8,九:9};for(const ch of match[0]){if(ch in digits)n=digits[ch];else if(ch==='万'){total+=(section+n||1)*10000;section=0;n=0;}else{section+=(n||1)*({十:10,百:100,千:1000}[ch]);n=0;}}return Math.max(1,total+section+n);}
+function distanceSpan(word){const unit=word.match(/(公里|千米|米|里|丈|尺|寸)$/)?.[1];const factor={公里:1000,千米:1000,米:1,里:500,丈:3.33,尺:.333,寸:.0333}[unit]||1;return Math.min(24,5+Math.round(Math.log10(1+readNumber(word)*factor)*3));}
+function chooseRunes(word){const exact=SYNONYM_RUNES.find(([re])=>re.test(word));if(exact)return exact[1].slice();if(/^[零一二两三四五六七八九十百千万]+(个|只|位|名|件|次|倍|岁|米|里|丈|尺|寸|公里|千米|分|点|章|轮|波|枚|朵|杯|斤|吨|人|户|元|块|天|年|月)?$/.test(word))return[/(米|里|丈|尺|寸)$/.test(word)?'measure':'count',/(元|块)$/.test(word)?'prosper':/(年|月|天|岁)$/.test(word)?'growth':'focus'];const found=[];for(const [id,re]of RUNE_PATTERNS)if(re.test(word)&&!found.includes(id)){found.push(id);if(found.length===2)break;}return found;}
+export const hasRune=(w,id)=>w.runes?.includes(id)||false;
+export const runeEffect=w=>w.runes.length?w.runes.map(id=>WORD_RUNES[id].name+'：'+(id==='count'?`每 ${w.semanticCycle} 次攻击蓄发一次，触发时直接伤害 +${w.semanticCycle*10}%。`:id==='measure'?`射程额外 +${distanceSpan(w.word)}，攻击间隔 +4%。`:WORD_RUNES[id].desc)).join(' '):'此词保留基础词意，没有附加词义。';
 function chooseTrait(w){
  const text=w.word;
  if(w.type==='income'){if(/聚|宝|库|藏|树|盆|财源|斗金/.test(text))return'fortune';if(/币|钱|银|点石/.test(text))return'coin';if(/招|财运|发财/.test(text))return'entice';return'balanced';}
  if(w.type==='aura'){if(/盾|守|护|界|阵/.test(text))return'ward';if(/环|辉|万丈/.test(text))return'radiance';if(/圣|神|祝|明/.test(text))return'purify';if(/月/.test(text))return'moon';if(/星/.test(text))return'spread';return'balanced';}
  if(/破甲|穿甲|破阵/.test(text))return'sunder';
- if(w.type==='poison'&&/剧|腐|蚀|疫/.test(text))return'venom';
+ if(w.type==='poison'&&/剧|腐|蚀|疫/.test(text)&&!/[箭弓弩枪云雾雨海]/.test(text))return'venom';
  if(/封|缚|牢|冻|禁|镇/.test(text))return'bind';
  if(/连|珠|双|分身|幻影/.test(text))return'combo';
  if(/箭雨|箭如雨下|万箭|齐发/.test(text))return'spread';
@@ -68,10 +226,12 @@ function chooseTrait(w){
  if(/疾|迅|速|狂风/.test(text))return'rapid';
  return'balanced';
 }
-function applyWordTrait(w){const trait=chooseTrait(w),t=WORD_TRAITS[trait];const desc=trait==='dragon'?'朝目标方向喷吐本属性龙息，命中扇面内的多个敌人。':trait==='firewall'?'命中产生爆裂，并在落点留下持续燃烧的地面火焰区域。':w.type==='poison'&&trait==='spread'?'投出毒团，在命中处形成毒域；后来进入区域的敌人也会持续中毒。':w.type==='poison'&&trait==='ranged'?'射出远程毒箭，命中单个目标，造成直接伤害并持续施毒。':w.desc;return{...w,trait,desc,damage:Math.max(1,Math.round(w.damage*t.damage)),range:Math.max(60,w.range+t.range),rate:Number((w.rate*t.rate).toFixed(4)),aura:Math.max(0,w.aura+(t.aura||0)),income:Math.max(1,Math.round(w.income*(t.income||1)))};}
-export function wordRules(w){const n=w.tier,t=WORD_TRAITS[w.trait];return{radius:(n>=4?90:n>=3?80:65)+(t.area||0),chainTargets:(n>=4?5:n>=3?4:3)+(w.trait==='spread'?1:0),poisonTargets:(n>=4?2:0)+(w.trait==='spread'?2:0),poisonDuration:(n>=4?5:n>=3?4:3)+(w.trait==='venom'?1:0),poisonRatio:t.poisonRatio||.6,poisonRadius:85+(t.area||0),slowFactor:(n>=3?.45:.55)-(w.trait==='bind'?.05:0),slowDuration:2.1+(w.trait==='bind'?1.1:0),freeze:n>=4?.4+(w.trait==='bind'?.15:0):w.trait==='bind'?.25:0,bounty:(n>=4?3:n>=3?2:1)+(t.bounty||0),bountyDuration:w.trait==='entice'?7:4,lightDuration:w.trait==='purify'?5:3};}
+function applyWordTrait(w){const trait=chooseTrait(w),t=WORD_TRAITS[trait],runes=chooseRunes(w.word),runeDamage=runes.reduce((m,id)=>m*WORD_RUNES[id].damage,1);const desc=trait==='dragon'?'朝目标方向喷吐本属性龙息，命中扇面内的多个敌人。':trait==='firewall'?'命中产生爆裂，并在落点留下持续燃烧的地面火焰区域。':w.type==='poison'&&trait==='spread'?'投出毒团，在命中处形成毒域；后来进入区域的敌人也会持续中毒。':w.type==='poison'&&trait==='ranged'?'射出远程毒箭，命中单个目标，造成直接伤害并持续施毒。':w.desc;return{...w,trait,runes,semanticCycle:Math.min(10,readNumber(w.word)),desc,damage:Math.max(1,Math.round(w.damage*t.damage*runeDamage)),range:Math.max(60,w.range+t.range+(runes.includes('sky')?12:0)+(runes.includes('measure')?distanceSpan(w.word):0)),rate:Number((w.rate*t.rate*(runes.includes('sky')||runes.includes('measure')?1.04:1)).toFixed(4)),aura:Math.max(0,w.aura+(t.aura||0)),income:Math.max(1,Math.round(w.income*(t.income||1)))};}
+export function wordRules(w){const n=w.tier,t=WORD_TRAITS[w.trait];return{radius:(n>=4?90:n>=3?80:65)+(t.area||0),chainTargets:(n>=4?5:n>=3?4:3)+(w.trait==='spread'?1:0),poisonTargets:(n>=4?2:0)+(w.trait==='spread'?2:0),poisonDuration:(n>=4?5:n>=3?4:3)+(w.trait==='venom'?1:0)+(hasRune(w,'venom')?1:0),poisonRatio:(t.poisonRatio||.6)+(hasRune(w,'toxin')?.08:0)+(hasRune(w,'venom')?.12:0),poisonRadius:85+(t.area||0),slowFactor:(n>=3?.45:.55)-(w.trait==='bind'?.05:0)-(hasRune(w,'frost')?.04:0),slowDuration:2.1+(w.trait==='bind'?1.1:0)+(hasRune(w,'frost')?.3:0),freeze:n>=4?.4+(w.trait==='bind'?.15:0):w.trait==='bind'?.25:0,bounty:(n>=4?3:n>=3?2:1)+(t.bounty||0),bountyDuration:w.trait==='entice'?7:4,lightDuration:(w.trait==='purify'?5:3)+(hasRune(w,'shine')?1:0)};}
 export function traitEffect(w){const t=WORD_TRAITS[w.trait];let extra='';if(w.trait==='spread')extra=w.type==='poison'?`毒伤最多扩散至附近 ${wordRules(w).poisonTargets} 个额外目标。`:w.type==='slow'?'减速扩散至附近 2 个额外目标。':w.type==='splash'?'爆炸半径额外 +25。':w.type==='chain'?'额外连锁 1 个目标。':w.type==='pulse'?'震荡命中上限 +2。':'追加最多 2 个各 35% 伤害的副目标。';if(w.trait==='bind')extra=w.type==='slow'?'减速更强、持续更久，并有定身。':'命中施加短暂定身（同目标 4 秒间隔）。';if(w.trait==='spread'&&w.type==='poison')extra='命中处留下 3 秒毒域，后来进入的敌人也会受到每秒 35% 攻击的毒伤，离开后持续 2 秒；最多保留 2 片。'+extra;return extra+t.desc;}
-export const WORDS=[...COMBAT_WORDS,...COMMON_WORDS.filter(word=>!combatSet.has(word)).map(word=>{const type=SEMANTIC_SCHOOLS.find(([re])=>re.test(word))?.[1];const s=type?SCHOOLS.find(s=>s.type===type):BASIC_SCHOOL;const tier=[...word].length;return {...s,words:undefined,word,tier,maxLevel:tier+2,cost:Math.round(s.cost*PRICE[tier]),damage:Math.round(s.damage*POWER[tier]),range:s.range+(tier-2)*12,aura:.15+tier*.1,income:5*tier};})].map(applyWordTrait);
+const AUTHORED_MEANING_WORDS='寒冰毒箭 冰霜毒箭 冰火箭 冰毒箭 火毒箭 雷火箭 雷冰箭 火焰毒云 寒冰毒云 冰霜毒雾 雷霆毒箭 圣光箭 神圣箭 月光箭 星辰箭 追魂毒箭 剧毒之箭 腐蚀之箭 冰火双刃 冰火风暴 风雷之箭 浴火重生 死而复生 起死回生 涅槃重生 水滴石穿 滴水穿石 破釜沉舟 釜底抽薪 一心一意 全神贯注 三心二意 七上八下 老马识途 守株待兔 画蛇添足 南辕北辙 一米 两米 三米 十米 百米 千米 一里 十里 百里 千里 三尺 一寸 一丈 十丈 一公里 十公里 千里眼 顺风耳 侧翼 背刺 缄默 裂伤 灵兽 伏魔'.split(' ');
+export const WORDS=[...COMBAT_WORDS,...[...new Set([...COMMON_WORDS,...AUTHORED_MEANING_WORDS])].filter(word=>!combatSet.has(word)).map(word=>{const type=SCHOOL_ALIASES.find(([re])=>re.test(word))?.[1]||SEMANTIC_SCHOOLS.find(([re])=>re.test(word))?.[1];const s=type&&type!=='basic'?SCHOOLS.find(s=>s.type===type):BASIC_SCHOOL;const tier=[...word].length;return {...s,words:undefined,word,tier,maxLevel:tier+2,cost:Math.round(s.cost*PRICE[tier]),damage:Math.round(s.damage*POWER[tier]),range:s.range+(tier-2)*12,aura:.15+tier*.1,income:5*tier};})].map(applyWordTrait);
+const MEANING_HAND_WORDS='学习 读书 知识 朋友 伙伴 合作 团结 勇敢 英雄 努力 奋斗 成长 医生 健康 康复 和平 安宁 守护 母亲 家人 开心 快乐 感谢 谢谢 欢迎 工作 旅行 音乐 歌声 回声 沉默 缄默 撕裂 切割 背刺 侧翼 正面 冲锋 复活 重生 祝福 财富 丰收 秋天 夏天 冬天 春天 花朵 玫瑰 莲花 草木 森林 老虎 白虎 灵兽 人参 三七 五个 三倍 三尺 百米 千米 火毒箭 冰毒箭 冰火箭 月光箭 圣光箭 星辰箭 千里眼 顺风耳 寒冰毒箭 冰霜毒箭 冰霜毒雾 火焰毒云 雷霆毒箭 冰火双刃 冰火风暴 风雷之箭 浴火重生 涅槃重生 死而复生 起死回生 滴水穿石 水滴石穿 一心一意 全神贯注 老马识途 守株待兔 画龙点睛 破釜沉舟 釜底抽薪 乘风破浪 声东击西 暗度陈仓 春暖花开 百花齐放 众志成城 坚不可摧 日积月累 厚积薄发 积少成多 自强不息 齐心协力 同舟共济'.split(' ').map(word=>WORDS.find(w=>w.word===word)).filter(Boolean);
 export const GRADES=['','凡字','灵词','妙语','天成'];
 export function gradeEffect(w){
  const n=w.tier,r=wordRules(w);
@@ -99,7 +259,7 @@ export const SKILL_COOLDOWN=30, SKILL_BASE_COST=30, SKILL_COST_STEP=15;
 const WORD_INDEX=new Map(WORDS.map(w=>[w.word,w]));
 const WORD_PREFIXES=new Set(WORDS.flatMap(w=>Array.from({length:w.tier},(_,i)=>w.word.slice(0,i+1))));
 export const getWord=word=>WORD_INDEX.get(word);
-export function towerStats(t){const w=getWord(t.word),up=t.level-w.tier;return {damage:Math.round(w.damage*(1+up*.65)),range:w.range+up*15,rate:w.rate/(1+up*.14),aura:w.aura,income:Math.round(w.income*(1+up*.5))};}
+export function towerStats(t){const w=getWord(t.word),up=t.level-w.tier;return {damage:Math.round(w.damage*(1+up*(.65+(hasRune(w,'growth')?.1:0)))),range:w.range+up*15,rate:w.rate/(1+up*.14),aura:w.aura,income:Math.round(w.income*(1+up*.5))};}
 export function matchWord(chars){if(chars.length<1||chars.length>4)return null;return getWord(chars.join(''))||null;}
 export const CHAPTERS=[
  {name:'青山初试',area:'青山道',rounds:6,hp:20,ink:200,difficulty:0,intro:'墨影初现，试以文字守住山门。'},
@@ -181,10 +341,47 @@ Object.assign(ENEMIES,{
  beaconlord:{name:'赤烽战侯',boss:true,behavior:'rallyboss',sigil:'烽',hp:400,speed:24,reward:28,harm:4,desc:'每 8 秒号令附近友军提速 30%、持续 3 秒，最多 3 次；半血自身狂化提速 20%。'},
  astralboss:{name:'万象星君',boss:true,behavior:'astral',sigil:'象',hp:430,speed:23,reward:30,harm:5,desc:'日/月相轮换，分别抵抗 35% 兵器/法术伤害；半血展开护盾并加快换相。光、咒、破甲及毒可克制。'}
 });
-export const COMMON_BOSSES=['boss','ironboss','broodqueen','stormboss','frostboss','inkking'];
-export const MAP_BOSSES=['hillboss','bambooboss','scrollboss','tideboss','cloudboss','gearboss','frostlord','mirrorqueen','beaconlord','astralboss'];
+// Variant bosses combine a primary behavior with bounded pulses and a single phase.
+Object.assign(ENEMIES,{
+ drumking:{name:'战鼓魔侯',boss:true,behavior:'rallyboss',sigil:'鼓',hp:370,speed:23,reward:27,harm:4,portraitUnit:'banner',ornament:'drum',color:'#aa7c63',phase:{summon:'swift',count:2},desc:'战鼓定时令附近友军提速 30%，持续 3 秒，最多 3 次；半血召来两只疾影。用减速和范围攻击化解鼓阵。'},
+ shadeknight:{name:'掠影魔将',boss:true,behavior:'bamboostalker',sigil:'影',hp:340,speed:25,reward:27,harm:4,stealthDistance:140,portraitUnit:'bamboostalker',ornament:'blades',color:'#7c7894',pulse:{kind:'blink',interval:8,limit:3,distance:40},phase:{haste:.15},desc:'远距隐匿，每 8 秒闪进 40 距离，最多 3 次；控制可阻断闪进，半血提速 15%。光照与咒印破隐。'},
+ lifetree:{name:'源泉树祖',boss:true,behavior:'plainboss',sigil:'泉',hp:320,speed:21,reward:27,harm:4,regenRate:.004,portraitUnit:'healer',ornament:'tree',color:'#76966a',pulse:{kind:'heal',interval:9,limit:3,ratio:.025,targets:3,radius:120},phase:{shield:.1},desc:'缓慢再生，并定时治疗自身与附近两名友军，最多 3 次；中毒阻止回复，半血展开护盾。毒箭集火或毒云禁疗都有效。'},
+ ironcarapace:{name:'玄甲虫皇',boss:true,behavior:'plainboss',sigil:'甲',hp:380,speed:22,reward:27,harm:4,armor:.25,portraitUnit:'brood',ornament:'armor',color:'#6e8076',pulse:{kind:'summon',interval:10,limit:2,unit:'small',count:2},phase:{haste:.2},desc:'常驻护甲减伤 25%，分批孵出小墨点，最多两批；半血提速 20%。石、剑破甲，范围塔清理幼虫。'},
+ emberhound:{name:'熔火獒王',boss:true,behavior:'plainboss',sigil:'炎',hp:350,speed:25,reward:28,harm:4,resistTypes:['splash'],resistance:.25,burnResist:.5,portraitUnit:'hillrunner',ornament:'flame',color:'#bd754b',pulse:{kind:'blink',interval:7,limit:3,distance:35},phase:{haste:.2},desc:'烈焰直接伤害减免 25%，灼烧减免 50%；会跃进，半血加速。用冰控制，搭配毒、雷或弓输出。'},
+ plaguequeen:{name:'百毒蛊后',boss:true,behavior:'plainboss',sigil:'蛊',hp:330,speed:23,reward:28,harm:4,poisonResist:.4,portraitUnit:'brood',ornament:'spores',color:'#8c9660',pulse:{kind:'summon',interval:9,limit:3,unit:'small',count:1},phase:{summon:'split',count:1},desc:'毒伤减免 40%，分批召来墨点，半血再召一只裂墨；召唤有次数上限。用火雨、龙息或雷霆清群。'},
+ stonewarden:{name:'镇岳石王',boss:true,behavior:'plainboss',sigil:'镇',hp:380,speed:20,reward:26,harm:4,armor:.25,portraitUnit:'tank',ornament:'armor',color:'#988068',pulse:{kind:'shield',interval:10,limit:2,ratio:.08,targets:1},phase:{shield:.1},desc:'岩甲常驻减伤 25%，定时形成石盾，半血另展护盾。石与剑无视护甲，雷霆破盾，毒伤绕盾。'},
+ peakelder:{name:'山海灵猿',boss:true,behavior:'hillrunner',sigil:'猿',hp:330,speed:24,reward:26,harm:4,portraitUnit:'hillrunner',ornament:'staff',color:'#9b916c',phase:{summon:'hillrunner',count:2,haste:.1},desc:'跃进山道，半血召来两只踏岩山魈并提速 10%。提前铺设减速和持续区域，阻断猿群跃进。'},
+ bambooswords:{name:'竹剑尊',boss:true,behavior:'plainboss',sigil:'剑',hp:350,speed:25,reward:26,harm:4,resistTypes:['fast','sniper'],resistance:.2,portraitUnit:'lancer',ornament:'blades',color:'#668461',pulse:{kind:'haste',interval:9,limit:2,radius:110},phase:{haste:.2,summon:'swift',count:1},desc:'疾风和神射直接伤害减免 20%，会号令附近友军加速；半血提速并召来疾影。用冰、雷、火或剑交叉迎击。'},
+ bamboowitch:{name:'碧篁蛊师',boss:true,behavior:'plainboss',sigil:'篁',hp:330,speed:23,reward:26,harm:4,poisonResist:.3,portraitUnit:'healer',ornament:'spores',color:'#7e9666',pulse:{kind:'summon',interval:9,limit:2,unit:'small',count:2},phase:{heal:.06},desc:'抗毒 30%，分批召来墨点；半血回复 6% 生命，仍可被毒伤禁疗。范围攻击清虫，爆发压低本体。'},
+ inkarchivist:{name:'墨卷司书',boss:true,behavior:'plainboss',sigil:'书',hp:330,speed:22,reward:27,harm:4,portraitUnit:'scrollguard',ornament:'pages',color:'#9886a8',pulse:{kind:'summon',interval:10,limit:2,unit:'scrollguard',count:1},phase:{shield:.12},desc:'定时召来护卷书灵，最多两名；半血展开护盾。雷霆破盾，毒域持续压制书阵。'},
+ silencewarden:{name:'缄言判官',boss:true,behavior:'frostboss',sigil:'缄',hp:340,speed:23,reward:27,harm:4,resistTypes:['splash','slow','chain','poison','pulse','mark','echo','aura','basic'],resistance:.2,portraitUnit:'ward',ornament:'cage',color:'#7c7c9a',phase:{summon:'normal',count:2},desc:'附近词塔攻击间隔延长 25%，多数法术直接伤害减免 20%；半血召来墨影。远程弓、风、石、剑更有效。'},
+ pearlclam:{name:'碧潮蚌母',boss:true,behavior:'scrollguard',sigil:'蚌',hp:330,speed:21,reward:27,harm:4,shield:65,portraitUnit:'shield',ornament:'pearl',color:'#87b4b3',phase:{heal:.08},desc:'厚盾可重建三次，半血回复 8% 生命；毒伤既绕盾又禁疗，雷霆也可高效破盾。'},
+ riverturtle:{name:'玄澜龟将',boss:true,behavior:'plainboss',sigil:'澜',hp:370,speed:21,reward:27,harm:4,armor:.3,portraitUnit:'tank',ornament:'shell',color:'#668e88',pulse:{kind:'shield',interval:10,limit:2,ratio:.07,targets:3,radius:110},phase:{haste:.12},desc:'龟甲减伤 30%，给自身和附近两名友军加盾；半血提速。石、剑破甲，雷与毒协同拆盾。'},
+ thunderkite:{name:'霆羽雷隼',boss:true,behavior:'cloudraptor',sigil:'隼',hp:270,speed:34,reward:27,harm:4,air:true,portraitUnit:'cloudraptor',ornament:'lightning',color:'#7d9cbb',phase:{summon:'flying',count:2,shield:.08},desc:'高速空中俯冲，半血召来两只飞羽并附盾。用寒霜中止俯冲，搭配长射程弓塔对空。'},
+ cloudwhale:{name:'浮空云鲸',boss:true,behavior:'plainboss',sigil:'鲸',hp:380,speed:24,reward:28,harm:4,air:true,regenRate:.003,portraitUnit:'flying',ornament:'whale',color:'#95b6c3',pulse:{kind:'shield',interval:10,limit:2,ratio:.08,targets:1},phase:{haste:.15},desc:'高血慢速飞行，缓慢回复并周期附盾；半血提速 15%。毒箭禁疗、雷霆破盾，石塔无法对空。'},
+ ballistalord:{name:'玄弩机关侯',boss:true,behavior:'clockwork',sigil:'弩',hp:320,speed:20,reward:28,harm:4,portraitUnit:'clockwork',ornament:'ballista',color:'#aa915c',pulse:{kind:'summon',interval:11,limit:2,unit:'armor',count:1},phase:{haste:.25},desc:'正面格挡并分批召来墨甲；半血失去格挡但提速 25%。后方布塔、石击和剑气可破机关阵。'},
+ pendulumlord:{name:'千轮摆钟',boss:true,behavior:'frostboss',sigil:'钟',hp:350,speed:21,reward:28,harm:4,portraitUnit:'clockwork',ornament:'clock',color:'#a29471',pulse:{kind:'blink',interval:9,limit:2,distance:40},phase:{shield:.1},desc:'近身延缓词塔攻击，定时错步跃进，半血附盾。用远射词塔覆盖后段，减速可阻止错步。'},
+ icephoenix:{name:'寒羽冰凰',boss:true,behavior:'cloudraptor',sigil:'凰',hp:280,speed:30,reward:28,harm:4,air:true,shellLimit:4,portraitUnit:'cloudraptor',ornament:'icewings',color:'#9fc4d6',phase:{shell:true},desc:'飞行俯冲，冰壳免控，四击破壳，火与石每击算两次；半血仅重新结壳一次。火、雷、弓与破壳后减速配合。'},
+ glaciergolem:{name:'冰川巨像',boss:true,behavior:'frostbeast',sigil:'川',hp:400,speed:19,reward:28,harm:4,shellLimit:8,portraitUnit:'tank',ornament:'crystal',color:'#9eb9c7',phase:{summon:'frostbeast',count:1},desc:'八击才能破开初始冰壳，火、石每击算两次；半血召来雪兽，不会再次结壳。速射或连击也能快速破壳。'},
+ glasswyrm:{name:'琉璃镜螭',boss:true,behavior:'bamboostalker',sigil:'螭',hp:330,speed:25,reward:28,harm:4,stealthDistance:150,portraitUnit:'hillrunner',ornament:'mirrors',color:'#b594bd',pulse:{kind:'blink',interval:9,limit:2,distance:35},phase:{summon:'mirrorling',count:1,shield:.08},desc:'远距折光减伤并会闪进；半血召来幻伶并附盾。光照或咒印破折光，范围攻击清理镜像。'},
+ dreamweaver:{name:'幻梦织主',boss:true,behavior:'plainboss',sigil:'梦',hp:320,speed:22,reward:28,harm:4,resistTypes:['fast','heavy','sniper','pierce'],resistance:.2,portraitUnit:'healer',ornament:'ribbons',color:'#a58bb4',pulse:{kind:'summon',interval:12,limit:2,unit:'mirrorling',count:1},phase:{heal:.06},desc:'兵器直接伤害减免 20%，定时召来可分身的幻伶；半血回复生命。法术范围伤害和毒云更适合拆梦阵。'},
+ embermarshal:{name:'炎旗大将',boss:true,behavior:'rallyboss',sigil:'旗',hp:360,speed:23,reward:29,harm:4,resistTypes:['splash'],resistance:.25,burnResist:.4,portraitUnit:'banner',ornament:'warbanner',color:'#b9855c',phase:{haste:.15,shield:.08},desc:'抗烈焰与灼烧，号令友军冲锋；半血自身提速并附盾。冰控、雷击和毒伤可压制军旗。'},
+ emberbeast:{name:'烽燧火犼',boss:true,behavior:'hillrunner',sigil:'犼',hp:340,speed:23,reward:29,harm:4,burnResist:.5,portraitUnit:'hillrunner',ornament:'flame',color:'#be8054',phase:{summon:'lancer',count:1},desc:'会跃进且灼烧伤害减半；半血召来突阵冲锋。减速阻断跃进，用毒、雷、弓集中输出。'},
+ sunsovereign:{name:'曜日天尊',boss:true,behavior:'astral',sigil:'曜',hp:390,speed:23,reward:30,harm:5,initialPhase:0,portraitUnit:'astral',ornament:'sun',color:'#c0a15e',phase:{mode:1,shield:.12},desc:'前半场固定日相抵抗兵器，半血转为月相抵抗法术并附盾。混搭伤害类别，用光、咒或毒应对反转。'},
+ moonsovereign:{name:'幽月冥后',boss:true,behavior:'astral',sigil:'冥',hp:370,speed:23,reward:30,harm:5,initialPhase:1,portraitUnit:'astral',ornament:'moon',color:'#9688bc',phase:{mode:0,heal:.08},desc:'前半场固定月相抵抗法术，半血转日相并回复生命；毒伤阻止回复，光照与咒印解除相位抗性。'}
+});
+const BASE_MAP_BOSSES=['hillboss','bambooboss','scrollboss','tideboss','cloudboss','gearboss','frostlord','mirrorqueen','beaconlord','astralboss'];
+const BASE_PHASES=[{haste:.12},{summon:'bamboostalker',count:2},{summon:'scrollguard',count:2},{heal:.08},{shield:.15},{haste:.2},{shell:true},{summon:'mirrorling',count:2},{haste:.2},{shield:.15,period:3}];
+BASE_MAP_BOSSES.forEach((k,i)=>ENEMIES[k].phase=BASE_PHASES[i]);
+export const COMMON_BOSSES=['boss','ironboss','broodqueen','stormboss','frostboss','inkking','drumking','shadeknight','lifetree','ironcarapace','emberhound','plaguequeen'];
+export const MAP_BOSS_POOLS=[
+ ['hillboss','stonewarden','peakelder'],['bambooboss','bambooswords','bamboowitch'],['scrollboss','inkarchivist','silencewarden'],['tideboss','pearlclam','riverturtle'],['cloudboss','thunderkite','cloudwhale'],['gearboss','ballistalord','pendulumlord'],['frostlord','icephoenix','glaciergolem'],['mirrorqueen','glasswyrm','dreamweaver'],['beaconlord','embermarshal','emberbeast'],['astralboss','sunsovereign','moonsovereign']
+];
+export const MAP_BOSSES=MAP_BOSS_POOLS.flat();
+export const bossChapter=kind=>MAP_BOSS_POOLS.findIndex(pool=>pool.includes(kind));
 export const enemyBehavior=e=>ENEMIES[e.kind].behavior||e.kind;
 export const shellLimit=e=>ENEMIES[e.kind].shellLimit||3;
+export const hasIceShell=e=>(enemyBehavior(e)==='frostbeast'||ENEMIES[e.kind].shellLimit>0)&&(e.shellHits||0)<shellLimit(e);
 export const THEME_UNITS=[
  {kind:'hillrunner',counter:'用寒霜阻止跳跃，保留后段补刀'},
  {kind:'bamboostalker',counter:'近距布塔，或用光、咒解除隐匿'},
@@ -197,7 +394,7 @@ export const THEME_UNITS=[
  {kind:'beaconrunner',counter:'远程提前击败传令使，用减速应对冲锋'},
  {kind:'astral',counter:'兵器与法术混搭，用光、咒或毒应对换相'}
 ];
-export const astralPhase=(e,time)=>Math.floor(Math.max(0,time-(e.bornAt??0))/(e.astralPeriod||5))%2;
+export const astralPhase=(e,time)=>e.astralMode!==undefined?e.astralMode:Math.floor(Math.max(0,time-(e.bornAt??0))/(e.astralPeriod||5))%2;
 const PHYSICAL_TYPES=new Set(['fast','heavy','sniper','pierce']);
 export const damageClass=w=>PHYSICAL_TYPES.has(w.type)?'兵器':'法术';
 export const AIR_LENGTH=MAPS[0].air[0].length;
@@ -219,7 +416,7 @@ export function wavePlan(chapter,wave){
  const endlessRound=Math.max(0,round-CHAPTERS[chapter].rounds);
  const boss=endlessRound>=4||part===3&&(endlessRound>0||round%3===0||round===CHAPTERS[chapter].rounds);
  const finale=round===CHAPTERS[chapter].rounds;
- const bossPool=[...COMMON_BOSSES,MAP_BOSSES[chapter]],bossKind=null;
+ const bossPool=[...COMMON_BOSSES,...MAP_BOSS_POOLS[chapter]],bossKind=null;
  const stage=round+Math.min(3,Math.floor(chapter/2),Math.max(0,round-2));
  let pool=['normal','normal','normal','swift'],formation='墨影来袭',counter='先布攻击塔，保留墨点补强';
  if(stage===2){pool=['normal','swift','armor',...(part===2?['flying','flying']:['shield'])];formation=part===2?'飞羽突袭':'先锋试阵';counter='补充对空、破甲与减速';}
@@ -230,7 +427,7 @@ export function wavePlan(chapter,wave){
 }
 export class Game {
  get pads(){return getMap(this.chapter).pads;}
- constructor(chapter=0,seed=(Math.random()*4294967296)>>>0){this.chapter=chapter;this.wave=0;this.endless=false;this.unlockedPads=Array.from({length:FREE_PAD_COUNT},(_,i)=>i);this.hp=CHAPTERS[chapter].hp;this.ink=CHAPTERS[chapter].ink;this.towers=[];this.enemies=[];this.effects=[];this.zones=[];this.queue=[];this.time=0;this.spawnTime=0;this.autoWaveAt=0;this.pendingWaves=null;this.phase='prepare';this.kills=0;this.nextId=1;this.skillReady=0;this.skillUses=0;this.totalEarned=0;this.bountyEarned=0;this.bossDraws=[];this.events=[];this.rngState=(seed>>>0)||1;this.refreshes=0;this.handSerial=0;this.hand=[];for(let i=0;i<4;i++)this.random();this.drawHand();}
+ constructor(chapter=0,seed=(Math.random()*4294967296)>>>0){this.chapter=chapter;this.wave=0;this.endless=false;this.unlockedPads=Array.from({length:FREE_PAD_COUNT},(_,i)=>i);this.hp=CHAPTERS[chapter].hp;this.ink=CHAPTERS[chapter].ink;this.towers=[];this.enemies=[];this.effects=[];this.zones=[];this.queue=[];this.time=0;this.spawnTime=0;this.autoWaveAt=0;this.pendingWaves=null;this.phase='prepare';this.kills=0;this.nextId=1;this.skillReady=0;this.skillUses=0;this.totalEarned=0;this.bountyEarned=0;this.barrierSpent=0;this.soulHealed=0;this.reviveUsed=false;this.bossDraws=[];this.events=[];this.rngState=(seed>>>0)||1;this.refreshes=0;this.handSerial=0;this.hand=[];for(let i=0;i<4;i++)this.random();this.drawHand();}
  emit(type,data={}){this.events.push({type,...data});}
  random(){let x=this.rngState;x^=x<<13;x^=x>>>17;x^=x<<5;this.rngState=x>>>0;return this.rngState/4294967296;}
  drawHand(){
@@ -238,8 +435,9 @@ export class Game {
   const pick=xs=>xs[Math.floor(this.random()*xs.length)];
   const attack=COMBAT_WORDS.filter(w=>w.tier===2&&w.damage>0&&!['aura','income'].includes(w.type));
   const short=COMBAT_WORDS.filter(w=>w.tier===2),medium=COMBAT_WORDS.filter(w=>w.tier===3),long=COMBAT_WORDS.filter(w=>w.tier===4);
+  const themed=(list,tier)=>this.random()<.15?pick(MEANING_HAND_WORDS.filter(w=>w.tier===tier)):pick(list);
   const starter=pick(attack);
-  const letters=[...starter.word,starter.icon,...pick(short).word,...pick(medium).word,...pick(long).word];
+  const letters=[...starter.word,starter.icon,...themed(short,2).word,...themed(medium,3).word,...themed(long,4).word];
   const pool=COMBAT_WORDS.flatMap(w=>[...w.word]);
   while(letters.length<HAND_SIZE)letters.push(pick(pool));
   for(let i=letters.length-1;i>0;i--){const j=Math.floor(this.random()*(i+1));[letters[i],letters[j]]=[letters[j],letters[i]];}
@@ -257,7 +455,8 @@ export class Game {
  canBuild(word,ids){const w=getWord(word);if(!w||this.ink<w.cost||['won','lost'].includes(this.phase))return false;const chosen=ids??this.tilesFor(word);if(!chosen||chosen.length!==w.tier||new Set(chosen).size!==chosen.length)return false;const tiles=chosen.map(id=>this.hand.find(t=>t.id===id&&!t.used));return tiles.every(Boolean)&&tiles.map(t=>t.ch).join('')===word;}
  build(word,pad,ids){const w=getWord(word),chosen=ids??this.tilesFor(word);if(!this.pads[pad]||!this.padUnlocked(pad)||this.towers.some(t=>t.pad===pad)||!this.canBuild(word,chosen))return false;this.ink-=w.cost;for(const id of chosen)this.hand.find(t=>t.id===id).used=true;if(this.hintWord&&!this.tilesFor(this.hintWord))this.hintWord=null;this.towers.push({word,pad,level:w.tier,spent:w.cost,cooldown:0,id:this.nextId++});this.emit('build',{word});return true;}
  upgrade(id){const t=this.towers.find(t=>t.id===id);if(!t||t.level>=getWord(t.word).maxLevel||['won','lost'].includes(this.phase))return false;const cost=this.upgradeCost(t);if(this.ink<cost)return false;this.ink-=cost;t.spent+=cost;t.level++;this.emit('upgrade',{pad:t.pad,level:t.level});return true;}
- upgradeCost(t){return Math.round(getWord(t.word).cost*(t.level===getWord(t.word).tier?.75:1.15));}
+ upgradeCost(t){const w=getWord(t.word);return Math.round(w.cost*(t.level===w.tier?.75:1.15)*(hasRune(w,'study')?.92:1));}
+ barrierRemaining(){return Math.max(0,Math.max(0,...this.towers.filter(t=>hasRune(getWord(t.word),'barrier')).map(t=>Math.min(2,getWord(t.word).tier)))-this.barrierSpent);}
  sell(id){const t=this.towers.find(t=>t.id===id);if(!t||['won','lost'].includes(this.phase))return false;this.ink+=Math.floor(t.spent*.7);this.towers=this.towers.filter(x=>x.id!==id);this.emit('sell');return true;}
  continueEndless(){if(this.phase!=='won'||this.endless)return false;this.endless=true;this.phase='prepare';this.events=[];this.emit('endless');return true;}
  plan(wave){const plan=wavePlan(this.chapter,wave),kind=this.bossDraws.find(x=>x.wave===wave)?.kind;return kind?{...plan,bossKind:kind,title:ENEMIES[kind].name+' · '+plan.formation}:plan;}
@@ -266,15 +465,15 @@ export class Game {
  startWave(){if(!['prepare','intermission'].includes(this.phase))return false;this.launchWave(this.time);return true;}
  launchWave(at){
   this.wave++;this.phase='battle';const plan=wavePlan(this.chapter,this.wave),map=getMap(this.chapter);
-  if(plan.boss){const last=this.bossDraws.at(-1)?.kind,choices=[...COMMON_BOSSES,...Array(COMMON_BOSSES.length).fill(MAP_BOSSES[this.chapter])].filter(k=>k!==last);plan.bossKind=choices[Math.floor(this.random()*choices.length)];this.bossDraws.push({wave:this.wave,kind:plan.bossKind});this.bossDraws=this.bossDraws.slice(-12);}
+  if(plan.boss){const last=this.bossDraws.at(-1)?.kind,choices=[...COMMON_BOSSES,...MAP_BOSS_POOLS[this.chapter].flatMap(k=>Array(COMMON_BOSSES.length/MAP_BOSS_POOLS[this.chapter].length).fill(k))].filter(k=>k!==last);plan.bossKind=choices[Math.floor(this.random()*choices.length)];this.bossDraws.push({wave:this.wave,kind:plan.bossKind});this.bossDraws=this.bossDraws.slice(-12);}
   const batch=map.mode==='simultaneous'?map.routes.length:1,interval=Math.max(.4,1.03-plan.round*.035);
   const entries=Array.from({length:plan.count},(_,i)=>({kind:plan.boss&&i===plan.count-1?plan.bossKind:i===0&&plan.round>=2?plan.signature:i<Math.min(3,plan.pool.length)&&plan.stage>=4?plan.pool[i]:plan.pool[Math.floor(this.random()*plan.pool.length)],route:map.mode==='staggered'?Math.floor(i/4)%map.routes.length:i%map.routes.length,wave:this.wave,at:at+Math.floor(i/batch)*interval*batch}));
   this.queue.push(...entries);this.queue.sort((a,b)=>(a.at??this.time)-(b.at??this.time));
   this.pendingWaves??=[];this.pendingWaves.push(this.wave);this.autoWaveAt=plan.part<3?at+WAVE_INTERVAL:0;this.emit('wave',{wave:this.wave});
  }
- spawn(kind,distance=0,route=0,wave=this.wave){const round=Math.max(1,Math.ceil(wave/3)),part=(Math.max(1,wave)-1)%3;const scale=(1+(round-1)*.36+part*.08+CHAPTERS[this.chapter].difficulty)*1.25*(1+Math.max(0,round-5)*.015);const st=ENEMIES[kind];const e={map:this.chapter,route,wave,bornAt:this.time,id:this.nextId++,kind,hp:st.hp*scale,maxHp:st.hp*scale,speed:st.speed*(1+Math.min(this.chapter,4)*.05),reward:st.reward,harm:st.harm,d:Math.max(0,distance),slowUntil:0};if(kind==='shield'||st.shield){e.shield=(st.shield||55)*scale;e.maxShield=e.shield;}const behavior=st.behavior||kind;if(['healer','broodqueen','hillrunner','scrollguard','tideshaper','cloudraptor','rallyboss'].includes(behavior))e.abilityAt=this.time+({healer:4,broodqueen:8,hillrunner:st.boss?8:6,scrollguard:st.boss?9:8,tideshaper:st.boss?8:6,cloudraptor:st.boss?8:7,rallyboss:8}[behavior]);this.enemies.push(e);return e;}
+ spawn(kind,distance=0,route=0,wave=this.wave){const round=Math.max(1,Math.ceil(wave/3)),part=(Math.max(1,wave)-1)%3;const st=ENEMIES[kind],openingGrace=this.chapter>=3&&round<=3&&!st.boss?.9:1;const scale=(1+(round-1)*.36+part*.08+CHAPTERS[this.chapter].difficulty)*1.25*(1+Math.max(0,round-5)*.015)*openingGrace;const e={map:this.chapter,route,wave,bornAt:this.time,id:this.nextId++,kind,hp:st.hp*scale,maxHp:st.hp*scale,speed:st.speed*(1+Math.min(this.chapter,4)*.05),reward:st.reward,harm:st.harm,d:Math.max(0,distance),slowUntil:0};if(kind==='shield'||st.shield){e.shield=(st.shield||55)*scale;e.maxShield=e.shield;}const behavior=st.behavior||kind;if(['healer','broodqueen','hillrunner','scrollguard','tideshaper','cloudraptor','rallyboss'].includes(behavior))e.abilityAt=this.time+({healer:4,broodqueen:8,hillrunner:st.boss?8:6,scrollguard:st.boss?9:8,tideshaper:st.boss?8:6,cloudraptor:st.boss?8:7,rallyboss:8}[behavior]);if(st.pulse)e.pulseAt=this.time+st.pulse.interval;if(st.initialPhase!==undefined)e.astralMode=st.initialPhase;this.enemies.push(e);return e;}
  skillCost(){return SKILL_BASE_COST+this.skillUses*SKILL_COST_STEP;}
- skill(){const cost=this.skillCost();if(this.phase!=='battle'||this.time<this.skillReady||this.ink<cost)return false;this.ink-=cost;this.skillUses++;this.skillReady=this.time+SKILL_COOLDOWN;for(const e of this.enemies){e.hp-=100;if(!(enemyBehavior(e)==='frostbeast'&&(e.shellHits||0)<shellLimit(e)))e.slowUntil=this.time+3;}this.effects.push({kind:'rain',life:1,max:1});this.emit('skill',{cost,nextCost:this.skillCost()});return true;}
+ skill(){const cost=this.skillCost();if(this.phase!=='battle'||this.time<this.skillReady||this.ink<cost)return false;this.ink-=cost;this.skillUses++;this.skillReady=this.time+SKILL_COOLDOWN;for(const e of this.enemies){e.hp-=100;if(!(hasIceShell(e)))e.slowUntil=this.time+3;}this.effects.push({kind:'rain',life:1,max:1});this.emit('skill',{cost,nextCost:this.skillCost()});return true;}
  step(dt){dt=Math.max(0,Math.min(dt,.1));for(const fx of this.effects)fx.life-=dt;this.effects=this.effects.filter(f=>f.life>0);if(this.phase==='intermission'){this.phase='battle';this.pendingWaves=[];}
  if(this.phase!=='battle')return;
  this.pendingWaves??=this.wave>0?[this.wave]:[];
@@ -288,7 +487,7 @@ export class Game {
  this.updateZones();
  this.updateEnemies(dt);
  for(const t of this.towers)this.attack(t,dt);
- for(const e of this.enemies){if(e.hp<=0){const cap=Math.max(0,...this.towers.filter(t=>getWord(t.word).type==='income').map(t=>getWord(t.word).tier>=4?35:getWord(t.word).tier>=3?25:15));const bounty=e.bountyUntil>this.time?Math.min(e.bounty||0,Math.max(0,cap-this.bountyEarned)):0;this.bountyEarned+=bounty;this.ink+=e.reward+bounty;this.totalEarned+=e.reward+bounty;if(bounty)this.effects.push({kind:'coin',to:enemyPosition(e),amount:bounty,life:.8,max:.8});this.kills++;this.effects.push({kind:'pop',to:enemyPosition(e),color:'#556b58',life:.45,max:.45});if(e.kind==='beaconrunner'){const p=enemyPosition(e);for(const ally of this.enemies)if(ally!==e&&ally.hp>0&&Math.hypot(enemyPosition(ally).x-p.x,enemyPosition(ally).y-p.y)<110)ally.rallyUntil=Math.max(ally.rallyUntil||0,this.time+3);this.effects.push({kind:'blast',to:p,color:'#bd7a43',life:.5,max:.5});}if(e.kind==='split'){this.spawn('small',e.d,e.route,e.wave);this.spawn('small',e.d-12,e.route,e.wave);}}else if(e.d>=enemyLength(e)){this.hp=Math.max(0,this.hp-e.harm);this.emit('leak');}}
+ for(const e of this.enemies){if(e.hp<=0){const cap=Math.max(this.towers.some(t=>hasRune(getWord(t.word),'luck'))?10:0,...this.towers.filter(t=>getWord(t.word).type==='income').map(t=>getWord(t.word).tier>=4?35:getWord(t.word).tier>=3?25:15));const bounty=e.bountyUntil>this.time?Math.min(e.bounty||0,Math.max(0,cap-this.bountyEarned)):0;this.bountyEarned+=bounty;this.ink+=e.reward+bounty;this.totalEarned+=e.reward+bounty;if(bounty)this.effects.push({kind:'coin',to:enemyPosition(e),amount:bounty,life:.8,max:.8});if(e.soulUntil>this.time&&this.soulHealed<1&&this.hp<CHAPTERS[this.chapter].hp){this.hp++;this.soulHealed++;}this.kills++;this.effects.push({kind:'pop',to:enemyPosition(e),color:'#556b58',life:.45,max:.45});if(e.kind==='beaconrunner'){const p=enemyPosition(e);for(const ally of this.enemies)if(ally!==e&&ally.hp>0&&Math.hypot(enemyPosition(ally).x-p.x,enemyPosition(ally).y-p.y)<110)ally.rallyUntil=Math.max(ally.rallyUntil||0,this.time+3);this.effects.push({kind:'blast',to:p,color:'#bd7a43',life:.5,max:.5});}if(e.kind==='split'){this.spawn('small',e.d,e.route,e.wave);this.spawn('small',e.d-12,e.route,e.wave);}}else if(e.d>=enemyLength(e)){const harm=Math.max(1,e.harm-(e.weakenUntil>this.time?1:0)),blocked=Math.min(harm,this.barrierRemaining());this.barrierSpent+=blocked;this.hp=Math.max(0,this.hp-harm+blocked);if(this.hp===0&&!this.reviveUsed&&this.towers.some(t=>hasRune(getWord(t.word),'revive'))){this.hp=1;this.reviveUsed=true;this.emit('revive');}this.emit('leak',{blocked,damage:harm-blocked});}}
  this.enemies=this.enemies.filter(e=>e.hp>0&&e.d<enemyLength(e));if(this.hp<=0){this.phase='lost';this.emit('lost');}else this.settleWaves();
  }
  settleWaves(){
@@ -299,7 +498,7 @@ export class Game {
   if(this.wave===0||this.wave%3!==0||this.pendingWaves.length||this.queue.length||this.enemies.length)return;
   const round=this.wave/3,incomeCap=Math.max(80,...this.towers.filter(t=>getWord(t.word).type==='income').map(t=>getWord(t.word).tier>=4?100:getWord(t.word).tier>=3?90:80));
   const income=Math.min(incomeCap,this.towers.filter(t=>getWord(t.word).type==='income').reduce((sum,t)=>sum+towerStats(t).income,0));
-  const reward=20+round*3+income;this.ink+=reward;this.refreshes=0;this.bountyEarned=0;this.hp=Math.min(CHAPTERS[this.chapter].hp,this.hp+2);this.autoWaveAt=0;
+  const extra=Math.min(10,this.towers.filter(t=>hasRune(getWord(t.word),'prosper')).reduce((v,t)=>v+getWord(t.word).tier,0));const repair=Math.min(2,this.towers.filter(t=>hasRune(getWord(t.word),'mend')).length);const reward=20+round*3+income+extra;this.ink+=reward;this.refreshes=0;this.bountyEarned=0;this.hp=Math.min(CHAPTERS[this.chapter].hp,this.hp+2+repair);this.barrierSpent=0;this.soulHealed=0;this.autoWaveAt=0;
   this.zones=[];this.phase=!this.endless&&this.wave>=CHAPTERS[this.chapter].waves?'won':'prepare';this.emit(this.phase==='won'?'won':'clear',{wave:this.wave,reward,income,roundEnd:true});
  }
 
@@ -317,10 +516,11 @@ export class Game {
   // Iterate a snapshot so summons never recursively execute abilities this frame.
   const living=this.enemies.filter(e=>e.hp>0&&e.d<enemyLength(e));
   for(const e of living){
-   const behavior=enemyBehavior(e),boss=ENEMIES[e.kind].boss;
-   if(e.kind==='regen'&&!(e.poisonUntil>this.time))e.hp=Math.min(e.maxHp,e.hp+e.maxHp*.02*dt);
-   if(e.poisonUntil>this.time-dt)e.hp-=Math.min(dt,Math.max(0,e.poisonUntil-(this.time-dt)))*e.poisonDps;
-   if(e.burnUntil>this.time-dt)e.hp-=Math.min(dt,Math.max(0,e.burnUntil-(this.time-dt)))*e.burnDps;
+   const behavior=enemyBehavior(e),boss=ENEMIES[e.kind].boss,canAct=!(e.silencedUntil>this.time);
+   const data=ENEMIES[e.kind],regen=data.regenRate||(e.kind==='regen'?.02:0);if(regen&&!(e.poisonUntil>this.time||e.healBlockUntil>this.time))e.hp=Math.min(e.maxHp,e.hp+e.maxHp*regen*dt);
+   if(e.poisonUntil>this.time-dt)e.hp-=Math.min(dt,Math.max(0,e.poisonUntil-(this.time-dt)))*e.poisonDps*(1-((e.lightUntil>this.time||e.markUntil>this.time)?0:(data.poisonResist||0)));
+   if(e.bleedUntil>this.time-dt)e.hp-=Math.min(dt,Math.max(0,e.bleedUntil-(this.time-dt)))*e.bleedDps;
+   if(e.burnUntil>this.time-dt)e.hp-=Math.min(dt,Math.max(0,e.burnUntil-(this.time-dt)))*e.burnDps*(1-(data.burnResist||0));
    if(e.hp<=0)continue;
    if(['brood','ironboss','inkking'].includes(e.kind)&&e.hp<=e.maxHp*.5&&!e.enraged){
     e.enraged=true;
@@ -328,46 +528,54 @@ export class Game {
     if(e.kind==='inkking'){e.shield=e.maxShield=e.maxHp*.18;this.spawn('swift',e.d-12,e.route,e.wave);this.spawn('swift',e.d-24,e.route,e.wave);}
     if(ENEMIES[e.kind].boss)this.emit('boss-phase',{name:ENEMIES[e.kind].name});
    }
-   if(MAP_BOSSES.includes(e.kind)&&!e.enraged&&e.hp<=e.maxHp*.5){
-    e.enraged=true;
-    const summon=k=>{this.spawn(k,e.d-18,e.route,e.wave);this.spawn(k,e.d-36,e.route,e.wave);};
-    if(e.kind==='bambooboss')summon('bamboostalker');
-    if(e.kind==='scrollboss')summon('scrollguard');
-    if(e.kind==='mirrorqueen')summon('mirrorling');
-    if(e.kind==='tideboss'&&!(e.poisonUntil>this.time))e.hp=Math.min(e.maxHp,e.hp+e.maxHp*.08);
-    if(e.kind==='cloudboss'||e.kind==='astralboss')e.shield=e.maxShield=e.maxHp*.15;
-    if(e.kind==='frostlord'){e.shellHits=0;e.slowUntil=0;e.freezeUntil=0;}
-    if(e.kind==='astralboss')e.astralPeriod=3;
-    this.emit('boss-phase',{name:ENEMIES[e.kind].name});
+   if(data.phase&&!e.enraged&&e.hp<=e.maxHp*.5){
+    e.enraged=true;const phase=data.phase;
+    if(phase.summon)for(let i=0;i<(phase.count||1);i++)this.spawn(phase.summon,e.d-18*(i+1),e.route,e.wave);
+    if(phase.heal&&!(e.poisonUntil>this.time||e.healBlockUntil>this.time))e.hp=Math.min(e.maxHp,e.hp+e.maxHp*phase.heal);
+    if(phase.shield)e.shield=e.maxShield=Math.max(e.shield||0,e.maxHp*phase.shield);
+    if(phase.shell){e.shellHits=0;e.slowUntil=0;e.freezeUntil=0;}
+    if(phase.period)e.astralPeriod=phase.period;
+    if(phase.mode!==undefined)e.astralMode=phase.mode;
+    this.emit('boss-phase',{name:data.name});
    }
-   if(behavior==='rallyboss'&&this.time>=e.abilityAt&&(e.charges||0)<3){for(const ally of living)if(ally!==e&&ally.hp>0&&nearby(e,ally,150))ally.rallyUntil=Math.max(ally.rallyUntil||0,this.time+3);e.charges=(e.charges||0)+1;e.abilityAt=this.time+8;this.effects.push({kind:'blast',to:enemyPosition(e),color:'#c68b46',life:.5,max:.5});}
+   const pulse=data.pulse;
+   if(pulse&&canAct&&this.time>=e.pulseAt&&(e.pulses||0)<pulse.limit){
+    const allies=[e,...living.filter(a=>a!==e&&a.hp>0&&nearby(e,a,pulse.radius||110))].slice(0,pulse.targets||3);
+    if(pulse.kind==='heal')for(const a of allies){if(!(a.poisonUntil>this.time||a.healBlockUntil>this.time))a.hp=Math.min(a.maxHp,a.hp+a.maxHp*pulse.ratio);}
+    if(pulse.kind==='shield')for(const a of allies){a.shield=Math.max(a.shield||0,e.maxHp*pulse.ratio);a.maxShield=Math.max(a.maxShield||0,a.shield);}
+    if(pulse.kind==='haste')for(const a of allies)a.rallyUntil=Math.max(a.rallyUntil||0,this.time+3);
+    if(pulse.kind==='summon')for(let i=0;i<pulse.count;i++)this.spawn(pulse.unit,e.d-18*(i+1),e.route,e.wave);
+    if(pulse.kind==='blink'&&!(e.slowUntil>this.time)&&!(e.freezeUntil>this.time))e.d+=pulse.distance;
+    e.pulses=(e.pulses||0)+1;e.pulseAt=this.time+pulse.interval;this.effects.push({kind:'blast',to:enemyPosition(e),color:data.color||'#9a8260',life:.4,max:.4});
+   }
+   if(behavior==='rallyboss'&&canAct&&this.time>=e.abilityAt&&(e.charges||0)<3){for(const ally of living)if(ally!==e&&ally.hp>0&&nearby(e,ally,150))ally.rallyUntil=Math.max(ally.rallyUntil||0,this.time+3);e.charges=(e.charges||0)+1;e.abilityAt=this.time+8;this.effects.push({kind:'blast',to:enemyPosition(e),color:'#c68b46',life:.5,max:.5});}
    if(e.kind==='mirrorling'&&!e.mirrored&&e.hp<=e.maxHp*.5){
     e.mirrored=true;const copy=this.spawn('mirrorling',e.d-18,e.route,e.wave);copy.mirrored=true;copy.isCopy=true;copy.hp=copy.maxHp=e.maxHp*.35;copy.reward=1;
     this.effects.push({kind:'blast',to:enemyPosition(e),color:ENEMIES.mirrorling.color,life:.5,max:.5});
    }
-   if(behavior==='hillrunner'&&this.time>=e.abilityAt){if(!(e.slowUntil>this.time)&&!(e.freezeUntil>this.time)){e.d+=50;this.effects.push({kind:'pop',to:enemyPosition(e),color:ENEMIES.hillrunner.color,life:.4,max:.4});}e.abilityAt=this.time+(boss?(e.enraged?6:8):6);}
-   if(behavior==='scrollguard'&&this.time>=e.abilityAt&&(e.charges||0)<(boss?3:2)){e.shield=e.maxShield=Math.max(e.shield||0,e.maxHp*.38);e.charges=(e.charges||0)+1;e.abilityAt=this.time+(boss?9:8);}
-   if(behavior==='tideshaper'&&this.time>=e.abilityAt&&(e.charges||0)<(boss?3:2)){
+   if(behavior==='hillrunner'&&canAct&&this.time>=e.abilityAt){if(!(e.slowUntil>this.time)&&!(e.freezeUntil>this.time)){e.d+=50;this.effects.push({kind:'pop',to:enemyPosition(e),color:ENEMIES.hillrunner.color,life:.4,max:.4});}e.abilityAt=this.time+(boss?(e.enraged?6:8):6);}
+   if(behavior==='scrollguard'&&canAct&&this.time>=e.abilityAt&&(e.charges||0)<(boss?3:2)){e.shield=e.maxShield=Math.max(e.shield||0,e.maxHp*.38);e.charges=(e.charges||0)+1;e.abilityAt=this.time+(boss?9:8);}
+   if(behavior==='tideshaper'&&canAct&&this.time>=e.abilityAt&&(e.charges||0)<(boss?3:2)){
     for(const ally of living.filter(a=>a!==e&&a.hp>0&&nearby(e,a,100)).slice(0,3)){const shield=e.maxHp*.25;ally.shield=Math.max(ally.shield||0,shield);ally.maxShield=Math.max(ally.maxShield||0,shield);}
     e.charges=(e.charges||0)+1;e.abilityAt=this.time+(boss?8:6);this.effects.push({kind:'blast',to:enemyPosition(e),color:ENEMIES.tideshaper.color,life:.4,max:.4});
    }
    if(behavior==='cloudraptor'&&(e.slowUntil>this.time||e.freezeUntil>this.time))e.diveUntil=Math.min(e.diveUntil||0,this.time);
-   if(behavior==='cloudraptor'&&this.time>=e.abilityAt){e.diveUntil=e.slowUntil>this.time||e.freezeUntil>this.time?this.time:this.time+2;e.abilityAt=this.time+(boss?8:7);}
-   if(e.kind==='healer'&&this.time>=e.abilityAt){
-    for(const ally of living)if(ally.hp>0&&nearby(e,ally,110)&&!(ally.poisonUntil>this.time))ally.hp=Math.min(ally.maxHp,ally.hp+ally.maxHp*.03);
+   if(behavior==='cloudraptor'&&canAct&&this.time>=e.abilityAt){e.diveUntil=e.slowUntil>this.time||e.freezeUntil>this.time?this.time:this.time+2;e.abilityAt=this.time+(boss?8:7);}
+   if(e.kind==='healer'&&canAct&&this.time>=e.abilityAt){
+    for(const ally of living)if(ally.hp>0&&nearby(e,ally,110)&&!(ally.poisonUntil>this.time||ally.healBlockUntil>this.time))ally.hp=Math.min(ally.maxHp,ally.hp+ally.maxHp*.03);
     e.abilityAt=this.time+4;this.effects.push({kind:'blast',to:enemyPosition(e),color:'#719b65',life:.5,max:.5});
    }
-   if(e.kind==='broodqueen'&&this.time>=e.abilityAt&&(e.summons||0)<3){
+   if(e.kind==='broodqueen'&&canAct&&this.time>=e.abilityAt&&(e.summons||0)<3){
     this.spawn('small',e.d-12,e.route,e.wave);this.spawn('small',e.d-24,e.route,e.wave);e.summons=(e.summons||0)+1;e.abilityAt=this.time+(e.hp<e.maxHp*.5?5:8);
    }
    const guarded=this.towers.some(t=>getWord(t.word).trait==='ward'&&Math.hypot(this.pads[t.pad].x-enemyPosition(e).x,this.pads[t.pad].y-enemyPosition(e).y)<=towerStats(t).range*.65);
    let movement=e.slowUntil>this.time?(e.slowFactor??.55):1;
-   if(guarded&&!(enemyBehavior(e)==='frostbeast'&&(e.shellHits||0)<shellLimit(e)))movement=Math.min(movement,.9);
+   if(guarded&&!(hasIceShell(e)))movement=Math.min(movement,.9);
    if(e.freezeUntil>this.time)movement=0;
    if(e.rallyUntil>this.time)movement*=1.3;
    if(behavior==='cloudraptor'&&e.diveUntil>this.time&&!(e.slowUntil>this.time))movement*=1.55;
    if(e.kind==='lancer'&&e.hp<=e.maxHp*.5)movement*=1.35;
-   if(boss&&['hillrunner','clockwork','rallyboss'].includes(behavior)&&e.enraged)movement*=behavior==='hillrunner'?1.12:1.2;
+   if(e.enraged&&data.phase?.haste)movement*=1+data.phase.haste;
    if(e.kind==='ironboss'&&e.enraged)movement*=1.2;
    if(e.kind==='inkking'&&e.enraged)movement*=1.15;
    if(!isAir(e)&&living.some(a=>a.kind==='banner'&&a.id!==e.id&&a.hp>0&&nearby(e,a,110)))movement*=1.15;
@@ -383,39 +591,62 @@ export class Game {
   const target=targets[0],n=w.tier;
   const lights=this.towers.filter(a=>a.id!==t.id&&getWord(a.word).type==='aura'&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range);
   const buff=Math.max(0,...lights.map(a=>towerStats(a).aura));
-  const haste=Math.max(0,...lights.map(a=>getWord(a.word).tier>=4?.12:getWord(a.word).tier>=3?.06:0));
-  const chilled=this.enemies.some(e=>e.hp>0&&e.kind==='frostboss'&&Math.hypot(enemyPosition(e).x-p.x,enemyPosition(e).y-p.y)<=130);
+  const inspired=this.towers.some(a=>a.id!==t.id&&hasRune(getWord(a.word),'inspire')&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range*.65);const haste=Math.max(inspired?.03:0,...lights.map(a=>getWord(a.word).tier>=4?.12:getWord(a.word).tier>=3?.06:0));
+  const chilled=this.enemies.some(e=>e.hp>0&&enemyBehavior(e)==='frostboss'&&Math.hypot(enemyPosition(e).x-p.x,enemyPosition(e).y-p.y)<=130);
   const damage=stats.damage*(1+buff);
-  let hitNumber=0;
+  const shotNumber=(t.shots||0)+1;let hitNumber=0;
   const hit=(e,m=1)=>{
    if(e.hp<=0)return;const behavior=enemyBehavior(e);
-   let armor=e.kind==='armor'?.3:e.kind==='ironboss'&&!e.enraged?.4:0;
-   if(['heavy','pierce'].includes(w.type)||e.breakUntil>this.time)armor=0;else armor=Math.max(0,armor-(trait.armorPierce||0));
+   let armor=e.kind==='armor'?.3:e.kind==='ironboss'?(e.enraged?0:.4):(ENEMIES[e.kind].armor||0);
+   if(['heavy','pierce'].includes(w.type)||e.breakUntil>this.time)armor=0;else armor=Math.max(0,armor-(trait.armorPierce||0)-(hasRune(w,'edge')?.05:0));
    const revealed=e.lightUntil>this.time||e.markUntil>this.time||e.breakUntil>this.time;
    let special=1;
    if(behavior==='bamboostalker'&&!revealed&&Math.hypot(enemyPosition(e).x-p.x,enemyPosition(e).y-p.y)>(ENEMIES[e.kind].stealthDistance||130))special*=.7;
    if(behavior==='clockwork'&&!(ENEMIES[e.kind].boss&&e.enraged)&&!['heavy','pierce'].includes(w.type)&&!revealed){const here=enemyPosition(e),ahead=enemyPosition({...e,d:e.d+4});if((p.x-here.x)*(ahead.x-here.x)+(p.y-here.y)*(ahead.y-here.y)>0)special*=.55;}
-   if(enemyBehavior(e)==='frostbeast'&&(e.shellHits||0)<shellLimit(e)){special*=ENEMIES[e.kind].boss?.8:.85;e.shellHits=Math.min(shellLimit(e),(e.shellHits||0)+(['splash','heavy'].includes(w.type)?2:1));}
+   if(hasIceShell(e)){special*=ENEMIES[e.kind].boss?.8:.85;e.shellHits=Math.min(shellLimit(e),(e.shellHits||0)+(['splash','heavy'].includes(w.type)?2:1));}
    if(behavior==='astral'&&!revealed&&!(w.type==='heavy'&&astralPhase(e,this.time)===0)&&PHYSICAL_TYPES.has(w.type)===(astralPhase(e,this.time)===0))special*=.65;
+   if(ENEMIES[e.kind].resistTypes?.includes(w.type)&&!revealed)special*=1-(ENEMIES[e.kind].resistance||0);
    const protectedByWard=!(e.lightUntil>this.time)&&this.enemies.some(a=>a.hp>0&&a.kind==='ward'&&a.id!==e.id&&Math.hypot(enemyPosition(a).x-enemyPosition(e).x,enemyPosition(a).y-enemyPosition(e).y)<110);
    let amount=damage*m*special*(1-armor)*(protectedByWard?.88:1)*(e.markUntil>this.time?1+e.markPower:1);
+   if(hasRune(w,'edge')&&['heavy','pierce'].includes(w.type))amount*=1.05;
+   if(hasRune(w,'slayer')&&ENEMIES[e.kind].boss)amount*=1.12;
+   if(hasRune(w,'valor')&&e.hp/e.maxHp>.85)amount*=1.15;
+   if(hasRune(w,'execute')&&e.hp/e.maxHp<.2)amount*=1.15;
+   if(hasRune(w,'focus')&&shotNumber%4===0)amount*=1.15;
+   if(hasRune(w,'rescue')&&e.d/enemyLength(e)>.7)amount*=1.12;
+   if(hasRune(w,'count')&&shotNumber%w.semanticCycle===0)amount*=1+w.semanticCycle*.1;
+   if(hasRune(w,'flank')||hasRune(w,'backstab')||hasRune(w,'front')){const here=enemyPosition(e),ahead=enemyPosition({...e,d:e.d+4}),dx=ahead.x-here.x,dy=ahead.y-here.y,len=Math.hypot(dx,dy)*Math.hypot(p.x-here.x,p.y-here.y)||1,cos=((p.x-here.x)*dx+(p.y-here.y)*dy)/len;if(hasRune(w,'flank')&&Math.abs(cos)<.5||hasRune(w,'backstab')&&cos<-.5||hasRune(w,'front')&&cos>.5)amount*=1.15;}
+   if(hasRune(w,'gravity')&&shotNumber%4===0)amount+=Math.min(8,e.maxHp*.003);
    if(w.type==='sniper'&&e.hp/e.maxHp<(n>=4?.4:n>=3?.35:.3))amount*=n>=4?2.2:n>=3?2:1.8;
    if(w.type==='heavy'&&n>=4)amount+=Math.min(60,e.maxHp*.02);
-   if(e.shield>0){const bonus=w.type==='chain'?2:w.trait==='purify'?1.5:1,absorbed=Math.min(e.shield,amount*bonus);e.shield-=absorbed;amount-=absorbed/bonus;}
+   if(e.shield>0){const bonus=(w.type==='chain'?2:w.trait==='purify'?1.5:1)+(hasRune(w,'storm')?.25:0),absorbed=Math.min(e.shield,amount*bonus);e.shield-=absorbed;amount-=absorbed/bonus;}
    e.hp-=Math.max(0,amount);
    if(w.type==='mark'){e.markPower=Math.max(e.markUntil>this.time?e.markPower:0,n>=4?.3:n>=3?.22:.15);e.markUntil=this.time+(n>=4?5:3);}
-   if(w.type==='aura')e.lightUntil=this.time+rules.lightDuration;
+   if(hasRune(w,'luck')){e.bounty=Math.max(e.bountyUntil>this.time?e.bounty:0,1);e.bountyUntil=this.time+2;}
+   if(hasRune(w,'shine')&&w.type!=='aura')e.lightUntil=Math.max(e.lightUntil||0,this.time+2);
+   if(hasRune(w,'curse')){e.markPower=Math.max(e.markUntil>this.time?e.markPower:0,.08);e.markUntil=Math.max(e.markUntil||0,this.time+2);}
+   if(hasRune(w,'peace'))e.weakenUntil=this.time+2;
+   if(hasRune(w,'soul'))e.soulUntil=this.time+2;
+   if(hasRune(w,'bleed')){e.bleedDps=Math.max(e.bleedUntil>this.time?e.bleedDps:0,damage*.1);e.bleedUntil=this.time+2;}
+   if(hasRune(w,'silence')&&shotNumber%4===0&&!(e.silenceReady>this.time)){e.silencedUntil=this.time+1;e.silenceReady=this.time+4;}
+   if(hasRune(w,'seal'))e.healBlockUntil=this.time+2;
+   if(w.type==='aura')e.lightUntil=Math.max(e.lightUntil||0,this.time+rules.lightDuration);
    if(w.type==='income'){e.bounty=Math.max(e.bountyUntil>this.time?e.bounty:0,rules.bounty);e.bountyUntil=this.time+rules.bountyDuration;}
    if(w.type==='heavy'&&n>=3)e.breakUntil=this.time+3;if(w.trait==='sunder')e.breakUntil=Math.max(e.breakUntil||0,this.time+2.5);
    const delay=w.trait==='combo'?hitNumber++*.08:0;this.effects.push({kind:'bolt',attackType:w.trait==='ranged'?'arrow':w.trait==='blade'&&w.type!=='pierce'?'slash':w.type,from:p,to:enemyPosition(e),color:w.color,life:.32+delay,max:.32});
   };
-  const slow=(e,factor,seconds)=>{if(enemyBehavior(e)==='frostbeast'&&(e.shellHits||0)<shellLimit(e))return;e.slowFactor=Math.min(e.slowUntil>this.time?(e.slowFactor??.55):1,factor);e.slowUntil=Math.max(e.slowUntil||0,this.time+seconds);};
+  const slow=(e,factor,seconds)=>{if(hasIceShell(e))return;e.slowFactor=Math.min(e.slowUntil>this.time?(e.slowFactor??.55):1,factor);e.slowUntil=Math.max(e.slowUntil||0,this.time+seconds);};
   const poison=e=>{e.poisonDps=Math.max(e.poisonUntil>this.time?e.poisonDps:0,damage*rules.poisonRatio);e.poisonUntil=Math.max(e.poisonUntil||0,this.time+rules.poisonDuration);};
   hit(target);this.effects.push({kind:'cast',attackType:w.type,sound:w.trait==='ranged'?'sniper':w.type,from:p,color:w.color,life:.24,max:.24});t.shots=(t.shots||0)+1;
   if(w.type==='poison'){poison(target);if(rules.poisonTargets){const q=enemyPosition(target);for(const e of targets.filter(e=>e!==target&&Math.hypot(enemyPosition(e).x-q.x,enemyPosition(e).y-q.y)<rules.poisonRadius).slice(0,rules.poisonTargets))poison(e);}}
   if(w.type==='slow'){slow(target,rules.slowFactor,rules.slowDuration);if(w.trait==='spread'){const q=enemyPosition(target);for(const e of targets.filter(e=>e!==target&&Math.hypot(enemyPosition(e).x-q.x,enemyPosition(e).y-q.y)<100).slice(0,2))slow(e,rules.slowFactor,rules.slowDuration);}}
-  const freeze=w.type==='slow'?rules.freeze:w.trait==='bind'?.15:0;if(freeze&&!(target.freezeReady>this.time)&&!(enemyBehavior(target)==='frostbeast'&&(target.shellHits||0)<shellLimit(target))){target.freezeUntil=this.time+freeze;target.freezeReady=this.time+4;this.effects.push({kind:'bind',to:enemyPosition(target),color:w.color,life:.45,max:.45});}
+  const freeze=w.type==='slow'?rules.freeze:w.trait==='bind'?.15:0;if(freeze&&!(target.freezeReady>this.time)&&!(hasIceShell(target))){target.freezeUntil=this.time+freeze;target.freezeReady=this.time+4;this.effects.push({kind:'bind',to:enemyPosition(target),color:w.color,life:.45,max:.45});}
   if(w.trait==='moon')slow(target,.8,1);
+  if(hasRune(w,'frost')&&w.type!=='slow')slow(target,.9,1);
+  if(hasRune(w,'ember')){target.burnDps=Math.max(target.burnUntil>this.time?target.burnDps:0,damage*(w.type==='splash'?.26:.1));target.burnUntil=this.time+2;}
+  if((hasRune(w,'toxin')||hasRune(w,'venom'))&&w.type!=='poison'){target.poisonDps=Math.max(target.poisonUntil>this.time?target.poisonDps:0,damage*(hasRune(w,'venom')?.24:.16));target.poisonUntil=this.time+2;}
+  if(hasRune(w,'thorn')&&t.shots%3===0&&!(target.freezeReady>this.time)&&!hasIceShell(target)){target.freezeUntil=this.time+.15;target.freezeReady=this.time+4;}
+  if(hasRune(w,'tide')&&t.shots%4===0&&!(target.recoilReady>this.time)){target.d=Math.max(0,target.d-(ENEMIES[target.kind].boss?4:8));target.recoilReady=this.time+3;}
   if(w.trait==='dragon'){
    const q=enemyPosition(target),dx=q.x-p.x,dy=q.y-p.y,len=Math.hypot(dx,dy)||1;const cone=targets.filter(e=>{const z=enemyPosition(e),dist=Math.hypot(z.x-p.x,z.y-p.y)||1;return((z.x-p.x)*dx+(z.y-p.y)*dy)/(dist*len)>=Math.cos(Math.PI/5);}).slice(0,6);
    for(const e of cone){if(e!==target)hit(e,.6);if(w.type==='poison')poison(e);if(w.type==='slow')slow(e,rules.slowFactor,rules.slowDuration);if(w.type==='splash'&&n>=4){e.burnDps=Math.max(e.burnUntil>this.time?e.burnDps:0,damage*.18);e.burnUntil=this.time+2;}}
@@ -441,7 +672,10 @@ export class Game {
   if(trait.followup)hit(target,trait.followup);
   if(w.trait==='spread'&&!['splash','slow','poison','chain','pulse'].includes(w.type))for(const e of targets.filter(e=>e!==target).slice(0,2))hit(e,.35);
   if(w.trait==='ward'&&w.type==='splash'){target.burnDps=Math.max(target.burnUntil>this.time?target.burnDps:0,damage*.12);target.burnUntil=this.time+2;}
-  t.cooldown=stats.rate*(chilled?1.25:1)/(1+haste);
+  if(hasRune(w,'echo')){const side=targets.find(e=>e!==target&&e.hp>0);if(side)hit(side,.2);}
+  if(hasRune(w,'brood')&&t.shots%3===0)hit(targets.find(e=>e.hp>0)||target,.2);
+  if(hasRune(w,'bloom')){const q=enemyPosition(target);for(const side of targets.filter(e=>e!==target&&Math.hypot(enemyPosition(e).x-q.x,enemyPosition(e).y-q.y)<45).slice(0,2))hit(side,.15);}
+  t.cooldown=stats.rate*(hasRune(w,'tempo')&&t.shots%4===0?.88:1)*(chilled?1.25:1)/(1+haste);
  }
  export(){const {effects,events,_wordCacheKey,_wordCache,...data}=this;return {...data,towers:this.towers.map(t=>({...t})),enemies:this.enemies.map(e=>({...e})),queue:this.queue.map(e=>({...e})),hand:this.hand.map(t=>({...t})),unlockedPads:[...this.unlockedPads],bossDraws:this.bossDraws.map(x=>({...x})),zones:this.zones.map(z=>({...z})),pendingWaves:this.pendingWaves?[...this.pendingWaves]:this.phase==='battle'&&this.wave>0?[this.wave]:[],version:4};}
  static restore(data){
@@ -449,8 +683,11 @@ export class Game {
  if(!data||![1,2,3,4].includes(data.version)||!int(data.chapter)||!CHAPTERS[data.chapter]||!int(data.wave)||(data.endless!==undefined&&typeof data.endless!=='boolean')||(!data.endless&&data.wave>(data.version<3?CHAPTERS[data.chapter].rounds:CHAPTERS[data.chapter].waves))||!['prepare','battle','intermission','won','lost'].includes(data.phase)||!['ink','hp','time','skillReady','totalEarned'].every(k=>finite(data[k])&&data[k]>=0)||data.hp>CHAPTERS[data.chapter].hp||!['kills','nextId'].every(k=>int(data[k]))||!finite(data.spawnTime)||!Array.isArray(data.towers)||!Array.isArray(data.enemies)||!Array.isArray(data.queue))throw Error('Invalid save');
  if(data.towers.length>PADS.length||new Set(data.towers.map(t=>t?.pad)).size!==data.towers.length||data.towers.some(t=>!t||!WORDS.some(w=>w.word===t.word)||!int(t.pad)||!PADS[t.pad]||(!Number.isInteger(t.level)||(data.version===1?![1,2,3].includes(t.level):t.level<getWord(t.word).tier||t.level>getWord(t.word).maxLevel))||!int(t.id)||!finite(t.cooldown))||data.enemies.some(e=>!e||!kind(e.kind)||!int(e.id)||!['hp','maxHp','speed','reward','harm','d','slowUntil'].every(k=>finite(e[k]))||e.maxHp<=0||e.speed<=0||e.d<0)||data.queue.some(e=>!e||!kind(e.kind)))throw Error('Invalid save');
  if(data.enemies.some(e=>(e.shield!==undefined&&(!finite(e.shield)||e.shield<0))||(e.maxShield!==undefined&&(!finite(e.maxShield)||e.maxShield<0))))throw Error('Invalid shield state');
+ if(data.reviveUsed!==undefined&&typeof data.reviveUsed!=='boolean')throw Error('Invalid revival');
+ if(data.barrierSpent!==undefined&&(!int(data.barrierSpent)||data.barrierSpent>2)||data.soulHealed!==undefined&&(!int(data.soulHealed)||data.soulHealed>1))throw Error('Invalid semantic round state');
  if(data.bountyEarned!==undefined&&(!int(data.bountyEarned)||data.bountyEarned>35))throw Error('Invalid bounty');
- if(data.enemies.some(e=>['abilityAt','poisonDps','poisonUntil','burnDps','burnUntil','markUntil','markPower','breakUntil','lightUntil','bountyUntil','bounty','freezeUntil','freezeReady','slowFactor','summons','bornAt','rallyUntil','diveUntil','charges','shellHits','astralPeriod'].some(k=>e[k]!==undefined&&(!finite(e[k])||e[k]<0))||(e.enraged!==undefined&&typeof e.enraged!=='boolean')||['mirrored','isCopy'].some(k=>e[k]!==undefined&&typeof e[k]!=='boolean')||(e.burnUntil!==undefined&&!finite(e.burnDps))))throw Error('Invalid enemy ability');
+ if(data.enemies.some(e=>['abilityAt','poisonDps','poisonUntil','burnDps','burnUntil','markUntil','markPower','breakUntil','lightUntil','bountyUntil','bounty','freezeUntil','freezeReady','slowFactor','summons','bornAt','rallyUntil','diveUntil','charges','shellHits','astralPeriod','pulseAt','pulses','soulUntil','weakenUntil','healBlockUntil','recoilReady','bleedDps','bleedUntil','silencedUntil','silenceReady'].some(k=>e[k]!==undefined&&(!finite(e[k])||e[k]<0))||(e.enraged!==undefined&&typeof e.enraged!=='boolean')||['mirrored','isCopy'].some(k=>e[k]!==undefined&&typeof e[k]!=='boolean')||['burn','bleed'].some(prefix=>e[prefix+'Until']!==undefined&&!finite(e[prefix+'Dps']))))throw Error('Invalid enemy ability');
+ if(data.enemies.some(e=>e.astralMode!==undefined&&![0,1].includes(e.astralMode)))throw Error('Invalid astral mode');
  if(data.towers.some(t=>t.shots!==undefined&&!int(t.shots)))throw Error('Invalid tower attack counter');
  if(data.enemies.some(e=>(e.map!==undefined&&e.map!==data.chapter)||(e.route!==undefined&&(!int(e.route)||e.route>=getMap(data.chapter).routes.length)))||data.queue.some(e=>e.route!==undefined&&(!int(e.route)||e.route>=getMap(data.chapter).routes.length)))throw Error('Invalid route');
  if(data.version===4){
@@ -462,7 +699,7 @@ export class Game {
  if(data.zones!==undefined&&(!Array.isArray(data.zones)||data.zones.length>32||data.zones.some(z=>!z||!['fire','poison'].includes(z.kind)||!int(z.tower)||!getWord(z.word)||!['x','y','radius','power','until'].every(k=>finite(z[k]))||z.radius<=0||z.radius>200||z.power<0||z.until<0)))throw Error('Invalid spell zones');
  if(data.skillUses!==undefined&&!int(data.skillUses))throw Error('Invalid skill use count');
  if(data.autoWaveAt!==undefined&&(!finite(data.autoWaveAt)||data.autoWaveAt<0))throw Error('Invalid wave timer');
- const g=new Game(data.chapter);g.bossDraws=(data.bossDraws||[]).map(x=>({...x}));g.zones=(data.zones||[]).map(z=>({...z}));g.bountyEarned=data.bountyEarned??0;g.autoWaveAt=data.autoWaveAt??0;g.endless=data.endless===true;g.skillUses=data.skillUses??0;for(const k of ['wave','hp','ink','towers','enemies','queue','time','spawnTime','phase','kills','nextId','skillReady','totalEarned'])g[k]=data[k];
+ const g=new Game(data.chapter);g.bossDraws=(data.bossDraws||[]).map(x=>({...x}));g.zones=(data.zones||[]).map(z=>({...z}));g.reviveUsed=data.reviveUsed??false;g.barrierSpent=data.barrierSpent??0;g.soulHealed=data.soulHealed??0;g.bountyEarned=data.bountyEarned??0;g.autoWaveAt=data.autoWaveAt??0;g.endless=data.endless===true;g.skillUses=data.skillUses??0;for(const k of ['wave','hp','ink','towers','enemies','queue','time','spawnTime','phase','kills','nextId','skillReady','totalEarned'])g[k]=data[k];
  if(data.version>=2){
   const chars=new Set(WORDS.flatMap(w=>[...w.word]));
   if(!int(data.rngState)||data.rngState===0||data.rngState>4294967295||!int(data.refreshes)||!int(data.handSerial)||!Array.isArray(data.hand)||data.hand.length!==HAND_SIZE||new Set(data.hand.map(t=>t?.id)).size!==HAND_SIZE||data.hand.some(t=>!t||!int(t.id)||t.id===0||t.id>data.handSerial||!chars.has(t.ch)||typeof t.used!=='boolean')||data.towers.some(t=>!finite(t.spent)||t.spent<0)||data.enemies.some(e=>(e.poisonDps!==undefined&&(!finite(e.poisonDps)||e.poisonDps<0))||(e.poisonUntil!==undefined&&(!finite(e.poisonUntil)||!finite(e.poisonDps)))))throw Error('Invalid word tray');
