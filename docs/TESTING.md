@@ -4,7 +4,7 @@
 
 ## 规则回归
 
-`node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs tests/timing.test.mjs tests/specialties.test.mjs tests/word-traits.test.mjs tests/endless-bosses.test.mjs tests/boss-pools.test.mjs tests/word-meanings.test.mjs`：112 项通过。
+`node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs tests/timing.test.mjs tests/specialties.test.mjs tests/word-traits.test.mjs tests/endless-bosses.test.mjs tests/boss-pools.test.mjs tests/word-meanings.test.mjs`：113 项通过。
 
 覆盖约 4 万词与十四类词塔、严格词序、500 随机手牌、一次性扣牌扣费、重复字、刷新费、轮末收入与修补、财塔上限、升级及拆塔、毒伤/减速/破甲/连锁/光环/斩杀、100 墨点最长词提示及无词不收费、提示保存、技能 30 秒冷却与涨价、无尽续战、三波固定间隔、叠波和倒计时恢复、周期及收尾 Boss、飞行路线与防空、护盾、回血与分裂、阵位解锁及涨价、旧存档迁移、非法存档拒绝、前缀词库缓存与序列化。
 
@@ -43,7 +43,7 @@
 
 测试期间 JavaScript 运行错误为零。设置 `BASE_URL` 可测试本地封装包或线上地址，测试状态不修改用户浏览器自己的存档。
 
-`tests/word-meanings.test.mjs` 新增 25 项因果测试：全部 39 种词义有实际词条、每词最多两项、日常和成语优先归类、混合冰毒箭、数字周期/距离尺度、同次齐射共用周期、升级减费与成长、奋进和鼓舞不叠加、灼烧/淬毒/裂伤真实持续伤害、缠绕/震退间隔、显形/禁疗、易伤、先手/收尾/伏魔/救险、破甲/镇压上限、追击/灵伴/溅射数量、山门减伤/屏障封顶、修补/产墨/赏金封顶、每局一次重生与重建不能重置、缄默不跳过 Boss 阶段、方向伤害、非法状态与确定性恢复、新 Boss 主动次数上限与固定日/月反转、词义词可出现在实际手牌、早期缓冲不改变 Boss。
+`tests/word-meanings.test.mjs` 新增 26 项因果测试：全部 39 种词义有实际词条、每词最多两项、日常和成语优先归类、混合冰毒箭、数字周期/距离尺度、同次齐射共用周期、升级减费与成长、奋进和鼓舞不叠加、灼烧/淬毒/裂伤真实持续伤害、缠绕/震退间隔、显形/禁疗、易伤、先手/收尾/伏魔/救险、破甲/镇压上限、追击/灵伴/溅射数量、山门减伤/屏障封顶、修补/产墨/赏金封顶、每局一次重生与重建不能重置、缄默不跳过 Boss 阶段、方向伤害、非法状态与确定性恢复、新 Boss 主动次数上限与固定日/月反转、词义词可出现在实际手牌、早期缓冲不改变 Boss。
 
 `tests/word-meanings.cjs` 在 320×568、390×844、667×375、1440×1000 下检查：冰毒组合词塔双标识和说明、移动端同屏可升级、39 个附加词义筛选与索引、重生次数、成语词义、距离词实际数值、无运行错误。
 
