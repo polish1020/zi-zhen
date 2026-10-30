@@ -8,6 +8,7 @@ const n=Number(process.argv[2]||10),output=process.argv[3]||'/tmp/wordward-econo
 assert.ok(Number.isInteger(n)&&n>0);
 const policies=(process.argv.find(x=>x.startsWith('--policies='))?.split('=')[1]||'adaptive,efficient,hold').split(',');
 assert.ok(policies.length&&new Set(policies).size===policies.length&&policies.every(p=>['adaptive','efficient','hold'].includes(p)));
+const mainOnly=process.argv.includes('--main-only');
 const source={combat:0,bounty:0,wave:0,round:0,production:0,prosper:0,refund:0};
 const sink={build:0,upgrade:0,unlock:0,refresh:0,skill:0,hint:0};
 const sum=o=>Object.values(o).reduce((a,b)=>a+b,0);
@@ -35,8 +36,8 @@ function observe(g){
   let ended=false;
   for(const event of g.events)if(event.type==='clear'||event.type==='won'){
    if(event.roundEnd){
-    const round=g.wave/3;income.round+=20+round*3;income.production+=event.income;
-    income.prosper+=event.reward-(20+round*3)-event.income;ended=true;
+    const round=g.wave/3,baseReward=event.baseReward??20+round*3;income.round+=baseReward;income.production+=event.income;
+    income.prosper+=event.extraIncome??event.reward-baseReward-event.income;ended=true;
    }else if(event.type==='clear')income.wave+=event.reward;
   }
   check();
@@ -54,13 +55,13 @@ const runs=[];
 for(const policy of policies)for(let chapter=0;chapter<CHAPTERS.length;chapter++){
  for(let seed=1;seed<=n;seed++){
   const g=new Game(chapter,seed),audit=observe(g);let lastWave=-1,lastInvest=0,steps=0,lockedAt=null,mainCleared=false;
-  const target=CHAPTERS[chapter].rounds+10;
+  const target=CHAPTERS[chapter].rounds+(mainOnly?0:10);
   function spend(){
    if(policy==='hold'&&lockedAt===null&&g.towers.length===g.pads.length&&g.towers.every(t=>t.level>=getWord(t.word).maxLevel))lockedAt=Math.max(1,Math.ceil(g.wave/3));
    if(lockedAt===null)(policy==='efficient'?investEfficient:invest)(g);
   }
   while(g.phase!=='lost'&&steps++<120000){
-   if(g.phase==='won'){mainCleared=true;assert.ok(g.continueEndless());}
+   if(g.phase==='won'){mainCleared=true;if(mainOnly)break;assert.ok(g.continueEndless());}
    if(g.phase==='prepare'&&g.wave/3>=target)break;
    if(g.phase==='prepare'){spend();g.startWave();}
    if(g.phase==='battle'&&g.wave!==lastWave){lastWave=g.wave;spend();}
@@ -71,6 +72,8 @@ for(const policy of policies)for(let chapter=0;chapter<CHAPTERS.length;chapter++
   audit.check();
   assert.ok(steps<120000,'simulation timeout');
   runs.push({chapter:chapter+1,seed,policy,mainCleared,lockedAt,phase:g.phase,
+   fullBoardAt:audit.rows.find(r=>r.towers===g.pads.length)?.round??null,
+   fullMaxAt:audit.rows.find(r=>r.towers===g.pads.length&&r.maxed===g.pads.length)?.round??null,
    finalRound:Math.ceil(g.wave/3),finalInk:g.ink,hp:g.hp,initial:audit.initial,
    income:audit.income,expense:audit.expense,actions:audit.actions,rows:audit.rows});
  }
@@ -78,7 +81,7 @@ for(const policy of policies)for(let chapter=0;chapter<CHAPTERS.length;chapter++
 }
 const median=xs=>{const a=[...xs].sort((a,b)=>a-b);return a.length?(a[Math.floor((a.length-1)/2)]+a[Math.ceil((a.length-1)/2)])/2:null;};
 const summaries=[];
-for(const policy of policies)for(const round of [3,6,9,12,15,18,20]){
+for(const policy of policies)for(const round of mainOnly?Array.from({length:12},(_,i)=>i+1):[3,6,9,12,15,18,20]){
  const samples=runs.filter(r=>r.policy===policy).flatMap(r=>{
   const row=r.rows.find(x=>x.round===round);if(!row)return[];
   const before=r.rows.find(x=>x.round===round-1);
@@ -90,14 +93,14 @@ for(const policy of policies)for(const round of [3,6,9,12,15,18,20]){
    roundNet:row.ink-(before?before.ink:r.initial)}];
  });
  summaries.push({policy,round,survivors:samples.length,outOf:CHAPTERS.length*n,
-  eligible:CHAPTERS.filter(ch=>ch.rounds+10>=round).length*n,
+  eligible:CHAPTERS.filter(ch=>ch.rounds+(mainOnly?0:10)>=round).length*n,
   medianInk:median(samples.map(x=>x.ink)),minInk:samples.length?Math.min(...samples.map(x=>x.ink)):null,maxInk:samples.length?Math.max(...samples.map(x=>x.ink)):null,
   medianRoundEarned:median(samples.map(x=>x.roundEarned)),medianRoundSpent:median(samples.map(x=>x.roundSpent)),medianRoundNet:median(samples.map(x=>x.roundNet)),
   medianRoundRefund:median(samples.map(x=>x.roundRefund)),medianRoundNetSpent:median(samples.map(x=>x.roundSpent-x.roundRefund)),
   medianTowers:median(samples.map(x=>x.towers)),medianMaxed:median(samples.map(x=>x.maxed))});
 }
-fs.writeFileSync(output,JSON.stringify({version:1,generatedAt:new Date().toISOString(),seeds:n,waveInterval:WAVE_INTERVAL,refreshCost:new Game().refreshCost(),policies,
- methodology:'Actual seeded hands, public purchases, real combat; continue ten endless rounds after main campaign. Adaptive strategy matches balance.mjs, including its repeated late refresh spending. Efficient strategy replaces only with a stronger higher-quality word of the same attribute and stops refreshing at all tier 4. Hold stops investment after all 16 towers max. All retain the same near-gate skill policy (maximum 90 ink). Income includes clear rewards and production; all refunds and expenses are audited with conservation checks. Per-round summaries condition on clearing that round; survivor counts are shown.',
+fs.writeFileSync(output,JSON.stringify({version:1,generatedAt:new Date().toISOString(),seeds:n,waveInterval:WAVE_INTERVAL,refreshCost:new Game().refreshCost(),policies,mainOnly,
+ methodology:(mainOnly?'Campaign only, stop on main victory. ':'Continue ten endless rounds after main victory. ')+'Actual seeded hands, public purchases, real combat. Adaptive strategy matches balance.mjs, including its repeated late refresh spending. Efficient strategy replaces only with a stronger higher-quality word of the same attribute and stops refreshing at all tier 4. Hold stops investment after all 16 towers max. All retain the same near-gate skill policy (maximum 90 ink). Income includes clear rewards and production; all refunds and expenses are audited with conservation checks. Per-round summaries condition on clearing that round; survivor counts are shown.',
  summaries,runs},null,2));
 console.log(JSON.stringify(summaries,null,2));
 console.log(`Saved ${runs.length} audited runs: ${output}`);
