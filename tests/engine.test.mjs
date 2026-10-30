@@ -45,7 +45,7 @@ test('strongest aura applies once across all aura recipes',()=>{
 test('armor, slow, splash, chain and execute retain distinct combat effects',()=>{
  for(const word of ['冰霜','火球','巨石']){const g=new Game();g.ink=1000;build(g,word,0);g.phase='battle';g.spawn('armor');const e=g.enemies[0];e.d=130;const before=e.hp;g.step(.01);assert.ok(Math.abs(before-e.hp-getWord(word).damage*(word==='巨石'?1:.7))<.001);if(word==='冰霜')assert.ok(e.slowUntil>g.time);}
  for(const word of ['火球','雷电']){const g=new Game();g.ink=1000;build(g,word,0);g.phase='battle';for(let i=0;i<4;i++){g.spawn('normal');g.enemies[i].d=130+i*10;}g.step(.01);assert.equal(g.enemies.filter(e=>e.hp<e.maxHp).length,word==='火球'?4:3);}
- const g=new Game();build(g,'弓箭',0);g.phase='battle';g.spawn('boss');const e=g.enemies[0];e.d=130;e.hp=100;e.maxHp=1000;g.step(.01);assert.ok(Math.abs(e.hp-(100-46*1.8))<.001);
+ const g=new Game();build(g,'弓箭',0);g.phase='battle';g.spawn('tank');const e=g.enemies[0];e.d=130;e.hp=100;e.maxHp=1000;g.step(.01);assert.ok(Math.abs(e.hp-(100-46*1.8))<.001);
 });
 test('wave composition is seeded, changes between seeds, and retains scheduled bosses',()=>{
  const a=new Game(0,3),b=new Game(0,3),c=new Game(0,8);for(const g of [a,b,c]){g.wave=8;g.startWave();assert.ok(wavePlan(g.chapter,g.wave).bossPool.includes(g.queue.at(-1).kind));assert.equal(g.startWave(),false);}assert.deepEqual(a.queue,b.queue);assert.notDeepEqual(a.queue,c.queue);

@@ -427,6 +427,14 @@ Object.assign(ENEMIES,{
  astralbat:{"name":"星陨蝠","hp":47,"speed":45,"reward":4,"harm":1,"sprite":"flying","trim":"meteor","color":"#9a8ab8","icon":"星","role":"空中换相","desc":"空中轻兵，每 5 秒切换抗性；用光、咒或混搭对空伤害迎击。","air":true,"behavior":"astral"},
  astralweaver:{"name":"聚星侍","hp":84,"speed":24,"reward":4,"harm":1,"sprite":"ward","trim":"orbit","color":"#a29cc0","icon":"聚","role":"一次星盾","desc":"为附近至多三名友军加一次薄盾，半血回复 4%；毒或封息可阻止回复。","pulse":{"kind":"shield","interval":10,"limit":1,"ratio":0.05,"targets":3,"radius":85},"phase":{"heal":0.04}}
 });
+ENEMIES.boss.phase={shield:.12,haste:.12};
+ENEMIES.boss.desc='高血墨魁，半血凝结护盾并提速 12%；雷霆拆盾、冰控与集中输出迎击。生命随轮数额外成长，漏过山门损失 4 点生命。';
+ENEMIES.stormboss.phase={haste:.12};
+ENEMIES.stormboss.desc='空中厚盾 Boss，半血提速 12%；用雷霆拆盾、弓塔拦截和寒霜减速，山石无法对空。';
+ENEMIES.broodqueen.phase={shield:.08};
+ENEMIES.broodqueen.desc='最多召唤三批墨点；半血展开护盾并缩短剩余召唤间隔。范围攻击清群，集中输出本体。';
+ENEMIES.frostboss.phase={shield:.1,haste:.1};
+ENEMIES.frostboss.desc='寒域使近身词塔攻击间隔增加 25%；半血附盾并提速 10%。用远射与毒伤处理本体。';
 const BASE_MAP_BOSSES=['hillboss','bambooboss','scrollboss','tideboss','cloudboss','gearboss','frostlord','mirrorqueen','beaconlord','astralboss'];
 const BASE_PHASES=[{haste:.12},{summon:'bamboostalker',count:2},{summon:'scrollguard',count:2},{heal:.08},{shield:.15},{haste:.2},{shell:true},{summon:'mirrorling',count:2},{haste:.2},{shield:.15,period:3}];
 BASE_MAP_BOSSES.forEach((k,i)=>ENEMIES[k].phase=BASE_PHASES[i]);
@@ -483,7 +491,13 @@ export function wavePlan(chapter,wave){
  if(stage===3){pool=['normal','swift','armor','tank','shield',...(chapter>0?['lancer']:[])];formation='重阵推进';counter='雷霆破盾、山石迎击重甲';}
  if(stage>=4){const f=FORMATIONS[(stage-4+part-1+chapter*2)%FORMATIONS.length];pool=[...f.pool,'normal','normal','swift'];formation=f.name;counter=f.counter;if(round>=7)pool.push(...FORMATIONS[(round+part+chapter)%FORMATIONS.length].pool.slice(0,2));if(round>=9)pool.push('ward','healer');}
  const signature=round>=4?MAP_MINION_POOLS[chapter][(round-4+part-1)%3]:THEME_UNITS[chapter].kind;if(round>=2)pool.push(signature);if(round>=4){pool.push(COMMON_MINIONS[(round+part+chapter)%COMMON_MINIONS.length],...MAP_MINION_POOLS[chapter]);}
- return{bossPool,endlessRound,signature,round,part,stage,pool,boss,bossKind,formation,counter,count:Math.min(80,8+round*3+chapter*2+(part-1)*2),title:boss?'随机 Boss · '+formation:formation};
+ return{bossPool,endlessRound,signature,round,part,stage,pool,boss,bossKind,formation,counter,count:Math.min(80,8+round*3+chapter*2+(part-1)*2+Math.floor(Math.max(0,round-4)*1.2)),title:boss?'随机 Boss · '+formation:formation};
+}
+export function enemyHealthScale(chapter,wave,kind){
+ const round=Math.max(1,Math.ceil(wave/3)),part=(Math.max(1,wave)-1)%3,boss=!!ENEMIES[kind].boss;
+ const opening=chapter>=3&&round<=3&&!boss?.9:1;
+ const growth=boss?1.65+round*.06:1+Math.max(0,round-3)*.02;
+ return(1+(round-1)*.36+part*.08+CHAPTERS[chapter].difficulty)*1.25*(1+Math.max(0,round-5)*.015)*opening*growth;
 }
 export class Game {
  get pads(){return getMap(this.chapter).pads;}
@@ -531,7 +545,7 @@ export class Game {
   this.queue.push(...entries);this.queue.sort((a,b)=>(a.at??this.time)-(b.at??this.time));
   this.pendingWaves??=[];this.pendingWaves.push(this.wave);this.autoWaveAt=plan.part<3?at+WAVE_INTERVAL:0;this.emit('wave',{wave:this.wave});
  }
- spawn(kind,distance=0,route=0,wave=this.wave){const round=Math.max(1,Math.ceil(wave/3)),part=(Math.max(1,wave)-1)%3;const st=ENEMIES[kind],openingGrace=this.chapter>=3&&round<=3&&!st.boss?.9:1;const scale=(1+(round-1)*.36+part*.08+CHAPTERS[this.chapter].difficulty)*1.25*(1+Math.max(0,round-5)*.015)*openingGrace;const e={map:this.chapter,route,wave,bornAt:this.time,id:this.nextId++,kind,hp:st.hp*scale,maxHp:st.hp*scale,speed:st.speed*(1+Math.min(this.chapter,4)*.05),reward:st.reward,harm:st.harm,d:Math.max(0,distance),slowUntil:0};if(kind==='shield'||st.shield){e.shield=(st.shield||55)*scale;e.maxShield=e.shield;}const behavior=st.behavior||kind;if(['healer','broodqueen','hillrunner','scrollguard','tideshaper','cloudraptor','rallyboss'].includes(behavior))e.abilityAt=this.time+({healer:4,broodqueen:8,hillrunner:st.boss?8:6,scrollguard:st.boss?9:8,tideshaper:st.boss?8:6,cloudraptor:st.boss?8:7,rallyboss:8}[behavior]);if(st.pulse)e.pulseAt=this.time+st.pulse.interval;if(st.initialPhase!==undefined)e.astralMode=st.initialPhase;this.enemies.push(e);return e;}
+ spawn(kind,distance=0,route=0,wave=this.wave){const st=ENEMIES[kind],scale=enemyHealthScale(this.chapter,wave,kind);const e={map:this.chapter,route,wave,bornAt:this.time,id:this.nextId++,kind,hp:st.hp*scale,maxHp:st.hp*scale,speed:st.speed*(1+Math.min(this.chapter,4)*.05),reward:st.reward,harm:st.harm,d:Math.max(0,distance),slowUntil:0};if(kind==='shield'||st.shield){e.shield=(st.shield||55)*scale;e.maxShield=e.shield;}const behavior=st.behavior||kind;if(['healer','broodqueen','hillrunner','scrollguard','tideshaper','cloudraptor','rallyboss'].includes(behavior))e.abilityAt=this.time+({healer:4,broodqueen:8,hillrunner:st.boss?8:6,scrollguard:st.boss?9:8,tideshaper:st.boss?8:6,cloudraptor:st.boss?8:7,rallyboss:8}[behavior]);if(st.pulse)e.pulseAt=this.time+st.pulse.interval;if(st.initialPhase!==undefined)e.astralMode=st.initialPhase;this.enemies.push(e);return e;}
  skillCost(){return SKILL_BASE_COST+this.skillUses*SKILL_COST_STEP;}
  skill(){const cost=this.skillCost();if(this.phase!=='battle'||this.time<this.skillReady||this.ink<cost)return false;this.ink-=cost;this.skillUses++;this.skillReady=this.time+SKILL_COOLDOWN;for(const e of this.enemies){e.hp-=100;if(!(hasIceShell(e)))e.slowUntil=this.time+3;}this.effects.push({kind:'rain',life:1,max:1});this.emit('skill',{cost,nextCost:this.skillCost()});return true;}
  step(dt){dt=Math.max(0,Math.min(dt,.1));for(const fx of this.effects)fx.life-=dt;this.effects=this.effects.filter(f=>f.life>0);if(this.phase==='intermission'){this.phase='battle';this.pendingWaves=[];}

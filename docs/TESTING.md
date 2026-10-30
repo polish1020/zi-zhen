@@ -4,7 +4,7 @@
 
 ## 规则回归
 
-`node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs tests/timing.test.mjs tests/specialties.test.mjs tests/word-traits.test.mjs tests/endless-bosses.test.mjs tests/boss-pools.test.mjs tests/word-meanings.test.mjs tests/minions.test.mjs`：122 项通过。
+`node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs tests/timing.test.mjs tests/specialties.test.mjs tests/word-traits.test.mjs tests/endless-bosses.test.mjs tests/boss-pools.test.mjs tests/word-meanings.test.mjs tests/minions.test.mjs tests/progression.test.mjs`：127 项通过。
 
 覆盖约 4 万词与十四类词塔、严格词序、500 随机手牌、一次性扣牌扣费、重复字、刷新费、轮末收入与修补、财塔上限、升级及拆塔、毒伤/减速/破甲/连锁/光环/斩杀、100 墨点最长词提示及无词不收费、提示保存、技能 30 秒冷却与涨价、无尽续战、三波固定间隔、叠波和倒计时恢复、周期及收尾 Boss、飞行路线与防空、护盾、回血与分裂、阵位解锁及涨价、旧存档迁移、非法存档拒绝、前缀词库缓存与序列化。
 
@@ -16,8 +16,8 @@
 
 | 策略 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 不使用技能 | 20/20 | 20/20 | 20/20 | 19/20 | 20/20 | 20/20 | 17/20 | 20/20 | 20/20 | 17/20 |
-| 近门时使用技能 | 20/20 | 20/20 | 20/20 | 20/20 | 20/20 | 20/20 | 19/20 | 20/20 | 20/20 | 18/20 |
+| 不使用技能 | 20/20 | 20/20 | 20/20 | 17/20 | 20/20 | 20/20 | 17/20 | 20/20 | 20/20 | 17/20 |
+| 近门时使用技能 | 20/20 | 20/20 | 20/20 | 18/20 | 20/20 | 20/20 | 19/20 | 20/20 | 20/20 | 17/20 |
 
 初次扩展测试发现，后期章第一轮直接加入完整支援阵容容易因随机手牌失守，已改为前两轮留出布阵时间，再逐步开放组合。每种 Boss 的能力、召唤上限和存档恢复均单独测试。本次扩大词义手牌后，再次发现第四、七、十章早期在部分随机组合下偏难；已对第四至十章前三轮普通怪生命和护盾乘 0.9，Boss 与后续轮次不变。最终 400 场通过原有阈值，没有降低测试标准。采用固定 35 秒叠波，并允许自动策略在战斗中每 8 秒使用真实收入补强；25 秒的初版在后期多入口场景偏难，已延长固定间隔。
 
@@ -68,3 +68,9 @@
 ## iOS 桌面窗口高度复修
 
 用户真机反馈仍有底部空白后，补充 `tests/standalone-bounds.cjs`：同时模拟 innerHeight 与 visualViewport 少报 59/83/93px，以 Playwright 的真实窗口尺寸为准。修改前已复现 852px 窗口中游戏仅高 793px、字库止于 759px 的缺陷；修改后独立窗口四边贴合，字库外只留 6px，系统手势安全区放在字库内部。五种手机尺寸、横竖屏、前台恢复、重新加载在 Chromium 与 WebKit 均通过。原独立窗口测试同步校验内部手势留边，常规浏览器十尺寸与暂停布阵回归保持。未使用实体 iPhone 验证。本轮未改战斗数值。
+
+## 渐进强度回归
+
+`tests/progression.test.mjs` 新增五项：初期数量保持、后续额外增量和 80 上限；普通怪和 Boss 生命持续增长；42 种 Boss 半血阶段仅一次且可保存；基础地面 Boss 护盾与飞行 Boss 提速真实生效；旧存档现存敌人生命保持、新敌人使用新系数。斩杀基础测试改用无阶段的普通高血怪，避免把新半血盾误判为斩杀失效。
+
+强化后的 400 场重新通过原有难度阈值。初稿把额外数量也放在第四轮，末章部分随机开局在新兵种/额外生命/额外数量同时到来时偏难；将额外数量增长安排在第五轮，保留更强 Boss 和第四轮生命成长，分散压力。结果已更新在上表；未降低测试难度标准。
