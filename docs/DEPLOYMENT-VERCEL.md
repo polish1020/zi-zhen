@@ -31,7 +31,7 @@ python3 scripts/prepare-vercel.py
 - 正式域名的十个文件全部 HTTP 200，Content-Type 正确，内容与上传文件逐字节一致，包括常用词库与许可声明。
 - `BASE_URL=https://game.polishwb1020.com node tests/browser.cjs` 通过：开始界面、同屏布局、付费提示、技能、跳关、终局恢复、无尽与失败重试。
 - 线上 `tests/responsive.cjs` 十种尺寸通过：页面无溢出、字牌无空格、地图比例一致、严格词序、点击效果、单次点击显示范围、详情与升级、恢复和旋转。
-- 线上 `tests/expansion.cjs` 通过：冰霜箭建造、毒云搜索、解锁涨价、手势保护、整备计时、二十类怪物与周期 Boss 实际出场。
+- 线上 `tests/expansion.cjs` 通过：冰霜箭建造、毒云搜索、解锁涨价、手势保护、固定波次计时及叠波、二十类怪物与周期 Boss 实际出场。
 - 线上 `tests/campaign.cjs` 验证十章主题与入口、六种 Boss、属性详情、音效静音、升级和提示栏。
 - 测试期间 JavaScript 运行错误为零；数值平衡和规则测试见 `TESTING.md`。
 
