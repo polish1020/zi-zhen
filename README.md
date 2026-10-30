@@ -40,7 +40,7 @@ node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs test
 
 ## Vercel
 
-当前生产站点：https://game.polishwb1020.com ，默认地址 https://zi-zhen.vercel.app 也可访问。使用 `python3 scripts/prepare-vercel.py` 准备发布目录，既有项目标识、更新方法和线上验证结果见 `docs/DEPLOYMENT-VERCEL.md`。Git 自动部署配置已准备，仓库创建和已有项目关联待授权后完成。
+当前生产站点：https://game.polishwb1020.com ，默认地址 https://zi-zhen.vercel.app 也可访问。使用 `python3 scripts/prepare-vercel.py` 准备发布目录，既有项目标识、更新方法和线上验证结果见 `docs/DEPLOYMENT-VERCEL.md`。源码仓库：https://github.com/polish1020/zi-zhen 。现有 Vercel 项目已关联该仓库，推送 `main` 自动构建并更新生产域名；其他分支用于预览。
 
 ## 移动应用准备
 

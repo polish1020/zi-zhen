@@ -6,7 +6,7 @@
 
 - 团队：`changsheng`，ID `team_azaP3oGtfy4m7CDhqfxdNiLP`
 - 项目：`zi-zhen`，ID `prj_knArbjGsckakBpEb06lLwiWsHlyb`
-- 生产部署：`dpl_7ScA9mQTqdN8rygwxXdWr2QHsRM8`
+- 本轮攻塔初次上线部署：`dpl_7ScA9mQTqdN8rygwxXdWr2QHsRM8`
 - 部署地址：https://zi-zhen-hwdfd6ih6-changsheng.vercel.app
 - 生产源码提交：`52528367b7da3cd2acb090ccbf8916434e91e377`
 - 发布时间：2026-10-30；状态 `READY`，环境 `production`
@@ -24,7 +24,7 @@ python3 scripts/prepare-vercel.py
 
 通过已授权 Vercel 连接器上传 `vercel.json` 与十个 `public/` 文件，共 11 个。三个模块的 `.mjs` 扩展名统一适配为 `.js`，同步改写 HTML 和模块 import。词库与 `THIRD-PARTY-NOTICES.txt` 必须随包上传，不可漏掉。
 
-当前未关联 Git，因此提交本地代码不会自动部署。后续继续发布到上述既有项目和团队；或在生成目录使用已登录同一账户的 Vercel CLI 执行 `vercel deploy --prod`。不要重复新建同名项目，不要为测试关闭访问保护。
+现有项目已关联 https://github.com/polish1020/zi-zhen ，生产分支为 `main`。推送 `main` 自动构建并更新现有域名，其他分支生成预览部署。仓库构建命令见下文；上述 Python 上传流程保留作为手动发布备用。继续使用同一项目和团队，不重复建项目或关闭访问保护。
 
 ## 线上验证
 
@@ -97,4 +97,4 @@ python3 scripts/prepare-vercel.py
 
 正式域名 WebKit 四尺寸 `tests/siege.cjs` 验证耐久、精确扣费、修复/重建、实际攻塔损毁、暂停和存档恢复、94 条攻塔说明与移动端按钮同屏；线上 Chromium 基本游戏与图鉴检查通过，未发现脚本错误。十个静态文件 HTTP 200，与已测试发布包、原生包逐字节一致。实体 iPhone 未直接验证。
 
-仓库根目录新增 `vercel.json` 和无依赖的 `scripts/build-static.mjs`。执行 `node scripts/build-static.mjs` 生成 `public/`，与当前生产十个文件逐字节一致；Git 部署使用此构建命令、输出目录 `public`，框架为 Other（null），无需安装依赖。`public/`、`.vercel/`、`.env*` 不提交。GitHub 仓库创建与已有 Vercel 项目的 Git 关联仍需完成授权，未声称自动部署已启用。
+仓库根目录新增 `vercel.json` 和无依赖的 `scripts/build-static.mjs`。执行 `node scripts/build-static.mjs` 生成 `public/`，与当前生产十个文件逐字节一致；Git 部署使用此构建命令、输出目录 `public`，框架为 Other（null），无需安装依赖。`public/`、`.vercel/`、`.env*` 不提交。已推送完整提交历史并关联 GitHub 仓库 `polish1020/zi-zhen`，生产分支 `main`；Git 远端 `github` 与原 Sites 远端 `origin` 并存。仓库沿用用户创建的公开可见性。生产自定义域名与现有预览访问保护保持。部署对应的 Git SHA 和最新状态可在 Vercel 控制台查看；文档中的初次上线 ID 是攻塔版本的手工发布基准，不固定指向后续每次 Git 构建。
