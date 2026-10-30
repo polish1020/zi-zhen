@@ -285,3 +285,8 @@ body.playing .toast { display:none; }
 body.playing .tower-effects .meaning-effect{color:#cbb9d8}
 
 .enemy-portrait{display:block;width:100%;height:112px;object-fit:contain;margin:0 0 10px;border-radius:5px;background:radial-gradient(ellipse at 50% 75%,#dce4d455,transparent 65%);image-rendering:auto}.enemy-card h3{line-height:1.4}
+/* Installed apps have no browser toolbar. Let CSS fill the actual window even
+   when iOS reports a shorter JS viewport; keep gesture padding inside the bank. */
+html[data-standalone="true"].game-open body.playing { inset:0; height:auto; }
+html[data-standalone="true"].game-open body.playing main { padding-bottom:6px; }
+html[data-standalone="true"].game-open body.playing .forge-panel { padding-bottom:max(6px,var(--safe-bottom)); }

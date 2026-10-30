@@ -23,10 +23,11 @@ let viewportFrame=0;
 function syncViewport(){
  viewportFrame=0;
  const root=document.documentElement,installed=navigator.standalone===true||standaloneDisplay.matches;
- // iOS installed apps can report dvh/visualViewport shorter by the status bar.
- // innerHeight describes the actual app window; safe areas are applied once in CSS.
+ // Standalone iOS can under-report innerHeight too. Its game shell is anchored
+ // to all four viewport edges in CSS, independently of these JS measurements.
  const height=window.innerHeight||root.clientHeight;
- root.style.setProperty('--app-height',height+'px');
+ if(installed)root.style.removeProperty('--app-height');
+ else root.style.setProperty('--app-height',height+'px');
  root.style.setProperty('--visual-height',(window.visualViewport?.height||height)+'px');
  root.dataset.standalone=String(installed);
 }

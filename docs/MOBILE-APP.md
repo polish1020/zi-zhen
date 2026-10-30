@@ -29,3 +29,5 @@ python3 scripts/prepare-mobile.py
 ## 桌面 Web App 布局
 
 浏览器独立启动采用不透明状态栏、实际窗口高度与单次安全区内边距；进入游戏、旋转、重新打开或返回前台时校准。暂停、Boss 同场和词典弹层均纳入 Chromium/WebKit 模拟检查，真实 iPhone 状态栏仍需实际设备确认。不要通过清除网站数据或卸载桌面应用来更新页面，以免丢失仅存在本地的进度；先彻底关闭窗口再重新打开。
+
+独立桌面模式的主游戏使用 `position: fixed; inset: 0; height: auto` 铺满窗口，不把 `innerHeight` 或 `visualViewport.height` 作为游戏外壳高度。字库外只有 6px 间距，手势安全区计入字库内部。新回归会同时让两种 JS 高度少报 59—93px，以外部测试窗口尺寸校验四边，而非将 JS 高度与自身比较。
