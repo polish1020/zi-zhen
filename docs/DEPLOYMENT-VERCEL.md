@@ -14,6 +14,12 @@
 - Vercel 输出构建 52ms；从 buildingAt 到 ready 约 1.9 秒；日志无构建错误。
 - 控制台：https://vercel.com/changsheng/zi-zhen
 
+## 普 / 学发布验收
+
+当前更新使用 GitHub main 自动发布：普替代文标识，学覆盖 1,346 个词、43 类完整词义招式；736 条释义全部保留。存档 v6 兼容旧版本；237 项既有/新增规则及一项追加赏金因果测试共 238 项，400 次主线运行 53% 通关（末章偏难，不声称已达到 20%）。手机与桌面 Chromium / WebKit 学属性流程通过。详细设计与边界见 [LEARNING.md](LEARNING.md)。
+
+上方初次攻塔的部署 ID、SHA 与后文旧版验收均为历史记录；最新生产部署以 GitHub main 与 Vercel 项目的实际状态为准。
+
 ## 更新方法
 
 ```sh

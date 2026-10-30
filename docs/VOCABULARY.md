@@ -33,3 +33,7 @@ node tests/vocabulary.cjs
 ```
 
 生成时从固定提交下载词表与 MIT 许可，也可传 `--dictionary`、`--license` 本地文件。输出 `dist/lexicon.mjs` 与 `dist/THIRD-PARTY-NOTICES.txt`，随站点离线发布；用户组词时不请求远程词典。普通 Vercel 构建直接复制已生成文件，不下载词库、不安装依赖。完整审计统计见 [vocabulary-summary.json](reports/vocabulary-summary.json)，战斗验证与限制见 [TESTING.md](TESTING.md)。
+
+## 学属性语义审校（2026-10-30）
+
+运行词表增至 107,406；32 个额外完整常用词/短语纳入学词表。dist/specials.mjs 按完整词名人工归组，共 1,346 词、43 类招式，736 条已有学习释义全部覆盖；不按字根猜测成语。仅新增精确词项，不放开任意前后缀拼接。107,406 词均扫描属性/形态/附加槽与有限数值合法性；释义对应审校覆盖上述学词表及列出的易混淆兵器/元素词，不宣称对十万词逐条完成辞书级审订。

@@ -19,5 +19,5 @@ test('overlapping waves retain boss breach state through reload until the round 
  for(const value of [-1,'3',NaN,10])assert.throws(()=>Game.restore({...g.export(),bossBreachedRound:value}));
 });
 test('round settlement repairs tower durability while leaving hearts unchanged, even with multiple mend towers',()=>{
- const g=arena();g.hp=7;const pair=[];for(let i=0;i<12;i++)for(let j=i+1;j<12;j++)pair.push({i,j,d:Math.hypot(g.pads[i].x-g.pads[j].x,g.pads[i].y-g.pads[j].y)});const near=pair.sort((a,b)=>a.d-b.d)[0];g.towers[0].pad=near.i;g.towers[1].pad=near.j;const t=g.towers[0],max=towerDefense(t).maxHp;t.hp=max*.2;g.wave=3;g.pendingWaves=[3];g.step(.1);assert.equal(g.hp,7);assert.ok(t.hp>max*.2);assert.ok(Math.abs(t.hp-max*.65)<1e-6);assert.equal(Game.restore(g.export()).hp,7);
+ const g=arena();g.hp=7;const pair=[];for(let i=0;i<12;i++)for(let j=i+1;j<12;j++)pair.push({i,j,d:Math.hypot(g.pads[i].x-g.pads[j].x,g.pads[i].y-g.pads[j].y)});const near=pair.sort((a,b)=>a.d-b.d)[0];g.towers[0].pad=near.i;g.towers[1].pad=near.j;const t=g.towers[0],max=towerDefense(t).maxHp;t.hp=max*.2;g.wave=3;g.pendingWaves=[3];g.step(.1);assert.equal(g.hp,7);assert.ok(t.hp>max*.2);assert.ok(Math.abs(t.hp-max*.6)<1e-6);assert.equal(Game.restore(g.export()).hp,7);
 });

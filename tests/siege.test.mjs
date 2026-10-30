@@ -10,7 +10,7 @@ function supportPads(g){const pairs=[];for(let i=0;i<12;i++)for(let j=i+1;j<12;j
 
 
 test('every word has valid grade/level defense and all 94 monsters have an explicit siege profile',()=>{
- assert.equal(Object.keys(TOWER_DEFENSES).length,14);
+ assert.equal(Object.keys(TOWER_DEFENSES).length,15);
  for(const w of WORDS){const a=towerDefense({word:w.word,level:w.tier}),b=towerDefense({word:w.word,level:w.maxLevel});assert.ok(a.maxHp>100&&b.maxHp>a.maxHp,w.word);assert.ok(a.armor>=0&&a.armor<=.32);assert.ok(a.role);}
  for(const [kind]of Object.entries(ENEMIES)){const w=enemyWeapon(kind);assert.ok(w.name&&w.range>0&&w.damage>0&&w.interval>w.windup&&w.windup>0,kind);}
  assert.ok(towerDefense({word:'石',level:1}).maxHp>towerDefense({word:'弓',level:1}).maxHp);

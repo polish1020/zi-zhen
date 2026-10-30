@@ -10,12 +10,12 @@ await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 const files = ['index.html', 'style.css', 'responsive.css', 'gameplay.css',
   'manifest.webmanifest', 'THIRD-PARTY-NOTICES.txt', 'icon.svg',
-  'app.mjs', 'engine.mjs', 'lexicon.mjs'];
+  'app.mjs', 'engine.mjs', 'lexicon.mjs', 'specials.mjs'];
 for (const name of files) {
   let content = await readFile(resolve(root, 'dist', name), 'utf8');
   if (name === 'index.html') content = content.replace('./app.mjs', './app.js');
   if (name === 'app.mjs') content = content.replace("'./engine.mjs'", "'./engine.js'");
-  if (name === 'engine.mjs') content = content.replace('./lexicon.mjs', './lexicon.js');
+  if (name === 'engine.mjs') content = content.replaceAll('./lexicon.mjs', './lexicon.js').replaceAll('./specials.mjs', './specials.js');
   await writeFile(resolve(output, name.replace(/\.mjs$/, '.js')), content);
 }
 console.log(`Built ${files.length} static assets in public/`);

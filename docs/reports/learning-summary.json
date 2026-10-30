@@ -1,0 +1,197 @@
+{
+  "specialsHash": "431cc4ad43a6a6ccb601fe10cd2d07d95cc796e81ff9ac173d91bd540661604f",
+  "totalWords": 107406,
+  "learningWords": 1346,
+  "lessonWords": 736,
+  "lessonIdioms": 480,
+  "learningWithoutLesson": 610,
+  "families": 43,
+  "attributes": {
+    "splash": 976,
+    "learning": 1346,
+    "slow": 883,
+    "chain": 694,
+    "fast": 1346,
+    "heavy": 2767,
+    "aura": 2533,
+    "poison": 530,
+    "sniper": 356,
+    "income": 1135,
+    "pierce": 3459,
+    "pulse": 1438,
+    "mark": 979,
+    "echo": 545,
+    "basic": 88419
+  },
+  "engineHash": "a9125537993eb2bc652367c41cd2b2d5732abe75fe0f6c3b4c97e7f96658ac79",
+  "examples": [
+    {
+      "word": "三顾茅庐",
+      "meaning": "刘备三次拜访诸葛亮，比喻真诚地邀请人才。",
+      "attribute": "学",
+      "effect": "三顾连携",
+      "runes": [
+        "focus",
+        "inspire"
+      ]
+    },
+    {
+      "word": "一箭双雕",
+      "meaning": null,
+      "attribute": "学",
+      "effect": "一击双得",
+      "runes": [
+        "focus",
+        "execute"
+      ]
+    },
+    {
+      "word": "水滴石穿",
+      "meaning": "水不停滴落能穿透石头，比喻坚持不懈就能成功。",
+      "attribute": "学",
+      "effect": "滴水穿石",
+      "runes": [
+        "growth",
+        "edge"
+      ]
+    },
+    {
+      "word": "画龙点睛",
+      "meaning": "比喻在关键处加上精彩的一笔，使内容更生动。",
+      "attribute": "学",
+      "effect": "明光点睛",
+      "runes": [
+        "shine",
+        "focus"
+      ]
+    },
+    {
+      "word": "金蝉脱壳",
+      "meaning": null,
+      "attribute": "学",
+      "effect": "脱壳避险",
+      "runes": [
+        "rescue",
+        "focus"
+      ]
+    },
+    {
+      "word": "背水一战",
+      "meaning": "比喻在十分困难的处境中，作最后的努力。",
+      "attribute": "学",
+      "effect": "绝境奋战",
+      "runes": [
+        "valor",
+        "rescue"
+      ]
+    },
+    {
+      "word": "学习",
+      "meaning": null,
+      "attribute": "学",
+      "effect": "积累成器",
+      "runes": [
+        "study"
+      ]
+    },
+    {
+      "word": "朋友",
+      "meaning": null,
+      "attribute": "学",
+      "effect": "同心协击",
+      "runes": [
+        "echo"
+      ]
+    },
+    {
+      "word": "豆腐",
+      "meaning": null,
+      "attribute": "学",
+      "effect": "及时补救",
+      "runes": [
+        "mend"
+      ]
+    },
+    {
+      "word": "金鱼",
+      "meaning": null,
+      "attribute": "学",
+      "effect": "生生不息",
+      "runes": [
+        "growth"
+      ]
+    },
+    {
+      "word": "银河",
+      "meaning": null,
+      "attribute": "学",
+      "effect": "远见守望",
+      "runes": [
+        "sky"
+      ]
+    },
+    {
+      "word": "土豆",
+      "meaning": null,
+      "attribute": "学",
+      "effect": "收获有度",
+      "runes": [
+        "prosper"
+      ]
+    },
+    {
+      "word": "金文",
+      "meaning": "古代铸刻在青铜器上的文字。",
+      "attribute": "学",
+      "effect": "积累成器",
+      "runes": [
+        "growth"
+      ]
+    },
+    {
+      "word": "发明",
+      "meaning": null,
+      "attribute": "学",
+      "effect": "因势制宜",
+      "runes": [
+        "study"
+      ]
+    },
+    {
+      "word": "地铁",
+      "meaning": null,
+      "attribute": "学",
+      "effect": "疾行快攻",
+      "runes": [
+        "tempo"
+      ]
+    },
+    {
+      "word": "流星锤",
+      "meaning": null,
+      "attribute": "石",
+      "effect": "破甲重击",
+      "runes": [
+        "sky"
+      ]
+    },
+    {
+      "word": "毒镖",
+      "meaning": null,
+      "attribute": "毒",
+      "effect": "持续毒伤",
+      "runes": [
+        "toxin"
+      ]
+    },
+    {
+      "word": "岩浆",
+      "meaning": null,
+      "attribute": "火",
+      "effect": "范围伤害",
+      "runes": [
+        "ember"
+      ]
+    }
+  ]
+}

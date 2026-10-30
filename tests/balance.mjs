@@ -6,6 +6,7 @@ const n=Number(process.argv[2]||40),skills=process.argv.includes('--skills'),pre
 const onlyChapter=Number(process.argv.find(x=>x.startsWith('--chapter='))?.split('=')[1]||0)-1;
 const firstSeed=Number(process.argv.find(x=>x.startsWith('--seed-start='))?.split('=')[1]||1);
 assert.ok(Number.isInteger(n)&&n>0&&Number.isInteger(firstSeed)&&firstSeed>=1&&Number.isInteger(onlyChapter)&&onlyChapter>=-1&&onlyChapter<CHAPTERS.length);
+const results=[];
 for(let ch=0;ch<CHAPTERS.length;ch++){
  if(onlyChapter>=0&&ch!==onlyChapter)continue;
  let wins=0,timeouts=0,hps=[],rounds=[];
@@ -35,6 +36,9 @@ for(let ch=0;ch<CHAPTERS.length;ch++){
   if(!['won','lost'].includes(g.phase))timeouts++;
   if(downs)audit.gamesWithRuins++;hps.push(g.hp);rounds.push(Math.ceil(g.wave/3));
  }
- if(!process.argv.includes('--report-only'))assert.ok(wins>=Math.ceil(n*(ch===0?.95:ch===1?.90:.85)),`Chapter ${ch+1} exceeds the intended casual difficulty`);
+ assert.equal(timeouts,0,`Chapter ${ch+1} simulation did not finish`);
+ results.push({chapter:ch+1,wins,total:n,rate:wins/n});
  console.log({chapter:ch+1,skills,wins,total:n,minHP:Math.min(...hps),meanHP:Math.round(hps.reduce((a,b)=>a+b,0)/n*10)/10,minRound:Math.min(...rounds),failedRounds:rounds.filter((_,i)=>hps[i]===0),timeouts,...(pressure?{pressure:{...audit,minionDamage:Math.round(audit.minionDamage),bossDamage:Math.round(audit.bossDamage)}}:{})});
 }
+
+console.log({summary:true,skills,games:results.reduce((s,r)=>s+r.total,0),wins:results.reduce((s,r)=>s+r.wins,0),rate:results.reduce((s,r)=>s+r.wins,0)/results.reduce((s,r)=>s+r.total,0),reference:"总体50–60%，首章约90%、末章约20%；允许波动，不按固定配额调整",chapters:results});

@@ -353,3 +353,5 @@ html[data-standalone="true"].game-open body.playing .forge-panel { padding-botto
 }
 
 .battle-notice[data-boss="true"] { color:#8a3d35; background:#f3e4d4; font-weight:650; }
+
+.learning-index{margin:14px 0;color:#6e624a;font-size:12px}.learning-index summary{cursor:pointer;padding:9px;background:#eee5d4;border-radius:5px}.learning-index .meaning-index-list b{color:#92713f}
