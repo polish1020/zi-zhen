@@ -448,7 +448,7 @@ export const CHAPTERS=[
  {name:'云关夹击',area:'云中关',rounds:11,hp:28,ink:350,difficulty:1.1,intro:'上下入口同时进军，兼顾两翼。'},
  {name:'回廊迷阵',area:'千折廊',rounds:12,hp:28,ink:350,difficulty:1.25,intro:'曲折回廊，借交叉火力拦截重阵。'},
  {name:'霜河两岸',area:'霜河岸',rounds:13,hp:30,ink:380,difficulty:1.4,intro:'两岸交替来敌，寒域与飞羽相随。'},
- {name:'镜城围攻',area:'镜中城',rounds:14,hp:30,ink:390,difficulty:1.55,intro:'东西两路齐攻，守住南方卷门。'},
+ {name:'镜城围攻',area:'镜中城',rounds:14,hp:30,ink:390,difficulty:1.55,intro:'东西分路绕行，南侧汇合；两翼布阵，门前补防。'},
  {name:'三门烽火',area:'三门岭',rounds:15,hp:32,ink:410,difficulty:1.7,intro:'三路轮番试探，支援怪组合压境。'},
  {name:'万象归卷',area:'万象台',rounds:16,hp:34,ink:440,difficulty:1.85,intro:'三门同时开启，以完整词阵迎战墨君。'}
 ].map(ch=>({...ch,wavesPerRound:3,waves:ch.rounds*3}));
@@ -464,13 +464,16 @@ export const MAPS=[
  {name:'云关双翼',mode:'simultaneous',routes:[points([[120,-30],[120,180],[400,180],[400,300],[650,300],[650,80],[850,80],[850,370],[940,370]]),points([[120,550],[120,380],[400,380],[400,300],[650,300],[650,80],[850,80],[850,370],[940,370]])],pads:points([[200,90],[210,260],[210,460],[320,250],[480,230],[480,440],[570,380],[570,160],[730,160],[760,300],[780,440],[470,70],[50,260],[320,100],[730,30],[900,240]]),color:'#e4e7ef'},
  {name:'回廊折返',mode:'single',routes:[points([[-30,120],[650,120],[650,410],[250,410],[250,260],[800,260],[800,370],[940,370]])],pads:points([[100,60],[220,190],[390,190],[550,190],[730,180],[570,330],[410,335],[320,480],[190,330],[730,340],[875,280],[480,480],[100,190],[400,60],[720,450],[870,440]]),color:'#eae5d9'},
  {name:'霜河轮袭',mode:'staggered',routes:[points([[-30,90],[320,90],[320,260],[550,260],[550,100],[780,100],[780,420],[940,420]]),points([[-30,440],[320,440],[320,260],[550,260],[550,100],[780,100],[780,420],[940,420]])],pads:points([[130,165],[130,365],[240,255],[390,175],[390,350],[470,60],[620,180],[690,270],[690,440],[850,310],[850,160],[460,460],[110,30],[100,500],[620,350],[850,490]]),color:'#e0eaf0'},
- {name:'镜城东西门',mode:'simultaneous',routes:[points([[-30,90],[180,90],[180,220],[450,220],[450,430],[760,430],[760,300],[450,300],[450,550]]),points([[930,90],[720,90],[720,220],[450,220],[450,430],[760,430],[760,300],[450,300],[450,550]])],pads:points([[100,160],[270,145],[370,280],[535,150],[635,280],[815,170],[530,365],[650,365],[830,365],[365,445],[610,490],[535,490],[100,30],[810,30],[300,365],[850,480]]),color:'#e9e2ee'},
+ {name:'镜城东西门',mode:'simultaneous',routes:[points([[-30,90],[380,90],[380,220],[100,220],[100,430],[300,430],[300,340],[450,340],[450,550]]),points([[930,90],[520,90],[520,220],[800,220],[800,430],[600,430],[600,340],[450,340],[450,550]])],pads:points([[100,155],[245,150],[245,300],[655,150],[655,300],[800,155],[530,420],[700,350],[850,350],[370,490],[530,490],[200,350],[50,300],[850,300],[370,275],[450,155]]),color:'#e9e2ee'},
  {name:'三门轮阵',mode:'staggered',routes:[points([[-30,100],[200,100],[200,260],[450,260],[700,260],[700,430],[180,430],[180,340],[940,340]]),points([[-30,470],[70,470],[70,260],[450,260],[700,260],[700,430],[180,430],[180,340],[940,340]]),points([[450,-30],[450,260],[700,260],[700,430],[180,430],[180,340],[940,340]])],pads:points([[110,170],[280,185],[370,330],[520,190],[610,330],[770,270],[780,410],[600,490],[430,490],[250,490],[110,365],[850,280],[300,50],[520,60],[30,340],[850,430]]),color:'#ece2db'},
  {name:'万象三门',mode:'simultaneous',routes:[points([[-30,160],[180,160],[180,240],[350,240],[350,80],[650,80],[650,400],[850,400],[850,240],[940,240]]),points([[100,550],[100,360],[350,360],[350,240],[350,80],[650,80],[650,400],[850,400],[850,240],[940,240]]),points([[450,-30],[450,240],[350,240],[350,80],[650,80],[650,400],[850,400],[850,240],[940,240]])],pads:points([[100,240],[260,180],[260,290],[410,330],[520,160],[565,310],[730,180],[730,325],[780,470],[470,450],[30,420],[530,30],[250,30],[180,470],[720,30],[900,330]]),color:'#34344c'}
 ];
+// Keep existing mirror-city campaigns on their original geometry until restart.
+const LEGACY_MIRROR_MAP={name:'镜城东西门',mode:'simultaneous',routes:[points([[-30,90],[180,90],[180,220],[450,220],[450,430],[760,430],[760,300],[450,300],[450,550]]),points([[930,90],[720,90],[720,220],[450,220],[450,430],[760,430],[760,300],[450,300],[450,550]])],pads:points([[100,160],[270,145],[370,280],[535,150],[635,280],[815,170],[530,365],[650,365],[830,365],[365,445],[610,490],[535,490],[100,30],[810,30],[300,365],[850,480]]),color:'#e9e2ee'};
 const metrics=path=>{const segments=path.slice(1).map((p,i)=>Math.hypot(p.x-path[i].x,p.y-path[i].y));return{path,segments,length:segments.reduce((a,b)=>a+b,0)};};
 for(const [i,map] of MAPS.entries()){map.theme=['mountain','bamboo','archive','river','cloud','corridor','frost','mirror','beacon','cosmos'][i];map.ground=map.routes.map(metrics);map.air=map.routes.map((path,i)=>metrics([i===0&&map===MAPS[0]?{x:-30,y:85}:path[0],path.at(-1)]));}
-export const getMap=chapter=>MAPS[chapter];
+LEGACY_MIRROR_MAP.theme='mirror';LEGACY_MIRROR_MAP.ground=LEGACY_MIRROR_MAP.routes.map(metrics);LEGACY_MIRROR_MAP.air=LEGACY_MIRROR_MAP.routes.map(path=>metrics([path[0],path.at(-1)]));
+export const getMap=(chapter,mirrorLayout=2)=>chapter===7&&mirrorLayout===1?LEGACY_MIRROR_MAP:MAPS[chapter];
 export const LENGTH=MAPS[0].ground[0].length;
 function along(d,route){for(let i=0;i<route.segments.length;i++){if(d<=route.segments[i]){const t=Math.max(0,d/route.segments[i]);return{x:route.path[i].x+(route.path[i+1].x-route.path[i].x)*t,y:route.path[i].y+(route.path[i+1].y-route.path[i].y)*t};}d-=route.segments[i];}return{...route.path.at(-1)};}
 export function position(d){return along(d,MAPS[0].ground[0]);}
@@ -713,7 +716,7 @@ const PHYSICAL_TYPES=new Set(['fast','heavy','sniper','pierce']);
 export const damageClass=w=>PHYSICAL_TYPES.has(w.type)?'兵器':'法术';
 export const AIR_LENGTH=MAPS[0].air[0].length;
 export const isAir=e=>e.kind==='flying'||ENEMIES[e.kind]?.air===true;
-const routeFor=e=>(getMap(e.map??0)[isAir(e)?'air':'ground'])[e.route??0];
+const routeFor=e=>(getMap(e.map??0,e.mirrorLayout)[isAir(e)?'air':'ground'])[e.route??0];
 export const enemyLength=e=>routeFor(e).length;
 export const enemyPosition=e=>along(e.d,routeFor(e));
 const FORMATIONS=[
@@ -749,7 +752,7 @@ export function enemyHealthScale(chapter,wave,kind){
 }
 export class Game {
  get campaignWaves(){return this.campaignRounds*3;}
- get pads(){return getMap(this.chapter).pads;}
+ get pads(){return getMap(this.chapter,this.mirrorLayout).pads;}
  get activeTowers(){return this.towers.filter(towerActive);}
  repairCost(t){if(!t)return 0;const max=towerDefense(t).maxHp,hp=t.hp??max;if(hp>=max-1e-6)return 0;if(hp<=0)return Math.max(3,Math.ceil(t.spent*rebuildPercent(t)/100));const w=getWord(t.word),p=this.pads[t.pad],gold=this.activeTowers.some(a=>getWord(a.word).type==='income'&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range);return Math.max(5,Math.ceil(t.spent*.25*(1-hp/max)*(gold?.85:1)*(Math.min(hasRune(w,'study')?.92:1,w.special==='thrift'?1-[.08,.12,.18][learningRank(w)-1]:1))*(hasRune(w,'rescue')&&hp<max*.3?.9:1)));}
  salvageValue(t){return Math.floor(t.spent*(towerActive(t)?.7:.35));}
@@ -870,7 +873,7 @@ export class Game {
    t.hp=Math.min(max,before+max*(.3+extra+(getWord(t.word).type==='basic'?.05:0)));recovered+=t.hp-before;
   }return recovered;
  }
- constructor(chapter=0,seed=(Math.random()*4294967296)>>>0){this.chapter=chapter;this.campaignRounds=CHAPTERS[chapter].rounds;this.wave=0;this.endless=false;this.unlockedPads=Array.from({length:FREE_PAD_COUNT},(_,i)=>i);this.hp=CHAPTERS[chapter].hp;this.ink=CHAPTERS[chapter].ink;this.towers=[];this.enemies=[];this.effects=[];this.zones=[];this.queue=[];this.time=0;this.spawnTime=0;this.autoWaveAt=0;this.pendingWaves=null;this.phase='prepare';this.kills=0;this.nextId=1;this.skillReady=0;this.skillUses=0;this.hintUses=0;this.killInkRemainder=0;this.totalEarned=0;this.bountyEarned=0;this.barrierSpent=0;this.soulHealed=0;this.reviveUsed=false;this.bossDraws=[];this.bossBreachedRound=0;this.events=[];this.rngState=(seed>>>0)||1;this.refreshes=0;this.handSerial=0;this.hand=[];for(let i=0;i<4;i++)this.random();this.drawHand();}
+ constructor(chapter=0,seed=(Math.random()*4294967296)>>>0){this.chapter=chapter;this.campaignRounds=CHAPTERS[chapter].rounds;this.wave=0;this.endless=false;this.unlockedPads=Array.from({length:FREE_PAD_COUNT},(_,i)=>i);this.hp=CHAPTERS[chapter].hp;this.ink=CHAPTERS[chapter].ink;this.towers=[];this.enemies=[];this.effects=[];this.zones=[];this.queue=[];this.time=0;this.spawnTime=0;this.autoWaveAt=0;this.pendingWaves=null;this.phase='prepare';this.kills=0;this.nextId=1;this.skillReady=0;this.skillUses=0;this.hintUses=0;this.killInkRemainder=0;this.totalEarned=0;this.bountyEarned=0;this.barrierSpent=0;this.soulHealed=0;this.reviveUsed=false;this.bossDraws=[];this.bossBreachedRound=0;this.events=[];this.rngState=(seed>>>0)||1;this.refreshes=0;this.handSerial=0;this.hand=[];if(chapter===7)this.mirrorLayout=2;for(let i=0;i<4;i++)this.random();this.drawHand();}
  emit(type,data={}){this.events.push({type,...data});}
  random(){let x=this.rngState;x^=x<<13;x^=x>>>17;x^=x<<5;this.rngState=x>>>0;return this.rngState/4294967296;}
  drawHand(){
@@ -901,7 +904,7 @@ export class Game {
  wavePreview(){return this.plan(this.wave+1);}
  startWave(){if(!['prepare','intermission'].includes(this.phase))return false;this.launchWave(this.time);return true;}
  launchWave(at){
-  this.wave++;this.phase='battle';const plan=wavePlan(this.chapter,this.wave,this.campaignRounds,this.endless),map=getMap(this.chapter);
+  this.wave++;this.phase='battle';const plan=wavePlan(this.chapter,this.wave,this.campaignRounds,this.endless),map=getMap(this.chapter,this.mirrorLayout);
   if(plan.boss){const last=this.bossDraws.at(-1)?.kind,choices=[...COMMON_BOSSES,...MAP_BOSS_POOLS[this.chapter].flatMap(k=>Array(COMMON_BOSSES.length/MAP_BOSS_POOLS[this.chapter].length).fill(k))].filter(k=>k!==last);plan.bossKind=choices[Math.floor(this.random()*choices.length)];this.bossDraws.push({wave:this.wave,kind:plan.bossKind});this.bossDraws=this.bossDraws.slice(-12);}
   const batch=map.mode==='simultaneous'?map.routes.length:1,interval=Math.max(.4,1.03-plan.round*.035);
   const entries=Array.from({length:plan.count},(_,i)=>({kind:plan.boss&&i===Math.floor(plan.count*.35)?plan.bossKind:i===0&&plan.round>=2?plan.signature:i<Math.min(3,plan.pool.length)&&plan.stage>=4?plan.pool[i]:plan.pool[Math.floor(this.random()*plan.pool.length)],route:map.mode==='staggered'?Math.floor(i/4)%map.routes.length:i%map.routes.length,wave:this.wave,at:at+Math.floor(i/batch)*interval*batch}));
@@ -911,7 +914,7 @@ export class Game {
   this.queue.push(...entries);this.queue.sort((a,b)=>(a.at??this.time)-(b.at??this.time));
   this.pendingWaves??=[];this.pendingWaves.push(this.wave);this.autoWaveAt=plan.part<3?at+WAVE_INTERVAL:0;this.emit('wave',{wave:this.wave});
  }
- spawn(kind,distance=0,route=0,wave=this.wave){const st=ENEMIES[kind],scale=enemyHealthScale(this.chapter,wave,kind),id=this.nextId++;const e={map:this.chapter,route,wave,bornAt:this.time,id,kind,towerAttackAt:this.time+1.1+(id%8)*.08,hp:st.hp*scale,maxHp:st.hp*scale,speed:st.speed*(1+Math.min(this.chapter,4)*.05),reward:st.reward,harm:st.harm,d:Math.max(0,distance),slowUntil:0};if(kind==='shield'||st.shield){e.shield=(st.shield||55)*scale;e.maxShield=e.shield;}const behavior=st.behavior||kind;if(['healer','broodqueen','hillrunner','scrollguard','tideshaper','cloudraptor','rallyboss'].includes(behavior))e.abilityAt=this.time+({healer:4,broodqueen:8,hillrunner:st.boss?8:6,scrollguard:st.boss?9:8,tideshaper:st.boss?8:6,cloudraptor:st.boss?8:7,rallyboss:8}[behavior]);if(st.boss&&e.abilityAt!==undefined)e.abilityAt=Math.min(e.abilityAt,this.time+4);const pulse=enemyPulse(e);if(pulse)e.pulseAt=this.time+(st.boss?Math.min(3,pulse.interval):pulse.interval);if(st.initialPhase!==undefined)e.astralMode=st.initialPhase;if(st.boss){e.bossReadyAt=this.time+4;e.escortReadyAt=this.time+8;this.effects.push({kind:'boss-arrival',to:enemyPosition(e),color:enemyWeapon(kind).color,life:2,max:2});this.emit('boss-arrive',{enemy:kind,name:st.name});}this.enemies.push(e);return e;}
+ spawn(kind,distance=0,route=0,wave=this.wave){const st=ENEMIES[kind],scale=enemyHealthScale(this.chapter,wave,kind),id=this.nextId++;const e={map:this.chapter,...(this.chapter===7?{mirrorLayout:this.mirrorLayout}:{}),route,wave,bornAt:this.time,id,kind,towerAttackAt:this.time+1.1+(id%8)*.08,hp:st.hp*scale,maxHp:st.hp*scale,speed:st.speed*(1+Math.min(this.chapter,4)*.05),reward:st.reward,harm:st.harm,d:Math.max(0,distance),slowUntil:0};if(kind==='shield'||st.shield){e.shield=(st.shield||55)*scale;e.maxShield=e.shield;}const behavior=st.behavior||kind;if(['healer','broodqueen','hillrunner','scrollguard','tideshaper','cloudraptor','rallyboss'].includes(behavior))e.abilityAt=this.time+({healer:4,broodqueen:8,hillrunner:st.boss?8:6,scrollguard:st.boss?9:8,tideshaper:st.boss?8:6,cloudraptor:st.boss?8:7,rallyboss:8}[behavior]);if(st.boss&&e.abilityAt!==undefined)e.abilityAt=Math.min(e.abilityAt,this.time+4);const pulse=enemyPulse(e);if(pulse)e.pulseAt=this.time+(st.boss?Math.min(3,pulse.interval):pulse.interval);if(st.initialPhase!==undefined)e.astralMode=st.initialPhase;if(st.boss){e.bossReadyAt=this.time+4;e.escortReadyAt=this.time+8;this.effects.push({kind:'boss-arrival',to:enemyPosition(e),color:enemyWeapon(kind).color,life:2,max:2});this.emit('boss-arrive',{enemy:kind,name:st.name});}this.enemies.push(e);return e;}
  skillCost(){return SKILL_BASE_COST+this.skillUses*SKILL_COST_STEP;}
  skill(){const cost=this.skillCost();if(this.phase!=='battle'||this.time<this.skillReady||this.ink<cost)return false;this.ink-=cost;this.skillUses++;this.skillReady=this.time+SKILL_COOLDOWN;for(const e of this.enemies){e.hp-=100;if(!(hasIceShell(e)))e.slowUntil=this.time+3;}this.effects.push({kind:'rain',life:1,max:1});this.emit('skill',{cost,nextCost:this.skillCost()});return true;}
  step(dt){dt=Math.max(0,Math.min(dt,.1));for(const fx of this.effects)fx.life-=dt;this.effects=this.effects.filter(f=>f.life>0);if(this.phase==='intermission'){this.phase='battle';this.pendingWaves=[];}
@@ -922,7 +925,7 @@ export class Game {
  this.spawnTime-=dt;
  while(this.queue.length&&this.queue[0].at!==undefined&&this.queue[0].at<=this.time+1e-9){const next=this.queue.shift();this.spawnEntry(next);}
  // Older saves and handcrafted states may still contain an unscheduled spawn queue.
- if(this.queue.length&&this.queue[0].at===undefined&&this.spawnTime<=0){const batch=getMap(this.chapter).mode==='simultaneous'?getMap(this.chapter).routes.length:1;for(const next of this.queue.splice(0,batch))this.spawnEntry(next);this.spawnTime=Math.max(.4,1.03-Math.ceil(this.wave/3)*.035)*batch;}
+ if(this.queue.length&&this.queue[0].at===undefined&&this.spawnTime<=0){const batch=getMap(this.chapter,this.mirrorLayout).mode==='simultaneous'?getMap(this.chapter,this.mirrorLayout).routes.length:1;for(const next of this.queue.splice(0,batch))this.spawnEntry(next);this.spawnTime=Math.max(.4,1.03-Math.ceil(this.wave/3)*.035)*batch;}
 
  this.updateZones();
  this.updateEnemies(dt);
@@ -1307,6 +1310,8 @@ export class Game {
  static restore(data){
  const finite=n=>typeof n==='number'&&Number.isFinite(n),int=n=>Number.isInteger(n)&&n>=0,kind=k=>Object.hasOwn(ENEMIES,k);
  if(!data||![1,2,3,4,5,6,7,8,9].includes(data.version)||!int(data.chapter)||!CHAPTERS[data.chapter]||!int(data.wave)||(data.endless!==undefined&&typeof data.endless!=='boolean')||(!data.endless&&data.version<5&&data.wave>(data.version<3?CHAPTERS[data.chapter].rounds:CHAPTERS[data.chapter].waves))||!['prepare','battle','intermission','won','lost'].includes(data.phase)||!['ink','hp','time','skillReady','totalEarned'].every(k=>finite(data[k])&&data[k]>=0)||data.hp>CHAPTERS[data.chapter].hp||!['kills','nextId'].every(k=>int(data[k]))||!finite(data.spawnTime)||!Array.isArray(data.towers)||!Array.isArray(data.enemies)||!Array.isArray(data.queue))throw Error('Invalid save');
+ if(data.mirrorLayout!==undefined&&(data.chapter!==7||![1,2].includes(data.mirrorLayout)))throw Error('Invalid mirror layout');
+ if(data.enemies.some(e=>e.mirrorLayout!==undefined&&(data.chapter!==7||e.mirrorLayout!==(data.mirrorLayout??1))))throw Error('Invalid enemy layout');
  const completedRounds=data.phase==='won'&&data.wave>0?(data.version<3?data.wave:Math.ceil(data.wave/3)):LEGACY_CHAPTER_ROUNDS[data.chapter];
  const campaignRounds=data.version>=5?data.campaignRounds:data.endless?LEGACY_CHAPTER_ROUNDS[data.chapter]:data.phase==='won'?completedRounds:CHAPTERS[data.chapter].rounds;
  if(!Number.isSafeInteger(campaignRounds)||campaignRounds<1||campaignRounds>100||(!data.endless&&(data.version<3?data.wave*3:data.wave)>campaignRounds*3))throw Error('Invalid campaign length');
@@ -1328,7 +1333,7 @@ export class Game {
  if(data.enemies.some(e=>e.guardPower!==undefined&&e.guardPower>.3))throw Error('Invalid guard power');
  if(data.enemies.some(e=>e.astralMode!==undefined&&![0,1].includes(e.astralMode)))throw Error('Invalid astral mode');
  if(data.towers.some(t=>t.shots!==undefined&&!int(t.shots)))throw Error('Invalid tower attack counter');
- if(data.enemies.some(e=>(e.map!==undefined&&e.map!==data.chapter)||(e.route!==undefined&&(!int(e.route)||e.route>=getMap(data.chapter).routes.length)))||data.queue.some(e=>e.route!==undefined&&(!int(e.route)||e.route>=getMap(data.chapter).routes.length)))throw Error('Invalid route');
+ if(data.enemies.some(e=>(e.map!==undefined&&e.map!==data.chapter)||(e.route!==undefined&&(!int(e.route)||e.route>=getMap(data.chapter,data.mirrorLayout??1).routes.length)))||data.queue.some(e=>e.route!==undefined&&(!int(e.route)||e.route>=getMap(data.chapter,data.mirrorLayout??1).routes.length)))throw Error('Invalid route');
  if(data.version>=4){
   if(!Array.isArray(data.pendingWaves)||new Set(data.pendingWaves).size!==data.pendingWaves.length||data.pendingWaves.some(w=>!int(w)||w===0||w>data.wave||Math.ceil(w/3)!==Math.ceil(data.wave/3)))throw Error('Invalid active waves');
   if(data.queue.some(e=>(e.at!==undefined&&(!finite(e.at)||e.at<0))||(e.wave!==undefined&&(!int(e.wave)||e.wave>data.wave)))||data.enemies.some(e=>e.wave!==undefined&&(!int(e.wave)||e.wave>data.wave)))throw Error('Invalid wave schedule');
@@ -1341,7 +1346,7 @@ export class Game {
  if(data.hintUses!==undefined&&(!Number.isSafeInteger(data.hintUses)||data.hintUses<0||data.hintUses>Number.MAX_SAFE_INTEGER/HINT_COST-1))throw Error('Invalid hint use count');
  if(data.skillUses!==undefined&&!int(data.skillUses))throw Error('Invalid skill use count');
  if(data.autoWaveAt!==undefined&&(!finite(data.autoWaveAt)||data.autoWaveAt<0))throw Error('Invalid wave timer');
- const g=new Game(data.chapter);g.campaignRounds=campaignRounds;g.bossBreachedRound=data.bossBreachedRound??0;g.bossDraws=(data.bossDraws||[]).map(x=>({...x}));g.zones=(data.zones||[]).map(z=>({...z}));g.reviveUsed=data.reviveUsed??false;g.barrierSpent=data.barrierSpent??0;g.soulHealed=data.soulHealed??0;g.bountyEarned=data.bountyEarned??0;g.autoWaveAt=data.autoWaveAt??0;g.endless=data.endless===true;g.skillUses=data.skillUses??0;g.hintUses=data.hintUses??0;g.killInkRemainder=data.killInkRemainder??0;for(const k of ['wave','hp','ink','towers','enemies','queue','time','spawnTime','phase','kills','nextId','skillReady','totalEarned'])g[k]=data[k];
+ const g=new Game(data.chapter);if(data.chapter===7)g.mirrorLayout=data.mirrorLayout??1;g.campaignRounds=campaignRounds;g.bossBreachedRound=data.bossBreachedRound??0;g.bossDraws=(data.bossDraws||[]).map(x=>({...x}));g.zones=(data.zones||[]).map(z=>({...z}));g.reviveUsed=data.reviveUsed??false;g.barrierSpent=data.barrierSpent??0;g.soulHealed=data.soulHealed??0;g.bountyEarned=data.bountyEarned??0;g.autoWaveAt=data.autoWaveAt??0;g.endless=data.endless===true;g.skillUses=data.skillUses??0;g.hintUses=data.hintUses??0;g.killInkRemainder=data.killInkRemainder??0;for(const k of ['wave','hp','ink','towers','enemies','queue','time','spawnTime','phase','kills','nextId','skillReady','totalEarned'])g[k]=data[k];
  if(data.version>=2){
   const chars=new Set(WORDS.flatMap(w=>[...w.word]));
   if(!int(data.rngState)||data.rngState===0||data.rngState>4294967295||!int(data.refreshes)||!int(data.handSerial)||!Array.isArray(data.hand)||data.hand.length!==HAND_SIZE||new Set(data.hand.map(t=>t?.id)).size!==HAND_SIZE||data.hand.some(t=>!t||!int(t.id)||t.id===0||t.id>data.handSerial||!chars.has(t.ch)||typeof t.used!=='boolean')||data.towers.some(t=>!finite(t.spent)||t.spent<0)||data.enemies.some(e=>(e.poisonDps!==undefined&&(!finite(e.poisonDps)||e.poisonDps<0))||(e.poisonUntil!==undefined&&(!finite(e.poisonUntil)||!finite(e.poisonDps)))))throw Error('Invalid word tray');
@@ -1355,10 +1360,10 @@ export class Game {
  if(data.hintWord!==undefined&&data.hintWord!==null){if(typeof data.hintWord!=='string'||!getWord(data.hintWord)||!g.tilesFor(data.hintWord))throw Error('Invalid saved hint');g.hintWord=data.hintWord;}
  if(data.version<4){
   g.pendingWaves=g.phase==='battle'&&g.wave>0?[g.wave]:[];
-  const batch=getMap(g.chapter).mode==='simultaneous'?getMap(g.chapter).routes.length:1,interval=Math.max(.4,1.03-Math.ceil(g.wave/3)*.035);g.queue=g.queue.map((e,i)=>({...e,wave:g.wave,at:g.time+Math.max(0,g.spawnTime)+Math.floor(i/batch)*interval*batch}));
+  const batch=getMap(g.chapter,g.mirrorLayout).mode==='simultaneous'?getMap(g.chapter,g.mirrorLayout).routes.length:1,interval=Math.max(.4,1.03-Math.ceil(g.wave/3)*.035);g.queue=g.queue.map((e,i)=>({...e,wave:g.wave,at:g.time+Math.max(0,g.spawnTime)+Math.floor(i/batch)*interval*batch}));
   if(g.phase==='intermission'){g.phase='battle';g.autoWaveAt=Math.max(g.time,g.autoWaveAt)||g.time+.001;}
   else g.autoWaveAt=g.phase==='battle'&&g.wave%3!==0?g.time+WAVE_INTERVAL:0;
  }else g.pendingWaves=[...data.pendingWaves];
- g.towers=g.towers.map(t=>{const max=towerDefense(t).maxHp,oldMax=savedTowerMax(t,data.version);return {...t,hp:t.hp===undefined?max:data.version<9&&oldMax!==max?Math.min(t.hp,oldMax)/oldMax*max:Math.min(t.hp,max),...(t.lessonShield!==undefined?{lessonShield:data.version<9?Math.min(t.lessonShield/oldMax,.1)*max:t.lessonShield}:{}),repairReadyAt:t.repairReadyAt??0};});g.enemies=g.enemies.map(e=>({...e,...(e.bossTargets?{bossTargets:[...e.bossTargets]}:{}),towerAttackAt:e.towerAttackAt??g.time+1.4,map:g.chapter,route:e.route??0,wave:e.wave??g.wave}));g.queue=g.queue.map(e=>({...e}));if(!data.bossDraws){const seen=new Map([...g.enemies,...g.queue].filter(e=>ENEMIES[e.kind]?.boss).map(e=>[e.wave??g.wave,e.kind]));g.bossDraws=[...seen].map(([wave,kind])=>({wave,kind})).slice(-12);}g.hand=g.hand.map(t=>({...t}));return g;
+ g.towers=g.towers.map(t=>{const max=towerDefense(t).maxHp,oldMax=savedTowerMax(t,data.version);return {...t,hp:t.hp===undefined?max:data.version<9&&oldMax!==max?Math.min(t.hp,oldMax)/oldMax*max:Math.min(t.hp,max),...(t.lessonShield!==undefined?{lessonShield:data.version<9?Math.min(t.lessonShield/oldMax,.1)*max:t.lessonShield}:{}),repairReadyAt:t.repairReadyAt??0};});g.enemies=g.enemies.map(e=>({...e,...(e.bossTargets?{bossTargets:[...e.bossTargets]}:{}),towerAttackAt:e.towerAttackAt??g.time+1.4,map:g.chapter,...(g.chapter===7?{mirrorLayout:g.mirrorLayout}:{}),route:e.route??0,wave:e.wave??g.wave}));g.queue=g.queue.map(e=>({...e}));if(!data.bossDraws){const seen=new Map([...g.enemies,...g.queue].filter(e=>ENEMIES[e.kind]?.boss).map(e=>[e.wave??g.wave,e.kind]));g.bossDraws=[...seen].map(([wave,kind])=>({wave,kind})).slice(-12);}g.hand=g.hand.map(t=>({...t}));return g;
  }
 }

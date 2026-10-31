@@ -1,0 +1,1119 @@
+{
+  "sourceCommit": "318f1ca57a2fedfe43096219c25d32f46e1b704c",
+  "data": {
+    "chapter": 7,
+    "campaignRounds": 14,
+    "wave": 1,
+    "endless": false,
+    "unlockedPads": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "hp": 30,
+    "ink": 1935,
+    "towers": [
+      {
+        "word": "毒云",
+        "pad": 6,
+        "level": 2,
+        "spent": 65,
+        "cooldown": -0.1,
+        "id": 1,
+        "repairReadyAt": 0,
+        "rebuilds": 0,
+        "hp": 168
+      }
+    ],
+    "enemies": [
+      {
+        "map": 7,
+        "route": 0,
+        "wave": 1,
+        "bornAt": 0.1,
+        "id": 2,
+        "kind": "normal",
+        "towerAttackAt": 1.36,
+        "hp": 129.09375,
+        "maxHp": 129.09375,
+        "speed": 51.6,
+        "reward": 3,
+        "harm": 1,
+        "d": 5.16,
+        "slowUntil": 0
+      },
+      {
+        "map": 7,
+        "route": 1,
+        "wave": 1,
+        "bornAt": 0.1,
+        "id": 3,
+        "kind": "swift",
+        "towerAttackAt": 1.4400000000000002,
+        "hp": 86.0625,
+        "maxHp": 86.0625,
+        "speed": 91.2,
+        "reward": 2,
+        "harm": 1,
+        "d": 9.120000000000001,
+        "slowUntil": 0
+      },
+      {
+        "map": 7,
+        "route": 0,
+        "wave": 1,
+        "bornAt": 0.1,
+        "id": 4,
+        "kind": "normal",
+        "towerAttackAt": 1.5200000000000002,
+        "hp": 129.09375,
+        "maxHp": 129.09375,
+        "speed": 51.6,
+        "reward": 3,
+        "harm": 1,
+        "d": 1274,
+        "slowUntil": 0
+      },
+      {
+        "map": 7,
+        "route": 1,
+        "wave": 1,
+        "bornAt": 0.1,
+        "id": 5,
+        "kind": "mirrorling",
+        "towerAttackAt": 1.6,
+        "hp": 177.86249999999998,
+        "maxHp": 177.86249999999998,
+        "speed": 49.199999999999996,
+        "reward": 4,
+        "harm": 1,
+        "d": 910,
+        "slowUntil": 0
+      },
+      {
+        "map": 7,
+        "route": 0,
+        "wave": 1,
+        "bornAt": 0.1,
+        "id": 6,
+        "kind": "mirrorbird",
+        "towerAttackAt": 1.6800000000000002,
+        "hp": 109.0125,
+        "maxHp": 109.0125,
+        "speed": 58.8,
+        "reward": 4,
+        "harm": 1,
+        "d": 398.8984833262719,
+        "slowUntil": 0
+      },
+      {
+        "map": 7,
+        "route": 1,
+        "wave": 1,
+        "bornAt": 0.1,
+        "id": 7,
+        "kind": "mirrorqueen",
+        "towerAttackAt": 1.7600000000000002,
+        "hp": 4057.5599999999995,
+        "maxHp": 4057.5599999999995,
+        "speed": 28.799999999999997,
+        "reward": 27,
+        "harm": 4,
+        "d": 455,
+        "slowUntil": 0,
+        "pulseAt": 3.1,
+        "bossReadyAt": 4.1,
+        "escortReadyAt": 8.1
+      }
+    ],
+    "zones": [
+      {
+        "kind": "poison",
+        "tower": 1,
+        "word": "毒云",
+        "x": 600,
+        "y": 400,
+        "radius": 60,
+        "power": 10,
+        "until": 4.1
+      }
+    ],
+    "queue": [
+      {
+        "kind": "normal",
+        "route": 0,
+        "wave": 1,
+        "at": 1.99
+      },
+      {
+        "kind": "normal",
+        "route": 1,
+        "wave": 1,
+        "at": 1.99
+      },
+      {
+        "kind": "normal",
+        "route": 0,
+        "wave": 1,
+        "at": 3.98
+      },
+      {
+        "kind": "normal",
+        "route": 1,
+        "wave": 1,
+        "at": 3.98
+      },
+      {
+        "kind": "normal",
+        "route": 0,
+        "wave": 1,
+        "at": 5.97
+      },
+      {
+        "kind": "swift",
+        "route": 1,
+        "wave": 1,
+        "at": 5.97
+      },
+      {
+        "kind": "normal",
+        "route": 0,
+        "wave": 1,
+        "at": 7.96
+      },
+      {
+        "kind": "normal",
+        "route": 1,
+        "wave": 1,
+        "at": 7.96
+      },
+      {
+        "kind": "swift",
+        "route": 0,
+        "wave": 1,
+        "at": 9.95
+      },
+      {
+        "kind": "normal",
+        "route": 1,
+        "wave": 1,
+        "at": 9.95
+      },
+      {
+        "kind": "normal",
+        "route": 0,
+        "wave": 1,
+        "at": 11.94
+      },
+      {
+        "kind": "normal",
+        "route": 1,
+        "wave": 1,
+        "at": 11.94
+      },
+      {
+        "kind": "normal",
+        "route": 0,
+        "wave": 1,
+        "at": 13.93
+      },
+      {
+        "kind": "normal",
+        "route": 1,
+        "wave": 1,
+        "at": 13.93
+      },
+      {
+        "kind": "swift",
+        "route": 0,
+        "wave": 1,
+        "at": 15.92
+      },
+      {
+        "kind": "normal",
+        "route": 1,
+        "wave": 1,
+        "at": 15.92
+      },
+      {
+        "kind": "normal",
+        "route": 0,
+        "wave": 1,
+        "at": 17.91
+      },
+      {
+        "kind": "normal",
+        "route": 1,
+        "wave": 1,
+        "at": 17.91
+      },
+      {
+        "kind": "normal",
+        "route": 0,
+        "wave": 1,
+        "at": 19.9
+      },
+      {
+        "kind": "normal",
+        "route": 1,
+        "wave": 1,
+        "at": 19.9
+      },
+      {
+        "kind": "normal",
+        "route": 0,
+        "wave": 1,
+        "at": 21.89
+      },
+      {
+        "kind": "swift",
+        "route": 1,
+        "wave": 1,
+        "at": 21.89
+      },
+      {
+        "kind": "normal",
+        "route": 0,
+        "wave": 1,
+        "at": 23.88
+      }
+    ],
+    "time": 0.1,
+    "spawnTime": -0.1,
+    "autoWaveAt": 30,
+    "pendingWaves": [
+      1
+    ],
+    "phase": "battle",
+    "kills": 0,
+    "nextId": 8,
+    "skillReady": 0,
+    "skillUses": 0,
+    "hintUses": 0,
+    "killInkRemainder": 0,
+    "totalEarned": 0,
+    "bountyEarned": 0,
+    "barrierSpent": 0,
+    "soulHealed": 0,
+    "reviveUsed": false,
+    "bossDraws": [],
+    "bossBreachedRound": 0,
+    "rngState": 3198363775,
+    "refreshes": 0,
+    "handSerial": 32,
+    "hand": [
+      {
+        "ch": "毒",
+        "id": 17,
+        "used": true
+      },
+      {
+        "ch": "云",
+        "id": 18,
+        "used": true
+      },
+      {
+        "ch": "火",
+        "id": 19,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 20,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 21,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 22,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 23,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 24,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 25,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 26,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 27,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 28,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 29,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 30,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 31,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 32,
+        "used": false
+      }
+    ],
+    "hintWord": null,
+    "version": 9
+  },
+  "positions": [
+    {
+      "x": -24.84,
+      "y": 90
+    },
+    {
+      "x": 920.88,
+      "y": 90
+    },
+    {
+      "x": 746,
+      "y": 300
+    },
+    {
+      "x": 540,
+      "y": 430
+    },
+    {
+      "x": 258,
+      "y": 366
+    },
+    {
+      "x": 605,
+      "y": 220
+    }
+  ],
+  "lengths": [
+    1820,
+    1820,
+    1820,
+    1820,
+    664.8308055437865,
+    1820
+  ],
+  "pads": [
+    {
+      "x": 100,
+      "y": 160
+    },
+    {
+      "x": 270,
+      "y": 145
+    },
+    {
+      "x": 370,
+      "y": 280
+    },
+    {
+      "x": 535,
+      "y": 150
+    },
+    {
+      "x": 635,
+      "y": 280
+    },
+    {
+      "x": 815,
+      "y": 170
+    },
+    {
+      "x": 530,
+      "y": 365
+    },
+    {
+      "x": 650,
+      "y": 365
+    },
+    {
+      "x": 830,
+      "y": 365
+    },
+    {
+      "x": 365,
+      "y": 445
+    },
+    {
+      "x": 610,
+      "y": 490
+    },
+    {
+      "x": 535,
+      "y": 490
+    },
+    {
+      "x": 100,
+      "y": 30
+    },
+    {
+      "x": 810,
+      "y": 30
+    },
+    {
+      "x": 300,
+      "y": 365
+    },
+    {
+      "x": 850,
+      "y": 480
+    }
+  ],
+  "after20Seconds": {
+    "chapter": 7,
+    "campaignRounds": 14,
+    "wave": 1,
+    "endless": false,
+    "unlockedPads": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "hp": 25,
+    "ink": 1935,
+    "towers": [
+      {
+        "word": "毒云",
+        "pad": 6,
+        "level": 2,
+        "spent": 65,
+        "cooldown": 0.06499999999999989,
+        "id": 1,
+        "repairReadyAt": 0,
+        "rebuilds": 0,
+        "hp": 0,
+        "shots": 12,
+        "reflectReadyAt": 16.59999999999996,
+        "hitUntil": 18.84999999999999,
+        "counterReady": 20.099999999999987,
+        "disruptedUntil": 17.599999999999962
+      }
+    ],
+    "enemies": [
+      {
+        "map": 7,
+        "route": 0,
+        "wave": 1,
+        "bornAt": 0.1,
+        "id": 2,
+        "kind": "normal",
+        "towerAttackAt": 21.599999999999987,
+        "hp": 73.93007812500063,
+        "maxHp": 129.09375,
+        "speed": 51.6,
+        "reward": 3,
+        "harm": 1,
+        "d": 1076.582399999996,
+        "slowUntil": 0,
+        "poisonDps": 7.4799999999999995,
+        "poisonUntil": 20.099999999999987
+      },
+      {
+        "map": 7,
+        "route": 1,
+        "wave": 1,
+        "bornAt": 0.1,
+        "id": 7,
+        "kind": "mirrorqueen",
+        "towerAttackAt": 21.51999999999999,
+        "hp": 3939.375999999992,
+        "maxHp": 4057.5599999999995,
+        "speed": 28.799999999999997,
+        "reward": 27,
+        "harm": 4,
+        "d": 931.2080000000021,
+        "slowUntil": 0,
+        "pulseAt": 20.799999999999976,
+        "bossReadyAt": 25.399999999999963,
+        "escortReadyAt": 25.29999999999996,
+        "poisonDps": 7.4799999999999995,
+        "poisonUntil": 20.699999999999996,
+        "pulses": 2,
+        "reflectUntil": 19.399999999999963,
+        "bossCasts": 2,
+        "escortCalls": 1
+      },
+      {
+        "map": 7,
+        "route": 0,
+        "wave": 1,
+        "bornAt": 2.0000000000000004,
+        "id": 8,
+        "kind": "normal",
+        "towerAttackAt": 19.499999999999957,
+        "hp": 106.57124999999965,
+        "maxHp": 129.09375,
+        "speed": 51.6,
+        "reward": 3,
+        "harm": 1,
+        "d": 978.3359999999967,
+        "slowUntil": 0,
+        "poisonDps": 3.8499999999999996,
+        "poisonUntil": 20.699999999999996
+      },
+      {
+        "map": 7,
+        "route": 1,
+        "wave": 1,
+        "bornAt": 2.0000000000000004,
+        "id": 9,
+        "kind": "normal",
+        "towerAttackAt": 19.499999999999957,
+        "hp": 106.57124999999965,
+        "maxHp": 129.09375,
+        "speed": 51.6,
+        "reward": 3,
+        "harm": 1,
+        "d": 978.3359999999967,
+        "slowUntil": 0,
+        "poisonDps": 3.8499999999999996,
+        "poisonUntil": 20.699999999999996
+      },
+      {
+        "map": 7,
+        "route": 1,
+        "wave": 1,
+        "bornAt": 3.1000000000000014,
+        "id": 10,
+        "kind": "mirrorling",
+        "towerAttackAt": 19.09999999999999,
+        "hp": 121.24937624999933,
+        "maxHp": 177.86249999999998,
+        "speed": 49.199999999999996,
+        "reward": 4,
+        "harm": 1,
+        "d": 1369.4384000000048,
+        "slowUntil": 0,
+        "poisonDps": 7.4799999999999995,
+        "poisonUntil": 12.499999999999979
+      },
+      {
+        "map": 7,
+        "route": 0,
+        "wave": 1,
+        "bornAt": 4.000000000000002,
+        "id": 11,
+        "kind": "normal",
+        "towerAttackAt": 19.09999999999999,
+        "hp": 118.35224999999986,
+        "maxHp": 129.09375,
+        "speed": 51.6,
+        "reward": 3,
+        "harm": 1,
+        "d": 842.3183999999986,
+        "slowUntil": 0,
+        "poisonDps": 3.8499999999999996,
+        "poisonUntil": 20.699999999999996
+      },
+      {
+        "map": 7,
+        "route": 1,
+        "wave": 1,
+        "bornAt": 4.000000000000002,
+        "id": 12,
+        "kind": "normal",
+        "towerAttackAt": 19.09999999999999,
+        "hp": 118.35224999999986,
+        "maxHp": 129.09375,
+        "speed": 51.6,
+        "reward": 3,
+        "harm": 1,
+        "d": 842.3183999999986,
+        "slowUntil": 0,
+        "poisonDps": 3.8499999999999996,
+        "poisonUntil": 20.699999999999996
+      },
+      {
+        "map": 7,
+        "route": 0,
+        "wave": 1,
+        "bornAt": 5.999999999999995,
+        "id": 13,
+        "kind": "normal",
+        "towerAttackAt": 7.499999999999995,
+        "hp": 129.09375,
+        "maxHp": 129.09375,
+        "speed": 51.6,
+        "reward": 3,
+        "harm": 1,
+        "d": 740.7695999999995,
+        "slowUntil": 0
+      },
+      {
+        "map": 7,
+        "route": 1,
+        "wave": 1,
+        "bornAt": 5.999999999999995,
+        "id": 14,
+        "kind": "swift",
+        "towerAttackAt": 19.29999999999996,
+        "hp": 71.62499999999982,
+        "maxHp": 86.0625,
+        "speed": 91.2,
+        "reward": 2,
+        "harm": 1,
+        "d": 1338.3782399999945,
+        "slowUntil": 0,
+        "poisonDps": 3.8499999999999996,
+        "poisonUntil": 17.29999999999996
+      },
+      {
+        "map": 7,
+        "route": 0,
+        "wave": 1,
+        "bornAt": 7.999999999999988,
+        "id": 15,
+        "kind": "normal",
+        "towerAttackAt": 9.659999999999988,
+        "hp": 129.09375,
+        "maxHp": 129.09375,
+        "speed": 51.6,
+        "reward": 3,
+        "harm": 1,
+        "d": 629.5200000000004,
+        "slowUntil": 0
+      },
+      {
+        "map": 7,
+        "route": 1,
+        "wave": 1,
+        "bornAt": 7.999999999999988,
+        "id": 16,
+        "kind": "normal",
+        "towerAttackAt": 9.099999999999987,
+        "hp": 129.09375,
+        "maxHp": 129.09375,
+        "speed": 51.6,
+        "reward": 3,
+        "harm": 1,
+        "d": 629.5200000000004,
+        "slowUntil": 0
+      },
+      {
+        "map": 7,
+        "route": 0,
+        "wave": 1,
+        "bornAt": 9.99999999999998,
+        "id": 17,
+        "kind": "swift",
+        "towerAttackAt": 11.17999999999998,
+        "hp": 76.36049999999983,
+        "maxHp": 86.0625,
+        "speed": 91.2,
+        "reward": 2,
+        "harm": 1,
+        "d": 963.0719999999989,
+        "slowUntil": 0,
+        "poisonDps": 3.8499999999999996,
+        "poisonUntil": 20.699999999999996
+      },
+      {
+        "map": 7,
+        "route": 1,
+        "wave": 1,
+        "bornAt": 9.99999999999998,
+        "id": 18,
+        "kind": "normal",
+        "towerAttackAt": 11.25999999999998,
+        "hp": 129.09375,
+        "maxHp": 129.09375,
+        "speed": 51.6,
+        "reward": 3,
+        "harm": 1,
+        "d": 526.3200000000011,
+        "slowUntil": 0
+      },
+      {
+        "map": 7,
+        "route": 0,
+        "wave": 1,
+        "bornAt": 11.999999999999973,
+        "id": 19,
+        "kind": "normal",
+        "towerAttackAt": 13.339999999999973,
+        "hp": 129.09375,
+        "maxHp": 129.09375,
+        "speed": 51.6,
+        "reward": 3,
+        "harm": 1,
+        "d": 423.1200000000007,
+        "slowUntil": 0
+      },
+      {
+        "map": 7,
+        "route": 1,
+        "wave": 1,
+        "bornAt": 11.999999999999973,
+        "id": 20,
+        "kind": "normal",
+        "towerAttackAt": 13.419999999999973,
+        "hp": 129.09375,
+        "maxHp": 129.09375,
+        "speed": 51.6,
+        "reward": 3,
+        "harm": 1,
+        "d": 423.1200000000007,
+        "slowUntil": 0
+      },
+      {
+        "map": 7,
+        "route": 1,
+        "wave": 1,
+        "bornAt": 11.999999999999973,
+        "id": 21,
+        "kind": "mirrorling",
+        "towerAttackAt": 19.09999999999999,
+        "hp": 139.86409999999984,
+        "maxHp": 177.86249999999998,
+        "speed": 49.199999999999996,
+        "reward": 4,
+        "harm": 1,
+        "d": 1144.1360000000018,
+        "slowUntil": 0,
+        "poisonDps": 7.4799999999999995,
+        "poisonUntil": 18.79999999999996
+      },
+      {
+        "map": 7,
+        "route": 0,
+        "wave": 1,
+        "bornAt": 13.999999999999966,
+        "id": 23,
+        "kind": "normal",
+        "towerAttackAt": 15.659999999999966,
+        "hp": 129.09375,
+        "maxHp": 129.09375,
+        "speed": 51.6,
+        "reward": 3,
+        "harm": 1,
+        "d": 319.9200000000002,
+        "slowUntil": 0
+      },
+      {
+        "map": 7,
+        "route": 1,
+        "wave": 1,
+        "bornAt": 13.999999999999966,
+        "id": 24,
+        "kind": "normal",
+        "towerAttackAt": 15.099999999999966,
+        "hp": 129.09375,
+        "maxHp": 129.09375,
+        "speed": 51.6,
+        "reward": 3,
+        "harm": 1,
+        "d": 319.9200000000002,
+        "slowUntil": 0
+      },
+      {
+        "map": 7,
+        "route": 1,
+        "wave": 1,
+        "bornAt": 15.299999999999962,
+        "id": 25,
+        "kind": "normal",
+        "towerAttackAt": 20.599999999999973,
+        "hp": 147.9428789062503,
+        "maxHp": 161.3671875,
+        "speed": 51.6,
+        "reward": 1,
+        "harm": 0,
+        "d": 981.5631999999997,
+        "slowUntil": 0,
+        "escortBossId": 7,
+        "escortSummoned": true,
+        "poisonDps": 3.8499999999999996,
+        "poisonUntil": 19.299999999999976
+      },
+      {
+        "map": 7,
+        "route": 1,
+        "wave": 1,
+        "bornAt": 15.299999999999962,
+        "id": 26,
+        "kind": "normal",
+        "towerAttackAt": 20.699999999999974,
+        "hp": 146.36323828125037,
+        "maxHp": 161.3671875,
+        "speed": 51.6,
+        "reward": 1,
+        "harm": 0,
+        "d": 990.4591999999994,
+        "slowUntil": 0,
+        "escortBossId": 7,
+        "escortSummoned": true,
+        "poisonDps": 3.8499999999999996,
+        "poisonUntil": 19.69999999999998
+      },
+      {
+        "map": 7,
+        "route": 0,
+        "wave": 1,
+        "bornAt": 15.99999999999996,
+        "id": 27,
+        "kind": "swift",
+        "towerAttackAt": 17.339999999999957,
+        "hp": 86.0625,
+        "maxHp": 86.0625,
+        "speed": 91.2,
+        "reward": 2,
+        "harm": 1,
+        "d": 383.04000000000013,
+        "slowUntil": 0
+      },
+      {
+        "map": 7,
+        "route": 1,
+        "wave": 1,
+        "bornAt": 15.99999999999996,
+        "id": 28,
+        "kind": "normal",
+        "towerAttackAt": 17.41999999999996,
+        "hp": 129.09375,
+        "maxHp": 129.09375,
+        "speed": 51.6,
+        "reward": 3,
+        "harm": 1,
+        "d": 216.71999999999989,
+        "slowUntil": 0
+      },
+      {
+        "map": 7,
+        "route": 0,
+        "wave": 1,
+        "bornAt": 17.999999999999986,
+        "id": 29,
+        "kind": "normal",
+        "towerAttackAt": 19.499999999999986,
+        "hp": 129.09375,
+        "maxHp": 129.09375,
+        "speed": 51.6,
+        "reward": 3,
+        "harm": 1,
+        "d": 113.51999999999995,
+        "slowUntil": 0
+      },
+      {
+        "map": 7,
+        "route": 1,
+        "wave": 1,
+        "bornAt": 17.999999999999986,
+        "id": 30,
+        "kind": "normal",
+        "towerAttackAt": 19.579999999999988,
+        "hp": 129.09375,
+        "maxHp": 129.09375,
+        "speed": 51.6,
+        "reward": 3,
+        "harm": 1,
+        "d": 113.51999999999995,
+        "slowUntil": 0
+      },
+      {
+        "map": 7,
+        "route": 0,
+        "wave": 1,
+        "bornAt": 19.900000000000013,
+        "id": 31,
+        "kind": "normal",
+        "towerAttackAt": 21.560000000000013,
+        "hp": 129.09375,
+        "maxHp": 129.09375,
+        "speed": 51.6,
+        "reward": 3,
+        "harm": 1,
+        "d": 15.48,
+        "slowUntil": 0
+      },
+      {
+        "map": 7,
+        "route": 1,
+        "wave": 1,
+        "bornAt": 19.900000000000013,
+        "id": 32,
+        "kind": "normal",
+        "towerAttackAt": 21.000000000000014,
+        "hp": 129.09375,
+        "maxHp": 129.09375,
+        "speed": 51.6,
+        "reward": 3,
+        "harm": 1,
+        "d": 15.48,
+        "slowUntil": 0
+      }
+    ],
+    "zones": [],
+    "queue": [
+      {
+        "kind": "normal",
+        "route": 0,
+        "wave": 1,
+        "at": 21.89
+      },
+      {
+        "kind": "swift",
+        "route": 1,
+        "wave": 1,
+        "at": 21.89
+      },
+      {
+        "kind": "normal",
+        "route": 0,
+        "wave": 1,
+        "at": 23.88
+      }
+    ],
+    "time": 20.100000000000016,
+    "spawnTime": -20.100000000000016,
+    "autoWaveAt": 30,
+    "pendingWaves": [
+      1
+    ],
+    "phase": "battle",
+    "kills": 0,
+    "nextId": 33,
+    "skillReady": 0,
+    "skillUses": 0,
+    "hintUses": 0,
+    "killInkRemainder": 0,
+    "totalEarned": 0,
+    "bountyEarned": 0,
+    "barrierSpent": 0,
+    "soulHealed": 0,
+    "reviveUsed": false,
+    "bossDraws": [],
+    "bossBreachedRound": 0,
+    "rngState": 3198363775,
+    "refreshes": 0,
+    "handSerial": 32,
+    "hand": [
+      {
+        "ch": "毒",
+        "id": 17,
+        "used": true
+      },
+      {
+        "ch": "云",
+        "id": 18,
+        "used": true
+      },
+      {
+        "ch": "火",
+        "id": 19,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 20,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 21,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 22,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 23,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 24,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 25,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 26,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 27,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 28,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 29,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 30,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 31,
+        "used": false
+      },
+      {
+        "ch": "火",
+        "id": 32,
+        "used": false
+      }
+    ],
+    "hintWord": null,
+    "version": 9
+  }
+}

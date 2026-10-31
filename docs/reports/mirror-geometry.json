@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-31",
+  "engineHash": "9e9da2aa5e34290aa8a1ed2c4f3f093d9ee5e7868446a3e9464d64b5486c51af",
+  "method": "Exact segment/circle intersections averaged across both ground routes at range 263. Shared tail is identical suffix geometry. These are geometric coverage proxies, not actual DPS or win rates.",
+  "before": {
+    "layout": 1,
+    "groundLengths": [
+      1820,
+      1820
+    ],
+    "airLengths": [
+      664.8308055437865,
+      664.8308055437865
+    ],
+    "sharedTailLength": 1210,
+    "sharedTailFraction": 0.6648351648351648,
+    "minimumPadRoadDistance": 20,
+    "range263": {
+      "meanCoverageByPad": [
+        258.03222250667994,
+        505.60811920121466,
+        1042.7625956380705,
+        898.5900013336084,
+        1410.8897847977378,
+        552.4106082913952,
+        1433.133124377511,
+        1394.7547057750412,
+        601.3365534832178,
+        908.1656615912542,
+        1148.7318854415876,
+        1091.9107104191353,
+        220.92441916229103,
+        215.92441916229103,
+        883.9048472381296,
+        399.9558527619221
+      ],
+      "maximumMeanCoverage": 1433.133124377511,
+      "maximumMeanFraction": 0.787435782625006
+    }
+  },
+  "after": {
+    "layout": 2,
+    "groundLengths": [
+      1680,
+      1680
+    ],
+    "airLengths": [
+      664.8308055437865,
+      664.8308055437865
+    ],
+    "sharedTailLength": 210,
+    "sharedTailFraction": 0.125,
+    "minimumPadRoadDistance": 50,
+    "range263": {
+      "meanCoverageByPad": [
+        418.8411269791436,
+        572.257726129619,
+        828.8905164117288,
+        572.257726129619,
+        828.8905164117288,
+        418.8411269791436,
+        703.0191149305683,
+        633.5556810445536,
+        385.3275860780137,
+        537.8544853616561,
+        537.8544853616561,
+        633.5556810445536,
+        439.548910595659,
+        439.548910595659,
+        917.1659063317641,
+        758.7123444549585
+      ],
+      "maximumMeanCoverage": 917.1659063317641,
+      "maximumMeanFraction": 0.5459320871022405
+    }
+  }
+}
