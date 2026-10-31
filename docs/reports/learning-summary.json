@@ -6,7 +6,7 @@
     "3": 62,
     "4": 1041
   },
-  "specialsHash": "b575576348e7d166b89f31d403e923adccc500b09a232996fc2962edaf48a290",
+  "specialsHash": "68e42c71ec3c9c8c8421b471cfbaaee0b8b3b6872637a4416b983f24e2b72098",
   "totalWords": 107432,
   "learningWords": 3429,
   "lessonWords": 784,
@@ -30,7 +30,7 @@
     "echo": 545,
     "basic": 86366
   },
-  "engineHash": "ac7ac0d923970e5af97fa5aaa1ad3a762e610110c1334b413f537d63b23f8a03",
+  "engineHash": "7e9c45b65c2e48aa777d9aa4a17358550686aeff17c6b767ee10bd799fb50321",
   "examples": [
     {
       "word": "三顾茅庐",

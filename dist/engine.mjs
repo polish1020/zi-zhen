@@ -248,7 +248,7 @@ function qualityRunes(w){
  return candidates.slice(0,limit);
 }
 export const hasRune=(w,id)=>w.runes?.includes(id)||false;
-export const runeEffect=w=>w.runes.length?w.runes.map(id=>WORD_RUNES[id].name+'：'+(id==='count'?`每 ${w.semanticCycle} 次攻击蓄发一次，触发时直接伤害 +${w.semanticCycle*10}%。`:id==='measure'?`射程额外 +${distanceSpan(w.word)}，攻击间隔 +4%。`:WORD_RUNES[id].desc)).join(' '):w.tier===1?'凡字没有附加特性，保留基础属性、攻击形态和品阶效果。':'此词保留基础词意，没有匹配的附加特性。';
+export const runeEffect=w=>w.runes.length?w.runes.map(id=>WORD_RUNES[id].name+'：'+(id==='count'?`每 ${w.semanticCycle} 次攻击蓄发一次，触发时直接伤害 +${w.semanticCycle*10}%。`:id==='measure'?`射程额外 +${distanceSpan(w.word)}，攻击间隔 +4%。`:WORD_RUNES[id].desc)).join(' '):w.tier===1?'凡字无附加特性。':'无附加特性。';
 function chooseTrait(w){
  const text=w.word,template=SKILL_TEMPLATES[text];
  if(template?.trait)return template.trait;
@@ -289,7 +289,7 @@ export const WORDS=ORIGINAL_WORDS.map(w=>{
  }
  const learningPower=[0,.48,1,2.1,3.8];
  const f=SPECIAL_EFFECTS[special],runes=(SPECIAL_RUNE_OVERRIDES[w.word]||f.runes).slice(0,runeLimit(w.tier));
- return {...w,type:'learning',icon:'学',name:'学识',color:SPECIAL_PALETTES[special]||'#9b774b',special,trait:'balanced',runes,tag:f.name,desc:'以完整词义演绎战斗能力；具体招式见下方，不按单个字强套元素。',cost:Math.round(60*PRICE[w.tier]),damage:Math.max(1,Math.round(22*learningPower[w.tier]*f.damage*runes.reduce((m,id)=>m*WORD_RUNES[id].damage,1))),range:170+(w.tier-2)*12+f.range+(runes.includes('sky')?12:0),rate:Number((1.05*f.rate).toFixed(4)),aura:0,income:0};
+ return {...w,type:'learning',icon:'学',name:'学识',color:SPECIAL_PALETTES[special]||'#9b774b',special,trait:'balanced',runes,tag:f.name,desc:specialDescription({...w,special}),cost:Math.round(60*PRICE[w.tier]),damage:Math.max(1,Math.round(22*learningPower[w.tier]*f.damage*runes.reduce((m,id)=>m*WORD_RUNES[id].damage,1))),range:170+(w.tier-2)*12+f.range+(runes.includes('sky')?12:0),rate:Number((1.05*f.rate).toFixed(4)),aura:0,income:0};
 });
 const MEANING_HAND_WORDS='学习 读书 知识 朋友 伙伴 合作 团结 勇敢 英雄 努力 奋斗 成长 医生 健康 康复 和平 安宁 守护 母亲 家人 开心 快乐 感谢 谢谢 欢迎 工作 旅行 音乐 歌声 回声 沉默 缄默 撕裂 切割 背刺 侧翼 正面 冲锋 复活 重生 祝福 财富 丰收 秋天 夏天 冬天 春天 花朵 玫瑰 莲花 草木 森林 老虎 白虎 灵兽 人参 三七 五个 三倍 三尺 百米 千米 火毒箭 冰毒箭 冰火箭 月光箭 圣光箭 星辰箭 千里眼 顺风耳 寒冰毒箭 冰霜毒箭 冰霜毒雾 火焰毒云 雷霆毒箭 冰火双刃 冰火风暴 风雷之箭 浴火重生 涅槃重生 死而复生 起死回生 滴水穿石 水滴石穿 一心一意 全神贯注 老马识途 守株待兔 画龙点睛 破釜沉舟 釜底抽薪 乘风破浪 声东击西 暗度陈仓 春暖花开 百花齐放 众志成城 坚不可摧 日积月累 厚积薄发 积少成多 自强不息 齐心协力 同舟共济'.split(' ').map(word=>WORDS.find(w=>w.word===word)).filter(Boolean);
 export const GRADES=['','凡字','灵词','妙语','天成'];
@@ -332,7 +332,7 @@ export function towerStats(t){const w=getWord(t.word),up=t.level-w.tier;return {
 export const towerActive=t=>(t.hp??1)>0;
 export const TOWER_DEFENSES={
  basic:{health:1.1,role:'稳固：轮末额外自修 5%，适合稳定守线。'},
- learning:{health:1.1,role:'学以致用：以完整词义施展招式，守备、借力或补救能力详见战斗演绎；轮末按通用规则修复耐久。'},
+ learning:{health:1.1,role:'每轮结束时，恢复自身最大耐久的 30%。'},
  splash:{health:1,role:'余烬：受击每 2 秒灼烧一次攻击者，抗焰击 30%。'},
  slow:{health:.95,role:'寒衣：受击每 2 秒减速一次攻击者，对冰滞更耐受。'},
  chain:{health:1,role:'震慑：电击可延后敌方攻塔蓄力，同敌间隔 1 秒。'},
