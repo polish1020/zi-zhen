@@ -36,11 +36,13 @@ const SEMANTIC_SCHOOLS=[[/毒|瘴|腐|蚀|疫|蛊/,'poison'],[/冰|雪|霜|寒|�
 SEMANTIC_SCHOOLS.unshift([/剑|刃/,'pierce'],[/水|潮|浪|波|涌/,'pulse'],[/咒|符|诅|封/,'mark'],[/幻|梦|镜/,'echo']);
 const SCHOOL_ALIASES=[[/^(冷静|热爱|热情|热心|火候|心意|历史|文化|文学|艺术|电脑|计算机|数学|算法|程序|地图|地理|光景|时光|明天|今天|昨天|现在|过去|未来|一心一意|全神贯注|水滴石穿|滴水穿石|破釜沉舟|釜底抽薪|画蛇添足|画龙点睛|三心二意|七上八下|老马识途|守株待兔|南辕北辙)$/,'basic'],[/^(火车|汽车|列车|车辆|交通|运输|飞机|轮船|司机|马上|立刻|立即)$/,'fast'],[/^(电话|手机|通讯|通信|音乐|诗歌|歌曲)$/,'echo'],[/^(医生|医师|医疗|治疗|康复|健康)$/,'basic']];
 const combatSet=new Set(COMBAT_WORDS.map(w=>w.word));
+// Fixed reference: the level-one single-character bow before this range update.
+export const RANGED_MIN_RANGE=263;
 export const WORD_TRAITS={
  firewall:{name:'焰墙',damage:.72,rate:1.25,range:0,desc:'命中处留下 3 秒地面火焰区域，地面敌人受到每秒 40% 攻击的灼烧（不能对空），最多保留 2 片；直接伤害 −28%，攻击间隔 +25%。'},
  dragon:{name:'龙息',damage:.9,rate:1.2,range:-10,desc:'扇形吐息最多覆盖 6 个目标，副目标受到 60% 伤害并附带本属性效果；主伤害 −10%，攻击间隔 +20%，射程 −10。'},
  balanced:{name:'均衡',damage:1,rate:1,range:0,desc:'稳定输出，保留流派的基础机制。'},
- ranged:{name:'远射',damage:1,rate:1.12,range:40,desc:'射程 +40，攻击间隔 +12%；适合远程覆盖与拦截。'},
+ ranged:{name:'远射',damage:1,rate:1.12,range:40,minRange:RANGED_MIN_RANGE,desc:`射程 +40，且至少提升至 ${RANGED_MIN_RANGE}；远望、尺度和升级继续叠加；攻击间隔 +12%。`},
  blade:{name:'锋刃',damage:1.15,rate:1.12,range:-20,armorPierce:.1,desc:'伤害 +15%，无视 10 个百分点护甲；射程 −20，攻击间隔 +12%。'},
  impact:{name:'重击',damage:1.25,rate:1.25,range:-10,desc:'单次伤害 +25%，攻击间隔 +25%，射程 −10；偏向爆发。'},
  spread:{name:'弥散',damage:.82,rate:1.15,range:10,area:25,desc:'扩大群体覆盖；伤害 −18%，攻击间隔 +15%，射程 +10。'},
@@ -271,7 +273,7 @@ function chooseTrait(w){
  if(/疾|迅|速|狂风/.test(text))return'rapid';
  return'balanced';
 }
-function applyWordTrait(w){const trait=chooseTrait(w),t=WORD_TRAITS[trait],runes=qualityRunes(w),runeDamage=runes.reduce((m,id)=>m*WORD_RUNES[id].damage,1);const desc=trait==='dragon'?'朝目标方向喷吐本属性龙息，命中扇面内的多个敌人。':trait==='firewall'?'命中产生爆裂，并在落点留下持续燃烧的地面火焰区域。':w.type==='poison'&&trait==='spread'?'投出毒团，在命中处形成毒域；后来进入区域的敌人也会持续中毒。':w.type==='poison'&&trait==='ranged'?'射出远程毒箭，命中单个目标，造成直接伤害并持续施毒。':w.desc;return{...w,trait,runes,semanticCycle:Math.min(10,readNumber(w.word)),desc,damage:Math.max(1,Math.round(w.damage*t.damage*runeDamage)),range:Math.max(60,w.range+t.range+(runes.includes('sky')?12:0)+(runes.includes('measure')?distanceSpan(w.word):0)),rate:Number((w.rate*t.rate*(runes.includes('sky')||runes.includes('measure')?1.04:1)).toFixed(4)),aura:Math.max(0,w.aura+(t.aura||0)),income:Math.max(1,Math.round(w.income*(t.income||1)))};}
+function applyWordTrait(w){const trait=chooseTrait(w),t=WORD_TRAITS[trait],runes=qualityRunes(w),runeDamage=runes.reduce((m,id)=>m*WORD_RUNES[id].damage,1);const desc=trait==='dragon'?'朝目标方向喷吐本属性龙息，命中扇面内的多个敌人。':trait==='firewall'?'命中产生爆裂，并在落点留下持续燃烧的地面火焰区域。':w.type==='poison'&&trait==='spread'?'投出毒团，在命中处形成毒域；后来进入区域的敌人也会持续中毒。':w.type==='poison'&&trait==='ranged'?'射出远程毒箭，命中单个目标，造成直接伤害并持续施毒。':w.desc;return{...w,trait,runes,semanticCycle:Math.min(10,readNumber(w.word)),desc,damage:Math.max(1,Math.round(w.damage*t.damage*runeDamage)),range:Math.max(t.minRange||60,w.range+t.range)+(runes.includes('sky')?12:0)+(runes.includes('measure')?distanceSpan(w.word):0),rate:Number((w.rate*t.rate*(runes.includes('sky')||runes.includes('measure')?1.04:1)).toFixed(4)),aura:Math.max(0,w.aura+(t.aura||0)),income:Math.max(1,Math.round(w.income*(t.income||1)))};}
 export function wordRules(w){const n=w.tier,t=WORD_TRAITS[w.trait];return{radius:(n>=4?90:n>=3?80:65)+(t.area||0),chainTargets:(n>=4?5:n>=3?4:3)+(w.trait==='spread'?1:0),poisonTargets:(n>=4?2:0)+(w.trait==='spread'?2:0),poisonDuration:(n>=4?5:n>=3?4:3)+(w.trait==='venom'?1:0)+(hasRune(w,'venom')?1:0),poisonRatio:(t.poisonRatio||.6)+(hasRune(w,'toxin')?.08:0)+(hasRune(w,'venom')?.12:0),poisonRadius:85+(t.area||0),slowFactor:(n>=3?.45:.55)-(w.trait==='bind'?.05:0)-(hasRune(w,'frost')?.04:0),slowDuration:2.1+(w.trait==='bind'?1.1:0)+(hasRune(w,'frost')?.3:0),freeze:n>=4?.4+(w.trait==='bind'?.15:0):w.trait==='bind'?.25:0,bounty:(n>=4?3:n>=3?2:1)+(t.bounty||0),bountyDuration:w.trait==='entice'?7:4,lightDuration:(w.trait==='purify'?5:3)+(hasRune(w,'shine')?1:0)};}
 export const attackName=w=>w.special?SPECIAL_EFFECTS[w.special].name:WORD_TRAITS[w.trait].name;
 export const learningRank=w=>Math.max(1,Math.min(3,w.tier-1));

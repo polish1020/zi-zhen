@@ -1,0 +1,143 @@
+{
+  "chapter": 0,
+  "campaignRounds": 8,
+  "wave": 0,
+  "endless": false,
+  "unlockedPads": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "hp": 20,
+  "ink": 823,
+  "towers": [
+    {
+      "word": "毒云箭",
+      "pad": 0,
+      "level": 4,
+      "spent": 177,
+      "cooldown": 0,
+      "id": 1,
+      "repairReadyAt": 0,
+      "rebuilds": 0,
+      "hp": 204.24
+    }
+  ],
+  "enemies": [],
+  "zones": [],
+  "queue": [],
+  "time": 0,
+  "spawnTime": 0,
+  "autoWaveAt": 0,
+  "pendingWaves": [],
+  "phase": "prepare",
+  "kills": 0,
+  "nextId": 2,
+  "skillReady": 0,
+  "skillUses": 0,
+  "hintUses": 0,
+  "killInkRemainder": 0,
+  "totalEarned": 0,
+  "bountyEarned": 0,
+  "barrierSpent": 0,
+  "soulHealed": 0,
+  "reviveUsed": false,
+  "bossDraws": [],
+  "bossBreachedRound": 0,
+  "rngState": 651120882,
+  "refreshes": 0,
+  "handSerial": 32,
+  "hand": [
+    {
+      "id": 17,
+      "ch": "毒",
+      "used": true
+    },
+    {
+      "id": 18,
+      "ch": "云",
+      "used": true
+    },
+    {
+      "id": 19,
+      "ch": "箭",
+      "used": true
+    },
+    {
+      "id": 20,
+      "ch": "火",
+      "used": false
+    },
+    {
+      "id": 21,
+      "ch": "火",
+      "used": false
+    },
+    {
+      "id": 22,
+      "ch": "火",
+      "used": false
+    },
+    {
+      "id": 23,
+      "ch": "火",
+      "used": false
+    },
+    {
+      "id": 24,
+      "ch": "火",
+      "used": false
+    },
+    {
+      "id": 25,
+      "ch": "火",
+      "used": false
+    },
+    {
+      "id": 26,
+      "ch": "火",
+      "used": false
+    },
+    {
+      "id": 27,
+      "ch": "火",
+      "used": false
+    },
+    {
+      "id": 28,
+      "ch": "火",
+      "used": false
+    },
+    {
+      "id": 29,
+      "ch": "火",
+      "used": false
+    },
+    {
+      "id": 30,
+      "ch": "火",
+      "used": false
+    },
+    {
+      "id": 31,
+      "ch": "火",
+      "used": false
+    },
+    {
+      "id": 32,
+      "ch": "火",
+      "used": false
+    }
+  ],
+  "hintWord": null,
+  "version": 9
+}

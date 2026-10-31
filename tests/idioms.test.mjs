@@ -28,9 +28,9 @@ test('literal elements and figurative meanings separate without using a single f
  assert.match(wordLearning('七月流火').meaning,/转凉/);assert.match(wordLearning('首当其冲').meaning,/最先/);assert.equal(wordCategory('星光灿烂'),'phrase');
  for(const word of ['伤化败俗','伤教败俗','歪风邪气','风土人情','人非木石','如雷贯耳','从善如流','一廉如水'])assert.equal(getWord(word).type,'learning',word+' must follow its figurative meaning, not an elemental word in the explanation');
 });
-test('unchanged profiles retain the exact v7 damage, interval, range and cost; no universal panel increase',()=>{
+test('v7 panels retain damage, interval and cost; only explicit ranged coverage receives the new floor',()=>{
  const frozen=fixture('idiom-panel-v7.json');assert.ok(frozen.length>100);
- for(const old of frozen){const w=getWord(old.word);if(old.word==='一廉如水'){assert.equal(w.type,'learning');assert.equal(w.special,'purity');continue;}for(const k of ['type','tier','damage','range','rate','cost'])assert.equal(w[k],old[k],old.word+' '+k);assert.deepEqual(w.runes,old.runes,old.word);}
+ for(const old of frozen){const w=getWord(old.word);if(old.word==='一廉如水'){assert.equal(w.type,'learning');assert.equal(w.special,'purity');continue;}for(const k of ['type','tier','damage','range','rate','cost'])assert.equal(w[k],k==='range'&&w.trait==='ranged'?Math.max(263,old.range-(w.runes.includes('sky')?12:0))+(w.runes.includes('sky')?12:0):old[k],old.word+' '+k);assert.deepEqual(w.runes,old.runes,old.word);}
 });
 test('all semantic abilities charge from four actual attacks, enforce cooldown and preserve charge through save',()=>{
  assert.equal(Object.keys(IDIOM_MOVES).length,39);
