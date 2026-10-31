@@ -1,0 +1,522 @@
+{
+  "sourceCommit": "53a8cdad99f98f918f55109e6686eaee87dc7dcc",
+  "before": {
+    "chapter": 7,
+    "campaignRounds": 14,
+    "wave": 9,
+    "endless": false,
+    "unlockedPads": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "hp": 30,
+    "ink": 500,
+    "towers": [],
+    "enemies": [
+      {
+        "map": 7,
+        "mirrorLayout": 2,
+        "route": 0,
+        "wave": 9,
+        "bornAt": 0,
+        "id": 1,
+        "kind": "mirrorqueen",
+        "towerAttackAt": 1.1800000000000002,
+        "hp": 1,
+        "maxHp": 6140.042999999999,
+        "speed": 28.799999999999997,
+        "reward": 27,
+        "harm": 4,
+        "d": 250,
+        "slowUntil": 0,
+        "pulseAt": 3,
+        "bossReadyAt": 4,
+        "escortReadyAt": 8,
+        "enraged": true
+      },
+      {
+        "map": 7,
+        "mirrorLayout": 2,
+        "route": 1,
+        "wave": 9,
+        "bornAt": 0,
+        "id": 2,
+        "kind": "frostboss",
+        "towerAttackAt": 1.26,
+        "hp": 1,
+        "maxHp": 6481.156499999999,
+        "speed": 28.799999999999997,
+        "reward": 24,
+        "harm": 4,
+        "d": 450,
+        "slowUntil": 0,
+        "pulseAt": 3,
+        "bossReadyAt": 4,
+        "escortReadyAt": 8,
+        "enraged": true
+      },
+      {
+        "map": 7,
+        "mirrorLayout": 2,
+        "route": 0,
+        "wave": 9,
+        "bornAt": 0,
+        "id": 3,
+        "kind": "gearboss",
+        "towerAttackAt": 1.34,
+        "hp": 1,
+        "maxHp": 6992.826749999999,
+        "speed": 25.2,
+        "reward": 27,
+        "harm": 4,
+        "d": 650,
+        "slowUntil": 0,
+        "pulseAt": 3,
+        "bossReadyAt": 4,
+        "escortReadyAt": 8,
+        "enraged": true
+      },
+      {
+        "map": 7,
+        "mirrorLayout": 2,
+        "route": 0,
+        "wave": 9,
+        "bornAt": 0,
+        "id": 4,
+        "kind": "normal",
+        "towerAttackAt": 1.4200000000000002,
+        "hp": 1000000,
+        "maxHp": 1000000,
+        "speed": 0.01,
+        "reward": 3,
+        "harm": 1,
+        "d": 100,
+        "slowUntil": 0
+      }
+    ],
+    "zones": [],
+    "queue": [],
+    "time": 0,
+    "spawnTime": 0,
+    "autoWaveAt": 0,
+    "pendingWaves": [
+      9
+    ],
+    "phase": "battle",
+    "kills": 0,
+    "nextId": 5,
+    "skillReady": 0,
+    "skillUses": 0,
+    "hintUses": 0,
+    "killInkRemainder": 0,
+    "totalEarned": 0,
+    "bountyEarned": 0,
+    "barrierSpent": 0,
+    "soulHealed": 0,
+    "reviveUsed": false,
+    "bossDraws": [],
+    "bossBreachedRound": 0,
+    "rngState": 651120882,
+    "refreshes": 0,
+    "handSerial": 16,
+    "hand": [
+      {
+        "id": 1,
+        "ch": "剑",
+        "used": false
+      },
+      {
+        "id": 2,
+        "ch": "龙",
+        "used": false
+      },
+      {
+        "id": 3,
+        "ch": "毒",
+        "used": false
+      },
+      {
+        "id": 4,
+        "ch": "再",
+        "used": false
+      },
+      {
+        "id": 5,
+        "ch": "厉",
+        "used": false
+      },
+      {
+        "id": 6,
+        "ch": "扎",
+        "used": false
+      },
+      {
+        "id": 7,
+        "ch": "再",
+        "used": false
+      },
+      {
+        "id": 8,
+        "ch": "剑",
+        "used": false
+      },
+      {
+        "id": 9,
+        "ch": "接",
+        "used": false
+      },
+      {
+        "id": 10,
+        "ch": "染",
+        "used": false
+      },
+      {
+        "id": 11,
+        "ch": "苍",
+        "used": false
+      },
+      {
+        "id": 12,
+        "ch": "剧",
+        "used": false
+      },
+      {
+        "id": 13,
+        "ch": "矢",
+        "used": false
+      },
+      {
+        "id": 14,
+        "ch": "云",
+        "used": false
+      },
+      {
+        "id": 15,
+        "ch": "飞",
+        "used": false
+      },
+      {
+        "id": 16,
+        "ch": "影",
+        "used": false
+      }
+    ],
+    "mirrorLayout": 2,
+    "hintWord": null,
+    "version": 9
+  },
+  "killed": {
+    "chapter": 7,
+    "campaignRounds": 14,
+    "wave": 9,
+    "endless": false,
+    "unlockedPads": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "hp": 30,
+    "ink": 548,
+    "towers": [],
+    "enemies": [
+      {
+        "map": 7,
+        "mirrorLayout": 2,
+        "route": 0,
+        "wave": 9,
+        "bornAt": 0,
+        "id": 4,
+        "kind": "normal",
+        "towerAttackAt": 1.4200000000000002,
+        "hp": 999900,
+        "maxHp": 1000000,
+        "speed": 0.01,
+        "reward": 3,
+        "harm": 1,
+        "d": 100.00055,
+        "slowUntil": 3
+      }
+    ],
+    "zones": [],
+    "queue": [],
+    "time": 0.1,
+    "spawnTime": -0.1,
+    "autoWaveAt": 0,
+    "pendingWaves": [
+      9
+    ],
+    "phase": "battle",
+    "kills": 3,
+    "nextId": 5,
+    "skillReady": 30,
+    "skillUses": 1,
+    "hintUses": 0,
+    "killInkRemainder": 0,
+    "totalEarned": 78,
+    "bountyEarned": 0,
+    "barrierSpent": 0,
+    "soulHealed": 0,
+    "reviveUsed": false,
+    "bossDraws": [],
+    "bossBreachedRound": 0,
+    "rngState": 651120882,
+    "refreshes": 0,
+    "handSerial": 16,
+    "hand": [
+      {
+        "id": 1,
+        "ch": "剑",
+        "used": false
+      },
+      {
+        "id": 2,
+        "ch": "龙",
+        "used": false
+      },
+      {
+        "id": 3,
+        "ch": "毒",
+        "used": false
+      },
+      {
+        "id": 4,
+        "ch": "再",
+        "used": false
+      },
+      {
+        "id": 5,
+        "ch": "厉",
+        "used": false
+      },
+      {
+        "id": 6,
+        "ch": "扎",
+        "used": false
+      },
+      {
+        "id": 7,
+        "ch": "再",
+        "used": false
+      },
+      {
+        "id": 8,
+        "ch": "剑",
+        "used": false
+      },
+      {
+        "id": 9,
+        "ch": "接",
+        "used": false
+      },
+      {
+        "id": 10,
+        "ch": "染",
+        "used": false
+      },
+      {
+        "id": 11,
+        "ch": "苍",
+        "used": false
+      },
+      {
+        "id": 12,
+        "ch": "剧",
+        "used": false
+      },
+      {
+        "id": 13,
+        "ch": "矢",
+        "used": false
+      },
+      {
+        "id": 14,
+        "ch": "云",
+        "used": false
+      },
+      {
+        "id": 15,
+        "ch": "飞",
+        "used": false
+      },
+      {
+        "id": 16,
+        "ch": "影",
+        "used": false
+      }
+    ],
+    "mirrorLayout": 2,
+    "hintWord": null,
+    "version": 9
+  },
+  "after26Steps": {
+    "chapter": 7,
+    "campaignRounds": 14,
+    "wave": 9,
+    "endless": false,
+    "unlockedPads": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "hp": 30,
+    "ink": 548,
+    "towers": [],
+    "enemies": [
+      {
+        "map": 7,
+        "mirrorLayout": 2,
+        "route": 0,
+        "wave": 9,
+        "bornAt": 0,
+        "id": 4,
+        "kind": "normal",
+        "towerAttackAt": 1.4200000000000002,
+        "hp": 999900,
+        "maxHp": 1000000,
+        "speed": 0.01,
+        "reward": 3,
+        "harm": 1,
+        "d": 100.0143000000001,
+        "slowUntil": 3
+      }
+    ],
+    "zones": [],
+    "queue": [],
+    "time": 2.600000000000001,
+    "spawnTime": -2.600000000000001,
+    "autoWaveAt": 0,
+    "pendingWaves": [
+      9
+    ],
+    "phase": "battle",
+    "kills": 3,
+    "nextId": 5,
+    "skillReady": 30,
+    "skillUses": 1,
+    "hintUses": 0,
+    "killInkRemainder": 0,
+    "totalEarned": 78,
+    "bountyEarned": 0,
+    "barrierSpent": 0,
+    "soulHealed": 0,
+    "reviveUsed": false,
+    "bossDraws": [],
+    "bossBreachedRound": 0,
+    "rngState": 651120882,
+    "refreshes": 0,
+    "handSerial": 16,
+    "hand": [
+      {
+        "id": 1,
+        "ch": "剑",
+        "used": false
+      },
+      {
+        "id": 2,
+        "ch": "龙",
+        "used": false
+      },
+      {
+        "id": 3,
+        "ch": "毒",
+        "used": false
+      },
+      {
+        "id": 4,
+        "ch": "再",
+        "used": false
+      },
+      {
+        "id": 5,
+        "ch": "厉",
+        "used": false
+      },
+      {
+        "id": 6,
+        "ch": "扎",
+        "used": false
+      },
+      {
+        "id": 7,
+        "ch": "再",
+        "used": false
+      },
+      {
+        "id": 8,
+        "ch": "剑",
+        "used": false
+      },
+      {
+        "id": 9,
+        "ch": "接",
+        "used": false
+      },
+      {
+        "id": 10,
+        "ch": "染",
+        "used": false
+      },
+      {
+        "id": 11,
+        "ch": "苍",
+        "used": false
+      },
+      {
+        "id": 12,
+        "ch": "剧",
+        "used": false
+      },
+      {
+        "id": 13,
+        "ch": "矢",
+        "used": false
+      },
+      {
+        "id": 14,
+        "ch": "云",
+        "used": false
+      },
+      {
+        "id": 15,
+        "ch": "飞",
+        "used": false
+      },
+      {
+        "id": 16,
+        "ch": "影",
+        "used": false
+      }
+    ],
+    "mirrorLayout": 2,
+    "hintWord": null,
+    "version": 9
+  }
+}
