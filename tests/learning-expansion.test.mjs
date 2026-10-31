@@ -32,7 +32,7 @@ test('repair cost thrift applies only to living towers and stronger long words r
 });
 test('pillar health and armor, shelter protection and short-range self exclusion match their stated roles',()=>{
  for(const n of[2,3,4])run('pillar',n,({t})=>{const d=towerDefense(t);assert.equal(d.maxHp,Math.round((140+n*70)*1.1*(1.05+n*.05)));near(d.armor,n*.03);assert.equal(d.guard,true);});
- run('shelter',4,({g,t})=>{const a=add(g,'文',4),e=enemy(g);const d=g.damageTower(a,10,e);near(d,9);near(g.damageTower(t,10,e),10);t.hp=0;near(g.damageTower(a,10,e),10);});
+ run('shelter',4,({g,t})=>{const a=add(g,'文',4),e=enemy(g);const d=g.damageTower(a,10,e);near(d,8.6);near(g.damageTower(t,10,e),10);t.hp=0;near(g.damageTower(a,10,e),10);});
 });
 test('blocking reflects a bounded amount, shields absorb it and reflection itself cannot re-trigger a counter',()=>run('counter',4,({g,t,w})=>{
  const e=enemy(g);const hp=e.hp,dealt=g.damageTower(t,20,e);near(dealt,16);near(hp-e.hp,Math.min(dealt*.4,w.damage*.25));const second=e.hp;g.damageTower(t,20,e);assert.equal(e.hp,second);g.time+=5;e.shield=100;g.damageTower(t,20,e);assert.ok(e.shield<100);assert.equal(e.hp,second);g.time+=5;g.damageTower(t,20,e,false);assert.equal(e.hp,second);
@@ -41,7 +41,7 @@ test('nets persist, constrain late entrants without stacking and reject corrupti
  enemy(g);fire(g,t,3);assert.equal(g.zones[0].kind,'net');const h=Game.restore(JSON.parse(JSON.stringify(g.export())));assert.deepEqual(h.zones,g.zones);const late=enemy(g,'normal',325);g.updateZones();near(late.slowFactor,.75);fire(g,t,6);fire(g,t,9);assert.equal(g.zones.length,2);g.updateZones();near(late.slowFactor,.75);g.time=14;g.updateZones();assert.equal(g.zones.length,0);const bad=h.export();bad.zones[0].radius=Infinity;assert.throws(()=>Game.restore(bad));const legacy=h.export();legacy.version=6;assert.throws(()=>Game.restore(legacy));
 }));
 test('nectar shields, reversal recovery and support cooldowns never heal hearts or resurrect ruins',()=>{
- for(const id of['nectar','reversal'])run(id,4,({g,t})=>{g.hp=7;const max=towerDefense(t).maxHp;t.hp=max*.2;const a=add(g,'火球',4);a.hp=30;enemy(g);fire(g,t,4);assert.equal(g.hp,7);if(id==='nectar'){near(t.lessonShield,max*.04);assert.ok(a.hp>30);}else{near(t.hp,max*.225);near(towerDefense(t).armor,.12);}const hp=t.hp;fire(g,t,8);assert.equal(g.hp,7);if(id==='reversal')near(t.hp,hp);});
+ for(const id of['nectar','reversal'])run(id,4,({g,t})=>{g.hp=7;const max=towerDefense(t).maxHp;t.hp=max*.2;const a=add(g,'火球',4);a.hp=30;enemy(g);fire(g,t,4);assert.equal(g.hp,7);if(id==='nectar'){near(t.lessonShield,max*.07);assert.ok(a.hp>30);}else{near(t.hp,max*.25);near(towerDefense(t).armor,.12);}const hp=t.hp;fire(g,t,8);assert.equal(g.hp,7);if(id==='reversal')near(t.hp,hp);});
 });
 test('watch prioritizes an in-range air target and hunt rewards actual existing control or wounds',()=>{
  run('watch',4,({g,t,w})=>{const a=enemy(g,'flying',300),b=enemy(g);const p=enemyPosition(a);assert.ok(Math.hypot(p.x-g.pads[t.pad].x,p.y-g.pads[t.pad].y)<=towerStats(t).range);fire(g,t,3);assert.ok(a.hp<a.maxHp);assert.equal(b.hp,b.maxHp);assert.ok(a.lightUntil>g.time);});

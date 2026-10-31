@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Stationary damage comparison using production combat methods, with no balance edits.
+// Stationary damage comparison using production combat methods, without mutating combat profiles.
 import assert from 'node:assert/strict';
 import {readFile,writeFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
@@ -72,7 +72,7 @@ const report={date:new Date().toISOString().slice(0,10),engineHash:await sha('en
   'Targets held within range at route distances 130,134,...150; six-enemy pack is tightly clustered and aligned, favoring area and piercing attacks.',
   'High-health unarmored ground dummy, six such dummies, and unarmored ground boss dummy. No shields, casts, summons, regeneration, return attacks, or kills; boss classification is retained.',
   'Control, range, armor penetration, execute, damage taken, healing, shielding, income, and ally buffs are not valued by this solo damage benchmark. Full-health conditions do not trigger last-stand effects.',
-  'No gameplay parameters changed to obtain these results. DPS is not chapter win rate.',
+  'The benchmark does not mutate combat coefficients. It measures the current release, including deliberate learning buffs. DPS is not chapter win rate.',
  ],recipes:WORDS.filter(w=>w.tier>=2).length,learningRecipes:WORDS.filter(w=>w.tier>=2&&w.special).length,
  combatProfiles:groups.size,measurements:rows.length,summary,families,examples};
 await writeFile(new URL('../docs/reports/word-damage-benchmark.json',import.meta.url),JSON.stringify(report,null,2)+'\n');

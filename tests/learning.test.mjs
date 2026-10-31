@@ -43,9 +43,9 @@ test('cooperation, encouragement and point-the-eye benefit eligible allies, neve
  for(const [word,shot,field]of [['齐心协力',3,'lessonPowerUntil'],['欢欣鼓舞',4,'lessonHasteUntil'],['画龙点睛',4,'lessonPowerUntil'],['琴瑟和鸣',4,'lessonPowerUntil']])isolated(word,({g,t})=>{const a=add(g,'火球',1),ruin=add(g,'火球',2),far=add(g,'火球',9);ruin.hp=0;enemy(g);fire(g,t,shot);assert.ok(a[field]>g.time,word);assert.equal(ruin[field],undefined);assert.equal(far[field],undefined);if(word==='画龙点睛')assert.ok(g.enemies[0].markPower>=.08);});
 });
 test('healing and shields repair tower durability only, with recipient cooldowns and no shield stacking',()=>{
- for(const word of ['亡羊补牢','雪中送炭','围魏救赵'])isolated(word,({g,t})=>{const a=add(g,'火球',1),max=towerDefense(a).maxHp;a.hp=max*.3;g.hp=8;enemy(g);fire(g,t,4);near(a.hp,max*.32);fire(g,t,8);near(a.hp,max*.32);assert.equal(g.hp,8);a.hp=0;g.time+=7;fire(g,t,12);assert.equal(a.hp,0);});
- isolated('众志成城',({g,t})=>{const a=add(g,'火球',1),e=enemy(g),max=towerDefense(a).maxHp;fire(g,t,4);near(a.lessonShield,max*.05);fire(g,t,8);near(a.lessonShield,max*.05);const hp=a.hp;const dealt=g.damageTower(a,max*.04,e);assert.equal(dealt,0);assert.equal(a.hp,hp);near(a.lessonShield,max*.01);g.time=15;assert.ok(g.damageTower(a,5,e)>0);});
- isolated('春回大地',({g,t})=>{const max=towerDefense(t).maxHp;t.hp=max*.5;g.hp=5;enemy(g);fire(g,t,8);near(t.hp,max*.52);fire(g,t,16);near(t.hp,max*.52);assert.equal(g.hp,5);});
+ for(const word of ['亡羊补牢','雪中送炭','围魏救赵'])isolated(word,({g,t})=>{const a=add(g,'火球',1),max=towerDefense(a).maxHp;a.hp=max*.3;g.hp=8;enemy(g);fire(g,t,4);near(a.hp,max*.35);fire(g,t,8);near(a.hp,max*.35);assert.equal(g.hp,8);a.hp=0;g.time+=7;fire(g,t,12);assert.equal(a.hp,0);});
+ isolated('众志成城',({g,t})=>{const a=add(g,'火球',1),e=enemy(g),max=towerDefense(a).maxHp;fire(g,t,4);near(a.lessonShield,max*.1);fire(g,t,8);near(a.lessonShield,max*.1);const hp=a.hp;const dealt=g.damageTower(a,max*.04,e);assert.equal(dealt,0);assert.equal(a.hp,hp);near(a.lessonShield,max*.06);g.time=15;assert.ok(g.damageTower(a,5,e)>0);});
+ isolated('春回大地',({g,t})=>{const max=towerDefense(t).maxHp;t.hp=max*.5;g.hp=5;enemy(g);fire(g,t,6);near(t.hp,max*.54);fire(g,t,12);near(t.hp,max*.54);assert.equal(g.hp,5);});
 });
 test('last stands, substitutes, decoys and borrowed strength create real siege interactions',()=>{
  isolated('背水一战',({g,t,w})=>{const e=enemy(g);t.hp=towerDefense(t).maxHp*.3;fire(g,t);near(e.maxHp-e.hp,w.damage*1.25);near(t.cooldown,w.rate*.9);});

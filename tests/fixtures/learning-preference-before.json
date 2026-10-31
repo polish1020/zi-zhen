@@ -1,0 +1,3275 @@
+[
+  {
+    "word": "三顾茅庐",
+    "type": "learning",
+    "tier": 4,
+    "damage": 76,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "focus",
+      "inspire"
+    ],
+    "special": "visit"
+  },
+  {
+    "word": "专心",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "focus"
+    ],
+    "special": "focus"
+  },
+  {
+    "word": "一丝不苟",
+    "type": "learning",
+    "tier": 4,
+    "damage": 77,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "focus",
+      "growth"
+    ],
+    "special": "focus"
+  },
+  {
+    "word": "吴刚",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "growth"
+    ],
+    "special": "erosion"
+  },
+  {
+    "word": "入木三分",
+    "type": "learning",
+    "tier": 4,
+    "damage": 77,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "growth",
+      "edge"
+    ],
+    "special": "erosion"
+  },
+  {
+    "word": "书卷",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "growth"
+    ],
+    "special": "growth"
+  },
+  {
+    "word": "三字经",
+    "type": "learning",
+    "tier": 3,
+    "damage": 44,
+    "rate": 1.05,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "growth"
+    ],
+    "special": "growth"
+  },
+  {
+    "word": "不知不觉",
+    "type": "learning",
+    "tier": 4,
+    "damage": 76,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "growth",
+      "study"
+    ],
+    "special": "growth"
+  },
+  {
+    "word": "准备",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "growth"
+    ],
+    "special": "charge"
+  },
+  {
+    "word": "一举成名",
+    "type": "learning",
+    "tier": 4,
+    "damage": 77,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "growth",
+      "focus"
+    ],
+    "special": "charge"
+  },
+  {
+    "word": "举例",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "study"
+    ],
+    "special": "insight"
+  },
+  {
+    "word": "举一反三",
+    "type": "learning",
+    "tier": 4,
+    "damage": 78,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "study",
+      "focus"
+    ],
+    "special": "insight"
+  },
+  {
+    "word": "互助",
+    "type": "learning",
+    "tier": 2,
+    "damage": 19,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "echo"
+    ],
+    "special": "cooperate"
+  },
+  {
+    "word": "水浒传",
+    "type": "learning",
+    "tier": 3,
+    "damage": 41,
+    "rate": 1.05,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "echo"
+    ],
+    "special": "cooperate"
+  },
+  {
+    "word": "七拼八凑",
+    "type": "learning",
+    "tier": 4,
+    "damage": 69,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "echo",
+      "inspire"
+    ],
+    "special": "cooperate"
+  },
+  {
+    "word": "信心",
+    "type": "learning",
+    "tier": 2,
+    "damage": 20,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "inspire"
+    ],
+    "special": "inspire"
+  },
+  {
+    "word": "一应俱全",
+    "type": "learning",
+    "tier": 4,
+    "damage": 72,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "inspire",
+      "tempo"
+    ],
+    "special": "inspire"
+  },
+  {
+    "word": "供应",
+    "type": "learning",
+    "tier": 2,
+    "damage": 18,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "mend"
+    ],
+    "special": "mend"
+  },
+  {
+    "word": "油纸伞",
+    "type": "learning",
+    "tier": 3,
+    "damage": 37,
+    "rate": 1.05,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "mend"
+    ],
+    "special": "mend"
+  },
+  {
+    "word": "乐于助人",
+    "type": "learning",
+    "tier": 4,
+    "damage": 65,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "mend",
+      "rescue"
+    ],
+    "special": "mend"
+  },
+  {
+    "word": "保护",
+    "type": "learning",
+    "tier": 2,
+    "damage": 18,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "barrier"
+    ],
+    "special": "bulwark"
+  },
+  {
+    "word": "四合院",
+    "type": "learning",
+    "tier": 3,
+    "damage": 37,
+    "rate": 1.05,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "barrier"
+    ],
+    "special": "bulwark"
+  },
+  {
+    "word": "一劳永逸",
+    "type": "learning",
+    "tier": 4,
+    "damage": 64,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "barrier",
+      "inspire"
+    ],
+    "special": "bulwark"
+  },
+  {
+    "word": "不屈",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "valor"
+    ],
+    "special": "resolve"
+  },
+  {
+    "word": "一往无前",
+    "type": "learning",
+    "tier": 4,
+    "damage": 78,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "valor",
+      "rescue"
+    ],
+    "special": "resolve"
+  },
+  {
+    "word": "仔细",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 185,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "focus"
+    ],
+    "special": "precision"
+  },
+  {
+    "word": "百步穿杨",
+    "type": "learning",
+    "tier": 4,
+    "damage": 79,
+    "rate": 1.05,
+    "range": 209,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "focus",
+      "execute"
+    ],
+    "special": "precision"
+  },
+  {
+    "word": "两全",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "focus"
+    ],
+    "special": "double"
+  },
+  {
+    "word": "一举两全",
+    "type": "learning",
+    "tier": 4,
+    "damage": 79,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "focus",
+      "execute"
+    ],
+    "special": "double"
+  },
+  {
+    "word": "分工",
+    "type": "learning",
+    "tier": 2,
+    "damage": 20,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "echo"
+    ],
+    "special": "volley"
+  },
+  {
+    "word": "三连击",
+    "type": "learning",
+    "tier": 3,
+    "damage": 43,
+    "rate": 1.05,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "echo"
+    ],
+    "special": "volley"
+  },
+  {
+    "word": "七嘴八舌",
+    "type": "learning",
+    "tier": 4,
+    "damage": 75,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "echo",
+      "focus"
+    ],
+    "special": "volley"
+  },
+  {
+    "word": "全面",
+    "type": "learning",
+    "tier": 2,
+    "damage": 20,
+    "rate": 1.134,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "bloom"
+    ],
+    "special": "sweep"
+  },
+  {
+    "word": "三番五次",
+    "type": "learning",
+    "tier": 4,
+    "damage": 76,
+    "rate": 1.134,
+    "range": 206,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "bloom",
+      "sky"
+    ],
+    "special": "sweep"
+  },
+  {
+    "word": "埙",
+    "type": "learning",
+    "tier": 1,
+    "damage": 11,
+    "rate": 1.05,
+    "range": 158,
+    "cost": 26,
+    "maxHp": 231,
+    "runes": [],
+    "special": "echo"
+  },
+  {
+    "word": "七言",
+    "type": "learning",
+    "tier": 2,
+    "damage": 20,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "echo"
+    ],
+    "special": "echo"
+  },
+  {
+    "word": "黄梅戏",
+    "type": "learning",
+    "tier": 3,
+    "damage": 43,
+    "rate": 1.05,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "echo"
+    ],
+    "special": "echo"
+  },
+  {
+    "word": "一五一十",
+    "type": "learning",
+    "tier": 4,
+    "damage": 75,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "echo",
+      "focus"
+    ],
+    "special": "echo"
+  },
+  {
+    "word": "丹青",
+    "type": "learning",
+    "tier": 2,
+    "damage": 20,
+    "rate": 1.134,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "bloom"
+    ],
+    "special": "blast"
+  },
+  {
+    "word": "山水画",
+    "type": "learning",
+    "tier": 3,
+    "damage": 43,
+    "rate": 1.134,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "bloom"
+    ],
+    "special": "blast"
+  },
+  {
+    "word": "万紫千红",
+    "type": "learning",
+    "tier": 4,
+    "damage": 75,
+    "rate": 1.134,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "bloom",
+      "shine"
+    ],
+    "special": "blast"
+  },
+  {
+    "word": "严冬",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "frost"
+    ],
+    "special": "frost"
+  },
+  {
+    "word": "冰天雪地",
+    "type": "learning",
+    "tier": 4,
+    "damage": 78,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "frost",
+      "focus"
+    ],
+    "special": "frost"
+  },
+  {
+    "word": "暴雨",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.2075,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "storm"
+    ],
+    "special": "storm"
+  },
+  {
+    "word": "雷霆万钧",
+    "type": "learning",
+    "tier": 4,
+    "damage": 78,
+    "rate": 1.2075,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "storm",
+      "tempo"
+    ],
+    "special": "storm"
+  },
+  {
+    "word": "大河",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.1025,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "tide"
+    ],
+    "special": "tide"
+  },
+  {
+    "word": "惊涛骇浪",
+    "type": "learning",
+    "tier": 4,
+    "damage": 76,
+    "rate": 1.1025,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "tide",
+      "rescue"
+    ],
+    "special": "tide"
+  },
+  {
+    "word": "大暑",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.1025,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "ember"
+    ],
+    "special": "flame"
+  },
+  {
+    "word": "火树银花",
+    "type": "learning",
+    "tier": 4,
+    "damage": 76,
+    "rate": 1.1025,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "ember",
+      "growth"
+    ],
+    "special": "flame"
+  },
+  {
+    "word": "小草",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "thorn"
+    ],
+    "special": "roots"
+  },
+  {
+    "word": "千丝万缕",
+    "type": "learning",
+    "tier": 4,
+    "damage": 75,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "thorn",
+      "growth"
+    ],
+    "special": "roots"
+  },
+  {
+    "word": "五彩",
+    "type": "learning",
+    "tier": 2,
+    "damage": 20,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "shine"
+    ],
+    "special": "radiance"
+  },
+  {
+    "word": "萤火虫",
+    "type": "learning",
+    "tier": 3,
+    "damage": 43,
+    "rate": 1.05,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "shine"
+    ],
+    "special": "radiance"
+  },
+  {
+    "word": "光明磊落",
+    "type": "learning",
+    "tier": 4,
+    "damage": 75,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "shine",
+      "focus"
+    ],
+    "special": "radiance"
+  },
+  {
+    "word": "净化",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "seal"
+    ],
+    "special": "cleanse"
+  },
+  {
+    "word": "干干净净",
+    "type": "learning",
+    "tier": 4,
+    "damage": 75,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "seal",
+      "curse"
+    ],
+    "special": "cleanse"
+  },
+  {
+    "word": "不语",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "silence"
+    ],
+    "special": "silence"
+  },
+  {
+    "word": "万籁俱寂",
+    "type": "learning",
+    "tier": 4,
+    "damage": 75,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "silence",
+      "seal"
+    ],
+    "special": "silence"
+  },
+  {
+    "word": "佯攻",
+    "type": "learning",
+    "tier": 2,
+    "damage": 20,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "flank"
+    ],
+    "special": "decoy"
+  },
+  {
+    "word": "人物画",
+    "type": "learning",
+    "tier": 3,
+    "damage": 42,
+    "rate": 1.05,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "flank"
+    ],
+    "special": "decoy"
+  },
+  {
+    "word": "镜花水月",
+    "type": "learning",
+    "tier": 4,
+    "damage": 74,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "flank",
+      "focus"
+    ],
+    "special": "decoy"
+  },
+  {
+    "word": "替身",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "rescue"
+    ],
+    "special": "escape"
+  },
+  {
+    "word": "东山再起",
+    "type": "learning",
+    "tier": 4,
+    "damage": 78,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "rescue",
+      "focus"
+    ],
+    "special": "escape"
+  },
+  {
+    "word": "借力",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "focus"
+    ],
+    "special": "borrow"
+  },
+  {
+    "word": "以牙还牙",
+    "type": "learning",
+    "tier": 4,
+    "damage": 78,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "focus",
+      "rescue"
+    ],
+    "special": "borrow"
+  },
+  {
+    "word": "伏击",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 160,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "valor"
+    ],
+    "special": "ambush"
+  },
+  {
+    "word": "笑里藏刀",
+    "type": "learning",
+    "tier": 4,
+    "damage": 78,
+    "rate": 1.05,
+    "range": 184,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "backstab",
+      "edge"
+    ],
+    "special": "ambush"
+  },
+  {
+    "word": "决断",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "execute"
+    ],
+    "special": "finish"
+  },
+  {
+    "word": "一刀两断",
+    "type": "learning",
+    "tier": 4,
+    "damage": 79,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "execute",
+      "focus"
+    ],
+    "special": "finish"
+  },
+  {
+    "word": "交通",
+    "type": "learning",
+    "tier": 2,
+    "damage": 18,
+    "rate": 0.84,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "tempo"
+    ],
+    "special": "swift"
+  },
+  {
+    "word": "电动车",
+    "type": "learning",
+    "tier": 3,
+    "damage": 38,
+    "rate": 0.84,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "tempo"
+    ],
+    "special": "swift"
+  },
+  {
+    "word": "风驰电掣",
+    "type": "learning",
+    "tier": 4,
+    "damage": 67,
+    "rate": 0.84,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "tempo",
+      "valor"
+    ],
+    "special": "swift"
+  },
+  {
+    "word": "卫星",
+    "type": "learning",
+    "tier": 2,
+    "damage": 22,
+    "rate": 1.134,
+    "range": 217,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "sky"
+    ],
+    "special": "far"
+  },
+  {
+    "word": "千里眼",
+    "type": "learning",
+    "tier": 3,
+    "damage": 45,
+    "rate": 1.134,
+    "range": 229,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "sky"
+    ],
+    "special": "far"
+  },
+  {
+    "word": "一叶知秋",
+    "type": "learning",
+    "tier": 4,
+    "damage": 79,
+    "rate": 1.134,
+    "range": 241,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "sky",
+      "focus"
+    ],
+    "special": "far"
+  },
+  {
+    "word": "冲击",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.155,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "tide"
+    ],
+    "special": "recoil"
+  },
+  {
+    "word": "排山倒海",
+    "type": "learning",
+    "tier": 4,
+    "damage": 75,
+    "rate": 1.155,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "tide",
+      "gravity"
+    ],
+    "special": "recoil"
+  },
+  {
+    "word": "伤心",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "curse"
+    ],
+    "special": "confuse"
+  },
+  {
+    "word": "七上八下",
+    "type": "learning",
+    "tier": 4,
+    "damage": 75,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "curse",
+      "frost"
+    ],
+    "special": "confuse"
+  },
+  {
+    "word": "增援",
+    "type": "learning",
+    "tier": 2,
+    "damage": 20,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "rescue"
+    ],
+    "special": "rescue"
+  },
+  {
+    "word": "消防员",
+    "type": "learning",
+    "tier": 3,
+    "damage": 42,
+    "rate": 1.05,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "rescue"
+    ],
+    "special": "rescue"
+  },
+  {
+    "word": "八方支援",
+    "type": "learning",
+    "tier": 4,
+    "damage": 69,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "rescue",
+      "mend"
+    ],
+    "special": "rescue"
+  },
+  {
+    "word": "五行",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "study"
+    ],
+    "special": "adapt"
+  },
+  {
+    "word": "创造力",
+    "type": "learning",
+    "tier": 3,
+    "damage": 44,
+    "rate": 1.05,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "study"
+    ],
+    "special": "adapt"
+  },
+  {
+    "word": "三国演义",
+    "type": "learning",
+    "tier": 4,
+    "damage": 78,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "study",
+      "focus"
+    ],
+    "special": "adapt"
+  },
+  {
+    "word": "丰收",
+    "type": "learning",
+    "tier": 2,
+    "damage": 19,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "prosper"
+    ],
+    "special": "fortune"
+  },
+  {
+    "word": "九牛一毛",
+    "type": "learning",
+    "tier": 4,
+    "damage": 66,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "prosper",
+      "luck"
+    ],
+    "special": "fortune"
+  },
+  {
+    "word": "修建",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "growth"
+    ],
+    "special": "renew"
+  },
+  {
+    "word": "龙抬头",
+    "type": "learning",
+    "tier": 3,
+    "damage": 44,
+    "rate": 1.05,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "growth"
+    ],
+    "special": "renew"
+  },
+  {
+    "word": "万古长青",
+    "type": "learning",
+    "tier": 4,
+    "damage": 71,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "growth",
+      "mend"
+    ],
+    "special": "renew"
+  },
+  {
+    "word": "变换",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "flank"
+    ],
+    "special": "pivot"
+  },
+  {
+    "word": "三反五反",
+    "type": "learning",
+    "tier": 4,
+    "damage": 78,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "flank",
+      "focus"
+    ],
+    "special": "pivot"
+  },
+  {
+    "word": "严谨",
+    "type": "learning",
+    "tier": 2,
+    "damage": 27,
+    "rate": 1.26,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "focus"
+    ],
+    "special": "patient"
+  },
+  {
+    "word": "不慌不忙",
+    "type": "learning",
+    "tier": 4,
+    "damage": 98,
+    "rate": 1.26,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "focus",
+      "edge"
+    ],
+    "special": "patient"
+  },
+  {
+    "word": "代价",
+    "type": "learning",
+    "tier": 2,
+    "damage": 20,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "focus"
+    ],
+    "special": "bargain"
+  },
+  {
+    "word": "三长两短",
+    "type": "learning",
+    "tier": 4,
+    "damage": 73,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "focus",
+      "growth"
+    ],
+    "special": "bargain"
+  },
+  {
+    "word": "刚柔",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "peace"
+    ],
+    "special": "balance"
+  },
+  {
+    "word": "太极图",
+    "type": "learning",
+    "tier": 3,
+    "damage": 43,
+    "rate": 1.05,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "peace"
+    ],
+    "special": "balance"
+  },
+  {
+    "word": "刚柔并济",
+    "type": "learning",
+    "tier": 4,
+    "damage": 76,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "peace",
+      "focus"
+    ],
+    "special": "balance"
+  },
+  {
+    "word": "回环",
+    "type": "learning",
+    "tier": 2,
+    "damage": 20,
+    "rate": 1.134,
+    "range": 180,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "echo"
+    ],
+    "special": "orbit"
+  },
+  {
+    "word": "回旋镖",
+    "type": "learning",
+    "tier": 3,
+    "damage": 43,
+    "rate": 1.134,
+    "range": 192,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "echo"
+    ],
+    "special": "orbit"
+  },
+  {
+    "word": "一来一去",
+    "type": "learning",
+    "tier": 4,
+    "damage": 75,
+    "rate": 1.134,
+    "range": 204,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "echo",
+      "edge"
+    ],
+    "special": "orbit"
+  },
+  {
+    "word": "冲破",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.176,
+    "range": 180,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "edge"
+    ],
+    "special": "penetrate"
+  },
+  {
+    "word": "先行者",
+    "type": "learning",
+    "tier": 3,
+    "damage": 45,
+    "rate": 1.176,
+    "range": 192,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "edge"
+    ],
+    "special": "penetrate"
+  },
+  {
+    "word": "一往直前",
+    "type": "learning",
+    "tier": 4,
+    "damage": 79,
+    "rate": 1.176,
+    "range": 204,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "edge",
+      "valor"
+    ],
+    "special": "penetrate"
+  },
+  {
+    "word": "交叉",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.134,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "flank"
+    ],
+    "special": "cross"
+  },
+  {
+    "word": "交叉点",
+    "type": "learning",
+    "tier": 3,
+    "damage": 44,
+    "rate": 1.134,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "flank"
+    ],
+    "special": "cross"
+  },
+  {
+    "word": "两面夹攻",
+    "type": "learning",
+    "tier": 4,
+    "damage": 75,
+    "rate": 1.134,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "flank",
+      "echo"
+    ],
+    "special": "cross"
+  },
+  {
+    "word": "中年",
+    "type": "learning",
+    "tier": 2,
+    "damage": 19,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "inspire"
+    ],
+    "special": "rally"
+  },
+  {
+    "word": "动员令",
+    "type": "learning",
+    "tier": 3,
+    "damage": 39,
+    "rate": 1.05,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "inspire"
+    ],
+    "special": "rally"
+  },
+  {
+    "word": "一呼百应",
+    "type": "learning",
+    "tier": 4,
+    "damage": 69,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "inspire",
+      "focus"
+    ],
+    "special": "rally"
+  },
+  {
+    "word": "仁爱",
+    "type": "learning",
+    "tier": 2,
+    "damage": 17,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "mend"
+    ],
+    "special": "triage"
+  },
+  {
+    "word": "医疗队",
+    "type": "learning",
+    "tier": 3,
+    "damage": 35,
+    "rate": 1.05,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "mend"
+    ],
+    "special": "triage"
+  },
+  {
+    "word": "义不容辞",
+    "type": "learning",
+    "tier": 4,
+    "damage": 61,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "mend",
+      "rescue"
+    ],
+    "special": "triage"
+  },
+  {
+    "word": "仙鹤",
+    "type": "learning",
+    "tier": 2,
+    "damage": 22,
+    "rate": 1.05,
+    "range": 202,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "sky"
+    ],
+    "special": "watch"
+  },
+  {
+    "word": "宇航员",
+    "type": "learning",
+    "tier": 3,
+    "damage": 45,
+    "rate": 1.05,
+    "range": 214,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "sky"
+    ],
+    "special": "watch"
+  },
+  {
+    "word": "众目共睹",
+    "type": "learning",
+    "tier": 4,
+    "damage": 79,
+    "rate": 1.05,
+    "range": 226,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "sky",
+      "shine"
+    ],
+    "special": "watch"
+  },
+  {
+    "word": "反制",
+    "type": "learning",
+    "tier": 2,
+    "damage": 19,
+    "rate": 1.134,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "barrier"
+    ],
+    "special": "counter"
+  },
+  {
+    "word": "守门员",
+    "type": "learning",
+    "tier": 3,
+    "damage": 40,
+    "rate": 1.134,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "barrier"
+    ],
+    "special": "counter"
+  },
+  {
+    "word": "以守为攻",
+    "type": "learning",
+    "tier": 4,
+    "damage": 69,
+    "rate": 1.134,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "barrier",
+      "edge"
+    ],
+    "special": "counter"
+  },
+  {
+    "word": "伏兵",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 180,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "execute"
+    ],
+    "special": "hunt"
+  },
+  {
+    "word": "追踪者",
+    "type": "learning",
+    "tier": 3,
+    "damage": 45,
+    "rate": 1.05,
+    "range": 192,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "execute"
+    ],
+    "special": "hunt"
+  },
+  {
+    "word": "不知疲倦",
+    "type": "learning",
+    "tier": 4,
+    "damage": 76,
+    "rate": 1.05,
+    "range": 204,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "execute",
+      "bleed"
+    ],
+    "special": "hunt"
+  },
+  {
+    "word": "蛇",
+    "type": "learning",
+    "tier": 1,
+    "damage": 11,
+    "rate": 1.1025,
+    "range": 158,
+    "cost": 26,
+    "maxHp": 231,
+    "runes": [],
+    "special": "beast"
+  },
+  {
+    "word": "乌龟",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.1025,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "brood"
+    ],
+    "special": "beast"
+  },
+  {
+    "word": "动物园",
+    "type": "learning",
+    "tier": 3,
+    "damage": 44,
+    "rate": 1.1025,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "brood"
+    ],
+    "special": "beast"
+  },
+  {
+    "word": "万马奔腾",
+    "type": "learning",
+    "tier": 4,
+    "damage": 78,
+    "rate": 1.1025,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "brood",
+      "valor"
+    ],
+    "special": "beast"
+  },
+  {
+    "word": "丁香",
+    "type": "learning",
+    "tier": 2,
+    "damage": 18,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "mend"
+    ],
+    "special": "nectar"
+  },
+  {
+    "word": "营养液",
+    "type": "learning",
+    "tier": 3,
+    "damage": 37,
+    "rate": 1.05,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "mend"
+    ],
+    "special": "nectar"
+  },
+  {
+    "word": "含苞待放",
+    "type": "learning",
+    "tier": 4,
+    "damage": 63,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "mend",
+      "bloom"
+    ],
+    "special": "nectar"
+  },
+  {
+    "word": "买卖",
+    "type": "learning",
+    "tier": 2,
+    "damage": 20,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "study"
+    ],
+    "special": "thrift"
+  },
+  {
+    "word": "储蓄罐",
+    "type": "learning",
+    "tier": 3,
+    "damage": 42,
+    "rate": 1.05,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "study"
+    ],
+    "special": "thrift"
+  },
+  {
+    "word": "丰衣足食",
+    "type": "learning",
+    "tier": 4,
+    "damage": 72,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "study",
+      "growth"
+    ],
+    "special": "thrift"
+  },
+  {
+    "word": "乐声",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "tempo"
+    ],
+    "special": "rhythm"
+  },
+  {
+    "word": "音乐家",
+    "type": "learning",
+    "tier": 3,
+    "damage": 45,
+    "rate": 1.05,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "tempo"
+    ],
+    "special": "rhythm"
+  },
+  {
+    "word": "一唱一和",
+    "type": "learning",
+    "tier": 4,
+    "damage": 75,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "tempo",
+      "echo"
+    ],
+    "special": "rhythm"
+  },
+  {
+    "word": "号角",
+    "type": "learning",
+    "tier": 2,
+    "damage": 20,
+    "rate": 1.134,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "echo"
+    ],
+    "special": "resonate"
+  },
+  {
+    "word": "交响乐",
+    "type": "learning",
+    "tier": 3,
+    "damage": 43,
+    "rate": 1.134,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "echo"
+    ],
+    "special": "resonate"
+  },
+  {
+    "word": "不失众望",
+    "type": "learning",
+    "tier": 4,
+    "damage": 73,
+    "rate": 1.134,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "echo",
+      "inspire"
+    ],
+    "special": "resonate"
+  },
+  {
+    "word": "准则",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.1025,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "focus"
+    ],
+    "special": "geometry"
+  },
+  {
+    "word": "田字格",
+    "type": "learning",
+    "tier": 3,
+    "damage": 45,
+    "rate": 1.1025,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "focus"
+    ],
+    "special": "geometry"
+  },
+  {
+    "word": "一板一眼",
+    "type": "learning",
+    "tier": 4,
+    "damage": 77,
+    "rate": 1.1025,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "focus",
+      "gravity"
+    ],
+    "special": "geometry"
+  },
+  {
+    "word": "丛林",
+    "type": "learning",
+    "tier": 2,
+    "damage": 19,
+    "rate": 1.1025,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "thorn"
+    ],
+    "special": "weave"
+  },
+  {
+    "word": "纺织品",
+    "type": "learning",
+    "tier": 3,
+    "damage": 39,
+    "rate": 1.1025,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "thorn"
+    ],
+    "special": "weave"
+  },
+  {
+    "word": "丝丝入扣",
+    "type": "learning",
+    "tier": 4,
+    "damage": 69,
+    "rate": 1.1025,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "thorn",
+      "focus"
+    ],
+    "special": "weave"
+  },
+  {
+    "word": "保卫",
+    "type": "learning",
+    "tier": 2,
+    "damage": 19,
+    "rate": 1.155,
+    "range": 160,
+    "cost": 60,
+    "maxHp": 354,
+    "runes": [
+      "barrier"
+    ],
+    "special": "pillar"
+  },
+  {
+    "word": "建筑师",
+    "type": "learning",
+    "tier": 3,
+    "damage": 40,
+    "rate": 1.155,
+    "range": 172,
+    "cost": 93,
+    "maxHp": 462,
+    "runes": [
+      "barrier"
+    ],
+    "special": "pillar"
+  },
+  {
+    "word": "不动声色",
+    "type": "learning",
+    "tier": 4,
+    "damage": 68,
+    "rate": 1.155,
+    "range": 184,
+    "cost": 141,
+    "maxHp": 578,
+    "runes": [
+      "barrier",
+      "gravity"
+    ],
+    "special": "pillar"
+  },
+  {
+    "word": "保全",
+    "type": "learning",
+    "tier": 2,
+    "damage": 18,
+    "rate": 1.1025,
+    "range": 180,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "barrier"
+    ],
+    "special": "shelter"
+  },
+  {
+    "word": "保护伞",
+    "type": "learning",
+    "tier": 3,
+    "damage": 37,
+    "rate": 1.1025,
+    "range": 192,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "barrier"
+    ],
+    "special": "shelter"
+  },
+  {
+    "word": "保家卫国",
+    "type": "learning",
+    "tier": 4,
+    "damage": 61,
+    "rate": 1.1025,
+    "range": 204,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "barrier",
+      "mend"
+    ],
+    "special": "shelter"
+  },
+  {
+    "word": "分析",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.1025,
+    "range": 180,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "shine"
+    ],
+    "special": "dawn"
+  },
+  {
+    "word": "启明星",
+    "type": "learning",
+    "tier": 3,
+    "damage": 45,
+    "rate": 1.1025,
+    "range": 192,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "shine"
+    ],
+    "special": "dawn"
+  },
+  {
+    "word": "一望而知",
+    "type": "learning",
+    "tier": 4,
+    "damage": 77,
+    "rate": 1.1025,
+    "range": 204,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "shine",
+      "seal"
+    ],
+    "special": "dawn"
+  },
+  {
+    "word": "传授",
+    "type": "learning",
+    "tier": 2,
+    "damage": 20,
+    "rate": 1.05,
+    "range": 185,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "focus"
+    ],
+    "special": "guide"
+  },
+  {
+    "word": "指南针",
+    "type": "learning",
+    "tier": 3,
+    "damage": 43,
+    "rate": 1.05,
+    "range": 197,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "focus"
+    ],
+    "special": "guide"
+  },
+  {
+    "word": "为人师表",
+    "type": "learning",
+    "tier": 4,
+    "damage": 74,
+    "rate": 1.05,
+    "range": 209,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "focus",
+      "rescue"
+    ],
+    "special": "guide"
+  },
+  {
+    "word": "传递",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.155,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "tempo"
+    ],
+    "special": "relay"
+  },
+  {
+    "word": "接力棒",
+    "type": "learning",
+    "tier": 3,
+    "damage": 45,
+    "rate": 1.155,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "tempo"
+    ],
+    "special": "relay"
+  },
+  {
+    "word": "一以贯之",
+    "type": "learning",
+    "tier": 4,
+    "damage": 75,
+    "rate": 1.155,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "tempo",
+      "echo"
+    ],
+    "special": "relay"
+  },
+  {
+    "word": "下棋",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.1025,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "study"
+    ],
+    "special": "puzzle"
+  },
+  {
+    "word": "工程师",
+    "type": "learning",
+    "tier": 3,
+    "damage": 44,
+    "rate": 1.1025,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "study"
+    ],
+    "special": "puzzle"
+  },
+  {
+    "word": "不假思索",
+    "type": "learning",
+    "tier": 4,
+    "damage": 78,
+    "rate": 1.1025,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "study",
+      "focus"
+    ],
+    "special": "puzzle"
+  },
+  {
+    "word": "修造",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.1025,
+    "range": 185,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "edge"
+    ],
+    "special": "mechanism"
+  },
+  {
+    "word": "机器人",
+    "type": "learning",
+    "tier": 3,
+    "damage": 45,
+    "rate": 1.1025,
+    "range": 197,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "edge"
+    ],
+    "special": "mechanism"
+  },
+  {
+    "word": "一技之长",
+    "type": "learning",
+    "tier": 4,
+    "damage": 79,
+    "rate": 1.1025,
+    "range": 209,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "edge",
+      "focus"
+    ],
+    "special": "mechanism"
+  },
+  {
+    "word": "四季",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "rescue"
+    ],
+    "special": "reversal"
+  },
+  {
+    "word": "不倒翁",
+    "type": "learning",
+    "tier": 3,
+    "damage": 44,
+    "rate": 1.05,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "rescue"
+    ],
+    "special": "reversal"
+  },
+  {
+    "word": "一死一生",
+    "type": "learning",
+    "tier": 4,
+    "damage": 76,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "rescue",
+      "growth"
+    ],
+    "special": "reversal"
+  },
+  {
+    "word": "多元",
+    "type": "learning",
+    "tier": 2,
+    "damage": 21,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "inspire"
+    ],
+    "special": "festival"
+  },
+  {
+    "word": "博物馆",
+    "type": "learning",
+    "tier": 3,
+    "damage": 43,
+    "rate": 1.05,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "inspire"
+    ],
+    "special": "festival"
+  },
+  {
+    "word": "兼容并包",
+    "type": "learning",
+    "tier": 4,
+    "damage": 73,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "inspire",
+      "bloom"
+    ],
+    "special": "festival"
+  },
+  {
+    "word": "七夕",
+    "type": "learning",
+    "tier": 2,
+    "damage": 19,
+    "rate": 1.05,
+    "range": 170,
+    "cost": 60,
+    "maxHp": 308,
+    "runes": [
+      "inspire"
+    ],
+    "special": "harmony"
+  },
+  {
+    "word": "上元节",
+    "type": "learning",
+    "tier": 3,
+    "damage": 39,
+    "rate": 1.05,
+    "range": 182,
+    "cost": 93,
+    "maxHp": 385,
+    "runes": [
+      "inspire"
+    ],
+    "special": "harmony"
+  },
+  {
+    "word": "一帆风顺",
+    "type": "learning",
+    "tier": 4,
+    "damage": 66,
+    "rate": 1.05,
+    "range": 194,
+    "cost": 141,
+    "maxHp": 462,
+    "runes": [
+      "inspire",
+      "peace"
+    ],
+    "special": "harmony"
+  },
+  {
+    "word": "火",
+    "type": "splash",
+    "tier": 1,
+    "damage": 12,
+    "rate": 1.05,
+    "range": 143,
+    "cost": 26,
+    "maxHp": 210,
+    "runes": [],
+    "special": null
+  },
+  {
+    "word": "火球",
+    "type": "splash",
+    "tier": 2,
+    "damage": 29,
+    "rate": 1.3125,
+    "range": 145,
+    "cost": 60,
+    "maxHp": 314,
+    "runes": [
+      "ember"
+    ],
+    "special": null
+  },
+  {
+    "word": "火焰山",
+    "type": "splash",
+    "tier": 3,
+    "damage": 45,
+    "rate": 1.05,
+    "range": 167,
+    "cost": 93,
+    "maxHp": 350,
+    "runes": [
+      "ember"
+    ],
+    "special": null
+  },
+  {
+    "word": "火上浇油",
+    "type": "splash",
+    "tier": 4,
+    "damage": 74,
+    "rate": 1.05,
+    "range": 179,
+    "cost": 141,
+    "maxHp": 420,
+    "runes": [
+      "ember",
+      "valor"
+    ],
+    "special": null
+  },
+  {
+    "word": "冰",
+    "type": "slow",
+    "tier": 1,
+    "damage": 4,
+    "rate": 0.8,
+    "range": 133,
+    "cost": 22,
+    "maxHp": 200,
+    "runes": [],
+    "special": null
+  },
+  {
+    "word": "冰霜",
+    "type": "slow",
+    "tier": 2,
+    "damage": 9,
+    "rate": 0.8,
+    "range": 145,
+    "cost": 50,
+    "maxHp": 266,
+    "runes": [
+      "frost"
+    ],
+    "special": null
+  },
+  {
+    "word": "寒冰箭",
+    "type": "slow",
+    "tier": 3,
+    "damage": 17,
+    "rate": 0.896,
+    "range": 197,
+    "cost": 78,
+    "maxHp": 306,
+    "runes": [
+      "frost"
+    ],
+    "special": null
+  },
+  {
+    "word": "冰封万里",
+    "type": "slow",
+    "tier": 4,
+    "damage": 23,
+    "rate": 0.9152,
+    "range": 171,
+    "cost": 118,
+    "maxHp": 399,
+    "runes": [
+      "frost",
+      "sky"
+    ],
+    "special": null
+  },
+  {
+    "word": "雷",
+    "type": "chain",
+    "tier": 1,
+    "damage": 15,
+    "rate": 1.3,
+    "range": 158,
+    "cost": 35,
+    "maxHp": 210,
+    "runes": [],
+    "special": null
+  },
+  {
+    "word": "雷电",
+    "type": "chain",
+    "tier": 2,
+    "damage": 30,
+    "rate": 1.3,
+    "range": 170,
+    "cost": 80,
+    "maxHp": 280,
+    "runes": [
+      "storm"
+    ],
+    "special": null
+  },
+  {
+    "word": "连环雷",
+    "type": "chain",
+    "tier": 3,
+    "damage": 47,
+    "rate": 1.495,
+    "range": 172,
+    "cost": 124,
+    "maxHp": 350,
+    "runes": [
+      "storm"
+    ],
+    "special": null
+  },
+  {
+    "word": "五雷轰顶",
+    "type": "chain",
+    "tier": 4,
+    "damage": 92,
+    "rate": 1.3,
+    "range": 194,
+    "cost": 188,
+    "maxHp": 420,
+    "runes": [
+      "count",
+      "storm"
+    ],
+    "special": null
+  },
+  {
+    "word": "风",
+    "type": "fast",
+    "tier": 1,
+    "damage": 6,
+    "rate": 0.42,
+    "range": 148,
+    "cost": 22,
+    "maxHp": 189,
+    "runes": [],
+    "special": null
+  },
+  {
+    "word": "风刃",
+    "type": "fast",
+    "tier": 2,
+    "damage": 13,
+    "rate": 0.4704,
+    "range": 140,
+    "cost": 50,
+    "maxHp": 252,
+    "runes": [
+      "tempo"
+    ],
+    "special": null
+  },
+  {
+    "word": "旋风刃",
+    "type": "fast",
+    "tier": 3,
+    "damage": 26,
+    "rate": 0.4704,
+    "range": 152,
+    "cost": 78,
+    "maxHp": 315,
+    "runes": [
+      "tempo"
+    ],
+    "special": null
+  },
+  {
+    "word": "风卷残云",
+    "type": "fast",
+    "tier": 4,
+    "damage": 30,
+    "rate": 0.483,
+    "range": 194,
+    "cost": 118,
+    "maxHp": 378,
+    "runes": [
+      "tempo",
+      "tide"
+    ],
+    "special": null
+  },
+  {
+    "word": "石",
+    "type": "heavy",
+    "tier": 1,
+    "damage": 32,
+    "rate": 1.8,
+    "range": 168,
+    "cost": 37,
+    "maxHp": 305,
+    "runes": [],
+    "special": null
+  },
+  {
+    "word": "巨石",
+    "type": "heavy",
+    "tier": 2,
+    "damage": 78,
+    "rate": 2.25,
+    "range": 170,
+    "cost": 85,
+    "maxHp": 455,
+    "runes": [
+      "gravity"
+    ],
+    "special": null
+  },
+  {
+    "word": "落石阵",
+    "type": "heavy",
+    "tier": 3,
+    "damage": 104,
+    "rate": 2.07,
+    "range": 212,
+    "cost": 132,
+    "maxHp": 609,
+    "runes": [
+      "gravity"
+    ],
+    "special": null
+  },
+  {
+    "word": "稳如泰山",
+    "type": "heavy",
+    "tier": 4,
+    "damage": 186,
+    "rate": 1.8,
+    "range": 204,
+    "cost": 200,
+    "maxHp": 609,
+    "runes": [
+      "barrier",
+      "gravity"
+    ],
+    "special": null
+  },
+  {
+    "word": "光",
+    "type": "aura",
+    "tier": 1,
+    "damage": 4,
+    "rate": 1.4,
+    "range": 143,
+    "cost": 29,
+    "maxHp": 200,
+    "runes": [],
+    "special": null
+  },
+  {
+    "word": "光环",
+    "type": "aura",
+    "tier": 2,
+    "damage": 6,
+    "rate": 1.61,
+    "range": 165,
+    "cost": 65,
+    "maxHp": 266,
+    "runes": [
+      "shine"
+    ],
+    "special": null
+  },
+  {
+    "word": "日月光",
+    "type": "aura",
+    "tier": 3,
+    "damage": 14,
+    "rate": 1.4,
+    "range": 177,
+    "cost": 101,
+    "maxHp": 333,
+    "runes": [
+      "shine"
+    ],
+    "special": null
+  },
+  {
+    "word": "光芒万丈",
+    "type": "aura",
+    "tier": 4,
+    "damage": 21,
+    "rate": 1.6016,
+    "range": 211,
+    "cost": 153,
+    "maxHp": 399,
+    "runes": [
+      "shine",
+      "sky"
+    ],
+    "special": null
+  },
+  {
+    "word": "毒",
+    "type": "poison",
+    "tier": 1,
+    "damage": 7,
+    "rate": 1.1,
+    "range": 143,
+    "cost": 29,
+    "maxHp": 210,
+    "runes": [],
+    "special": null
+  },
+  {
+    "word": "毒雾",
+    "type": "poison",
+    "tier": 2,
+    "damage": 11,
+    "rate": 1.265,
+    "range": 165,
+    "cost": 65,
+    "maxHp": 280,
+    "runes": [
+      "toxin"
+    ],
+    "special": null
+  },
+  {
+    "word": "毒气弹",
+    "type": "poison",
+    "tier": 3,
+    "damage": 32,
+    "rate": 1.375,
+    "range": 157,
+    "cost": 101,
+    "maxHp": 392,
+    "runes": [
+      "toxin"
+    ],
+    "special": null
+  },
+  {
+    "word": "蛇蝎心肠",
+    "type": "poison",
+    "tier": 4,
+    "damage": 41,
+    "rate": 1.1,
+    "range": 179,
+    "cost": 153,
+    "maxHp": 420,
+    "runes": [
+      "venom",
+      "curse"
+    ],
+    "special": null
+  },
+  {
+    "word": "弓",
+    "type": "sniper",
+    "tier": 1,
+    "damage": 22,
+    "rate": 1.904,
+    "range": 263,
+    "cost": 33,
+    "maxHp": 164,
+    "runes": [],
+    "special": null
+  },
+  {
+    "word": "弓箭",
+    "type": "sniper",
+    "tier": 2,
+    "damage": 46,
+    "rate": 1.904,
+    "range": 275,
+    "cost": 75,
+    "maxHp": 219,
+    "runes": [],
+    "special": null
+  },
+  {
+    "word": "穿云箭",
+    "type": "sniper",
+    "tier": 3,
+    "damage": 87,
+    "rate": 1.904,
+    "range": 287,
+    "cost": 116,
+    "maxHp": 274,
+    "runes": [
+      "focus"
+    ],
+    "special": null
+  },
+  {
+    "word": "箭无虚发",
+    "type": "sniper",
+    "tier": 4,
+    "damage": 143,
+    "rate": 1.904,
+    "range": 299,
+    "cost": 176,
+    "maxHp": 328,
+    "runes": [
+      "focus",
+      "execute"
+    ],
+    "special": null
+  },
+  {
+    "word": "金",
+    "type": "income",
+    "tier": 1,
+    "damage": 3,
+    "rate": 1.6,
+    "range": 138,
+    "cost": 24,
+    "maxHp": 210,
+    "runes": [],
+    "special": null
+  },
+  {
+    "word": "生财",
+    "type": "income",
+    "tier": 2,
+    "damage": 6,
+    "rate": 1.6,
+    "range": 150,
+    "cost": 55,
+    "maxHp": 280,
+    "runes": [
+      "prosper"
+    ],
+    "special": null
+  },
+  {
+    "word": "摇钱树",
+    "type": "income",
+    "tier": 3,
+    "damage": 9,
+    "rate": 1.92,
+    "range": 162,
+    "cost": 85,
+    "maxHp": 350,
+    "runes": [
+      "luck"
+    ],
+    "special": null
+  },
+  {
+    "word": "招财进宝",
+    "type": "income",
+    "tier": 4,
+    "damage": 14,
+    "rate": 1.92,
+    "range": 174,
+    "cost": 129,
+    "maxHp": 420,
+    "runes": [
+      "prosper",
+      "tempo"
+    ],
+    "special": null
+  },
+  {
+    "word": "剑",
+    "type": "pierce",
+    "tier": 1,
+    "damage": 16,
+    "rate": 1.344,
+    "range": 158,
+    "cost": 31,
+    "maxHp": 241,
+    "runes": [],
+    "special": null
+  },
+  {
+    "word": "剑气",
+    "type": "pierce",
+    "tier": 2,
+    "damage": 33,
+    "rate": 1.344,
+    "range": 170,
+    "cost": 70,
+    "maxHp": 322,
+    "runes": [
+      "edge"
+    ],
+    "special": null
+  },
+  {
+    "word": "御剑术",
+    "type": "pierce",
+    "tier": 3,
+    "damage": 66,
+    "rate": 1.344,
+    "range": 182,
+    "cost": 109,
+    "maxHp": 402,
+    "runes": [
+      "edge"
+    ],
+    "special": null
+  },
+  {
+    "word": "万剑归宗",
+    "type": "pierce",
+    "tier": 4,
+    "damage": 103,
+    "rate": 1.344,
+    "range": 194,
+    "cost": 165,
+    "maxHp": 483,
+    "runes": [
+      "edge",
+      "echo"
+    ],
+    "special": null
+  },
+  {
+    "word": "水",
+    "type": "pulse",
+    "tier": 1,
+    "damage": 9,
+    "rate": 1.45,
+    "range": 123,
+    "cost": 29,
+    "maxHp": 231,
+    "runes": [],
+    "special": null
+  },
+  {
+    "word": "水波",
+    "type": "pulse",
+    "tier": 2,
+    "damage": 18,
+    "rate": 1.45,
+    "range": 135,
+    "cost": 65,
+    "maxHp": 308,
+    "runes": [],
+    "special": null
+  },
+  {
+    "word": "水龙卷",
+    "type": "pulse",
+    "tier": 3,
+    "damage": 28,
+    "rate": 1.6675,
+    "range": 157,
+    "cost": 101,
+    "maxHp": 385,
+    "runes": [
+      "brood"
+    ],
+    "special": null
+  },
+  {
+    "word": "一山一水",
+    "type": "pulse",
+    "tier": 4,
+    "damage": 56,
+    "rate": 1.45,
+    "range": 159,
+    "cost": 153,
+    "maxHp": 462,
+    "runes": [
+      "gravity"
+    ],
+    "special": null
+  },
+  {
+    "word": "咒",
+    "type": "mark",
+    "tier": 1,
+    "damage": 8,
+    "rate": 1.1,
+    "range": 153,
+    "cost": 26,
+    "maxHp": 210,
+    "runes": [],
+    "special": null
+  },
+  {
+    "word": "咒印",
+    "type": "mark",
+    "tier": 2,
+    "damage": 15,
+    "rate": 1.1,
+    "range": 165,
+    "cost": 60,
+    "maxHp": 280,
+    "runes": [
+      "curse"
+    ],
+    "special": null
+  },
+  {
+    "word": "封魔印",
+    "type": "mark",
+    "tier": 3,
+    "damage": 24,
+    "rate": 1.21,
+    "range": 167,
+    "cost": 93,
+    "maxHp": 350,
+    "runes": [
+      "slayer"
+    ],
+    "special": null
+  },
+  {
+    "word": "画地为牢",
+    "type": "mark",
+    "tier": 4,
+    "damage": 36,
+    "rate": 1.21,
+    "range": 179,
+    "cost": 141,
+    "maxHp": 420,
+    "runes": [
+      "barrier",
+      "seal"
+    ],
+    "special": null
+  },
+  {
+    "word": "幻",
+    "type": "echo",
+    "tier": 1,
+    "damage": 10,
+    "rate": 1.2,
+    "range": 163,
+    "cost": 26,
+    "maxHp": 189,
+    "runes": [],
+    "special": null
+  },
+  {
+    "word": "幻影",
+    "type": "echo",
+    "tier": 2,
+    "damage": 17,
+    "rate": 1.38,
+    "range": 165,
+    "cost": 60,
+    "maxHp": 252,
+    "runes": [],
+    "special": null
+  },
+  {
+    "word": "幻影箭",
+    "type": "echo",
+    "tier": 3,
+    "damage": 38,
+    "rate": 1.344,
+    "range": 227,
+    "cost": 93,
+    "maxHp": 290,
+    "runes": [
+      "echo"
+    ],
+    "special": null
+  },
+  {
+    "word": "如梦似幻",
+    "type": "echo",
+    "tier": 4,
+    "damage": 60,
+    "rate": 1.2,
+    "range": 199,
+    "cost": 141,
+    "maxHp": 378,
+    "runes": [
+      "echo",
+      "peace"
+    ],
+    "special": null
+  },
+  {
+    "word": "一",
+    "type": "basic",
+    "tier": 1,
+    "damage": 9,
+    "rate": 0.9,
+    "range": 143,
+    "cost": 24,
+    "maxHp": 231,
+    "runes": [],
+    "special": null
+  },
+  {
+    "word": "一一",
+    "type": "basic",
+    "tier": 2,
+    "damage": 17,
+    "rate": 0.9,
+    "range": 155,
+    "cost": 55,
+    "maxHp": 308,
+    "runes": [
+      "count"
+    ],
+    "special": null
+  },
+  {
+    "word": "一万两",
+    "type": "basic",
+    "tier": 3,
+    "damage": 33,
+    "rate": 0.9,
+    "range": 167,
+    "cost": 85,
+    "maxHp": 385,
+    "runes": [
+      "count"
+    ],
+    "special": null
+  },
+  {
+    "word": "一一列举",
+    "type": "basic",
+    "tier": 4,
+    "damage": 59,
+    "rate": 0.9,
+    "range": 179,
+    "cost": 129,
+    "maxHp": 462,
+    "runes": [],
+    "special": null
+  }
+]

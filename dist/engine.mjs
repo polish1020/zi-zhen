@@ -287,9 +287,9 @@ export const WORDS=ORIGINAL_WORDS.map(w=>{
   const type=({岩浆:'splash',熔岩:'splash',流星锤:'heavy',毒镖:'poison'})[w.word];
   if(!type)return w;const school=SCHOOLS.find(s=>s.type===type);return applyWordTrait({...w,...school,words:undefined,cost:Math.round(school.cost*PRICE[w.tier]),damage:Math.round(school.damage*POWER[w.tier]),range:school.range+(w.tier-2)*12});
  }
- const learningPower=[0,.48,1,2.1,3.8];
+ const learningPower=[0,.58,1.2,2.5,4.5];
  const f=SPECIAL_EFFECTS[special],runes=(SPECIAL_RUNE_OVERRIDES[w.word]||f.runes).slice(0,runeLimit(w.tier));
- return {...w,type:'learning',icon:'学',name:'学识',color:SPECIAL_PALETTES[special]||'#9b774b',special,trait:'balanced',runes,tag:f.name,desc:specialDescription({...w,special}),cost:Math.round(60*PRICE[w.tier]),damage:Math.max(1,Math.round(22*learningPower[w.tier]*f.damage*runes.reduce((m,id)=>m*WORD_RUNES[id].damage,1))),range:170+(w.tier-2)*12+f.range+(runes.includes('sky')?12:0),rate:Number((1.05*f.rate).toFixed(4)),aura:0,income:0};
+ return {...w,type:'learning',icon:'学',name:'学识',color:SPECIAL_PALETTES[special]||'#9b774b',special,trait:'balanced',runes,tag:f.name,desc:specialDescription({...w,special}),cost:Math.round(60*PRICE[w.tier]),damage:Math.max(1,Math.round(22*learningPower[w.tier]*f.damage*runes.reduce((m,id)=>m*WORD_RUNES[id].damage,1))),range:180+(w.tier-2)*12+f.range+(runes.includes('sky')?12:0),rate:Number((1.05*f.rate).toFixed(4)),aura:0,income:0};
 });
 const MEANING_HAND_WORDS='学习 读书 知识 朋友 伙伴 合作 团结 勇敢 英雄 努力 奋斗 成长 医生 健康 康复 和平 安宁 守护 母亲 家人 开心 快乐 感谢 谢谢 欢迎 工作 旅行 音乐 歌声 回声 沉默 缄默 撕裂 切割 背刺 侧翼 正面 冲锋 复活 重生 祝福 财富 丰收 秋天 夏天 冬天 春天 花朵 玫瑰 莲花 草木 森林 老虎 白虎 灵兽 人参 三七 五个 三倍 三尺 百米 千米 火毒箭 冰毒箭 冰火箭 月光箭 圣光箭 星辰箭 千里眼 顺风耳 寒冰毒箭 冰霜毒箭 冰霜毒雾 火焰毒云 雷霆毒箭 冰火双刃 冰火风暴 风雷之箭 浴火重生 涅槃重生 死而复生 起死回生 滴水穿石 水滴石穿 一心一意 全神贯注 老马识途 守株待兔 画龙点睛 破釜沉舟 釜底抽薪 乘风破浪 声东击西 暗度陈仓 春暖花开 百花齐放 众志成城 坚不可摧 日积月累 厚积薄发 积少成多 自强不息 齐心协力 同舟共济'.split(' ').map(word=>WORDS.find(w=>w.word===word)).filter(Boolean);
 export const GRADES=['','凡字','灵词','妙语','天成'];
@@ -732,7 +732,7 @@ export class Game {
  damageTower(t,raw,enemy,boost=true){
   if(!towerActive(t))return 0;const defense=towerDefense(t),p=this.pads[t.pad];
   const shelters=this.activeTowers.filter(a=>a!==t&&getWord(a.word).special==='shelter'&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range*(getWord(a.word).tier>=4?1:.65));
-  const cover=Math.max(0,...shelters.map(a=>.04+learningRank(getWord(a.word))*.02),...this.activeTowers.filter(a=>a!==t&&getWord(a.word).type==='aura'&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range).map(a=>getWord(a.word).trait==='radiance'?.15:.12));
+  const cover=Math.max(0,...shelters.map(a=>.05+learningRank(getWord(a.word))*.03),...this.activeTowers.filter(a=>a!==t&&getWord(a.word).type==='aura'&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range).map(a=>getWord(a.word).trait==='radiance'?.15:.12));
   if(boost)raw*=1+this.bossSupport(enemy).attack;
   const w=getWord(t.word),weapon=enemyWeapon(enemy.kind),weaken=Math.max(enemy.siegeWeakUntil>this.time?.15:0,enemy.markUntil>this.time||enemy.weakenUntil>this.time?.1:0);
   if(weapon.debuff==='flame'&&w.type==='splash')raw*=.7;
@@ -1033,20 +1033,20 @@ export class Game {
   const recoil=distance=>{if(!(target.recoilReady>this.time)){target.d=Math.max(0,target.d-distance*(ENEMIES[target.kind].boss?.5:1));target.recoilReady=this.time+3;}};
   const freeze=()=>{if(!(target.freezeReady>this.time)&&!hasIceShell(target)){target.freezeUntil=this.time+.2;target.freezeReady=this.time+4;this.effects.push({kind:'bind',to:enemyPosition(target),color:w.color,life:.4,max:.4});}};
   const empower=()=>{if(empowered)return;const a=this.learningAlly(t,'power');if(a){a.lessonPowerUntil=this.time+3;this.lessonFx(t,a,id);}};
-  const heal=()=>{const a=this.learningAlly(t,'heal');if(a){a.hp=Math.min(towerDefense(a).maxHp,(a.hp??towerDefense(a).maxHp)+towerDefense(a).maxHp*.02);a.lessonHealReady=this.time+6;this.lessonFx(t,a,id);}};
+  const heal=()=>{const a=this.learningAlly(t,'heal');if(a){a.hp=Math.min(towerDefense(a).maxHp,(a.hp??towerDefense(a).maxHp)+towerDefense(a).maxHp*(.02+learningRank(w)*.01));a.lessonHealReady=this.time+6;this.lessonFx(t,a,id);}};
   if(id==='visit'&&shot%3===0||id==='cooperate'&&shot%3===0||['radiance','harmony'].includes(id)&&shot%4===0)empower();
   if(id==='inspire'&&shot%4===0){const p=this.pads[t.pad];for(const a of this.activeTowers.filter(a=>a!==t&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(t).range).sort((a,b)=>a.id-b.id).slice(0,2)){a.lessonHasteUntil=this.time+3;this.lessonFx(t,a,id);}}
   if(['mend','rescue'].includes(id)&&shot%4===0)heal();
-  if(id==='bulwark'&&shot%4===0){const a=this.learningAlly(t,'shield');if(a){a.lessonShield=Math.max(a.lessonShieldUntil>this.time?a.lessonShield||0:0,towerDefense(a).maxHp*.05);a.lessonShieldUntil=this.time+4;a.lessonShieldReady=this.time+6;this.lessonFx(t,a,id);}}
+  if(id==='bulwark'&&shot%4===0){const a=this.learningAlly(t,'shield');if(a){a.lessonShield=Math.max(a.lessonShieldUntil>this.time?a.lessonShield||0:0,towerDefense(a).maxHp*(.04+learningRank(w)*.02));a.lessonShieldUntil=this.time+4;a.lessonShieldReady=this.time+6;this.lessonFx(t,a,id);}}
   if(id==='double'&&side[0])hit(side[0],.75);
-  if(id==='volley')for(const e of side.slice(0,2))hit(e,.4);
-  if(id==='sweep')for(const e of side.slice(0,3))hit(e,.3);
+  if(id==='volley')for(const e of side.slice(0,2))hit(e,.5);
+  if(id==='sweep')for(const e of side.slice(0,3))hit(e,.45);
   if(id==='echo')hit(side[0]||target,.35);
-  if(id==='insight'&&shot%4===0)for(const e of side.slice(0,2))hit(e,.35);
-  if(id==='blast'){const p=enemyPosition(target);for(const e of side.filter(e=>Math.hypot(enemyPosition(e).x-p.x,enemyPosition(e).y-p.y)<=65).slice(0,2))hit(e,.35);this.effects.push({kind:'blast',to:p,radius:65,color:w.color,life:.35,max:.35});}
+  if(id==='insight'&&shot%4===0)for(const e of side.slice(0,2))hit(e,.5);
+  if(id==='blast'){const p=enemyPosition(target);for(const e of side.filter(e=>Math.hypot(enemyPosition(e).x-p.x,enemyPosition(e).y-p.y)<=65).slice(0,2))hit(e,.5);this.effects.push({kind:'blast',to:p,radius:65,color:w.color,life:.35,max:.35});}
   if(id==='frost'){slow(target,.75,2);if(shot%4===0)freeze();}
   if(id==='roots'){slow(target,.85,1.5);if(shot%3===0)freeze();}
-  if(id==='storm')for(const e of side.slice(0,2))hit(e,.4);
+  if(id==='storm')for(const e of side.slice(0,2))hit(e,.5);
   if(['tide','recoil','harmony'].includes(id)||id==='decoy'&&shot%4===0)target.siegeWeakUntil=Math.max(target.siegeWeakUntil||0,this.time+2);
   if(id==='tide'&&shot%4===0)recoil(8);
   if(id==='recoil'&&shot%3===0)recoil(12);
@@ -1056,34 +1056,34 @@ export class Game {
   if(id==='confuse'&&shot%4===0){slow(target,.9,1);if(target.towerStrikeAt>this.time&&!(target.staggerReady>this.time)){target.towerStrikeAt+=.5;target.staggerReady=this.time+3;}}
   if(id==='adapt'&&!ENEMIES[target.kind].boss&&side[0])hit(side[0],.3);
   if(id==='fortune'&&shot%4===0){target.bounty=Math.max(target.bountyUntil>this.time?target.bounty||0:0,1);target.bountyUntil=Math.max(target.bountyUntil||0,this.time+2);}
-  if(id==='renew'&&shot%8===0&&!(t.lessonHealReady>this.time)){t.hp=Math.min(towerDefense(t).maxHp,(t.hp??towerDefense(t).maxHp)+towerDefense(t).maxHp*.02);t.lessonHealReady=this.time+6;this.lessonFx(t,t,id);}
+  if(id==='renew'&&shot%6===0&&!(t.lessonHealReady>this.time)){t.hp=Math.min(towerDefense(t).maxHp,(t.hp??towerDefense(t).maxHp)+towerDefense(t).maxHp*(.01+learningRank(w)*.01));t.lessonHealReady=this.time+6;this.lessonFx(t,t,id);}
   if(id==='balance'&&shot%2===0)slow(target,.75,2);
   if(shot%4===0&&!['mend','rescue','bulwark','inspire'].includes(id))this.lessonFx(t,t,id);
  }
  expandedAttack(t,w,target,targets,hit,slow,damage,shot,empowered){
   const id=w.special,rank=learningRank(w),p=this.pads[t.pad],q=enemyPosition(target),side=targets.filter(e=>e!==target&&e.hp>0);
   const allies=this.activeTowers.filter(a=>a!==t&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(t).range);
-  const mend=a=>{if(!(a.lessonHealReady>this.time)&&(a.hp??towerDefense(a).maxHp)<towerDefense(a).maxHp){a.hp=Math.min(towerDefense(a).maxHp,(a.hp??towerDefense(a).maxHp)+towerDefense(a).maxHp*(.01+rank*.005));a.lessonHealReady=this.time+6;this.lessonFx(t,a,id);return true;}return false;};
+  const mend=a=>{if(!(a.lessonHealReady>this.time)&&(a.hp??towerDefense(a).maxHp)<towerDefense(a).maxHp){a.hp=Math.min(towerDefense(a).maxHp,(a.hp??towerDefense(a).maxHp)+towerDefense(a).maxHp*(.02+rank*.01));a.lessonHealReady=this.time+6;this.lessonFx(t,a,id);return true;}return false;};
   if(id==='orbit'){hit(target,.2+rank*.1);if(rank===3&&side[0])hit(side[0],.25);}
   if(id==='penetrate'){const dx=q.x-p.x,dy=q.y-p.y,len=Math.hypot(dx,dy)||1;for(const e of side.filter(e=>{const r=enemyPosition(e);return((r.x-p.x)*dx+(r.y-p.y)*dy)>=0&&Math.abs((r.x-p.x)*dy-(r.y-p.y)*dx)/len<25;}).slice(0,rank))hit(e,.4+rank*.05);}
-  if(id==='cross')for(const e of side.slice(0,rank))hit(e,.35);
+  if(id==='cross')for(const e of side.slice(0,rank))hit(e,.45);
   if(id==='rally'&&shot%3===0&&!empowered){for(const a of allies.filter(a=>!(a.lessonPowerUntil>this.time||a.disruptedUntil>this.time)).sort((a,b)=>a.id-b.id).slice(0,rank===3?2:1)){a.lessonPowerUntil=this.time+3;this.lessonFx(t,a,id);}}
   if(id==='triage'&&shot%3===0){let count=0;for(const a of allies.sort((a,b)=>(a.hp??towerDefense(a).maxHp)/towerDefense(a).maxHp-(b.hp??towerDefense(b).maxHp)/towerDefense(b).maxHp||a.id-b.id)){if(mend(a)&&++count>=(rank===3?2:1))break;}}
   if(id==='watch'&&shot%3===0){slow(target,.85,1);if(rank===3&&side[0])side[0].lightUntil=Math.max(side[0].lightUntil||0,this.time+2);}
   if(id==='hunt'&&shot%3===0){target.bleedDps=Math.max(target.bleedUntil>this.time?target.bleedDps||0:0,damage*(.06+rank*.02));target.bleedUntil=Math.max(target.bleedUntil||0,this.time+2);}
-  if(id==='beast'&&shot%3===0){for(const e of side.filter(e=>Math.hypot(enemyPosition(e).x-q.x,enemyPosition(e).y-q.y)<100).slice(0,rank))hit(e,.3);if(rank===3)hit(target,.2);}
-  if(id==='nectar'&&shot%4===0){if(!(t.lessonShieldReady>this.time)){t.lessonShield=Math.max(t.lessonShieldUntil>this.time?t.lessonShield||0:0,towerDefense(t).maxHp*(.01+rank*.01));t.lessonShieldUntil=this.time+4;t.lessonShieldReady=this.time+6;}const a=this.learningAlly(t,'heal');if(a)mend(a);}
+  if(id==='beast'&&shot%3===0){for(const e of side.filter(e=>Math.hypot(enemyPosition(e).x-q.x,enemyPosition(e).y-q.y)<100).slice(0,rank))hit(e,.4);if(rank===3)hit(target,.2);}
+  if(id==='nectar'&&shot%4===0){if(!(t.lessonShieldReady>this.time)){t.lessonShield=Math.max(t.lessonShieldUntil>this.time?t.lessonShield||0:0,towerDefense(t).maxHp*(.01+rank*.02));t.lessonShieldUntil=this.time+4;t.lessonShieldReady=this.time+6;}const a=this.learningAlly(t,'heal');if(a)mend(a);}
   if(id==='thrift'&&shot%5===0)hit(target,.25+rank*.1);
   if(id==='rhythm'&&rank===3&&shot%4===0)hit(side[0]||target,.2);
-  if(id==='resonate'&&shot%3===0)for(const e of side.filter(e=>Math.hypot(enemyPosition(e).x-q.x,enemyPosition(e).y-q.y)<=60).slice(0,rank))hit(e,.3);
-  if(id==='geometry'&&shot%3===0)for(const e of side.filter(e=>Math.abs(enemyPosition(e).x-q.x)<=25+rank*10&&Math.abs(enemyPosition(e).y-q.y)<=25+rank*10).slice(0,rank))hit(e,.4);
+  if(id==='resonate'&&shot%3===0)for(const e of side.filter(e=>Math.hypot(enemyPosition(e).x-q.x,enemyPosition(e).y-q.y)<=60).slice(0,rank))hit(e,.5);
+  if(id==='geometry'&&shot%3===0)for(const e of side.filter(e=>Math.abs(enemyPosition(e).x-q.x)<=25+rank*10&&Math.abs(enemyPosition(e).y-q.y)<=25+rank*10).slice(0,rank))hit(e,.55);
   if(id==='weave'&&shot%3===0){const own=this.zones.filter(z=>z.tower===t.id);if(own.length>=2){const first=own.sort((a,b)=>a.until-b.until)[0];this.zones=this.zones.filter(z=>z!==first);}this.zones.push({kind:'net',tower:t.id,word:w.word,x:q.x,y:q.y,radius:30+rank*10,power:0,until:this.time+3});}
   if(id==='pillar'&&rank===3&&shot%4===0&&!(target.recoilReady>this.time)){target.d=Math.max(0,target.d-(ENEMIES[target.kind].boss?4:8));target.recoilReady=this.time+3;}
   if(id==='dawn'&&shot%4===0){target.guardUntil=this.time;target.guardPower=0;for(const e of side.slice(0,rank))e.lightUntil=Math.max(e.lightUntil||0,this.time+2);}
   if(id==='guide'&&shot%3===0){for(const e of [target,...(rank===3?side.slice(0,1):[])]){e.markPower=Math.max(e.markUntil>this.time?e.markPower||0:0,[.1,.12,.15][rank-1]);e.markUntil=Math.max(e.markUntil||0,this.time+3);}}
-  if(id==='relay')for(const[e,i]of side.filter(e=>e.route===target.route&&isAir(e)===isAir(target)&&Math.abs(e.d-target.d)<=70+rank*30).sort((a,b)=>Math.abs(a.d-target.d)-Math.abs(b.d-target.d)).slice(0,rank).map((e,i)=>[e,i]))hit(e,[.5,.35,.25][i]);
+  if(id==='relay')for(const[e,i]of side.filter(e=>e.route===target.route&&isAir(e)===isAir(target)&&Math.abs(e.d-target.d)<=70+rank*30).sort((a,b)=>Math.abs(a.d-target.d)-Math.abs(b.d-target.d)).slice(0,rank).map((e,i)=>[e,i]))hit(e,[.55,.4,.3][i]);
   if(id==='puzzle'){if(shot%3===2)slow(target,.8,2);if(shot%3===0)for(const e of side.slice(0,rank))hit(e,.3);}
-  if(id==='reversal'&&(t.hp??towerDefense(t).maxHp)<towerDefense(t).maxHp*.4&&shot%4===0&&!(t.lessonHealReady>this.time)){t.hp=Math.min(towerDefense(t).maxHp,t.hp+towerDefense(t).maxHp*(.01+rank*.005));t.lessonHealReady=this.time+6;this.lessonFx(t,t,id);}
+  if(id==='reversal'&&(t.hp??towerDefense(t).maxHp)<towerDefense(t).maxHp*.4&&shot%4===0&&!(t.lessonHealReady>this.time)){t.hp=Math.min(towerDefense(t).maxHp,t.hp+towerDefense(t).maxHp*(.02+rank*.01));t.lessonHealReady=this.time+6;this.lessonFx(t,t,id);}
   if(id==='festival'&&rank===3&&shot%4===0&&side[0])hit(side[0],.25);
  }
  attack(t,dt){
@@ -1101,12 +1101,12 @@ export class Game {
   if(w.special){t.lessonTarget=target.id;t.lessonStreak=streak;}
   const lights=this.activeTowers.filter(a=>a.id!==t.id&&getWord(a.word).type==='aura'&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range);
   const buff=Math.max(0,...lights.map(a=>towerStats(a).aura));
-  const inspired=this.activeTowers.some(a=>a.id!==t.id&&hasRune(getWord(a.word),'inspire')&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range*.65);const haste=Math.max(t.lessonHasteUntil>this.time?.1:0,inspired?.03:0,...lights.map(a=>getWord(a.word).tier>=4?.12:getWord(a.word).tier>=3?.06:0));
+  const inspired=this.activeTowers.some(a=>a.id!==t.id&&hasRune(getWord(a.word),'inspire')&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range*.65);const haste=Math.max(t.lessonHasteUntil>this.time?.15:0,inspired?.03:0,...lights.map(a=>getWord(a.word).tier>=4?.12:getWord(a.word).tier>=3?.06:0));
   const chilled=this.enemies.some(e=>e.hp>0&&enemyBehavior(e)==='frostboss'&&Math.hypot(enemyPosition(e).x-p.x,enemyPosition(e).y-p.y)<=130);
   const jammed=this.enemies.some(e=>e.hp>0&&e.jamUntil>this.time&&Math.hypot(enemyPosition(e).x-p.x,enemyPosition(e).y-p.y)<=(ENEMIES[e.kind].pulse?.radius||95));
   const disruption=Math.max(chilled?.25:0,jammed?.2:0,t.chillUntil>this.time?(w.type==='slow'?.08:.15):0);
   const empowered=t.lessonPowerUntil>this.time,borrowed=t.lessonStored===true;
-  let multiplier=(empowered?1.22:1)*(borrowed?1.25:1);
+  let multiplier=(empowered?1.3:1)*(borrowed?1.25:1);
   if(w.special==='resonate'&&targets.length>=3)multiplier*=1.1;
   if(w.special==='festival'){const kinds=new Set(this.activeTowers.filter(a=>a!==t&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=stats.range).map(a=>getWord(a.word).type));multiplier*=1+Math.min(4,kinds.size)*(.015+learningRank(w)*.005);}
   if(w.special==='focus')multiplier*=1+streak*.06;
@@ -1231,7 +1231,7 @@ export class Game {
  if(data.towers.length>PADS.length||new Set(data.towers.map(t=>t?.pad)).size!==data.towers.length||data.towers.some(t=>!t||!WORDS.some(w=>w.word===t.word)||!int(t.pad)||!PADS[t.pad]||(!Number.isInteger(t.level)||(data.version===1?![1,2,3].includes(t.level):t.level<getWord(t.word).tier||t.level>getWord(t.word).maxLevel))||!int(t.id)||!finite(t.cooldown))||data.enemies.some(e=>!e||!kind(e.kind)||!int(e.id)||!['hp','maxHp','speed','reward','harm','d','slowUntil'].every(k=>finite(e[k]))||e.maxHp<=0||e.speed<=0||e.d<0)||data.queue.some(e=>!e||!kind(e.kind)))throw Error('Invalid save');
  if(data.enemies.some(e=>(e.shield!==undefined&&(!finite(e.shield)||e.shield<0))||(e.maxShield!==undefined&&(!finite(e.maxShield)||e.maxShield<0))))throw Error('Invalid shield state');
  if(data.towers.some(t=>(t.hp!==undefined&&(!finite(t.hp)||t.hp<0))||['repairReadyAt','hitUntil','chillUntil','corrodedUntil','disruptedUntil','reflectReadyAt','counterReady','lessonPowerUntil','lessonHasteUntil','lessonShield','lessonShieldUntil','lessonShieldReady','lessonHealReady','lessonDefenseReady'].some(k=>t[k]!==undefined&&(!finite(t[k])||t[k]<0))))throw Error('Invalid tower durability');
- if(data.towers.some(t=>(t.lessonTarget!==undefined&&!int(t.lessonTarget))||(t.lessonStreak!==undefined&&(!int(t.lessonStreak)||t.lessonStreak>5))||(t.lessonStored!==undefined&&typeof t.lessonStored!=='boolean')||(t.lessonShield!==undefined&&t.lessonShield>towerDefense(t).maxHp*.05+1e-9)))throw Error('Invalid learning state');
+ if(data.towers.some(t=>(t.lessonTarget!==undefined&&!int(t.lessonTarget))||(t.lessonStreak!==undefined&&(!int(t.lessonStreak)||t.lessonStreak>5))||(t.lessonStored!==undefined&&typeof t.lessonStored!=='boolean')||(t.lessonShield!==undefined&&t.lessonShield>towerDefense(t).maxHp*.1+1e-9)))throw Error('Invalid learning state');
  if(data.towers.some(t=>t.rebuilds!==undefined&&(!Number.isSafeInteger(t.rebuilds)||t.rebuilds<0)))throw Error('Invalid rebuild count');
  if(data.reviveUsed!==undefined&&typeof data.reviveUsed!=='boolean')throw Error('Invalid revival');
  if(data.barrierSpent!==undefined&&(!int(data.barrierSpent)||data.barrierSpent>2)||data.soulHealed!==undefined&&(!int(data.soulHealed)||data.soulHealed>1))throw Error('Invalid semantic round state');
