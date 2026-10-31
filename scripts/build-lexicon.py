@@ -76,6 +76,43 @@ for prefix, rule in templates['prefixes'].items():
         words.add(word)
         idioms.discard(word)
 
+elemental = json.loads((ROOT / 'data/elemental-skills.json').read_text(encoding='utf-8'))
+preserved = set(elemental['preserveWords'])
+new_skills = set()
+
+def elemental_skill(prefix, suffix, rule, form, creature=False):
+    word = prefix + suffix
+    if len(word) > 4 or word in preserved:
+        return
+    assert valid(word) and prefix != suffix
+    # These bounded lists add missing recipes; they cannot overwrite an old one.
+    assert word not in words and word not in skill_schools, f'Unreviewed collision: {word}'
+    skill_schools[word] = rule['school']
+    skill_templates[word] = {
+        'prefix': prefix, 'suffix': suffix, 'rune': rule['rune'],
+        'trait': form.get('trait') or 'balanced',
+        'extra': 'brood' if creature else form['extra'],
+        # Three-character spirit beasts retain their spirit follow-up; mixed
+        # four-character beasts can also retain the secondary element.
+        'suffixFirst': creature and prefix not in elemental['mixedPrefixes'],
+    }
+    words.add(word)
+    new_skills.add(word)
+
+for prefix, rule in elemental['mixedPrefixes'].items():
+    for suffix in elemental['mixedSuffixes']:
+        elemental_skill(prefix, suffix, rule, templates['suffixes'][suffix])
+    for suffix, form in elemental['extraForms'].items():
+        elemental_skill(prefix, suffix, rule, form)
+for prefix in elemental['elementalPrefixes']:
+    assert prefix in templates['prefixes']
+    for suffix, form in elemental['extraForms'].items():
+        elemental_skill(prefix, suffix, templates['prefixes'][prefix], form)
+for prefix in elemental['elementalPrefixes'] + list(elemental['mixedPrefixes']):
+    rule = elemental['mixedPrefixes'].get(prefix, templates['prefixes'].get(prefix))
+    for suffix, form in elemental['creatures'].items():
+        elemental_skill(prefix, suffix, rule, form, creature=True)
+
 for word, entry in learning.items():
     assert valid(word) and entry['meaning'] and entry['group']
     assert entry['kind'] in ('idiom', 'phrase', 'word')

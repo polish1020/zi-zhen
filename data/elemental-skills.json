@@ -1,0 +1,410 @@
+{
+  "description": "Reviewed elemental compound skills and elemental spirit-beast names; all words have at most four characters. Existing recipes are preserved exactly. Mixed-prefix school/rune jointly represent both elements; they do not each grant a full second school.",
+  "mixedPrefixes": {
+    "冰火": {
+      "school": "slow",
+      "rune": "ember"
+    },
+    "火冰": {
+      "school": "slow",
+      "rune": "ember"
+    },
+    "冰炎": {
+      "school": "slow",
+      "rune": "ember"
+    },
+    "炎冰": {
+      "school": "slow",
+      "rune": "ember"
+    },
+    "霜火": {
+      "school": "slow",
+      "rune": "ember"
+    },
+    "冰雷": {
+      "school": "chain",
+      "rune": "frost"
+    },
+    "雷冰": {
+      "school": "chain",
+      "rune": "frost"
+    },
+    "霜雷": {
+      "school": "chain",
+      "rune": "frost"
+    },
+    "雷霜": {
+      "school": "chain",
+      "rune": "frost"
+    },
+    "雷火": {
+      "school": "chain",
+      "rune": "ember"
+    },
+    "火雷": {
+      "school": "chain",
+      "rune": "ember"
+    },
+    "雷炎": {
+      "school": "chain",
+      "rune": "ember"
+    },
+    "炎雷": {
+      "school": "chain",
+      "rune": "ember"
+    },
+    "风火": {
+      "school": "fast",
+      "rune": "ember"
+    },
+    "火风": {
+      "school": "fast",
+      "rune": "ember"
+    },
+    "风雷": {
+      "school": "chain",
+      "rune": "tempo"
+    },
+    "雷风": {
+      "school": "chain",
+      "rune": "tempo"
+    },
+    "冰风": {
+      "school": "slow",
+      "rune": "tempo"
+    },
+    "风冰": {
+      "school": "slow",
+      "rune": "tempo"
+    },
+    "风霜": {
+      "school": "slow",
+      "rune": "tempo"
+    },
+    "冰毒": {
+      "school": "poison",
+      "rune": "frost"
+    },
+    "毒冰": {
+      "school": "poison",
+      "rune": "frost"
+    },
+    "火毒": {
+      "school": "poison",
+      "rune": "ember"
+    },
+    "毒火": {
+      "school": "poison",
+      "rune": "ember"
+    },
+    "雷毒": {
+      "school": "poison",
+      "rune": "storm"
+    },
+    "毒雷": {
+      "school": "poison",
+      "rune": "storm"
+    },
+    "水火": {
+      "school": "pulse",
+      "rune": "ember"
+    },
+    "火水": {
+      "school": "pulse",
+      "rune": "ember"
+    },
+    "水雷": {
+      "school": "chain",
+      "rune": "tide"
+    },
+    "雷水": {
+      "school": "chain",
+      "rune": "tide"
+    },
+    "水冰": {
+      "school": "pulse",
+      "rune": "frost"
+    },
+    "冰水": {
+      "school": "pulse",
+      "rune": "frost"
+    },
+    "风毒": {
+      "school": "poison",
+      "rune": "tempo"
+    },
+    "毒风": {
+      "school": "poison",
+      "rune": "tempo"
+    },
+    "光火": {
+      "school": "aura",
+      "rune": "ember"
+    },
+    "光雷": {
+      "school": "aura",
+      "rune": "storm"
+    },
+    "光冰": {
+      "school": "aura",
+      "rune": "frost"
+    },
+    "暗火": {
+      "school": "echo",
+      "rune": "ember"
+    },
+    "暗冰": {
+      "school": "echo",
+      "rune": "frost"
+    },
+    "暗雷": {
+      "school": "echo",
+      "rune": "storm"
+    }
+  },
+  "mixedSuffixes": [
+    "剑",
+    "刃",
+    "之剑",
+    "之刃",
+    "斩",
+    "斩击",
+    "枪",
+    "矛",
+    "之枪",
+    "之矛",
+    "箭",
+    "之箭",
+    "弹",
+    "飞弹",
+    "球",
+    "法球",
+    "之球",
+    "风暴",
+    "新星",
+    "之雨",
+    "箭雨",
+    "冲击",
+    "冲击波",
+    "术",
+    "法术",
+    "吐息",
+    "龙息",
+    "之术",
+    "长枪",
+    "长矛",
+    "长剑",
+    "短剑",
+    "飞剑",
+    "利刃",
+    "剑气",
+    "剑雨",
+    "刀",
+    "飞刀",
+    "爪",
+    "斧",
+    "战斧",
+    "锤",
+    "战锤",
+    "炮",
+    "火炮",
+    "矢",
+    "飞矢",
+    "镖",
+    "飞镖",
+    "盾",
+    "护盾",
+    "之盾",
+    "结界",
+    "领域",
+    "阵",
+    "法阵",
+    "之阵",
+    "护甲",
+    "铠甲",
+    "屏障",
+    "墙",
+    "锁链",
+    "环",
+    "咒",
+    "符咒",
+    "之力"
+  ],
+  "elementalPrefixes": [
+    "火",
+    "火焰",
+    "烈火",
+    "烈焰",
+    "炎",
+    "冰",
+    "寒冰",
+    "冰霜",
+    "寒霜",
+    "霜",
+    "雪",
+    "雷",
+    "雷电",
+    "雷霆",
+    "天雷",
+    "电",
+    "风",
+    "疾风",
+    "狂风",
+    "水",
+    "流水",
+    "潮汐",
+    "岩",
+    "岩石",
+    "大地",
+    "土",
+    "光",
+    "圣光",
+    "光明",
+    "星",
+    "星辰",
+    "月",
+    "月光",
+    "暗影",
+    "幻",
+    "幻影",
+    "毒",
+    "剧毒"
+  ],
+  "extraForms": {
+    "拳": {
+      "trait": "impact",
+      "extra": "valor"
+    },
+    "掌": {
+      "trait": "impact",
+      "extra": "front"
+    },
+    "击": {
+      "trait": "impact",
+      "extra": "edge"
+    },
+    "刺": {
+      "trait": "blade",
+      "extra": "edge"
+    },
+    "锥": {
+      "trait": "ranged",
+      "extra": "edge"
+    },
+    "双剑": {
+      "trait": "combo",
+      "extra": "edge"
+    },
+    "双刀": {
+      "trait": "combo",
+      "extra": "edge"
+    },
+    "双刃": {
+      "trait": "combo",
+      "extra": "edge"
+    },
+    "连斩": {
+      "trait": "combo",
+      "extra": "edge"
+    },
+    "连击": {
+      "trait": "combo",
+      "extra": "valor"
+    },
+    "剑阵": {
+      "trait": "ward",
+      "extra": "barrier"
+    },
+    "剑舞": {
+      "trait": "spread",
+      "extra": "edge"
+    },
+    "龙卷": {
+      "trait": "spread",
+      "extra": "tempo"
+    },
+    "剑光": {
+      "trait": "blade",
+      "extra": "shine"
+    }
+  },
+  "creatures": {
+    "麒麟": {
+      "trait": "impact"
+    },
+    "巨熊": {
+      "trait": "impact"
+    },
+    "凤凰": {
+      "trait": "spread"
+    },
+    "朱雀": {
+      "trait": "spread"
+    },
+    "鲲鹏": {
+      "trait": "spread"
+    },
+    "白虎": {
+      "trait": "blade"
+    },
+    "玄武": {
+      "trait": "ward"
+    },
+    "灵鹿": {
+      "trait": "ward"
+    },
+    "青龙": {
+      "trait": "dragon"
+    },
+    "蛟龙": {
+      "trait": "dragon"
+    },
+    "神鹰": {
+      "trait": "ranged"
+    },
+    "灵狐": {
+      "trait": "combo"
+    },
+    "九尾狐": {
+      "trait": "combo"
+    },
+    "灵狼": {
+      "trait": "rapid"
+    },
+    "灵兽": {
+      "trait": "balanced"
+    },
+    "神兽": {
+      "trait": "balanced"
+    }
+  },
+  "preserveWords": [
+    "光火炮",
+    "冰凤凰",
+    "冰刺",
+    "冰毒箭",
+    "冰火双刃",
+    "冰火炮",
+    "冰火箭",
+    "冰火风暴",
+    "冰锥",
+    "土刺",
+    "岩刺",
+    "毒刺",
+    "毒火炮",
+    "水火炮",
+    "水龙卷",
+    "火凤凰",
+    "火毒箭",
+    "电击",
+    "雷冰箭",
+    "雷击",
+    "雷火弹",
+    "雷火炮",
+    "雷火箭",
+    "雷霆击",
+    "霜火炮",
+    "风火炮",
+    "风雷之箭"
+  ]
+}

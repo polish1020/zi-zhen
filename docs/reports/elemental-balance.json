@@ -1,0 +1,831 @@
+{
+  "date": "2026-10-31",
+  "vocabularyBaselineCommit": "660ece3009b7d3e271ee41223dbca788555a3283",
+  "previousFullCampaignCommit": "53a8cdad99f98f918f55109e6686eaee87dc7dcc",
+  "sourceHashes": {
+    "engineHash": "69f5600c42eabeba9013a7b50244dadad6d7e9f4c62f2f10bec775ad25d7b5f8",
+    "specialsHash": "cf1726e3e32988b2691aa8657671cb964741e9d7e8afd098e2c2c59e68100b7b",
+    "lexiconHash": "4945c13e977ef7df1a04868c481d27d6aabb3fee460a2c3bc5769828460f67da",
+    "strategyHash": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a"
+  },
+  "method": "Ten chapters, paired seeds 1–20 under the unchanged formation strategies with/without active ink skill. Actual resources, prices, repairs and drops; no extra income. Tower destruction is allowed; victory means completed chapter with hearts remaining. The previous release added cosmetic boss defeat scenes only; the prior full campaign is the reference. Vocabulary changes random draw choices and subsequent RNG use, so this is not a fixed-enemy causal ablation or a human win rate.",
+  "games": 400,
+  "wins": 272,
+  "previousWins": 298,
+  "chapters": [
+    {
+      "chapter": 1,
+      "wins": 36,
+      "total": 40,
+      "previousWins": 39
+    },
+    {
+      "chapter": 2,
+      "wins": 28,
+      "total": 40,
+      "previousWins": 33
+    },
+    {
+      "chapter": 3,
+      "wins": 30,
+      "total": 40,
+      "previousWins": 28
+    },
+    {
+      "chapter": 4,
+      "wins": 35,
+      "total": 40,
+      "previousWins": 38
+    },
+    {
+      "chapter": 5,
+      "wins": 40,
+      "total": 40,
+      "previousWins": 40
+    },
+    {
+      "chapter": 6,
+      "wins": 32,
+      "total": 40,
+      "previousWins": 26
+    },
+    {
+      "chapter": 7,
+      "wins": 16,
+      "total": 40,
+      "previousWins": 27
+    },
+    {
+      "chapter": 8,
+      "wins": 18,
+      "total": 40,
+      "previousWins": 19
+    },
+    {
+      "chapter": 9,
+      "wins": 31,
+      "total": 40,
+      "previousWins": 36
+    },
+    {
+      "chapter": 10,
+      "wins": 6,
+      "total": 40,
+      "previousWins": 12
+    }
+  ],
+  "strategies": [
+    {
+      "summary": {
+        "summary": true,
+        "engineHash": "69f5600c42eabeba9013a7b50244dadad6d7e9f4c62f2f10bec775ad25d7b5f8",
+        "specialsHash": "cf1726e3e32988b2691aa8657671cb964741e9d7e8afd098e2c2c59e68100b7b",
+        "lexiconHash": "4945c13e977ef7df1a04868c481d27d6aabb3fee460a2c3bc5769828460f67da",
+        "strategyHash": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a",
+        "skills": false,
+        "games": 200,
+        "wins": 136,
+        "rate": 0.68,
+        "reference": "总体50–60%，首章约90%、末章约20%；允许波动，不按固定配额调整",
+        "chapters": [
+          {
+            "chapter": 1,
+            "wins": 17,
+            "total": 20,
+            "rate": 0.85
+          },
+          {
+            "chapter": 2,
+            "wins": 13,
+            "total": 20,
+            "rate": 0.65
+          },
+          {
+            "chapter": 3,
+            "wins": 16,
+            "total": 20,
+            "rate": 0.8
+          },
+          {
+            "chapter": 4,
+            "wins": 18,
+            "total": 20,
+            "rate": 0.9
+          },
+          {
+            "chapter": 5,
+            "wins": 20,
+            "total": 20,
+            "rate": 1
+          },
+          {
+            "chapter": 6,
+            "wins": 15,
+            "total": 20,
+            "rate": 0.75
+          },
+          {
+            "chapter": 7,
+            "wins": 7,
+            "total": 20,
+            "rate": 0.35
+          },
+          {
+            "chapter": 8,
+            "wins": 11,
+            "total": 20,
+            "rate": 0.55
+          },
+          {
+            "chapter": 9,
+            "wins": 16,
+            "total": 20,
+            "rate": 0.8
+          },
+          {
+            "chapter": 10,
+            "wins": 3,
+            "total": 20,
+            "rate": 0.15
+          }
+        ]
+      },
+      "chapters": [
+        {
+          "chapter": 1,
+          "skills": false,
+          "wins": 17,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 12.4,
+          "minRound": 8,
+          "failedRounds": [
+            8,
+            8,
+            8
+          ],
+          "timeouts": 0,
+          "pressure": {
+            "hits": 26385,
+            "minionDamage": 129475,
+            "bossDamage": 92013,
+            "ruins": 12,
+            "minionRuins": 5,
+            "gamesWithRuins": 9,
+            "secondHalfSamples": 1278,
+            "accompaniedSamples": 769,
+            "reinforcements": 97
+          }
+        },
+        {
+          "chapter": 2,
+          "skills": false,
+          "wins": 13,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 9,
+          "minRound": 9,
+          "failedRounds": [
+            10,
+            10,
+            9,
+            10,
+            9,
+            9,
+            10
+          ],
+          "timeouts": 0,
+          "pressure": {
+            "hits": 66202,
+            "minionDamage": 387014,
+            "bossDamage": 169736,
+            "ruins": 48,
+            "minionRuins": 34,
+            "gamesWithRuins": 12,
+            "secondHalfSamples": 3189,
+            "accompaniedSamples": 2017,
+            "reinforcements": 172
+          }
+        },
+        {
+          "chapter": 3,
+          "skills": false,
+          "wins": 16,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 12.9,
+          "minRound": 10,
+          "failedRounds": [
+            12,
+            11,
+            12,
+            10
+          ],
+          "timeouts": 0,
+          "pressure": {
+            "hits": 83748,
+            "minionDamage": 568292,
+            "bossDamage": 231237,
+            "ruins": 58,
+            "minionRuins": 38,
+            "gamesWithRuins": 13,
+            "secondHalfSamples": 3760,
+            "accompaniedSamples": 1660,
+            "reinforcements": 235
+          }
+        },
+        {
+          "chapter": 4,
+          "skills": false,
+          "wins": 18,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 18.9,
+          "minRound": 7,
+          "failedRounds": [
+            8,
+            7
+          ],
+          "timeouts": 0,
+          "pressure": {
+            "hits": 46962,
+            "minionDamage": 258781,
+            "bossDamage": 160151,
+            "ruins": 12,
+            "minionRuins": 4,
+            "gamesWithRuins": 5,
+            "secondHalfSamples": 2262,
+            "accompaniedSamples": 1004,
+            "reinforcements": 163
+          }
+        },
+        {
+          "chapter": 5,
+          "skills": false,
+          "wins": 20,
+          "total": 20,
+          "minHP": 6,
+          "meanHP": 14.6,
+          "minRound": 11,
+          "failedRounds": [],
+          "timeouts": 0,
+          "pressure": {
+            "hits": 43497,
+            "minionDamage": 281090,
+            "bossDamage": 117361,
+            "ruins": 3,
+            "minionRuins": 2,
+            "gamesWithRuins": 3,
+            "secondHalfSamples": 2007,
+            "accompaniedSamples": 1068,
+            "reinforcements": 216
+          }
+        },
+        {
+          "chapter": 6,
+          "skills": false,
+          "wins": 15,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 20.4,
+          "minRound": 9,
+          "failedRounds": [
+            11,
+            12,
+            12,
+            12,
+            9
+          ],
+          "timeouts": 0,
+          "pressure": {
+            "hits": 103807,
+            "minionDamage": 845657,
+            "bossDamage": 243218,
+            "ruins": 135,
+            "minionRuins": 108,
+            "gamesWithRuins": 14,
+            "secondHalfSamples": 2368,
+            "accompaniedSamples": 811,
+            "reinforcements": 154
+          }
+        },
+        {
+          "chapter": 7,
+          "skills": false,
+          "wins": 7,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 6,
+          "minRound": 7,
+          "failedRounds": [
+            10,
+            13,
+            10,
+            13,
+            12,
+            13,
+            13,
+            13,
+            7,
+            13,
+            11,
+            12,
+            10
+          ],
+          "timeouts": 0,
+          "pressure": {
+            "hits": 84522,
+            "minionDamage": 762989,
+            "bossDamage": 188289,
+            "ruins": 87,
+            "minionRuins": 70,
+            "gamesWithRuins": 18,
+            "secondHalfSamples": 2864,
+            "accompaniedSamples": 1300,
+            "reinforcements": 227
+          }
+        },
+        {
+          "chapter": 8,
+          "skills": false,
+          "wins": 11,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 11.2,
+          "minRound": 9,
+          "failedRounds": [
+            13,
+            13,
+            10,
+            13,
+            14,
+            9,
+            13,
+            13,
+            14
+          ],
+          "timeouts": 0,
+          "pressure": {
+            "hits": 137989,
+            "minionDamage": 1041228,
+            "bossDamage": 339614,
+            "ruins": 90,
+            "minionRuins": 44,
+            "gamesWithRuins": 17,
+            "secondHalfSamples": 4490,
+            "accompaniedSamples": 2654,
+            "reinforcements": 281
+          }
+        },
+        {
+          "chapter": 9,
+          "skills": false,
+          "wins": 16,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 23.1,
+          "minRound": 14,
+          "failedRounds": [
+            15,
+            14,
+            14,
+            14
+          ],
+          "timeouts": 0,
+          "pressure": {
+            "hits": 121543,
+            "minionDamage": 1105530,
+            "bossDamage": 298703,
+            "ruins": 67,
+            "minionRuins": 54,
+            "gamesWithRuins": 12,
+            "secondHalfSamples": 1580,
+            "accompaniedSamples": 509,
+            "reinforcements": 142
+          }
+        },
+        {
+          "chapter": 10,
+          "skills": false,
+          "wins": 3,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 4.3,
+          "minRound": 3,
+          "failedRounds": [
+            13,
+            13,
+            15,
+            14,
+            13,
+            15,
+            14,
+            15,
+            16,
+            13,
+            13,
+            13,
+            13,
+            3,
+            13,
+            14,
+            14
+          ],
+          "timeouts": 0,
+          "pressure": {
+            "hits": 112545,
+            "minionDamage": 917344,
+            "bossDamage": 303713,
+            "ruins": 14,
+            "minionRuins": 11,
+            "gamesWithRuins": 5,
+            "secondHalfSamples": 3606,
+            "accompaniedSamples": 1742,
+            "reinforcements": 244
+          }
+        }
+      ]
+    },
+    {
+      "summary": {
+        "summary": true,
+        "engineHash": "69f5600c42eabeba9013a7b50244dadad6d7e9f4c62f2f10bec775ad25d7b5f8",
+        "specialsHash": "cf1726e3e32988b2691aa8657671cb964741e9d7e8afd098e2c2c59e68100b7b",
+        "lexiconHash": "4945c13e977ef7df1a04868c481d27d6aabb3fee460a2c3bc5769828460f67da",
+        "strategyHash": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a",
+        "skills": true,
+        "games": 200,
+        "wins": 136,
+        "rate": 0.68,
+        "reference": "总体50–60%，首章约90%、末章约20%；允许波动，不按固定配额调整",
+        "chapters": [
+          {
+            "chapter": 1,
+            "wins": 19,
+            "total": 20,
+            "rate": 0.95
+          },
+          {
+            "chapter": 2,
+            "wins": 15,
+            "total": 20,
+            "rate": 0.75
+          },
+          {
+            "chapter": 3,
+            "wins": 14,
+            "total": 20,
+            "rate": 0.7
+          },
+          {
+            "chapter": 4,
+            "wins": 17,
+            "total": 20,
+            "rate": 0.85
+          },
+          {
+            "chapter": 5,
+            "wins": 20,
+            "total": 20,
+            "rate": 1
+          },
+          {
+            "chapter": 6,
+            "wins": 17,
+            "total": 20,
+            "rate": 0.85
+          },
+          {
+            "chapter": 7,
+            "wins": 9,
+            "total": 20,
+            "rate": 0.45
+          },
+          {
+            "chapter": 8,
+            "wins": 7,
+            "total": 20,
+            "rate": 0.35
+          },
+          {
+            "chapter": 9,
+            "wins": 15,
+            "total": 20,
+            "rate": 0.75
+          },
+          {
+            "chapter": 10,
+            "wins": 3,
+            "total": 20,
+            "rate": 0.15
+          }
+        ]
+      },
+      "chapters": [
+        {
+          "chapter": 1,
+          "skills": true,
+          "wins": 19,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 12.9,
+          "minRound": 8,
+          "failedRounds": [
+            8
+          ],
+          "timeouts": 0,
+          "pressure": {
+            "hits": 26346,
+            "minionDamage": 129117,
+            "bossDamage": 92288,
+            "ruins": 12,
+            "minionRuins": 5,
+            "gamesWithRuins": 9,
+            "secondHalfSamples": 1285,
+            "accompaniedSamples": 767,
+            "reinforcements": 97
+          }
+        },
+        {
+          "chapter": 2,
+          "skills": true,
+          "wins": 15,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 10,
+          "minRound": 7,
+          "failedRounds": [
+            10,
+            10,
+            10,
+            7,
+            9
+          ],
+          "timeouts": 0,
+          "pressure": {
+            "hits": 63931,
+            "minionDamage": 372039,
+            "bossDamage": 169266,
+            "ruins": 40,
+            "minionRuins": 27,
+            "gamesWithRuins": 14,
+            "secondHalfSamples": 3125,
+            "accompaniedSamples": 1954,
+            "reinforcements": 169
+          }
+        },
+        {
+          "chapter": 3,
+          "skills": true,
+          "wins": 14,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 13.6,
+          "minRound": 10,
+          "failedRounds": [
+            11,
+            11,
+            11,
+            10,
+            11,
+            10
+          ],
+          "timeouts": 0,
+          "pressure": {
+            "hits": 78475,
+            "minionDamage": 515160,
+            "bossDamage": 215559,
+            "ruins": 48,
+            "minionRuins": 36,
+            "gamesWithRuins": 15,
+            "secondHalfSamples": 3595,
+            "accompaniedSamples": 1779,
+            "reinforcements": 223
+          }
+        },
+        {
+          "chapter": 4,
+          "skills": true,
+          "wins": 17,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 17.6,
+          "minRound": 8,
+          "failedRounds": [
+            8,
+            9,
+            8
+          ],
+          "timeouts": 0,
+          "pressure": {
+            "hits": 47903,
+            "minionDamage": 261560,
+            "bossDamage": 160413,
+            "ruins": 11,
+            "minionRuins": 3,
+            "gamesWithRuins": 7,
+            "secondHalfSamples": 2277,
+            "accompaniedSamples": 993,
+            "reinforcements": 161
+          }
+        },
+        {
+          "chapter": 5,
+          "skills": true,
+          "wins": 20,
+          "total": 20,
+          "minHP": 6,
+          "meanHP": 14.2,
+          "minRound": 11,
+          "failedRounds": [],
+          "timeouts": 0,
+          "pressure": {
+            "hits": 43669,
+            "minionDamage": 285544,
+            "bossDamage": 124668,
+            "ruins": 2,
+            "minionRuins": 0,
+            "gamesWithRuins": 2,
+            "secondHalfSamples": 2016,
+            "accompaniedSamples": 1039,
+            "reinforcements": 204
+          }
+        },
+        {
+          "chapter": 6,
+          "skills": true,
+          "wins": 17,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 23.1,
+          "minRound": 9,
+          "failedRounds": [
+            12,
+            12,
+            9
+          ],
+          "timeouts": 0,
+          "pressure": {
+            "hits": 103691,
+            "minionDamage": 835905,
+            "bossDamage": 247693,
+            "ruins": 95,
+            "minionRuins": 67,
+            "gamesWithRuins": 14,
+            "secondHalfSamples": 2347,
+            "accompaniedSamples": 691,
+            "reinforcements": 158
+          }
+        },
+        {
+          "chapter": 7,
+          "skills": true,
+          "wins": 9,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 8.5,
+          "minRound": 7,
+          "failedRounds": [
+            10,
+            13,
+            11,
+            13,
+            13,
+            11,
+            8,
+            7,
+            11,
+            10,
+            10
+          ],
+          "timeouts": 0,
+          "pressure": {
+            "hits": 79036,
+            "minionDamage": 695235,
+            "bossDamage": 184372,
+            "ruins": 67,
+            "minionRuins": 55,
+            "gamesWithRuins": 15,
+            "secondHalfSamples": 2969,
+            "accompaniedSamples": 1393,
+            "reinforcements": 222
+          }
+        },
+        {
+          "chapter": 8,
+          "skills": true,
+          "wins": 7,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 7.6,
+          "minRound": 6,
+          "failedRounds": [
+            12,
+            10,
+            14,
+            12,
+            14,
+            14,
+            12,
+            13,
+            13,
+            6,
+            12,
+            13,
+            11
+          ],
+          "timeouts": 0,
+          "pressure": {
+            "hits": 130014,
+            "minionDamage": 960215,
+            "bossDamage": 297645,
+            "ruins": 114,
+            "minionRuins": 63,
+            "gamesWithRuins": 16,
+            "secondHalfSamples": 4474,
+            "accompaniedSamples": 2792,
+            "reinforcements": 278
+          }
+        },
+        {
+          "chapter": 9,
+          "skills": true,
+          "wins": 15,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 22.4,
+          "minRound": 14,
+          "failedRounds": [
+            15,
+            15,
+            14,
+            14,
+            14
+          ],
+          "timeouts": 0,
+          "pressure": {
+            "hits": 122146,
+            "minionDamage": 1112030,
+            "bossDamage": 302544,
+            "ruins": 86,
+            "minionRuins": 69,
+            "gamesWithRuins": 12,
+            "secondHalfSamples": 1611,
+            "accompaniedSamples": 527,
+            "reinforcements": 141
+          }
+        },
+        {
+          "chapter": 10,
+          "skills": true,
+          "wins": 3,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 3,
+          "minRound": 4,
+          "failedRounds": [
+            14,
+            13,
+            15,
+            14,
+            13,
+            15,
+            14,
+            15,
+            14,
+            14,
+            14,
+            13,
+            4,
+            13,
+            14,
+            16,
+            13
+          ],
+          "timeouts": 0,
+          "pressure": {
+            "hits": 115722,
+            "minionDamage": 953664,
+            "bossDamage": 312580,
+            "ruins": 26,
+            "minionRuins": 21,
+            "gamesWithRuins": 8,
+            "secondHalfSamples": 3727,
+            "accompaniedSamples": 1925,
+            "reinforcements": 256
+          }
+        }
+      ]
+    }
+  ],
+  "vocabulary": {
+    "added": 4851,
+    "total": 112468,
+    "unchangedExistingProfiles": 107617,
+    "baselineProfileHash": "2c2d22dba63db779bebc385f5e9ad8e8ced95a099d657879a090c108f56cf7aa"
+  },
+  "limitations": [
+    "Forty runs per chapter reuse twenty seeds across two strategies.",
+    "The curve can fluctuate between chapters; no monster, tower, price, chapter or strategy adjustment was made to force a win-rate quota."
+  ]
+}

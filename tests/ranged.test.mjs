@@ -1,11 +1,12 @@
 import test from'node:test';import assert from'node:assert/strict';import{readFileSync}from'node:fs';import{createHash}from'node:crypto';import{Game,WORDS,getWord,towerStats,towerDefense,enemyPosition,enemyLength,RANGED_MIN_RANGE,traitEffect}from'../dist/engine.mjs';
+import{addedSkills}from'../scripts/audit-elemental-skills.mjs';
 const frozen=JSON.parse(readFileSync(new URL('./fixtures/ranged-v9.json',import.meta.url))),saved=JSON.parse(readFileSync(new URL('./fixtures/ranged-save-v9.json',import.meta.url)));
 const fields=w=>({word:w.word,type:w.type,trait:w.trait,tier:w.tier,special:w.special||null,idiomMove:w.idiomMove||null,damage:w.damage,range:w.range,rate:w.rate,cost:w.cost,runes:w.runes});
 function build(chapter,word,pad=0,up=0){const g=new Game(chapter,42);g.ink=10000;g.hand=[...word.padEnd(16,'火')].map(ch=>({id:++g.handSerial,ch,used:false}));assert.ok(g.build(word,pad));const t=g.towers[0];for(let n=0;n<up;n++)assert.ok(g.upgrade(t.id));return{g,t};}
 test('all 2044 ranged words reach the fixed bow reference without recursively raising the bow or changing their other budgets',()=>{
  assert.equal(RANGED_MIN_RANGE,263);assert.equal(getWord('弓').range,263);assert.equal(frozen.ranged.length,2044);
  for(const old of frozen.ranged){const w=getWord(old.word),extra=old.runes.includes('sky')?12:0;assert.equal(w.range,Math.max(old.range-extra,263)+extra,old.word);for(const k of['damage','rate','cost','type','trait','tier'])assert.equal(w[k],old[k],old.word+' '+k);assert.deepEqual(w.runes,old.runes);assert.ok(w.range>=263);}
- const nonRanged=WORDS.filter(w=>w.trait!=='ranged').map(fields);assert.equal(nonRanged.length,frozen.nonRangedCount);assert.equal(createHash('sha256').update(JSON.stringify(nonRanged)).digest('hex'),frozen.nonRangedHash,'Every non-ranged profile stays unchanged');
+ const nonRanged=WORDS.filter(w=>w.trait!=='ranged'&&!addedSkills.has(w.word)).map(fields);assert.equal(nonRanged.length,frozen.nonRangedCount);assert.equal(createHash('sha256').update(JSON.stringify(nonRanged)).digest('hex'),frozen.nonRangedHash,'Every original non-ranged profile stays unchanged; new recipes have their own full audit');
 });
 test('far-sight bonuses apply above the floor and each paid upgrade still adds 15 range',()=>{
  const sky=frozen.ranged.filter(w=>w.runes.includes('sky')&&w.range-12<263);assert.ok(sky.length>0);for(const old of sky)assert.equal(getWord(old.word).range,275,old.word);
