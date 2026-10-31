@@ -1,6 +1,10 @@
 import assert from 'node:assert/strict';
+import {readFileSync}from'node:fs';
+import {createHash}from'node:crypto';
 import {Game,CHAPTERS,ENEMIES,enemyLength,enemyPosition} from '../dist/engine.mjs';
 import {invest,investEfficient,investFormation} from './strategy.mjs';
+const hashFile=path=>createHash('sha256').update(readFileSync(new URL(path,import.meta.url))).digest('hex');
+const sourceHashes={engineHash:hashFile('../dist/engine.mjs'),specialsHash:hashFile('../dist/specials.mjs'),strategyHash:hashFile('./strategy.mjs')};
 const spend=process.argv.includes('--formation')?investFormation:process.argv.includes('--efficient')?investEfficient:invest;
 const n=Number(process.argv[2]||40),skills=process.argv.includes('--skills'),pressure=process.argv.includes('--pressure');
 const onlyChapter=Number(process.argv.find(x=>x.startsWith('--chapter='))?.split('=')[1]||0)-1;
@@ -41,4 +45,7 @@ for(let ch=0;ch<CHAPTERS.length;ch++){
  console.log({chapter:ch+1,skills,wins,total:n,minHP:Math.min(...hps),meanHP:Math.round(hps.reduce((a,b)=>a+b,0)/n*10)/10,minRound:Math.min(...rounds),failedRounds:rounds.filter((_,i)=>hps[i]===0),timeouts,...(pressure?{pressure:{...audit,minionDamage:Math.round(audit.minionDamage),bossDamage:Math.round(audit.bossDamage)}}:{})});
 }
 
-console.log({summary:true,skills,games:results.reduce((s,r)=>s+r.total,0),wins:results.reduce((s,r)=>s+r.wins,0),rate:results.reduce((s,r)=>s+r.wins,0)/results.reduce((s,r)=>s+r.total,0),reference:"总体50–60%，首章约90%、末章约20%；允许波动，不按固定配额调整",chapters:results});
+assert.equal(hashFile('../dist/engine.mjs'),sourceHashes.engineHash,'Engine changed during simulation');
+assert.equal(hashFile('../dist/specials.mjs'),sourceHashes.specialsHash,'Vocabulary changed during simulation');
+assert.equal(hashFile('./strategy.mjs'),sourceHashes.strategyHash,'Strategy changed during simulation');
+console.log({summary:true,...sourceHashes,skills,games:results.reduce((s,r)=>s+r.total,0),wins:results.reduce((s,r)=>s+r.wins,0),rate:results.reduce((s,r)=>s+r.wins,0)/results.reduce((s,r)=>s+r.total,0),reference:"总体50–60%，首章约90%、末章约20%；允许波动，不按固定配额调整",chapters:results});

@@ -93,7 +93,7 @@ module += 'export const IDIOM_WORDS=' + encode('|'.join(sorted(idioms))) + '.spl
 module += 'export const SKILL_SCHOOLS=' + encode(skill_schools) + ';\n'
 module += 'export const SKILL_TEMPLATES=' + encode(skill_templates) + ';\n'
 module += 'export const WORD_LEARNING=' + encode(learning) + ';\n'
-notice = f'Common-word data derived from fxsjy/jieba\nSource: https://github.com/fxsjy/jieba/tree/{COMMIT}\nIncluded Chinese words: length 1–4, frequency >=20; four-character idioms tagged i, frequency >=3. Other tagged idioms preserve the prior >=10 rule. Additional game vocabulary and plain-language learning explanations are project-authored in data/.\n\n' + license_text
+notice = f'Common-word data derived from fxsjy/jieba\nSource: https://github.com/fxsjy/jieba/tree/{COMMIT}\nIncluded Chinese words: length 1–4, frequency >=20; four-character idioms tagged i, frequency >=3. Other tagged idioms preserve the prior >=10 rule. Additional game vocabulary and plain-language learning explanations are project-authored in data/.\n\n' + license_text + '\n\n' + (ROOT / 'data/idiom-source-notice.txt').read_text()
 for path, content in [(ROOT / 'dist/lexicon.mjs', module), (ROOT / 'dist/THIRD-PARTY-NOTICES.txt', notice)]:
     if args.check:
         assert path.read_text(encoding='utf-8') == content, f'Outdated generated file: {path}'

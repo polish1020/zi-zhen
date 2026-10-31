@@ -5,18 +5,20 @@ import {readFile,writeFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {Game,WORDS,getWord,towerDefense,wordRules,SPECIAL_EFFECTS} from '../dist/engine.mjs';
 
+const sourceHashes={engineHash:createHash('sha256').update(await readFile(new URL('../dist/engine.mjs',import.meta.url))).digest('hex'),specialsHash:createHash('sha256').update(await readFile(new URL('../dist/specials.mjs',import.meta.url))).digest('hex')};
 const seconds=60,dt=.05,base=new Game(0,42);
-const scenarios={single:{kind:'normal',count:1},pack:{kind:'normal',count:6},boss:{kind:'boss',count:1}};
-const signature=w=>JSON.stringify([w.type,w.tier,w.special,w.trait,w.runes,w.semanticCycle,w.damage,w.range,w.rate,w.aura,w.income,wordRules(w)]);
+const scenarios={single:{kind:'normal',count:1},pack:{kind:'normal',count:6},boss:{kind:'boss',count:1},armored:{kind:'armor',count:1},air:{kind:'flying',count:1}};
+const signature=w=>JSON.stringify([w.type,w.tier,w.special,w.idiomMove||null,w.trait,w.runes,w.semanticCycle,w.damage,w.range,w.rate,w.aura,w.income,wordRules(w)]);
 const groups=new Map();
 for(const w of WORDS.filter(w=>w.tier>=2)){
  const key=signature(w);if(!groups.has(key))groups.set(key,{w,words:[]});groups.get(key).words.push(w.word);
 }
-function measure(w,level,scene){
+function measure(w,level,scene,withUltimate=true){
  const g=Object.assign(Object.create(Game.prototype),base,{
   towers:[],enemies:[],effects:[],events:[],zones:[],queue:[],pendingWaves:[1],
   ink:1e9,time:0,wave:1,phase:'battle',nextId:2,autoWaveAt:0,
  });
+ if(!withUltimate)g.idiomAttack=()=>{};
  const t={id:1,word:w.word,pad:0,level:w.tier,spent:w.cost,cooldown:0,repairReadyAt:0,rebuilds:0};
  t.hp=towerDefense(t).maxHp;g.towers=[t];
  while(t.level<level)assert.ok(g.upgrade(t.id));
@@ -45,26 +47,28 @@ function stats(entries,value='dps'){
 const rows=[];let done=0;
 for(const {w,words}of groups.values()){
  for(const level of new Set([w.tier,4]))for(const[scenario,scene]of Object.entries(scenarios))rows.push({
-  word:w.word,words,type:w.type,icon:w.icon,tier:w.tier,level,special:w.special||null,scenario,...measure(w,level,scene),
+  word:w.word,words,type:w.type,icon:w.icon,tier:w.tier,level,special:w.special||null,scenario,idiomMove:w.idiomMove||null,...measure(w,level,scene),...(w.idiomMove?{withoutUltimateDps:measure(w,level,scene,false).dps}:{}),
  });
  if(++done%200===0)console.log(`Measured ${done}/${groups.size} distinct combat profiles`);
 }
 const summary=[];
 for(const type of [...new Set(rows.map(x=>x.type))])for(const tier of [2,3,4])for(const level of new Set([tier,4]))for(const scenario of Object.keys(scenarios)){
  const matching=rows.filter(x=>x.type===type&&x.tier===tier&&x.level===level&&x.scenario===scenario);
- if(matching.length)summary.push({type,icon:matching[0].icon,tier,level,scenario,dps:stats(matching),per100Ink:stats(matching,'per100Ink')});
+ if(matching.length)summary.push({type,icon:matching[0].icon,tier,level,scenario,dps:stats(matching),per100Ink:stats(matching,'per100Ink'),withoutUltimateDps:stats(matching.map(x=>({...x,withoutUltimateDps:x.withoutUltimateDps??x.dps})),'withoutUltimateDps')});
 }
 const families=[];
 for(const id of Object.keys(SPECIAL_EFFECTS))for(const tier of [2,3,4])for(const scenario of Object.keys(scenarios)){
  const matching=rows.filter(x=>x.special===id&&x.tier===tier&&x.level===tier&&x.scenario===scenario);
  if(matching.length)families.push({id,name:SPECIAL_EFFECTS[id].name,tier,scenario,dps:stats(matching),per100Ink:stats(matching,'per100Ink')});
 }
-const exampleWords=['三国演义','三顾茅庐','一心一意','周而复始','势如破竹','众志成城','妙手回春','东奔西走','寒冰箭','毒云','火焰盾','雷暴术','烈火','火球','你好','文'];
+const exampleWords=['冰清玉洁','火上浇油','一丘之貉','七月流火','一代宗师','滴水穿石','五雷轰顶','毒蛇猛兽','火树银花','火球','烈焰箭','毒气弹','三国演义','三顾茅庐','一心一意','周而复始','势如破竹','众志成城','妙手回春','东奔西走','寒冰箭','毒云','火焰盾','雷暴术','烈火','火球','你好','文'];
 const examples=exampleWords.filter(word=>getWord(word)?.tier>=2).flatMap(word=>{
  const w=getWord(word),key=signature(w);return rows.filter(x=>signature(getWord(x.word))===key).map(({words,...row})=>({...row,word}));
 });
 const sha=async name=>createHash('sha256').update(await readFile(new URL('../dist/'+name,import.meta.url))).digest('hex');
-const report={date:new Date().toISOString().slice(0,10),engineHash:await sha('engine.mjs'),specialsHash:await sha('specials.mjs'),seconds,dt,
+assert.equal(await sha('engine.mjs'),sourceHashes.engineHash,'Engine changed during damage benchmark');
+assert.equal(await sha('specials.mjs'),sourceHashes.specialsHash,'Vocabulary changed during damage benchmark');
+const report={date:new Date().toISOString().slice(0,10),...sourceHashes,seconds,dt,
  methodology:[
   'All two-, three-, and four-character recipes; identical combat profiles evaluated once and weighted by the number of matching recipes. This is dictionary weighting, not hand-draw probability.',
   'Full-health single tower; original runes and grade effects retained. Compare equal word length at initial level, and separately at shared level 4 using actual upgrade spending.',
@@ -72,8 +76,9 @@ const report={date:new Date().toISOString().slice(0,10),engineHash:await sha('en
   'Targets held within range at route distances 130,134,...150; six-enemy pack is tightly clustered and aligned, favoring area and piercing attacks.',
   'High-health unarmored ground dummy, six such dummies, and unarmored ground boss dummy. No shields, casts, summons, regeneration, return attacks, or kills; boss classification is retained.',
   'Control, range, armor penetration, execute, damage taken, healing, shielding, income, and ally buffs are not valued by this solo damage benchmark. Full-health conditions do not trigger last-stand effects.',
-  'The benchmark does not mutate combat coefficients. It measures the current release, including deliberate learning buffs. DPS is not chapter win rate.',
+  'Armored and air target scenarios add actual armor and air restrictions. Each idiom profile is also measured with only the charged ability disabled, retaining the same panel and original core.',
+  'The benchmark does not mutate combat coefficients. It measures the current release, including semantic reclassification and charged abilities. DPS is not chapter win rate.',
  ],recipes:WORDS.filter(w=>w.tier>=2).length,learningRecipes:WORDS.filter(w=>w.tier>=2&&w.special).length,
- combatProfiles:groups.size,measurements:rows.length,summary,families,examples};
+ combatProfiles:groups.size,primaryMeasurements:rows.length,measurements:rows.length+rows.filter(r=>r.idiomMove).length,summary,families,examples};
 await writeFile(new URL('../docs/reports/word-damage-benchmark.json',import.meta.url),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify({recipes:report.recipes,learningRecipes:report.learningRecipes,combatProfiles:report.combatProfiles,measurements:report.measurements,initial:summary.filter(x=>x.tier===x.level&&['basic','learning','splash','chain','poison','sniper','heavy'].includes(x.type)).map(x=>({type:x.type,tier:x.tier,scenario:x.scenario,median:x.dps.median,p10:x.dps.p10,p90:x.dps.p90,per100Ink:x.per100Ink.median}))},null,2));

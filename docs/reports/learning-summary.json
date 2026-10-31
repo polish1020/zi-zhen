@@ -1,42 +1,164 @@
 {
-  "newLearningWords": 2083,
+  "newLearningWords": 23325,
   "newByLength": {
     "1": 2,
     "2": 978,
     "3": 62,
-    "4": 1041
+    "4": 22283
   },
-  "specialsHash": "8779a09a72751e91d6bc8b060229c8f377804a543bb0bf886948ee6408bf03e5",
-  "totalWords": 107432,
-  "learningWords": 3429,
-  "lessonWords": 784,
-  "lessonIdioms": 528,
-  "learningWithoutLesson": 2645,
-  "families": 67,
+  "specialsHash": "9f3d6a1d7b2ec1755ed6e10cc517150bb265e1e9c6f5cba1253aa5b67e6381f8",
+  "totalWords": 107488,
+  "learningWords": 24652,
+  "lessonWords": 802,
+  "lessonIdioms": 546,
+  "learningWithoutLesson": 23868,
+  "families": 80,
   "attributes": {
-    "splash": 976,
-    "learning": 3429,
-    "slow": 883,
-    "chain": 694,
-    "fast": 1345,
-    "heavy": 2767,
-    "aura": 2531,
-    "poison": 530,
-    "sniper": 356,
-    "income": 1135,
-    "pierce": 3458,
-    "pulse": 1438,
-    "mark": 979,
-    "echo": 545,
-    "basic": 86366
+    "splash": 825,
+    "learning": 24652,
+    "slow": 679,
+    "chain": 638,
+    "fast": 851,
+    "heavy": 2209,
+    "aura": 2121,
+    "poison": 495,
+    "sniper": 275,
+    "income": 898,
+    "pierce": 3407,
+    "pulse": 1128,
+    "mark": 964,
+    "echo": 476,
+    "basic": 67870
   },
-  "engineHash": "d15932dea5e7d5e0fea1d05d2e652eccd5271c932543e94b6f7ca71f16ed3fad",
+  "engineHash": "3f97be20745230d40ed27ca21dcdd11124bb041badb24154c22d8d950f30066e",
   "examples": [
+    {
+      "word": "冰清玉洁",
+      "meaning": null,
+      "category": "idiom",
+      "attribute": "学",
+      "effect": "澄心净障",
+      "chargedMove": "澄心净障",
+      "runes": [
+        "shine",
+        "peace"
+      ]
+    },
+    {
+      "word": "火上浇油",
+      "meaning": null,
+      "category": "idiom",
+      "attribute": "学",
+      "effect": "推势催发",
+      "chargedMove": "推势催发",
+      "runes": [
+        "curse",
+        "focus"
+      ]
+    },
+    {
+      "word": "一丘之貉",
+      "meaning": "比喻同是坏人，或同属一类丑恶事物。含贬义。",
+      "category": "idiom",
+      "attribute": "学",
+      "effect": "同类合围",
+      "chargedMove": "同类合围",
+      "runes": [
+        "echo",
+        "focus"
+      ]
+    },
+    {
+      "word": "七月流火",
+      "meaning": "农历七月傍晚，大火星逐渐向西落下，天气开始转凉；不是说天气炎热。",
+      "category": "idiom",
+      "attribute": "学",
+      "effect": "四时递变",
+      "chargedMove": "四时递变",
+      "runes": [
+        "study",
+        "focus"
+      ]
+    },
+    {
+      "word": "首当其冲",
+      "meaning": "比喻最先受到攻击，或最先遭遇灾害。",
+      "category": "idiom",
+      "attribute": "学",
+      "effect": "稳基固守",
+      "chargedMove": "固阵御敌",
+      "runes": [
+        "barrier",
+        "gravity"
+      ]
+    },
+    {
+      "word": "百发百中",
+      "meaning": "每次发射都命中目标，形容十分准确。",
+      "category": "idiom",
+      "attribute": "弓",
+      "effect": "远程斩杀",
+      "chargedMove": "洞见要害",
+      "runes": [
+        "focus",
+        "execute"
+      ]
+    },
+    {
+      "word": "冰天雪地",
+      "meaning": "到处都是冰雪，形容天气很冷。",
+      "category": "idiom",
+      "attribute": "冰",
+      "effect": "减速控制",
+      "chargedMove": "霜封来路",
+      "runes": [
+        "frost",
+        "sky"
+      ]
+    },
+    {
+      "word": "五雷轰顶",
+      "meaning": null,
+      "category": "idiom",
+      "attribute": "雷",
+      "effect": "连锁攻击",
+      "chargedMove": "震霆连阵",
+      "runes": [
+        "count",
+        "storm"
+      ]
+    },
+    {
+      "word": "火树银花",
+      "meaning": "形容灯火或烟花绚烂的景象。",
+      "category": "idiom",
+      "attribute": "火",
+      "effect": "范围伤害",
+      "chargedMove": "八方合击",
+      "runes": [
+        "bloom",
+        "luck"
+      ]
+    },
+    {
+      "word": "毒蛇猛兽",
+      "meaning": null,
+      "category": "idiom",
+      "attribute": "毒",
+      "effect": "持续毒伤",
+      "chargedMove": "蚀骨毒瘴",
+      "runes": [
+        "toxin",
+        "brood"
+      ]
+    },
     {
       "word": "三顾茅庐",
       "meaning": "刘备三次拜访诸葛亮，比喻真诚地邀请人才。",
+      "category": "idiom",
       "attribute": "学",
       "effect": "三顾连携",
+      "chargedMove": "三顾求贤",
       "runes": [
         "focus",
         "inspire"
@@ -45,8 +167,10 @@
     {
       "word": "一箭双雕",
       "meaning": null,
+      "category": "idiom",
       "attribute": "学",
       "effect": "一击双得",
+      "chargedMove": "八方合击",
       "runes": [
         "focus",
         "execute"
@@ -55,150 +179,93 @@
     {
       "word": "水滴石穿",
       "meaning": "水不停滴落能穿透石头，比喻坚持不懈就能成功。",
+      "category": "idiom",
       "attribute": "学",
       "effect": "滴水穿石",
+      "chargedMove": "滴穿坚甲",
       "runes": [
         "growth",
         "edge"
       ]
     },
     {
-      "word": "画龙点睛",
-      "meaning": "比喻在关键处加上精彩的一笔，使内容更生动。",
+      "word": "薪火相传",
+      "meaning": "比喻知识、技艺或精神一代一代传承下去。",
+      "category": "idiom",
       "attribute": "学",
-      "effect": "明光点睛",
+      "effect": "薪传授业",
+      "chargedMove": "薪传授业",
       "runes": [
-        "shine",
-        "focus"
+        "study",
+        "inspire"
       ]
     },
     {
-      "word": "金蝉脱壳",
+      "word": "从善如流",
       "meaning": null,
+      "category": "idiom",
       "attribute": "学",
-      "effect": "脱壳避险",
+      "effect": "薪传授业",
+      "chargedMove": "薪传授业",
       "runes": [
-        "rescue",
-        "focus"
+        "study",
+        "inspire"
       ]
     },
     {
-      "word": "背水一战",
-      "meaning": "比喻在十分困难的处境中，作最后的努力。",
+      "word": "如雷贯耳",
+      "meaning": null,
+      "category": "idiom",
       "attribute": "学",
-      "effect": "绝境奋战",
+      "effect": "声传远阵",
+      "chargedMove": "声传远阵",
       "runes": [
-        "valor",
+        "echo",
+        "shine"
+      ]
+    },
+    {
+      "word": "风土人情",
+      "meaning": null,
+      "category": "idiom",
+      "attribute": "学",
+      "effect": "引路破绽",
+      "chargedMove": "薪传授业",
+      "runes": [
+        "focus",
         "rescue"
       ]
     },
     {
-      "word": "学习",
+      "word": "默认设置",
       "meaning": null,
-      "attribute": "学",
-      "effect": "积累成器",
+      "category": "phrase",
+      "attribute": "普",
+      "effect": "均衡单体",
+      "chargedMove": null,
       "runes": [
-        "study"
-      ]
-    },
-    {
-      "word": "朋友",
-      "meaning": null,
-      "attribute": "学",
-      "effect": "同心协击",
-      "runes": [
-        "echo"
-      ]
-    },
-    {
-      "word": "豆腐",
-      "meaning": null,
-      "attribute": "学",
-      "effect": "及时补救",
-      "runes": [
-        "mend"
-      ]
-    },
-    {
-      "word": "金鱼",
-      "meaning": null,
-      "attribute": "学",
-      "effect": "生生不息",
-      "runes": [
-        "growth"
-      ]
-    },
-    {
-      "word": "银河",
-      "meaning": null,
-      "attribute": "学",
-      "effect": "远见守望",
-      "runes": [
-        "sky"
-      ]
-    },
-    {
-      "word": "土豆",
-      "meaning": null,
-      "attribute": "学",
-      "effect": "收获有度",
-      "runes": [
-        "prosper"
-      ]
-    },
-    {
-      "word": "金文",
-      "meaning": "古代铸刻在青铜器上的文字。",
-      "attribute": "学",
-      "effect": "积累成器",
-      "runes": [
-        "growth"
-      ]
-    },
-    {
-      "word": "发明",
-      "meaning": null,
-      "attribute": "学",
-      "effect": "因势制宜",
-      "runes": [
-        "study"
-      ]
-    },
-    {
-      "word": "地铁",
-      "meaning": null,
-      "attribute": "学",
-      "effect": "疾行快攻",
-      "runes": [
-        "tempo"
-      ]
-    },
-    {
-      "word": "流星锤",
-      "meaning": null,
-      "attribute": "石",
-      "effect": "破甲重击",
-      "runes": [
-        "sky"
-      ]
-    },
-    {
-      "word": "毒镖",
-      "meaning": null,
-      "attribute": "毒",
-      "effect": "持续毒伤",
-      "runes": [
-        "toxin"
-      ]
-    },
-    {
-      "word": "岩浆",
-      "meaning": null,
-      "attribute": "火",
-      "effect": "范围伤害",
-      "runes": [
-        "ember"
+        "focus"
       ]
     }
-  ]
+  ],
+  "previousReleaseLearningWords": 3429,
+  "chargedMoves": 39,
+  "confirmedIdioms": 15026,
+  "confirmedBasicIdioms": 0,
+  "reviewedHeadwords": 15026,
+  "routedCandidates": 22853,
+  "unconfirmedRoutedPhrases": 7827,
+  "excludedLabels": 81,
+  "genericCanon": 10042,
+  "confirmedGenericCanon": 2647,
+  "lessonTypes": {
+    "learning": 784,
+    "slow": 7,
+    "aura": 2,
+    "chain": 2,
+    "pulse": 3,
+    "splash": 1,
+    "echo": 1,
+    "sniper": 2
+  }
 }

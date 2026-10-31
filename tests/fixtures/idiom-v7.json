@@ -1,0 +1,1472 @@
+[
+  {
+    "word": "一丘之貉",
+    "maxHp": 792,
+    "data": {
+      "chapter": 0,
+      "campaignRounds": 8,
+      "wave": 0,
+      "endless": false,
+      "unlockedPads": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "hp": 20,
+      "ink": 1774,
+      "towers": [
+        {
+          "word": "一丘之貉",
+          "pad": 0,
+          "level": 5,
+          "spent": 226,
+          "cooldown": 0,
+          "id": 1,
+          "repairReadyAt": 0,
+          "rebuilds": 0,
+          "hp": 293.04
+        }
+      ],
+      "enemies": [],
+      "zones": [],
+      "queue": [],
+      "time": 0,
+      "spawnTime": 0,
+      "autoWaveAt": 0,
+      "pendingWaves": [],
+      "phase": "prepare",
+      "kills": 0,
+      "nextId": 2,
+      "skillReady": 0,
+      "skillUses": 0,
+      "hintUses": 0,
+      "killInkRemainder": 0,
+      "totalEarned": 0,
+      "bountyEarned": 0,
+      "barrierSpent": 0,
+      "soulHealed": 0,
+      "reviveUsed": false,
+      "bossDraws": [],
+      "bossBreachedRound": 0,
+      "rngState": 651120882,
+      "refreshes": 0,
+      "handSerial": 32,
+      "hand": [
+        {
+          "id": 17,
+          "ch": "一",
+          "used": true
+        },
+        {
+          "id": 18,
+          "ch": "丘",
+          "used": true
+        },
+        {
+          "id": 19,
+          "ch": "之",
+          "used": true
+        },
+        {
+          "id": 20,
+          "ch": "貉",
+          "used": true
+        },
+        {
+          "id": 21,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 22,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 23,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 24,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 25,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 26,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 27,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 28,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 29,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 30,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 31,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 32,
+          "ch": "火",
+          "used": false
+        }
+      ],
+      "hintWord": null,
+      "version": 7
+    }
+  },
+  {
+    "word": "一代宗师",
+    "maxHp": 858,
+    "data": {
+      "chapter": 0,
+      "campaignRounds": 8,
+      "wave": 0,
+      "endless": false,
+      "unlockedPads": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "hp": 20,
+      "ink": 1774,
+      "towers": [
+        {
+          "word": "一代宗师",
+          "pad": 0,
+          "level": 5,
+          "spent": 226,
+          "cooldown": 0,
+          "id": 1,
+          "repairReadyAt": 0,
+          "rebuilds": 0,
+          "hp": 317.46
+        }
+      ],
+      "enemies": [],
+      "zones": [],
+      "queue": [],
+      "time": 0,
+      "spawnTime": 0,
+      "autoWaveAt": 0,
+      "pendingWaves": [],
+      "phase": "prepare",
+      "kills": 0,
+      "nextId": 2,
+      "skillReady": 0,
+      "skillUses": 0,
+      "hintUses": 0,
+      "killInkRemainder": 0,
+      "totalEarned": 0,
+      "bountyEarned": 0,
+      "barrierSpent": 0,
+      "soulHealed": 0,
+      "reviveUsed": false,
+      "bossDraws": [],
+      "bossBreachedRound": 0,
+      "rngState": 651120882,
+      "refreshes": 0,
+      "handSerial": 32,
+      "hand": [
+        {
+          "id": 17,
+          "ch": "一",
+          "used": true
+        },
+        {
+          "id": 18,
+          "ch": "代",
+          "used": true
+        },
+        {
+          "id": 19,
+          "ch": "宗",
+          "used": true
+        },
+        {
+          "id": 20,
+          "ch": "师",
+          "used": true
+        },
+        {
+          "id": 21,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 22,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 23,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 24,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 25,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 26,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 27,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 28,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 29,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 30,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 31,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 32,
+          "ch": "火",
+          "used": false
+        }
+      ],
+      "hintWord": null,
+      "version": 7
+    }
+  },
+  {
+    "word": "一事无成",
+    "maxHp": 858,
+    "data": {
+      "chapter": 0,
+      "campaignRounds": 8,
+      "wave": 0,
+      "endless": false,
+      "unlockedPads": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "hp": 20,
+      "ink": 1774,
+      "towers": [
+        {
+          "word": "一事无成",
+          "pad": 0,
+          "level": 5,
+          "spent": 226,
+          "cooldown": 0,
+          "id": 1,
+          "repairReadyAt": 0,
+          "rebuilds": 0,
+          "hp": 317.46
+        }
+      ],
+      "enemies": [],
+      "zones": [],
+      "queue": [],
+      "time": 0,
+      "spawnTime": 0,
+      "autoWaveAt": 0,
+      "pendingWaves": [],
+      "phase": "prepare",
+      "kills": 0,
+      "nextId": 2,
+      "skillReady": 0,
+      "skillUses": 0,
+      "hintUses": 0,
+      "killInkRemainder": 0,
+      "totalEarned": 0,
+      "bountyEarned": 0,
+      "barrierSpent": 0,
+      "soulHealed": 0,
+      "reviveUsed": false,
+      "bossDraws": [],
+      "bossBreachedRound": 0,
+      "rngState": 651120882,
+      "refreshes": 0,
+      "handSerial": 32,
+      "hand": [
+        {
+          "id": 17,
+          "ch": "一",
+          "used": true
+        },
+        {
+          "id": 18,
+          "ch": "事",
+          "used": true
+        },
+        {
+          "id": 19,
+          "ch": "无",
+          "used": true
+        },
+        {
+          "id": 20,
+          "ch": "成",
+          "used": true
+        },
+        {
+          "id": 21,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 22,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 23,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 24,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 25,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 26,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 27,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 28,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 29,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 30,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 31,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 32,
+          "ch": "火",
+          "used": false
+        }
+      ],
+      "hintWord": null,
+      "version": 7
+    }
+  },
+  {
+    "word": "鲜为人知",
+    "maxHp": 792,
+    "data": {
+      "chapter": 0,
+      "campaignRounds": 8,
+      "wave": 0,
+      "endless": false,
+      "unlockedPads": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "hp": 20,
+      "ink": 1782,
+      "towers": [
+        {
+          "word": "鲜为人知",
+          "pad": 0,
+          "level": 5,
+          "spent": 218,
+          "cooldown": 0,
+          "id": 1,
+          "repairReadyAt": 0,
+          "rebuilds": 0,
+          "hp": 293.04
+        }
+      ],
+      "enemies": [],
+      "zones": [],
+      "queue": [],
+      "time": 0,
+      "spawnTime": 0,
+      "autoWaveAt": 0,
+      "pendingWaves": [],
+      "phase": "prepare",
+      "kills": 0,
+      "nextId": 2,
+      "skillReady": 0,
+      "skillUses": 0,
+      "hintUses": 0,
+      "killInkRemainder": 0,
+      "totalEarned": 0,
+      "bountyEarned": 0,
+      "barrierSpent": 0,
+      "soulHealed": 0,
+      "reviveUsed": false,
+      "bossDraws": [],
+      "bossBreachedRound": 0,
+      "rngState": 651120882,
+      "refreshes": 0,
+      "handSerial": 32,
+      "hand": [
+        {
+          "id": 17,
+          "ch": "鲜",
+          "used": true
+        },
+        {
+          "id": 18,
+          "ch": "为",
+          "used": true
+        },
+        {
+          "id": 19,
+          "ch": "人",
+          "used": true
+        },
+        {
+          "id": 20,
+          "ch": "知",
+          "used": true
+        },
+        {
+          "id": 21,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 22,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 23,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 24,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 25,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 26,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 27,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 28,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 29,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 30,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 31,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 32,
+          "ch": "火",
+          "used": false
+        }
+      ],
+      "hintWord": null,
+      "version": 7
+    }
+  },
+  {
+    "word": "火上浇油",
+    "maxHp": 720,
+    "data": {
+      "chapter": 0,
+      "campaignRounds": 8,
+      "wave": 0,
+      "endless": false,
+      "unlockedPads": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "hp": 20,
+      "ink": 1753,
+      "towers": [
+        {
+          "word": "火上浇油",
+          "pad": 0,
+          "level": 5,
+          "spent": 247,
+          "cooldown": 0,
+          "id": 1,
+          "repairReadyAt": 0,
+          "rebuilds": 0,
+          "hp": 266.4
+        }
+      ],
+      "enemies": [],
+      "zones": [],
+      "queue": [],
+      "time": 0,
+      "spawnTime": 0,
+      "autoWaveAt": 0,
+      "pendingWaves": [],
+      "phase": "prepare",
+      "kills": 0,
+      "nextId": 2,
+      "skillReady": 0,
+      "skillUses": 0,
+      "hintUses": 0,
+      "killInkRemainder": 0,
+      "totalEarned": 0,
+      "bountyEarned": 0,
+      "barrierSpent": 0,
+      "soulHealed": 0,
+      "reviveUsed": false,
+      "bossDraws": [],
+      "bossBreachedRound": 0,
+      "rngState": 651120882,
+      "refreshes": 0,
+      "handSerial": 32,
+      "hand": [
+        {
+          "id": 17,
+          "ch": "火",
+          "used": true
+        },
+        {
+          "id": 18,
+          "ch": "上",
+          "used": true
+        },
+        {
+          "id": 19,
+          "ch": "浇",
+          "used": true
+        },
+        {
+          "id": 20,
+          "ch": "油",
+          "used": true
+        },
+        {
+          "id": 21,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 22,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 23,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 24,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 25,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 26,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 27,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 28,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 29,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 30,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 31,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 32,
+          "ch": "火",
+          "used": false
+        }
+      ],
+      "hintWord": null,
+      "version": 7
+    }
+  },
+  {
+    "word": "冰清玉洁",
+    "maxHp": 792,
+    "data": {
+      "chapter": 0,
+      "campaignRounds": 8,
+      "wave": 0,
+      "endless": false,
+      "unlockedPads": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "hp": 20,
+      "ink": 1753,
+      "towers": [
+        {
+          "word": "冰清玉洁",
+          "pad": 0,
+          "level": 5,
+          "spent": 247,
+          "cooldown": 0,
+          "id": 1,
+          "repairReadyAt": 0,
+          "rebuilds": 0,
+          "hp": 293.04
+        }
+      ],
+      "enemies": [],
+      "zones": [],
+      "queue": [],
+      "time": 0,
+      "spawnTime": 0,
+      "autoWaveAt": 0,
+      "pendingWaves": [],
+      "phase": "prepare",
+      "kills": 0,
+      "nextId": 2,
+      "skillReady": 0,
+      "skillUses": 0,
+      "hintUses": 0,
+      "killInkRemainder": 0,
+      "totalEarned": 0,
+      "bountyEarned": 0,
+      "barrierSpent": 0,
+      "soulHealed": 0,
+      "reviveUsed": false,
+      "bossDraws": [],
+      "bossBreachedRound": 0,
+      "rngState": 651120882,
+      "refreshes": 0,
+      "handSerial": 32,
+      "hand": [
+        {
+          "id": 17,
+          "ch": "冰",
+          "used": true
+        },
+        {
+          "id": 18,
+          "ch": "清",
+          "used": true
+        },
+        {
+          "id": 19,
+          "ch": "玉",
+          "used": true
+        },
+        {
+          "id": 20,
+          "ch": "洁",
+          "used": true
+        },
+        {
+          "id": 21,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 22,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 23,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 24,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 25,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 26,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 27,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 28,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 29,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 30,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 31,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 32,
+          "ch": "火",
+          "used": false
+        }
+      ],
+      "hintWord": null,
+      "version": 7
+    }
+  },
+  {
+    "word": "风雪交加",
+    "maxHp": 684,
+    "data": {
+      "chapter": 0,
+      "campaignRounds": 8,
+      "wave": 0,
+      "endless": false,
+      "unlockedPads": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "hp": 20,
+      "ink": 1793,
+      "towers": [
+        {
+          "word": "风雪交加",
+          "pad": 0,
+          "level": 5,
+          "spent": 207,
+          "cooldown": 0,
+          "id": 1,
+          "repairReadyAt": 0,
+          "rebuilds": 0,
+          "hp": 253.07999999999998
+        }
+      ],
+      "enemies": [],
+      "zones": [],
+      "queue": [],
+      "time": 0,
+      "spawnTime": 0,
+      "autoWaveAt": 0,
+      "pendingWaves": [],
+      "phase": "prepare",
+      "kills": 0,
+      "nextId": 2,
+      "skillReady": 0,
+      "skillUses": 0,
+      "hintUses": 0,
+      "killInkRemainder": 0,
+      "totalEarned": 0,
+      "bountyEarned": 0,
+      "barrierSpent": 0,
+      "soulHealed": 0,
+      "reviveUsed": false,
+      "bossDraws": [],
+      "bossBreachedRound": 0,
+      "rngState": 651120882,
+      "refreshes": 0,
+      "handSerial": 32,
+      "hand": [
+        {
+          "id": 17,
+          "ch": "风",
+          "used": true
+        },
+        {
+          "id": 18,
+          "ch": "雪",
+          "used": true
+        },
+        {
+          "id": 19,
+          "ch": "交",
+          "used": true
+        },
+        {
+          "id": 20,
+          "ch": "加",
+          "used": true
+        },
+        {
+          "id": 21,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 22,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 23,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 24,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 25,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 26,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 27,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 28,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 29,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 30,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 31,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 32,
+          "ch": "火",
+          "used": false
+        }
+      ],
+      "hintWord": null,
+      "version": 7
+    }
+  },
+  {
+    "word": "刀光剑影",
+    "maxHp": 828,
+    "data": {
+      "chapter": 0,
+      "campaignRounds": 8,
+      "wave": 0,
+      "endless": false,
+      "unlockedPads": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "hp": 20,
+      "ink": 1711,
+      "towers": [
+        {
+          "word": "刀光剑影",
+          "pad": 0,
+          "level": 5,
+          "spent": 289,
+          "cooldown": 0,
+          "id": 1,
+          "repairReadyAt": 0,
+          "rebuilds": 0,
+          "hp": 306.36
+        }
+      ],
+      "enemies": [],
+      "zones": [],
+      "queue": [],
+      "time": 0,
+      "spawnTime": 0,
+      "autoWaveAt": 0,
+      "pendingWaves": [],
+      "phase": "prepare",
+      "kills": 0,
+      "nextId": 2,
+      "skillReady": 0,
+      "skillUses": 0,
+      "hintUses": 0,
+      "killInkRemainder": 0,
+      "totalEarned": 0,
+      "bountyEarned": 0,
+      "barrierSpent": 0,
+      "soulHealed": 0,
+      "reviveUsed": false,
+      "bossDraws": [],
+      "bossBreachedRound": 0,
+      "rngState": 651120882,
+      "refreshes": 0,
+      "handSerial": 32,
+      "hand": [
+        {
+          "id": 17,
+          "ch": "刀",
+          "used": true
+        },
+        {
+          "id": 18,
+          "ch": "光",
+          "used": true
+        },
+        {
+          "id": 19,
+          "ch": "剑",
+          "used": true
+        },
+        {
+          "id": 20,
+          "ch": "影",
+          "used": true
+        },
+        {
+          "id": 21,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 22,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 23,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 24,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 25,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 26,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 27,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 28,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 29,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 30,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 31,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 32,
+          "ch": "火",
+          "used": false
+        }
+      ],
+      "hintWord": null,
+      "version": 7
+    }
+  },
+  {
+    "word": "同流合污",
+    "maxHp": 792,
+    "data": {
+      "chapter": 0,
+      "campaignRounds": 8,
+      "wave": 0,
+      "endless": false,
+      "unlockedPads": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "hp": 20,
+      "ink": 1774,
+      "towers": [
+        {
+          "word": "同流合污",
+          "pad": 0,
+          "level": 5,
+          "spent": 226,
+          "cooldown": 0,
+          "id": 1,
+          "repairReadyAt": 0,
+          "rebuilds": 0,
+          "hp": 293.04
+        }
+      ],
+      "enemies": [],
+      "zones": [],
+      "queue": [],
+      "time": 0,
+      "spawnTime": 0,
+      "autoWaveAt": 0,
+      "pendingWaves": [],
+      "phase": "prepare",
+      "kills": 0,
+      "nextId": 2,
+      "skillReady": 0,
+      "skillUses": 0,
+      "hintUses": 0,
+      "killInkRemainder": 0,
+      "totalEarned": 0,
+      "bountyEarned": 0,
+      "barrierSpent": 0,
+      "soulHealed": 0,
+      "reviveUsed": false,
+      "bossDraws": [],
+      "bossBreachedRound": 0,
+      "rngState": 651120882,
+      "refreshes": 0,
+      "handSerial": 32,
+      "hand": [
+        {
+          "id": 17,
+          "ch": "同",
+          "used": true
+        },
+        {
+          "id": 18,
+          "ch": "流",
+          "used": true
+        },
+        {
+          "id": 19,
+          "ch": "合",
+          "used": true
+        },
+        {
+          "id": 20,
+          "ch": "污",
+          "used": true
+        },
+        {
+          "id": 21,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 22,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 23,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 24,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 25,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 26,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 27,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 28,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 29,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 30,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 31,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 32,
+          "ch": "火",
+          "used": false
+        }
+      ],
+      "hintWord": null,
+      "version": 7
+    }
+  },
+  {
+    "word": "一心一意",
+    "maxHp": 858,
+    "data": {
+      "chapter": 0,
+      "campaignRounds": 8,
+      "wave": 0,
+      "endless": false,
+      "unlockedPads": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "hp": 20,
+      "ink": 1753,
+      "towers": [
+        {
+          "word": "一心一意",
+          "pad": 0,
+          "level": 5,
+          "spent": 247,
+          "cooldown": 0,
+          "id": 1,
+          "repairReadyAt": 0,
+          "rebuilds": 0,
+          "hp": 317.46
+        }
+      ],
+      "enemies": [],
+      "zones": [],
+      "queue": [],
+      "time": 0,
+      "spawnTime": 0,
+      "autoWaveAt": 0,
+      "pendingWaves": [],
+      "phase": "prepare",
+      "kills": 0,
+      "nextId": 2,
+      "skillReady": 0,
+      "skillUses": 0,
+      "hintUses": 0,
+      "killInkRemainder": 0,
+      "totalEarned": 0,
+      "bountyEarned": 0,
+      "barrierSpent": 0,
+      "soulHealed": 0,
+      "reviveUsed": false,
+      "bossDraws": [],
+      "bossBreachedRound": 0,
+      "rngState": 651120882,
+      "refreshes": 0,
+      "handSerial": 32,
+      "hand": [
+        {
+          "id": 17,
+          "ch": "一",
+          "used": true
+        },
+        {
+          "id": 18,
+          "ch": "心",
+          "used": true
+        },
+        {
+          "id": 19,
+          "ch": "一",
+          "used": true
+        },
+        {
+          "id": 20,
+          "ch": "意",
+          "used": true
+        },
+        {
+          "id": 21,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 22,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 23,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 24,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 25,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 26,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 27,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 28,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 29,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 30,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 31,
+          "ch": "火",
+          "used": false
+        },
+        {
+          "id": 32,
+          "ch": "火",
+          "used": false
+        }
+      ],
+      "hintWord": null,
+      "version": 7
+    }
+  }
+]

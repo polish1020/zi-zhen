@@ -1,0 +1,3214 @@
+[
+  {
+    "word": "火",
+    "type": "splash",
+    "trait": "balanced",
+    "tier": 1,
+    "damage": 12,
+    "range": 143,
+    "rate": 1.05,
+    "cost": 26,
+    "runes": []
+  },
+  {
+    "word": "火球",
+    "type": "splash",
+    "trait": "impact",
+    "tier": 2,
+    "damage": 29,
+    "range": 145,
+    "rate": 1.3125,
+    "cost": 60,
+    "runes": [
+      "ember"
+    ]
+  },
+  {
+    "word": "火焰山",
+    "type": "splash",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 45,
+    "range": 167,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "ember"
+    ]
+  },
+  {
+    "word": "星火燎原",
+    "type": "learning",
+    "special": "flame",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 90,
+    "range": 204,
+    "rate": 1.1025,
+    "cost": 141,
+    "runes": [
+      "ember",
+      "growth"
+    ]
+  },
+  {
+    "word": "爆裂火球",
+    "type": "splash",
+    "trait": "impact",
+    "tier": 4,
+    "damage": 89,
+    "range": 169,
+    "rate": 1.3125,
+    "cost": 141,
+    "runes": [
+      "bleed",
+      "ember"
+    ]
+  },
+  {
+    "word": "冰",
+    "type": "slow",
+    "trait": "balanced",
+    "tier": 1,
+    "damage": 4,
+    "range": 133,
+    "rate": 0.8,
+    "cost": 22,
+    "runes": []
+  },
+  {
+    "word": "冰霜",
+    "type": "slow",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 9,
+    "range": 145,
+    "rate": 0.8,
+    "cost": 50,
+    "runes": [
+      "frost"
+    ]
+  },
+  {
+    "word": "寒冰箭",
+    "type": "slow",
+    "trait": "ranged",
+    "tier": 3,
+    "damage": 17,
+    "range": 197,
+    "rate": 0.896,
+    "cost": 78,
+    "runes": [
+      "frost"
+    ]
+  },
+  {
+    "word": "冷若冰霜",
+    "type": "learning",
+    "special": "frost",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 92,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "frost",
+      "focus"
+    ]
+  },
+  {
+    "word": "冰封万里",
+    "type": "slow",
+    "trait": "bind",
+    "tier": 4,
+    "damage": 23,
+    "range": 171,
+    "rate": 0.9152,
+    "cost": 118,
+    "runes": [
+      "frost",
+      "sky"
+    ]
+  },
+  {
+    "word": "雷",
+    "type": "chain",
+    "trait": "balanced",
+    "tier": 1,
+    "damage": 15,
+    "range": 158,
+    "rate": 1.3,
+    "cost": 35,
+    "runes": []
+  },
+  {
+    "word": "雷电",
+    "type": "chain",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 30,
+    "range": 170,
+    "rate": 1.3,
+    "cost": 80,
+    "runes": [
+      "storm"
+    ]
+  },
+  {
+    "word": "连环雷",
+    "type": "chain",
+    "trait": "combo",
+    "tier": 3,
+    "damage": 47,
+    "range": 172,
+    "rate": 1.495,
+    "cost": 124,
+    "runes": [
+      "storm"
+    ]
+  },
+  {
+    "word": "五雷轰顶",
+    "type": "chain",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 92,
+    "range": 194,
+    "rate": 1.3,
+    "cost": 188,
+    "runes": [
+      "count",
+      "storm"
+    ]
+  },
+  {
+    "word": "风",
+    "type": "fast",
+    "trait": "balanced",
+    "tier": 1,
+    "damage": 6,
+    "range": 148,
+    "rate": 0.42,
+    "cost": 22,
+    "runes": []
+  },
+  {
+    "word": "风刃",
+    "type": "fast",
+    "trait": "blade",
+    "tier": 2,
+    "damage": 13,
+    "range": 140,
+    "rate": 0.4704,
+    "cost": 50,
+    "runes": [
+      "tempo"
+    ]
+  },
+  {
+    "word": "旋风刃",
+    "type": "fast",
+    "trait": "blade",
+    "tier": 3,
+    "damage": 26,
+    "range": 152,
+    "rate": 0.4704,
+    "cost": 78,
+    "runes": [
+      "tempo"
+    ]
+  },
+  {
+    "word": "风驰电掣",
+    "type": "learning",
+    "special": "swift",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 79,
+    "range": 204,
+    "rate": 0.84,
+    "cost": 141,
+    "runes": [
+      "tempo",
+      "valor"
+    ]
+  },
+  {
+    "word": "风暴之眼",
+    "type": "fast",
+    "trait": "spread",
+    "tier": 4,
+    "damage": 31,
+    "range": 194,
+    "rate": 0.483,
+    "cost": 118,
+    "runes": [
+      "focus",
+      "tempo"
+    ]
+  },
+  {
+    "word": "石",
+    "type": "heavy",
+    "trait": "balanced",
+    "tier": 1,
+    "damage": 32,
+    "range": 168,
+    "rate": 1.8,
+    "cost": 37,
+    "runes": []
+  },
+  {
+    "word": "巨石",
+    "type": "heavy",
+    "trait": "impact",
+    "tier": 2,
+    "damage": 78,
+    "range": 170,
+    "rate": 2.25,
+    "cost": 85,
+    "runes": [
+      "gravity"
+    ]
+  },
+  {
+    "word": "落石阵",
+    "type": "heavy",
+    "trait": "ward",
+    "tier": 3,
+    "damage": 104,
+    "range": 212,
+    "rate": 2.07,
+    "cost": 132,
+    "runes": [
+      "gravity"
+    ]
+  },
+  {
+    "word": "排山倒海",
+    "type": "learning",
+    "special": "recoil",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 89,
+    "range": 204,
+    "rate": 1.155,
+    "cost": 141,
+    "runes": [
+      "tide",
+      "gravity"
+    ]
+  },
+  {
+    "word": "光",
+    "type": "aura",
+    "trait": "balanced",
+    "tier": 1,
+    "damage": 4,
+    "range": 143,
+    "rate": 1.4,
+    "cost": 29,
+    "runes": []
+  },
+  {
+    "word": "光环",
+    "type": "aura",
+    "trait": "spread",
+    "tier": 2,
+    "damage": 6,
+    "range": 165,
+    "rate": 1.61,
+    "cost": 65,
+    "runes": [
+      "shine"
+    ]
+  },
+  {
+    "word": "日月光",
+    "type": "aura",
+    "trait": "moon",
+    "tier": 3,
+    "damage": 14,
+    "range": 177,
+    "rate": 1.4,
+    "cost": 101,
+    "runes": [
+      "shine"
+    ]
+  },
+  {
+    "word": "光芒万丈",
+    "type": "aura",
+    "trait": "radiance",
+    "tier": 4,
+    "damage": 21,
+    "range": 211,
+    "rate": 1.6016,
+    "cost": 153,
+    "runes": [
+      "shine",
+      "sky"
+    ]
+  },
+  {
+    "word": "日月同辉",
+    "type": "learning",
+    "special": "radiance",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 88,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "shine",
+      "focus"
+    ]
+  },
+  {
+    "word": "毒",
+    "type": "poison",
+    "trait": "balanced",
+    "tier": 1,
+    "damage": 7,
+    "range": 143,
+    "rate": 1.1,
+    "cost": 29,
+    "runes": []
+  },
+  {
+    "word": "毒雾",
+    "type": "poison",
+    "trait": "spread",
+    "tier": 2,
+    "damage": 11,
+    "range": 165,
+    "rate": 1.265,
+    "cost": 65,
+    "runes": [
+      "toxin"
+    ]
+  },
+  {
+    "word": "毒气弹",
+    "type": "poison",
+    "trait": "impact",
+    "tier": 3,
+    "damage": 32,
+    "range": 157,
+    "rate": 1.375,
+    "cost": 101,
+    "runes": [
+      "toxin"
+    ]
+  },
+  {
+    "word": "蛇蝎心肠",
+    "type": "poison",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 41,
+    "range": 179,
+    "rate": 1.1,
+    "cost": 153,
+    "runes": [
+      "venom",
+      "curse"
+    ]
+  },
+  {
+    "word": "笑里藏刀",
+    "type": "learning",
+    "special": "ambush",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 92,
+    "range": 194,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "backstab",
+      "edge"
+    ]
+  },
+  {
+    "word": "弓",
+    "type": "sniper",
+    "trait": "ranged",
+    "tier": 1,
+    "damage": 22,
+    "range": 263,
+    "rate": 1.904,
+    "cost": 33,
+    "runes": []
+  },
+  {
+    "word": "弓箭",
+    "type": "sniper",
+    "trait": "ranged",
+    "tier": 2,
+    "damage": 46,
+    "range": 275,
+    "rate": 1.904,
+    "cost": 75,
+    "runes": []
+  },
+  {
+    "word": "穿云箭",
+    "type": "sniper",
+    "trait": "ranged",
+    "tier": 3,
+    "damage": 87,
+    "range": 287,
+    "rate": 1.904,
+    "cost": 116,
+    "runes": [
+      "focus"
+    ]
+  },
+  {
+    "word": "箭无虚发",
+    "type": "sniper",
+    "trait": "ranged",
+    "tier": 4,
+    "damage": 143,
+    "range": 299,
+    "rate": 1.904,
+    "cost": 176,
+    "runes": [
+      "focus",
+      "execute"
+    ]
+  },
+  {
+    "word": "金",
+    "type": "income",
+    "trait": "balanced",
+    "tier": 1,
+    "damage": 3,
+    "range": 138,
+    "rate": 1.6,
+    "cost": 24,
+    "runes": []
+  },
+  {
+    "word": "生财",
+    "type": "income",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 6,
+    "range": 150,
+    "rate": 1.6,
+    "cost": 55,
+    "runes": [
+      "prosper"
+    ]
+  },
+  {
+    "word": "摇钱树",
+    "type": "income",
+    "trait": "fortune",
+    "tier": 3,
+    "damage": 9,
+    "range": 162,
+    "rate": 1.92,
+    "cost": 85,
+    "runes": [
+      "luck"
+    ]
+  },
+  {
+    "word": "招财进宝",
+    "type": "income",
+    "trait": "fortune",
+    "tier": 4,
+    "damage": 14,
+    "range": 174,
+    "rate": 1.92,
+    "cost": 129,
+    "runes": [
+      "prosper",
+      "tempo"
+    ]
+  },
+  {
+    "word": "剑",
+    "type": "pierce",
+    "trait": "blade",
+    "tier": 1,
+    "damage": 16,
+    "range": 158,
+    "rate": 1.344,
+    "cost": 31,
+    "runes": []
+  },
+  {
+    "word": "剑气",
+    "type": "pierce",
+    "trait": "blade",
+    "tier": 2,
+    "damage": 33,
+    "range": 170,
+    "rate": 1.344,
+    "cost": 70,
+    "runes": [
+      "edge"
+    ]
+  },
+  {
+    "word": "御剑术",
+    "type": "pierce",
+    "trait": "blade",
+    "tier": 3,
+    "damage": 66,
+    "range": 182,
+    "rate": 1.344,
+    "cost": 109,
+    "runes": [
+      "edge"
+    ]
+  },
+  {
+    "word": "万剑归宗",
+    "type": "pierce",
+    "trait": "blade",
+    "tier": 4,
+    "damage": 103,
+    "range": 194,
+    "rate": 1.344,
+    "cost": 165,
+    "runes": [
+      "edge",
+      "echo"
+    ]
+  },
+  {
+    "word": "水",
+    "type": "pulse",
+    "trait": "balanced",
+    "tier": 1,
+    "damage": 9,
+    "range": 123,
+    "rate": 1.45,
+    "cost": 29,
+    "runes": []
+  },
+  {
+    "word": "水波",
+    "type": "pulse",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 18,
+    "range": 135,
+    "rate": 1.45,
+    "cost": 65,
+    "runes": []
+  },
+  {
+    "word": "水龙卷",
+    "type": "pulse",
+    "trait": "spread",
+    "tier": 3,
+    "damage": 28,
+    "range": 157,
+    "rate": 1.6675,
+    "cost": 101,
+    "runes": [
+      "brood"
+    ]
+  },
+  {
+    "word": "咒",
+    "type": "mark",
+    "trait": "balanced",
+    "tier": 1,
+    "damage": 8,
+    "range": 153,
+    "rate": 1.1,
+    "cost": 26,
+    "runes": []
+  },
+  {
+    "word": "咒印",
+    "type": "mark",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 15,
+    "range": 165,
+    "rate": 1.1,
+    "cost": 60,
+    "runes": [
+      "curse"
+    ]
+  },
+  {
+    "word": "封魔印",
+    "type": "mark",
+    "trait": "bind",
+    "tier": 3,
+    "damage": 24,
+    "range": 167,
+    "rate": 1.21,
+    "cost": 93,
+    "runes": [
+      "slayer"
+    ]
+  },
+  {
+    "word": "符咒之力",
+    "type": "mark",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 47,
+    "range": 189,
+    "rate": 1.1,
+    "cost": 141,
+    "runes": [
+      "curse",
+      "seal"
+    ]
+  },
+  {
+    "word": "幻",
+    "type": "echo",
+    "trait": "balanced",
+    "tier": 1,
+    "damage": 10,
+    "range": 163,
+    "rate": 1.2,
+    "cost": 26,
+    "runes": []
+  },
+  {
+    "word": "幻影",
+    "type": "echo",
+    "trait": "combo",
+    "tier": 2,
+    "damage": 17,
+    "range": 165,
+    "rate": 1.38,
+    "cost": 60,
+    "runes": []
+  },
+  {
+    "word": "幻影箭",
+    "type": "echo",
+    "trait": "ranged",
+    "tier": 3,
+    "damage": 38,
+    "range": 227,
+    "rate": 1.344,
+    "cost": 93,
+    "runes": [
+      "echo"
+    ]
+  },
+  {
+    "word": "如梦似幻",
+    "type": "echo",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 60,
+    "range": 199,
+    "rate": 1.2,
+    "cost": 141,
+    "runes": [
+      "echo",
+      "peace"
+    ]
+  },
+  {
+    "word": "一",
+    "type": "basic",
+    "trait": "balanced",
+    "tier": 1,
+    "damage": 9,
+    "range": 143,
+    "rate": 0.9,
+    "cost": 24,
+    "runes": []
+  },
+  {
+    "word": "一一",
+    "type": "basic",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 17,
+    "range": 155,
+    "rate": 0.9,
+    "cost": 55,
+    "runes": [
+      "count"
+    ]
+  },
+  {
+    "word": "一一列举",
+    "type": "basic",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 59,
+    "range": 179,
+    "rate": 0.9,
+    "cost": 129,
+    "runes": []
+  },
+  {
+    "word": "一万两",
+    "type": "basic",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 33,
+    "range": 167,
+    "rate": 0.9,
+    "cost": 85,
+    "runes": [
+      "count"
+    ]
+  },
+  {
+    "word": "一丝不苟",
+    "type": "learning",
+    "special": "focus",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 91,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "focus",
+      "growth"
+    ]
+  },
+  {
+    "word": "一个劲地",
+    "type": "heavy",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 218,
+    "range": 204,
+    "rate": 1.8,
+    "cost": 200,
+    "runes": []
+  },
+  {
+    "word": "一举两全",
+    "type": "learning",
+    "special": "double",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 93,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "focus",
+      "execute"
+    ]
+  },
+  {
+    "word": "一举成名",
+    "type": "learning",
+    "special": "charge",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 91,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "growth",
+      "focus"
+    ]
+  },
+  {
+    "word": "一五一十",
+    "type": "learning",
+    "special": "echo",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 89,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "echo",
+      "focus"
+    ]
+  },
+  {
+    "word": "一以贯之",
+    "type": "learning",
+    "special": "relay",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 89,
+    "range": 204,
+    "rate": 1.155,
+    "cost": 141,
+    "runes": [
+      "tempo",
+      "echo"
+    ]
+  },
+  {
+    "word": "一刀两断",
+    "type": "learning",
+    "special": "finish",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 93,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "execute",
+      "focus"
+    ]
+  },
+  {
+    "word": "一劳永逸",
+    "type": "learning",
+    "special": "bulwark",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 80,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "barrier",
+      "inspire"
+    ]
+  },
+  {
+    "word": "一叶知秋",
+    "type": "learning",
+    "special": "far",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 94,
+    "range": 251,
+    "rate": 1.134,
+    "cost": 141,
+    "runes": [
+      "sky",
+      "focus"
+    ]
+  },
+  {
+    "word": "一呼百应",
+    "type": "learning",
+    "special": "rally",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 86,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "inspire",
+      "focus"
+    ]
+  },
+  {
+    "word": "一唱一和",
+    "type": "learning",
+    "special": "rhythm",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 89,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "tempo",
+      "echo"
+    ]
+  },
+  {
+    "word": "一帆风顺",
+    "type": "learning",
+    "special": "harmony",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 79,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "inspire",
+      "peace"
+    ]
+  },
+  {
+    "word": "一应俱全",
+    "type": "learning",
+    "special": "inspire",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 86,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "inspire",
+      "tempo"
+    ]
+  },
+  {
+    "word": "一廉如水",
+    "type": "pulse",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 59,
+    "range": 159,
+    "rate": 1.45,
+    "cost": 153,
+    "runes": []
+  },
+  {
+    "word": "一往无前",
+    "type": "learning",
+    "special": "resolve",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 92,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "valor",
+      "rescue"
+    ]
+  },
+  {
+    "word": "一往直前",
+    "type": "learning",
+    "special": "penetrate",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 93,
+    "range": 214,
+    "rate": 1.176,
+    "cost": 141,
+    "runes": [
+      "edge",
+      "valor"
+    ]
+  },
+  {
+    "word": "一技之长",
+    "type": "learning",
+    "special": "mechanism",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 93,
+    "range": 219,
+    "rate": 1.1025,
+    "cost": 141,
+    "runes": [
+      "edge",
+      "focus"
+    ]
+  },
+  {
+    "word": "一望而知",
+    "type": "learning",
+    "special": "dawn",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 91,
+    "range": 214,
+    "rate": 1.1025,
+    "cost": 141,
+    "runes": [
+      "shine",
+      "seal"
+    ]
+  },
+  {
+    "word": "一来一去",
+    "type": "learning",
+    "special": "orbit",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 89,
+    "range": 214,
+    "rate": 1.134,
+    "cost": 141,
+    "runes": [
+      "echo",
+      "edge"
+    ]
+  },
+  {
+    "word": "一板一眼",
+    "type": "learning",
+    "special": "geometry",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 91,
+    "range": 204,
+    "rate": 1.1025,
+    "cost": 141,
+    "runes": [
+      "focus",
+      "gravity"
+    ]
+  },
+  {
+    "word": "一死一生",
+    "type": "learning",
+    "special": "reversal",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 90,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "rescue",
+      "growth"
+    ]
+  },
+  {
+    "word": "一清二楚",
+    "type": "learning",
+    "special": "precision",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 93,
+    "range": 219,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "focus",
+      "execute"
+    ]
+  },
+  {
+    "word": "丁香",
+    "type": "learning",
+    "special": "nectar",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 23,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "mend"
+    ]
+  },
+  {
+    "word": "七上八下",
+    "type": "learning",
+    "special": "confuse",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 89,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "curse",
+      "frost"
+    ]
+  },
+  {
+    "word": "七嘴八舌",
+    "type": "learning",
+    "special": "volley",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 89,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "echo",
+      "focus"
+    ]
+  },
+  {
+    "word": "七夕",
+    "type": "learning",
+    "special": "harmony",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 22,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "inspire"
+    ]
+  },
+  {
+    "word": "七拼八凑",
+    "type": "learning",
+    "special": "cooperate",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 82,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "echo",
+      "inspire"
+    ]
+  },
+  {
+    "word": "七言",
+    "type": "learning",
+    "special": "echo",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "echo"
+    ]
+  },
+  {
+    "word": "万古长青",
+    "type": "learning",
+    "special": "renew",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 85,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "growth",
+      "mend"
+    ]
+  },
+  {
+    "word": "万籁俱寂",
+    "type": "learning",
+    "special": "silence",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 88,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "silence",
+      "seal"
+    ]
+  },
+  {
+    "word": "万紫千红",
+    "type": "learning",
+    "special": "blast",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 89,
+    "range": 204,
+    "rate": 1.134,
+    "cost": 141,
+    "runes": [
+      "bloom",
+      "shine"
+    ]
+  },
+  {
+    "word": "万马奔腾",
+    "type": "learning",
+    "special": "beast",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 92,
+    "range": 204,
+    "rate": 1.1025,
+    "cost": 141,
+    "runes": [
+      "brood",
+      "valor"
+    ]
+  },
+  {
+    "word": "三反五反",
+    "type": "learning",
+    "special": "pivot",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 92,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "flank",
+      "focus"
+    ]
+  },
+  {
+    "word": "三国演义",
+    "type": "learning",
+    "special": "adapt",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 92,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "study",
+      "focus"
+    ]
+  },
+  {
+    "word": "三字经",
+    "type": "learning",
+    "special": "growth",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 52,
+    "range": 192,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "growth"
+    ]
+  },
+  {
+    "word": "三番五次",
+    "type": "learning",
+    "special": "sweep",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 90,
+    "range": 216,
+    "rate": 1.134,
+    "cost": 141,
+    "runes": [
+      "bloom",
+      "sky"
+    ]
+  },
+  {
+    "word": "三顾茅庐",
+    "type": "learning",
+    "special": "visit",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 90,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "focus",
+      "inspire"
+    ]
+  },
+  {
+    "word": "上元节",
+    "type": "learning",
+    "special": "harmony",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 47,
+    "range": 192,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "inspire"
+    ]
+  },
+  {
+    "word": "下棋",
+    "type": "learning",
+    "special": "puzzle",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.1025,
+    "cost": 60,
+    "runes": [
+      "study"
+    ]
+  },
+  {
+    "word": "不倒翁",
+    "type": "learning",
+    "special": "reversal",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 53,
+    "range": 192,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "rescue"
+    ]
+  },
+  {
+    "word": "不假思索",
+    "type": "learning",
+    "special": "puzzle",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 92,
+    "range": 204,
+    "rate": 1.1025,
+    "cost": 141,
+    "runes": [
+      "study",
+      "focus"
+    ]
+  },
+  {
+    "word": "不动声色",
+    "type": "learning",
+    "special": "pillar",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 80,
+    "range": 194,
+    "rate": 1.155,
+    "cost": 141,
+    "runes": [
+      "barrier",
+      "gravity"
+    ]
+  },
+  {
+    "word": "不失众望",
+    "type": "learning",
+    "special": "resonate",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 87,
+    "range": 204,
+    "rate": 1.134,
+    "cost": 141,
+    "runes": [
+      "echo",
+      "inspire"
+    ]
+  },
+  {
+    "word": "不屈",
+    "type": "learning",
+    "special": "resolve",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 26,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "valor"
+    ]
+  },
+  {
+    "word": "不慌不忙",
+    "type": "learning",
+    "special": "patient",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 116,
+    "range": 204,
+    "rate": 1.26,
+    "cost": 141,
+    "runes": [
+      "focus",
+      "edge"
+    ]
+  },
+  {
+    "word": "不知不觉",
+    "type": "learning",
+    "special": "growth",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 90,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "growth",
+      "study"
+    ]
+  },
+  {
+    "word": "不知疲倦",
+    "type": "learning",
+    "special": "hunt",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 90,
+    "range": 214,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "execute",
+      "bleed"
+    ]
+  },
+  {
+    "word": "不语",
+    "type": "learning",
+    "special": "silence",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "silence"
+    ]
+  },
+  {
+    "word": "专心",
+    "type": "learning",
+    "special": "focus",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 26,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "focus"
+    ]
+  },
+  {
+    "word": "丛林",
+    "type": "learning",
+    "special": "weave",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 22,
+    "range": 180,
+    "rate": 1.1025,
+    "cost": 60,
+    "runes": [
+      "thorn"
+    ]
+  },
+  {
+    "word": "东山再起",
+    "type": "learning",
+    "special": "escape",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 92,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "rescue",
+      "focus"
+    ]
+  },
+  {
+    "word": "丝丝入扣",
+    "type": "learning",
+    "special": "weave",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 81,
+    "range": 204,
+    "rate": 1.1025,
+    "cost": 141,
+    "runes": [
+      "thorn",
+      "focus"
+    ]
+  },
+  {
+    "word": "两全",
+    "type": "learning",
+    "special": "double",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 26,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "focus"
+    ]
+  },
+  {
+    "word": "两面夹攻",
+    "type": "learning",
+    "special": "cross",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 88,
+    "range": 204,
+    "rate": 1.134,
+    "cost": 141,
+    "runes": [
+      "flank",
+      "echo"
+    ]
+  },
+  {
+    "word": "严冬",
+    "type": "learning",
+    "special": "frost",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "frost"
+    ]
+  },
+  {
+    "word": "严谨",
+    "type": "learning",
+    "special": "patient",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 32,
+    "range": 180,
+    "rate": 1.26,
+    "cost": 60,
+    "runes": [
+      "focus"
+    ]
+  },
+  {
+    "word": "中年",
+    "type": "learning",
+    "special": "rally",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 24,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "inspire"
+    ]
+  },
+  {
+    "word": "丰收",
+    "type": "learning",
+    "special": "fortune",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 23,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "prosper"
+    ]
+  },
+  {
+    "word": "丰衣足食",
+    "type": "learning",
+    "special": "thrift",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 86,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "study",
+      "growth"
+    ]
+  },
+  {
+    "word": "丹青",
+    "type": "learning",
+    "special": "blast",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.134,
+    "cost": 60,
+    "runes": [
+      "bloom"
+    ]
+  },
+  {
+    "word": "举一反三",
+    "type": "learning",
+    "special": "insight",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 92,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "study",
+      "focus"
+    ]
+  },
+  {
+    "word": "举例",
+    "type": "learning",
+    "special": "insight",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "study"
+    ]
+  },
+  {
+    "word": "举贤任能",
+    "type": "learning",
+    "special": "guide",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 88,
+    "range": 219,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "focus",
+      "rescue"
+    ]
+  },
+  {
+    "word": "义不容辞",
+    "type": "learning",
+    "special": "triage",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 77,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "mend",
+      "rescue"
+    ]
+  },
+  {
+    "word": "乌龟",
+    "type": "learning",
+    "special": "beast",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.1025,
+    "cost": 60,
+    "runes": [
+      "brood"
+    ]
+  },
+  {
+    "word": "乐于助人",
+    "type": "learning",
+    "special": "mend",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 81,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "mend",
+      "rescue"
+    ]
+  },
+  {
+    "word": "乐声",
+    "type": "learning",
+    "special": "rhythm",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 26,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "tempo"
+    ]
+  },
+  {
+    "word": "九牛一毛",
+    "type": "learning",
+    "special": "fortune",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 78,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "prosper",
+      "luck"
+    ]
+  },
+  {
+    "word": "书卷",
+    "type": "learning",
+    "special": "growth",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "growth"
+    ]
+  },
+  {
+    "word": "买卖",
+    "type": "learning",
+    "special": "thrift",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 24,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "study"
+    ]
+  },
+  {
+    "word": "买椟还珠",
+    "type": "learning",
+    "special": "bargain",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 87,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "focus",
+      "growth"
+    ]
+  },
+  {
+    "word": "互助",
+    "type": "learning",
+    "special": "cooperate",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 23,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "echo"
+    ]
+  },
+  {
+    "word": "五彩",
+    "type": "learning",
+    "special": "radiance",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 24,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "shine"
+    ]
+  },
+  {
+    "word": "五行",
+    "type": "learning",
+    "special": "adapt",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "study"
+    ]
+  },
+  {
+    "word": "交叉",
+    "type": "learning",
+    "special": "cross",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.134,
+    "cost": 60,
+    "runes": [
+      "flank"
+    ]
+  },
+  {
+    "word": "交叉点",
+    "type": "learning",
+    "special": "cross",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 53,
+    "range": 192,
+    "rate": 1.134,
+    "cost": 93,
+    "runes": [
+      "flank"
+    ]
+  },
+  {
+    "word": "交响乐",
+    "type": "learning",
+    "special": "resonate",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 51,
+    "range": 192,
+    "rate": 1.134,
+    "cost": 93,
+    "runes": [
+      "echo"
+    ]
+  },
+  {
+    "word": "交通",
+    "type": "learning",
+    "special": "swift",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 22,
+    "range": 180,
+    "rate": 0.84,
+    "cost": 60,
+    "runes": [
+      "tempo"
+    ]
+  },
+  {
+    "word": "人物画",
+    "type": "learning",
+    "special": "decoy",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 50,
+    "range": 192,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "flank"
+    ]
+  },
+  {
+    "word": "仁爱",
+    "type": "learning",
+    "special": "triage",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 21,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "mend"
+    ]
+  },
+  {
+    "word": "仔细",
+    "type": "learning",
+    "special": "precision",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 26,
+    "range": 195,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "focus"
+    ]
+  },
+  {
+    "word": "仙鹤",
+    "type": "learning",
+    "special": "watch",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 26,
+    "range": 212,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "sky"
+    ]
+  },
+  {
+    "word": "代价",
+    "type": "learning",
+    "special": "bargain",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 24,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "focus"
+    ]
+  },
+  {
+    "word": "以假乱真",
+    "type": "learning",
+    "special": "decoy",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 88,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "flank",
+      "focus"
+    ]
+  },
+  {
+    "word": "以守为攻",
+    "type": "learning",
+    "special": "counter",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 82,
+    "range": 204,
+    "rate": 1.134,
+    "cost": 141,
+    "runes": [
+      "barrier",
+      "edge"
+    ]
+  },
+  {
+    "word": "以牙还牙",
+    "type": "learning",
+    "special": "borrow",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 92,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "focus",
+      "rescue"
+    ]
+  },
+  {
+    "word": "伏兵",
+    "type": "learning",
+    "special": "hunt",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 26,
+    "range": 190,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "execute"
+    ]
+  },
+  {
+    "word": "伏击",
+    "type": "learning",
+    "special": "ambush",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 26,
+    "range": 170,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "valor"
+    ]
+  },
+  {
+    "word": "众目共睹",
+    "type": "learning",
+    "special": "watch",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 94,
+    "range": 236,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "sky",
+      "shine"
+    ]
+  },
+  {
+    "word": "传授",
+    "type": "learning",
+    "special": "guide",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 24,
+    "range": 195,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "focus"
+    ]
+  },
+  {
+    "word": "传递",
+    "type": "learning",
+    "special": "relay",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 26,
+    "range": 180,
+    "rate": 1.155,
+    "cost": 60,
+    "runes": [
+      "tempo"
+    ]
+  },
+  {
+    "word": "伤心",
+    "type": "learning",
+    "special": "confuse",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "curse"
+    ]
+  },
+  {
+    "word": "佯攻",
+    "type": "learning",
+    "special": "decoy",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 24,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "flank"
+    ]
+  },
+  {
+    "word": "供应",
+    "type": "learning",
+    "special": "mend",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 23,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "mend"
+    ]
+  },
+  {
+    "word": "保全",
+    "type": "learning",
+    "special": "shelter",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 23,
+    "range": 190,
+    "rate": 1.1025,
+    "cost": 60,
+    "runes": [
+      "barrier"
+    ]
+  },
+  {
+    "word": "保卫",
+    "type": "learning",
+    "special": "pillar",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 23,
+    "range": 170,
+    "rate": 1.155,
+    "cost": 60,
+    "runes": [
+      "barrier"
+    ]
+  },
+  {
+    "word": "保家卫国",
+    "type": "learning",
+    "special": "shelter",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 76,
+    "range": 214,
+    "rate": 1.1025,
+    "cost": 141,
+    "runes": [
+      "barrier",
+      "mend"
+    ]
+  },
+  {
+    "word": "保护",
+    "type": "learning",
+    "special": "bulwark",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 23,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "barrier"
+    ]
+  },
+  {
+    "word": "保护伞",
+    "type": "learning",
+    "special": "shelter",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 47,
+    "range": 202,
+    "rate": 1.1025,
+    "cost": 93,
+    "runes": [
+      "barrier"
+    ]
+  },
+  {
+    "word": "信心",
+    "type": "learning",
+    "special": "inspire",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 24,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "inspire"
+    ]
+  },
+  {
+    "word": "修建",
+    "type": "learning",
+    "special": "renew",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "growth"
+    ]
+  },
+  {
+    "word": "修造",
+    "type": "learning",
+    "special": "mechanism",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 26,
+    "range": 195,
+    "rate": 1.1025,
+    "cost": 60,
+    "runes": [
+      "edge"
+    ]
+  },
+  {
+    "word": "借力",
+    "type": "learning",
+    "special": "borrow",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 26,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "focus"
+    ]
+  },
+  {
+    "word": "倾盆大雨",
+    "type": "learning",
+    "special": "storm",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 92,
+    "range": 204,
+    "rate": 1.2075,
+    "cost": 141,
+    "runes": [
+      "storm",
+      "tempo"
+    ]
+  },
+  {
+    "word": "先行者",
+    "type": "learning",
+    "special": "penetrate",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 53,
+    "range": 202,
+    "rate": 1.176,
+    "cost": 93,
+    "runes": [
+      "edge"
+    ]
+  },
+  {
+    "word": "入木三分",
+    "type": "learning",
+    "special": "erosion",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 91,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "growth",
+      "edge"
+    ]
+  },
+  {
+    "word": "全面",
+    "type": "learning",
+    "special": "sweep",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.134,
+    "cost": 60,
+    "runes": [
+      "bloom"
+    ]
+  },
+  {
+    "word": "八方支援",
+    "type": "learning",
+    "special": "rescue",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 81,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "rescue",
+      "mend"
+    ]
+  },
+  {
+    "word": "兼容并包",
+    "type": "learning",
+    "special": "festival",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 87,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "inspire",
+      "bloom"
+    ]
+  },
+  {
+    "word": "冲击",
+    "type": "learning",
+    "special": "recoil",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.155,
+    "cost": 60,
+    "runes": [
+      "tide"
+    ]
+  },
+  {
+    "word": "冲破",
+    "type": "learning",
+    "special": "penetrate",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 26,
+    "range": 190,
+    "rate": 1.176,
+    "cost": 60,
+    "runes": [
+      "edge"
+    ]
+  },
+  {
+    "word": "决断",
+    "type": "learning",
+    "special": "finish",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 26,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "execute"
+    ]
+  },
+  {
+    "word": "净化",
+    "type": "learning",
+    "special": "cleanse",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "seal"
+    ]
+  },
+  {
+    "word": "准则",
+    "type": "learning",
+    "special": "geometry",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 26,
+    "range": 180,
+    "rate": 1.1025,
+    "cost": 60,
+    "runes": [
+      "focus"
+    ]
+  },
+  {
+    "word": "准备",
+    "type": "learning",
+    "special": "charge",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "growth"
+    ]
+  },
+  {
+    "word": "分工",
+    "type": "learning",
+    "special": "volley",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "echo"
+    ]
+  },
+  {
+    "word": "分析",
+    "type": "learning",
+    "special": "dawn",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 26,
+    "range": 190,
+    "rate": 1.1025,
+    "cost": 60,
+    "runes": [
+      "shine"
+    ]
+  },
+  {
+    "word": "刚柔",
+    "type": "learning",
+    "special": "balance",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "peace"
+    ]
+  },
+  {
+    "word": "刚柔并济",
+    "type": "learning",
+    "special": "balance",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 90,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "peace",
+      "focus"
+    ]
+  },
+  {
+    "word": "创造力",
+    "type": "learning",
+    "special": "adapt",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 53,
+    "range": 192,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "study"
+    ]
+  },
+  {
+    "word": "动员令",
+    "type": "learning",
+    "special": "rally",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 49,
+    "range": 192,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "inspire"
+    ]
+  },
+  {
+    "word": "动物园",
+    "type": "learning",
+    "special": "beast",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 53,
+    "range": 192,
+    "rate": 1.1025,
+    "cost": 93,
+    "runes": [
+      "brood"
+    ]
+  },
+  {
+    "word": "医疗队",
+    "type": "learning",
+    "special": "triage",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 45,
+    "range": 192,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "mend"
+    ]
+  },
+  {
+    "word": "千丝万缕",
+    "type": "learning",
+    "special": "roots",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 88,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "thorn",
+      "growth"
+    ]
+  },
+  {
+    "word": "千里眼",
+    "type": "learning",
+    "special": "far",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 54,
+    "range": 239,
+    "rate": 1.134,
+    "cost": 93,
+    "runes": [
+      "sky"
+    ]
+  },
+  {
+    "word": "博物馆",
+    "type": "learning",
+    "special": "festival",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 52,
+    "range": 192,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "inspire"
+    ]
+  },
+  {
+    "word": "卫星",
+    "type": "learning",
+    "special": "far",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 26,
+    "range": 227,
+    "rate": 1.134,
+    "cost": 60,
+    "runes": [
+      "sky"
+    ]
+  },
+  {
+    "word": "反制",
+    "type": "learning",
+    "special": "counter",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 23,
+    "range": 180,
+    "rate": 1.134,
+    "cost": 60,
+    "runes": [
+      "barrier"
+    ]
+  },
+  {
+    "word": "变换",
+    "type": "learning",
+    "special": "pivot",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "flank"
+    ]
+  },
+  {
+    "word": "号角",
+    "type": "learning",
+    "special": "resonate",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.134,
+    "cost": 60,
+    "runes": [
+      "echo"
+    ]
+  },
+  {
+    "word": "含苞待放",
+    "type": "learning",
+    "special": "nectar",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 79,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "mend",
+      "bloom"
+    ]
+  },
+  {
+    "word": "吴刚",
+    "type": "learning",
+    "special": "erosion",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "growth"
+    ]
+  },
+  {
+    "word": "四合院",
+    "type": "learning",
+    "special": "bulwark",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 47,
+    "range": 192,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "barrier"
+    ]
+  },
+  {
+    "word": "四季",
+    "type": "learning",
+    "special": "reversal",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "rescue"
+    ]
+  },
+  {
+    "word": "回环",
+    "type": "learning",
+    "special": "orbit",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 190,
+    "rate": 1.134,
+    "cost": 60,
+    "runes": [
+      "echo"
+    ]
+  },
+  {
+    "word": "埙",
+    "type": "learning",
+    "special": "echo",
+    "trait": "balanced",
+    "tier": 1,
+    "damage": 13,
+    "range": 168,
+    "rate": 1.05,
+    "cost": 26,
+    "runes": []
+  },
+  {
+    "word": "增援",
+    "type": "learning",
+    "special": "rescue",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 24,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "rescue"
+    ]
+  },
+  {
+    "word": "多元",
+    "type": "learning",
+    "special": "festival",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "inspire"
+    ]
+  },
+  {
+    "word": "大暑",
+    "type": "learning",
+    "special": "flame",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.1025,
+    "cost": 60,
+    "runes": [
+      "ember"
+    ]
+  },
+  {
+    "word": "大河",
+    "type": "learning",
+    "special": "tide",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.1025,
+    "cost": 60,
+    "runes": [
+      "tide"
+    ]
+  },
+  {
+    "word": "大禹治水",
+    "type": "learning",
+    "special": "tide",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 90,
+    "range": 204,
+    "rate": 1.1025,
+    "cost": 141,
+    "runes": [
+      "tide",
+      "rescue"
+    ]
+  },
+  {
+    "word": "太极图",
+    "type": "learning",
+    "special": "balance",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 52,
+    "range": 192,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "peace"
+    ]
+  },
+  {
+    "word": "宇航员",
+    "type": "learning",
+    "special": "watch",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 54,
+    "range": 224,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "sky"
+    ]
+  },
+  {
+    "word": "守门员",
+    "type": "learning",
+    "special": "counter",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 47,
+    "range": 192,
+    "rate": 1.134,
+    "cost": 93,
+    "runes": [
+      "barrier"
+    ]
+  },
+  {
+    "word": "小草",
+    "type": "learning",
+    "special": "roots",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "thorn"
+    ]
+  },
+  {
+    "word": "山水画",
+    "type": "learning",
+    "special": "blast",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 51,
+    "range": 192,
+    "rate": 1.134,
+    "cost": 93,
+    "runes": [
+      "bloom"
+    ]
+  },
+  {
+    "word": "工程师",
+    "type": "learning",
+    "special": "puzzle",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 53,
+    "range": 192,
+    "rate": 1.1025,
+    "cost": 93,
+    "runes": [
+      "study"
+    ]
+  },
+  {
+    "word": "干干净净",
+    "type": "learning",
+    "special": "cleanse",
+    "trait": "balanced",
+    "tier": 4,
+    "damage": 88,
+    "range": 204,
+    "rate": 1.05,
+    "cost": 141,
+    "runes": [
+      "seal",
+      "curse"
+    ]
+  },
+  {
+    "word": "建筑师",
+    "type": "learning",
+    "special": "pillar",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 47,
+    "range": 182,
+    "rate": 1.155,
+    "cost": 93,
+    "runes": [
+      "barrier"
+    ]
+  },
+  {
+    "word": "指南针",
+    "type": "learning",
+    "special": "guide",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 51,
+    "range": 207,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "focus"
+    ]
+  },
+  {
+    "word": "接力棒",
+    "type": "learning",
+    "special": "relay",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 53,
+    "range": 192,
+    "rate": 1.155,
+    "cost": 93,
+    "runes": [
+      "tempo"
+    ]
+  },
+  {
+    "word": "暴雨",
+    "type": "learning",
+    "special": "storm",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.2075,
+    "cost": 60,
+    "runes": [
+      "storm"
+    ]
+  },
+  {
+    "word": "替身",
+    "type": "learning",
+    "special": "escape",
+    "trait": "balanced",
+    "tier": 2,
+    "damage": 25,
+    "range": 180,
+    "rate": 1.05,
+    "cost": 60,
+    "runes": [
+      "rescue"
+    ]
+  },
+  {
+    "word": "机器人",
+    "type": "learning",
+    "special": "mechanism",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 53,
+    "range": 207,
+    "rate": 1.1025,
+    "cost": 93,
+    "runes": [
+      "edge"
+    ]
+  },
+  {
+    "word": "水浒传",
+    "type": "learning",
+    "special": "cooperate",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 49,
+    "range": 192,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "echo"
+    ]
+  },
+  {
+    "word": "油纸伞",
+    "type": "learning",
+    "special": "mend",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 47,
+    "range": 192,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "mend"
+    ]
+  },
+  {
+    "word": "消防员",
+    "type": "learning",
+    "special": "rescue",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 50,
+    "range": 192,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "rescue"
+    ]
+  },
+  {
+    "word": "电动车",
+    "type": "learning",
+    "special": "swift",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 45,
+    "range": 192,
+    "rate": 0.84,
+    "cost": 93,
+    "runes": [
+      "tempo"
+    ]
+  },
+  {
+    "word": "纺织品",
+    "type": "learning",
+    "special": "weave",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 47,
+    "range": 192,
+    "rate": 1.1025,
+    "cost": 93,
+    "runes": [
+      "thorn"
+    ]
+  },
+  {
+    "word": "萤火虫",
+    "type": "learning",
+    "special": "radiance",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 51,
+    "range": 192,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "shine"
+    ]
+  },
+  {
+    "word": "营养液",
+    "type": "learning",
+    "special": "nectar",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 47,
+    "range": 192,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "mend"
+    ]
+  },
+  {
+    "word": "蛇",
+    "type": "learning",
+    "special": "beast",
+    "trait": "balanced",
+    "tier": 1,
+    "damage": 13,
+    "range": 168,
+    "rate": 1.1025,
+    "cost": 26,
+    "runes": []
+  },
+  {
+    "word": "音乐家",
+    "type": "learning",
+    "special": "rhythm",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 53,
+    "range": 192,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "tempo"
+    ]
+  },
+  {
+    "word": "黄梅戏",
+    "type": "learning",
+    "special": "echo",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 51,
+    "range": 192,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "echo"
+    ]
+  },
+  {
+    "word": "龙抬头",
+    "type": "learning",
+    "special": "renew",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 52,
+    "range": 192,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "growth"
+    ]
+  },
+  {
+    "word": "田字格",
+    "type": "learning",
+    "special": "geometry",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 53,
+    "range": 192,
+    "rate": 1.1025,
+    "cost": 93,
+    "runes": [
+      "focus"
+    ]
+  },
+  {
+    "word": "储蓄罐",
+    "type": "learning",
+    "special": "thrift",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 50,
+    "range": 192,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "study"
+    ]
+  },
+  {
+    "word": "追踪者",
+    "type": "learning",
+    "special": "hunt",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 53,
+    "range": 202,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "execute"
+    ]
+  },
+  {
+    "word": "启明星",
+    "type": "learning",
+    "special": "dawn",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 53,
+    "range": 202,
+    "rate": 1.1025,
+    "cost": 93,
+    "runes": [
+      "shine"
+    ]
+  },
+  {
+    "word": "回旋镖",
+    "type": "learning",
+    "special": "orbit",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 51,
+    "range": 202,
+    "rate": 1.134,
+    "cost": 93,
+    "runes": [
+      "echo"
+    ]
+  },
+  {
+    "word": "三连击",
+    "type": "learning",
+    "special": "volley",
+    "trait": "balanced",
+    "tier": 3,
+    "damage": 51,
+    "range": 192,
+    "rate": 1.05,
+    "cost": 93,
+    "runes": [
+      "echo"
+    ]
+  }
+]

@@ -21,7 +21,7 @@ test('all 67 learning cores gain damage and reach while cost, durability and non
  const before=JSON.parse(readFileSync(new URL('./fixtures/learning-preference-before.json',import.meta.url)));
  assert.equal(new Set(before.filter(x=>x.special).map(x=>x.special)).size,67);
  for(const old of before){
-  const w=getWord(old.word);assert.equal(w.cost,old.cost,old.word);assert.equal(w.rate,old.rate,old.word);
+  const w=getWord(old.word);if(w.type!==old.type||w.special!==old.special&&!(w.special===undefined&&old.special===null)){assert.notEqual(w.type,'basic');assert.ok(w.idiomMove);continue;}assert.equal(w.cost,old.cost,old.word);assert.equal(w.rate,old.rate,old.word);
   assert.equal(towerDefense({word:w.word,level:w.tier}).maxHp,old.maxHp,old.word);assert.deepEqual(w.runes,old.runes);
   if(w.special){assert.ok(w.damage>=old.damage*1.15,w.word);assert.equal(w.range,old.range+10);}
   else for(const k of ['damage','range','type'])assert.equal(w[k],old[k],old.word+' '+k);

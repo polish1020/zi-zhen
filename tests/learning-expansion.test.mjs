@@ -5,9 +5,9 @@ const ids=Object.keys(SPECIAL_PALETTES),wordFor=(id,n)=>WORDS.find(w=>w.special=
 function add(g,word,pad){g.hand=[...word.padEnd(16,'文')].map(ch=>({id:++g.handSerial,ch,used:false}));assert.ok(g.build(word,pad),word);return g.towers.at(-1);}
 function enemy(g,kind='normal',d=320){const e=g.spawn(kind,d);e.hp=e.maxHp=100000;e.speed=.01;return e;}
 function fire(g,t,shot=1){t.shots=shot-1;t.cooldown=0;g.attack(t,.01);}
-function run(id,n,fn){const word=wordFor(id,n),w=getWord(word);assert.ok(w,id+' tier '+n);const saved=w.runes;w.runes=[];try{const g=new Game(0,42);g.ink=10000;const t=add(g,word,2);g.phase='battle';g.wave=1;g.pendingWaves=[1];g.time=10;return fn({g,t,w});}finally{w.runes=saved;}}
+function run(id,n,fn){const word=wordFor(id,n),w=getWord(word);assert.ok(w,id+' tier '+n);const saved=w.runes,move=w.idiomMove;w.runes=[];w.idiomMove=undefined;try{const g=new Game(0,42);g.ink=10000;const t=add(g,word,2);g.phase='battle';g.wave=1;g.pendingWaves=[1];g.time=10;return fn({g,t,w});}finally{w.runes=saved;w.idiomMove=move;}}
 test('24 new families cover more than 2,000 additional complete words with a thousand four-character recipes',()=>{
- assert.equal(ids.length,24);assert.equal(Object.keys(SPECIAL_EFFECTS).length,67);const added=WORDS.filter(w=>w.special&&!PREVIOUS_SPECIAL_WORDS[w.word]);assert.ok(added.length>2000);assert.ok(added.filter(w=>w.tier===4).length>1000);assert.ok(added.filter(w=>w.tier===3).length>=50);
+ assert.equal(ids.length,24);assert.equal(Object.keys(SPECIAL_EFFECTS).length,80);const added=WORDS.filter(w=>w.special&&!PREVIOUS_SPECIAL_WORDS[w.word]);assert.ok(added.length>2000);assert.ok(added.filter(w=>w.tier===4).length>1000);assert.ok(added.filter(w=>w.tier===3).length>=50);
  for(const id of ids)for(const n of[2,3,4]){const w=getWord(wordFor(id,n));assert.equal(learningRank(w),n-1);assert.ok(traitEffect(w).length>25);assert.ok(!traitEffect(w).includes('／'),w.word);}
  for(const word of Object.keys(SPECIAL_LESSONS))assert.ok(getWord(word)?.special&&wordLearning(word).meaning,word);
  for(const word of['回旋镖','指南针','保护伞','指挥官','医疗队','田字格','游刃有余'])assert.equal(getWord(word).icon,'学');
@@ -57,5 +57,5 @@ test('rhythm accelerates only while focused; multitalent counts distinct nearby 
  run('festival',4,({g,t,w})=>{add(g,'火球',4);add(g,'冰霜',1);const e=enemy(g);fire(g,t);near(e.maxHp-e.hp,w.damage*1.06);});
 });
 test('v6 golden saves preserve investment, level, random hand and damage ratio when ordinary words become learning',()=>{
- const fixtures=JSON.parse(readFileSync(new URL('./fixtures/learning-v6.json',import.meta.url)));for(const f of fixtures){const g=Game.restore(f.data),t=g.towers[0];near(t.hp/towerDefense(t).maxHp,.37);assert.equal(t.spent,f.data.towers[0].spent);assert.equal(t.level,f.data.towers[0].level);assert.equal(g.ink,f.data.ink);assert.deepEqual(g.hand,f.data.hand);assert.equal(g.export().version,7);const h=Game.restore(JSON.parse(JSON.stringify(g.export())));assert.equal(h.towers[0].hp,t.hp);}
+ const fixtures=JSON.parse(readFileSync(new URL('./fixtures/learning-v6.json',import.meta.url)));for(const f of fixtures){const g=Game.restore(f.data),t=g.towers[0];near(t.hp/towerDefense(t).maxHp,.37);assert.equal(t.spent,f.data.towers[0].spent);assert.equal(t.level,f.data.towers[0].level);assert.equal(g.ink,f.data.ink);assert.deepEqual(g.hand,f.data.hand);assert.equal(g.export().version,8);const h=Game.restore(JSON.parse(JSON.stringify(g.export())));assert.equal(h.towers[0].hp,t.hp);}
 });
