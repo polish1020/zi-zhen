@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {WORDS,getWord,isGameSkill,wordCategory} from '../dist/engine.mjs';
+import {aliasSkills} from './elemental-aliases.mjs';
 export const rules=JSON.parse(readFileSync(new URL('../data/elemental-skills.json',import.meta.url)));
 const preserved=new Set(rules.preserveWords),entries=new Map();
 function add(prefix,suffix,source){const word=prefix+suffix;if(word.length<=4&&!preserved.has(word)){assert.ok(!entries.has(word),word);entries.set(word,{prefix,suffix,source});}}
@@ -11,7 +12,7 @@ for(const prefix of [...rules.elementalPrefixes,...Object.keys(rules.mixedPrefix
 export const addedSkills=entries;
 export const ORIGINAL_PROFILE_HASH='2c2d22dba63db779bebc385f5e9ad8e8ced95a099d657879a090c108f56cf7aa';
 export function audit(){
- const hash=text=>createHash('sha256').update(text).digest('hex'),old=WORDS.filter(w=>!entries.has(w.word)).map(w=>({word:w.word,profileHash:hash(JSON.stringify(w))}));
+ const hash=text=>createHash('sha256').update(text).digest('hex'),old=WORDS.filter(w=>!entries.has(w.word)&&!aliasSkills.has(w.word)).map(w=>({word:w.word,profileHash:hash(JSON.stringify(w))}));
  assert.equal(old.length,107617);assert.equal(hash(JSON.stringify(old)),ORIGINAL_PROFILE_HASH,'All pre-existing word profiles must stay byte-identical');
  const byLength={},byType={},bySource={};
  for(const[word,{source}]of entries){const w=getWord(word);assert.ok(w,word);assert.ok(isGameSkill(word),word);assert.equal(wordCategory(word),'skill',word);byLength[w.tier]=(byLength[w.tier]||0)+1;byType[w.type]=(byType[w.type]||0)+1;bySource[source]=(bySource[source]||0)+1;}

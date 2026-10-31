@@ -25,9 +25,9 @@ const engine=process.env.BROWSER||'chromium',base=process.env.BASE_URL||'http://
   assert.equal(await page.locator('.boss-status').count(),0);
   if(width===393)await page.screenshot({path:`/workspace/shared/wordward-enemy-tactics-${engine}.png`});
   await page.locator('#enemy-preview').click();
-  assert.match(await page.locator('.modal-intro').innerText(),/第 4 轮.*冲刺.*第 6 轮.*列盾.*扰墨/);
+  await page.locator('[data-enemy-rules]').click();assert.match(await page.locator('#enemy-rules').innerText(),/第 4 轮.*冲刺.*第 6 轮.*列盾.*扰墨/);
   assert.equal(await page.locator('.enemy-card .boss-skill-description').count(),42);
-  assert.match(await page.locator('.boss-brief').innerText(),/主动技能.*凝盾.*3 秒.*25%/s);
+  await page.locator('.boss-brief [data-enemy-reveal]').first().click();assert.match(await page.locator('.enemy-card.is-target').innerText(),/主动技能.*凝盾.*3 秒.*25%/s);
   assert.match(await page.locator('[data-enemy-kind="ward"]').innerText(),/第 6 轮.*扰墨.*20%/s);
   assert.match(await page.locator('[data-enemy-kind="healer"]').innerText(),/生命比例最低.*3 名.*5%.*最多 4 次/s);
   assert.match(await page.locator('[data-enemy-kind="cloudraptor"]').innerText(),/第 4 轮.*领飞.*飞行友军/s);

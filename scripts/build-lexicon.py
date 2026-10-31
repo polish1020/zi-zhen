@@ -113,6 +113,32 @@ for prefix in elemental['elementalPrefixes'] + list(elemental['mixedPrefixes']):
     for suffix, form in elemental['creatures'].items():
         elemental_skill(prefix, suffix, rule, form, creature=True)
 
+aliases = json.loads((ROOT / 'data/elemental-aliases.json').read_text(encoding='utf-8'))
+alias_preserved = set(aliases['preserveWords'])
+roots = {**templates['prefixes'], **elemental['mixedPrefixes']}
+for prefix, canonical in {**aliases['aliases'], **aliases['skillRoots']}.items():
+    assert valid(prefix) and 1 <= len(prefix) <= 3 and canonical in roots
+    assert prefix not in roots, f'Alias would replace an existing root: {prefix}'
+    rule = roots[canonical]
+    mixed = canonical in elemental['mixedPrefixes']
+    for source, forms in [('weapon', templates['suffixes']), ('technique', elemental['extraForms']), ('creature', elemental['creatures'])]:
+        for suffix, form in forms.items():
+            word = prefix + suffix
+            if prefix in aliases['skillRoots'] and suffix not in aliases['skillRootSuffixes']:
+                continue
+            if len(word) > 4 or prefix == suffix or word in alias_preserved:
+                continue
+            assert valid(word) and word not in words and word not in skill_schools, f'Unreviewed alias collision: {word}'
+            skill_schools[word] = rule['school'] if mixed or source != 'weapon' else form['school'] or rule['school']
+            skill_templates[word] = {
+                'prefix': prefix, 'suffix': suffix, 'rune': rule['rune'],
+                'trait': form.get('trait'),
+                'extra': 'brood' if source == 'creature' else form['extra'],
+                'suffixFirst': not mixed and (source == 'creature' or source == 'weapon' and form['suffixFirst']),
+                'canonicalPrefix': canonical,
+            }
+            words.add(word)
+
 for word, entry in learning.items():
     assert valid(word) and entry['meaning'] and entry['group']
     assert entry['kind'] in ('idiom', 'phrase', 'word')
