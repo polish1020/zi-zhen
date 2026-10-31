@@ -339,6 +339,22 @@ const SKILL_HAND_WORDS=Object.keys(SKILL_SCHOOLS).map(word=>WORD_INDEX.get(word)
 const CULTURE_HAND_WORDS=Object.keys(WORD_LEARNING).filter(word=>isCultureWord(word)&&WORD_LEARNING[word].kind!=='idiom').map(word=>WORD_INDEX.get(word)).filter(Boolean);
 const WORD_PREFIXES=new Set(WORDS.flatMap(w=>Array.from({length:w.tier},(_,i)=>w.word.slice(0,i+1))));
 export const getWord=word=>WORD_INDEX.get(word);
+// Build a complete six-word set before shuffling so guarantees do not compete for tiles.
+const HAND_POOLS=Object.fromEntries([2,3,4].map(tier=>[tier,{
+ fallback:COMBAT_WORDS.filter(w=>w.tier===tier),
+ learning:LEARNING_EVERYDAY_WORDS.filter(w=>w.tier===tier),
+ meaning:MEANING_HAND_WORDS.filter(w=>w.tier===tier),
+ skills:SKILL_HAND_WORDS.filter(w=>w.tier===tier),
+ culture:CULTURE_HAND_WORDS.filter(w=>w.tier===tier)
+}]));
+const HAND_STARTERS=HAND_POOLS[2].fallback.filter(w=>w.damage>0&&!['aura','income'].includes(w.type)&&[...w.word].some(ch=>{const one=getWord(ch);return one?.damage>0&&one.cost<=37;}));
+export function drawHandWords(random){
+ const pick=xs=>xs[Math.floor(random()*xs.length)];
+ const themed=tier=>{const p=HAND_POOLS[tier],roll=random();if(roll<.15)return pick(random()<.5?p.learning:p.meaning);if(tier===4&&roll<.65)return pick(random()<.35?LONG_LEARNING_WORDS:LEARNING_HAND_WORDS);if(roll<(tier===4?.85:.45))return pick(p.skills);if(roll<(tier===4?.95:.65))return pick(p.culture);return pick(p.fallback);};
+ const distinct=(tier,seen)=>{for(let attempt=0;attempt<12;attempt++){const w=themed(tier);if(w&&!seen.has(w.word)){seen.add(w.word);return w;}}const w=pick(HAND_POOLS[tier].fallback.filter(w=>!seen.has(w.word)));seen.add(w.word);return w;};
+ const starter=pick(HAND_STARTERS),shortSeen=new Set([starter.word]),mediumSeen=new Set();
+ return[starter,distinct(2,shortSeen),distinct(2,shortSeen),distinct(3,mediumSeen),distinct(3,mediumSeen),themed(4)].map(w=>w.word);
+}
 export function towerStats(t){const w=getWord(t.word),up=t.level-w.tier;return {damage:Math.round(w.damage*(1+up*(.65+(hasRune(w,'growth')?.1:0)))),range:w.range+up*15,rate:w.rate/(1+up*.14),aura:w.aura,income:Math.round(w.income*(1+up*.5))};}
 export const towerActive=t=>(t.hp??1)>0;
 export const TOWER_DEFENSES={
@@ -859,14 +875,7 @@ export class Game {
  random(){let x=this.rngState;x^=x<<13;x^=x>>>17;x^=x<<5;this.rngState=x>>>0;return this.rngState/4294967296;}
  drawHand(){
   this.hintWord=null;
-  const pick=xs=>xs[Math.floor(this.random()*xs.length)];
-  const attack=COMBAT_WORDS.filter(w=>w.tier===2&&w.damage>0&&!['aura','income'].includes(w.type));
-  const short=COMBAT_WORDS.filter(w=>w.tier===2),medium=COMBAT_WORDS.filter(w=>w.tier===3),long=COMBAT_WORDS.filter(w=>w.tier===4);
-  const themed=(list,tier)=>{const roll=this.random();if(roll<.15)return pick((this.random()<.5?LEARNING_EVERYDAY_WORDS:MEANING_HAND_WORDS).filter(w=>w.tier===tier));if(tier===4&&roll<.65)return pick(this.random()<.35?LONG_LEARNING_WORDS:LEARNING_HAND_WORDS);if(roll<(tier===4?.85:.45))return pick(SKILL_HAND_WORDS.filter(w=>w.tier===tier));if(roll<(tier===4?.95:.65))return pick(CULTURE_HAND_WORDS.filter(w=>w.tier===tier));return pick(list);};
-  const starter=pick(attack);
-  const letters=[...starter.word,starter.icon,...themed(short,2).word,...themed(medium,3).word,...themed(long,4).word];
-  const pool=COMBAT_WORDS.flatMap(w=>[...w.word]);
-  while(letters.length<HAND_SIZE)letters.push(pick(pool));
+  const letters=drawHandWords(()=>this.random()).flatMap(word=>[...word]);
   for(let i=letters.length-1;i>0;i--){const j=Math.floor(this.random()*(i+1));[letters[i],letters[j]]=[letters[j],letters[i]];}
   this.hand=letters.map(ch=>({id:++this.handSerial,ch,used:false}));
  }

@@ -2,7 +2,7 @@
   "date": "2026-10-31",
   "baselineCommit": "183f9df7062d92b1d0ba7de2fafa3f4047570693",
   "scope": "All 4088 four-character basic recipes were read as headwords; explicit whole-word decisions below. Unlisted names, terms, generated skill names and fragments stay basic, not asserted to be idioms. This is a lexical screen, not a dictionary definition for every recipe.",
-  "engineHash": "967ed2a3ad45f150c795f4c7e802c5e71da67b058fe880d74101d4e7b3098415",
+  "engineHash": "de4bc92de993a78b0f91ee21d490f60ec2ea7c6afa5bcc693cbb6221f30b4438",
   "specialsHash": "cf1726e3e32988b2691aa8657671cb964741e9d7e8afd098e2c2c59e68100b7b",
   "lexiconHash": "5157c3027356a70c17a0d661ec8dfd1e86cc73465daca1269861b1e8d9ba3721",
   "reviewed": 4088,

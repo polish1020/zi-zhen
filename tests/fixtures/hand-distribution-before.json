@@ -1,0 +1,26 @@
+{
+  "commit": "3884b47fa21da40d53c098d609fcef211353f7b3",
+  "method": "500 seeds 1–500, chapter 1; initial hand plus 3 paid refreshes per seed. Wallet set to 10000 only to permit repeated draw sampling, not for campaign simulation.",
+  "counts": {
+    "samples": 2000,
+    "initialHands": 500,
+    "paidRefreshes": 1500,
+    "qualified": 1693,
+    "qualifiedPct": 84.65,
+    "cheapSingleAvailable": 2000,
+    "uniqueHands": 2000,
+    "distinctGuaranteedWords": 0,
+    "independentSixWordBuilds": 0,
+    "average": {
+      "2": 20.2645,
+      "3": 6.594,
+      "4": 2.268
+    },
+    "minimum": {
+      "2": 4,
+      "3": 1,
+      "4": 1
+    },
+    "examples": []
+  }
+}
