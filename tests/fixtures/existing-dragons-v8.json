@@ -1,0 +1,222 @@
+[
+  {
+    "type": "splash",
+    "icon": "火",
+    "name": "烈焰",
+    "color": "#c56843",
+    "cost": 60,
+    "damage": 21,
+    "range": 145,
+    "rate": 1.26,
+    "tag": "范围伤害",
+    "desc": "朝目标方向喷吐本属性龙息，命中扇面内的多个敌人。",
+    "word": "火龙",
+    "tier": 2,
+    "maxLevel": 4,
+    "aura": 0.35,
+    "income": 10,
+    "trait": "dragon",
+    "runes": [
+      "ember"
+    ],
+    "semanticCycle": 4
+  },
+  {
+    "type": "slow",
+    "icon": "冰",
+    "name": "寒霜",
+    "color": "#659ba7",
+    "cost": 50,
+    "damage": 8,
+    "range": 135,
+    "rate": 0.96,
+    "tag": "减速控制",
+    "desc": "朝目标方向喷吐本属性龙息，命中扇面内的多个敌人。",
+    "word": "冰龙",
+    "tier": 2,
+    "maxLevel": 4,
+    "aura": 0.35,
+    "income": 10,
+    "trait": "dragon",
+    "runes": [
+      "frost"
+    ],
+    "semanticCycle": 4
+  },
+  {
+    "type": "slow",
+    "icon": "冰",
+    "name": "寒霜",
+    "color": "#659ba7",
+    "cost": 50,
+    "damage": 8,
+    "range": 135,
+    "rate": 0.96,
+    "tag": "减速控制",
+    "desc": "朝目标方向喷吐本属性龙息，命中扇面内的多个敌人。",
+    "word": "霜龙",
+    "tier": 2,
+    "maxLevel": 4,
+    "aura": 0.35,
+    "income": 10,
+    "trait": "dragon",
+    "runes": [
+      "frost"
+    ],
+    "semanticCycle": 4
+  },
+  {
+    "type": "chain",
+    "icon": "雷",
+    "name": "雷霆",
+    "color": "#a38a48",
+    "cost": 80,
+    "damage": 30,
+    "range": 170,
+    "rate": 1.3,
+    "tag": "连锁攻击",
+    "desc": "闪电连锁多个敌人，可对空，对护盾造成双倍伤害。",
+    "word": "雷龙",
+    "tier": 2,
+    "maxLevel": 4,
+    "aura": 0.35,
+    "income": 10,
+    "trait": "balanced",
+    "runes": [
+      "storm"
+    ],
+    "semanticCycle": 4
+  },
+  {
+    "type": "chain",
+    "icon": "雷",
+    "name": "雷霆",
+    "color": "#a38a48",
+    "cost": 80,
+    "damage": 30,
+    "range": 170,
+    "rate": 1.3,
+    "tag": "连锁攻击",
+    "desc": "闪电连锁多个敌人，可对空，对护盾造成双倍伤害。",
+    "word": "电龙",
+    "tier": 2,
+    "maxLevel": 4,
+    "aura": 0.35,
+    "income": 10,
+    "trait": "balanced",
+    "runes": [
+      "storm"
+    ],
+    "semanticCycle": 4
+  },
+  {
+    "type": "fast",
+    "icon": "风",
+    "name": "疾风",
+    "color": "#65866d",
+    "cost": 50,
+    "damage": 10,
+    "range": 150,
+    "rate": 0.504,
+    "tag": "高速单体",
+    "desc": "朝目标方向喷吐本属性龙息，命中扇面内的多个敌人。",
+    "word": "风龙",
+    "tier": 2,
+    "maxLevel": 4,
+    "aura": 0.35,
+    "income": 10,
+    "trait": "dragon",
+    "runes": [
+      "brood"
+    ],
+    "semanticCycle": 4
+  },
+  {
+    "type": "pulse",
+    "icon": "水",
+    "name": "潮汐",
+    "color": "#527f9e",
+    "cost": 65,
+    "damage": 17,
+    "range": 135,
+    "rate": 1.45,
+    "tag": "环形震荡",
+    "desc": "以词塔为中心冲击范围内所有敌人，每次最多命中 8 个；可对空。",
+    "word": "水龙",
+    "tier": 2,
+    "maxLevel": 4,
+    "aura": 0.35,
+    "income": 10,
+    "trait": "balanced",
+    "runes": [
+      "brood"
+    ],
+    "semanticCycle": 4
+  },
+  {
+    "type": "heavy",
+    "icon": "石",
+    "name": "山石",
+    "color": "#908176",
+    "cost": 85,
+    "damage": 63,
+    "range": 180,
+    "rate": 1.8,
+    "tag": "破甲重击",
+    "desc": "重击无视墨甲护甲，擅长迎击高血敌人；无法攻击飞行怪。",
+    "word": "石龙",
+    "tier": 2,
+    "maxLevel": 4,
+    "aura": 0.35,
+    "income": 10,
+    "trait": "balanced",
+    "runes": [
+      "gravity"
+    ],
+    "semanticCycle": 4
+  },
+  {
+    "type": "poison",
+    "icon": "毒",
+    "name": "毒瘴",
+    "color": "#8b8a4b",
+    "cost": 65,
+    "damage": 12,
+    "range": 145,
+    "rate": 1.32,
+    "tag": "持续毒伤",
+    "desc": "朝目标方向喷吐本属性龙息，命中扇面内的多个敌人。",
+    "word": "毒龙",
+    "tier": 2,
+    "maxLevel": 4,
+    "aura": 0.35,
+    "income": 10,
+    "trait": "dragon",
+    "runes": [
+      "toxin"
+    ],
+    "semanticCycle": 4
+  },
+  {
+    "type": "income",
+    "icon": "金",
+    "name": "生财",
+    "color": "#b18b44",
+    "cost": 55,
+    "damage": 5,
+    "range": 150,
+    "rate": 1.6,
+    "tag": "点金赏金 · 轮末生财",
+    "desc": "主动攻击并标记赏金 4 秒，目标被任意词塔击杀都额外赚墨；轮末产墨，赏金有每轮上限。",
+    "word": "金龙",
+    "tier": 2,
+    "maxLevel": 4,
+    "aura": 0.35,
+    "income": 10,
+    "trait": "balanced",
+    "runes": [
+      "luck"
+    ],
+    "semanticCycle": 4
+  }
+]

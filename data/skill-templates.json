@@ -461,6 +461,24 @@
       "trait": "rapid",
       "extra": "tempo",
       "suffixFirst": false
+    },
+    "龙": {
+      "school": null,
+      "trait": "dragon",
+      "extra": "valor",
+      "suffixFirst": false,
+      "preserveWords": [
+        "火龙",
+        "冰龙",
+        "霜龙",
+        "雷龙",
+        "电龙",
+        "风龙",
+        "水龙",
+        "石龙",
+        "毒龙",
+        "金龙"
+      ]
     }
   },
   "prefixes": {

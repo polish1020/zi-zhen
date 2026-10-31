@@ -10,7 +10,7 @@ function enemy(g,kind='normal',d=130){const e=g.spawn(kind,d);e.hp=e.maxHp=10000
 function fire(g,t,shot){if(shot!==undefined)t.shots=shot-1;t.cooldown=0;g.attack(t,.01);}
 function isolated(word,run){const w=getWord(word),runes=w.runes,move=w.idiomMove;w.runes=[];w.idiomMove=undefined;try{return run(arena(word));}finally{w.runes=runes;w.idiomMove=move;}}
 test('all authored lessons remain non-ordinary and preserve complete-word meanings',()=>{
- assert.equal(Object.keys(WORD_LEARNING).length,736);assert.equal(Object.values(WORD_LEARNING).filter(l=>l.kind==='idiom').length,480);
+ assert.equal(Object.keys(WORD_LEARNING).length,748);assert.equal(Object.values(WORD_LEARNING).filter(l=>l.kind==='idiom').length,480);
  assert.equal(Object.keys(SPECIAL_EFFECTS).length,80);assert.ok(WORDS.filter(w=>w.special).length>=1300);
  const spellings=Object.values(SPECIAL_GROUPS).flatMap(s=>s.split(/\s+/));assert.equal(new Set(spellings).size,spellings.length);
  for(const word of Object.keys(WORD_LEARNING)){const w=getWord(word);assert.notEqual(w.type,'basic',word);assert.ok(w.special||w.idiomMove,word);assert.ok(SPECIAL_EFFECTS[w.special]||w.idiomMove,word);assert.ok((w.special?traitEffect(w):w.desc+traitEffect(w)).length>25);assert.ok(wordLearning(word).meaning);}
@@ -84,7 +84,7 @@ test('all learning families remain valid in mixed formations containing all 94 e
 // Imported below to keep the family matrix readable.
 import {ENEMIES as enemies} from '../dist/engine.mjs';
 test('version six preserves progress and rejects malformed learning states; v5 converts old injury ratios',()=>{
- const {g,t}=arena('三顾茅庐');add(g,'火球',1);enemy(g);fire(g,t,3);g.damageTower(t,20,g.enemies[0]);const snapshot=JSON.parse(JSON.stringify(g.export())),h=Game.restore(snapshot);assert.equal(h.export().version,8);
+ const {g,t}=arena('三顾茅庐');add(g,'火球',1);enemy(g);fire(g,t,3);g.damageTower(t,20,g.enemies[0]);const snapshot=JSON.parse(JSON.stringify(g.export())),h=Game.restore(snapshot);assert.equal(h.export().version,9);
  for(let i=0;i<30;i++){g.step(.1);h.step(.1);}assert.deepEqual(h.export(),g.export());
  for(const [key,value]of [['lessonPowerUntil',NaN],['lessonShield',1e9],['lessonStreak',6],['lessonTarget',-1],['lessonStored',1]]){const bad=structuredClone(snapshot);bad.towers[0][key]=value;assert.throws(()=>Game.restore(bad),key);}
  // Old 金蝉脱壳 was a gold tower: 420 max durability at starting tier four.

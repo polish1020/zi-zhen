@@ -80,7 +80,7 @@ test('the four seasons produce distinct real effects and retain their sequence a
  assert.deepEqual(glyphs,['春','夏','秋','冬']);const h=Game.restore(JSON.parse(JSON.stringify(g.export())));assert.equal(h.towers[0].idiomCasts,4);h.time+=9;charge(h,h.towers[0]);assert.equal(h.effects.filter(f=>f.kind==='idiom').at(-1).glyph,'春');
 });
 test('frozen v7 saves migrate ordinary, element and learning towers without losing paid investment or injury ratio',()=>{
- for(const f of fixture('idiom-v7.json')){const g=Game.restore(f.data),t=g.towers[0];close(t.hp/towerDefense(t).maxHp,.37);assert.equal(t.spent,f.data.towers[0].spent);assert.equal(t.level,f.data.towers[0].level);assert.equal(g.hp,f.data.hp);assert.equal(g.ink,f.data.ink);assert.deepEqual(g.hand,f.data.hand);assert.equal(g.export().version,8);const h=Game.restore(JSON.parse(JSON.stringify(g.export())));assert.equal(h.towers[0].hp,t.hp);}
+ for(const f of fixture('idiom-v7.json')){const g=Game.restore(f.data),t=g.towers[0];close(t.hp/towerDefense(t).maxHp,.37);assert.equal(t.spent,f.data.towers[0].spent);assert.equal(t.level,f.data.towers[0].level);assert.equal(g.hp,f.data.hp);assert.equal(g.ink,f.data.ink);assert.deepEqual(g.hand,f.data.hand);assert.equal(g.export().version,9);const h=Game.restore(JSON.parse(JSON.stringify(g.export())));assert.equal(h.towers[0].hp,t.hp);}
 });
 test('v6 literal weapon and elemental corrections retain their historical durability rather than the older raw dictionary type',()=>{
  for(const f of fixture('idiom-v6-literals.json')){const g=Game.restore(f.data),t=g.towers[0];close(t.hp/towerDefense(t).maxHp,.37);assert.equal(t.spent,f.data.towers[0].spent);assert.equal(t.level,f.data.towers[0].level);}
@@ -89,7 +89,7 @@ test('old received shields use their historical maximum durability and convert s
  for(const f of fixture('idiom-v7.json')){const old=structuredClone(f.data);old.towers[0].lessonShield=f.maxHp*.1;old.towers[0].lessonShieldUntil=10;const h=Game.restore(old),t=h.towers[0];close(t.lessonShield,towerDefense(t).maxHp*.1);}
 });
 test('future versions, invalid charges and oversized empowerment are rejected while ruins never cast',()=>{
- const{g,t}=arena('canon');enemy(g);const base=g.export();for(const[key,value]of[['idiomCharge',5],['idiomPower',.46],['idiomReadyAt',NaN],['idiomCasts',-1]]){const bad=structuredClone(base);bad.towers[0][key]=value;assert.throws(()=>Game.restore(bad),key);}assert.throws(()=>Game.restore({...base,version:9}));t.hp=0;charge(g,t);assert.equal(t.idiomCasts,undefined);
+ const{g,t}=arena('canon');enemy(g);const base=g.export();for(const[key,value]of[['idiomCharge',5],['idiomPower',.46],['idiomReadyAt',NaN],['idiomCasts',-1]]){const bad=structuredClone(base);bad.towers[0][key]=value;assert.throws(()=>Game.restore(bad),key);}assert.throws(()=>Game.restore({...base,version:10}));t.hp=0;charge(g,t);assert.equal(t.idiomCasts,undefined);
 });
 test('machine volleys retarget after a kill and never generate additional charge for their extra bolts',()=>{
  const{g,t,w}=arena('barrage','游刃有余'),a=enemy(g,336),b=enemy(g,333);a.hp=w.damage*.5;t.idiomCharge=3;const hits=[];

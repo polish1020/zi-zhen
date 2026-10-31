@@ -28,6 +28,7 @@ license_text = read_source(args.license, 'LICENSE')
 supplements = json.loads((ROOT / 'data/vocabulary-supplements.json').read_text(encoding='utf-8'))
 learning = json.loads((ROOT / 'data/learning-idioms.json').read_text(encoding='utf-8'))
 culture = json.loads((ROOT / 'data/cultural-words.json').read_text(encoding='utf-8'))
+culture.update(json.loads((ROOT / 'data/zodiac-words.json').read_text(encoding='utf-8')))
 for word, entry in culture.items():
     assert valid(word) and entry['meaning'] and entry['kind'] in ('idiom', 'phrase', 'word')
     learning[word] = {**learning.get(word, entry), 'culture': True}
@@ -64,6 +65,8 @@ for prefix, rule in templates['prefixes'].items():
     assert 1 <= len(prefix) <= 3 and valid(prefix)
     for suffix, form in templates['suffixes'].items():
         word = prefix + suffix
+        if word in form.get('preserveWords', []):
+            continue
         if len(word) > 4 or prefix == suffix or word == '力量之力' or len(prefix) == 1 and suffix.startswith(prefix):
             continue
         assert valid(word)

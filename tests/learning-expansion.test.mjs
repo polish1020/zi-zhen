@@ -57,5 +57,5 @@ test('rhythm accelerates only while focused; multitalent counts distinct nearby 
  run('festival',4,({g,t,w})=>{add(g,'火球',4);add(g,'冰霜',1);const e=enemy(g);fire(g,t);near(e.maxHp-e.hp,w.damage*1.06);});
 });
 test('v6 golden saves preserve investment, level, random hand and damage ratio when ordinary words become learning',()=>{
- const fixtures=JSON.parse(readFileSync(new URL('./fixtures/learning-v6.json',import.meta.url)));for(const f of fixtures){const g=Game.restore(f.data),t=g.towers[0];near(t.hp/towerDefense(t).maxHp,.37);assert.equal(t.spent,f.data.towers[0].spent);assert.equal(t.level,f.data.towers[0].level);assert.equal(g.ink,f.data.ink);assert.deepEqual(g.hand,f.data.hand);assert.equal(g.export().version,8);const h=Game.restore(JSON.parse(JSON.stringify(g.export())));assert.equal(h.towers[0].hp,t.hp);}
+ const fixtures=JSON.parse(readFileSync(new URL('./fixtures/learning-v6.json',import.meta.url)));for(const f of fixtures){const g=Game.restore(f.data),t=g.towers[0];near(t.hp/towerDefense(t).maxHp,.37);assert.equal(t.spent,f.data.towers[0].spent);assert.equal(t.level,f.data.towers[0].level);assert.equal(g.ink,f.data.ink);assert.deepEqual(g.hand,f.data.hand);assert.equal(g.export().version,9);const h=Game.restore(JSON.parse(JSON.stringify(g.export())));assert.equal(h.towers[0].hp,t.hp);}
 });

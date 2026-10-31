@@ -10,6 +10,8 @@ if not args.reference.exists():
 assert hashlib.sha256(args.reference.read_bytes()).hexdigest()=='1d4b4f454ce1c416d6a1ab2369d6e66c0ff99e04390172eef70790499e21ce19','Reference differs from pinned source'
 ref={x['word']:x['explanation'] for x in json.loads(args.reference.read_text())}
 seed=json.loads((root/'data/idiom-review-seed.json').read_text())
+sweep=json.loads((root/'data/basic-four-review.json').read_text())
+supplement=sweep['entries']
 all_words=json.loads(subprocess.check_output(['node','--input-type=module','-e',"import{WORDS}from'./dist/engine.mjs';console.log(JSON.stringify(WORDS.map(w=>w.word)))"],cwd=root,text=True))
 words={word:{'word':word,'special':seed.get(word)} for word in all_words}
 s=(root/'dist/lexicon.mjs').read_text();raw=set(json.loads(re.search(r'export const IDIOM_WORDS=(".*?")\.split',s).group(1)).split('|'))
@@ -310,7 +312,11 @@ head_rules=[
 ('whole-counter',r'以.{0,1}还|以.{0,1}制|反.{0,1}击|后发|借.{0,1}力','borrow'),
 ]
 head_rules=[(id,re.compile(p),s,move_by_core.get(s,s)) for id,p,s in head_rules]
-natural=[('splash','flame',r'火焰|烈火|燃烧|焚烧|着火|火势|战火'),('slow','frost',r'冰雪|大雪|寒冷|严寒|冰冻|霜雪'),('chain','storm',r'雷声|闪电|雷电|打雷'),('fast','pursuit',r'刮风|风速|大风|和风|狂风'),('pulse','tide',r'波涛|浪涛|水流|流水|河水|江水|海水|洪水|水面|水势'),('poison','toxic',r'毒药|毒气|毒素|毒蛇|中毒|有毒'),('heavy','rampart',r'岩石|山石|石头|崇山|高山|山峰'),('aura','radiance',r'阳光|日光|月光|光芒|星光'),('pierce','precision',r'刀剑|刀枪|兵器|利剑|剑刃'),('income','bounty',r'金银|珠宝|财宝|金钱|钱币')]
+for word,entry in supplement.items():
+ assert word in words and len(word)==4 and entry['kind'] in ('idiom','phrase')
+ overrides[word]={k:v for k,v in entry.items() if k in ('type','special','move')}
+ overrides[word]['rule']='basic-four-whole-word-reviewed'
+ if entry['kind']=='idiom':rejected.pop(word,None)
 byword={};reasons=collections.defaultdict(list)
 ids |= set(overrides)
 for w in sorted(ids):
@@ -357,7 +363,13 @@ additional_lessons={
  '身无长物':'除自身以外没有多余的东西，形容清贫。'
 }
 extra_lessons={w:{'kind':'idiom','group':'常见与易混成语','meaning':meaning,'culture':True} for w,meaning in additional_lessons.items() if w in byword and w not in lessons}
+for word,entry in supplement.items():
+ if entry.get('meaning') and word not in lessons:extra_lessons[word]={'kind':entry['kind'],'group':'四字词复查','meaning':entry['meaning'],'culture':True}
 out={'sources':[{'repository':'pwxcoo/chinese-xinhua','commit':'fe6d6c2e8baa82187f4c96bbe042e43f96c05666','license':'MIT','use':'Reference meanings for classification; source explanations not redistributed.'}],'lessons':extra_lessons,'rejected':rejected,'groups':{k:' '.join(v) for k,v in sorted(groups.items())},'reviewRules':{k:' '.join(v) for k,v in sorted(reasons.items())},'wholeWordCorrections':overrides,'confirmed':' '.join(sorted(w for w in byword if w not in rejected and (w in ref or w in overrides or (w in raw and words.get(w,{}).get('special')) or lessons.get(w,{}).get('kind')=='idiom'))),'counts':{'sourceTagged':len(raw),'classified':len(byword),'referenceMatched':sum(w in ref for w in byword),'types':dict(collections.Counter(p['type'] for p in byword.values())),'canon':sum(p.get('special')=='canon' for p in byword.values())}}
+out['confirmed']=' '.join(sorted(w for w in out['confirmed'].split() if w not in supplement or supplement[w]['kind']=='idiom'))
+out['basicFourCorrections']=sorted(supplement)
+out['basicFourReview']={'baselineCommit':sweep['baselineCommit'],'reviewed':len(sweep['baselineWords'].split()),'reclassified':len(supplement),'idioms':sum(e['kind']=='idiom' for e in supplement.values()),'phrases':sum(e['kind']=='phrase' for e in supplement.values())}
+out['additionalLearning']={word:entry['special'] for word,entry in json.loads((root/'data/zodiac-words.json').read_text()).items()}
 content=json.dumps(out,ensure_ascii=False,indent=2)+'\n'
 if args.check:assert (root/'data/idiom-review.json').read_text()==content,'Review catalog needs rebuilding'
 else:(root/'data/idiom-review.json').write_text(content)

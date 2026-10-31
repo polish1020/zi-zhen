@@ -1,0 +1,86 @@
+{
+  "子鼠": {
+    "special": "beast",
+    "kind": "word",
+    "group": "十二生肖",
+    "meaning": "十二生肖中的鼠，与十二地支中的“子”相配。",
+    "culture": true
+  },
+  "丑牛": {
+    "special": "beast",
+    "kind": "word",
+    "group": "十二生肖",
+    "meaning": "十二生肖中的牛，与十二地支中的“丑”相配。",
+    "culture": true
+  },
+  "寅虎": {
+    "special": "beast",
+    "kind": "word",
+    "group": "十二生肖",
+    "meaning": "十二生肖中的虎，与十二地支中的“寅”相配。",
+    "culture": true
+  },
+  "卯兔": {
+    "special": "beast",
+    "kind": "word",
+    "group": "十二生肖",
+    "meaning": "十二生肖中的兔，与十二地支中的“卯”相配。",
+    "culture": true
+  },
+  "辰龙": {
+    "special": "beast",
+    "kind": "word",
+    "group": "十二生肖",
+    "meaning": "十二生肖中的龙，与十二地支中的“辰”相配。",
+    "culture": true
+  },
+  "巳蛇": {
+    "special": "beast",
+    "kind": "word",
+    "group": "十二生肖",
+    "meaning": "十二生肖中的蛇，与十二地支中的“巳”相配。",
+    "culture": true
+  },
+  "午马": {
+    "special": "beast",
+    "kind": "word",
+    "group": "十二生肖",
+    "meaning": "十二生肖中的马，与十二地支中的“午”相配。",
+    "culture": true
+  },
+  "未羊": {
+    "special": "beast",
+    "kind": "word",
+    "group": "十二生肖",
+    "meaning": "十二生肖中的羊，与十二地支中的“未”相配。",
+    "culture": true
+  },
+  "申猴": {
+    "special": "beast",
+    "kind": "word",
+    "group": "十二生肖",
+    "meaning": "十二生肖中的猴，与十二地支中的“申”相配。",
+    "culture": true
+  },
+  "酉鸡": {
+    "special": "beast",
+    "kind": "word",
+    "group": "十二生肖",
+    "meaning": "十二生肖中的鸡，与十二地支中的“酉”相配。",
+    "culture": true
+  },
+  "戌狗": {
+    "special": "beast",
+    "kind": "word",
+    "group": "十二生肖",
+    "meaning": "十二生肖中的狗，与十二地支中的“戌”相配。",
+    "culture": true
+  },
+  "亥猪": {
+    "special": "beast",
+    "kind": "word",
+    "group": "十二生肖",
+    "meaning": "十二生肖中的猪，与十二地支中的“亥”相配。",
+    "culture": true
+  }
+}

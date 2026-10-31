@@ -1,36 +1,36 @@
 {
-  "newLearningWords": 23325,
+  "newLearningWords": 24037,
   "newByLength": {
     "1": 2,
-    "2": 978,
+    "2": 990,
     "3": 62,
-    "4": 22283
+    "4": 22983
   },
-  "specialsHash": "9f3d6a1d7b2ec1755ed6e10cc517150bb265e1e9c6f5cba1253aa5b67e6381f8",
-  "totalWords": 107488,
-  "learningWords": 24652,
-  "lessonWords": 802,
-  "lessonIdioms": 546,
-  "learningWithoutLesson": 23868,
+  "specialsHash": "cf1726e3e32988b2691aa8657671cb964741e9d7e8afd098e2c2c59e68100b7b",
+  "totalWords": 107617,
+  "learningWords": 25364,
+  "lessonWords": 852,
+  "lessonIdioms": 574,
+  "learningWithoutLesson": 24530,
   "families": 80,
   "attributes": {
-    "splash": 825,
-    "learning": 24652,
-    "slow": 679,
-    "chain": 638,
-    "fast": 851,
-    "heavy": 2209,
-    "aura": 2121,
-    "poison": 495,
-    "sniper": 275,
-    "income": 898,
-    "pierce": 3407,
-    "pulse": 1128,
-    "mark": 964,
-    "echo": 476,
-    "basic": 67870
+    "splash": 837,
+    "learning": 25364,
+    "slow": 687,
+    "chain": 642,
+    "fast": 859,
+    "heavy": 2221,
+    "aura": 2140,
+    "poison": 502,
+    "sniper": 277,
+    "income": 900,
+    "pierce": 3412,
+    "pulse": 1136,
+    "mark": 966,
+    "echo": 485,
+    "basic": 67189
   },
-  "engineHash": "3f97be20745230d40ed27ca21dcdd11124bb041badb24154c22d8d950f30066e",
+  "engineHash": "2c2fd9bafabb951be0c64b5705cab5dddb757720bc26567628b1213b631d26ba",
   "examples": [
     {
       "word": "冰清玉洁",
@@ -248,18 +248,25 @@
       ]
     }
   ],
+  "basicFourReview": {
+    "baselineCommit": "183f9df7062d92b1d0ba7de2fafa3f4047570693",
+    "reviewed": 4088,
+    "reclassified": 703,
+    "idioms": 248,
+    "phrases": 455
+  },
   "previousReleaseLearningWords": 3429,
   "chargedMoves": 39,
-  "confirmedIdioms": 15026,
+  "confirmedIdioms": 15274,
   "confirmedBasicIdioms": 0,
-  "reviewedHeadwords": 15026,
-  "routedCandidates": 22853,
-  "unconfirmedRoutedPhrases": 7827,
-  "excludedLabels": 81,
+  "reviewedHeadwords": 15274,
+  "routedCandidates": 23556,
+  "unconfirmedRoutedPhrases": 8282,
+  "excludedLabels": 80,
   "genericCanon": 10042,
   "confirmedGenericCanon": 2647,
   "lessonTypes": {
-    "learning": 784,
+    "learning": 834,
     "slow": 7,
     "aura": 2,
     "chain": 2,
@@ -1516,6 +1523,714 @@
         "狐虎之威",
         "表里为奸",
         "里勾外连"
+      ]
+    },
+    "basic-four-whole-word-reviewed": {
+      "count": 703,
+      "words": [
+        "一一对应",
+        "一丁点儿",
+        "一不小心",
+        "一专多能",
+        "一刻不停",
+        "一动不动",
+        "一古脑儿",
+        "一声不吭",
+        "一声不响",
+        "一声令下",
+        "一大家子",
+        "一天到晚",
+        "一字一顿",
+        "一字不差",
+        "一字排开",
+        "一家一户",
+        "一年到头",
+        "一年四季",
+        "一拖再拖",
+        "一招一式",
+        "一日三餐",
+        "一步到位",
+        "一派胡言",
+        "一点一点",
+        "一老一少",
+        "一股劲儿",
+        "一言未发",
+        "一闪而过",
+        "一阵一阵",
+        "三天三夜",
+        "上上下下",
+        "上下左右",
+        "下不了台",
+        "下定决心",
+        "不值一提",
+        "不出意外",
+        "不可估量",
+        "不可分割",
+        "不可或缺",
+        "不可避免",
+        "不在少数",
+        "不复存在",
+        "不大不小",
+        "不安全感",
+        "不宣而战",
+        "不容乐观",
+        "不容忽视",
+        "不怕牺牲",
+        "不思进取",
+        "不懈努力",
+        "不无关系",
+        "不期而至",
+        "不眠之夜",
+        "不瞒你说",
+        "不过如此",
+        "与时俱进",
+        "与此同时",
+        "与生俱来",
+        "且战且退",
+        "世世代代",
+        "世代交替",
+        "世代相传",
+        "世纪之交",
+        "东南西北",
+        "丝丝缕缕",
+        "丝绸之路",
+        "严严实实",
+        "中规中矩",
+        "临场发挥",
+        "为之一振",
+        "为之动容",
+        "为我所用",
+        "为数不多",
+        "为数不少",
+        "为数众多",
+        "为数甚少",
+        "为时尚早",
+        "为时已晚",
+        "为时过早",
+        "举步维艰",
+        "久治不愈",
+        "乒乒乓乓",
+        "争论不休",
+        "事业有成",
+        "事关重大",
+        "事到临头",
+        "二十四史",
+        "二话没说",
+        "互不侵犯",
+        "互不相让",
+        "亟待解决",
+        "享有盛誉",
+        "亲亲热热",
+        "亲眼目睹",
+        "人头攒动",
+        "人心浮动",
+        "人海战术",
+        "人烟稀少",
+        "仅此而已",
+        "从今以后",
+        "从古到今",
+        "从古至今",
+        "从始至终",
+        "从小到大",
+        "从早到晚",
+        "从此以后",
+        "仔仔细细",
+        "付诸实施",
+        "付诸实践",
+        "令人不安",
+        "令人不解",
+        "令人信服",
+        "令人感动",
+        "令人担心",
+        "令人担忧",
+        "令人振奋",
+        "令人满意",
+        "令人生畏",
+        "令人羡慕",
+        "以人为本",
+        "以次充好",
+        "仰天大笑",
+        "仰天长叹",
+        "伤痕累累",
+        "位高权重",
+        "低级趣味",
+        "体弱多病",
+        "你来我往",
+        "供大于求",
+        "依此类推",
+        "依稀可见",
+        "值得一提",
+        "假以时日",
+        "假冒伪劣",
+        "傻里傻气",
+        "儒林外史",
+        "充分发挥",
+        "党纪国法",
+        "全副武装",
+        "全权代表",
+        "公款吃喝",
+        "共同语言",
+        "关税壁垒",
+        "兴旺发达",
+        "兴衰成败",
+        "再进一步",
+        "冥冥之中",
+        "冬暖夏凉",
+        "准确无误",
+        "减员增效",
+        "几经周折",
+        "凹凸不平",
+        "出出进进",
+        "出门在外",
+        "切切实实",
+        "切实可行",
+        "初具规模",
+        "别具特色",
+        "别无选择",
+        "到此为止",
+        "前一阵子",
+        "前途无量",
+        "加班加点",
+        "动手动脚",
+        "动摇不定",
+        "勇挑重担",
+        "勤工俭学",
+        "勤工助学",
+        "勾勾搭搭",
+        "匆匆忙忙",
+        "化为灰烬",
+        "化敌为友",
+        "十二生肖",
+        "升级换代",
+        "半工半读",
+        "原汁原味",
+        "又惊又喜",
+        "受益匪浅",
+        "变法维新",
+        "古里古怪",
+        "叮叮当当",
+        "可圈可点",
+        "可怜兮兮",
+        "可怜巴巴",
+        "叽叽喳喳",
+        "叽哩咕噜",
+        "吃吃喝喝",
+        "吃喝嫖赌",
+        "各具特色",
+        "各家各户",
+        "各种各样",
+        "各行各业",
+        "合不拢嘴",
+        "同工同酬",
+        "名留青史",
+        "含含糊糊",
+        "吵吵嚷嚷",
+        "吵吵闹闹",
+        "告一段落",
+        "呐喊助威",
+        "呼哧呼哧",
+        "和和气气",
+        "咕咚咕咚",
+        "咯吱咯吱",
+        "咿咿呀呀",
+        "哈哈大笑",
+        "哗啦哗啦",
+        "嘟嘟囔囔",
+        "嘻嘻哈哈",
+        "噼噼啪啪",
+        "噼里啪啦",
+        "囊中之物",
+        "四四方方",
+        "四季如春",
+        "四季常青",
+        "困难重重",
+        "图文并茂",
+        "坑坑洼洼",
+        "声名显赫",
+        "处理不当",
+        "多吃多占",
+        "多多少少",
+        "多种多样",
+        "大不一样",
+        "大事化小",
+        "大作文章",
+        "大包大揽",
+        "大可不必",
+        "大吃大喝",
+        "大吵大闹",
+        "大大小小",
+        "大大方方",
+        "大干一场",
+        "大年三十",
+        "大年初一",
+        "大有益处",
+        "大汗淋漓",
+        "大队人马",
+        "大饱眼福",
+        "天下大治",
+        "天人合一",
+        "天文数字",
+        "天赐良机",
+        "太太平平",
+        "头脑发热",
+        "奋发努力",
+        "奋发向上",
+        "奋发进取",
+        "女扮男装",
+        "好不容易",
+        "好久好久",
+        "好人好事",
+        "好吃好喝",
+        "好言相劝",
+        "如此这般",
+        "委以重任",
+        "委决不下",
+        "娓娓道来",
+        "婉言谢绝",
+        "婚丧嫁娶",
+        "子孙后代",
+        "孤儿寡母",
+        "孤孤单单",
+        "孰不可忍",
+        "安安静静",
+        "安定团结",
+        "官复原职",
+        "实实在在",
+        "实话实说",
+        "客客气气",
+        "密不可分",
+        "密切相关",
+        "密密匝匝",
+        "密密麻麻",
+        "寓教于乐",
+        "寝食难安",
+        "对号入座",
+        "小打小闹",
+        "小本生意",
+        "少男少女",
+        "尽收眼底",
+        "层层叠叠",
+        "居高不下",
+        "屡禁不止",
+        "屡败屡战",
+        "左右两座",
+        "左膀右臂",
+        "师生员工",
+        "常抓不懈",
+        "平平安安",
+        "平平整整",
+        "平平淡淡",
+        "平平静静",
+        "平民百姓",
+        "平等互利",
+        "年久失修",
+        "年代久远",
+        "年幼无知",
+        "年老体弱",
+        "年轻有为",
+        "年轻气盛",
+        "并肩作战",
+        "幸免于难",
+        "广为流传",
+        "开拓进取",
+        "异国他乡",
+        "引人关注",
+        "引以为豪",
+        "弯弯曲曲",
+        "强强联合",
+        "强身健体",
+        "形同虚设",
+        "形式多样",
+        "形态各异",
+        "德智体美",
+        "必不可少",
+        "必不可缺",
+        "忠君爱国",
+        "忽隐忽现",
+        "思来想去",
+        "急急忙忙",
+        "恍恍惚惚",
+        "恭恭敬敬",
+        "恰恰相反",
+        "情急之下",
+        "情理之中",
+        "想想也是",
+        "愈演愈烈",
+        "意料之中",
+        "慌里慌张",
+        "慎之又慎",
+        "或多或少",
+        "所到之处",
+        "扎扎实实",
+        "扑面而来",
+        "打打闹闹",
+        "打道回府",
+        "扭亏为盈",
+        "扶贫帮困",
+        "拍手叫好",
+        "拥军优属",
+        "拾级而上",
+        "拿来主义",
+        "挥之不去",
+        "携起手来",
+        "摇摆不定",
+        "摇摇摆摆",
+        "摇摇晃晃",
+        "摸爬滚打",
+        "撒手不管",
+        "撕心裂肺",
+        "擦肩而过",
+        "擦身而过",
+        "收效甚微",
+        "放下屠刀",
+        "敌强我弱",
+        "救命之恩",
+        "救命稻草",
+        "救国救民",
+        "教书育人",
+        "数以万计",
+        "数以千计",
+        "数以百计",
+        "整齐划一",
+        "文景之治",
+        "文武百官",
+        "文责自负",
+        "新年伊始",
+        "新科状元",
+        "新老交替",
+        "方方面面",
+        "无一例外",
+        "无从下手",
+        "无休无止",
+        "无利可图",
+        "无力回天",
+        "无可争议",
+        "无可挑剔",
+        "无可辩驳",
+        "无处不在",
+        "无话可说",
+        "无路可走",
+        "旱涝保收",
+        "时好时坏",
+        "时断时续",
+        "时时刻刻",
+        "时时处处",
+        "映入眼帘",
+        "春夏秋冬",
+        "晃晃悠悠",
+        "智者见智",
+        "曲曲折折",
+        "更新换代",
+        "有两下子",
+        "有何不可",
+        "有史以来",
+        "有备而来",
+        "有感而发",
+        "有所不同",
+        "有权有势",
+        "有滋有味",
+        "有理有据",
+        "有理有节",
+        "有难同当",
+        "有高有低",
+        "朦朦胧胧",
+        "木牛流马",
+        "本草纲目",
+        "杀出重围",
+        "杂草丛生",
+        "松松垮垮",
+        "标本兼治",
+        "榜上有名",
+        "模模糊糊",
+        "模糊不清",
+        "此时此刻",
+        "歪歪扭扭",
+        "歪歪斜斜",
+        "死记硬背",
+        "死路一条",
+        "残酷无情",
+        "毋庸置疑",
+        "每时每刻",
+        "毫不动摇",
+        "毫不在乎",
+        "毫不客气",
+        "毫不犹豫",
+        "毫不留情",
+        "毫不相干",
+        "毫不费力",
+        "毫不迟疑",
+        "毫无办法",
+        "毫无用处",
+        "毫无疑问",
+        "毫无道理",
+        "毫无顾忌",
+        "气数已尽",
+        "永恒不变",
+        "汉语拼音",
+        "江河湖海",
+        "没上没下",
+        "没事找事",
+        "没心没肺",
+        "没着没落",
+        "活字印刷",
+        "活血化瘀",
+        "流于形式",
+        "淅淅沥沥",
+        "深有感触",
+        "清晰可见",
+        "清清楚楚",
+        "清澈见底",
+        "温暖如春",
+        "游人如织",
+        "满头大汗",
+        "满汉全席",
+        "满满当当",
+        "满腔热情",
+        "滥杀无辜",
+        "滴滴答答",
+        "漂漂亮亮",
+        "激动不已",
+        "激动人心",
+        "点点滴滴",
+        "热情奔放",
+        "热热闹闹",
+        "燎原之势",
+        "爱理不理",
+        "父老乡亲",
+        "父老兄弟",
+        "爽爽快快",
+        "牟取暴利",
+        "物有所值",
+        "牵线搭桥",
+        "犹犹豫豫",
+        "犹豫不定",
+        "独具一格",
+        "独具特色",
+        "环环相扣",
+        "瓶瓶罐罐",
+        "生儿育女",
+        "生意兴隆",
+        "生机盎然",
+        "生长之力",
+        "由下而上",
+        "由小到大",
+        "由此可知",
+        "由此可见",
+        "由此看来",
+        "男女平等",
+        "男男女女",
+        "畏畏缩缩",
+        "疏忽大意",
+        "疏疏落落",
+        "疯疯癫癫",
+        "痛下决心",
+        "痛痛快快",
+        "痴痴呆呆",
+        "的的确确",
+        "皮包骨头",
+        "相去甚远",
+        "相形之下",
+        "相比之下",
+        "相距甚远",
+        "真抓实干",
+        "真真假假",
+        "睦邻友好",
+        "知之甚少",
+        "破破烂烂",
+        "硬着头皮",
+        "确定无疑",
+        "确确实实",
+        "碰碰运气",
+        "磕磕碰碰",
+        "磕磕绊绊",
+        "磨磨蹭蹭",
+        "祖祖辈辈",
+        "神神秘秘",
+        "神秘莫测",
+        "科学技术",
+        "科教兴国",
+        "科教兴市",
+        "积极向上",
+        "积贫积弱",
+        "稀稀拉拉",
+        "稀稀落落",
+        "稀里哗啦",
+        "稀里糊涂",
+        "稍有不慎",
+        "稳中有升",
+        "稳中求进",
+        "空空洞洞",
+        "空空荡荡",
+        "站不住脚",
+        "笑容满面",
+        "笨手笨脚",
+        "简便易行",
+        "简单易行",
+        "简简单单",
+        "简而言之",
+        "粗声粗气",
+        "紧要关头",
+        "红得发紫",
+        "红极一时",
+        "细声细气",
+        "经世致用",
+        "经久不衰",
+        "经典之作",
+        "经营不善",
+        "结结实实",
+        "统一战线",
+        "统揽全局",
+        "统购统销",
+        "综合治理",
+        "缚手缚脚",
+        "美其名曰",
+        "羞羞答答",
+        "群体治愈",
+        "群体治疗",
+        "群情激愤",
+        "老大不小",
+        "老弱病残",
+        "老老实实",
+        "老老少少",
+        "聊斋志异",
+        "胜券在握",
+        "腰酸背痛",
+        "自上而下",
+        "自下而上",
+        "自作多情",
+        "自古以来",
+        "自学成才",
+        "自成一体",
+        "自我批评",
+        "自查自纠",
+        "自说自话",
+        "自负盈亏",
+        "至关紧要",
+        "至关重要",
+        "舒舒服服",
+        "节节胜利",
+        "节节败退",
+        "英年早逝",
+        "英雄好汉",
+        "荆棘护甲",
+        "荆棘缠绕",
+        "莘莘学子",
+        "莞尔一笑",
+        "获益匪浅",
+        "菩萨心肠",
+        "落到实处",
+        "蔚为壮观",
+        "血本无归",
+        "血肉之躯",
+        "血肉模糊",
+        "行侠仗义",
+        "见不得人",
+        "见好就收",
+        "规章制度",
+        "规规矩矩",
+        "认认真真",
+        "许多许多",
+        "许许多多",
+        "详详细细",
+        "说一是一",
+        "说不过去",
+        "说到做到",
+        "说得过去",
+        "说法不一",
+        "说老实话",
+        "说说笑笑",
+        "诸多不便",
+        "象形文字",
+        "贞观之治",
+        "资不抵债",
+        "资治通鉴",
+        "资源共享",
+        "资源分配",
+        "赔礼道歉",
+        "走下坡路",
+        "走回头路",
+        "走街串巷",
+        "走走停停",
+        "跌宕起伏",
+        "跌跌撞撞",
+        "踏踏实实",
+        "躁动不安",
+        "身心健康",
+        "轰轰隆隆",
+        "轰隆轰隆",
+        "轻轻松松",
+        "辛辛苦苦",
+        "辞旧迎新",
+        "过意不去",
+        "迎面而来",
+        "近在眼前",
+        "还施彼身",
+        "进进出出",
+        "远远近近",
+        "远道而来",
+        "连成一片",
+        "迟迟疑疑",
+        "迷迷糊糊",
+        "适者生存",
+        "适销对路",
+        "透不过气",
+        "逢年过节",
+        "遮遮掩掩",
+        "里里外外",
+        "重中之重",
+        "重重包围",
+        "重重叠叠",
+        "铭记在心",
+        "锐意进取",
+        "长久以来",
+        "长大成人",
+        "长盛不衰",
+        "闪闪烁烁",
+        "闷声不响",
+        "闻名中外",
+        "闻名于世",
+        "防御工事",
+        "阳刚之气",
+        "阴雨连绵",
+        "陆海空军",
+        "陆陆续续",
+        "陶冶性情",
+        "随之而来",
+        "随处可见",
+        "隐隐作痛",
+        "隔三差五",
+        "难以忍受",
+        "难以想象",
+        "难得一见",
+        "集大成者",
+        "零零碎碎",
+        "零零落落",
+        "青春年少",
+        "非同一般",
+        "面带微笑",
+        "领军人物",
+        "颇具规模",
+        "颇负盛名",
+        "题海战术",
+        "颤颤巍巍",
+        "食欲不振",
+        "饶有兴致",
+        "饶有兴趣",
+        "首战告捷",
+        "香气扑鼻",
+        "骂骂咧咧",
+        "高温多雨",
+        "高高低低",
+        "鸡皮疙瘩",
+        "黄帝内经",
+        "黎民百姓",
+        "黑咕隆咚",
+        "黑色幽默",
+        "鼎盛时期",
+        "鼓足干劲",
+        "齐抓共管",
+        "齐民要术",
+        "龙头老大"
       ]
     },
     "binding": {
@@ -26004,6 +26719,4221 @@
       "special": "seasons",
       "move": "seasons",
       "rule": "whole-word-reviewed"
+    },
+    "一一对应": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一丁点儿": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一不小心": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一专多能": {
+      "type": "learning",
+      "special": "festival",
+      "move": "festival",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一刻不停": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一动不动": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一古脑儿": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一声不吭": {
+      "type": "learning",
+      "special": "silence",
+      "move": "silence",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一声不响": {
+      "type": "learning",
+      "special": "silence",
+      "move": "silence",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一声令下": {
+      "type": "learning",
+      "special": "rally",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一大家子": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一天到晚": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一字一顿": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一字不差": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一字排开": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一家一户": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一年到头": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一年四季": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一拖再拖": {
+      "type": "learning",
+      "special": "patient",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一招一式": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一日三餐": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一步到位": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一派胡言": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一点一点": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一老一少": {
+      "type": "learning",
+      "special": "volley",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一股劲儿": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一言未发": {
+      "type": "learning",
+      "special": "silence",
+      "move": "silence",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一闪而过": {
+      "type": "learning",
+      "special": "swift",
+      "move": "pursuit",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "一阵一阵": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "三天三夜": {
+      "type": "learning",
+      "special": "patient",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "上上下下": {
+      "type": "learning",
+      "special": "volley",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "上下左右": {
+      "type": "learning",
+      "special": "volley",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "下不了台": {
+      "type": "learning",
+      "special": "escape",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "下定决心": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不值一提": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不出意外": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不可估量": {
+      "type": "learning",
+      "special": "charge",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不可分割": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不可或缺": {
+      "type": "learning",
+      "special": "charge",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不可避免": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不在少数": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不复存在": {
+      "type": "learning",
+      "special": "finish",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不大不小": {
+      "type": "learning",
+      "special": "double",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不安全感": {
+      "type": "learning",
+      "special": "charge",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不宣而战": {
+      "type": "learning",
+      "special": "charge",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不容乐观": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不容忽视": {
+      "type": "learning",
+      "special": "patient",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不怕牺牲": {
+      "type": "learning",
+      "special": "steadfast",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不思进取": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不懈努力": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不无关系": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不期而至": {
+      "type": "learning",
+      "special": "ambush",
+      "move": "ambush",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不眠之夜": {
+      "type": "learning",
+      "special": "patient",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不瞒你说": {
+      "type": "learning",
+      "special": "dawn",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "不过如此": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "与时俱进": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "与此同时": {
+      "type": "learning",
+      "special": "reversal",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "与生俱来": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "且战且退": {
+      "type": "learning",
+      "special": "escape",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "世世代代": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "世代交替": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "世代相传": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "世纪之交": {
+      "type": "learning",
+      "special": "seasons",
+      "move": "seasons",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "东南西北": {
+      "type": "learning",
+      "special": "volley",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "丝丝缕缕": {
+      "type": "learning",
+      "special": "roots",
+      "move": "roots",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "丝绸之路": {
+      "type": "learning",
+      "special": "relay",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "严严实实": {
+      "type": "learning",
+      "special": "bulwark",
+      "move": "rampart",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "中规中矩": {
+      "type": "learning",
+      "special": "steadfast",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "临场发挥": {
+      "type": "learning",
+      "special": "adapt",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "为之一振": {
+      "type": "learning",
+      "special": "inspire",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "为之动容": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "为我所用": {
+      "type": "learning",
+      "special": "borrow",
+      "move": "borrow",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "为数不多": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "为数不少": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "为数众多": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "为数甚少": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "为时尚早": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "为时已晚": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "为时过早": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "举步维艰": {
+      "type": "learning",
+      "special": "resolve",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "久治不愈": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "乒乒乓乓": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "争论不休": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "事业有成": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "事关重大": {
+      "type": "learning",
+      "special": "charge",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "事到临头": {
+      "type": "learning",
+      "special": "charge",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "二十四史": {
+      "type": "learning",
+      "special": "insight",
+      "move": "insight",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "二话没说": {
+      "type": "learning",
+      "special": "swift",
+      "move": "pursuit",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "互不侵犯": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "互不相让": {
+      "type": "learning",
+      "special": "cross",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "亟待解决": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "享有盛誉": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "亲亲热热": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "亲眼目睹": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "人头攒动": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "人心浮动": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "人海战术": {
+      "type": "learning",
+      "special": "legion",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "人烟稀少": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "仅此而已": {
+      "type": "learning",
+      "special": "precision",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "从今以后": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "从古到今": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "从古至今": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "从始至终": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "从小到大": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "从早到晚": {
+      "type": "learning",
+      "special": "patient",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "从此以后": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "仔仔细细": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "付诸实施": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "付诸实践": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "令人不安": {
+      "type": "learning",
+      "special": "escape",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "令人不解": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "令人信服": {
+      "type": "learning",
+      "special": "inspire",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "令人感动": {
+      "type": "learning",
+      "special": "inspire",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "令人担心": {
+      "type": "learning",
+      "special": "escape",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "令人担忧": {
+      "type": "learning",
+      "special": "escape",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "令人振奋": {
+      "type": "learning",
+      "special": "inspire",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "令人满意": {
+      "type": "learning",
+      "special": "inspire",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "令人生畏": {
+      "type": "learning",
+      "special": "escape",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "令人羡慕": {
+      "type": "learning",
+      "special": "inspire",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "以人为本": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "以次充好": {
+      "type": "learning",
+      "special": "decoy",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "仰天大笑": {
+      "type": "learning",
+      "special": "inspire",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "仰天长叹": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "伤痕累累": {
+      "type": "learning",
+      "special": "reversal",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "位高权重": {
+      "type": "learning",
+      "special": "rally",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "低级趣味": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "体弱多病": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "你来我往": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "供大于求": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "依此类推": {
+      "type": "learning",
+      "special": "insight",
+      "move": "insight",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "依稀可见": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "值得一提": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "假以时日": {
+      "type": "learning",
+      "special": "patient",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "假冒伪劣": {
+      "type": "learning",
+      "special": "decoy",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "傻里傻气": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "儒林外史": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "充分发挥": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "党纪国法": {
+      "type": "learning",
+      "special": "steadfast",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "全副武装": {
+      "type": "learning",
+      "special": "bulwark",
+      "move": "rampart",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "全权代表": {
+      "type": "learning",
+      "special": "charge",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "公款吃喝": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "共同语言": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "关税壁垒": {
+      "type": "learning",
+      "special": "bulwark",
+      "move": "rampart",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "兴旺发达": {
+      "type": "learning",
+      "special": "fortune",
+      "move": "bounty",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "兴衰成败": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "再进一步": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "冥冥之中": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "冬暖夏凉": {
+      "type": "learning",
+      "special": "seasons",
+      "move": "seasons",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "准确无误": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "减员增效": {
+      "type": "learning",
+      "special": "fortune",
+      "move": "bounty",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "几经周折": {
+      "type": "learning",
+      "special": "resolve",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "凹凸不平": {
+      "type": "learning",
+      "special": "geometry",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "出出进进": {
+      "type": "learning",
+      "special": "swift",
+      "move": "pursuit",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "出门在外": {
+      "type": "learning",
+      "special": "far",
+      "move": "pursuit",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "切切实实": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "切实可行": {
+      "type": "learning",
+      "special": "adapt",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "初具规模": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "别具特色": {
+      "type": "learning",
+      "special": "festival",
+      "move": "festival",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "别无选择": {
+      "type": "learning",
+      "special": "resolve",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "到此为止": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "前一阵子": {
+      "type": "learning",
+      "special": "patient",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "前途无量": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "加班加点": {
+      "type": "learning",
+      "special": "swift",
+      "move": "pursuit",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "动手动脚": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "动摇不定": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "勇挑重担": {
+      "type": "learning",
+      "special": "resolve",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "勤工俭学": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "勤工助学": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "勾勾搭搭": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "匆匆忙忙": {
+      "type": "learning",
+      "special": "swift",
+      "move": "pursuit",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "化为灰烬": {
+      "type": "learning",
+      "special": "finish",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "化敌为友": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "十二生肖": {
+      "type": "learning",
+      "special": "seasons",
+      "move": "seasons",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "升级换代": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "半工半读": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "原汁原味": {
+      "type": "learning",
+      "special": "precision",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "又惊又喜": {
+      "type": "learning",
+      "special": "inspire",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "受益匪浅": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "变法维新": {
+      "type": "learning",
+      "special": "reversal",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "古里古怪": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "叮叮当当": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "可圈可点": {
+      "type": "learning",
+      "special": "festival",
+      "move": "festival",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "可怜兮兮": {
+      "type": "learning",
+      "special": "escape",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "可怜巴巴": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "叽叽喳喳": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "叽哩咕噜": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "吃吃喝喝": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "吃喝嫖赌": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "各具特色": {
+      "type": "learning",
+      "special": "festival",
+      "move": "festival",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "各家各户": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "各种各样": {
+      "type": "learning",
+      "special": "festival",
+      "move": "festival",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "各行各业": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "合不拢嘴": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "同工同酬": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "名留青史": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "含含糊糊": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "吵吵嚷嚷": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "吵吵闹闹": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "告一段落": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "呐喊助威": {
+      "type": "learning",
+      "special": "inspire",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "呼哧呼哧": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "和和气气": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "咕咚咕咚": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "咯吱咯吱": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "咿咿呀呀": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "哈哈大笑": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "哗啦哗啦": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "嘟嘟囔囔": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "嘻嘻哈哈": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "噼噼啪啪": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "噼里啪啦": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "囊中之物": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "四四方方": {
+      "type": "learning",
+      "special": "geometry",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "四季如春": {
+      "type": "learning",
+      "special": "seasons",
+      "move": "seasons",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "四季常青": {
+      "type": "learning",
+      "special": "seasons",
+      "move": "seasons",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "困难重重": {
+      "type": "learning",
+      "special": "resolve",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "图文并茂": {
+      "type": "learning",
+      "special": "blast",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "坑坑洼洼": {
+      "type": "learning",
+      "special": "geometry",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "声名显赫": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "处理不当": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "多吃多占": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "多多少少": {
+      "type": "learning",
+      "special": "double",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "多种多样": {
+      "type": "learning",
+      "special": "festival",
+      "move": "festival",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "大不一样": {
+      "type": "learning",
+      "special": "double",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "大事化小": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "大作文章": {
+      "type": "learning",
+      "special": "blast",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "大包大揽": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "大可不必": {
+      "type": "learning",
+      "special": "patient",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "大吃大喝": {
+      "type": "learning",
+      "special": "wrath",
+      "move": "wrath",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "大吵大闹": {
+      "type": "learning",
+      "special": "wrath",
+      "move": "wrath",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "大大小小": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "大大方方": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "大干一场": {
+      "type": "learning",
+      "special": "charge",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "大年三十": {
+      "type": "learning",
+      "special": "seasons",
+      "move": "seasons",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "大年初一": {
+      "type": "learning",
+      "special": "seasons",
+      "move": "seasons",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "大有益处": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "大汗淋漓": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "大队人马": {
+      "type": "learning",
+      "special": "legion",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "大饱眼福": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "天下大治": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "天人合一": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "天文数字": {
+      "type": "learning",
+      "special": "charge",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "天赐良机": {
+      "type": "learning",
+      "special": "fortune",
+      "move": "bounty",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "太太平平": {
+      "type": "learning",
+      "special": "mend",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "头脑发热": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "奋发努力": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "奋发向上": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "奋发进取": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "女扮男装": {
+      "type": "learning",
+      "special": "decoy",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "好不容易": {
+      "type": "learning",
+      "special": "patient",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "好久好久": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "好人好事": {
+      "type": "learning",
+      "special": "mend",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "好吃好喝": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "好言相劝": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "如此这般": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "委以重任": {
+      "type": "learning",
+      "special": "steadfast",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "委决不下": {
+      "type": "learning",
+      "special": "patient",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "娓娓道来": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "婉言谢绝": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "婚丧嫁娶": {
+      "type": "learning",
+      "special": "seasons",
+      "move": "seasons",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "子孙后代": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "孤儿寡母": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "孤孤单单": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "孰不可忍": {
+      "type": "learning",
+      "special": "charge",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "安安静静": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "安定团结": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "官复原职": {
+      "type": "learning",
+      "special": "steadfast",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "实实在在": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "实话实说": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "客客气气": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "密不可分": {
+      "type": "learning",
+      "special": "roots",
+      "move": "roots",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "密切相关": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "密密匝匝": {
+      "type": "learning",
+      "special": "geometry",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "密密麻麻": {
+      "type": "learning",
+      "special": "geometry",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "寓教于乐": {
+      "type": "learning",
+      "special": "succession",
+      "move": "succession",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "寝食难安": {
+      "type": "learning",
+      "special": "escape",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "对号入座": {
+      "type": "learning",
+      "special": "precision",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "小打小闹": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "小本生意": {
+      "type": "learning",
+      "special": "bargain",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "少男少女": {
+      "type": "learning",
+      "special": "succession",
+      "move": "succession",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "尽收眼底": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "层层叠叠": {
+      "type": "learning",
+      "special": "geometry",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "居高不下": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "屡禁不止": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "屡败屡战": {
+      "type": "learning",
+      "special": "reversal",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "左右两座": {
+      "type": "learning",
+      "special": "volley",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "左膀右臂": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "师生员工": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "常抓不懈": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "平平安安": {
+      "type": "learning",
+      "special": "mend",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "平平整整": {
+      "type": "learning",
+      "special": "geometry",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "平平淡淡": {
+      "type": "learning",
+      "special": "patient",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "平平静静": {
+      "type": "learning",
+      "special": "mend",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "平民百姓": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "平等互利": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "年久失修": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "年代久远": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "年幼无知": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "年老体弱": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "年轻有为": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "年轻气盛": {
+      "type": "learning",
+      "special": "inspire",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "并肩作战": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "幸免于难": {
+      "type": "learning",
+      "special": "escape",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "广为流传": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "开拓进取": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "异国他乡": {
+      "type": "learning",
+      "special": "far",
+      "move": "pursuit",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "引人关注": {
+      "type": "learning",
+      "special": "inspire",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "引以为豪": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "弯弯曲曲": {
+      "type": "learning",
+      "special": "geometry",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "强强联合": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "强身健体": {
+      "type": "learning",
+      "special": "mend",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "形同虚设": {
+      "type": "learning",
+      "special": "silence",
+      "move": "silence",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "形式多样": {
+      "type": "learning",
+      "special": "blast",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "形态各异": {
+      "type": "learning",
+      "special": "blast",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "德智体美": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "必不可少": {
+      "type": "learning",
+      "special": "charge",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "必不可缺": {
+      "type": "learning",
+      "special": "pillar",
+      "move": "rampart",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "忠君爱国": {
+      "type": "learning",
+      "special": "steadfast",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "忽隐忽现": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "思来想去": {
+      "type": "learning",
+      "special": "patient",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "急急忙忙": {
+      "type": "learning",
+      "special": "swift",
+      "move": "pursuit",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "恍恍惚惚": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "恭恭敬敬": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "恰恰相反": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "情急之下": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "情理之中": {
+      "type": "learning",
+      "special": "patient",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "想想也是": {
+      "type": "learning",
+      "special": "insight",
+      "move": "insight",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "愈演愈烈": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "意料之中": {
+      "type": "learning",
+      "special": "patient",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "慌里慌张": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "慎之又慎": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "或多或少": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "所到之处": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "扎扎实实": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "扑面而来": {
+      "type": "learning",
+      "special": "swift",
+      "move": "pursuit",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "打打闹闹": {
+      "type": "learning",
+      "special": "wrath",
+      "move": "wrath",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "打道回府": {
+      "type": "learning",
+      "special": "far",
+      "move": "pursuit",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "扭亏为盈": {
+      "type": "learning",
+      "special": "reversal",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "扶贫帮困": {
+      "type": "learning",
+      "special": "mend",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "拍手叫好": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "拥军优属": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "拾级而上": {
+      "type": "learning",
+      "special": "swift",
+      "move": "pursuit",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "拿来主义": {
+      "type": "learning",
+      "special": "borrow",
+      "move": "borrow",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "挥之不去": {
+      "type": "learning",
+      "special": "roots",
+      "move": "roots",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "携起手来": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "摇摆不定": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "摇摇摆摆": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "摇摇晃晃": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "摸爬滚打": {
+      "type": "learning",
+      "special": "resolve",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "撒手不管": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "撕心裂肺": {
+      "type": "learning",
+      "special": "wrath",
+      "move": "wrath",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "擦肩而过": {
+      "type": "learning",
+      "special": "far",
+      "move": "pursuit",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "擦身而过": {
+      "type": "learning",
+      "special": "far",
+      "move": "pursuit",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "收效甚微": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "放下屠刀": {
+      "type": "learning",
+      "special": "reversal",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "敌强我弱": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "救命之恩": {
+      "type": "learning",
+      "special": "borrow",
+      "move": "borrow",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "救命稻草": {
+      "type": "learning",
+      "special": "borrow",
+      "move": "borrow",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "救国救民": {
+      "type": "learning",
+      "special": "mend",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "教书育人": {
+      "type": "learning",
+      "special": "succession",
+      "move": "succession",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "数以万计": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "数以千计": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "数以百计": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "整齐划一": {
+      "type": "learning",
+      "special": "precision",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "文景之治": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "文武百官": {
+      "type": "learning",
+      "special": "succession",
+      "move": "succession",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "文责自负": {
+      "type": "learning",
+      "special": "steadfast",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "新年伊始": {
+      "type": "learning",
+      "special": "seasons",
+      "move": "seasons",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "新科状元": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "新老交替": {
+      "type": "learning",
+      "special": "reversal",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "方方面面": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "无一例外": {
+      "type": "learning",
+      "special": "charge",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "无从下手": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "无休无止": {
+      "type": "learning",
+      "special": "charge",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "无利可图": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "无力回天": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "无可争议": {
+      "type": "learning",
+      "special": "dawn",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "无可挑剔": {
+      "type": "learning",
+      "special": "precision",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "无可辩驳": {
+      "type": "learning",
+      "special": "dawn",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "无处不在": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "无话可说": {
+      "type": "learning",
+      "special": "silence",
+      "move": "silence",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "无路可走": {
+      "type": "learning",
+      "special": "finish",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "旱涝保收": {
+      "type": "learning",
+      "special": "fortune",
+      "move": "bounty",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "时好时坏": {
+      "type": "learning",
+      "special": "reversal",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "时断时续": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "时时刻刻": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "时时处处": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "映入眼帘": {
+      "type": "learning",
+      "special": "dawn",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "春夏秋冬": {
+      "type": "learning",
+      "special": "seasons",
+      "move": "seasons",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "晃晃悠悠": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "智者见智": {
+      "type": "learning",
+      "special": "insight",
+      "move": "insight",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "曲曲折折": {
+      "type": "learning",
+      "special": "geometry",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "更新换代": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "有两下子": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "有何不可": {
+      "type": "learning",
+      "special": "charge",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "有史以来": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "有备而来": {
+      "type": "learning",
+      "special": "patient",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "有感而发": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "有所不同": {
+      "type": "learning",
+      "special": "reversal",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "有权有势": {
+      "type": "learning",
+      "special": "rally",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "有滋有味": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "有理有据": {
+      "type": "learning",
+      "special": "dawn",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "有理有节": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "有难同当": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "有高有低": {
+      "type": "learning",
+      "special": "double",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "朦朦胧胧": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "木牛流马": {
+      "type": "learning",
+      "special": "mechanism",
+      "move": "barrage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "本草纲目": {
+      "type": "learning",
+      "special": "triage",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "杀出重围": {
+      "type": "learning",
+      "special": "resolve",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "杂草丛生": {
+      "type": "learning",
+      "special": "roots",
+      "move": "roots",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "松松垮垮": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "标本兼治": {
+      "type": "learning",
+      "special": "adapt",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "榜上有名": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "模模糊糊": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "模糊不清": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "此时此刻": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "歪歪扭扭": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "歪歪斜斜": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "死记硬背": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "死路一条": {
+      "type": "learning",
+      "special": "finish",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "残酷无情": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "毋庸置疑": {
+      "type": "learning",
+      "special": "dawn",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "每时每刻": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "毫不动摇": {
+      "type": "learning",
+      "special": "steadfast",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "毫不在乎": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "毫不客气": {
+      "type": "learning",
+      "special": "steadfast",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "毫不犹豫": {
+      "type": "learning",
+      "special": "steadfast",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "毫不留情": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "毫不相干": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "毫不费力": {
+      "type": "learning",
+      "special": "patient",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "毫不迟疑": {
+      "type": "learning",
+      "special": "steadfast",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "毫无办法": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "毫无用处": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "毫无疑问": {
+      "type": "learning",
+      "special": "dawn",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "毫无道理": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "毫无顾忌": {
+      "type": "learning",
+      "special": "wrath",
+      "move": "wrath",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "气数已尽": {
+      "type": "learning",
+      "special": "finish",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "永恒不变": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "汉语拼音": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "江河湖海": {
+      "type": "pulse",
+      "move": "tide",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "没上没下": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "没事找事": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "没心没肺": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "没着没落": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "活字印刷": {
+      "type": "learning",
+      "special": "mechanism",
+      "move": "barrage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "活血化瘀": {
+      "type": "learning",
+      "special": "renew",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "流于形式": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "淅淅沥沥": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "深有感触": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "清晰可见": {
+      "type": "learning",
+      "special": "dawn",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "清清楚楚": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "清澈见底": {
+      "type": "pulse",
+      "move": "tide",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "温暖如春": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "游人如织": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "满头大汗": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "满汉全席": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "满满当当": {
+      "type": "learning",
+      "special": "blast",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "满腔热情": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "滥杀无辜": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "滴滴答答": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "漂漂亮亮": {
+      "type": "learning",
+      "special": "blast",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "激动不已": {
+      "type": "learning",
+      "special": "inspire",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "激动人心": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "点点滴滴": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "热情奔放": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "热热闹闹": {
+      "type": "learning",
+      "special": "inspire",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "燎原之势": {
+      "type": "learning",
+      "special": "charge",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "爱理不理": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "父老乡亲": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "父老兄弟": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "爽爽快快": {
+      "type": "learning",
+      "special": "mend",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "牟取暴利": {
+      "type": "learning",
+      "special": "bargain",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "物有所值": {
+      "type": "learning",
+      "special": "fortune",
+      "move": "bounty",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "牵线搭桥": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "犹犹豫豫": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "犹豫不定": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "独具一格": {
+      "type": "learning",
+      "special": "festival",
+      "move": "festival",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "独具特色": {
+      "type": "learning",
+      "special": "festival",
+      "move": "festival",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "环环相扣": {
+      "type": "learning",
+      "special": "roots",
+      "move": "roots",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "瓶瓶罐罐": {
+      "type": "learning",
+      "special": "geometry",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "生儿育女": {
+      "type": "learning",
+      "special": "succession",
+      "move": "succession",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "生意兴隆": {
+      "type": "learning",
+      "special": "fortune",
+      "move": "bounty",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "生机盎然": {
+      "type": "learning",
+      "special": "roots",
+      "move": "roots",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "生长之力": {
+      "type": "learning",
+      "special": "roots",
+      "move": "roots",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "由下而上": {
+      "type": "learning",
+      "special": "volley",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "由小到大": {
+      "type": "learning",
+      "special": "volley",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "由此可知": {
+      "type": "learning",
+      "special": "dawn",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "由此可见": {
+      "type": "learning",
+      "special": "dawn",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "由此看来": {
+      "type": "learning",
+      "special": "reversal",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "男女平等": {
+      "type": "learning",
+      "special": "succession",
+      "move": "succession",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "男男女女": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "畏畏缩缩": {
+      "type": "learning",
+      "special": "escape",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "疏忽大意": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "疏疏落落": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "疯疯癫癫": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "痛下决心": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "痛痛快快": {
+      "type": "learning",
+      "special": "mend",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "痴痴呆呆": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "的的确确": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "皮包骨头": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "相去甚远": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "相形之下": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "相比之下": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "相距甚远": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "真抓实干": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "真真假假": {
+      "type": "learning",
+      "special": "decoy",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "睦邻友好": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "知之甚少": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "破破烂烂": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "硬着头皮": {
+      "type": "learning",
+      "special": "resolve",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "确定无疑": {
+      "type": "learning",
+      "special": "dawn",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "确确实实": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "碰碰运气": {
+      "type": "learning",
+      "special": "fortune",
+      "move": "bounty",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "磕磕碰碰": {
+      "type": "learning",
+      "special": "geometry",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "磕磕绊绊": {
+      "type": "learning",
+      "special": "geometry",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "磨磨蹭蹭": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "祖祖辈辈": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "神神秘秘": {
+      "type": "learning",
+      "special": "decoy",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "神秘莫测": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "科学技术": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "科教兴国": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "科教兴市": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "积极向上": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "积贫积弱": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "稀稀拉拉": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "稀稀落落": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "稀里哗啦": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "稀里糊涂": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "稍有不慎": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "稳中有升": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "稳中求进": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "空空洞洞": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "空空荡荡": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "站不住脚": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "笑容满面": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "笨手笨脚": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "简便易行": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "简单易行": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "简简单单": {
+      "type": "learning",
+      "special": "geometry",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "简而言之": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "粗声粗气": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "紧要关头": {
+      "type": "learning",
+      "special": "pillar",
+      "move": "rampart",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "红得发紫": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "红极一时": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "细声细气": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "经世致用": {
+      "type": "learning",
+      "special": "insight",
+      "move": "insight",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "经久不衰": {
+      "type": "learning",
+      "special": "steadfast",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "经典之作": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "经营不善": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "结结实实": {
+      "type": "learning",
+      "special": "geometry",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "统一战线": {
+      "type": "learning",
+      "special": "legion",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "统揽全局": {
+      "type": "learning",
+      "special": "rally",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "统购统销": {
+      "type": "learning",
+      "special": "fortune",
+      "move": "bounty",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "综合治理": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "缚手缚脚": {
+      "type": "learning",
+      "special": "roots",
+      "move": "roots",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "美其名曰": {
+      "type": "learning",
+      "special": "decoy",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "羞羞答答": {
+      "type": "learning",
+      "special": "escape",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "群体治愈": {
+      "type": "learning",
+      "special": "mend",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "群体治疗": {
+      "type": "learning",
+      "special": "mend",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "群情激愤": {
+      "type": "learning",
+      "special": "wrath",
+      "move": "wrath",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "老大不小": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "老弱病残": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "老老实实": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "老老少少": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "聊斋志异": {
+      "type": "learning",
+      "special": "decoy",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "胜券在握": {
+      "type": "learning",
+      "special": "patient",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "腰酸背痛": {
+      "type": "learning",
+      "special": "wrath",
+      "move": "wrath",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "自上而下": {
+      "type": "learning",
+      "special": "volley",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "自下而上": {
+      "type": "learning",
+      "special": "volley",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "自作多情": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "自古以来": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "自学成才": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "自成一体": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "自我批评": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "自查自纠": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "自说自话": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "自负盈亏": {
+      "type": "learning",
+      "special": "bargain",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "至关紧要": {
+      "type": "learning",
+      "special": "charge",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "至关重要": {
+      "type": "learning",
+      "special": "charge",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "舒舒服服": {
+      "type": "learning",
+      "special": "mend",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "节节胜利": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "节节败退": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "英年早逝": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "英雄好汉": {
+      "type": "learning",
+      "special": "inspire",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "荆棘护甲": {
+      "type": "learning",
+      "move": "rampart",
+      "special": "counter",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "荆棘缠绕": {
+      "type": "learning",
+      "move": "roots",
+      "special": "roots",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "莘莘学子": {
+      "type": "learning",
+      "special": "succession",
+      "move": "succession",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "莞尔一笑": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "获益匪浅": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "菩萨心肠": {
+      "type": "learning",
+      "special": "mend",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "落到实处": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "蔚为壮观": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "血本无归": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "血肉之躯": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "血肉模糊": {
+      "type": "learning",
+      "special": "wrath",
+      "move": "wrath",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "行侠仗义": {
+      "type": "learning",
+      "special": "mend",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "见不得人": {
+      "type": "learning",
+      "special": "decoy",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "见好就收": {
+      "type": "learning",
+      "special": "adapt",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "规章制度": {
+      "type": "learning",
+      "special": "bulwark",
+      "move": "rampart",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "规规矩矩": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "认认真真": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "许多许多": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "许许多多": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "详详细细": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "说一是一": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "说不过去": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "说到做到": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "说得过去": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "说法不一": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "说老实话": {
+      "type": "learning",
+      "special": "dawn",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "说说笑笑": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "诸多不便": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "象形文字": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "贞观之治": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "资不抵债": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "资治通鉴": {
+      "type": "learning",
+      "special": "insight",
+      "move": "insight",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "资源共享": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "资源分配": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "赔礼道歉": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "走下坡路": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "走回头路": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "走街串巷": {
+      "type": "learning",
+      "special": "far",
+      "move": "pursuit",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "走走停停": {
+      "type": "learning",
+      "special": "swift",
+      "move": "pursuit",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "跌宕起伏": {
+      "type": "learning",
+      "special": "geometry",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "跌跌撞撞": {
+      "type": "learning",
+      "special": "geometry",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "踏踏实实": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "躁动不安": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "身心健康": {
+      "type": "learning",
+      "special": "mend",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "轰轰隆隆": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "轰隆轰隆": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "轻轻松松": {
+      "type": "learning",
+      "special": "mend",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "辛辛苦苦": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "辞旧迎新": {
+      "type": "learning",
+      "special": "seasons",
+      "move": "seasons",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "过意不去": {
+      "type": "learning",
+      "special": "reversal",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "迎面而来": {
+      "type": "learning",
+      "special": "swift",
+      "move": "pursuit",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "近在眼前": {
+      "type": "learning",
+      "special": "far",
+      "move": "pursuit",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "还施彼身": {
+      "type": "learning",
+      "special": "borrow",
+      "move": "borrow",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "进进出出": {
+      "type": "learning",
+      "special": "swift",
+      "move": "pursuit",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "远远近近": {
+      "type": "learning",
+      "special": "volley",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "远道而来": {
+      "type": "learning",
+      "special": "far",
+      "move": "pursuit",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "连成一片": {
+      "type": "learning",
+      "special": "volley",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "迟迟疑疑": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "迷迷糊糊": {
+      "type": "learning",
+      "special": "confuse",
+      "move": "turning",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "适者生存": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "适销对路": {
+      "type": "learning",
+      "special": "contrast",
+      "move": "contrast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "透不过气": {
+      "type": "learning",
+      "special": "frustration",
+      "move": "frustration",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "逢年过节": {
+      "type": "learning",
+      "special": "seasons",
+      "move": "seasons",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "遮遮掩掩": {
+      "type": "learning",
+      "special": "decoy",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "里里外外": {
+      "type": "learning",
+      "special": "volley",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "重中之重": {
+      "type": "learning",
+      "special": "charge",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "重重包围": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "重重叠叠": {
+      "type": "learning",
+      "special": "geometry",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "铭记在心": {
+      "type": "learning",
+      "special": "focus",
+      "move": "precision",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "锐意进取": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "长久以来": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "长大成人": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "长盛不衰": {
+      "type": "learning",
+      "special": "steadfast",
+      "move": "steadfast",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "闪闪烁烁": {
+      "type": "learning",
+      "special": "decoy",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "闷声不响": {
+      "type": "learning",
+      "special": "silence",
+      "move": "silence",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "闻名中外": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "闻名于世": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "防御工事": {
+      "type": "learning",
+      "special": "bulwark",
+      "move": "rampart",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "阳刚之气": {
+      "type": "learning",
+      "special": "charge",
+      "move": "charge",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "阴雨连绵": {
+      "type": "pulse",
+      "move": "tide",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "陆海空军": {
+      "type": "learning",
+      "special": "legion",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "陆陆续续": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "陶冶性情": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "随之而来": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "随处可见": {
+      "type": "learning",
+      "special": "sweep",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "隐隐作痛": {
+      "type": "learning",
+      "special": "wrath",
+      "move": "wrath",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "隔三差五": {
+      "type": "learning",
+      "special": "erosion",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "难以忍受": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "难以想象": {
+      "type": "learning",
+      "special": "insight",
+      "move": "insight",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "难得一见": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "集大成者": {
+      "type": "learning",
+      "special": "succession",
+      "move": "succession",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "零零碎碎": {
+      "type": "learning",
+      "special": "geometry",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "零零落落": {
+      "type": "learning",
+      "special": "scarcity",
+      "move": "scarcity",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "青春年少": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "非同一般": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "面带微笑": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "领军人物": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "颇具规模": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "颇负盛名": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "题海战术": {
+      "type": "learning",
+      "special": "mechanism",
+      "move": "barrage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "颤颤巍巍": {
+      "type": "learning",
+      "special": "geometry",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "食欲不振": {
+      "type": "learning",
+      "special": "mend",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "饶有兴致": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "饶有兴趣": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "首战告捷": {
+      "type": "learning",
+      "special": "inspire",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "香气扑鼻": {
+      "type": "learning",
+      "special": "harmony",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "骂骂咧咧": {
+      "type": "learning",
+      "special": "echo",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "高温多雨": {
+      "type": "learning",
+      "special": "seasons",
+      "move": "seasons",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "高高低低": {
+      "type": "learning",
+      "special": "volley",
+      "move": "encircle",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "鸡皮疙瘩": {
+      "type": "learning",
+      "special": "escape",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "黄帝内经": {
+      "type": "learning",
+      "special": "mend",
+      "move": "healing",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "黎民百姓": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "黑咕隆咚": {
+      "type": "learning",
+      "special": "decoy",
+      "move": "mirage",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "黑色幽默": {
+      "type": "learning",
+      "special": "aggravate",
+      "move": "aggravate",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "鼎盛时期": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "鼓足干劲": {
+      "type": "learning",
+      "special": "inspire",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "齐抓共管": {
+      "type": "learning",
+      "special": "cooperate",
+      "move": "rally",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "齐民要术": {
+      "type": "learning",
+      "special": "growth",
+      "move": "growth",
+      "rule": "basic-four-whole-word-reviewed"
+    },
+    "龙头老大": {
+      "type": "learning",
+      "special": "reputation",
+      "move": "reputation",
+      "rule": "basic-four-whole-word-reviewed"
     }
   },
   "excluded": {
@@ -26034,7 +30964,6 @@
     "一竿子打": "普通短语、截断句或现代专名，保留可组词但不标成语",
     "一算之下": "普通短语、截断句或现代专名，保留可组词但不标成语",
     "一而再再": "普通短语、截断句或现代专名，保留可组词但不标成语",
-    "一言未发": "普通短语、截断句或现代专名，保留可组词但不标成语",
     "魔兽争霸": "普通短语、截断句或现代专名，保留可组词但不标成语",
     "鬼屋魔影": "普通短语、截断句或现代专名，保留可组词但不标成语",
     "鬼片当道": "普通短语、截断句或现代专名，保留可组词但不标成语",
