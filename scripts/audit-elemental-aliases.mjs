@@ -1,3 +1,4 @@
+import {publishedVocabulary} from './published-vocabulary.mjs';
 import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
@@ -5,7 +6,7 @@ import {WORDS,getWord,isGameSkill,wordCategory,runeLimit} from '../dist/engine.m
 import {aliasRules,aliasSkills} from './elemental-aliases.mjs';
 export const PRE_ALIAS_PROFILE_HASH='03da316b15ca0c8898ad72308260ca8c98fe4b0774d6439c8c1d97b4836958f9';
 export function auditAliases(){
- const hash=value=>createHash('sha256').update(value).digest('hex'),old=WORDS.filter(w=>!aliasSkills.has(w.word)).map(w=>({word:w.word,profileHash:hash(JSON.stringify(w))}));
+ const hash=value=>createHash('sha256').update(value).digest('hex'),old=publishedVocabulary().filter(w=>!aliasSkills.has(w.word)).map(w=>({word:w.word,profileHash:hash(JSON.stringify(w))}));
  assert.equal(old.length,112468);assert.equal(hash(JSON.stringify(old)),PRE_ALIAS_PROFILE_HASH,'Every previously published profile must be unchanged');
  const byLength={},byType={},byKind={};
  for(const[word,rule]of aliasSkills){const w=getWord(word);assert.ok(w,word);assert.equal(wordCategory(word),'skill',word);assert.ok(isGameSkill(word),word);assert.equal(w.type,rule.school,word);assert.ok(w.runes.length<=runeLimit(w.tier));if(rule.trait)assert.equal(w.trait,rule.trait,word);byLength[w.tier]=(byLength[w.tier]||0)+1;byType[w.type]=(byType[w.type]||0)+1;byKind[rule.kind]=(byKind[rule.kind]||0)+1;}

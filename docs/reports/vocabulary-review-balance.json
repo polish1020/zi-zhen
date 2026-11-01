@@ -1,0 +1,591 @@
+{
+  "date": "2026-11-01",
+  "baselineCommit": "9020632870665080aa4ef022f5cb38307ee3c94c",
+  "sourceHashes": {
+    "engineHash": "1c0a7467438132012e3669cb466745f88f47d082f04cd7bcfbc87b5e6d9836c7",
+    "specialsHash": "9123c609756d05908e7d43084e5cc318a7afdb715ebbf672fd069cefb0e90820",
+    "lexiconHash": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
+    "strategyHash": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a"
+  },
+  "method": "Ten chapters; paired seeds 1–20 with the same formation policy without/with the active ink skill. Actual starting money, costs, repairs and rewards. Tower destruction is allowed; victory requires hearts remaining at chapter completion. Vocabulary changes affect hand choices and subsequent RNG. Paired strategies are not independent human observations; this is not a fixed-enemy causal comparison.",
+  "games": 400,
+  "wins": 282,
+  "winPct": 70.5,
+  "timeouts": 0,
+  "chapters": [
+    {
+      "chapter": 1,
+      "wins": 36,
+      "total": 40,
+      "previousWins": 36
+    },
+    {
+      "chapter": 2,
+      "wins": 26,
+      "total": 40,
+      "previousWins": 25
+    },
+    {
+      "chapter": 3,
+      "wins": 27,
+      "total": 40,
+      "previousWins": 23
+    },
+    {
+      "chapter": 4,
+      "wins": 38,
+      "total": 40,
+      "previousWins": 37
+    },
+    {
+      "chapter": 5,
+      "wins": 40,
+      "total": 40,
+      "previousWins": 40
+    },
+    {
+      "chapter": 6,
+      "wins": 31,
+      "total": 40,
+      "previousWins": 33
+    },
+    {
+      "chapter": 7,
+      "wins": 26,
+      "total": 40,
+      "previousWins": 26
+    },
+    {
+      "chapter": 8,
+      "wins": 17,
+      "total": 40,
+      "previousWins": 15
+    },
+    {
+      "chapter": 9,
+      "wins": 33,
+      "total": 40,
+      "previousWins": 34
+    },
+    {
+      "chapter": 10,
+      "wins": 8,
+      "total": 40,
+      "previousWins": 6
+    }
+  ],
+  "strategies": [
+    {
+      "summary": {
+        "summary": true,
+        "engineHash": "1c0a7467438132012e3669cb466745f88f47d082f04cd7bcfbc87b5e6d9836c7",
+        "specialsHash": "9123c609756d05908e7d43084e5cc318a7afdb715ebbf672fd069cefb0e90820",
+        "lexiconHash": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
+        "strategyHash": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a",
+        "skills": false,
+        "games": 200,
+        "wins": 144,
+        "rate": 0.72,
+        "reference": "总体50–60%，首章约90%、末章约20%；允许波动，不按固定配额调整",
+        "chapters": [
+          {
+            "chapter": 1,
+            "wins": 18,
+            "total": 20,
+            "rate": 0.9
+          },
+          {
+            "chapter": 2,
+            "wins": 13,
+            "total": 20,
+            "rate": 0.65
+          },
+          {
+            "chapter": 3,
+            "wins": 14,
+            "total": 20,
+            "rate": 0.7
+          },
+          {
+            "chapter": 4,
+            "wins": 19,
+            "total": 20,
+            "rate": 0.95
+          },
+          {
+            "chapter": 5,
+            "wins": 20,
+            "total": 20,
+            "rate": 1
+          },
+          {
+            "chapter": 6,
+            "wins": 16,
+            "total": 20,
+            "rate": 0.8
+          },
+          {
+            "chapter": 7,
+            "wins": 15,
+            "total": 20,
+            "rate": 0.75
+          },
+          {
+            "chapter": 8,
+            "wins": 9,
+            "total": 20,
+            "rate": 0.45
+          },
+          {
+            "chapter": 9,
+            "wins": 16,
+            "total": 20,
+            "rate": 0.8
+          },
+          {
+            "chapter": 10,
+            "wins": 4,
+            "total": 20,
+            "rate": 0.2
+          }
+        ]
+      },
+      "chapters": [
+        {
+          "chapter": 1,
+          "skills": false,
+          "wins": 18,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 14.9,
+          "minRound": 5,
+          "failedRounds": [
+            8,
+            5
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 2,
+          "skills": false,
+          "wins": 13,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 9,
+          "minRound": 8,
+          "failedRounds": [
+            10,
+            9,
+            9,
+            9,
+            8,
+            9,
+            9
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 3,
+          "skills": false,
+          "wins": 14,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 13.5,
+          "minRound": 8,
+          "failedRounds": [
+            12,
+            12,
+            8,
+            11,
+            12,
+            12
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 4,
+          "skills": false,
+          "wins": 19,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 20.8,
+          "minRound": 9,
+          "failedRounds": [
+            9
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 5,
+          "skills": false,
+          "wins": 20,
+          "total": 20,
+          "minHP": 5,
+          "meanHP": 14.9,
+          "minRound": 11,
+          "failedRounds": [],
+          "timeouts": 0
+        },
+        {
+          "chapter": 6,
+          "skills": false,
+          "wins": 16,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 22,
+          "minRound": 9,
+          "failedRounds": [
+            9,
+            12,
+            10,
+            11
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 7,
+          "skills": false,
+          "wins": 15,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 17.2,
+          "minRound": 7,
+          "failedRounds": [
+            11,
+            13,
+            7,
+            13,
+            11
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 8,
+          "skills": false,
+          "wins": 9,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 11.3,
+          "minRound": 10,
+          "failedRounds": [
+            13,
+            13,
+            14,
+            14,
+            14,
+            13,
+            12,
+            14,
+            10,
+            12,
+            11
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 9,
+          "skills": false,
+          "wins": 16,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 23.6,
+          "minRound": 13,
+          "failedRounds": [
+            15,
+            15,
+            13,
+            15
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 10,
+          "skills": false,
+          "wins": 4,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 4.7,
+          "minRound": 12,
+          "failedRounds": [
+            14,
+            14,
+            15,
+            16,
+            14,
+            15,
+            14,
+            14,
+            12,
+            12,
+            16,
+            14,
+            14,
+            14,
+            16,
+            14
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "summary": {
+        "summary": true,
+        "engineHash": "1c0a7467438132012e3669cb466745f88f47d082f04cd7bcfbc87b5e6d9836c7",
+        "specialsHash": "9123c609756d05908e7d43084e5cc318a7afdb715ebbf672fd069cefb0e90820",
+        "lexiconHash": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
+        "strategyHash": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a",
+        "skills": true,
+        "games": 200,
+        "wins": 138,
+        "rate": 0.69,
+        "reference": "总体50–60%，首章约90%、末章约20%；允许波动，不按固定配额调整",
+        "chapters": [
+          {
+            "chapter": 1,
+            "wins": 18,
+            "total": 20,
+            "rate": 0.9
+          },
+          {
+            "chapter": 2,
+            "wins": 13,
+            "total": 20,
+            "rate": 0.65
+          },
+          {
+            "chapter": 3,
+            "wins": 13,
+            "total": 20,
+            "rate": 0.65
+          },
+          {
+            "chapter": 4,
+            "wins": 19,
+            "total": 20,
+            "rate": 0.95
+          },
+          {
+            "chapter": 5,
+            "wins": 20,
+            "total": 20,
+            "rate": 1
+          },
+          {
+            "chapter": 6,
+            "wins": 15,
+            "total": 20,
+            "rate": 0.75
+          },
+          {
+            "chapter": 7,
+            "wins": 11,
+            "total": 20,
+            "rate": 0.55
+          },
+          {
+            "chapter": 8,
+            "wins": 8,
+            "total": 20,
+            "rate": 0.4
+          },
+          {
+            "chapter": 9,
+            "wins": 17,
+            "total": 20,
+            "rate": 0.85
+          },
+          {
+            "chapter": 10,
+            "wins": 4,
+            "total": 20,
+            "rate": 0.2
+          }
+        ]
+      },
+      "chapters": [
+        {
+          "chapter": 1,
+          "skills": true,
+          "wins": 18,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 14.9,
+          "minRound": 5,
+          "failedRounds": [
+            5,
+            8
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 2,
+          "skills": true,
+          "wins": 13,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 9,
+          "minRound": 9,
+          "failedRounds": [
+            10,
+            9,
+            9,
+            9,
+            9,
+            10,
+            10
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 3,
+          "skills": true,
+          "wins": 13,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 13.1,
+          "minRound": 10,
+          "failedRounds": [
+            12,
+            10,
+            12,
+            10,
+            11,
+            11,
+            12
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 4,
+          "skills": true,
+          "wins": 19,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 20.5,
+          "minRound": 9,
+          "failedRounds": [
+            9
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 5,
+          "skills": true,
+          "wins": 20,
+          "total": 20,
+          "minHP": 5,
+          "meanHP": 16.4,
+          "minRound": 11,
+          "failedRounds": [],
+          "timeouts": 0
+        },
+        {
+          "chapter": 6,
+          "skills": true,
+          "wins": 15,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 20.6,
+          "minRound": 9,
+          "failedRounds": [
+            9,
+            12,
+            12,
+            10,
+            11
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 7,
+          "skills": true,
+          "wins": 11,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 12.1,
+          "minRound": 7,
+          "failedRounds": [
+            11,
+            13,
+            13,
+            13,
+            7,
+            13,
+            12,
+            13,
+            10
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 8,
+          "skills": true,
+          "wins": 8,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 9.5,
+          "minRound": 10,
+          "failedRounds": [
+            14,
+            12,
+            13,
+            13,
+            14,
+            13,
+            10,
+            11,
+            11,
+            10,
+            14,
+            11
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 9,
+          "skills": true,
+          "wins": 17,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 24.7,
+          "minRound": 13,
+          "failedRounds": [
+            15,
+            13,
+            15
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 10,
+          "skills": true,
+          "wins": 4,
+          "total": 20,
+          "minHP": 0,
+          "meanHP": 5.1,
+          "minRound": 13,
+          "failedRounds": [
+            14,
+            13,
+            15,
+            15,
+            14,
+            16,
+            14,
+            14,
+            13,
+            14,
+            15,
+            15,
+            14,
+            14,
+            16,
+            14
+          ],
+          "timeouts": 0
+        }
+      ]
+    }
+  ]
+}

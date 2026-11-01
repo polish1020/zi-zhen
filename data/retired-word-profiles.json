@@ -1,0 +1,8071 @@
+{
+  "baselineCommit": "9020632870665080aa4ef022f5cb38307ee3c94c",
+  "profiles": [
+    {
+      "index": 309,
+      "profile": {
+        "type": "basic",
+        "icon": "普",
+        "name": "普通",
+        "color": "#748870",
+        "cost": 129,
+        "damage": 59,
+        "range": 179,
+        "rate": 0.9,
+        "tag": "均衡单体",
+        "desc": "文字凝成灵力，对单个敌人造成稳定伤害。",
+        "word": "一下子把",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0.55,
+        "income": 20,
+        "trait": "balanced",
+        "runes": [],
+        "semanticCycle": 1
+      }
+    },
+    {
+      "index": 394,
+      "profile": {
+        "type": "basic",
+        "icon": "普",
+        "name": "普通",
+        "color": "#748870",
+        "cost": 129,
+        "damage": 59,
+        "range": 179,
+        "rate": 0.9,
+        "tag": "均衡单体",
+        "desc": "文字凝成灵力，对单个敌人造成稳定伤害。",
+        "word": "一举手一",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0.55,
+        "income": 20,
+        "trait": "balanced",
+        "runes": [],
+        "semanticCycle": 1
+      }
+    },
+    {
+      "index": 488,
+      "profile": {
+        "type": "income",
+        "icon": "金",
+        "name": "生财",
+        "color": "#b18b44",
+        "cost": 129,
+        "damage": 20,
+        "range": 184,
+        "rate": 1.6,
+        "tag": "点金赏金 · 轮末生财",
+        "desc": "主动攻击并标记赏金 4 秒，目标被任意词塔击杀都额外赚墨；轮末产墨，赏金有每轮上限。",
+        "word": "一分钱一",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0.55,
+        "income": 15,
+        "trait": "coin",
+        "runes": [
+          "luck"
+        ],
+        "semanticCycle": 1
+      }
+    },
+    {
+      "index": 590,
+      "profile": {
+        "type": "basic",
+        "icon": "普",
+        "name": "普通",
+        "color": "#748870",
+        "cost": 129,
+        "damage": 55,
+        "range": 179,
+        "rate": 0.9,
+        "tag": "均衡单体",
+        "desc": "文字凝成灵力，对单个敌人造成稳定伤害。",
+        "word": "一听之下",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0.55,
+        "income": 20,
+        "trait": "balanced",
+        "runes": [
+          "echo"
+        ],
+        "semanticCycle": 1
+      }
+    },
+    {
+      "index": 674,
+      "profile": {
+        "type": "basic",
+        "icon": "普",
+        "name": "普通",
+        "color": "#748870",
+        "cost": 129,
+        "damage": 53,
+        "range": 179,
+        "rate": 0.9,
+        "tag": "均衡单体",
+        "desc": "文字凝成灵力，对单个敌人造成稳定伤害。",
+        "word": "一失足成",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0.55,
+        "income": 20,
+        "trait": "balanced",
+        "runes": [
+          "growth",
+          "curse"
+        ],
+        "semanticCycle": 1
+      }
+    },
+    {
+      "index": 696,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "一孤之腋",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 1,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 791,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "一张一驰",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 1,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 850,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "一拍即和",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 1,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 859,
+      "profile": {
+        "type": "basic",
+        "icon": "普",
+        "name": "普通",
+        "color": "#748870",
+        "cost": 129,
+        "damage": 59,
+        "range": 179,
+        "rate": 0.9,
+        "tag": "均衡单体",
+        "desc": "文字凝成灵力，对单个敌人造成稳定伤害。",
+        "word": "一挂之下",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0.55,
+        "income": 20,
+        "trait": "balanced",
+        "runes": [],
+        "semanticCycle": 1
+      }
+    },
+    {
+      "index": 865,
+      "profile": {
+        "type": "basic",
+        "icon": "普",
+        "name": "普通",
+        "color": "#748870",
+        "cost": 129,
+        "damage": 56,
+        "range": 179,
+        "rate": 0.9,
+        "tag": "均衡单体",
+        "desc": "文字凝成灵力，对单个敌人造成稳定伤害。",
+        "word": "一推之下",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0.55,
+        "income": 20,
+        "trait": "balanced",
+        "runes": [
+          "tide"
+        ],
+        "semanticCycle": 1
+      }
+    },
+    {
+      "index": 870,
+      "profile": {
+        "type": "basic",
+        "icon": "普",
+        "name": "普通",
+        "color": "#748870",
+        "cost": 129,
+        "damage": 59,
+        "range": 179,
+        "rate": 0.9,
+        "tag": "均衡单体",
+        "desc": "文字凝成灵力，对单个敌人造成稳定伤害。",
+        "word": "一提之下",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0.55,
+        "income": 20,
+        "trait": "balanced",
+        "runes": [],
+        "semanticCycle": 1
+      }
+    },
+    {
+      "index": 875,
+      "profile": {
+        "type": "basic",
+        "icon": "普",
+        "name": "普通",
+        "color": "#748870",
+        "cost": 129,
+        "damage": 59,
+        "range": 179,
+        "rate": 0.9,
+        "tag": "均衡单体",
+        "desc": "文字凝成灵力，对单个敌人造成稳定伤害。",
+        "word": "一摸之下",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0.55,
+        "income": 20,
+        "trait": "balanced",
+        "runes": [],
+        "semanticCycle": 1
+      }
+    },
+    {
+      "index": 980,
+      "profile": {
+        "type": "basic",
+        "icon": "普",
+        "name": "普通",
+        "color": "#748870",
+        "cost": 129,
+        "damage": 59,
+        "range": 179,
+        "rate": 0.9,
+        "tag": "均衡单体",
+        "desc": "文字凝成灵力，对单个敌人造成稳定伤害。",
+        "word": "一树了之",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0.55,
+        "income": 20,
+        "trait": "balanced",
+        "runes": [],
+        "semanticCycle": 1
+      }
+    },
+    {
+      "index": 1155,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "一碧万倾",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 1,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 1171,
+      "profile": {
+        "type": "basic",
+        "icon": "普",
+        "name": "普通",
+        "color": "#748870",
+        "cost": 129,
+        "damage": 59,
+        "range": 179,
+        "rate": 0.9,
+        "tag": "均衡单体",
+        "desc": "文字凝成灵力，对单个敌人造成稳定伤害。",
+        "word": "一竿子打",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0.55,
+        "income": 20,
+        "trait": "balanced",
+        "runes": [],
+        "semanticCycle": 1
+      }
+    },
+    {
+      "index": 1191,
+      "profile": {
+        "type": "basic",
+        "icon": "普",
+        "name": "普通",
+        "color": "#748870",
+        "cost": 129,
+        "damage": 57,
+        "range": 179,
+        "rate": 0.9,
+        "tag": "均衡单体",
+        "desc": "文字凝成灵力，对单个敌人造成稳定伤害。",
+        "word": "一算之下",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0.55,
+        "income": 20,
+        "trait": "balanced",
+        "runes": [
+          "focus"
+        ],
+        "semanticCycle": 1
+      }
+    },
+    {
+      "index": 1221,
+      "profile": {
+        "type": "basic",
+        "icon": "普",
+        "name": "普通",
+        "color": "#748870",
+        "cost": 129,
+        "damage": 59,
+        "range": 179,
+        "rate": 0.9,
+        "tag": "均衡单体",
+        "desc": "文字凝成灵力，对单个敌人造成稳定伤害。",
+        "word": "一而再再",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0.55,
+        "income": 20,
+        "trait": "balanced",
+        "runes": [],
+        "semanticCycle": 1
+      }
+    },
+    {
+      "index": 1305,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "一试之下",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 1,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 1378,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "一遮之下",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 1,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 1405,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "一问之下",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 1,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 1469,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "一麟半爪",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 1,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 1473,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "一鼻孔出",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 1,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 1594,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "七尺之驱",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 7,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 2074,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "三句不离",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 3,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 2154,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "三寸不烂",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 3,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 2435,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "三顾茅芦",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 3,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 2618,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "上滔下骄",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 3097,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "不喜勿下",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 3117,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "不塞下流",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 3144,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "不好用救",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 3229,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "不循私情",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 3286,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "不打不相",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 3348,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "不明事里",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 3353,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "不易而论",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 3370,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "不桃之祖",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 3520,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "不结之缘",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 3561,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "不能自己",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 3657,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "不足为外",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 4438,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "两情遣眷",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 2,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 4720,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "中下祸根",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 5143,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 78,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "收获有度",
+        "desc": "每第四次攻击给目标留下 2 秒赏金标记，任意词塔击杀可额外获得 1 墨点；受全场赏金上限限制。",
+        "word": "丰收在忘",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "prosper",
+          "luck"
+        ],
+        "semanticCycle": 4,
+        "special": "fortune",
+        "idiomMove": "bounty"
+      }
+    },
+    {
+      "index": 5217,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "临时抱佛",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 5234,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "临渴气井",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 5319,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "为国捐驱",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 5625,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "久病成良",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 5685,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "义气风发",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 5718,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "之而后快",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 5776,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "乌飞免走",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 6005,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "九一八事",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 8,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 6042,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "九宵云外",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 9,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 6422,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "争分夺妙",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 7742,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "人不可貌",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 7744,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "人不知鬼",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 7982,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "人生七十",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 8212,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "今非夕比",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 8614,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 88,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "虚实诱敌",
+        "desc": "每第四次攻击令目标 2 秒内攻塔伤害降低 15%；本塔每 6 秒可用诱饵降低下一次承伤 35%。",
+        "word": "以假谬真",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "flank",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "decoy",
+        "idiomMove": "mirage"
+      }
+    },
+    {
+      "index": 9184,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "众口烁金",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 9228,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#6d95a1",
+        "cost": 141,
+        "damage": 94,
+        "range": 236,
+        "rate": 1.05,
+        "tag": "警戒哨岗",
+        "desc": "优先拦截空中敌人并显形；对空增伤 20%，每第三击短暂减速 15%，四字同时照亮另一名敌人。",
+        "word": "众目照彰",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "sky",
+          "shine"
+        ],
+        "semanticCycle": 4,
+        "special": "watch",
+        "idiomMove": "radiance"
+      }
+    },
+    {
+      "index": 9230,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "众矢之地",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 9614,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "伶牙利齿",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 10407,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "依老卖老",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 10600,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "俗不可待",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 11092,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "倚装待发",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 12820,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "克苦耐劳",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 12847,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "免为其难",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 13617,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "六尺之驱",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 6,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 13895,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "兴废存之",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 14104,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "养痈贴患",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 14125,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "养虎饴患",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 14227,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "内外夹功",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 14345,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "再做冯妇",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 14681,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "冥思若索",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 17799,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "分崩离兮",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 21480,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "卑词厚礼",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 21873,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "博治多闻",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 22231,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "卷士重来",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 22980,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "反辱相稽",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 23525,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "口密腹剑",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 23708,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "古道循肠",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 24437,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "各抒已见",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 24909,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "名列前矛",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 25491,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "含辛茹若",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 25499,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "含饴弃孙",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 26064,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "呼风换雨",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 26488,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "哑言失笑",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 27094,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "喜笑频开",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 27715,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "四马难追",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 28060,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "固态复萌",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 29776,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#a47976",
+        "cost": 141,
+        "damage": 90,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "逆势转机",
+        "desc": "自身耐久低于 40% 时额外获得 12% 护甲，并在每第四击自修 5% 耐久，6 秒最多一次；不回复爱心或复活废墟。",
+        "word": "坚苦卓越",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "rescue",
+          "growth"
+        ],
+        "semanticCycle": 4,
+        "special": "reversal",
+        "idiomMove": "healing"
+      }
+    },
+    {
+      "index": 31453,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "夜以接日",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 32385,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "大衣无缝",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 32713,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "天无绝人",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 32724,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "天有不测",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 32843,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "天覆地舟",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 34275,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "好志以暇",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 34444,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "如胶似膝",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 34737,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "委屈求全",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 34818,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "姹紫焉红",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 34909,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "娇揉造作",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 35674,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "学富五年",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 35962,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "守金如玉",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 36100,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "安步当年",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 36571,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "实于名归",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 37281,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "富贵不能",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 37955,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "寥若辰星",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 37957,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "寥落晨星",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 38768,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "少安勿躁",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 39067,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "尽力皆知",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 39089,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "尽成竭节",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 39193,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "居为己有",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 40163,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "岩穴之土",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 40747,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "巧妇难为",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 41322,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "师出为壮",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 42044,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "并驾齐躯",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 43060,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "庸容大度",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 43421,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "开门捐盗",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 44250,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "当务之争",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 45068,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "徇情枉心",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 45173,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "徒废唇舌",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 45275,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "得陇忘蜀",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 45280,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "得高望重",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 45387,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "微言大意",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 45507,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "心余力竭",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 45895,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "忍贼作父",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 45897,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "忍辱念垢",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 46101,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "快刀斩乱",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 46197,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "怀壁其罪",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 46708,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "恍如融世",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 46996,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "悔人不倦",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 47306,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "情有可愿",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 47350,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "情非得以",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 47610,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "惟它独尊",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 47668,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "惨绝人寡",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 47723,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "想方设计",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 47747,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 89,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "迷阵迟疑",
+        "desc": "每第四次攻击可延后敌人正在蓄力的普通攻塔攻击 0.5 秒，同敌每 3 秒一次；另减速 10%，持续 1 秒，不推迟 Boss 大招。",
+        "word": "惶惶不可",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "curse",
+          "frost"
+        ],
+        "semanticCycle": 4,
+        "special": "confuse",
+        "idiomMove": "silence"
+      }
+    },
+    {
+      "index": 48733,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "截和补短",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 49363,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "扣人心悬",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 49391,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "执径问难",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 51035,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "持之一恒",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 51226,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#718c91",
+        "cost": 141,
+        "damage": 91,
+        "range": 204,
+        "rate": 1.1025,
+        "tag": "规矩成方",
+        "desc": "每第三击在落点画出方阵，向方阵内另外最多 3 个目标各造成 55% 伤害；阵形边长为 110，仍受本塔射程限制。",
+        "word": "按步就班",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "focus",
+          "gravity"
+        ],
+        "semanticCycle": 4,
+        "special": "geometry",
+        "idiomMove": "encircle"
+      }
+    },
+    {
+      "index": 51368,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "挥汁如雨",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 51436,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "振耳欲聋",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 51437,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "振聋发嘳",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 51481,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "捉刀伐笔",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 51495,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "捉禁见肘",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 51547,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "损人利已",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 51915,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "接头接耳",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 52030,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "推已及人",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 53442,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "故弄弦虚",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 53563,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "救绝引足",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 53814,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "敬鬼神而",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 54435,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "断开颓垣",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 55152,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "无以伦比",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 55173,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "无关痛养",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 55273,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "无始天终",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 55382,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "无技可施",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 55501,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "无立足之",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 55556,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "无计其数",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 55621,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "无马行空",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 55997,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "旧仇窗怨",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 56393,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "明比为奸",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 57761,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "暗然失色",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 57960,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "暴燥如雷",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 58940,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "有色眼睛",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 59371,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "未置可否",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 59474,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "本未倒置",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 59804,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "朽木不可",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 59943,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "权宜心计",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 61621,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "树欲静而",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 63129,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "欲令智昏",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 63144,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "欲盖尔彰",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 64065,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "每况欲下",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 65911,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "气极败坏",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 66303,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "水性扬花",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 66457,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "水滴成穿",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 67520,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "汹涌淜湃",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 68789,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "洗垢匿暇",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 69838,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "海尾添筹",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 70330,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "涣然一新",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 70597,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "深恶痛觉",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 71143,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "游戈有余",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 73344,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "灰不及及",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 74359,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "炙手可得",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 75332,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "烽火连三",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 76734,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "物归天宝",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 76783,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "牵一发而",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 76933,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "犀中望月",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 77339,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "狐死首兵",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 77435,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "独力自主",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 77482,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 91,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "徒劳封势",
+        "desc": "蓄满 4 次攻击后，追加 350% 伤害，打断目标正在蓄力的普通攻塔攻击，并使其攻塔伤害降低 15% 持续 2 秒；不打断 Boss 大招，冷却 10 秒。",
+        "word": "独木不成",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "focus",
+          "growth"
+        ],
+        "semanticCycle": 4,
+        "special": "frustration",
+        "idiomMove": "frustration"
+      }
+    },
+    {
+      "index": 79154,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "甘之吠饴",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 79169,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "甘心如养",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 80788,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "画地力牢",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 80816,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "画若鸿沟",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 80822,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "画蛇填足",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 82223,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "百善孝为",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 10,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 82302,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "百步穿扬",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 10,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 82793,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "盘根问地",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 82827,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "盛名难负",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 82848,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "盛气临人",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 83566,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "眼光缭乱",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 83899,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "知彼知已",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 84908,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "磨肩接踵",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 84909,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "磨肩擦踵",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 84985,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "礼所当然",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 85878,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "离乡背景",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 85932,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "离蔬释蹻",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 86798,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "空穴来凤",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 87222,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "竭泽而鱼",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 87325,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "笑可藏刀",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 87350,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "笑逐频开",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 87873,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "筋皮力竭",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 89523,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "红紫乱末",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 90528,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "继往圣之",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 91085,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "罄笔难书",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 91593,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "群轻折抽",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 91688,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "翻东倒海",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 91704,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "翻天复地",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 92594,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "肝心君裂",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 92978,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "胡八非为",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 93681,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "腥风雪雨",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 93882,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "自做自受",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 93959,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "自己自足",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 93977,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "自情不息",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 93980,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "自惭形迹",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 94211,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "自立更生",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 94427,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "舍已为人",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 94428,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "舍已为公",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 94429,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "舍已救人",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 94435,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "舍末逐末",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 94667,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "良唇吉日",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 95752,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "茹苦念辛",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 95761,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "荆山之已",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 96415,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "落井下水",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 97318,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "蛛丝鼠迹",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 97390,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "蜂涌而上",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 97637,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "血流成杵",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 97777,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "行格势禁",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 97847,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "街尾相随",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 98400,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "襟怀担白",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 98708,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "见仁见志",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 98874,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "视为知已",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 98894,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "视如敝徙",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 99580,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "记忆忧新",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 99634,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "讳病忌医",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 100070,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "诛求无己",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 100080,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "话不虎传",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 100690,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "谈笑风声",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 101360,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "责无旁货",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 101670,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "贯顾奋戟",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 102429,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "绝境奋战",
+        "desc": "自身耐久低于 40% 时，直接伤害提高 25%，攻击间隔缩短 10%；完好时保持正常输出。",
+        "word": "走头无路",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "valor",
+          "rescue"
+        ],
+        "semanticCycle": 4,
+        "special": "resolve",
+        "idiomMove": "wrath"
+      }
+    },
+    {
+      "index": 102702,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "超凡人圣",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 102802,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "越狙代庖",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 103243,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "身不由已",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 103756,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "轻手鸿毛",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 103760,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "轻描谈写",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 103820,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "轻财重土",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 104234,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "迅雷不及",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 104486,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "迎头赶头",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 104980,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "违心之伦",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 105159,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "迫不得己",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 105161,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "迫不急待",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 105334,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "退徙三舍",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 105806,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "逞匹夫之",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 105881,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "造谣中尚",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 105993,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 91,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "徒劳封势",
+        "desc": "蓄满 4 次攻击后，追加 350% 伤害，打断目标正在蓄力的普通攻塔攻击，并使其攻塔伤害降低 15% 持续 2 秒；不打断 Boss 大招，冷却 10 秒。",
+        "word": "遇难成详",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "focus",
+          "growth"
+        ],
+        "semanticCycle": 4,
+        "special": "frustration",
+        "idiomMove": "frustration"
+      }
+    },
+    {
+      "index": 106014,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "遏渐防荫",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 106132,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "遗失独立",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 106169,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "遗自万代",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 107586,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "量人为出",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 107709,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "金壁辉煌",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 107786,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "金榜提名",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 109003,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "锥刀之未",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 109542,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "门道若市",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 109673,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "闭关自首",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 111075,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "随声附合",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 112266,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "雷历风行",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 114885,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "面黄饥瘦",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 115258,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "顺息万变",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 115667,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "颠覆不破",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 117408,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "饮鸠止渴",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 118188,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "骨瘦如材",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 118604,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "鬼器狼嚎",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 118615,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "鬼斧神功",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 119184,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "鳞次节比",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 119397,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "鸿衡鳞绝",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 119485,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "鹬蚌持争",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 120242,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "默不做声",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 120288,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "黯然消魂",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    },
+    {
+      "index": 120340,
+      "profile": {
+        "type": "learning",
+        "icon": "学",
+        "name": "学识",
+        "color": "#9b774b",
+        "cost": 141,
+        "damage": 92,
+        "range": 204,
+        "rate": 1.05,
+        "tag": "成章回响",
+        "desc": "蓄满 4 次攻击后，四字印阵向主目标追加 140% 伤害、附近另外最多 2 个敌人各追加 60%；冷却 12 秒。",
+        "word": "鼓惑人心",
+        "tier": 4,
+        "maxLevel": 6,
+        "aura": 0,
+        "income": 0,
+        "trait": "balanced",
+        "runes": [
+          "study",
+          "focus"
+        ],
+        "semanticCycle": 4,
+        "special": "canon",
+        "idiomMove": "canon"
+      }
+    }
+  ]
+}

@@ -26,6 +26,9 @@ def valid(word):
 dictionary = read_source(args.dictionary, 'jieba/dict.txt')
 license_text = read_source(args.license, 'LICENSE')
 supplements = json.loads((ROOT / 'data/vocabulary-supplements.json').read_text(encoding='utf-8'))
+review = json.loads((ROOT / 'data/vocabulary-review.json').read_text(encoding='utf-8'))
+definitions = json.loads((ROOT / 'data/idiom-definitions.json').read_text(encoding='utf-8'))
+retired = json.loads((ROOT / 'data/retired-word-profiles.json').read_text(encoding='utf-8'))
 learning = json.loads((ROOT / 'data/learning-idioms.json').read_text(encoding='utf-8'))
 culture = json.loads((ROOT / 'data/cultural-words.json').read_text(encoding='utf-8'))
 culture.update(json.loads((ROOT / 'data/zodiac-words.json').read_text(encoding='utf-8')))
@@ -152,6 +155,21 @@ for word, entry in learning.items():
 # Preserve the original authored additions when the dictionary is regenerated.
 legacy = '雪球 守护者 治疗 治疗术 治愈 治愈术 魔法 法术 魔法箭 魔法盾 奥术 奥术飞弹 能量 能量弹 冲击波 防御 防御塔 炮塔 箭塔 箭楼 火炮 大炮 水流 水箭 水球 水龙 水墙 木箭 荆棘 藤蔓 花草 树木 树人 藤甲 天使 恶魔 骑士 牧师 精灵 妖精 魔法师 弓箭手 火枪手 魔法球 穿甲弹 寒冰弹 冰霜弹 火焰弹 连环箭 毒液弹 剧毒弹 法力护盾'.split()
 words.update(legacy)
+# A segmentation dictionary is a source of candidates, not proof of correct
+# spelling or idiom status. Explicit reviewed retirements apply after every
+# source/template so a later generator cannot accidentally reintroduce them.
+for entry in review['corrections'].values():
+    word = entry['replacement']
+    if word:
+        assert valid(word) and (word in definitions or word in review.get('phraseMeanings',{})), word
+        words.add(word)
+        if len(word) == 4 and word in definitions:
+            idioms.add(word)
+for word in review['corrections']:
+    words.discard(word)
+    idioms.discard(word)
+    assert word not in skill_schools and word not in learning, word
+assert all(word in words for word in review['preserveExamples'])
 encode = lambda value: json.dumps(value, ensure_ascii=False, separators=(',', ':'))
 module = f'// Common words from fxsjy/jieba, MIT, commit {COMMIT}.\n// See THIRD-PARTY-NOTICES.txt. Curated supplements: data/.\n'
 module += 'export const COMMON_WORDS=' + encode('|'.join(sorted(words))) + '.split("|");\n'
@@ -159,6 +177,10 @@ module += 'export const IDIOM_WORDS=' + encode('|'.join(sorted(idioms))) + '.spl
 module += 'export const SKILL_SCHOOLS=' + encode(skill_schools) + ';\n'
 module += 'export const SKILL_TEMPLATES=' + encode(skill_templates) + ';\n'
 module += 'export const WORD_LEARNING=' + encode(learning) + ';\n'
+module += 'export const WORD_DEFINITIONS=' + encode(definitions) + ';\n'
+module += 'export const WORD_CORRECTION_MEANINGS=' + encode(review.get('phraseMeanings',{})) + ';\n'
+module += 'export const WORD_REVIEW=' + encode(review['corrections']) + ';\n'
+module += 'export const RETIRED_WORD_PROFILES=' + encode([entry['profile'] for entry in retired['profiles']]) + ';\n'
 notice = f'Common-word data derived from fxsjy/jieba\nSource: https://github.com/fxsjy/jieba/tree/{COMMIT}\nIncluded Chinese words: length 1–4, frequency >=20; four-character idioms tagged i, frequency >=3. Other tagged idioms preserve the prior >=10 rule. Additional game vocabulary and plain-language learning explanations are project-authored in data/.\n\n' + license_text + '\n\n' + (ROOT / 'data/idiom-source-notice.txt').read_text()
 for path, content in [(ROOT / 'dist/lexicon.mjs', module), (ROOT / 'dist/THIRD-PARTY-NOTICES.txt', notice)]:
     if args.check:

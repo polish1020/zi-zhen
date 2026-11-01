@@ -1,12 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {Game,getWord,matchWord,enemyPosition,towerStats} from '../dist/engine.mjs';
+import {Game,WORDS,getWord,matchWord,enemyPosition,towerStats} from '../dist/engine.mjs';
 import {SKILL_TEMPLATES} from '../dist/lexicon.mjs';
 import {aliasSkills} from '../scripts/elemental-aliases.mjs';
 import {auditAliases} from '../scripts/audit-elemental-aliases.mjs';
 function stock(g,word){g.hand=[...word.padEnd(16,'麒')].map(ch=>({id:++g.handSerial,ch,used:false}));}
 test('all 8304 alias/root combinations are explicit valid skills and all 112468 published profiles stay unchanged',()=>{
- const audit=auditAliases();assert.equal(audit.added,8304);assert.equal(audit.total,120772);
+ const audit=auditAliases();assert.equal(audit.added,8304);assert.equal(audit.total,WORDS.length);
  for(const[word,rule]of aliasSkills){assert.equal(matchWord([...word]).word,word);assert.equal(SKILL_TEMPLATES[word].canonicalPrefix,rule.canonical);assert.ok(word.length<=4);}
  for(const word of ['桌子之力','桌子锤','桌子符咒','之力毒素','锤冻冰','冰锥之力术','冰锥剑','毒素麒麟'])assert.equal(matchWord([...word]),null,word);
 });

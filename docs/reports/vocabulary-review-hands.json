@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-01",
+  "engineHash": "1c0a7467438132012e3669cb466745f88f47d082f04cd7bcfbc87b5e6d9836c7",
+  "specialsHash": "9123c609756d05908e7d43084e5cc318a7afdb715ebbf672fd069cefb0e90820",
+  "lexiconHash": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
+  "method": "500 seeds, chapter 1, initial hand plus 3 paid refreshes each. Audit-only wallet 10000 permits repeated draws and six-word spending checks; campaign simulations use actual starting resources. Candidates can overlap, while the six guarantee words have separate letters.",
+  "samples": 2000,
+  "qualified": 2000,
+  "qualifiedPct": 100,
+  "cheapSingleAvailable": 2000,
+  "uniqueHands": 2000,
+  "distinctGuaranteedWords": 3731,
+  "independentSixWordBuilds": 100,
+  "average": {
+    "2": 23.938,
+    "3": 19.8565,
+    "4": 6.3455
+  },
+  "minimum": {
+    "2": 6,
+    "3": 2,
+    "4": 1
+  },
+  "before": {
+    "samples": 2000,
+    "initialHands": 500,
+    "paidRefreshes": 1500,
+    "qualified": 1693,
+    "qualifiedPct": 84.65,
+    "cheapSingleAvailable": 2000,
+    "uniqueHands": 2000,
+    "distinctGuaranteedWords": 0,
+    "independentSixWordBuilds": 0,
+    "average": {
+      "2": 20.2645,
+      "3": 6.594,
+      "4": 2.268
+    },
+    "minimum": {
+      "2": 4,
+      "3": 1,
+      "4": 1
+    },
+    "examples": []
+  }
+}

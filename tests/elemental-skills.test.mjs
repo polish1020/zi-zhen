@@ -7,7 +7,7 @@ function stock(g,word){g.hand=[...word.padEnd(16,'火')].map(ch=>({id:++g.handSe
 function arena(word){const g=new Game(0,42);g.ink=1000;stock(g,word);assert.ok(g.build(word,2));g.phase='battle';g.wave=1;return {g,t:g.towers[0]};}
 
 test('all 4851 elemental recipes are bounded explicit skills; every original profile remains unchanged',()=>{
- const report=audit();assert.equal(report.added,4851);assert.ok(report.total>=112468);assert.equal(report.unchangedExistingProfiles,107617);
+ const report=audit();assert.equal(report.added,4851);assert.ok(report.total>=112000);assert.equal(report.unchangedExistingProfiles,107617);
  for(const[word,{prefix,source}]of addedSkills){const w=getWord(word),template=SKILL_TEMPLATES[word];assert.ok(w.tier<=4&&w.tier>=2);assert.equal(template.prefix+template.suffix,word);assert.equal(matchWord([...word]).word,word);assert.equal(wordCategory(word),'skill');
   if(rules.mixedPrefixes[prefix]){assert.equal(w.type,rules.mixedPrefixes[prefix].school,word);assert.ok(w.runes.includes(rules.mixedPrefixes[prefix].rune),word);}
   if(source==='creature')assert.ok(w.runes.includes('brood'),word);

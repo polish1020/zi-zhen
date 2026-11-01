@@ -1,9 +1,13 @@
-import {COMMON_WORDS,IDIOM_WORDS,SKILL_SCHOOLS,WORD_LEARNING,SKILL_TEMPLATES} from './lexicon.mjs';
+import {COMMON_WORDS,IDIOM_WORDS,SKILL_SCHOOLS,WORD_LEARNING,SKILL_TEMPLATES,WORD_DEFINITIONS,WORD_CORRECTION_MEANINGS,WORD_REVIEW,RETIRED_WORD_PROFILES} from './lexicon.mjs';
 import {SPECIAL_EFFECTS,SPECIAL_WORDS,SPECIAL_RUNE_OVERRIDES,PREVIOUS_SPECIAL_WORDS,SPECIAL_LESSONS,SPECIAL_PALETTES,IDIOM_PROFILES,REVIEWED_IDIOMS,PREVIOUS_LEARNING_WORDS,IDIOM_MOVES,IDIOM_LESSONS,V8_BASIC_FOUR_CORRECTIONS} from './specials.mjs';
 export {SPECIAL_EFFECTS,IDIOM_MOVES} from './specials.mjs';
 const IDIOM_SET=new Set(REVIEWED_IDIOMS);
-export const wordCategory=word=>(WORD_LEARNING[word]?.kind==='idiom'||SPECIAL_LESSONS[word]?.kind==='idiom'||IDIOM_SET.has(word))?'idiom':SKILL_SCHOOLS[word]?'skill':word.length===4?'phrase':'common';
-export const wordLearning=word=>WORD_LEARNING[word]||SPECIAL_LESSONS[word]||IDIOM_LESSONS[word]||null;
+const RETIRED_INDEX=new Map(RETIRED_WORD_PROFILES.map(w=>[w.word,w]));
+export const wordCategory=word=>RETIRED_INDEX.has(word)?'legacy':(WORD_LEARNING[word]?.kind==='idiom'||SPECIAL_LESSONS[word]?.kind==='idiom'||IDIOM_SET.has(word))?'idiom':SKILL_SCHOOLS[word]?'skill':word.length===4?'phrase':'common';
+export function wordLearning(word){
+ const review=WORD_REVIEW[word];if(review)return {kind:'legacy',group:'词条订正',meaning:review.replacement?`旧版误收词条。规范写法是「${review.replacement}」。${wordLearning(review.replacement)?.meaning||''}已造出的旧塔可继续使用，此写法不再用于组词。`:'这是截断或损坏的旧词条，不能作为完整词语。已造出的旧塔可继续使用，此写法不再用于组词。'};
+ return WORD_LEARNING[word]||SPECIAL_LESSONS[word]||IDIOM_LESSONS[word]||(WORD_CORRECTION_MEANINGS[word]?{kind:'phrase',group:'词义辨析',meaning:WORD_CORRECTION_MEANINGS[word]}:null)||(WORD_DEFINITIONS[word]&&wordCategory(word)!=='skill'?{kind:wordCategory(word)==='idiom'?'idiom':'word',group:'词义',meaning:WORD_DEFINITIONS[word]}:null);
+}
 export const isGameSkill=word=>Object.hasOwn(SKILL_SCHOOLS,word);
 export const isCultureWord=word=>wordLearning(word)?.culture===true;
 // Each recipe has a distinct word; length determines its starting tier.
@@ -286,14 +290,14 @@ const ORIGINAL_WORDS=[...COMBAT_WORDS,...[...new Set([...COMMON_WORDS,...AUTHORE
 const LEGACY_WORDS=new Map(ORIGINAL_WORDS.map(w=>[w.word,w]));
 const V8_BASIC_FOUR_SET=new Set(V8_BASIC_FOUR_CORRECTIONS);
 function savedTowerMax(t,version){
- if(version>=8)return towerDefense(t,false,version===8&&V8_BASIC_FOUR_SET.has(t.word)?LEGACY_WORDS.get(t.word):getWord(t.word)).maxHp;
+ if(version>=8)return towerDefense(t,false,version===8&&V8_BASIC_FOUR_SET.has(t.word)?LEGACY_WORDS.get(t.word):getTowerWord(t.word)).maxHp;
  const prior=version<6?null:version===6?PREVIOUS_SPECIAL_WORDS[t.word]:PREVIOUS_LEARNING_WORDS[t.word];
  let profile=LEGACY_WORDS.get(t.word);
  if(prior){const f=SPECIAL_EFFECTS[prior];profile={...profile,type:'learning',trait:'balanced',special:prior,runes:(SPECIAL_RUNE_OVERRIDES[t.word]||f.runes).slice(0,runeLimit(profile.tier))};}
- else if(version>=6&&!IDIOM_PROFILES[t.word]&&!getWord(t.word).special)profile=getWord(t.word);
+ else if(version>=6&&!IDIOM_PROFILES[t.word]&&!getTowerWord(t.word).special)profile=getTowerWord(t.word);
  return towerDefense(t,version<5,profile).maxHp;
 }
-export const WORDS=ORIGINAL_WORDS.map(w=>{
+export const WORDS=ORIGINAL_WORDS.filter(w=>!RETIRED_INDEX.has(w.word)).map(w=>{
  const idiom=IDIOM_PROFILES[w.word],special=idiom?idiom.type==='learning'?idiom.special:null:SPECIAL_WORDS[w.word];if(!special){
   const type=idiom?.type||({岩浆:'splash',熔岩:'splash',流星锤:'heavy',毒镖:'poison'})[w.word];
   if(!type)return w;const school=SCHOOLS.find(s=>s.type===type);return {...applyWordTrait({...w,...school,words:undefined,cost:Math.round(school.cost*PRICE[w.tier]),damage:Math.round(school.damage*POWER[w.tier]),range:school.range+(w.tier-2)*12}),...(idiom?{idiomMove:idiom.move}:{})};
@@ -332,6 +336,7 @@ export const clearInk=(round,endless=false)=>8+Math.min(round,endless?Infinity:6
 export const roundInk=(round,endless=false)=>20+Math.min(round,endless?Infinity:6)*3;
 export const SKILL_COOLDOWN=30, SKILL_BASE_COST=30, SKILL_COST_STEP=15;
 const WORD_INDEX=new Map(WORDS.map(w=>[w.word,w]));
+const SAVED_WORD_CHARACTERS=new Set([...WORDS,...RETIRED_WORD_PROFILES].flatMap(w=>[...w.word]));
 const LEARNING_EVERYDAY_WORDS=WORDS.filter(w=>w.type==='learning');
 const LONG_LEARNING_WORDS=WORDS.filter(w=>w.type==='learning'&&w.tier===4&&(PREVIOUS_LEARNING_WORDS[w.word]||SPECIAL_LESSONS[w.word]||WORD_LEARNING[w.word]));
 const LEARNING_HAND_WORDS=[...new Set([...Object.keys(WORD_LEARNING),...Object.keys(SPECIAL_LESSONS)])].filter(word=>wordLearning(word).kind==='idiom').map(word=>WORD_INDEX.get(word)).filter(Boolean);
@@ -339,6 +344,9 @@ const SKILL_HAND_WORDS=Object.keys(SKILL_SCHOOLS).map(word=>WORD_INDEX.get(word)
 const CULTURE_HAND_WORDS=Object.keys(WORD_LEARNING).filter(word=>isCultureWord(word)&&WORD_LEARNING[word].kind!=='idiom').map(word=>WORD_INDEX.get(word)).filter(Boolean);
 const WORD_PREFIXES=new Set(WORDS.flatMap(w=>Array.from({length:w.tier},(_,i)=>w.word.slice(0,i+1))));
 export const getWord=word=>WORD_INDEX.get(word);
+// Retired recipes are never forgeable; only already-built saved towers and
+// their effects may resolve their exact released profile.
+export const getTowerWord=word=>WORD_INDEX.get(word)||RETIRED_INDEX.get(word);
 // Build a complete six-word set before shuffling so guarantees do not compete for tiles.
 const HAND_POOLS=Object.fromEntries([2,3,4].map(tier=>[tier,{
  fallback:COMBAT_WORDS.filter(w=>w.tier===tier),
@@ -347,7 +355,7 @@ const HAND_POOLS=Object.fromEntries([2,3,4].map(tier=>[tier,{
  skills:SKILL_HAND_WORDS.filter(w=>w.tier===tier),
  culture:CULTURE_HAND_WORDS.filter(w=>w.tier===tier)
 }]));
-const HAND_STARTERS=HAND_POOLS[2].fallback.filter(w=>w.damage>0&&!['aura','income'].includes(w.type)&&[...w.word].some(ch=>{const one=getWord(ch);return one?.damage>0&&one.cost<=37;}));
+const HAND_STARTERS=HAND_POOLS[2].fallback.filter(w=>w.damage>0&&!['aura','income'].includes(w.type)&&[...w.word].some(ch=>{const one=getTowerWord(ch);return one?.damage>0&&one.cost<=37;}));
 export function drawHandWords(random){
  const pick=xs=>xs[Math.floor(random()*xs.length)];
  const themed=tier=>{const p=HAND_POOLS[tier],roll=random();if(roll<.15)return pick(random()<.5?p.learning:p.meaning);if(tier===4&&roll<.65)return pick(random()<.35?LONG_LEARNING_WORDS:LEARNING_HAND_WORDS);if(roll<(tier===4?.85:.45))return pick(p.skills);if(roll<(tier===4?.95:.65))return pick(p.culture);return pick(p.fallback);};
@@ -355,7 +363,7 @@ export function drawHandWords(random){
  const starter=pick(HAND_STARTERS),shortSeen=new Set([starter.word]),mediumSeen=new Set();
  return[starter,distinct(2,shortSeen),distinct(2,shortSeen),distinct(3,mediumSeen),distinct(3,mediumSeen),themed(4)].map(w=>w.word);
 }
-export function towerStats(t){const w=getWord(t.word),up=t.level-w.tier;return {damage:Math.round(w.damage*(1+up*(.65+(hasRune(w,'growth')?.1:0)))),range:w.range+up*15,rate:w.rate/(1+up*.14),aura:w.aura,income:Math.round(w.income*(1+up*.5))};}
+export function towerStats(t){const w=getTowerWord(t.word),up=t.level-w.tier;return {damage:Math.round(w.damage*(1+up*(.65+(hasRune(w,'growth')?.1:0)))),range:w.range+up*15,rate:w.rate/(1+up*.14),aura:w.aura,income:Math.round(w.income*(1+up*.5))};}
 export const towerActive=t=>(t.hp??1)>0;
 export const TOWER_DEFENSES={
  basic:{health:1.1,role:'稳固：轮末额外自修 5%，适合稳定守线。'},
@@ -374,7 +382,7 @@ export const TOWER_DEFENSES={
  mark:{health:1,role:'缚咒：咒印持续期间，敌人攻塔伤害降低 10%。'},
  echo:{health:.9,role:'幻阵：敌人攻击本塔的蓄力时间延长 0.18 秒。'}
 };
-export function towerDefense(t,legacy=false,profile=getWord(t.word)){
+export function towerDefense(t,legacy=false,profile=getTowerWord(t.word)){
  const w=profile,up=t.level-w.tier;
  const shape=(w.special==='pillar'?1.05+w.tier*.05:1)*(w.trait==='ward'?1.2:w.trait==='impact'||w.trait==='dragon'?1.12:w.trait==='ranged'?.92:1);
  const health=(140+w.tier*70+up*(legacy?(hasRune(w,'growth')?60:45):(150+50*(w.tier-1))*(hasRune(w,'growth')?1.2:1)))*TOWER_DEFENSES[w.type].health*shape;
@@ -754,17 +762,17 @@ export class Game {
  get campaignWaves(){return this.campaignRounds*3;}
  get pads(){return getMap(this.chapter,this.mirrorLayout).pads;}
  get activeTowers(){return this.towers.filter(towerActive);}
- repairCost(t){if(!t)return 0;const max=towerDefense(t).maxHp,hp=t.hp??max;if(hp>=max-1e-6)return 0;if(hp<=0)return Math.max(3,Math.ceil(t.spent*rebuildPercent(t)/100));const w=getWord(t.word),p=this.pads[t.pad],gold=this.activeTowers.some(a=>getWord(a.word).type==='income'&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range);return Math.max(5,Math.ceil(t.spent*.25*(1-hp/max)*(gold?.85:1)*(Math.min(hasRune(w,'study')?.92:1,w.special==='thrift'?1-[.08,.12,.18][learningRank(w)-1]:1))*(hasRune(w,'rescue')&&hp<max*.3?.9:1)));}
+ repairCost(t){if(!t)return 0;const max=towerDefense(t).maxHp,hp=t.hp??max;if(hp>=max-1e-6)return 0;if(hp<=0)return Math.max(3,Math.ceil(t.spent*rebuildPercent(t)/100));const w=getTowerWord(t.word),p=this.pads[t.pad],gold=this.activeTowers.some(a=>getTowerWord(a.word).type==='income'&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range);return Math.max(5,Math.ceil(t.spent*.25*(1-hp/max)*(gold?.85:1)*(Math.min(hasRune(w,'study')?.92:1,w.special==='thrift'?1-[.08,.12,.18][learningRank(w)-1]:1))*(hasRune(w,'rescue')&&hp<max*.3?.9:1)));}
  salvageValue(t){return Math.floor(t.spent*(towerActive(t)?.7:.35));}
  repair(id){const t=this.towers.find(t=>t.id===id),cost=this.repairCost(t);if(!t||!cost||this.ink<cost||(t.repairReadyAt||0)>this.time||['won','lost'].includes(this.phase))return false;const rebuilt=!towerActive(t);this.ink-=cost;if(rebuilt)t.rebuilds=Math.min(Number.MAX_SAFE_INTEGER,(t.rebuilds||0)+1);t.hp=towerDefense(t).maxHp;t.disruptedUntil=0;t.chillUntil=0;t.corrodedUntil=0;t.repairReadyAt=this.time+8;this.emit('repair',{pad:t.pad,word:t.word,cost,rebuilt});return true;}
  cancelTowerAim(id){for(const e of this.enemies)if(e.towerTarget===id||e.towerLastTarget===id){delete e.towerLastTarget;delete e.towerTarget;delete e.towerStrikeAt;e.towerAttackAt=Math.max(e.towerAttackAt||0,this.time+.8);}}
  towerPressure(t,attacker){const p=this.pads[t.pad];return this.enemies.filter(e=>e.hp>0&&(e===attacker||e.bossTargets?.includes(t.id)||e.towerTarget!==undefined||e.towerLastTarget!==undefined&&e.towerAttackAt>this.time)&&Math.hypot(enemyPosition(e).x-p.x,enemyPosition(e).y-p.y)<=enemyWeapon(e.kind).range+22).length;}
  damageTower(t,raw,enemy,boost=true){
   if(!towerActive(t))return 0;const defense=towerDefense(t),p=this.pads[t.pad];
-  const shelters=this.activeTowers.filter(a=>a!==t&&getWord(a.word).special==='shelter'&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range*(getWord(a.word).tier>=4?1:.65));
-  const cover=Math.max(0,...shelters.map(a=>.05+learningRank(getWord(a.word))*.03),...this.activeTowers.filter(a=>a!==t&&getWord(a.word).type==='aura'&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range).map(a=>getWord(a.word).trait==='radiance'?.15:.12));
+  const shelters=this.activeTowers.filter(a=>a!==t&&getTowerWord(a.word).special==='shelter'&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range*(getTowerWord(a.word).tier>=4?1:.65));
+  const cover=Math.max(0,...shelters.map(a=>.05+learningRank(getTowerWord(a.word))*.03),...this.activeTowers.filter(a=>a!==t&&getTowerWord(a.word).type==='aura'&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range).map(a=>getTowerWord(a.word).trait==='radiance'?.15:.12));
   if(boost)raw*=1+this.bossSupport(enemy).attack;
-  const w=getWord(t.word),weapon=enemyWeapon(enemy.kind),weaken=Math.max(enemy.siegeWeakUntil>this.time?.15:0,enemy.markUntil>this.time||enemy.weakenUntil>this.time?.1:0);
+  const w=getTowerWord(t.word),weapon=enemyWeapon(enemy.kind),weaken=Math.max(enemy.siegeWeakUntil>this.time?.15:0,enemy.markUntil>this.time||enemy.weakenUntil>this.time?.1:0);
   if(weapon.debuff==='flame'&&w.type==='splash')raw*=.7;
   if(boost&&weapon.style==='stalker'&&!(enemy.lightUntil>this.time||enemy.markUntil>this.time))raw*=1.15;
   const armor=Math.max(0,defense.armor-(t.corrodedUntil>this.time?.1:0));
@@ -849,9 +857,9 @@ export class Game {
    }
    if(this.time<e.towerAttackAt)continue;
    const options=this.activeTowers.map(t=>({t,d:Math.hypot(this.pads[t.pad].x-p.x,this.pads[t.pad].y-p.y)})).filter(x=>x.d<=weapon.range);
-   const rank=x=>towerDefense(x.t).guard&&x.d<=weapon.range*.82?0:weapon.style==='stalker'&&['aura','income'].includes(getWord(x.t.word).type)?1:2;
+   const rank=x=>towerDefense(x.t).guard&&x.d<=weapon.range*.82?0:weapon.style==='stalker'&&['aura','income'].includes(getTowerWord(x.t.word).type)?1:2;
    const choice=options.sort((a,b)=>(assigned.get(a.t.id)||0)-(assigned.get(b.t.id)||0)||rank(a)-rank(b)||a.d-b.d||a.t.id-b.t.id)[0];
-   if(choice){e.towerTarget=choice.t.id;e.towerStrikeAt=this.time+weapon.windup+(getWord(choice.t.word).type==='echo'?.18:0);assigned.set(choice.t.id,(assigned.get(choice.t.id)||0)+1);}
+   if(choice){e.towerTarget=choice.t.id;e.towerStrikeAt=this.time+weapon.windup+(getTowerWord(choice.t.word).type==='echo'?.18:0);assigned.set(choice.t.id,(assigned.get(choice.t.id)||0)+1);}
   }
  }
  escortKinds(boss){
@@ -867,10 +875,10 @@ export class Game {
   if(next.escort){const boss=this.enemies.find(a=>a.hp>0&&ENEMIES[a.kind].boss&&a.wave===e.wave&&a.route===e.route);if(boss)this.bindEscort(e,boss);}return e;
  }
  restoreTowers(){
-  const supports=this.activeTowers.filter(t=>getWord(t.word).type==='aura'||hasRune(getWord(t.word),'mend'));let recovered=0;
+  const supports=this.activeTowers.filter(t=>getTowerWord(t.word).type==='aura'||hasRune(getTowerWord(t.word),'mend'));let recovered=0;
   for(const t of this.towers){t.repairReadyAt=0;t.disruptedUntil=0;t.chillUntil=0;t.corrodedUntil=0;t.hitUntil=0;if(!towerActive(t))continue;const max=towerDefense(t).maxHp,before=t.hp??max,p=this.pads[t.pad];
    const extra=supports.some(a=>a!==t&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range)?.1:0;
-   t.hp=Math.min(max,before+max*(.3+extra+(getWord(t.word).type==='basic'?.05:0)));recovered+=t.hp-before;
+   t.hp=Math.min(max,before+max*(.3+extra+(getTowerWord(t.word).type==='basic'?.05:0)));recovered+=t.hp-before;
   }return recovered;
  }
  constructor(chapter=0,seed=(Math.random()*4294967296)>>>0){this.chapter=chapter;this.campaignRounds=CHAPTERS[chapter].rounds;this.wave=0;this.endless=false;this.unlockedPads=Array.from({length:FREE_PAD_COUNT},(_,i)=>i);this.hp=CHAPTERS[chapter].hp;this.ink=CHAPTERS[chapter].ink;this.towers=[];this.enemies=[];this.effects=[];this.zones=[];this.queue=[];this.time=0;this.spawnTime=0;this.autoWaveAt=0;this.pendingWaves=null;this.phase='prepare';this.kills=0;this.nextId=1;this.skillReady=0;this.skillUses=0;this.hintUses=0;this.killInkRemainder=0;this.totalEarned=0;this.bountyEarned=0;this.barrierSpent=0;this.soulHealed=0;this.reviveUsed=false;this.bossDraws=[];this.bossBreachedRound=0;this.events=[];this.rngState=(seed>>>0)||1;this.refreshes=0;this.handSerial=0;this.hand=[];if(chapter===7)this.mirrorLayout=2;for(let i=0;i<4;i++)this.random();this.drawHand();}
@@ -890,12 +898,12 @@ export class Game {
  refreshCost(){return REFRESH_COST;}
  refreshHand(){if(['won','lost'].includes(this.phase)||this.ink<this.refreshCost())return false;const cost=this.refreshCost();this.ink-=cost;this.refreshes++;this.drawHand();this.emit('refresh',{cost});return true;}
  tilesFor(word){const ids=[];for(const ch of word){const tile=this.hand.find(t=>!t.used&&t.ch===ch&&!ids.includes(t.id));if(!tile)return null;ids.push(tile.id);}return ids;}
- availableWords(){const key=this.hand.map(t=>t.used?'_':t.ch).join('');if(this._wordCacheKey!==key){const counts=new Map();for(const t of this.hand)if(!t.used)counts.set(t.ch,(counts.get(t.ch)||0)+1);const found=[];const visit=prefix=>{for(const [ch,count]of counts){if(!count)continue;const next=prefix+ch;if(!WORD_PREFIXES.has(next))continue;const w=getWord(next);if(w)found.push(w);if(next.length<4){counts.set(ch,count-1);visit(next);counts.set(ch,count);}}};visit('');this._wordCacheKey=key;this._wordCache=found;}return this._wordCache.slice();}
+ availableWords(){const key=this.hand.map(t=>t.used?'_':t.ch).join('');if(this._wordCacheKey!==key){const counts=new Map();for(const t of this.hand)if(!t.used)counts.set(t.ch,(counts.get(t.ch)||0)+1);const found=[];const visit=prefix=>{for(const [ch,count]of counts){if(!count)continue;const next=prefix+ch;if(!WORD_PREFIXES.has(next))continue;const w=getTowerWord(next);if(w)found.push(w);if(next.length<4){counts.set(ch,count-1);visit(next);counts.set(ch,count);}}};visit('');this._wordCacheKey=key;this._wordCache=found;}return this._wordCache.slice();}
  canBuild(word,ids){const w=getWord(word);if(!w||this.ink<w.cost||['won','lost'].includes(this.phase))return false;const chosen=ids??this.tilesFor(word);if(!chosen||chosen.length!==w.tier||new Set(chosen).size!==chosen.length)return false;const tiles=chosen.map(id=>this.hand.find(t=>t.id===id&&!t.used));return tiles.every(Boolean)&&tiles.map(t=>t.ch).join('')===word;}
  build(word,pad,ids){const w=getWord(word),chosen=ids??this.tilesFor(word);if(!this.pads[pad]||!this.padUnlocked(pad)||this.towers.some(t=>t.pad===pad)||!this.canBuild(word,chosen))return false;this.ink-=w.cost;for(const id of chosen)this.hand.find(t=>t.id===id).used=true;if(this.hintWord&&!this.tilesFor(this.hintWord))this.hintWord=null;const tower={word,pad,level:w.tier,spent:w.cost,cooldown:0,id:this.nextId++,repairReadyAt:0,rebuilds:0};tower.hp=towerDefense(tower).maxHp;this.towers.push(tower);this.emit('build',{word});return true;}
- upgrade(id){const t=this.towers.find(t=>t.id===id);if(!t||!towerActive(t)||t.level>=getWord(t.word).maxLevel||['won','lost'].includes(this.phase))return false;const cost=this.upgradeCost(t);if(this.ink<cost)return false;const max=towerDefense(t).maxHp;this.ink-=cost;t.spent+=cost;t.level++;t.hp=(t.hp??max)+towerDefense(t).maxHp-max;this.emit('upgrade',{pad:t.pad,level:t.level});return true;}
- upgradeCost(t){const w=getWord(t.word);return Math.round(w.cost*(t.level===w.tier?.75:1.15)*(hasRune(w,'study')?.92:1));}
- barrierRemaining(){return Math.max(0,Math.max(0,...this.activeTowers.filter(t=>hasRune(getWord(t.word),'barrier')).map(t=>Math.min(2,getWord(t.word).tier)))-this.barrierSpent);}
+ upgrade(id){const t=this.towers.find(t=>t.id===id);if(!t||!towerActive(t)||t.level>=getTowerWord(t.word).maxLevel||['won','lost'].includes(this.phase))return false;const cost=this.upgradeCost(t);if(this.ink<cost)return false;const max=towerDefense(t).maxHp;this.ink-=cost;t.spent+=cost;t.level++;t.hp=(t.hp??max)+towerDefense(t).maxHp-max;this.emit('upgrade',{pad:t.pad,level:t.level});return true;}
+ upgradeCost(t){const w=getTowerWord(t.word);return Math.round(w.cost*(t.level===w.tier?.75:1.15)*(hasRune(w,'study')?.92:1));}
+ barrierRemaining(){return Math.max(0,Math.max(0,...this.activeTowers.filter(t=>hasRune(getTowerWord(t.word),'barrier')).map(t=>Math.min(2,getTowerWord(t.word).tier)))-this.barrierSpent);}
  sell(id){const t=this.towers.find(t=>t.id===id);if(!t||['won','lost'].includes(this.phase))return false;this.ink+=this.salvageValue(t);this.cancelTowerAim(t.id);this.towers=this.towers.filter(x=>x.id!==id);this.emit('sell');return true;}
  continueEndless(){if(this.phase!=='won'||this.endless)return false;this.endless=true;this.phase='prepare';this.events=[];this.emit('endless');return true;}
  killInk(e){const round=Math.max(1,Math.ceil((e.wave??this.wave)/3)),percent=campaignKillPercent(round,!!ENEMIES[e.kind].boss,this.endless),value=e.reward*percent+this.killInkRemainder;const ink=Math.floor(value/100);this.killInkRemainder=value-ink*100;return ink;}
@@ -932,7 +940,7 @@ export class Game {
  this.updateTowerAttacks();
  for(const t of this.activeTowers)this.attack(t,dt);
  const leaders=new Set(this.enemies.filter(e=>ENEMIES[e.kind].boss&&e.hp>0&&e.d<enemyLength(e)).map(e=>e.id));this.enemies=this.enemies.filter(e=>!e.escortSummoned||leaders.has(e.escortBossId));
- for(const e of this.enemies){if(e.hp<=0){const cap=Math.max(this.activeTowers.some(t=>hasRune(getWord(t.word),'luck')||getWord(t.word).special==='fortune'||['bounty','seasons'].includes(getWord(t.word).idiomMove))?10:0,...this.activeTowers.filter(t=>getWord(t.word).type==='income').map(t=>getWord(t.word).tier>=4?35:getWord(t.word).tier>=3?25:15));const bounty=e.bountyUntil>this.time?Math.min(e.bounty||0,Math.max(0,cap-this.bountyEarned)):0;this.bountyEarned+=bounty;const earned=this.killInk(e)+bounty;this.ink+=earned;this.totalEarned+=earned;if(bounty)this.effects.push({kind:'coin',to:enemyPosition(e),amount:bounty,life:.8,max:.8});if(e.soulUntil>this.time&&this.soulHealed<1&&this.hp<CHAPTERS[this.chapter].hp){this.hp++;this.soulHealed++;}this.kills++;if(ENEMIES[e.kind].boss)this.emit('boss-defeated',{name:ENEMIES[e.kind].name,enemy:e.kind,to:{...enemyPosition(e)},portrait:{...e,shield:0,fallen:true,...(e.bossTargets?{bossTargets:[...e.bossTargets]}:{})}});this.effects.push({kind:'pop',to:enemyPosition(e),color:'#556b58',life:.45,max:.45});if(e.kind==='beaconrunner'){const p=enemyPosition(e);for(const ally of this.enemies)if(ally!==e&&ally.hp>0&&Math.hypot(enemyPosition(ally).x-p.x,enemyPosition(ally).y-p.y)<110)ally.rallyUntil=Math.max(ally.rallyUntil||0,this.time+3);this.effects.push({kind:'blast',to:p,color:'#bd7a43',life:.5,max:.5});}if(e.kind==='split'){this.spawn('small',e.d,e.route,e.wave);this.spawn('small',e.d-12,e.route,e.wave);}}else if(e.d>=enemyLength(e)){const harm=e.escortSummoned?0:Math.max(1,e.harm-(e.weakenUntil>this.time?1:0)),blocked=Math.min(harm,this.barrierRemaining());this.barrierSpent+=blocked;this.hp=Math.max(0,this.hp-harm+blocked);if(this.hp===0&&!this.reviveUsed&&this.activeTowers.some(t=>hasRune(getWord(t.word),'revive'))){this.hp=1;this.reviveUsed=true;this.emit('revive');}if(ENEMIES[e.kind].boss&&harm>blocked)this.bossBreachedRound=Math.ceil((e.wave||this.wave)/3);this.emit('leak',{blocked,damage:harm-blocked,enemy:e.kind,boss:!!ENEMIES[e.kind].boss});}}
+ for(const e of this.enemies){if(e.hp<=0){const cap=Math.max(this.activeTowers.some(t=>hasRune(getTowerWord(t.word),'luck')||getTowerWord(t.word).special==='fortune'||['bounty','seasons'].includes(getTowerWord(t.word).idiomMove))?10:0,...this.activeTowers.filter(t=>getTowerWord(t.word).type==='income').map(t=>getTowerWord(t.word).tier>=4?35:getTowerWord(t.word).tier>=3?25:15));const bounty=e.bountyUntil>this.time?Math.min(e.bounty||0,Math.max(0,cap-this.bountyEarned)):0;this.bountyEarned+=bounty;const earned=this.killInk(e)+bounty;this.ink+=earned;this.totalEarned+=earned;if(bounty)this.effects.push({kind:'coin',to:enemyPosition(e),amount:bounty,life:.8,max:.8});if(e.soulUntil>this.time&&this.soulHealed<1&&this.hp<CHAPTERS[this.chapter].hp){this.hp++;this.soulHealed++;}this.kills++;if(ENEMIES[e.kind].boss)this.emit('boss-defeated',{name:ENEMIES[e.kind].name,enemy:e.kind,to:{...enemyPosition(e)},portrait:{...e,shield:0,fallen:true,...(e.bossTargets?{bossTargets:[...e.bossTargets]}:{})}});this.effects.push({kind:'pop',to:enemyPosition(e),color:'#556b58',life:.45,max:.45});if(e.kind==='beaconrunner'){const p=enemyPosition(e);for(const ally of this.enemies)if(ally!==e&&ally.hp>0&&Math.hypot(enemyPosition(ally).x-p.x,enemyPosition(ally).y-p.y)<110)ally.rallyUntil=Math.max(ally.rallyUntil||0,this.time+3);this.effects.push({kind:'blast',to:p,color:'#bd7a43',life:.5,max:.5});}if(e.kind==='split'){this.spawn('small',e.d,e.route,e.wave);this.spawn('small',e.d-12,e.route,e.wave);}}else if(e.d>=enemyLength(e)){const harm=e.escortSummoned?0:Math.max(1,e.harm-(e.weakenUntil>this.time?1:0)),blocked=Math.min(harm,this.barrierRemaining());this.barrierSpent+=blocked;this.hp=Math.max(0,this.hp-harm+blocked);if(this.hp===0&&!this.reviveUsed&&this.activeTowers.some(t=>hasRune(getTowerWord(t.word),'revive'))){this.hp=1;this.reviveUsed=true;this.emit('revive');}if(ENEMIES[e.kind].boss&&harm>blocked)this.bossBreachedRound=Math.ceil((e.wave||this.wave)/3);this.emit('leak',{blocked,damage:harm-blocked,enemy:e.kind,boss:!!ENEMIES[e.kind].boss});}}
  this.enemies=this.enemies.filter(e=>e.hp>0&&e.d<enemyLength(e));if(this.hp<=0){this.phase='lost';this.emit('lost');}else this.settleWaves();
  }
  settleWaves(){
@@ -941,20 +949,20 @@ export class Game {
    const reward=clearInk(Math.ceil(wave/3),this.endless);this.ink+=reward;this.pendingWaves=this.pendingWaves.filter(w=>w!==wave);this.emit('clear',{wave,reward,income:0,roundEnd:false});
   }
   if(this.wave===0||this.wave%3!==0||this.pendingWaves.length||this.queue.length||this.enemies.length)return;
-  const round=this.wave/3,incomeCap=Math.max(80,...this.activeTowers.filter(t=>getWord(t.word).type==='income').map(t=>getWord(t.word).tier>=4?100:getWord(t.word).tier>=3?90:80));
-  const income=Math.min(incomeCap,this.activeTowers.filter(t=>getWord(t.word).type==='income').reduce((sum,t)=>sum+towerStats(t).income,0));
-  const extra=Math.min(10,this.activeTowers.filter(t=>hasRune(getWord(t.word),'prosper')).reduce((v,t)=>v+getWord(t.word).tier,0));const baseReward=roundInk(round,this.endless),reward=baseReward+income+extra;this.ink+=reward;this.refreshes=0;this.bountyEarned=0;this.barrierSpent=0;this.soulHealed=0;this.autoWaveAt=0;
+  const round=this.wave/3,incomeCap=Math.max(80,...this.activeTowers.filter(t=>getTowerWord(t.word).type==='income').map(t=>getTowerWord(t.word).tier>=4?100:getTowerWord(t.word).tier>=3?90:80));
+  const income=Math.min(incomeCap,this.activeTowers.filter(t=>getTowerWord(t.word).type==='income').reduce((sum,t)=>sum+towerStats(t).income,0));
+  const extra=Math.min(10,this.activeTowers.filter(t=>hasRune(getTowerWord(t.word),'prosper')).reduce((v,t)=>v+getTowerWord(t.word).tier,0));const baseReward=roundInk(round,this.endless),reward=baseReward+income+extra;this.ink+=reward;this.refreshes=0;this.bountyEarned=0;this.barrierSpent=0;this.soulHealed=0;this.autoWaveAt=0;
   const repaired=this.restoreTowers();this.zones=[];this.phase=!this.endless&&this.wave>=this.campaignWaves?'won':'prepare';this.emit(this.phase==='won'?'won':'clear',{wave:this.wave,reward,income,baseReward,extraIncome:extra,repaired,roundEnd:true});
  }
 
  addZone(t,kind,target,damage){
   const own=this.zones.filter(z=>z.tower===t.id);if(own.length>=2){const oldest=own.sort((a,b)=>a.until-b.until)[0];this.zones=this.zones.filter(z=>z!==oldest);}
-  const point=enemyPosition(target),tier=getWord(t.word).tier;
+  const point=enemyPosition(target),tier=getTowerWord(t.word).tier;
   this.zones.push({kind,tower:t.id,word:t.word,x:point.x,y:point.y,radius:kind==='fire'?55:tier*5+65,power:damage*(kind==='fire'?.4:.35),until:this.time+3});
  }
  updateZones(){
   this.zones=this.zones.filter(z=>z.until>this.time);
-  for(const e of this.enemies){if(e.hp<=0)continue;const p=enemyPosition(e);for(const z of this.zones){if(Math.hypot(p.x-z.x,p.y-z.y)>z.radius||z.kind==='fire'&&isAir(e))continue;if(z.kind==='net'){if(!hasIceShell(e)){e.slowFactor=Math.min(e.slowUntil>this.time?e.slowFactor??1:1,1-(.1+learningRank(getWord(z.word))*.05));e.slowUntil=Math.max(e.slowUntil||0,this.time+.25);}continue;}if(z.kind==='poison'){e.poisonDps=Math.max(e.poisonUntil>this.time?e.poisonDps:0,z.power);e.poisonUntil=Math.max(e.poisonUntil||0,this.time+2);}else{e.burnDps=Math.max(e.burnUntil>this.time?e.burnDps:0,z.power);e.burnUntil=Math.max(e.burnUntil||0,this.time+.2);}}}
+  for(const e of this.enemies){if(e.hp<=0)continue;const p=enemyPosition(e);for(const z of this.zones){if(Math.hypot(p.x-z.x,p.y-z.y)>z.radius||z.kind==='fire'&&isAir(e))continue;if(z.kind==='net'){if(!hasIceShell(e)){e.slowFactor=Math.min(e.slowUntil>this.time?e.slowFactor??1:1,1-(.1+learningRank(getTowerWord(z.word))*.05));e.slowUntil=Math.max(e.slowUntil||0,this.time+.25);}continue;}if(z.kind==='poison'){e.poisonDps=Math.max(e.poisonUntil>this.time?e.poisonDps:0,z.power);e.poisonUntil=Math.max(e.poisonUntil||0,this.time+2);}else{e.burnDps=Math.max(e.burnUntil>this.time?e.burnDps:0,z.power);e.burnUntil=Math.max(e.burnUntil||0,this.time+.2);}}}
  }
  updateEnemies(dt){
   const nearby=(a,b,r)=>Math.hypot(enemyPosition(a).x-enemyPosition(b).x,enemyPosition(a).y-enemyPosition(b).y)<=r;
@@ -1027,7 +1035,7 @@ export class Game {
    if(e.kind==='broodqueen'&&canAct&&this.time>=e.abilityAt&&(e.summons||0)<3){
     this.spawn('small',e.d-12,e.route,e.wave);this.spawn('small',e.d-24,e.route,e.wave);e.summons=(e.summons||0)+1;e.abilityAt=this.time+(e.hp<e.maxHp*.5?5:8);
    }
-   const guarded=this.activeTowers.some(t=>getWord(t.word).trait==='ward'&&Math.hypot(this.pads[t.pad].x-enemyPosition(e).x,this.pads[t.pad].y-enemyPosition(e).y)<=towerStats(t).range*.65);
+   const guarded=this.activeTowers.some(t=>getTowerWord(t.word).trait==='ward'&&Math.hypot(this.pads[t.pad].x-enemyPosition(e).x,this.pads[t.pad].y-enemyPosition(e).y)<=towerStats(t).range*.65);
    let movement=e.slowUntil>this.time?(e.slowFactor??.55):1;
    if(guarded&&!(hasIceShell(e)))movement=Math.min(movement,.9);
    if(e.freezeUntil>this.time)movement=0;
@@ -1158,7 +1166,7 @@ export class Game {
    case'borrow':hit(main,2);t.idiomGuardUntil=this.time+4;break;
    case'roots':for(const e of[main,...nearby.slice(0,3)]){hit(e,1.2);slow(e,.7,3);if(!hasIceShell(e)&&!(e.freezeReady>this.time)){e.freezeUntil=this.time+(ENEMIES[e.kind].boss?.25:.5);e.freezeReady=this.time+4;}}break;
    case'judgment':for(const e of[main,...nearby.slice(0,3)]){hit(e,1.5);e.markPower=Math.max(e.markUntil>this.time?e.markPower||0:0,.2);e.markUntil=Math.max(e.markUntil||0,this.time+3);}break;
-   case'festival':{const kinds=Math.min(4,new Set(allies.map(a=>getWord(a.word).type)).size);hit(main,1.8+kinds*.3);for(const e of nearby.slice(0,2))hit(e,.6+kinds*.2);break;}
+   case'festival':{const kinds=Math.min(4,new Set(allies.map(a=>getTowerWord(a.word).type)).size);hit(main,1.8+kinds*.3);for(const e of nearby.slice(0,2))hit(e,.6+kinds*.2);break;}
    case'visit':for(let i=0;i<3;i++)hit(main,.8);{const best=allies.sort((a,b)=>b.level-a.level||a.id-b.id)[0];if(best)boost(best,.45);}break;
    case'erosion':if(t.lessonTarget===main.id&&(t.lessonStreak||0)>=3){main.breakUntil=Math.max(main.breakUntil||0,this.time+1.5);hit(main,2.4);}else hit(main,1.8);break;
    case'barrage':for(let i=0;i<4;i++){const next=alive.find(e=>e.hp>0);if(next)hit(next,1);}break;
@@ -1172,7 +1180,7 @@ export class Game {
  }
  attack(t,dt){
   if(!towerActive(t)||t.disruptedUntil>this.time)return;
-  const w=getWord(t.word),p=this.pads[t.pad],stats=towerStats(t),rules=wordRules(w),trait=WORD_TRAITS[w.trait];
+  const w=getTowerWord(t.word),p=this.pads[t.pad],stats=towerStats(t),rules=wordRules(w),trait=WORD_TRAITS[w.trait];
   t.cooldown-=dt;if(t.cooldown>0)return;
   const inRange=e=>Math.hypot(enemyPosition(e).x-p.x,enemyPosition(e).y-p.y)<=stats.range;
   const targets=this.enemies.filter(e=>e.hp>0&&e.d<enemyLength(e)&&!(isAir(e)&&w.type==='heavy')&&inRange(e)).sort((a,b)=>(w.type==='sniper'||w.trait==='ranged'?Number(!!ENEMIES[b.kind].boss)-Number(!!ENEMIES[a.kind].boss):0)||b.d/enemyLength(b)-a.d/enemyLength(a));
@@ -1183,16 +1191,16 @@ export class Game {
   const target=targets[0],n=w.tier;
   const same=t.lessonTarget===target.id,streak=same?Math.min(5,(t.lessonStreak||0)+1):0;
   if(w.special){t.lessonTarget=target.id;t.lessonStreak=streak;}
-  const lights=this.activeTowers.filter(a=>a.id!==t.id&&getWord(a.word).type==='aura'&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range);
+  const lights=this.activeTowers.filter(a=>a.id!==t.id&&getTowerWord(a.word).type==='aura'&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range);
   const buff=Math.max(0,...lights.map(a=>towerStats(a).aura));
-  const inspired=this.activeTowers.some(a=>a.id!==t.id&&hasRune(getWord(a.word),'inspire')&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range*.65);const haste=Math.max(t.lessonHasteUntil>this.time?.15:0,inspired?.03:0,...lights.map(a=>getWord(a.word).tier>=4?.12:getWord(a.word).tier>=3?.06:0));
+  const inspired=this.activeTowers.some(a=>a.id!==t.id&&hasRune(getTowerWord(a.word),'inspire')&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=towerStats(a).range*.65);const haste=Math.max(t.lessonHasteUntil>this.time?.15:0,inspired?.03:0,...lights.map(a=>getTowerWord(a.word).tier>=4?.12:getTowerWord(a.word).tier>=3?.06:0));
   const chilled=this.enemies.some(e=>e.hp>0&&enemyBehavior(e)==='frostboss'&&Math.hypot(enemyPosition(e).x-p.x,enemyPosition(e).y-p.y)<=130);
   const jammed=this.enemies.some(e=>e.hp>0&&e.jamUntil>this.time&&Math.hypot(enemyPosition(e).x-p.x,enemyPosition(e).y-p.y)<=(ENEMIES[e.kind].pulse?.radius||95));
   const disruption=Math.max(chilled?.25:0,jammed?.2:0,t.chillUntil>this.time?(w.type==='slow'?.08:.15):0);
   const empowered=t.lessonPowerUntil>this.time||t.idiomPowerUntil>this.time,borrowed=t.lessonStored===true;
   let multiplier=(1+Math.max(t.lessonPowerUntil>this.time?.3:0,t.idiomPowerUntil>this.time?t.idiomPower||0:0))*(borrowed?1.25:1);
   if(w.special==='resonate'&&targets.length>=3)multiplier*=1.1;
-  if(w.special==='festival'){const kinds=new Set(this.activeTowers.filter(a=>a!==t&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=stats.range).map(a=>getWord(a.word).type));multiplier*=1+Math.min(4,kinds.size)*(.015+learningRank(w)*.005);}
+  if(w.special==='festival'){const kinds=new Set(this.activeTowers.filter(a=>a!==t&&Math.hypot(this.pads[a.pad].x-p.x,this.pads[a.pad].y-p.y)<=stats.range).map(a=>getTowerWord(a.word).type));multiplier*=1+Math.min(4,kinds.size)*(.015+learningRank(w)*.005);}
   if(w.special==='focus')multiplier*=1+streak*.06;
   if(w.special==='erosion')multiplier*=1+Math.min(4,streak)*.04;
   if(w.special==='growth')multiplier*=1+Math.min(5,Math.floor((t.shots||0)/8))*.04;
@@ -1315,11 +1323,11 @@ export class Game {
  const completedRounds=data.phase==='won'&&data.wave>0?(data.version<3?data.wave:Math.ceil(data.wave/3)):LEGACY_CHAPTER_ROUNDS[data.chapter];
  const campaignRounds=data.version>=5?data.campaignRounds:data.endless?LEGACY_CHAPTER_ROUNDS[data.chapter]:data.phase==='won'?completedRounds:CHAPTERS[data.chapter].rounds;
  if(!Number.isSafeInteger(campaignRounds)||campaignRounds<1||campaignRounds>100||(!data.endless&&(data.version<3?data.wave*3:data.wave)>campaignRounds*3))throw Error('Invalid campaign length');
- if(data.towers.length>PADS.length||new Set(data.towers.map(t=>t?.pad)).size!==data.towers.length||data.towers.some(t=>!t||!WORDS.some(w=>w.word===t.word)||!int(t.pad)||!PADS[t.pad]||(!Number.isInteger(t.level)||(data.version===1?![1,2,3].includes(t.level):t.level<getWord(t.word).tier||t.level>getWord(t.word).maxLevel))||!int(t.id)||!finite(t.cooldown))||data.enemies.some(e=>!e||!kind(e.kind)||!int(e.id)||!['hp','maxHp','speed','reward','harm','d','slowUntil'].every(k=>finite(e[k]))||e.maxHp<=0||e.speed<=0||e.d<0)||data.queue.some(e=>!e||!kind(e.kind)))throw Error('Invalid save');
+ if(data.towers.length>PADS.length||new Set(data.towers.map(t=>t?.pad)).size!==data.towers.length||data.towers.some(t=>!t||!getTowerWord(t.word)||!int(t.pad)||!PADS[t.pad]||(!Number.isInteger(t.level)||(data.version===1?![1,2,3].includes(t.level):t.level<getTowerWord(t.word).tier||t.level>getTowerWord(t.word).maxLevel))||!int(t.id)||!finite(t.cooldown))||data.enemies.some(e=>!e||!kind(e.kind)||!int(e.id)||!['hp','maxHp','speed','reward','harm','d','slowUntil'].every(k=>finite(e[k]))||e.maxHp<=0||e.speed<=0||e.d<0)||data.queue.some(e=>!e||!kind(e.kind)))throw Error('Invalid save');
  if(data.enemies.some(e=>(e.shield!==undefined&&(!finite(e.shield)||e.shield<0))||(e.maxShield!==undefined&&(!finite(e.maxShield)||e.maxShield<0))))throw Error('Invalid shield state');
  if(data.towers.some(t=>(t.hp!==undefined&&(!finite(t.hp)||t.hp<0))||['repairReadyAt','hitUntil','chillUntil','corrodedUntil','disruptedUntil','reflectReadyAt','counterReady','lessonPowerUntil','lessonHasteUntil','lessonShield','lessonShieldUntil','lessonShieldReady','lessonHealReady','lessonDefenseReady','idiomReadyAt','idiomPowerUntil','idiomGuardUntil'].some(k=>t[k]!==undefined&&(!finite(t[k])||t[k]<0))))throw Error('Invalid tower durability');
  if(data.towers.some(t=>(t.lessonTarget!==undefined&&!int(t.lessonTarget))||(t.lessonStreak!==undefined&&(!int(t.lessonStreak)||t.lessonStreak>5))||(t.lessonStored!==undefined&&typeof t.lessonStored!=='boolean')||(t.lessonShield!==undefined&&t.lessonShield>savedTowerMax(t,data.version)*.1+1e-9)))throw Error('Invalid learning state');
- if(data.towers.some(t=>(t.idiomCharge!==undefined&&(!getWord(t.word).idiomMove||!int(t.idiomCharge)||t.idiomCharge>4))||(t.idiomPower!==undefined&&(!finite(t.idiomPower)||t.idiomPower<0||t.idiomPower>.45))||(t.idiomCasts!==undefined&&!int(t.idiomCasts))))throw Error('Invalid idiom state');
+ if(data.towers.some(t=>(t.idiomCharge!==undefined&&(!getTowerWord(t.word).idiomMove||!int(t.idiomCharge)||t.idiomCharge>4))||(t.idiomPower!==undefined&&(!finite(t.idiomPower)||t.idiomPower<0||t.idiomPower>.45))||(t.idiomCasts!==undefined&&!int(t.idiomCasts))))throw Error('Invalid idiom state');
  if(data.towers.some(t=>t.rebuilds!==undefined&&(!Number.isSafeInteger(t.rebuilds)||t.rebuilds<0)))throw Error('Invalid rebuild count');
  if(data.reviveUsed!==undefined&&typeof data.reviveUsed!=='boolean')throw Error('Invalid revival');
  if(data.barrierSpent!==undefined&&(!int(data.barrierSpent)||data.barrierSpent>2)||data.soulHealed!==undefined&&(!int(data.soulHealed)||data.soulHealed>1))throw Error('Invalid semantic round state');
@@ -1341,23 +1349,23 @@ export class Game {
  }
  if(data.bossBreachedRound!==undefined&&(!int(data.bossBreachedRound)||data.bossBreachedRound>Math.ceil(data.wave/(data.version<3?1:3))))throw Error('Invalid boss breach');
  if(data.bossDraws!==undefined&&(!Array.isArray(data.bossDraws)||data.bossDraws.length>12||data.bossDraws.some(x=>!x||!int(x.wave)||x.wave>data.wave||!ENEMIES[x.kind]?.boss)))throw Error('Invalid boss draws');
- if(data.zones!==undefined&&(!Array.isArray(data.zones)||data.zones.length>32||data.zones.some(z=>!z||!['fire','poison',...(data.version>=7?['net']:[])].includes(z.kind)||!int(z.tower)||!getWord(z.word)||!['x','y','radius','power','until'].every(k=>finite(z[k]))||z.radius<=0||z.radius>200||z.power<0||z.until<0)))throw Error('Invalid spell zones');
+ if(data.zones!==undefined&&(!Array.isArray(data.zones)||data.zones.length>32||data.zones.some(z=>!z||!['fire','poison',...(data.version>=7?['net']:[])].includes(z.kind)||!int(z.tower)||!getTowerWord(z.word)||!['x','y','radius','power','until'].every(k=>finite(z[k]))||z.radius<=0||z.radius>200||z.power<0||z.until<0)))throw Error('Invalid spell zones');
  if(data.killInkRemainder!==undefined&&(!int(data.killInkRemainder)||data.killInkRemainder>=100))throw Error('Invalid kill ink remainder');
  if(data.hintUses!==undefined&&(!Number.isSafeInteger(data.hintUses)||data.hintUses<0||data.hintUses>Number.MAX_SAFE_INTEGER/HINT_COST-1))throw Error('Invalid hint use count');
  if(data.skillUses!==undefined&&!int(data.skillUses))throw Error('Invalid skill use count');
  if(data.autoWaveAt!==undefined&&(!finite(data.autoWaveAt)||data.autoWaveAt<0))throw Error('Invalid wave timer');
  const g=new Game(data.chapter);if(data.chapter===7)g.mirrorLayout=data.mirrorLayout??1;g.campaignRounds=campaignRounds;g.bossBreachedRound=data.bossBreachedRound??0;g.bossDraws=(data.bossDraws||[]).map(x=>({...x}));g.zones=(data.zones||[]).map(z=>({...z}));g.reviveUsed=data.reviveUsed??false;g.barrierSpent=data.barrierSpent??0;g.soulHealed=data.soulHealed??0;g.bountyEarned=data.bountyEarned??0;g.autoWaveAt=data.autoWaveAt??0;g.endless=data.endless===true;g.skillUses=data.skillUses??0;g.hintUses=data.hintUses??0;g.killInkRemainder=data.killInkRemainder??0;for(const k of ['wave','hp','ink','towers','enemies','queue','time','spawnTime','phase','kills','nextId','skillReady','totalEarned'])g[k]=data[k];
  if(data.version>=2){
-  const chars=new Set(WORDS.flatMap(w=>[...w.word]));
+  const chars=SAVED_WORD_CHARACTERS;
   if(!int(data.rngState)||data.rngState===0||data.rngState>4294967295||!int(data.refreshes)||!int(data.handSerial)||!Array.isArray(data.hand)||data.hand.length!==HAND_SIZE||new Set(data.hand.map(t=>t?.id)).size!==HAND_SIZE||data.hand.some(t=>!t||!int(t.id)||t.id===0||t.id>data.handSerial||!chars.has(t.ch)||typeof t.used!=='boolean')||data.towers.some(t=>!finite(t.spent)||t.spent<0)||data.enemies.some(e=>(e.poisonDps!==undefined&&(!finite(e.poisonDps)||e.poisonDps<0))||(e.poisonUntil!==undefined&&(!finite(e.poisonUntil)||!finite(e.poisonDps)))))throw Error('Invalid word tray');
   for(const k of ['rngState','refreshes','handSerial','hand'])g[k]=data[k];
  }else{
-  g.towers=g.towers.map(t=>{const w=getWord(t.word),up=t.level-1;return {...t,hp:undefined,level:w.tier+up,spent:w.cost+(up>0?Math.round(w.cost*.75):0)+(up>1?Math.round(w.cost*1.15):0)};});
+  g.towers=g.towers.map(t=>{const w=getTowerWord(t.word),up=t.level-1;return {...t,hp:undefined,level:w.tier+up,spent:w.cost+(up>0?Math.round(w.cost*.75):0)+(up>1?Math.round(w.cost*1.15):0)};});
  }
  if(data.version<3)g.wave=data.phase==='prepare'||data.phase==='won'?data.wave*3:Math.max(1,(data.wave-1)*3+1);
  if(data.unlockedPads!==undefined){if(!Array.isArray(data.unlockedPads)||data.unlockedPads.length<FREE_PAD_COUNT||data.unlockedPads.length>PADS.length||new Set(data.unlockedPads).size!==data.unlockedPads.length||data.unlockedPads.some(i=>!int(i)||!PADS[i])||Array.from({length:FREE_PAD_COUNT},(_,i)=>i).some(i=>!data.unlockedPads.includes(i)))throw Error('Invalid unlocked pads');g.unlockedPads=[...data.unlockedPads];}
  if(g.towers.some(t=>!g.padUnlocked(t.pad)))throw Error('Tower on locked pad');
- if(data.hintWord!==undefined&&data.hintWord!==null){if(typeof data.hintWord!=='string'||!getWord(data.hintWord)||!g.tilesFor(data.hintWord))throw Error('Invalid saved hint');g.hintWord=data.hintWord;}
+ if(data.hintWord!==undefined&&data.hintWord!==null){if(typeof data.hintWord!=='string'||!getTowerWord(data.hintWord)||!g.tilesFor(data.hintWord))throw Error('Invalid saved hint');if(RETIRED_INDEX.has(data.hintWord)){if(g.hintUses>0){g.ink+=HINT_COST*g.hintUses;g.hintUses--;}}else g.hintWord=data.hintWord;}
  if(data.version<4){
   g.pendingWaves=g.phase==='battle'&&g.wave>0?[g.wave]:[];
   const batch=getMap(g.chapter,g.mirrorLayout).mode==='simultaneous'?getMap(g.chapter,g.mirrorLayout).routes.length:1,interval=Math.max(.4,1.03-Math.ceil(g.wave/3)*.035);g.queue=g.queue.map((e,i)=>({...e,wave:g.wave,at:g.time+Math.max(0,g.spawnTime)+Math.floor(i/batch)*interval*batch}));

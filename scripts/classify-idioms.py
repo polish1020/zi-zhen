@@ -9,12 +9,16 @@ if not args.reference.exists():
  args.reference.write_bytes(urllib.request.urlopen('https://raw.githubusercontent.com/pwxcoo/chinese-xinhua/fe6d6c2e8baa82187f4c96bbe042e43f96c05666/data/idiom.json',timeout=60).read())
 assert hashlib.sha256(args.reference.read_bytes()).hexdigest()=='1d4b4f454ce1c416d6a1ab2369d6e66c0ff99e04390172eef70790499e21ce19','Reference differs from pinned source'
 ref={x['word']:x['explanation'] for x in json.loads(args.reference.read_text())}
+vocabulary_review=json.loads((root/'data/vocabulary-review.json').read_text())
+retired=set(vocabulary_review['corrections'])
+verified_extra=vocabulary_review['idiomAllowlist']
 seed=json.loads((root/'data/idiom-review-seed.json').read_text())
 sweep=json.loads((root/'data/basic-four-review.json').read_text())
 supplement=sweep['entries']
 all_words=json.loads(subprocess.check_output(['node','--input-type=module','-e',"import{WORDS}from'./dist/engine.mjs';console.log(JSON.stringify(WORDS.map(w=>w.word)))"],cwd=root,text=True))
 words={word:{'word':word,'special':seed.get(word)} for word in all_words}
 s=(root/'dist/lexicon.mjs').read_text();raw=set(json.loads(re.search(r'export const IDIOM_WORDS=(".*?")\.split',s).group(1)).split('|'))
+skills=set(json.loads(re.search(r'export const SKILL_SCHOOLS=(\{.*?\});\n',s).group(1)))
 lessons=json.loads((root/'data/learning-idioms.json').read_text());culture=json.loads((root/'data/cultural-words.json').read_text());extra=json.loads((root/'data/learning-expansion.json').read_text())['lessons'];lessons.update(culture);lessons.update(extra)
 rejected={w:'普通短语、截断句或现代专名，保留可组词但不标成语' for w in '一一列举 一不注意 一两句话 一举手一 一再声明 一再表示 一再说明 一分收获 一分钱一 一切正常 一切照旧 一切都在 一切都是 一别多年 一听之下 一失足成 一夫一妻 一夫多妻 一妻多夫 一局上半 一局下半 一并处理 一房一厅 一挂之下 一推之下 一提之下 一摸之下 一时拥有 一灯大师 一树了之 一直未果 一省两地 一竿子打 一算之下 一致同意 一致意见 一荣俱荣 一而再再 一言既出 一言未发 魔兽争霸 鬼屋魔影 鬼片当道 鬼眼狂刀 魔鬼身材 鱼鳞图册 鸡精蛋白 黑恶势力 默认设置 鼎盛时期 高速旋转 高高飘扬 龙头老大'.split()}
 for w in ['一荣俱荣','一言既出','一切照旧','一切正常','一别多年','一分收获','一再声明','一再表示','一再说明','一致同意','一致意见','一并处理','一国之主']:
@@ -22,7 +26,7 @@ for w in ['一荣俱荣','一言既出','一切照旧','一切正常','一别多
 for w,l in lessons.items():
  if l['kind']=='phrase':rejected[w]='项目已审校为四字短语，保留原标签'
 ids=raw|{w for w in words if len(w)==4 and w in ref}|{w for w,l in lessons.items() if l['kind']=='idiom'}
-ids={w for w in ids if w in words and len(w)==4 and w not in rejected}
+ids={w for w in ids if w in words and len(w)==4 and w not in rejected and w not in retired}
 # Whole-phrase overrides correct familiar figurative meanings before any rule matching.
 overrides={}
 def put(special,move,text):
@@ -318,7 +322,8 @@ for word,entry in supplement.items():
  overrides[word]['rule']='basic-four-whole-word-reviewed'
  if entry['kind']=='idiom':rejected.pop(word,None)
 byword={};reasons=collections.defaultdict(list)
-ids |= set(overrides)
+ids |= set(overrides)-retired
+ids -= skills-set(vocabulary_review['existingSkillRoutes'])
 for w in sorted(ids):
  old=words.get(w,{});text=ref.get(w,'');meaning=text.split('比喻')[-1] if '比喻' in text else text
  for alias in re.findall(r'(?:同|见|犹言|犹)([\u4e00-\u9fff]{4})[。”]',text):
@@ -363,10 +368,22 @@ additional_lessons={
  '身无长物':'除自身以外没有多余的东西，形容清贫。'
 }
 extra_lessons={w:{'kind':'idiom','group':'常见与易混成语','meaning':meaning,'culture':True} for w,meaning in additional_lessons.items() if w in byword and w not in lessons}
+for word,meaning in verified_extra.items():
+ if word in byword and word not in lessons:extra_lessons[word]={'kind':'idiom','group':'词义辨析','meaning':meaning}
+for word,meaning in vocabulary_review['meaningOverrides'].items():
+ if word in byword:extra_lessons[word]={'kind':'idiom','group':'词义辨析','meaning':meaning}
+for word,meaning in vocabulary_review.get('phraseMeanings',{}).items():
+ if word in byword and word not in lessons:extra_lessons[word]={'kind':'phrase','group':'词义辨析','meaning':meaning}
 for word,entry in supplement.items():
  if entry.get('meaning') and word not in lessons:extra_lessons[word]={'kind':entry['kind'],'group':'四字词复查','meaning':entry['meaning'],'culture':True}
-out={'sources':[{'repository':'pwxcoo/chinese-xinhua','commit':'fe6d6c2e8baa82187f4c96bbe042e43f96c05666','license':'MIT','use':'Reference meanings for classification; source explanations not redistributed.'}],'lessons':extra_lessons,'rejected':rejected,'groups':{k:' '.join(v) for k,v in sorted(groups.items())},'reviewRules':{k:' '.join(v) for k,v in sorted(reasons.items())},'wholeWordCorrections':overrides,'confirmed':' '.join(sorted(w for w in byword if w not in rejected and (w in ref or w in overrides or (w in raw and words.get(w,{}).get('special')) or lessons.get(w,{}).get('kind')=='idiom'))),'counts':{'sourceTagged':len(raw),'classified':len(byword),'referenceMatched':sum(w in ref for w in byword),'types':dict(collections.Counter(p['type'] for p in byword.values())),'canon':sum(p.get('special')=='canon' for p in byword.values())}}
+out={'sources':[{'repository':'pwxcoo/chinese-xinhua','commit':'fe6d6c2e8baa82187f4c96bbe042e43f96c05666','license':'MIT','use':'Headword/meaning comparison and licensed offline fallback explanations; curated explanations take precedence.'}],'lessons':extra_lessons,'rejected':rejected,'groups':{k:' '.join(v) for k,v in sorted(groups.items())},'reviewRules':{k:' '.join(v) for k,v in sorted(reasons.items())},'wholeWordCorrections':overrides,'confirmed':' '.join(sorted(w for w in byword if w not in rejected and (w in ref or w in overrides or (w in raw and words.get(w,{}).get('special')) or lessons.get(w,{}).get('kind')=='idiom'))),'counts':{'sourceTagged':len(raw),'classified':len(byword),'referenceMatched':sum(w in ref for w in byword),'types':dict(collections.Counter(p['type'] for p in byword.values())),'canon':sum(p.get('special')=='canon' for p in byword.values())}}
 out['confirmed']=' '.join(sorted(w for w in out['confirmed'].split() if w not in supplement or supplement[w]['kind']=='idiom'))
+# A combat routing override and a jieba POS tag are not linguistic evidence.
+# Unverified phrases keep their recipe/effect, but do not receive an idiom badge.
+out['confirmed']=' '.join(sorted(w for w in byword if w not in retired and w not in rejected and (w in ref or w in verified_extra or lessons.get(w,{}).get('kind')=='idiom' or extra_lessons.get(w,{}).get('kind')=='idiom') and (w not in supplement or supplement[w]['kind']=='idiom')))
+confirmed_set=set(out['confirmed'].split())
+out['unverifiedHeadwords']=' '.join(sorted(w for w in byword if w not in confirmed_set and w not in rejected))
+out['vocabularyReview']={'retired':len(retired),'verifiedHeadwords':len(out['confirmed'].split()),'unverifiedPlayablePhrases':len(out['unverifiedHeadwords'].split()),'segmentationTagsAreEvidence':False}
 out['basicFourCorrections']=sorted(supplement)
 out['basicFourReview']={'baselineCommit':sweep['baselineCommit'],'reviewed':len(sweep['baselineWords'].split()),'reclassified':len(supplement),'idioms':sum(e['kind']=='idiom' for e in supplement.values()),'phrases':sum(e['kind']=='phrase' for e in supplement.values())}
 out['additionalLearning']={word:entry['special'] for word,entry in json.loads((root/'data/zodiac-words.json').read_text()).items()}

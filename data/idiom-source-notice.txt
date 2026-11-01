@@ -1,6 +1,6 @@
 Idiom headword verification and classification reference: pwxcoo/chinese-xinhua
 Source: https://github.com/pwxcoo/chinese-xinhua/tree/fe6d6c2e8baa82187f4c96bbe042e43f96c05666
-Reference meanings were used to check headwords and inform classification. This game ships headwords and project-authored routing and explanations, not the source explanation corpus.
+Reference meanings were used to check headwords and inform classification. From the 2026-11-01 vocabulary review, selected explanations from this MIT-licensed corpus are also bundled as offline fallback definitions. Project-authored explanations take precedence. A segmentation POS tag alone does not establish idiom status; reference absence alone does not establish an error. See data/vocabulary-review.json and data/idiom-definitions.json.
 
 MIT License
 

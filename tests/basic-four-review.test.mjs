@@ -1,10 +1,13 @@
+import {WORD_REVIEW} from '../dist/lexicon.mjs';
 import test from'node:test';import assert from'node:assert/strict';import{readFileSync}from'node:fs';import{Game,WORDS,getWord,matchWord,wordCategory,wordLearning,towerDefense,IDIOM_MOVES}from'../dist/engine.mjs';import{SPECIAL_EFFECTS,V8_BASIC_FOUR_CORRECTIONS}from'../dist/specials.mjs';
+const confirmedNow=new Set(JSON.parse(readFileSync(new URL('../data/idiom-review.json',import.meta.url))).confirmed.split(' '));
 const fixture=name=>JSON.parse(readFileSync(new URL('./fixtures/'+name,import.meta.url))),review=JSON.parse(readFileSync(new URL('../data/basic-four-review.json',import.meta.url))),baseline=review.baselineWords.split(' '),near=(a,b)=>assert.ok(Math.abs(a-b)<1e-7,`${a} != ${b}`);
 function stock(g,word){g.hand=[...word.padEnd(16,'火')].map(ch=>({id:++g.handSerial,ch,used:false}));}
 test('all 4088 previously ordinary four-character words have an explicit disposition; semantic corrections cannot be lost on rebuild',()=>{
  assert.equal(baseline.length,4088);assert.equal(new Set(baseline).size,4088);assert.deepEqual(new Set(V8_BASIC_FOUR_CORRECTIONS),new Set(Object.keys(review.entries)));assert.equal(Object.keys(SPECIAL_EFFECTS).length,80);assert.equal(Object.keys(IDIOM_MOVES).length,39);
- for(const word of baseline){const w=getWord(word),p=review.entries[word];assert.ok(w,word);if(p){assert.equal(w.type,p.type,word);assert.equal(w.special,p.special,word);assert.equal(w.idiomMove,p.move,word);assert.ok(IDIOM_MOVES[w.idiomMove]);if(p.kind==='idiom')assert.equal(wordCategory(word),'idiom',word);}else assert.equal(w.type,'basic',word);}
- for(const word of['默认设置','操作系统','公共汽车','北京大学','一下子把']){assert.equal(getWord(word).type,'basic');assert.equal(wordCategory(word),'phrase');}
+ for(const word of baseline){const w=getWord(word),p=review.entries[word];if(WORD_REVIEW[word]){assert.equal(w,undefined);continue;}assert.ok(w,word);if(p){assert.equal(w.type,p.type,word);assert.equal(w.special,p.special,word);assert.equal(w.idiomMove,p.move,word);assert.ok(IDIOM_MOVES[w.idiomMove]);if(p.kind==='idiom')assert.equal(wordCategory(word),confirmedNow.has(word)?'idiom':'phrase',word);}else assert.equal(w.type,'basic',word);}
+ assert.equal(getWord('一下子把'),undefined);
+ for(const word of['默认设置','操作系统','公共汽车','北京大学']){assert.equal(getWord(word).type,'basic');assert.equal(wordCategory(word),'phrase');}
 });
 test('missed familiar idioms use their whole meaning and original phrases are not mislabeled as idioms',()=>{
  for(const[word,core,move]of[['一专多能','festival','festival'],['与时俱进','growth','growth'],['不思进取','frustration','frustration'],['左膀右臂','cooperate','rally'],['屡败屡战','reversal','steadfast'],['形同虚设','silence','silence'],['半工半读','growth','growth']]){const w=getWord(word);assert.equal(w.type,'learning',word);assert.equal(w.special,core,word);assert.equal(w.idiomMove,move,word);assert.equal(wordCategory(word),'idiom');assert.ok(wordLearning(word)?.meaning);}

@@ -21,7 +21,7 @@ test('every recognized four-character idiom has a non-ordinary attribute and an 
  for(const w of idioms){assert.equal(w.tier,4);assert.notEqual(w.type,'basic',w.word);assert.ok(IDIOM_MOVES[w.idiomMove],w.word);}
  for(const[word,p]of Object.entries(IDIOM_PROFILES)){const w=getWord(word);assert.ok(w,word);assert.notEqual(w.type,'basic',word);assert.equal(w.type,p.type);assert.equal(w.idiomMove,p.move);if(p.type==='learning')assert.equal(w.special,p.special);}
  assert.equal(new Set(REVIEWED_IDIOMS).size,REVIEWED_IDIOMS.length);assert.equal(new Set(WORDS.map(w=>w.word)).size,WORDS.length);
- assert.ok(!getWord(''));for(const word of ['默认设置','魔兽争霸','一举手一']){assert.ok(IDIOM_EXCLUSIONS.includes(word));assert.equal(wordCategory(word),'phrase');assert.ok(getWord(word));}
+ assert.ok(!getWord(''));assert.equal(getWord('一举手一'),undefined);assert.equal(wordCategory('一举手一'),'legacy');for(const word of ['默认设置','魔兽争霸']){assert.ok(IDIOM_EXCLUSIONS.includes(word));assert.equal(wordCategory(word),'phrase');assert.ok(getWord(word));}
 });
 test('literal elements and figurative meanings separate without using a single fire, ice or gold character',()=>{
  for(const[word,type,move]of [['冰天雪地','slow','frost'],['百发百中','sniper','precision'],['毒蛇猛兽','poison','toxic'],['刀光剑影','pierce','encircle'],['财源广进','income','bounty'],['冰清玉洁','learning','purity'],['火上浇油','learning','aggravate'],['金玉良言','learning','succession'],['薪火相传','learning','succession'],['一丘之貉','learning','conspire']]){assert.equal(getWord(word).type,type,word);assert.equal(getWord(word).idiomMove,move,word);}

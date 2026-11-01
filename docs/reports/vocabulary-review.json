@@ -1,0 +1,1877 @@
+{
+  "date": "2026-11-01",
+  "baselineCommit": "9020632870665080aa4ef022f5cb38307ee3c94c",
+  "method": "Complete structural/headword scan, one-character near-match screening and focused review of clear spelling errors. Not a claim that all words were individually verified by a lexicographer.",
+  "scannedPublishedWords": 120772,
+  "currentWords": 120519,
+  "retired": 290,
+  "spellingCorrections": 236,
+  "retiredFragments": 54,
+  "newCorrectHeadwords": [
+    "一碧万顷",
+    "不明事理",
+    "不祧之祖",
+    "两情缱绻",
+    "众目昭彰",
+    "俗不可耐",
+    "六尺之躯",
+    "养痈贻患",
+    "养虎贻患",
+    "博洽多闻",
+    "古道热肠",
+    "安步当车",
+    "岩穴之士",
+    "开门揖盗",
+    "微言大义",
+    "忍辱含垢",
+    "情非得已",
+    "执经问难",
+    "挥汗如雨",
+    "捉刀代笔",
+    "救经引足",
+    "暴躁如雷",
+    "有色眼镜",
+    "水性杨花",
+    "物华天宝",
+    "甘心如荠",
+    "红紫乱朱",
+    "群轻折轴",
+    "舍本逐末",
+    "茹苦含辛",
+    "荆山之玉",
+    "血流漂杵",
+    "衔尾相随",
+    "视如敝屣",
+    "贯颐奋戟",
+    "雍容大度",
+    "黯然销魂"
+  ],
+  "unchangedSurvivingCombatProfiles": 120482,
+  "archivedExactCombatProfiles": 290,
+  "allPublishedCombatProfilesHash": "a0333ba7c8ef777f1e52f6500f8f1ec998568ef264ecf5f0ea18083fa81e18ac",
+  "confirmedIdioms": 14955,
+  "confirmedIdiomsMissingMeaning": 0,
+  "licensedFallbackDefinitions": 14881,
+  "previouslyMissingIdiomMeanings": 14347,
+  "conservativeLabelChanges": 349,
+  "stillPlayableUnverifiedPhrases": 8355,
+  "skillRecipesPreserved": 23185,
+  "sourceTaggedCandidates": 21566,
+  "sourceTagsAreNotIdiomProof": true,
+  "absenceFromOneReferenceIsNotRejection": true,
+  "labelChanges": [
+    "寒气逼人",
+    "五雷轰顶",
+    "万剑归宗",
+    "剑气纵横",
+    "如梦似幻",
+    "一不留神",
+    "一举三得",
+    "一举四得",
+    "一举多得",
+    "一代豪杰",
+    "一声不吭",
+    "一声不响",
+    "一年到头",
+    "一拖再拖",
+    "一来一去",
+    "一派胡言",
+    "一石多鸟",
+    "一笔一画",
+    "一花独秀",
+    "一言既出",
+    "一言未发",
+    "一闪而过",
+    "万众所归",
+    "万众欢腾",
+    "三反五反",
+    "三番四复",
+    "不值一提",
+    "不可估量",
+    "不可或缺",
+    "不吭一声",
+    "不哼一声",
+    "不复存在",
+    "不失众望",
+    "不宣而战",
+    "不战而胜",
+    "不折不挠",
+    "不畏艰险",
+    "不畏艰难",
+    "不知疲倦",
+    "与生俱来",
+    "专一不移",
+    "专心诚意",
+    "且战且退",
+    "世世代代",
+    "两面夹攻",
+    "严防死守",
+    "临场发挥",
+    "为数不多",
+    "义无返顾",
+    "乘机而入",
+    "乘胜前进",
+    "事业有成",
+    "事关重大",
+    "事到临头",
+    "二虎相斗",
+    "二话没说",
+    "互相促进",
+    "互相切磋",
+    "互相支持",
+    "互相照顾",
+    "交辉相映",
+    "享有盛誉",
+    "亲眼目睹",
+    "亲逾手足",
+    "人头攒动",
+    "人尽皆知",
+    "人心浮动",
+    "人烟稀少",
+    "仁者无敌",
+    "仅此而已",
+    "以人为本",
+    "以诚待人",
+    "以诚相待",
+    "以诚相见",
+    "仰天大笑",
+    "众口一声",
+    "众所瞩目",
+    "众目四望",
+    "优势互补",
+    "低级趣味",
+    "体弱多病",
+    "作困兽斗",
+    "你来我往",
+    "依此类推",
+    "信守不弃",
+    "信笔拈来",
+    "倾囊相助",
+    "假以时日",
+    "假冒伪劣",
+    "党纪国法",
+    "全副武装",
+    "共同奋斗",
+    "兴奋不已",
+    "兴奋异常",
+    "兴旺发达",
+    "兴衰成败",
+    "兵刃相接",
+    "内外夹击",
+    "准确无误",
+    "几经周折",
+    "切切实实",
+    "切实可行",
+    "初具规模",
+    "别具特色",
+    "前事不忘",
+    "加班加点",
+    "动摇不定",
+    "勇挑重担",
+    "化为灰烬",
+    "卓识远见",
+    "原汁原味",
+    "又惊又喜",
+    "反守为攻",
+    "古里古怪",
+    "可怜兮兮",
+    "各具特色",
+    "各尽其妙",
+    "各显其能",
+    "各种各样",
+    "同窗好友",
+    "名声大噪",
+    "名声大振",
+    "含含糊糊",
+    "喜不自禁",
+    "四季如春",
+    "团结奋战",
+    "团结奋斗",
+    "团结奋进",
+    "困兽之斗",
+    "坚强不挠",
+    "坚强意志",
+    "坚持真理",
+    "坚硬无比",
+    "声势汹汹",
+    "声名显赫",
+    "声应气和",
+    "多种多样",
+    "大事化小",
+    "大作文章",
+    "大吵大闹",
+    "大大方方",
+    "大巧不工",
+    "大显神威",
+    "天下大治",
+    "天赐良机",
+    "奋勇争先",
+    "奋发向上",
+    "奋发自救",
+    "奋战不懈",
+    "奋臂高呼",
+    "女扮男装",
+    "好不容易",
+    "好人好事",
+    "好言相劝",
+    "如歌如诉",
+    "如此这般",
+    "如闻其声",
+    "妙手仁心",
+    "妙用无穷",
+    "妙答如流",
+    "始料不及",
+    "委决不下",
+    "孤军奋斗",
+    "学有所成",
+    "孰不可忍",
+    "安定团结",
+    "实话实说",
+    "客客气气",
+    "家财万贯",
+    "密不可分",
+    "尽收眼底",
+    "平等互利",
+    "年久失修",
+    "年幼无知",
+    "年老体弱",
+    "年轻有为",
+    "年轻气盛",
+    "开开心心",
+    "开拓进取",
+    "异国他乡",
+    "引以为豪",
+    "强强联合",
+    "强身健体",
+    "当断则断",
+    "心神不安",
+    "必不可少",
+    "志在必得",
+    "忠于职守",
+    "忠厚老实",
+    "快快乐乐",
+    "忽隐忽现",
+    "思来想去",
+    "急人所急",
+    "恍恍惚惚",
+    "恭恭敬敬",
+    "悲喜交加",
+    "情急之下",
+    "惊惶不安",
+    "慌里慌张",
+    "或多或少",
+    "手足情深",
+    "才华出众",
+    "打道回府",
+    "扭亏为盈",
+    "按迹循踪",
+    "挥之不去",
+    "摇摆不定",
+    "撕心裂肺",
+    "擦肩而过",
+    "擦身而过",
+    "收效甚微",
+    "救国救民",
+    "教书育人",
+    "数以万计",
+    "无一例外",
+    "无从下手",
+    "无休无止",
+    "无可争议",
+    "无可辩驳",
+    "无心插柳",
+    "无话可说",
+    "无路可走",
+    "旱涝保收",
+    "时时刻刻",
+    "明月当空",
+    "智者见智",
+    "暴雨如注",
+    "更上层楼",
+    "有备而来",
+    "有感而发",
+    "有权有势",
+    "有滋有味",
+    "有理有据",
+    "有章可循",
+    "有难同当",
+    "杀出重围",
+    "来去自如",
+    "来来回回",
+    "标本兼治",
+    "梦想成真",
+    "榜上有名",
+    "模模糊糊",
+    "模糊不清",
+    "欢声笑语",
+    "欢欢喜喜",
+    "死记硬背",
+    "死路一条",
+    "残酷无情",
+    "毫不动摇",
+    "毫不留情",
+    "气数已尽",
+    "流于形式",
+    "济济彬彬",
+    "浴火重生",
+    "清正廉洁",
+    "清清白白",
+    "满腔热情",
+    "滥杀无辜",
+    "激动人心",
+    "热情奔放",
+    "焦急万分",
+    "焦虑不安",
+    "物有所值",
+    "牵线搭桥",
+    "犹豫不定",
+    "独具一格",
+    "独具特色",
+    "畏畏缩缩",
+    "疏忽大意",
+    "相互促进",
+    "相互支持",
+    "真抓实干",
+    "真真假假",
+    "睦邻友好",
+    "硬着头皮",
+    "祖祖辈辈",
+    "神秘莫测",
+    "秉烛夜读",
+    "秩序井然",
+    "积贫积弱",
+    "笑口常开",
+    "笑容满面",
+    "简而言之",
+    "紧追不舍",
+    "红极一时",
+    "经久不衰",
+    "统揽全局",
+    "缚手缚脚",
+    "群情激愤",
+    "老弱病残",
+    "老有所养",
+    "自成一体",
+    "自说自话",
+    "至关紧要",
+    "至关重要",
+    "英雄好汉",
+    "获益匪浅",
+    "菩萨心肠",
+    "虎跃龙腾",
+    "血本无归",
+    "行侠仗义",
+    "衣食无忧",
+    "见闻广博",
+    "说一是一",
+    "说到做到",
+    "说说笑笑",
+    "赔礼道歉",
+    "走街串巷",
+    "躁动不安",
+    "近在眼前",
+    "远道而来",
+    "遮遮掩掩",
+    "重中之重",
+    "铭记在心",
+    "锐意进取",
+    "长盛不衰",
+    "闷声不响",
+    "闻名中外",
+    "闻名于世",
+    "防守反击",
+    "非同一般",
+    "饶有兴趣",
+    "首战告捷",
+    "香气扑鼻",
+    "骨肉之情",
+    "默默不语",
+    "鼓足干劲",
+    "齐抓共管",
+    "涅槃重生",
+    "传道授业",
+    "如沐春风",
+    "桃李天下",
+    "四季轮回",
+    "秋去冬来",
+    "声名远扬",
+    "雄兵百万",
+    "声震九霄",
+    "金玉其外",
+    "灯火通明",
+    "神憎鬼厌",
+    "舞刀弄剑",
+    "心如蛇蝎",
+    "心如蝎蛇",
+    "洪水滔天",
+    "冰封雪飘",
+    "寒风刺骨",
+    "穿杨贯虱",
+    "火光冲天",
+    "烈火熊熊"
+  ],
+  "corrections": {
+    "一下子把": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "一举手一": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "一分钱一": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "一听之下": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "一失足成": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "一孤之腋": {
+      "replacement": "一狐之腋",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "一张一驰": {
+      "replacement": "一张一弛",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "一拍即和": {
+      "replacement": "一拍即合",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "一挂之下": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "一推之下": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "一提之下": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "一摸之下": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "一树了之": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "一碧万倾": {
+      "replacement": "一碧万顷",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "一竿子打": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "一算之下": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "一而再再": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "一试之下": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "一遮之下": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "一问之下": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "一麟半爪": {
+      "replacement": "一鳞半爪",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "一鼻孔出": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "七尺之驱": {
+      "replacement": "七尺之躯",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "三句不离": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "三寸不烂": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "三顾茅芦": {
+      "replacement": "三顾茅庐",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "上滔下骄": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "不喜勿下": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "不塞下流": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "不好用救": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "不循私情": {
+      "replacement": "不徇私情",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "不打不相": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "不明事里": {
+      "replacement": "不明事理",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "不易而论": {
+      "replacement": "不易之论",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "不桃之祖": {
+      "replacement": "不祧之祖",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "不结之缘": {
+      "replacement": "不解之缘",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "不能自己": {
+      "replacement": "不能自已",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "不足为外": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "两情遣眷": {
+      "replacement": "两情缱绻",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "中下祸根": {
+      "replacement": "种下祸根",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "丰收在忘": {
+      "replacement": "丰收在望",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "临时抱佛": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "临渴气井": {
+      "replacement": "临渴掘井",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "为国捐驱": {
+      "replacement": "为国捐躯",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "久病成良": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "义气风发": {
+      "replacement": "意气风发",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "之而后快": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "乌飞免走": {
+      "replacement": "乌飞兔走",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "九一八事": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "九宵云外": {
+      "replacement": "九霄云外",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "争分夺妙": {
+      "replacement": "争分夺秒",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "人不可貌": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "人不知鬼": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "人生七十": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "今非夕比": {
+      "replacement": "今非昔比",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "以假谬真": {
+      "replacement": "以假乱真",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "众口烁金": {
+      "replacement": "众口铄金",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "众目照彰": {
+      "replacement": "众目昭彰",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "众矢之地": {
+      "replacement": "众矢之的",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "伶牙利齿": {
+      "replacement": "伶牙俐齿",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "依老卖老": {
+      "replacement": "倚老卖老",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "俗不可待": {
+      "replacement": "俗不可耐",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "倚装待发": {
+      "replacement": "整装待发",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "克苦耐劳": {
+      "replacement": "刻苦耐劳",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "免为其难": {
+      "replacement": "勉为其难",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "六尺之驱": {
+      "replacement": "六尺之躯",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "兴废存之": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "养痈贴患": {
+      "replacement": "养痈贻患",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "养虎饴患": {
+      "replacement": "养虎贻患",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "内外夹功": {
+      "replacement": "内外夹攻",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "再做冯妇": {
+      "replacement": "再作冯妇",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "冥思若索": {
+      "replacement": "冥思苦索",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "分崩离兮": {
+      "replacement": "分崩离析",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "卑词厚礼": {
+      "replacement": "卑辞厚礼",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "博治多闻": {
+      "replacement": "博洽多闻",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "卷士重来": {
+      "replacement": "卷土重来",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "反辱相稽": {
+      "replacement": "反唇相稽",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "口密腹剑": {
+      "replacement": "口蜜腹剑",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "古道循肠": {
+      "replacement": "古道热肠",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "各抒已见": {
+      "replacement": "各抒己见",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "名列前矛": {
+      "replacement": "名列前茅",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "含辛茹若": {
+      "replacement": "含辛茹苦",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "含饴弃孙": {
+      "replacement": "含饴弄孙",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "呼风换雨": {
+      "replacement": "呼风唤雨",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "哑言失笑": {
+      "replacement": "哑然失笑",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "喜笑频开": {
+      "replacement": "喜笑颜开",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "四马难追": {
+      "replacement": "驷马难追",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "固态复萌": {
+      "replacement": "故态复萌",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "坚苦卓越": {
+      "replacement": "坚苦卓绝",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "夜以接日": {
+      "replacement": "夜以继日",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "大衣无缝": {
+      "replacement": "天衣无缝",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "天无绝人": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "天有不测": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "天覆地舟": {
+      "replacement": "天覆地载",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "好志以暇": {
+      "replacement": "好整以暇",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "如胶似膝": {
+      "replacement": "如胶似漆",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "委屈求全": {
+      "replacement": "委曲求全",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "姹紫焉红": {
+      "replacement": "姹紫嫣红",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "娇揉造作": {
+      "replacement": "矫揉造作",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "学富五年": {
+      "replacement": "学富五车",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "守金如玉": {
+      "replacement": "守身如玉",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "安步当年": {
+      "replacement": "安步当车",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "实于名归": {
+      "replacement": "实至名归",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "富贵不能": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "寥若辰星": {
+      "replacement": "寥若晨星",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "寥落晨星": {
+      "replacement": "寥若晨星",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "少安勿躁": {
+      "replacement": "少安毋躁",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "尽力皆知": {
+      "replacement": "尽人皆知",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "尽成竭节": {
+      "replacement": "尽诚竭节",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "居为己有": {
+      "replacement": "据为己有",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "岩穴之土": {
+      "replacement": "岩穴之士",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "巧妇难为": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "师出为壮": {
+      "replacement": "师直为壮",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "并驾齐躯": {
+      "replacement": "并驾齐驱",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "庸容大度": {
+      "replacement": "雍容大度",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "开门捐盗": {
+      "replacement": "开门揖盗",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "当务之争": {
+      "replacement": "当务之急",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "徇情枉心": {
+      "replacement": "徇情枉法",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "徒废唇舌": {
+      "replacement": "徒费唇舌",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "得陇忘蜀": {
+      "replacement": "得陇望蜀",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "得高望重": {
+      "replacement": "德高望重",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "微言大意": {
+      "replacement": "微言大义",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "心余力竭": {
+      "replacement": "心余力绌",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "忍贼作父": {
+      "replacement": "认贼作父",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "忍辱念垢": {
+      "replacement": "忍辱含垢",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "快刀斩乱": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "怀壁其罪": {
+      "replacement": "怀璧其罪",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "恍如融世": {
+      "replacement": "恍如隔世",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "悔人不倦": {
+      "replacement": "诲人不倦",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "情有可愿": {
+      "replacement": "情有可原",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "情非得以": {
+      "replacement": "情非得已",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "惟它独尊": {
+      "replacement": "惟我独尊",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "惨绝人寡": {
+      "replacement": "惨绝人寰",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "想方设计": {
+      "replacement": "想方设法",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "惶惶不可": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "截和补短": {
+      "replacement": "截长补短",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "扣人心悬": {
+      "replacement": "扣人心弦",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "执径问难": {
+      "replacement": "执经问难",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "持之一恒": {
+      "replacement": "持之以恒",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "按步就班": {
+      "replacement": "按部就班",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "挥汁如雨": {
+      "replacement": "挥汗如雨",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "振耳欲聋": {
+      "replacement": "震耳欲聋",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "振聋发嘳": {
+      "replacement": "振聋发聩",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "捉刀伐笔": {
+      "replacement": "捉刀代笔",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "捉禁见肘": {
+      "replacement": "捉襟见肘",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "损人利已": {
+      "replacement": "损人利己",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "接头接耳": {
+      "replacement": "交头接耳",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "推已及人": {
+      "replacement": "推己及人",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "故弄弦虚": {
+      "replacement": "故弄玄虚",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "救绝引足": {
+      "replacement": "救经引足",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "敬鬼神而": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "断开颓垣": {
+      "replacement": "断井颓垣",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "无以伦比": {
+      "replacement": "无与伦比",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "无关痛养": {
+      "replacement": "无关痛痒",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "无始天终": {
+      "replacement": "无始无终",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "无技可施": {
+      "replacement": "无计可施",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "无立足之": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "无计其数": {
+      "replacement": "不计其数",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "无马行空": {
+      "replacement": "天马行空",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "旧仇窗怨": {
+      "replacement": "旧仇宿怨",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "明比为奸": {
+      "replacement": "朋比为奸",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "暗然失色": {
+      "replacement": "黯然失色",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "暴燥如雷": {
+      "replacement": "暴躁如雷",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "有色眼睛": {
+      "replacement": "有色眼镜",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "未置可否": {
+      "replacement": "不置可否",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "本未倒置": {
+      "replacement": "本末倒置",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "朽木不可": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "权宜心计": {
+      "replacement": "权宜之计",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "树欲静而": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "欲令智昏": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "欲盖尔彰": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "每况欲下": {
+      "replacement": "每况愈下",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "气极败坏": {
+      "replacement": "气急败坏",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "水性扬花": {
+      "replacement": "水性杨花",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "水滴成穿": {
+      "replacement": "水滴石穿",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "汹涌淜湃": {
+      "replacement": "汹涌澎湃",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "洗垢匿暇": {
+      "replacement": "洗垢匿瑕",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "海尾添筹": {
+      "replacement": "海屋添筹",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "涣然一新": {
+      "replacement": "焕然一新",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "深恶痛觉": {
+      "replacement": "深恶痛绝",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "游戈有余": {
+      "replacement": "游刃有余",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "灰不及及": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "炙手可得": {
+      "replacement": "唾手可得",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "烽火连三": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "物归天宝": {
+      "replacement": "物华天宝",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "牵一发而": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "犀中望月": {
+      "replacement": "犀牛望月",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "狐死首兵": {
+      "replacement": "狐死首丘",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "独力自主": {
+      "replacement": "独立自主",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "独木不成": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "甘之吠饴": {
+      "replacement": "甘之如饴",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "甘心如养": {
+      "replacement": "甘心如荠",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "画地力牢": {
+      "replacement": "画地为牢",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "画若鸿沟": {
+      "replacement": "判若鸿沟",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "画蛇填足": {
+      "replacement": "画蛇添足",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "百善孝为": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "百步穿扬": {
+      "replacement": "百步穿杨",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "盘根问地": {
+      "replacement": "盘根问底",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "盛名难负": {
+      "replacement": "盛名难副",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "盛气临人": {
+      "replacement": "盛气凌人",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "眼光缭乱": {
+      "replacement": "眼花缭乱",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "知彼知已": {
+      "replacement": "知彼知己",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "磨肩接踵": {
+      "replacement": "摩肩接踵",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "磨肩擦踵": {
+      "replacement": "摩肩擦踵",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "礼所当然": {
+      "replacement": "理所当然",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "离乡背景": {
+      "replacement": "离乡背井",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "离蔬释蹻": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "空穴来凤": {
+      "replacement": "空穴来风",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "竭泽而鱼": {
+      "replacement": "竭泽而渔",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "笑可藏刀": {
+      "replacement": "笑里藏刀",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "笑逐频开": {
+      "replacement": "笑逐颜开",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "筋皮力竭": {
+      "replacement": "筋疲力竭",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "红紫乱末": {
+      "replacement": "红紫乱朱",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "继往圣之": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "罄笔难书": {
+      "replacement": "罄竹难书",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "群轻折抽": {
+      "replacement": "群轻折轴",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "翻东倒海": {
+      "replacement": "翻江倒海",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "翻天复地": {
+      "replacement": "翻天覆地",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "肝心君裂": {
+      "replacement": "肝心若裂",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "胡八非为": {
+      "replacement": "胡作非为",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "腥风雪雨": {
+      "replacement": "腥风血雨",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "自做自受": {
+      "replacement": "自作自受",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "自己自足": {
+      "replacement": "自给自足",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "自情不息": {
+      "replacement": "自强不息",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "自惭形迹": {
+      "replacement": "自惭形秽",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "自立更生": {
+      "replacement": "自力更生",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "舍已为人": {
+      "replacement": "舍己为人",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "舍已为公": {
+      "replacement": "舍己为公",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "舍已救人": {
+      "replacement": "舍己救人",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "舍末逐末": {
+      "replacement": "舍本逐末",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "良唇吉日": {
+      "replacement": "良辰吉日",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "茹苦念辛": {
+      "replacement": "茹苦含辛",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "荆山之已": {
+      "replacement": "荆山之玉",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "落井下水": {
+      "replacement": "落井下石",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "蛛丝鼠迹": {
+      "replacement": "蛛丝马迹",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "蜂涌而上": {
+      "replacement": "蜂拥而上",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "血流成杵": {
+      "replacement": "血流漂杵",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "行格势禁": {
+      "replacement": "形格势禁",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "街尾相随": {
+      "replacement": "衔尾相随",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "襟怀担白": {
+      "replacement": "襟怀坦白",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "见仁见志": {
+      "replacement": "见仁见智",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "视为知已": {
+      "replacement": "视为知己",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "视如敝徙": {
+      "replacement": "视如敝屣",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "记忆忧新": {
+      "replacement": "记忆犹新",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "讳病忌医": {
+      "replacement": "讳疾忌医",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "诛求无己": {
+      "replacement": "诛求无已",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "话不虎传": {
+      "replacement": "话不虚传",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "谈笑风声": {
+      "replacement": "谈笑风生",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "责无旁货": {
+      "replacement": "责无旁贷",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "贯顾奋戟": {
+      "replacement": "贯颐奋戟",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "走头无路": {
+      "replacement": "走投无路",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "超凡人圣": {
+      "replacement": "超凡入圣",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "越狙代庖": {
+      "replacement": "越俎代庖",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "身不由已": {
+      "replacement": "身不由己",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "轻手鸿毛": {
+      "replacement": "轻于鸿毛",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "轻描谈写": {
+      "replacement": "轻描淡写",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "轻财重土": {
+      "replacement": "轻财重士",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "迅雷不及": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "迎头赶头": {
+      "replacement": "迎头赶上",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "违心之伦": {
+      "replacement": "违心之论",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "迫不得己": {
+      "replacement": "迫不得已",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "迫不急待": {
+      "replacement": "迫不及待",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "退徙三舍": {
+      "replacement": "退避三舍",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "逞匹夫之": {
+      "replacement": null,
+      "reason": "fragment",
+      "note": "截断句或明显损坏的词条，不作为完整词组。"
+    },
+    "造谣中尚": {
+      "replacement": "造谣中伤",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "遇难成详": {
+      "replacement": "遇难成祥",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "遏渐防荫": {
+      "replacement": "遏渐防萌",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "遗失独立": {
+      "replacement": "遗世独立",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "遗自万代": {
+      "replacement": "遗臭万代",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "量人为出": {
+      "replacement": "量入为出",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "金壁辉煌": {
+      "replacement": "金碧辉煌",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "金榜提名": {
+      "replacement": "金榜题名",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "锥刀之未": {
+      "replacement": "锥刀之末",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "门道若市": {
+      "replacement": "门庭若市",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "闭关自首": {
+      "replacement": "闭关自守",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "随声附合": {
+      "replacement": "随声附和",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "雷历风行": {
+      "replacement": "雷厉风行",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "面黄饥瘦": {
+      "replacement": "面黄肌瘦",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "顺息万变": {
+      "replacement": "瞬息万变",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "颠覆不破": {
+      "replacement": "颠扑不破",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "饮鸠止渴": {
+      "replacement": "饮鸩止渴",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "骨瘦如材": {
+      "replacement": "骨瘦如柴",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "鬼器狼嚎": {
+      "replacement": "鬼哭狼嚎",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "鬼斧神功": {
+      "replacement": "鬼斧神工",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "鳞次节比": {
+      "replacement": "鳞次栉比",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "鸿衡鳞绝": {
+      "replacement": "鸿稀鳞绝",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "鹬蚌持争": {
+      "replacement": "鹬蚌相争",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "默不做声": {
+      "replacement": "默不作声",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "黯然消魂": {
+      "replacement": "黯然销魂",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    },
+    "鼓惑人心": {
+      "replacement": "蛊惑人心",
+      "reason": "spelling",
+      "note": "退出新组词，采用规范写法；不是把相近词一律判错。"
+    }
+  },
+  "sources": [
+    {
+      "url": "https://github.com/pwxcoo/chinese-xinhua/tree/fe6d6c2e8baa82187f4c96bbe042e43f96c05666",
+      "license": "MIT",
+      "sha256": "1d4b4f454ce1c416d6a1ab2369d6e66c0ff99e04390172eef70790499e21ce19",
+      "use": "Headword comparison and licensed fallback explanations; not a claim of manual verification of every entry."
+    },
+    {
+      "url": "https://dict.idioms.moe.edu.tw/idiomView.jsp?ID=590&la=0&webMd=1",
+      "use": "Independent verification of 血流漂杵."
+    }
+  ]
+}
