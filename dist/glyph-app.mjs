@@ -133,3 +133,4 @@ document.addEventListener('keydown',event=>{if((event.ctrlKey||event.metaKey)&&[
 document.addEventListener('visibilitychange',()=>{if(document.hidden){window.speechSynthesis?.cancel();save();}else syncViewport();});
 window.addEventListener('pagehide',()=>{window.speechSynthesis?.cancel();save();});
 renderAudio();renderHome();save();
+for(const id of ['glyph-continue','glyph-home-book','glyph-audio','glyph-help'])$('#'+id).disabled=false;
