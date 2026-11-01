@@ -1,0 +1,7 @@
+[
+  "index.html", "style.css", "responsive.css", "gameplay.css", "modes.css",
+  "manifest.webmanifest", "THIRD-PARTY-NOTICES.txt", "ARPHICPL.TXT", "icon.svg",
+  "app.mjs", "engine.mjs", "lexicon.mjs", "specials.mjs",
+  "glyph.html", "glyph.css", "glyph-app.mjs", "glyph-data.mjs",
+  "glyph-engine.mjs", "glyph-art.mjs", "glyph-strokes.json"
+]

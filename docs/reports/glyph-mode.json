@@ -1,0 +1,439 @@
+{
+  "date": "2026-11-01",
+  "baselineCommit": "84b295587ed7f093e88d325619128cb2d4c76d50",
+  "levels": 20,
+  "missionCharacters": 60,
+  "discoverableCharacters": 76,
+  "bonusCharacters": 16,
+  "components": 70,
+  "alternateRecipes": 1,
+  "strokeCount": 625,
+  "fullCampaign": {
+    "completedLevels": 20,
+    "leaves": 60,
+    "discovered": 76,
+    "restoreAfterEachRecipe": true
+  },
+  "storageKey": "wordward-glyph-save-v1",
+  "practice": "Ordered tracing against authored stroke paths/medians; not arbitrary handwriting recognition. Watching a demonstration does not record a completed practice.",
+  "speech": "Browser/OS speech synthesis with Chinese voice selection and visible pinyin; voice availability depends on the device. No server speech service.",
+  "source": {
+    "title": "Wordward offline tracing subset",
+    "modifiedAt": "2026-11-01",
+    "repository": "chanind/hanzi-writer-data",
+    "commit": "68d10a4b21150cae5e1ebbd223eed289cf32d90c",
+    "upstream": "Make Me a Hanzi; Arphic Technology fonts",
+    "copyright": "Copyright (C) 1999 Arphic Technology Co., Ltd.",
+    "license": "Arphic Public License; see ARPHICPL.TXT",
+    "note": "Selected 76 original character records and aggregated them for offline use on the stated date. Stroke paths and medians are unchanged. This data subset may be copied and modified under the Arphic Public License; it is provided without warranty."
+  },
+  "assets": {
+    "index.html": "9de6685d42dc18a9f04c6be7de5ebafde9c4077360fffc664148c6e230093da8",
+    "style.css": "49823fdd7715d06ddba0c5b558bb82b73e6a0c920460140df266f2bd85c3a56a",
+    "responsive.css": "589724b123b6f46de7287162a452fbd6e42e4eaab24ef9bc756ef4d124d3c364",
+    "gameplay.css": "78c10a591ed5974f8f479afaf4e8bad12654b6f9a06919bd251efe6a4e4a6118",
+    "modes.css": "81717d4faf51be65daba8cd8b0add0bb9390b96b65f653845d1d42e5836feb87",
+    "manifest.webmanifest": "8ec6e2d2cb7f817d3628d3c0e380787f7e796778f6db79fde1dc25ee0b1b890e",
+    "THIRD-PARTY-NOTICES.txt": "c6f4f649b15fabcf0e8bb4e1ea4f798be32fd615df73c5741fa601e03eca510f",
+    "ARPHICPL.TXT": "5590533436c70f10f2f524ee61456238c290175c6662fbe1c700b5f038a6d328",
+    "icon.svg": "0a04f016c10e78b18a9f3b4c2b59f185e6ecbcd17a1d8f11f477a51d0690918b",
+    "app.mjs": "b829676bb5efaa1ee8607172ac28c6d9970710b8912ed44d52542fc8cab9c0b0",
+    "engine.mjs": "1c0a7467438132012e3669cb466745f88f47d082f04cd7bcfbc87b5e6d9836c7",
+    "lexicon.mjs": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
+    "specials.mjs": "9123c609756d05908e7d43084e5cc318a7afdb715ebbf672fd069cefb0e90820",
+    "glyph.html": "06827e137fa4a8e9fdd1b710dfa2511cc6e67243f64215dbfb6fce04dd26aaf5",
+    "glyph.css": "34341441f298a1c1bef6d03f40a6202c1b53ac94ee921886de83d118be9e8507",
+    "glyph-app.mjs": "0c2cd5f74fc50a7e83ae155a6a3997dca1524ea49be4fa20ac391cb66bb95f0d",
+    "glyph-data.mjs": "f9b823d0f46d5ef4c646cf1c7acbe79d9280d5a85fecd1ddcdfcae422ac807c6",
+    "glyph-engine.mjs": "3c17eb30c86f014ef74a7198bfed020debfa35409252c54475adc3ffb0662f33",
+    "glyph-art.mjs": "bb7cc845886aa3166bf9358ae81010b87aaf84e4829a6068763caeaf0c400763",
+    "glyph-strokes.json": "65855f1f27f08afdddb704f8b1c1ccff8d154599126ae58e68efef862dbaccc2"
+  },
+  "levelsAndWords": [
+    {
+      "level": 1,
+      "title": "青池初晴",
+      "family": "青",
+      "targets": [
+        "清",
+        "晴",
+        "请"
+      ],
+      "extras": [
+        "情",
+        "睛",
+        "精"
+      ],
+      "pool": [
+        "氵",
+        "青",
+        "日",
+        "讠",
+        "忄",
+        "目",
+        "米"
+      ]
+    },
+    {
+      "level": 2,
+      "title": "泡泡渡口",
+      "family": "包",
+      "targets": [
+        "泡",
+        "抱",
+        "跑"
+      ],
+      "extras": [
+        "饱",
+        "炮"
+      ],
+      "pool": [
+        "氵",
+        "包",
+        "扌",
+        "⻊",
+        "饣",
+        "火"
+      ]
+    },
+    {
+      "level": 3,
+      "title": "村口来信",
+      "family": "马",
+      "targets": [
+        "妈",
+        "吗",
+        "码"
+      ],
+      "extras": [
+        "蚂"
+      ],
+      "pool": [
+        "女",
+        "马",
+        "口",
+        "石",
+        "虫"
+      ]
+    },
+    {
+      "level": 4,
+      "title": "木间歇脚",
+      "family": "木",
+      "targets": [
+        "林",
+        "森",
+        "休"
+      ],
+      "extras": [
+        "体"
+      ],
+      "pool": [
+        "木",
+        "林",
+        "亻",
+        "本"
+      ]
+    },
+    {
+      "level": 5,
+      "title": "池畔人家",
+      "family": "也",
+      "targets": [
+        "池",
+        "地",
+        "他"
+      ],
+      "extras": [
+        "她"
+      ],
+      "pool": [
+        "氵",
+        "也",
+        "土",
+        "亻",
+        "女"
+      ]
+    },
+    {
+      "level": 6,
+      "title": "日月信笺",
+      "family": "日",
+      "targets": [
+        "明",
+        "早",
+        "星"
+      ],
+      "extras": [
+        "时"
+      ],
+      "pool": [
+        "日",
+        "月",
+        "十",
+        "生",
+        "寸"
+      ]
+    },
+    {
+      "level": 7,
+      "title": "门里门外",
+      "family": "门",
+      "targets": [
+        "问",
+        "闪",
+        "间"
+      ],
+      "extras": [
+        "闻"
+      ],
+      "pool": [
+        "门",
+        "口",
+        "人",
+        "日",
+        "耳"
+      ]
+    },
+    {
+      "level": 8,
+      "title": "方框小院",
+      "family": "囗",
+      "targets": [
+        "困",
+        "园",
+        "国"
+      ],
+      "extras": [
+        "回"
+      ],
+      "pool": [
+        "囗",
+        "木",
+        "元",
+        "玉",
+        "口"
+      ]
+    },
+    {
+      "level": 9,
+      "title": "心愿邮局",
+      "family": "心",
+      "targets": [
+        "思",
+        "想",
+        "念"
+      ],
+      "extras": [
+        "忘"
+      ],
+      "pool": [
+        "田",
+        "心",
+        "相",
+        "今",
+        "亡"
+      ]
+    },
+    {
+      "level": 10,
+      "title": "青草花园",
+      "family": "艹",
+      "targets": [
+        "花",
+        "草",
+        "苗"
+      ],
+      "extras": [],
+      "pool": [
+        "艹",
+        "化",
+        "早",
+        "田"
+      ]
+    },
+    {
+      "level": 11,
+      "title": "小手帮忙",
+      "family": "扌",
+      "targets": [
+        "拍",
+        "打",
+        "扫"
+      ],
+      "extras": [
+        "拉"
+      ],
+      "pool": [
+        "扌",
+        "白",
+        "丁",
+        "彐",
+        "立"
+      ]
+    },
+    {
+      "level": 12,
+      "title": "江河入海",
+      "family": "氵",
+      "targets": [
+        "河",
+        "江",
+        "海"
+      ],
+      "extras": [
+        "洗"
+      ],
+      "pool": [
+        "氵",
+        "可",
+        "工",
+        "每",
+        "先"
+      ]
+    },
+    {
+      "level": 13,
+      "title": "小小食堂",
+      "family": "口",
+      "targets": [
+        "吃",
+        "喝",
+        "唱"
+      ],
+      "extras": [],
+      "pool": [
+        "口",
+        "乞",
+        "曷",
+        "昌"
+      ]
+    },
+    {
+      "level": 14,
+      "title": "家人相伴",
+      "family": "女",
+      "targets": [
+        "好",
+        "姐",
+        "妹"
+      ],
+      "extras": [],
+      "pool": [
+        "女",
+        "子",
+        "且",
+        "未"
+      ]
+    },
+    {
+      "level": 15,
+      "title": "伙伴驿站",
+      "family": "亻",
+      "targets": [
+        "你",
+        "们",
+        "住"
+      ],
+      "extras": [
+        "伴"
+      ],
+      "pool": [
+        "亻",
+        "尔",
+        "门",
+        "主",
+        "半"
+      ]
+    },
+    {
+      "level": 16,
+      "title": "宝盖书屋",
+      "family": "宀",
+      "targets": [
+        "安",
+        "字",
+        "家"
+      ],
+      "extras": [
+        "宁"
+      ],
+      "pool": [
+        "宀",
+        "女",
+        "子",
+        "豕",
+        "丁"
+      ]
+    },
+    {
+      "level": 17,
+      "title": "贝壳集市",
+      "family": "贝",
+      "targets": [
+        "财",
+        "贡",
+        "货"
+      ],
+      "extras": [],
+      "pool": [
+        "贝",
+        "才",
+        "工",
+        "化"
+      ]
+    },
+    {
+      "level": 18,
+      "title": "暖衣小铺",
+      "family": "衤",
+      "targets": [
+        "被",
+        "补",
+        "裙"
+      ],
+      "extras": [],
+      "pool": [
+        "衤",
+        "皮",
+        "卜",
+        "君"
+      ]
+    },
+    {
+      "level": 19,
+      "title": "山路同行",
+      "family": "⻊",
+      "targets": [
+        "路",
+        "跳",
+        "赶"
+      ],
+      "extras": [],
+      "pool": [
+        "⻊",
+        "各",
+        "兆",
+        "走",
+        "干"
+      ]
+    },
+    {
+      "level": 20,
+      "title": "叠字星河",
+      "family": "三叠",
+      "targets": [
+        "众",
+        "品",
+        "晶"
+      ],
+      "extras": [],
+      "pool": [
+        "人",
+        "口",
+        "日"
+      ]
+    }
+  ],
+  "validation": "Complete deterministic engine traversal, all 625 reference strokes, 328 rule tests, Chromium/WebKit four viewports with actual 20-level browser play, 11 pointer-drawn strokes, demo/reset, dragging, storage isolation and failure/retry handling. Simulated standalone viewport is not a physical iPhone test."
+}

@@ -1,0 +1,6 @@
+Wordward offline tracing subset (2026-11-01)
+Original stroke data: Hanzi Writer Data, derived from Make Me a Hanzi and Arphic Technology fonts.
+Source: https://github.com/chanind/hanzi-writer-data/tree/68d10a4b21150cae5e1ebbd223eed289cf32d90c
+Copyright (C) 1999 Arphic Technology Co., Ltd.
+License: Arphic Public License. See the unaltered ARPHICPL.TXT distributed with the application.
+76 original character records were selected and aggregated into glyph-strokes.json on the stated date; original stroke paths and medians are unchanged. This tracing data subset is freely available under the same Arphic Public License and is provided without warranty. The subset can be downloaded as glyph-strokes.json beside the application. Independent game source code and project-authored lessons are separate works.

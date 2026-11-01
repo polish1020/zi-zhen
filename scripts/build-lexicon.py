@@ -182,6 +182,9 @@ module += 'export const WORD_CORRECTION_MEANINGS=' + encode(review.get('phraseMe
 module += 'export const WORD_REVIEW=' + encode(review['corrections']) + ';\n'
 module += 'export const RETIRED_WORD_PROFILES=' + encode([entry['profile'] for entry in retired['profiles']]) + ';\n'
 notice = f'Common-word data derived from fxsjy/jieba\nSource: https://github.com/fxsjy/jieba/tree/{COMMIT}\nIncluded Chinese words: length 1–4, frequency >=20; four-character idioms tagged i, frequency >=3. Other tagged idioms preserve the prior >=10 rule. Additional game vocabulary and plain-language learning explanations are project-authored in data/.\n\n' + license_text + '\n\n' + (ROOT / 'data/idiom-source-notice.txt').read_text()
+stroke_notice = ROOT / 'data/glyph-stroke-source-notice.txt'
+if stroke_notice.exists():
+    notice += '\n\n' + stroke_notice.read_text()
 for path, content in [(ROOT / 'dist/lexicon.mjs', module), (ROOT / 'dist/THIRD-PARTY-NOTICES.txt', notice)]:
     if args.check:
         assert path.read_text(encoding='utf-8') == content, f'Outdated generated file: {path}'

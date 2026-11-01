@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="theme-color" content="#f4f1e8"><meta name="description" content="字阵·偏旁造物：拼偏旁、造汉字，用字义改变小世界，听读音、看释义、跟着笔顺描红。"><title>偏旁造物 · 字阵</title><link rel="icon" href="./icon.svg" type="image/svg+xml"><link rel="manifest" href="./manifest.webmanifest"><link rel="stylesheet" href="./glyph.css"></head>
+<body>
+<header class="g-header"><a href="./" class="g-brand" aria-label="返回字阵模式选择"><span class="g-seal">字<br>阵</span><span>偏旁造物<small>一字，一处小风景</small></span></a><div class="g-header-actions"><button id="glyph-audio" aria-label="关闭造字朗读" title="朗读开关">♪</button><button id="glyph-help" aria-label="查看造字玩法" title="玩法">?</button><a href="./" aria-label="切换游戏模式" title="切换模式">⌂</a></div></header>
+<main id="glyph-home" class="g-home">
+ <section class="g-home-hero"><div><span class="g-eyebrow">字阵 · 新的山河小卷</span><h1>偏旁搭一搭，<br>汉字有魔法。</h1><p>用部件拼出一个字，再用这个字的意思，<br class="desktop-break">让池水变清、天空放晴、小伙伴相聚。</p><div class="g-home-combination" aria-label="三点水加青组成清"><span>氵<small>三点水</small></span><i>＋</i><span>青<small>青字部件</small></span><i>→</i><strong>清<small>qīng</small></strong></div></div><div class="g-home-picture" id="glyph-home-picture" aria-hidden="true"></div></section>
+ <section class="g-home-start"><div><b id="glyph-progress">认识新字，从这一笔开始</b><p>20 个短关卡 · 76 个字 · 部件可重复用</p></div><button id="glyph-continue" class="g-primary">从第一关出发 →</button><button id="glyph-home-book" class="g-secondary">我的字册 <span id="glyph-book-count">0 / 76</span></button></section>
+ <div class="g-level-heading"><h2>一字一景，慢慢发现</h2><span>试错、提示都不扣分</span></div><section id="glyph-level-grid" class="g-level-grid" aria-label="造字关卡"></section>
+ <footer class="g-home-footer"><p>部件不一定都是部首。先认字形，再听读音、看字义；也可以点「写一写」跟着描红。</p><span id="glyph-home-save">造字进度保存在当前浏览器，与塔防分别记录。</span><a href="./ARPHICPL.TXT" target="_blank" rel="noopener">笔顺资料与许可 ↗</a></footer>
+</main>
+<main id="glyph-stage" class="g-stage" hidden>
+ <div class="g-stage-top"><button id="glyph-levels" aria-label="返回造字关卡">‹ 关卡</button><div><small id="glyph-stage-index">第一关</small><h1 id="glyph-stage-title">青池初晴</h1></div><button id="glyph-stage-book">字册 <span id="glyph-stage-count">0</span></button></div>
+ <div class="g-play-layout">
+  <section class="g-scene-panel" aria-label="用汉字改变场景"><div class="g-quest"><span class="g-quest-badge">小任务</span><p id="glyph-quest-text"></p><span id="glyph-scene-leaves" aria-label="本关完成进度"></span></div><div class="g-world" id="glyph-world"></div><div id="glyph-goals" class="g-goals" aria-label="本关三个小任务"></div></section>
+  <section class="g-workshop" aria-label="部件造字台"><div class="g-workshop-heading"><h2>部件造字台</h2><span>点选或拖动 · 可重复用</span></div><div id="glyph-structure-bar" class="g-structure-bar" aria-label="汉字结构"></div><div class="g-compose"><div class="g-board-column"><div id="glyph-slots" class="g-slots" aria-label="按位置放置部件"></div><div class="g-board-tools"><button id="glyph-swap" aria-label="交换部件位置">换位</button><button id="glyph-clear" aria-label="清空造字格重新摆">重摆</button></div></div><div id="glyph-result" class="g-result" aria-live="polite"></div></div><div id="glyph-parts" class="g-parts" aria-label="本关可用部件"></div><p id="glyph-feedback" class="g-feedback" role="status">选两个部件，放进田字格里。</p><div class="g-forge-actions"><button id="glyph-hint" class="g-secondary">想一想 ⓘ</button><button id="glyph-practice" class="g-secondary" disabled>写一写</button><button id="glyph-forge" class="g-primary" disabled>拼成一个字 →</button></div></section>
+ </div>
+ <div class="g-stage-foot"><span id="glyph-save-status">✓ 造字进度自动保存</span><button id="glyph-next-level" hidden>下一关 →</button><span>每关还藏着额外的字，换个偏旁试试</span></div>
+</main>
+<dialog id="glyph-dialog" class="g-dialog"><button id="glyph-close-dialog" class="g-dialog-close" aria-label="关闭弹窗">×</button><div id="glyph-dialog-content"></div></dialog><div id="glyph-live" class="g-sr-only" aria-live="polite"></div>
+<script type="module" src="./glyph-app.mjs"></script>
+</body></html>

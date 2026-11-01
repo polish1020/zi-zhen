@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Stage tested static assets for IGA upload without its dist exclusion or mjs MIME issue."""
 from pathlib import Path
-import json, shutil
+import json, shutil, re
 root=Path(__file__).resolve().parents[1]
 stage=Path('/workspace/deploy/zi-zhen-iga')
 identity=root/'.iga/project.json'
@@ -14,13 +14,10 @@ stage.mkdir(parents=True,exist_ok=True)
 (stage/'.iga').mkdir(exist_ok=True)
 for old in ['app.mjs','engine.mjs']:
  (stage/old).unlink(missing_ok=True)
-for name in ['index.html','style.css','responsive.css','gameplay.css','manifest.webmanifest','THIRD-PARTY-NOTICES.txt','icon.svg']:
+for name in json.loads((root/'data/static-assets.json').read_text()):
  text=(root/'dist'/name).read_text()
- if name=='index.html':text=text.replace('./app.mjs','./app.js')
- (stage/name).write_text(text)
-(stage/'app.js').write_text((root/'dist/app.mjs').read_text().replace("'./engine.mjs'","'./engine.js'"))
-(stage/'engine.js').write_text((root/'dist/engine.mjs').read_text().replace('./lexicon.mjs','./lexicon.js'))
-shutil.copy2(root/'dist/lexicon.mjs',stage/'lexicon.js')
+ if name.endswith(('.mjs','.html')):text=re.sub(r'''(['"]\./[^'"]+)\.mjs(?=['"])''',r'\1.js',text)
+ (stage/name.replace('.mjs','.js')).write_text(text)
 shutil.copy2(identity,stage/'.iga/project.json')
 (stage/'iga.json').write_text(json.dumps({'outputDirectory':'.'},indent=2)+'\n')
 (stage/'.gitignore').write_text('.iga/\n')

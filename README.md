@@ -1,6 +1,8 @@
 # 字阵 WORDWARD
 
-以字为兵，以词筑塔。原创中文组词塔防，纸墨与山河主题，浏览器单人游戏。当前版本使用 16 张一次性随机字牌，支持 120,772 个 1—4 字词语和十五类词塔；墨点可用于建塔、升级或刷新手牌。先显示玩法开始界面；手机进入后地图与字库同屏显示，组词严格按选字顺序，支持付费提示与通关后的无尽模式。
+字阵现在有两个并列入口：**组词守关**与**偏旁造物**。组词守关使用 16 张一次性随机字牌，支持 120,519 个 1—4 字词语、十五类词塔及十章地图；偏旁造物用部件拼成一个汉字，通过字义改变场景，并支持拼音、朗读、字册和笔顺描红。两个模式分别保存进度。
+
+偏旁造物第一版包含 20 个短关卡、76 个字（60 个任务字、16 个额外字）与 625 笔描红资料，手机和电脑均可玩。详情见 [模式说明](docs/GLYPH-MODE.md)。
 
 ## 运行与测试
 
@@ -11,7 +13,7 @@ python3 -m http.server 4173 --directory dist
 node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs tests/timing.test.mjs tests/specialties.test.mjs tests/word-traits.test.mjs tests/endless-bosses.test.mjs tests/boss-pools.test.mjs tests/word-meanings.test.mjs
 ```
 
-浏览器回归使用 Playwright Core 与 Chromium。`tests/browser.cjs` 默认使用本执行环境已安装的模块路径与 Chromium 路径；其他环境请修改这两处路径，或安装 Playwright 后替换 require 为 `require('playwright')`。预览服务运行时执行 `node tests/browser.cjs`。
+浏览器回归使用 Playwright Core 与 Chromium。`tests/browser.cjs` 默认使用本执行环境已安装的模块路径与 Chromium 路径；其他环境请修改这两处路径，或安装 Playwright 后替换 require 为 `require('playwright')`。预览服务运行时执行 `node tests/browser.cjs`；偏旁模式为 `node tests/glyph.cjs`，规则全集为 `node --test tests/*.test.mjs`。源码预览和打包后的页面都可运行，发布时自动统一模块扩展名。
 
 ## 文件
 
@@ -21,18 +23,24 @@ node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs test
 - `dist/style.css`：响应式纸墨主题。
 - `dist/responsive.css`：基础响应式布局。
 - `dist/gameplay.css`：随机字牌工坊和移动端单屏游戏界面。
-- `dist/index.html`：语义化页面与可访问操作。
+- `dist/index.html`：两个模式的首页入口与塔防界面。
+- `dist/modes.css`：并列模式入口。
+- `dist/glyph.html`、`dist/glyph.css`：偏旁造物的独立页面和自适应布局。
+- `dist/glyph-engine.mjs`、`dist/glyph-data.mjs`：组字、任务、存档、描红判定与 76 字关卡数据。
+- `dist/glyph-app.mjs`、`dist/glyph-art.mjs`：造字交互、字册、笔顺示范、SVG 小风景。
+- `dist/glyph-strokes.json`、`dist/ARPHICPL.TXT`：离线笔顺数据及原许可。
+- `data/static-assets.json`：Vercel、IGA 和原生 WebView 的统一资源清单。
 - `docs/DESIGN.md`：游戏规则、数值与技术设计。
 - `docs/TESTING.md`：测试范围和验收结果。
 - `.openai/hosting.json`：Sites 项目身份和静态托管配置。
 
 ## 发布
 
-将精确提交推送到本项目配置的 Sites 源码仓库，打包 `.openai/hosting.json` 与 `dist/`，使用 Sites 保存版本并部署。部署保留网站当前的访问范围；新建站点默认为仅所有者可访问。客户端不需要账号、数据库或密钥。切勿把仓库临时写凭证写入源码或 Git 配置。
+当前生产域名为 https://game.polishwb1020.com 。将经过测试的精确提交推送到关联的 GitHub `main` 后，现有 Vercel 项目自动执行 `node scripts/build-static.mjs`，从统一清单生成 20 个静态资源并发布。客户端不需要账号、数据库或密钥。历史 IGA 配置和资源打包方式仍保留。
 
 ## 存档
 
-使用当前域名下的 localStorage：`wordward-save-v1` 保存战局，`wordward-record-v1` 保存十章最佳星级，自动保留旧版三章记录。操作后、每 5 秒及离开页面时保存。刷新恢复进行中的战斗后先暂停。设置内可重开当前战局或确认后清除全部进度。浏览器清理数据、使用隐私模式或更换设备可能使存档不可用；没有云端同步。
+使用当前域名下的 localStorage：`wordward-save-v1` 保存战局，`wordward-record-v1` 保存十章最佳星级，自动保留旧版三章记录。操作后、每 5 秒及离开页面时保存。刷新恢复进行中的战斗后先暂停。设置内可重开当前战局或确认后清除全部进度。浏览器清理数据、使用隐私模式或更换设备可能使存档不可用；没有云端同步。偏旁造物使用独立的 `wordward-glyph-save-v1`，不覆盖塔防存档；朗读偏好也分别保存。
 
 ## IGA Pages
 
