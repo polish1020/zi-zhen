@@ -43,11 +43,11 @@ test('tracing rejects taps, distant/reversed long strokes and scribbles while al
  for(const p of [[[100,200]],[[100,200],[100,200]],path.slice().reverse(),[[100,200],[300,800],[600,20],[700,200]],[[NaN,1],[2,3]]])assert.equal(evaluateStroke(p,median).accepted,false);
  const corner=[[100,700],[700,700],[700,100]];assert.equal(evaluateStroke(screenMedian([corner[0],corner[2]]),corner).accepted,false);const s=new WritingSession(strokes.characters['清']);assert.equal(s.submit([[0,0],[500,500]]).accepted,false);assert.equal(s.index,0);assert.throws(()=>new WritingSession({strokes:['M0 0'],medians:[]}));assert.equal(resample(path).length,28);
 });
-test('tower-defense engine, combat vocabulary and semantic skills remain byte-identical to the shipped baseline',()=>{
- const baseline={'engine.mjs':'1c0a7467438132012e3669cb466745f88f47d082f04cd7bcfbc87b5e6d9836c7','lexicon.mjs':'279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52','specials.mjs':'9123c609756d05908e7d43084e5cc318a7afdb715ebbf672fd069cefb0e90820'};for(const[f,hash]of Object.entries(baseline))assert.equal(createHash('sha256').update(readFileSync(new URL('../dist/'+f,import.meta.url))).digest('hex'),hash,f);
+test('tower-defense combat vocabulary and semantic skills remain byte-identical to the shipped baseline',()=>{
+ const baseline={'lexicon.mjs':'279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52','specials.mjs':'9123c609756d05908e7d43084e5cc318a7afdb715ebbf672fd069cefb0e90820'};for(const[f,hash]of Object.entries(baseline))assert.equal(createHash('sha256').update(readFileSync(new URL('../dist/'+f,import.meta.url))).digest('hex'),hash,f);
 });
 test('static asset manifest contains the complete independent mode, local stroke data, license and every relative module import',()=>{
- const assets=JSON.parse(readFileSync(new URL('../data/static-assets.json',import.meta.url)));assert.equal(new Set(assets).size,assets.length);assert.equal(assets.length,31);
+ const assets=JSON.parse(readFileSync(new URL('../data/static-assets.json',import.meta.url)));assert.equal(new Set(assets).size,assets.length);assert.equal(assets.length,36);
  for(const file of assets){const bytes=readFileSync(new URL('../dist/'+file,import.meta.url));assert.ok(bytes.length);if(!file.endsWith('.mjs')&&!file.endsWith('.html'))continue;const text=bytes.toString('utf8');for(const match of text.matchAll(/(?:from\s*|import\s*)['"]\.\/([^'"]+\.mjs)['"]/g))assert.ok(assets.includes(match[1]),file+' imports '+match[1]);}
  assert.match(readFileSync(new URL('../dist/index.html',import.meta.url),'utf8'),/id="enter-glyph"/);assert.match(readFileSync(new URL('../dist/glyph-lessons.html',import.meta.url),'utf8'),/ARPHICPL\.TXT/);assert.match(readFileSync(new URL('../dist/glyph-app.mjs',import.meta.url),'utf8'),/fetch\('\.\/glyph-strokes\.json'\)/);
 });

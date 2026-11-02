@@ -1,5 +1,5 @@
 import {readFileSync} from 'node:fs';
-import {WORDS} from '../dist/engine.mjs';
+import {SHORT_WORDS as WORDS} from '../dist/engine.mjs';
 
 // Reconstruct the exact pre-review catalog for historical profile-hash checks.
 // Active recipes and saved-only retirements are audited separately by the new

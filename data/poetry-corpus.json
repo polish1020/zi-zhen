@@ -1,0 +1,2752 @@
+[
+  {
+    "title": "咏鹅",
+    "author": "骆宾王",
+    "grade": "一年级上册",
+    "paragraphs": [
+      "鹅，鹅，鹅，曲项向天歌。",
+      "白毛浮绿水，红掌拨清波。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/168f4f7/",
+    "sourceHash": "187a3ab9168720c859ce7ee9b0ba312cde657d0aa8d6edb78c32ad500d87ade8",
+    "id": "poem-001",
+    "lines": [
+      "鹅",
+      "鹅",
+      "鹅",
+      "曲项向天歌",
+      "白毛浮绿水",
+      "红掌拨清波"
+    ],
+    "forgeable": [
+      "曲项向天歌",
+      "白毛浮绿水",
+      "红掌拨清波"
+    ]
+  },
+  {
+    "title": "江南",
+    "author": "汉乐府",
+    "grade": "一年级上册",
+    "paragraphs": [
+      "江南可采莲，莲叶何田田，鱼戏莲叶间。",
+      "鱼戏莲叶东，鱼戏莲叶西，鱼戏莲叶南，鱼戏莲叶北。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/824ac92/",
+    "sourceHash": "c67fcc8bfe2b87bf7add4f72ac88c45260624d135601f3abe165074e8188afd8",
+    "id": "poem-002",
+    "lines": [
+      "江南可采莲",
+      "莲叶何田田",
+      "鱼戏莲叶间",
+      "鱼戏莲叶东",
+      "鱼戏莲叶西",
+      "鱼戏莲叶南",
+      "鱼戏莲叶北"
+    ],
+    "forgeable": [
+      "江南可采莲",
+      "莲叶何田田",
+      "鱼戏莲叶间",
+      "鱼戏莲叶东",
+      "鱼戏莲叶西",
+      "鱼戏莲叶南",
+      "鱼戏莲叶北"
+    ]
+  },
+  {
+    "title": "画",
+    "author": "作者待考",
+    "grade": "一年级上册",
+    "paragraphs": [
+      "远看山有色，近听水无声。",
+      "春去花还在，人来鸟不惊。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/ac411ec/",
+    "sourceHash": "7cac87ad4e421b788d9749ea58de0ba75b57830cb91009b0a911477f0b3be165",
+    "note": "小学识字课文中的题画诗；作者归属存在不同说法。",
+    "id": "poem-003",
+    "lines": [
+      "远看山有色",
+      "近听水无声",
+      "春去花还在",
+      "人来鸟不惊"
+    ],
+    "forgeable": [
+      "远看山有色",
+      "近听水无声",
+      "春去花还在",
+      "人来鸟不惊"
+    ]
+  },
+  {
+    "title": "悯农·其二",
+    "author": "李绅",
+    "grade": "一年级上册",
+    "paragraphs": [
+      "锄禾日当午，汗滴禾下土。",
+      "谁知盘中餐，粒粒皆辛苦？"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/5f3cd93/",
+    "sourceHash": "823adee05f25b14f7160998a9cea6d3aad3d304d2d15753b9a981975244666c8",
+    "id": "poem-004",
+    "lines": [
+      "锄禾日当午",
+      "汗滴禾下土",
+      "谁知盘中餐",
+      "粒粒皆辛苦"
+    ],
+    "forgeable": [
+      "锄禾日当午",
+      "汗滴禾下土",
+      "谁知盘中餐",
+      "粒粒皆辛苦"
+    ]
+  },
+  {
+    "title": "古朗月行（节选）",
+    "author": "李白",
+    "grade": "一年级上册",
+    "paragraphs": [
+      "小时不识月，呼作白玉盘。",
+      "又疑瑶台镜，飞在青云端。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/9692c5e/",
+    "sourceHash": "c0715e4409f7a138212ed52b7d94c44e1e60ecd9bd1515fe0ec85104654cf6d5",
+    "id": "poem-005",
+    "lines": [
+      "小时不识月",
+      "呼作白玉盘",
+      "又疑瑶台镜",
+      "飞在青云端"
+    ],
+    "forgeable": [
+      "小时不识月",
+      "呼作白玉盘",
+      "又疑瑶台镜",
+      "飞在青云端"
+    ]
+  },
+  {
+    "title": "风",
+    "author": "李峤",
+    "grade": "一年级上册",
+    "paragraphs": [
+      "解落三秋叶，能开二月花。",
+      "过江千尺浪，入竹万竿斜。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/3915bf2/",
+    "sourceHash": "e2e3be0646692b0226eac35f8450dada0aa471d4a3b7e45b829c688d9ea7624b",
+    "id": "poem-006",
+    "lines": [
+      "解落三秋叶",
+      "能开二月花",
+      "过江千尺浪",
+      "入竹万竿斜"
+    ],
+    "forgeable": [
+      "解落三秋叶",
+      "能开二月花",
+      "过江千尺浪",
+      "入竹万竿斜"
+    ]
+  },
+  {
+    "title": "春晓",
+    "author": "孟浩然",
+    "grade": "一年级下册",
+    "paragraphs": [
+      "春眠不觉晓，处处闻啼鸟。",
+      "夜来风雨声，花落知多少。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/9b62b46/",
+    "sourceHash": "9a1236a16bb8c6a465d79d1b6883cd1b57d6d517b2a34a92546179fb27e892f5",
+    "id": "poem-007",
+    "lines": [
+      "春眠不觉晓",
+      "处处闻啼鸟",
+      "夜来风雨声",
+      "花落知多少"
+    ],
+    "forgeable": [
+      "春眠不觉晓",
+      "处处闻啼鸟",
+      "夜来风雨声",
+      "花落知多少"
+    ]
+  },
+  {
+    "title": "赠汪伦",
+    "author": "李白",
+    "grade": "一年级下册",
+    "paragraphs": [
+      "李白乘舟将欲行，忽闻岸上踏歌声。",
+      "桃花潭水深千尺，不及汪伦送我情。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/abfc8be/",
+    "sourceHash": "580df9c4ffceec1d374980848b83e4c63195768d27ce5c854d71020e919bcc79",
+    "id": "poem-008",
+    "lines": [
+      "李白乘舟将欲行",
+      "忽闻岸上踏歌声",
+      "桃花潭水深千尺",
+      "不及汪伦送我情"
+    ],
+    "forgeable": [
+      "李白乘舟将欲行",
+      "忽闻岸上踏歌声",
+      "桃花潭水深千尺",
+      "不及汪伦送我情"
+    ]
+  },
+  {
+    "title": "静夜思",
+    "author": "李白",
+    "grade": "一年级下册",
+    "paragraphs": [
+      "床前明月光，疑是地上霜。",
+      "举头望明月，低头思故乡。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/f94de8e/",
+    "sourceHash": "102aeb0414ece9388af8779a6815b0383f01a5c8ed768a53f03f2bd885e4099b",
+    "id": "poem-009",
+    "lines": [
+      "床前明月光",
+      "疑是地上霜",
+      "举头望明月",
+      "低头思故乡"
+    ],
+    "forgeable": [
+      "床前明月光",
+      "疑是地上霜",
+      "举头望明月",
+      "低头思故乡"
+    ]
+  },
+  {
+    "title": "寻隐者不遇",
+    "author": "贾岛",
+    "grade": "一年级下册",
+    "paragraphs": [
+      "松下问童子，言师采药去。",
+      "只在此山中，云深不知处。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/09c8974/",
+    "sourceHash": "6a7945901fc81c93d8d36ff913059f6749b05aa1bcb967d15b79cd58464242f7",
+    "id": "poem-010",
+    "lines": [
+      "松下问童子",
+      "言师采药去",
+      "只在此山中",
+      "云深不知处"
+    ],
+    "forgeable": [
+      "松下问童子",
+      "言师采药去",
+      "只在此山中",
+      "云深不知处"
+    ]
+  },
+  {
+    "title": "池上",
+    "author": "白居易",
+    "grade": "一年级下册",
+    "paragraphs": [
+      "小娃撑小艇，偷采白莲回。",
+      "不解藏踪迹，浮萍一道开。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/6f2b477/",
+    "sourceHash": "da1553d2499d35e500fff32d73d7bb1c7355c01ffe8670abcdab76a375c43d6c",
+    "id": "poem-011",
+    "lines": [
+      "小娃撑小艇",
+      "偷采白莲回",
+      "不解藏踪迹",
+      "浮萍一道开"
+    ],
+    "forgeable": [
+      "小娃撑小艇",
+      "偷采白莲回",
+      "不解藏踪迹",
+      "浮萍一道开"
+    ]
+  },
+  {
+    "title": "小池",
+    "author": "杨万里",
+    "grade": "一年级下册",
+    "paragraphs": [
+      "泉眼无声惜细流，树阴照水爱晴柔。",
+      "小荷才露尖尖角，早有蜻蜓立上头。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/99847c1/",
+    "sourceHash": "8dc989c0b8a17f8599901f96c01e20e0b38785b28a6d86f6b9bdb4999d631524",
+    "id": "poem-012",
+    "lines": [
+      "泉眼无声惜细流",
+      "树阴照水爱晴柔",
+      "小荷才露尖尖角",
+      "早有蜻蜓立上头"
+    ],
+    "forgeable": [
+      "泉眼无声惜细流",
+      "树阴照水爱晴柔",
+      "小荷才露尖尖角",
+      "早有蜻蜓立上头"
+    ]
+  },
+  {
+    "title": "画鸡",
+    "author": "唐寅",
+    "grade": "一年级下册",
+    "paragraphs": [
+      "头上红冠不用裁，满身雪白走将来。",
+      "平生不敢轻言语，一叫千门万户开。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/dece85d/",
+    "sourceHash": "93635e2fd6d67f369e0fc7fc2eef6849a6fdc856774afcdf273b48ccb69adf5e",
+    "id": "poem-013",
+    "lines": [
+      "头上红冠不用裁",
+      "满身雪白走将来",
+      "平生不敢轻言语",
+      "一叫千门万户开"
+    ],
+    "forgeable": [
+      "头上红冠不用裁",
+      "满身雪白走将来",
+      "平生不敢轻言语",
+      "一叫千门万户开"
+    ]
+  },
+  {
+    "title": "梅花",
+    "author": "王安石",
+    "grade": "二年级上册",
+    "paragraphs": [
+      "墙角数枝梅，凌寒独自开。",
+      "遥知不是雪，为有暗香来。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/76d4ae1/",
+    "sourceHash": "beaa9701aec202672b021134ff2a3665b82ce8add9d2161bb48bacdb71bade36",
+    "id": "poem-014",
+    "lines": [
+      "墙角数枝梅",
+      "凌寒独自开",
+      "遥知不是雪",
+      "为有暗香来"
+    ],
+    "forgeable": [
+      "墙角数枝梅",
+      "凌寒独自开",
+      "遥知不是雪",
+      "为有暗香来"
+    ]
+  },
+  {
+    "title": "小儿垂钓",
+    "author": "胡令能",
+    "grade": "二年级上册",
+    "paragraphs": [
+      "蓬头稚子学垂纶，侧坐莓苔草映身。",
+      "路人借问遥招手，怕得鱼惊不应人。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/1d8d6f1/",
+    "sourceHash": "c5293dce9fe3fd86d1cd1293a81c04ad8a258c108efcc7a0098da42ebe7a7e91",
+    "id": "poem-015",
+    "lines": [
+      "蓬头稚子学垂纶",
+      "侧坐莓苔草映身",
+      "路人借问遥招手",
+      "怕得鱼惊不应人"
+    ],
+    "forgeable": [
+      "蓬头稚子学垂纶",
+      "侧坐莓苔草映身",
+      "路人借问遥招手",
+      "怕得鱼惊不应人"
+    ]
+  },
+  {
+    "title": "登鹳雀楼",
+    "author": "王之涣",
+    "grade": "二年级上册",
+    "paragraphs": [
+      "白日依山尽，黄河入海流。",
+      "欲穷千里目，更上一层楼。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/6be1140/",
+    "sourceHash": "d4bcd15036af43c46c0c0ef1aa593fb2f2998b0c7a64f4878e1033e03b57c590",
+    "id": "poem-016",
+    "lines": [
+      "白日依山尽",
+      "黄河入海流",
+      "欲穷千里目",
+      "更上一层楼"
+    ],
+    "forgeable": [
+      "白日依山尽",
+      "黄河入海流",
+      "欲穷千里目",
+      "更上一层楼"
+    ]
+  },
+  {
+    "title": "望庐山瀑布",
+    "author": "李白",
+    "grade": "二年级上册",
+    "paragraphs": [
+      "日照香炉生紫烟，遥看瀑布挂前川。",
+      "飞流直下三千尺，疑是银河落九天。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/eae33c6/",
+    "sourceHash": "53894a2d3f83e9b376616649eeae4f5904dfcc0a51334060a4393c109d7e4f1e",
+    "id": "poem-017",
+    "lines": [
+      "日照香炉生紫烟",
+      "遥看瀑布挂前川",
+      "飞流直下三千尺",
+      "疑是银河落九天"
+    ],
+    "forgeable": [
+      "日照香炉生紫烟",
+      "遥看瀑布挂前川",
+      "飞流直下三千尺",
+      "疑是银河落九天"
+    ]
+  },
+  {
+    "title": "江雪",
+    "author": "柳宗元",
+    "grade": "二年级上册",
+    "paragraphs": [
+      "千山鸟飞绝，万径人踪灭。",
+      "孤舟蓑笠翁，独钓寒江雪。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/689eacb/",
+    "sourceHash": "42050c79a49448aefbf2930e68762a2591b4c4a4c4ce462ad6a64b96de435a88",
+    "id": "poem-018",
+    "lines": [
+      "千山鸟飞绝",
+      "万径人踪灭",
+      "孤舟蓑笠翁",
+      "独钓寒江雪"
+    ],
+    "forgeable": [
+      "千山鸟飞绝",
+      "万径人踪灭",
+      "孤舟蓑笠翁",
+      "独钓寒江雪"
+    ]
+  },
+  {
+    "title": "夜宿山寺",
+    "author": "李白",
+    "grade": "二年级上册",
+    "paragraphs": [
+      "危楼高百尺，手可摘星辰。",
+      "不敢高声语，恐惊天上人。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/3ceb10b/",
+    "sourceHash": "56763982118d2f75580dee507b4f9f6d839c609ccea9d0be753c7c8c004c50a4",
+    "id": "poem-019",
+    "lines": [
+      "危楼高百尺",
+      "手可摘星辰",
+      "不敢高声语",
+      "恐惊天上人"
+    ],
+    "forgeable": [
+      "危楼高百尺",
+      "手可摘星辰",
+      "不敢高声语",
+      "恐惊天上人"
+    ]
+  },
+  {
+    "title": "敕勒歌",
+    "author": "佚名",
+    "grade": "二年级上册",
+    "paragraphs": [
+      "敕勒川，阴山下。",
+      "天似穹庐，笼盖四野。",
+      "天苍苍，野茫茫，风吹草低见牛羊。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/9848deb/",
+    "sourceHash": "75eab76d0db76409b7658ede51c62db21da9a06c2f040f8fb2a356282851993a",
+    "id": "poem-020",
+    "lines": [
+      "敕勒川",
+      "阴山下",
+      "天似穹庐",
+      "笼盖四野",
+      "天苍苍",
+      "野茫茫",
+      "风吹草低见牛羊"
+    ],
+    "forgeable": [
+      "风吹草低见牛羊"
+    ]
+  },
+  {
+    "title": "村居",
+    "author": "高鼎",
+    "grade": "二年级下册",
+    "paragraphs": [
+      "草长莺飞二月天，拂堤杨柳醉春烟。",
+      "儿童散学归来早，忙趁东风放纸鸢。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/2c39345/",
+    "sourceHash": "196ead43e6aa9010f0146b6f72e122419554fc467bd35435ed1b1e61b9a7b610",
+    "id": "poem-021",
+    "lines": [
+      "草长莺飞二月天",
+      "拂堤杨柳醉春烟",
+      "儿童散学归来早",
+      "忙趁东风放纸鸢"
+    ],
+    "forgeable": [
+      "草长莺飞二月天",
+      "拂堤杨柳醉春烟",
+      "儿童散学归来早",
+      "忙趁东风放纸鸢"
+    ]
+  },
+  {
+    "title": "咏柳",
+    "author": "贺知章",
+    "grade": "二年级下册",
+    "paragraphs": [
+      "碧玉妆成一树高，万条垂下绿丝绦。",
+      "不知细叶谁裁出，二月春风似剪刀。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/4afec3e/",
+    "sourceHash": "cbd70d2c9996392a709223ced5514c36aaddebed9f938ac5e9d678f6d4cd7e6d",
+    "id": "poem-022",
+    "lines": [
+      "碧玉妆成一树高",
+      "万条垂下绿丝绦",
+      "不知细叶谁裁出",
+      "二月春风似剪刀"
+    ],
+    "forgeable": [
+      "碧玉妆成一树高",
+      "万条垂下绿丝绦",
+      "不知细叶谁裁出",
+      "二月春风似剪刀"
+    ]
+  },
+  {
+    "title": "赋得古原草送别",
+    "author": "白居易",
+    "grade": "二年级下册",
+    "paragraphs": [
+      "离离原上草，一岁一枯荣。",
+      "野火烧不尽，春风吹又生。",
+      "远芳侵古道，晴翠接荒城。",
+      "又送王孙去，萋萋满别情。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/dca8ec0/",
+    "sourceHash": "ff2ddf93dd88102612527eb97a85383f8b320e579fd2773de55e1e43c152986a",
+    "id": "poem-023",
+    "lines": [
+      "离离原上草",
+      "一岁一枯荣",
+      "野火烧不尽",
+      "春风吹又生",
+      "远芳侵古道",
+      "晴翠接荒城",
+      "又送王孙去",
+      "萋萋满别情"
+    ],
+    "forgeable": [
+      "离离原上草",
+      "一岁一枯荣",
+      "野火烧不尽",
+      "春风吹又生",
+      "远芳侵古道",
+      "晴翠接荒城",
+      "又送王孙去",
+      "萋萋满别情"
+    ]
+  },
+  {
+    "title": "晓出净慈寺送林子方",
+    "author": "杨万里",
+    "grade": "二年级下册",
+    "paragraphs": [
+      "毕竟西湖六月中，风光不与四时同。",
+      "接天莲叶无穷碧，映日荷花别样红。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/59b23b9/",
+    "sourceHash": "e6441c9588f9b250464d2f409523cfd289dfefb1b3a008f6e41d65637ec38fac",
+    "id": "poem-024",
+    "lines": [
+      "毕竟西湖六月中",
+      "风光不与四时同",
+      "接天莲叶无穷碧",
+      "映日荷花别样红"
+    ],
+    "forgeable": [
+      "毕竟西湖六月中",
+      "风光不与四时同",
+      "接天莲叶无穷碧",
+      "映日荷花别样红"
+    ]
+  },
+  {
+    "title": "绝句",
+    "author": "杜甫",
+    "grade": "二年级下册",
+    "paragraphs": [
+      "两个黄鹂鸣翠柳，一行白鹭上青天。",
+      "窗含西岭千秋雪，门泊东吴万里船。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/25bfe6c/",
+    "sourceHash": "5878700e732f72fb2753af43f4ad9d3cd9688792d23f8ae024e1e1a048e4a64f",
+    "id": "poem-025",
+    "lines": [
+      "两个黄鹂鸣翠柳",
+      "一行白鹭上青天",
+      "窗含西岭千秋雪",
+      "门泊东吴万里船"
+    ],
+    "forgeable": [
+      "两个黄鹂鸣翠柳",
+      "一行白鹭上青天",
+      "窗含西岭千秋雪",
+      "门泊东吴万里船"
+    ]
+  },
+  {
+    "title": "悯农·其一",
+    "author": "李绅",
+    "grade": "二年级下册",
+    "paragraphs": [
+      "春种一粒粟，秋收万颗子。",
+      "四海无闲田，农夫犹饿死。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/aebfdde/",
+    "sourceHash": "fdeb60f33ec40936e1d831a5577e4e3f109240146ed4f397612758c578e48b8a",
+    "id": "poem-026",
+    "lines": [
+      "春种一粒粟",
+      "秋收万颗子",
+      "四海无闲田",
+      "农夫犹饿死"
+    ],
+    "forgeable": [
+      "春种一粒粟",
+      "秋收万颗子",
+      "四海无闲田",
+      "农夫犹饿死"
+    ]
+  },
+  {
+    "title": "舟夜书所见",
+    "author": "查慎行",
+    "grade": "二年级下册",
+    "paragraphs": [
+      "月黑见渔灯，孤光一点萤。",
+      "微微风簇浪，散作满河星。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/6c93dc9/",
+    "sourceHash": "e17089974e31a4f4d9f6607e1b6cc3eadd58937fe93022f3ee439c0b19eb6a59",
+    "id": "poem-027",
+    "lines": [
+      "月黑见渔灯",
+      "孤光一点萤",
+      "微微风簇浪",
+      "散作满河星"
+    ],
+    "forgeable": [
+      "月黑见渔灯",
+      "孤光一点萤",
+      "微微风簇浪",
+      "散作满河星"
+    ]
+  },
+  {
+    "title": "所见",
+    "author": "袁枚",
+    "grade": "三年级上册",
+    "paragraphs": [
+      "牧童骑黄牛，歌声振林樾。",
+      "意欲捕鸣蝉，忽然闭口立。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/18a13e2/",
+    "sourceHash": "0f1ae692cf3fda5b62c2f008ce04ad3020ca4cc81acf8461e143032eb62d7d8d",
+    "id": "poem-028",
+    "lines": [
+      "牧童骑黄牛",
+      "歌声振林樾",
+      "意欲捕鸣蝉",
+      "忽然闭口立"
+    ],
+    "forgeable": [
+      "牧童骑黄牛",
+      "歌声振林樾",
+      "意欲捕鸣蝉",
+      "忽然闭口立"
+    ]
+  },
+  {
+    "title": "山行",
+    "author": "杜牧",
+    "grade": "三年级上册",
+    "paragraphs": [
+      "远上寒山石径斜，白云生处有人家。",
+      "停车坐爱枫林晚，霜叶红于二月花。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/ac94142/",
+    "sourceHash": "760861f7cad885dec49bc7115fa807563998663257e6744ff4ed97f7cf313eb9",
+    "id": "poem-029",
+    "lines": [
+      "远上寒山石径斜",
+      "白云生处有人家",
+      "停车坐爱枫林晚",
+      "霜叶红于二月花"
+    ],
+    "forgeable": [
+      "远上寒山石径斜",
+      "白云生处有人家",
+      "停车坐爱枫林晚",
+      "霜叶红于二月花"
+    ]
+  },
+  {
+    "title": "赠刘景文",
+    "author": "苏轼",
+    "grade": "三年级上册",
+    "paragraphs": [
+      "荷尽已无擎雨盖，菊残犹有傲霜枝。",
+      "一年好景君须记，最是橙黄橘绿时。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/5d9b4ac/",
+    "sourceHash": "9b19a72b591305aeb3475827ef7f2bbe5832fefe7004df6eb824dbb53ef0a3e0",
+    "id": "poem-030",
+    "lines": [
+      "荷尽已无擎雨盖",
+      "菊残犹有傲霜枝",
+      "一年好景君须记",
+      "最是橙黄橘绿时"
+    ],
+    "forgeable": [
+      "荷尽已无擎雨盖",
+      "菊残犹有傲霜枝",
+      "一年好景君须记",
+      "最是橙黄橘绿时"
+    ]
+  },
+  {
+    "title": "夜书所见",
+    "author": "叶绍翁",
+    "grade": "三年级上册",
+    "paragraphs": [
+      "萧萧梧叶送寒声，江上秋风动客情。",
+      "知有儿童挑促织，夜深篱落一灯明。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/2d2b50a/",
+    "sourceHash": "a485164dd6fecac85a7856d2cdbd2f3e448e047eef12ca1c536fc37d0d930fcb",
+    "id": "poem-031",
+    "lines": [
+      "萧萧梧叶送寒声",
+      "江上秋风动客情",
+      "知有儿童挑促织",
+      "夜深篱落一灯明"
+    ],
+    "forgeable": [
+      "萧萧梧叶送寒声",
+      "江上秋风动客情",
+      "知有儿童挑促织",
+      "夜深篱落一灯明"
+    ]
+  },
+  {
+    "title": "望天门山",
+    "author": "李白",
+    "grade": "三年级上册",
+    "paragraphs": [
+      "天门中断楚江开，碧水东流至此回。",
+      "两岸青山相对出，孤帆一片日边来。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/37713ed/",
+    "sourceHash": "64d86e8c58c2de12de03fcdd292652db53a37986db402fe200ee21178d315071",
+    "id": "poem-032",
+    "lines": [
+      "天门中断楚江开",
+      "碧水东流至此回",
+      "两岸青山相对出",
+      "孤帆一片日边来"
+    ],
+    "forgeable": [
+      "天门中断楚江开",
+      "碧水东流至此回",
+      "两岸青山相对出",
+      "孤帆一片日边来"
+    ]
+  },
+  {
+    "title": "饮湖上初晴后雨",
+    "author": "苏轼",
+    "grade": "三年级上册",
+    "paragraphs": [
+      "水光潋滟晴方好，山色空蒙雨亦奇。",
+      "欲把西湖比西子，淡妆浓抹总相宜。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/02cdcab/",
+    "sourceHash": "c7fc1def7b16386fb70a544c12481411b3713e0db9bfd10ee0a9f916156a336b",
+    "id": "poem-033",
+    "lines": [
+      "水光潋滟晴方好",
+      "山色空蒙雨亦奇",
+      "欲把西湖比西子",
+      "淡妆浓抹总相宜"
+    ],
+    "forgeable": [
+      "水光潋滟晴方好",
+      "山色空蒙雨亦奇",
+      "欲把西湖比西子",
+      "淡妆浓抹总相宜"
+    ]
+  },
+  {
+    "title": "望洞庭",
+    "author": "刘禹锡",
+    "grade": "三年级上册",
+    "paragraphs": [
+      "湖光秋月两相和，潭面无风镜未磨。",
+      "遥望洞庭山水翠，白银盘里一青螺。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/8a92bb1/",
+    "sourceHash": "0eca2d3229c1ced6427084eedc9a117f190fbc3edf9c84f9fa49e43dee16c8cc",
+    "id": "poem-034",
+    "lines": [
+      "湖光秋月两相和",
+      "潭面无风镜未磨",
+      "遥望洞庭山水翠",
+      "白银盘里一青螺"
+    ],
+    "forgeable": [
+      "湖光秋月两相和",
+      "潭面无风镜未磨",
+      "遥望洞庭山水翠",
+      "白银盘里一青螺"
+    ]
+  },
+  {
+    "title": "早发白帝城",
+    "author": "李白",
+    "grade": "三年级上册",
+    "paragraphs": [
+      "朝辞白帝彩云间，千里江陵一日还。",
+      "两岸猿声啼不住，轻舟已过万重山。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/d0c2932/",
+    "sourceHash": "23b507e3dbfb2d97eb085862d1fd4485b64a340f003fe043c272048bf58270ba",
+    "id": "poem-035",
+    "lines": [
+      "朝辞白帝彩云间",
+      "千里江陵一日还",
+      "两岸猿声啼不住",
+      "轻舟已过万重山"
+    ],
+    "forgeable": [
+      "朝辞白帝彩云间",
+      "千里江陵一日还",
+      "两岸猿声啼不住",
+      "轻舟已过万重山"
+    ]
+  },
+  {
+    "title": "采莲曲",
+    "author": "王昌龄",
+    "grade": "三年级上册",
+    "paragraphs": [
+      "荷叶罗裙一色裁，芙蓉向脸两边开。",
+      "乱入池中看不见，闻歌始觉有人来。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/551211f/",
+    "sourceHash": "76163c5cd6ceca9a9e1ff8020a083f14ec332018098d3e6422e47d0cc0dde5a1",
+    "id": "poem-036",
+    "lines": [
+      "荷叶罗裙一色裁",
+      "芙蓉向脸两边开",
+      "乱入池中看不见",
+      "闻歌始觉有人来"
+    ],
+    "forgeable": [
+      "荷叶罗裙一色裁",
+      "芙蓉向脸两边开",
+      "乱入池中看不见",
+      "闻歌始觉有人来"
+    ]
+  },
+  {
+    "title": "绝句·迟日江山丽",
+    "author": "杜甫",
+    "grade": "三年级下册",
+    "paragraphs": [
+      "迟日江山丽，春风花草香。",
+      "泥融飞燕子，沙暖睡鸳鸯。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/67d931b/",
+    "sourceHash": "e020fc3d7a93d2ff650e601a250b950c09b3bb975a985fa9e9d18846e1242931",
+    "id": "poem-037",
+    "lines": [
+      "迟日江山丽",
+      "春风花草香",
+      "泥融飞燕子",
+      "沙暖睡鸳鸯"
+    ],
+    "forgeable": [
+      "迟日江山丽",
+      "春风花草香",
+      "泥融飞燕子",
+      "沙暖睡鸳鸯"
+    ]
+  },
+  {
+    "title": "惠崇春江晚景",
+    "author": "苏轼",
+    "grade": "三年级下册",
+    "paragraphs": [
+      "竹外桃花三两枝，春江水暖鸭先知。",
+      "蒌蒿满地芦芽短，正是河豚欲上时。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/4443f41/",
+    "sourceHash": "a8140609997aa19edc4b557d6e9dd01d0e61a48c9d23d3112d03ec4c2494c7fc",
+    "id": "poem-038",
+    "lines": [
+      "竹外桃花三两枝",
+      "春江水暖鸭先知",
+      "蒌蒿满地芦芽短",
+      "正是河豚欲上时"
+    ],
+    "forgeable": [
+      "竹外桃花三两枝",
+      "春江水暖鸭先知",
+      "蒌蒿满地芦芽短",
+      "正是河豚欲上时"
+    ]
+  },
+  {
+    "title": "三衢道中",
+    "author": "曾几",
+    "grade": "三年级下册",
+    "paragraphs": [
+      "梅子黄时日日晴，小溪泛尽却山行。",
+      "绿阴不减来时路，添得黄鹂四五声。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/ba4a309/",
+    "sourceHash": "29e8baeb534270bdfae07d9283f2bab4f93afa3e19a17152f3c14056b86f342b",
+    "id": "poem-039",
+    "lines": [
+      "梅子黄时日日晴",
+      "小溪泛尽却山行",
+      "绿阴不减来时路",
+      "添得黄鹂四五声"
+    ],
+    "forgeable": [
+      "梅子黄时日日晴",
+      "小溪泛尽却山行",
+      "绿阴不减来时路",
+      "添得黄鹂四五声"
+    ]
+  },
+  {
+    "title": "忆江南·江南好",
+    "author": "白居易",
+    "grade": "三年级下册",
+    "paragraphs": [
+      "江南好，风景旧曾谙。",
+      "日出江花红胜火，春来江水绿如蓝。能不忆江南？"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/9669172/",
+    "sourceHash": "5b1c55eac02e3724f8d0f313960a1357f03530e343137495ea2c0425e817644e",
+    "id": "poem-040",
+    "lines": [
+      "江南好",
+      "风景旧曾谙",
+      "日出江花红胜火",
+      "春来江水绿如蓝",
+      "能不忆江南"
+    ],
+    "forgeable": [
+      "风景旧曾谙",
+      "日出江花红胜火",
+      "春来江水绿如蓝",
+      "能不忆江南"
+    ]
+  },
+  {
+    "title": "元日",
+    "author": "王安石",
+    "grade": "三年级下册",
+    "paragraphs": [
+      "爆竹声中一岁除，春风送暖入屠苏。",
+      "千门万户曈曈日，总把新桃换旧符。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/dcb4593/",
+    "sourceHash": "fe7ab9f2e47100135e04b93ed7a81bb92ee9e9096e8112f746b278aa4b777d88",
+    "id": "poem-041",
+    "lines": [
+      "爆竹声中一岁除",
+      "春风送暖入屠苏",
+      "千门万户曈曈日",
+      "总把新桃换旧符"
+    ],
+    "forgeable": [
+      "爆竹声中一岁除",
+      "春风送暖入屠苏",
+      "千门万户曈曈日",
+      "总把新桃换旧符"
+    ]
+  },
+  {
+    "title": "清明",
+    "author": "杜牧",
+    "grade": "三年级下册",
+    "paragraphs": [
+      "清明时节雨纷纷，路上行人欲断魂。",
+      "借问酒家何处有？牧童遥指杏花村。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/5f6d468/",
+    "sourceHash": "7b75930e5b3cdf5fc8fac4d2cf4275dbe9383577b550773e789564c8aebf2b85",
+    "id": "poem-042",
+    "lines": [
+      "清明时节雨纷纷",
+      "路上行人欲断魂",
+      "借问酒家何处有",
+      "牧童遥指杏花村"
+    ],
+    "forgeable": [
+      "清明时节雨纷纷",
+      "路上行人欲断魂",
+      "借问酒家何处有",
+      "牧童遥指杏花村"
+    ]
+  },
+  {
+    "title": "九月九日忆山东兄弟",
+    "author": "王维",
+    "grade": "三年级下册",
+    "paragraphs": [
+      "独在异乡为异客，每逢佳节倍思亲。",
+      "遥知兄弟登高处，遍插茱萸少一人。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/13a36a1/",
+    "sourceHash": "52a940cfea6fdb5d1f764867eacac302a97f1cc553fe967a287212dee3408291",
+    "id": "poem-043",
+    "lines": [
+      "独在异乡为异客",
+      "每逢佳节倍思亲",
+      "遥知兄弟登高处",
+      "遍插茱萸少一人"
+    ],
+    "forgeable": [
+      "独在异乡为异客",
+      "每逢佳节倍思亲",
+      "遥知兄弟登高处",
+      "遍插茱萸少一人"
+    ]
+  },
+  {
+    "title": "滁州西涧",
+    "author": "韦应物",
+    "grade": "三年级下册",
+    "paragraphs": [
+      "独怜幽草涧边生，上有黄鹂深树鸣。",
+      "春潮带雨晚来急，野渡无人舟自横。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/d59b33d/",
+    "sourceHash": "a8945c11881fed763b9b6cbd0a7ce431b93f68a0ebad169e9f388d9f5c0ea6d0",
+    "id": "poem-044",
+    "lines": [
+      "独怜幽草涧边生",
+      "上有黄鹂深树鸣",
+      "春潮带雨晚来急",
+      "野渡无人舟自横"
+    ],
+    "forgeable": [
+      "独怜幽草涧边生",
+      "上有黄鹂深树鸣",
+      "春潮带雨晚来急",
+      "野渡无人舟自横"
+    ]
+  },
+  {
+    "title": "大林寺桃花",
+    "author": "白居易",
+    "grade": "三年级下册",
+    "paragraphs": [
+      "人间四月芳菲尽，山寺桃花始盛开。",
+      "长恨春归无觅处，不知转入此中来。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/2617f2b/",
+    "sourceHash": "a91431d8b36e25887e59f8b1768521af8087b7edc6f79d7bd22fc9f4bc78a64e",
+    "id": "poem-045",
+    "lines": [
+      "人间四月芳菲尽",
+      "山寺桃花始盛开",
+      "长恨春归无觅处",
+      "不知转入此中来"
+    ],
+    "forgeable": [
+      "人间四月芳菲尽",
+      "山寺桃花始盛开",
+      "长恨春归无觅处",
+      "不知转入此中来"
+    ]
+  },
+  {
+    "title": "鹿柴",
+    "author": "王维",
+    "grade": "四年级上册",
+    "paragraphs": [
+      "空山不见人，但闻人语响。",
+      "返景入深林，复照青苔上。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/8f82b5d/",
+    "sourceHash": "258bf2bafe47b97c08f728053878700b7aa42182697e3e500776dae2b3c51f21",
+    "id": "poem-046",
+    "lines": [
+      "空山不见人",
+      "但闻人语响",
+      "返景入深林",
+      "复照青苔上"
+    ],
+    "forgeable": [
+      "空山不见人",
+      "但闻人语响",
+      "返景入深林",
+      "复照青苔上"
+    ]
+  },
+  {
+    "title": "暮江吟",
+    "author": "白居易",
+    "grade": "四年级上册",
+    "paragraphs": [
+      "一道残阳铺水中，半江瑟瑟半江红。",
+      "可怜九月初三夜，露似真珠月似弓。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/bad340c/",
+    "sourceHash": "529bcc09cdcdd6296c1c5e649337ac69bf6f8961cdadb4c0c98b9c1bf843ff3f",
+    "id": "poem-047",
+    "lines": [
+      "一道残阳铺水中",
+      "半江瑟瑟半江红",
+      "可怜九月初三夜",
+      "露似真珠月似弓"
+    ],
+    "forgeable": [
+      "一道残阳铺水中",
+      "半江瑟瑟半江红",
+      "可怜九月初三夜",
+      "露似真珠月似弓"
+    ]
+  },
+  {
+    "title": "题西林壁",
+    "author": "苏轼",
+    "grade": "四年级上册",
+    "paragraphs": [
+      "横看成岭侧成峰，远近高低各不同。",
+      "不识庐山真面目，只缘身在此山中。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/f0964ed/",
+    "sourceHash": "83dcccb38ebc7197eb0ef73df0030ab36b10afcb96d052a22ff80b7bf5332592",
+    "id": "poem-048",
+    "lines": [
+      "横看成岭侧成峰",
+      "远近高低各不同",
+      "不识庐山真面目",
+      "只缘身在此山中"
+    ],
+    "forgeable": [
+      "横看成岭侧成峰",
+      "远近高低各不同",
+      "不识庐山真面目",
+      "只缘身在此山中"
+    ]
+  },
+  {
+    "title": "雪梅",
+    "author": "卢钺",
+    "grade": "四年级上册",
+    "paragraphs": [
+      "梅雪争春未肯降，骚人阁笔费评章。",
+      "梅须逊雪三分白，雪却输梅一段香。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/13e0eb2/",
+    "sourceHash": "ecf35172c5eb903929d0061252052195b261967ac3621d1b8c6cddb58cb6bf8a",
+    "id": "poem-049",
+    "lines": [
+      "梅雪争春未肯降",
+      "骚人阁笔费评章",
+      "梅须逊雪三分白",
+      "雪却输梅一段香"
+    ],
+    "forgeable": [
+      "梅雪争春未肯降",
+      "骚人阁笔费评章",
+      "梅须逊雪三分白",
+      "雪却输梅一段香"
+    ]
+  },
+  {
+    "title": "嫦娥",
+    "author": "李商隐",
+    "grade": "四年级上册",
+    "paragraphs": [
+      "云母屏风烛影深，长河渐落晓星沉。",
+      "嫦娥应悔偷灵药，碧海青天夜夜心。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/b341c34/",
+    "sourceHash": "07207a1593a58d018bf271c706ed700bc7700fd272874e968adbe0e2a4eda131",
+    "id": "poem-050",
+    "lines": [
+      "云母屏风烛影深",
+      "长河渐落晓星沉",
+      "嫦娥应悔偷灵药",
+      "碧海青天夜夜心"
+    ],
+    "forgeable": [
+      "云母屏风烛影深",
+      "长河渐落晓星沉",
+      "嫦娥应悔偷灵药",
+      "碧海青天夜夜心"
+    ]
+  },
+  {
+    "title": "出塞",
+    "author": "王昌龄",
+    "grade": "四年级上册",
+    "paragraphs": [
+      "秦时明月汉时关，万里长征人未还。",
+      "但使龙城飞将在，不教胡马度阴山。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/06105e4/",
+    "sourceHash": "d0f8a73fe1cff909f023362c0ed7b4b2a9dd2af8882981c8c136329630029240",
+    "id": "poem-051",
+    "lines": [
+      "秦时明月汉时关",
+      "万里长征人未还",
+      "但使龙城飞将在",
+      "不教胡马度阴山"
+    ],
+    "forgeable": [
+      "秦时明月汉时关",
+      "万里长征人未还",
+      "但使龙城飞将在",
+      "不教胡马度阴山"
+    ]
+  },
+  {
+    "title": "凉州词",
+    "author": "王翰",
+    "grade": "四年级上册",
+    "paragraphs": [
+      "葡萄美酒夜光杯，欲饮琵琶马上催。",
+      "醉卧沙场君莫笑，古来征战几人回？"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/049a59e/",
+    "sourceHash": "764c67790681773627c243ea06d865511d7ebd25e11023a6580483821cf5f7c6",
+    "id": "poem-052",
+    "lines": [
+      "葡萄美酒夜光杯",
+      "欲饮琵琶马上催",
+      "醉卧沙场君莫笑",
+      "古来征战几人回"
+    ],
+    "forgeable": [
+      "葡萄美酒夜光杯",
+      "欲饮琵琶马上催",
+      "醉卧沙场君莫笑",
+      "古来征战几人回"
+    ]
+  },
+  {
+    "title": "夏日绝句",
+    "author": "李清照",
+    "grade": "四年级上册",
+    "paragraphs": [
+      "生当作人杰，死亦为鬼雄。",
+      "至今思项羽，不肯过江东。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/f2c11ce/",
+    "sourceHash": "f6574c94cb7fc900bea9eb3f732a478822693bd56168388bd8715a77e2d48ed4",
+    "id": "poem-053",
+    "lines": [
+      "生当作人杰",
+      "死亦为鬼雄",
+      "至今思项羽",
+      "不肯过江东"
+    ],
+    "forgeable": [
+      "生当作人杰",
+      "死亦为鬼雄",
+      "至今思项羽",
+      "不肯过江东"
+    ]
+  },
+  {
+    "title": "别董大",
+    "author": "高适",
+    "grade": "四年级上册",
+    "paragraphs": [
+      "千里黄云白日曛，北风吹雁雪纷纷。",
+      "莫愁前路无知己，天下谁人不识君。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/b4189d1/",
+    "sourceHash": "b3425e37c7b9bc4b8280c87cfec93df07a861a0368156f8b3cfc7aeedef4b7b6",
+    "id": "poem-054",
+    "lines": [
+      "千里黄云白日曛",
+      "北风吹雁雪纷纷",
+      "莫愁前路无知己",
+      "天下谁人不识君"
+    ],
+    "forgeable": [
+      "千里黄云白日曛",
+      "北风吹雁雪纷纷",
+      "莫愁前路无知己",
+      "天下谁人不识君"
+    ]
+  },
+  {
+    "title": "宿新市徐公店",
+    "author": "杨万里",
+    "grade": "四年级下册",
+    "paragraphs": [
+      "篱落疏疏一径深，树头新绿未成阴。",
+      "儿童急走追黄蝶，飞入菜花无处寻。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/2dd2173/",
+    "sourceHash": "4ed5d2b611d8efd04bbee3a5034b1c32c145f8fdb3c5770e219ac58e2cc44091",
+    "id": "poem-055",
+    "lines": [
+      "篱落疏疏一径深",
+      "树头新绿未成阴",
+      "儿童急走追黄蝶",
+      "飞入菜花无处寻"
+    ],
+    "forgeable": [
+      "篱落疏疏一径深",
+      "树头新绿未成阴",
+      "儿童急走追黄蝶",
+      "飞入菜花无处寻"
+    ]
+  },
+  {
+    "title": "四时田园杂兴·其二十五",
+    "author": "范成大",
+    "grade": "四年级下册",
+    "paragraphs": [
+      "梅子金黄杏子肥，麦花雪白菜花稀。",
+      "日长篱落无人过，惟有蜻蜓蛱蝶飞。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/4153bfc/",
+    "sourceHash": "52911c390f638f0da710895c138c404ebafe934471268e3e2436d1c5097e1f58",
+    "id": "poem-056",
+    "lines": [
+      "梅子金黄杏子肥",
+      "麦花雪白菜花稀",
+      "日长篱落无人过",
+      "惟有蜻蜓蛱蝶飞"
+    ],
+    "forgeable": [
+      "梅子金黄杏子肥",
+      "麦花雪白菜花稀",
+      "日长篱落无人过",
+      "惟有蜻蜓蛱蝶飞"
+    ]
+  },
+  {
+    "title": "清平乐·村居",
+    "author": "辛弃疾",
+    "grade": "四年级下册",
+    "paragraphs": [
+      "茅檐低小，溪上青青草。醉里吴音相媚好，白发谁家翁媪？",
+      "大儿锄豆溪东，中儿正织鸡笼。最喜小儿亡赖，溪头卧剥莲蓬。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/10b8c3d/",
+    "sourceHash": "2b12d8451c5ab30e0724c2fcd3f843922a896e752da16aafa1800b40fedeab6d",
+    "id": "poem-057",
+    "lines": [
+      "茅檐低小",
+      "溪上青青草",
+      "醉里吴音相媚好",
+      "白发谁家翁媪",
+      "大儿锄豆溪东",
+      "中儿正织鸡笼",
+      "最喜小儿亡赖",
+      "溪头卧剥莲蓬"
+    ],
+    "forgeable": [
+      "溪上青青草",
+      "醉里吴音相媚好",
+      "白发谁家翁媪",
+      "大儿锄豆溪东",
+      "中儿正织鸡笼",
+      "最喜小儿亡赖",
+      "溪头卧剥莲蓬"
+    ]
+  },
+  {
+    "title": "蜂",
+    "author": "罗隐",
+    "grade": "四年级下册",
+    "paragraphs": [
+      "不论平地与山尖，无限风光尽被占。",
+      "采得百花成蜜后，为谁辛苦为谁甜？"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/bb0e829/",
+    "sourceHash": "8c68833d674745552932735575d03223996dd78f3804eed09870ee079e31f2c8",
+    "id": "poem-058",
+    "lines": [
+      "不论平地与山尖",
+      "无限风光尽被占",
+      "采得百花成蜜后",
+      "为谁辛苦为谁甜"
+    ],
+    "forgeable": [
+      "不论平地与山尖",
+      "无限风光尽被占",
+      "采得百花成蜜后",
+      "为谁辛苦为谁甜"
+    ]
+  },
+  {
+    "title": "独坐敬亭山",
+    "author": "李白",
+    "grade": "四年级下册",
+    "paragraphs": [
+      "众鸟高飞尽，孤云独去闲。",
+      "相看两不厌，只有敬亭山。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/7c55426/",
+    "sourceHash": "45c9c71007c9cb34c42a09e4decd6eb8cf346b35368d5731f0d2326f7d616c74",
+    "id": "poem-059",
+    "lines": [
+      "众鸟高飞尽",
+      "孤云独去闲",
+      "相看两不厌",
+      "只有敬亭山"
+    ],
+    "forgeable": [
+      "众鸟高飞尽",
+      "孤云独去闲",
+      "相看两不厌",
+      "只有敬亭山"
+    ]
+  },
+  {
+    "title": "芙蓉楼送辛渐",
+    "author": "王昌龄",
+    "grade": "四年级下册",
+    "paragraphs": [
+      "寒雨连江夜入吴，平明送客楚山孤。",
+      "洛阳亲友如相问，一片冰心在玉壶。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/c716520/",
+    "sourceHash": "b075d0b25526d2ea1b1e9a462f1603ec7a1d13cacdd338cb605e3da297179dc5",
+    "id": "poem-060",
+    "lines": [
+      "寒雨连江夜入吴",
+      "平明送客楚山孤",
+      "洛阳亲友如相问",
+      "一片冰心在玉壶"
+    ],
+    "forgeable": [
+      "寒雨连江夜入吴",
+      "平明送客楚山孤",
+      "洛阳亲友如相问",
+      "一片冰心在玉壶"
+    ]
+  },
+  {
+    "title": "塞下曲",
+    "author": "卢纶",
+    "grade": "四年级下册",
+    "paragraphs": [
+      "月黑雁飞高，单于夜遁逃。",
+      "欲将轻骑逐，大雪满弓刀。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/b7eae90/",
+    "sourceHash": "82a9ed7dd21b7e4e5501b0836bf7a306cb543ae61078715c52b6c3c8c96f4539",
+    "id": "poem-061",
+    "lines": [
+      "月黑雁飞高",
+      "单于夜遁逃",
+      "欲将轻骑逐",
+      "大雪满弓刀"
+    ],
+    "forgeable": [
+      "月黑雁飞高",
+      "单于夜遁逃",
+      "欲将轻骑逐",
+      "大雪满弓刀"
+    ]
+  },
+  {
+    "title": "墨梅",
+    "author": "王冕",
+    "grade": "四年级下册",
+    "paragraphs": [
+      "我家洗砚池头树，朵朵花开淡墨痕。",
+      "不要人夸好颜色，只留清气满乾坤。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/f38e404/",
+    "sourceHash": "4f4291349edced29498c8d2ef48515b8021a76d944527e1d234b649de8b8678c",
+    "note": "采用小学常见教材写法；吾家、个个、只流等另有版本。",
+    "id": "poem-062",
+    "lines": [
+      "我家洗砚池头树",
+      "朵朵花开淡墨痕",
+      "不要人夸好颜色",
+      "只留清气满乾坤"
+    ],
+    "forgeable": [
+      "我家洗砚池头树",
+      "朵朵花开淡墨痕",
+      "不要人夸好颜色",
+      "只留清气满乾坤"
+    ]
+  },
+  {
+    "title": "乞巧",
+    "author": "林杰",
+    "grade": "五年级上册",
+    "paragraphs": [
+      "七夕今宵看碧霄，牵牛织女渡河桥。",
+      "家家乞巧望秋月，穿尽红丝几万条。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/cdf026c/",
+    "sourceHash": "f92a76463e869e50d353b186e18d32a140051edba192f9885765cbf0e2aa9a5e",
+    "id": "poem-063",
+    "lines": [
+      "七夕今宵看碧霄",
+      "牵牛织女渡河桥",
+      "家家乞巧望秋月",
+      "穿尽红丝几万条"
+    ],
+    "forgeable": [
+      "七夕今宵看碧霄",
+      "牵牛织女渡河桥",
+      "家家乞巧望秋月",
+      "穿尽红丝几万条"
+    ]
+  },
+  {
+    "title": "示儿",
+    "author": "陆游",
+    "grade": "五年级上册",
+    "paragraphs": [
+      "死去元知万事空，但悲不见九州同。",
+      "王师北定中原日，家祭无忘告乃翁。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/30a881c/",
+    "sourceHash": "82af4d766f70f81515ef2144daac34c8a7363bc4ad36844034b8b8050aa64b94",
+    "id": "poem-064",
+    "lines": [
+      "死去元知万事空",
+      "但悲不见九州同",
+      "王师北定中原日",
+      "家祭无忘告乃翁"
+    ],
+    "forgeable": [
+      "死去元知万事空",
+      "但悲不见九州同",
+      "王师北定中原日",
+      "家祭无忘告乃翁"
+    ]
+  },
+  {
+    "title": "题临安邸",
+    "author": "林升",
+    "grade": "五年级上册",
+    "paragraphs": [
+      "山外青山楼外楼，西湖歌舞几时休？",
+      "暖风熏得游人醉，直把杭州作汴州。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/031b119/",
+    "sourceHash": "f4d18b444389cf576f0af3b4a3104b854495c8abdda68e2c11c74e5eba3fb4c1",
+    "id": "poem-065",
+    "lines": [
+      "山外青山楼外楼",
+      "西湖歌舞几时休",
+      "暖风熏得游人醉",
+      "直把杭州作汴州"
+    ],
+    "forgeable": [
+      "山外青山楼外楼",
+      "西湖歌舞几时休",
+      "暖风熏得游人醉",
+      "直把杭州作汴州"
+    ]
+  },
+  {
+    "title": "己亥杂诗",
+    "author": "龚自珍",
+    "grade": "五年级上册",
+    "paragraphs": [
+      "九州生气恃风雷，万马齐喑究可哀。",
+      "我劝天公重抖擞，不拘一格降人才。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/172078f/",
+    "sourceHash": "1ddedbc133990386d8dc47943410ceaa363129684e09ed553055524b0a1a310c",
+    "id": "poem-066",
+    "lines": [
+      "九州生气恃风雷",
+      "万马齐喑究可哀",
+      "我劝天公重抖擞",
+      "不拘一格降人才"
+    ],
+    "forgeable": [
+      "九州生气恃风雷",
+      "万马齐喑究可哀",
+      "我劝天公重抖擞",
+      "不拘一格降人才"
+    ]
+  },
+  {
+    "title": "山居秋暝",
+    "author": "王维",
+    "grade": "五年级上册",
+    "paragraphs": [
+      "空山新雨后，天气晚来秋。",
+      "明月松间照，清泉石上流。",
+      "竹喧归浣女，莲动下渔舟。",
+      "随意春芳歇，王孙自可留。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/440dd75/",
+    "sourceHash": "fc1f61e8c67b67805aecc5acc27df7360890645bddc8a639648125be9c51ad95",
+    "id": "poem-067",
+    "lines": [
+      "空山新雨后",
+      "天气晚来秋",
+      "明月松间照",
+      "清泉石上流",
+      "竹喧归浣女",
+      "莲动下渔舟",
+      "随意春芳歇",
+      "王孙自可留"
+    ],
+    "forgeable": [
+      "空山新雨后",
+      "天气晚来秋",
+      "明月松间照",
+      "清泉石上流",
+      "竹喧归浣女",
+      "莲动下渔舟",
+      "随意春芳歇",
+      "王孙自可留"
+    ]
+  },
+  {
+    "title": "枫桥夜泊",
+    "author": "张继",
+    "grade": "五年级上册",
+    "paragraphs": [
+      "月落乌啼霜满天，江枫渔火对愁眠。",
+      "姑苏城外寒山寺，夜半钟声到客船。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/4d77ffc/",
+    "sourceHash": "ebc8d2b98bfa1864e7bdcb2a9692efc556c60b5cecf9df435fe61e53ef1aff3e",
+    "id": "poem-068",
+    "lines": [
+      "月落乌啼霜满天",
+      "江枫渔火对愁眠",
+      "姑苏城外寒山寺",
+      "夜半钟声到客船"
+    ],
+    "forgeable": [
+      "月落乌啼霜满天",
+      "江枫渔火对愁眠",
+      "姑苏城外寒山寺",
+      "夜半钟声到客船"
+    ]
+  },
+  {
+    "title": "长相思·山一程",
+    "author": "纳兰性德",
+    "grade": "五年级上册",
+    "paragraphs": [
+      "山一程，水一程，身向榆关那畔行，夜深千帐灯。",
+      "风一更，雪一更，聒碎乡心梦不成，故园无此声。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/7029835/",
+    "sourceHash": "9b5ecfd37cade57f20afa7f6200b9ce50863cc1f40b07105ec531af37ed2253b",
+    "id": "poem-069",
+    "lines": [
+      "山一程",
+      "水一程",
+      "身向榆关那畔行",
+      "夜深千帐灯",
+      "风一更",
+      "雪一更",
+      "聒碎乡心梦不成",
+      "故园无此声"
+    ],
+    "forgeable": [
+      "身向榆关那畔行",
+      "夜深千帐灯",
+      "聒碎乡心梦不成",
+      "故园无此声"
+    ]
+  },
+  {
+    "title": "渔歌子·西塞山前白鹭飞",
+    "author": "张志和",
+    "grade": "五年级上册",
+    "paragraphs": [
+      "西塞山前白鹭飞，桃花流水鳜鱼肥。",
+      "青箬笠，绿蓑衣，斜风细雨不须归。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/84a494f/",
+    "sourceHash": "e9375b9e38c55aa3a7d468842c07918361d6c557bcdd3f0104b1201bde1d5973",
+    "id": "poem-070",
+    "lines": [
+      "西塞山前白鹭飞",
+      "桃花流水鳜鱼肥",
+      "青箬笠",
+      "绿蓑衣",
+      "斜风细雨不须归"
+    ],
+    "forgeable": [
+      "西塞山前白鹭飞",
+      "桃花流水鳜鱼肥",
+      "斜风细雨不须归"
+    ]
+  },
+  {
+    "title": "观书有感二首·其一",
+    "author": "朱熹",
+    "grade": "五年级上册",
+    "paragraphs": [
+      "半亩方塘一鉴开，天光云影共徘徊。",
+      "问渠那得清如许？为有源头活水来。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/943ac55/",
+    "sourceHash": "822e0175121d94588c3473b267fc1f5362bb28a3a92b666c327713173e858b15",
+    "id": "poem-071",
+    "lines": [
+      "半亩方塘一鉴开",
+      "天光云影共徘徊",
+      "问渠那得清如许",
+      "为有源头活水来"
+    ],
+    "forgeable": [
+      "半亩方塘一鉴开",
+      "天光云影共徘徊",
+      "问渠那得清如许",
+      "为有源头活水来"
+    ]
+  },
+  {
+    "title": "观书有感二首·其二",
+    "author": "朱熹",
+    "grade": "五年级上册",
+    "paragraphs": [
+      "昨夜江边春水生，艨艟巨舰一毛轻。",
+      "向来枉费推移力，此日中流自在行。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/640172c/",
+    "sourceHash": "8687c7a156d3e4a419db8b1ac5d6bcc406466c14f51481b917eb346aae3aa61d",
+    "id": "poem-072",
+    "lines": [
+      "昨夜江边春水生",
+      "艨艟巨舰一毛轻",
+      "向来枉费推移力",
+      "此日中流自在行"
+    ],
+    "forgeable": [
+      "昨夜江边春水生",
+      "艨艟巨舰一毛轻",
+      "向来枉费推移力",
+      "此日中流自在行"
+    ]
+  },
+  {
+    "title": "四时田园杂兴·其三十一",
+    "author": "范成大",
+    "grade": "五年级下册",
+    "paragraphs": [
+      "昼出耘田夜绩麻，村庄儿女各当家。",
+      "童孙未解供耕织，也傍桑阴学种瓜。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/1336a1a/",
+    "sourceHash": "3e22dbbdaa4e5adbcebed69161374e51257a51fd135bd7a5ee46d05d862f366b",
+    "id": "poem-073",
+    "lines": [
+      "昼出耘田夜绩麻",
+      "村庄儿女各当家",
+      "童孙未解供耕织",
+      "也傍桑阴学种瓜"
+    ],
+    "forgeable": [
+      "昼出耘田夜绩麻",
+      "村庄儿女各当家",
+      "童孙未解供耕织",
+      "也傍桑阴学种瓜"
+    ]
+  },
+  {
+    "title": "稚子弄冰",
+    "author": "杨万里",
+    "grade": "五年级下册",
+    "paragraphs": [
+      "稚子金盆脱晓冰，彩丝穿取当银钲。",
+      "敲成玉磬穿林响，忽作玻璃碎地声。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/eb50dd5/",
+    "sourceHash": "1c95aea0aad6cc423b326a7e01dff5850bbd0f9a79e27c7edceebe1bcfeaeaae",
+    "id": "poem-074",
+    "lines": [
+      "稚子金盆脱晓冰",
+      "彩丝穿取当银钲",
+      "敲成玉磬穿林响",
+      "忽作玻璃碎地声"
+    ],
+    "forgeable": [
+      "稚子金盆脱晓冰",
+      "彩丝穿取当银钲",
+      "敲成玉磬穿林响",
+      "忽作玻璃碎地声"
+    ]
+  },
+  {
+    "title": "村晚",
+    "author": "雷震",
+    "grade": "五年级下册",
+    "paragraphs": [
+      "草满池塘水满陂，山衔落日浸寒漪。",
+      "牧童归去横牛背，短笛无腔信口吹。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/953cfcb/",
+    "sourceHash": "90c578077c451b21eab164ec9c634951e8116fd7398ad08cb647162da35308e5",
+    "id": "poem-075",
+    "lines": [
+      "草满池塘水满陂",
+      "山衔落日浸寒漪",
+      "牧童归去横牛背",
+      "短笛无腔信口吹"
+    ],
+    "forgeable": [
+      "草满池塘水满陂",
+      "山衔落日浸寒漪",
+      "牧童归去横牛背",
+      "短笛无腔信口吹"
+    ]
+  },
+  {
+    "title": "鸟鸣涧",
+    "author": "王维",
+    "grade": "五年级下册",
+    "paragraphs": [
+      "人闲桂花落，夜静春山空。",
+      "月出惊山鸟，时鸣春涧中。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/0a0cf85/",
+    "sourceHash": "7ed51f05ef77d33509823fc5dddf17a62a9ce5f4d0bbcb7a27f12aa3fb3a5e30",
+    "id": "poem-076",
+    "lines": [
+      "人闲桂花落",
+      "夜静春山空",
+      "月出惊山鸟",
+      "时鸣春涧中"
+    ],
+    "forgeable": [
+      "人闲桂花落",
+      "夜静春山空",
+      "月出惊山鸟",
+      "时鸣春涧中"
+    ]
+  },
+  {
+    "title": "从军行",
+    "author": "王昌龄",
+    "grade": "五年级下册",
+    "paragraphs": [
+      "青海长云暗雪山，孤城遥望玉门关。",
+      "黄沙百战穿金甲，不破楼兰终不还。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/aaad75e/",
+    "sourceHash": "112a506b37302eeb8e233e8dc46e595e2fa8380e93374b502c4ff0e9df742fef",
+    "id": "poem-077",
+    "lines": [
+      "青海长云暗雪山",
+      "孤城遥望玉门关",
+      "黄沙百战穿金甲",
+      "不破楼兰终不还"
+    ],
+    "forgeable": [
+      "青海长云暗雪山",
+      "孤城遥望玉门关",
+      "黄沙百战穿金甲",
+      "不破楼兰终不还"
+    ]
+  },
+  {
+    "title": "送元二使安西",
+    "author": "王维",
+    "grade": "五年级下册",
+    "paragraphs": [
+      "渭城朝雨浥轻尘，客舍青青柳色新。",
+      "劝君更尽一杯酒，西出阳关无故人。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/0355f9b/",
+    "sourceHash": "7eb9021d9389e051abc9d6b121b5a307104f91999a54f6ba67a9d6cde9680c15",
+    "id": "poem-078",
+    "lines": [
+      "渭城朝雨浥轻尘",
+      "客舍青青柳色新",
+      "劝君更尽一杯酒",
+      "西出阳关无故人"
+    ],
+    "forgeable": [
+      "渭城朝雨浥轻尘",
+      "客舍青青柳色新",
+      "劝君更尽一杯酒",
+      "西出阳关无故人"
+    ]
+  },
+  {
+    "title": "秋夜将晓出篱门迎凉有感",
+    "author": "陆游",
+    "grade": "五年级下册",
+    "paragraphs": [
+      "三万里河东入海，五千仞岳上摩天。",
+      "遗民泪尽胡尘里，南望王师又一年。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/2bb4287/",
+    "sourceHash": "8cc19b76712b01fd82fecf6ae054d71e0a399af70ddf83c3b04a9ceb1fd35cbd",
+    "id": "poem-079",
+    "lines": [
+      "三万里河东入海",
+      "五千仞岳上摩天",
+      "遗民泪尽胡尘里",
+      "南望王师又一年"
+    ],
+    "forgeable": [
+      "三万里河东入海",
+      "五千仞岳上摩天",
+      "遗民泪尽胡尘里",
+      "南望王师又一年"
+    ]
+  },
+  {
+    "title": "凉州词",
+    "author": "王之涣",
+    "grade": "五年级下册",
+    "paragraphs": [
+      "黄河远上白云间，一片孤城万仞山。",
+      "羌笛何须怨杨柳，春风不度玉门关。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/d0ad9af/",
+    "sourceHash": "7f73d28dd66973cc10da28afd27683d81f5dcf84ebfa4c09d8203905079b1457",
+    "id": "poem-080",
+    "lines": [
+      "黄河远上白云间",
+      "一片孤城万仞山",
+      "羌笛何须怨杨柳",
+      "春风不度玉门关"
+    ],
+    "forgeable": [
+      "黄河远上白云间",
+      "一片孤城万仞山",
+      "羌笛何须怨杨柳",
+      "春风不度玉门关"
+    ]
+  },
+  {
+    "title": "黄鹤楼送孟浩然之广陵",
+    "author": "李白",
+    "grade": "五年级下册",
+    "paragraphs": [
+      "故人西辞黄鹤楼，烟花三月下扬州。",
+      "孤帆远影碧空尽，唯见长江天际流。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/3d4e45f/",
+    "sourceHash": "c7b832e0bc488ef6190f4b26d43541365c7e41686e1ef32e8c19ce5ae1178df3",
+    "id": "poem-081",
+    "lines": [
+      "故人西辞黄鹤楼",
+      "烟花三月下扬州",
+      "孤帆远影碧空尽",
+      "唯见长江天际流"
+    ],
+    "forgeable": [
+      "故人西辞黄鹤楼",
+      "烟花三月下扬州",
+      "孤帆远影碧空尽",
+      "唯见长江天际流"
+    ]
+  },
+  {
+    "title": "乡村四月",
+    "author": "翁卷",
+    "grade": "五年级下册",
+    "paragraphs": [
+      "绿遍山原白满川，子规声里雨如烟。",
+      "乡村四月闲人少，才了蚕桑又插田。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/8f39357/",
+    "sourceHash": "fd63cf0d7373cd2eb4e6623c4d5121f8723eb3ed3ce4eb59893e4b3c10525c3e",
+    "id": "poem-082",
+    "lines": [
+      "绿遍山原白满川",
+      "子规声里雨如烟",
+      "乡村四月闲人少",
+      "才了蚕桑又插田"
+    ],
+    "forgeable": [
+      "绿遍山原白满川",
+      "子规声里雨如烟",
+      "乡村四月闲人少",
+      "才了蚕桑又插田"
+    ]
+  },
+  {
+    "title": "宿建德江",
+    "author": "孟浩然",
+    "grade": "六年级上册",
+    "paragraphs": [
+      "移舟泊烟渚，日暮客愁新。",
+      "野旷天低树，江清月近人。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/cb40448/",
+    "sourceHash": "4d04ad83311f89f73f46702198e0b696fc9f4120b6bdaa35322e534ad0b6a06d",
+    "id": "poem-083",
+    "lines": [
+      "移舟泊烟渚",
+      "日暮客愁新",
+      "野旷天低树",
+      "江清月近人"
+    ],
+    "forgeable": [
+      "移舟泊烟渚",
+      "日暮客愁新",
+      "野旷天低树",
+      "江清月近人"
+    ]
+  },
+  {
+    "title": "六月二十七日望湖楼醉书",
+    "author": "苏轼",
+    "grade": "六年级上册",
+    "paragraphs": [
+      "黑云翻墨未遮山，白雨跳珠乱入船。",
+      "卷地风来忽吹散，望湖楼下水如天。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/2243dbc/",
+    "sourceHash": "b7d87a219a437b96efb78178c9d819c3029121d0a1f7f3c47db79a62f75253e7",
+    "id": "poem-084",
+    "lines": [
+      "黑云翻墨未遮山",
+      "白雨跳珠乱入船",
+      "卷地风来忽吹散",
+      "望湖楼下水如天"
+    ],
+    "forgeable": [
+      "黑云翻墨未遮山",
+      "白雨跳珠乱入船",
+      "卷地风来忽吹散",
+      "望湖楼下水如天"
+    ]
+  },
+  {
+    "title": "西江月·夜行黄沙道中",
+    "author": "辛弃疾",
+    "grade": "六年级上册",
+    "paragraphs": [
+      "明月别枝惊鹊，清风半夜鸣蝉。稻花香里说丰年，听取蛙声一片。",
+      "七八个星天外，两三点雨山前。旧时茅店社林边，路转溪桥忽见。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/39f9dfd/",
+    "sourceHash": "c322f74c6129b5e1f614a934ba3341356d9b848794376619d02ff42dff0db6d7",
+    "id": "poem-085",
+    "lines": [
+      "明月别枝惊鹊",
+      "清风半夜鸣蝉",
+      "稻花香里说丰年",
+      "听取蛙声一片",
+      "七八个星天外",
+      "两三点雨山前",
+      "旧时茅店社林边",
+      "路转溪桥忽见"
+    ],
+    "forgeable": [
+      "明月别枝惊鹊",
+      "清风半夜鸣蝉",
+      "稻花香里说丰年",
+      "听取蛙声一片",
+      "七八个星天外",
+      "两三点雨山前",
+      "旧时茅店社林边",
+      "路转溪桥忽见"
+    ]
+  },
+  {
+    "title": "过故人庄",
+    "author": "孟浩然",
+    "grade": "六年级上册",
+    "paragraphs": [
+      "故人具鸡黍，邀我至田家。",
+      "绿树村边合，青山郭外斜。",
+      "开轩面场圃，把酒话桑麻。",
+      "待到重阳日，还来就菊花。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/ec01946/",
+    "sourceHash": "867db63f7be095ebbee3778d961fb2bd8af675e6c32f57cb0bd1dfc7b992235f",
+    "id": "poem-086",
+    "lines": [
+      "故人具鸡黍",
+      "邀我至田家",
+      "绿树村边合",
+      "青山郭外斜",
+      "开轩面场圃",
+      "把酒话桑麻",
+      "待到重阳日",
+      "还来就菊花"
+    ],
+    "forgeable": [
+      "故人具鸡黍",
+      "邀我至田家",
+      "绿树村边合",
+      "青山郭外斜",
+      "开轩面场圃",
+      "把酒话桑麻",
+      "待到重阳日",
+      "还来就菊花"
+    ]
+  },
+  {
+    "title": "春日",
+    "author": "朱熹",
+    "grade": "六年级上册",
+    "paragraphs": [
+      "胜日寻芳泗水滨，无边光景一时新。",
+      "等闲识得东风面，万紫千红总是春。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/79f81b0/",
+    "sourceHash": "0f3a3f91f2d2f3bba6b6512b4c61ff6b9da77bccd52647148b8d85434a1927ef",
+    "id": "poem-087",
+    "lines": [
+      "胜日寻芳泗水滨",
+      "无边光景一时新",
+      "等闲识得东风面",
+      "万紫千红总是春"
+    ],
+    "forgeable": [
+      "胜日寻芳泗水滨",
+      "无边光景一时新",
+      "等闲识得东风面",
+      "万紫千红总是春"
+    ]
+  },
+  {
+    "title": "回乡偶书",
+    "author": "贺知章",
+    "grade": "六年级上册",
+    "paragraphs": [
+      "少小离家老大回，乡音无改鬓毛衰。",
+      "儿童相见不相识，笑问客从何处来。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/7d5de42/",
+    "sourceHash": "512c17b223800255006afc1e79893b455a8aa1770dbe7073b2c64d61b1e08390",
+    "id": "poem-088",
+    "lines": [
+      "少小离家老大回",
+      "乡音无改鬓毛衰",
+      "儿童相见不相识",
+      "笑问客从何处来"
+    ],
+    "forgeable": [
+      "少小离家老大回",
+      "乡音无改鬓毛衰",
+      "儿童相见不相识",
+      "笑问客从何处来"
+    ]
+  },
+  {
+    "title": "浪淘沙·九曲黄河万里沙",
+    "author": "刘禹锡",
+    "grade": "六年级上册",
+    "paragraphs": [
+      "九曲黄河万里沙，浪淘风簸自天涯。",
+      "如今直上银河去，同到牵牛织女家。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/c319c0c/",
+    "sourceHash": "61fc2ee0d6529998ac7acea9273275fa0ca630fb5a7c55502987a2e5e182f0cc",
+    "id": "poem-089",
+    "lines": [
+      "九曲黄河万里沙",
+      "浪淘风簸自天涯",
+      "如今直上银河去",
+      "同到牵牛织女家"
+    ],
+    "forgeable": [
+      "九曲黄河万里沙",
+      "浪淘风簸自天涯",
+      "如今直上银河去",
+      "同到牵牛织女家"
+    ]
+  },
+  {
+    "title": "江南春",
+    "author": "杜牧",
+    "grade": "六年级上册",
+    "paragraphs": [
+      "千里莺啼绿映红，水村山郭酒旗风。",
+      "南朝四百八十寺，多少楼台烟雨中。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/5b9dfb4/",
+    "sourceHash": "588293391fc6c2504d45c344c8740cacfa620790cd6cf7f268b092d2f49d534e",
+    "id": "poem-090",
+    "lines": [
+      "千里莺啼绿映红",
+      "水村山郭酒旗风",
+      "南朝四百八十寺",
+      "多少楼台烟雨中"
+    ],
+    "forgeable": [
+      "千里莺啼绿映红",
+      "水村山郭酒旗风",
+      "南朝四百八十寺",
+      "多少楼台烟雨中"
+    ]
+  },
+  {
+    "title": "书湖阴先生壁",
+    "author": "王安石",
+    "grade": "六年级上册",
+    "paragraphs": [
+      "茅檐长扫净无苔，花木成畦手自栽。",
+      "一水护田将绿绕，两山排闼送青来。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/1d8462f/",
+    "sourceHash": "f87cebd4efa0fbcf6c3e508be1cc328819656323eb7a2579acb96d5038f6fae7",
+    "id": "poem-091",
+    "lines": [
+      "茅檐长扫净无苔",
+      "花木成畦手自栽",
+      "一水护田将绿绕",
+      "两山排闼送青来"
+    ],
+    "forgeable": [
+      "茅檐长扫净无苔",
+      "花木成畦手自栽",
+      "一水护田将绿绕",
+      "两山排闼送青来"
+    ]
+  },
+  {
+    "title": "寒食",
+    "author": "韩翃",
+    "grade": "六年级下册",
+    "paragraphs": [
+      "春城无处不飞花，寒食东风御柳斜。",
+      "日暮汉宫传蜡烛，轻烟散入五侯家。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/1c5f8f2/",
+    "sourceHash": "3082d04b094b40f8ae6d37d07966ea6415c03e6a6f29828b4882d9fb09296289",
+    "id": "poem-092",
+    "lines": [
+      "春城无处不飞花",
+      "寒食东风御柳斜",
+      "日暮汉宫传蜡烛",
+      "轻烟散入五侯家"
+    ],
+    "forgeable": [
+      "春城无处不飞花",
+      "寒食东风御柳斜",
+      "日暮汉宫传蜡烛",
+      "轻烟散入五侯家"
+    ]
+  },
+  {
+    "title": "迢迢牵牛星",
+    "author": "佚名",
+    "grade": "六年级下册",
+    "paragraphs": [
+      "迢迢牵牛星，皎皎河汉女。",
+      "纤纤擢素手，札札弄机杼。",
+      "终日不成章，泣涕零如雨。",
+      "河汉清且浅，相去复几许？",
+      "盈盈一水间，脉脉不得语。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/0ff14e0/",
+    "sourceHash": "e432b9fff8991ed31ef4e4a2bf7758578ce0e3da8928bb208672ae902ac9d47f",
+    "id": "poem-093",
+    "lines": [
+      "迢迢牵牛星",
+      "皎皎河汉女",
+      "纤纤擢素手",
+      "札札弄机杼",
+      "终日不成章",
+      "泣涕零如雨",
+      "河汉清且浅",
+      "相去复几许",
+      "盈盈一水间",
+      "脉脉不得语"
+    ],
+    "forgeable": [
+      "迢迢牵牛星",
+      "皎皎河汉女",
+      "纤纤擢素手",
+      "札札弄机杼",
+      "终日不成章",
+      "泣涕零如雨",
+      "河汉清且浅",
+      "相去复几许",
+      "盈盈一水间",
+      "脉脉不得语"
+    ]
+  },
+  {
+    "title": "十五夜望月",
+    "author": "王建",
+    "grade": "六年级下册",
+    "paragraphs": [
+      "中庭地白树栖鸦，冷露无声湿桂花。",
+      "今夜月明人尽望，不知秋思落谁家？"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/4624da8/",
+    "sourceHash": "024673e2cee932163958d742071bac07d1756e5d9ef338e260e622e7c7553fa0",
+    "id": "poem-094",
+    "lines": [
+      "中庭地白树栖鸦",
+      "冷露无声湿桂花",
+      "今夜月明人尽望",
+      "不知秋思落谁家"
+    ],
+    "forgeable": [
+      "中庭地白树栖鸦",
+      "冷露无声湿桂花",
+      "今夜月明人尽望",
+      "不知秋思落谁家"
+    ]
+  },
+  {
+    "title": "长歌行",
+    "author": "汉乐府",
+    "grade": "六年级下册",
+    "paragraphs": [
+      "青青园中葵，朝露待日晞。",
+      "阳春布德泽，万物生光辉。",
+      "常恐秋节至，焜黄华叶衰。",
+      "百川东到海，何时复西归？",
+      "少壮不努力，老大徒伤悲。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/092a59c/",
+    "sourceHash": "e52f02d3b27a2943a32c2a925009d260437b60c11a2f9ec25acf41cf286f6f27",
+    "id": "poem-095",
+    "lines": [
+      "青青园中葵",
+      "朝露待日晞",
+      "阳春布德泽",
+      "万物生光辉",
+      "常恐秋节至",
+      "焜黄华叶衰",
+      "百川东到海",
+      "何时复西归",
+      "少壮不努力",
+      "老大徒伤悲"
+    ],
+    "forgeable": [
+      "青青园中葵",
+      "朝露待日晞",
+      "阳春布德泽",
+      "万物生光辉",
+      "常恐秋节至",
+      "焜黄华叶衰",
+      "百川东到海",
+      "何时复西归",
+      "少壮不努力",
+      "老大徒伤悲"
+    ]
+  },
+  {
+    "title": "马诗",
+    "author": "李贺",
+    "grade": "六年级下册",
+    "paragraphs": [
+      "大漠沙如雪，燕山月似钩。",
+      "何当金络脑，快走踏清秋。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/1c6def1/",
+    "sourceHash": "be5ab0549df08e0720c405dae5c744c4151d1bdc2a7109d6d9e759d163de25f3",
+    "id": "poem-096",
+    "lines": [
+      "大漠沙如雪",
+      "燕山月似钩",
+      "何当金络脑",
+      "快走踏清秋"
+    ],
+    "forgeable": [
+      "大漠沙如雪",
+      "燕山月似钩",
+      "何当金络脑",
+      "快走踏清秋"
+    ]
+  },
+  {
+    "title": "石灰吟",
+    "author": "于谦",
+    "grade": "六年级下册",
+    "paragraphs": [
+      "千锤万凿出深山，烈火焚烧若等闲。",
+      "粉骨碎身浑不怕，要留清白在人间。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/c48280d/",
+    "sourceHash": "7cb5a50cf7e65896739294e723c3dcb95d42134a3daacdc62e7ba22b2eec0677",
+    "id": "poem-097",
+    "lines": [
+      "千锤万凿出深山",
+      "烈火焚烧若等闲",
+      "粉骨碎身浑不怕",
+      "要留清白在人间"
+    ],
+    "forgeable": [
+      "千锤万凿出深山",
+      "烈火焚烧若等闲",
+      "粉骨碎身浑不怕",
+      "要留清白在人间"
+    ]
+  },
+  {
+    "title": "竹石",
+    "author": "郑燮",
+    "grade": "六年级下册",
+    "paragraphs": [
+      "咬定青山不放松，立根原在破岩中。",
+      "千磨万击还坚劲，任尔东西南北风。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/327f0ca/",
+    "sourceHash": "00450c659d54af917bf8b0d46b42ad12fa4d4208b4b94704d4b4b84a915fba15",
+    "id": "poem-098",
+    "lines": [
+      "咬定青山不放松",
+      "立根原在破岩中",
+      "千磨万击还坚劲",
+      "任尔东西南北风"
+    ],
+    "forgeable": [
+      "咬定青山不放松",
+      "立根原在破岩中",
+      "千磨万击还坚劲",
+      "任尔东西南北风"
+    ]
+  },
+  {
+    "title": "春夜喜雨",
+    "author": "杜甫",
+    "grade": "六年级下册",
+    "paragraphs": [
+      "好雨知时节，当春乃发生。",
+      "随风潜入夜，润物细无声。",
+      "野径云俱黑，江船火独明。",
+      "晓看红湿处，花重锦官城。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/b29f7ab/",
+    "sourceHash": "7bee142dcf0dc74389c30cbed38522a6897356b29b378c83cb7ab6a44cc05e3e",
+    "id": "poem-099",
+    "lines": [
+      "好雨知时节",
+      "当春乃发生",
+      "随风潜入夜",
+      "润物细无声",
+      "野径云俱黑",
+      "江船火独明",
+      "晓看红湿处",
+      "花重锦官城"
+    ],
+    "forgeable": [
+      "好雨知时节",
+      "当春乃发生",
+      "随风潜入夜",
+      "润物细无声",
+      "野径云俱黑",
+      "江船火独明",
+      "晓看红湿处",
+      "花重锦官城"
+    ]
+  },
+  {
+    "title": "闻官军收河南河北",
+    "author": "杜甫",
+    "grade": "六年级下册",
+    "paragraphs": [
+      "剑外忽传收蓟北，初闻涕泪满衣裳。",
+      "却看妻子愁何在，漫卷诗书喜欲狂。",
+      "白日放歌须纵酒，青春作伴好还乡。",
+      "即从巴峡穿巫峡，便下襄阳向洛阳。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/8ff9e79/",
+    "sourceHash": "79c944505341a4ea5611e680af0edc8c375c56839ed60580f6704688ca136c9c",
+    "id": "poem-100",
+    "lines": [
+      "剑外忽传收蓟北",
+      "初闻涕泪满衣裳",
+      "却看妻子愁何在",
+      "漫卷诗书喜欲狂",
+      "白日放歌须纵酒",
+      "青春作伴好还乡",
+      "即从巴峡穿巫峡",
+      "便下襄阳向洛阳"
+    ],
+    "forgeable": [
+      "剑外忽传收蓟北",
+      "初闻涕泪满衣裳",
+      "却看妻子愁何在",
+      "漫卷诗书喜欲狂",
+      "白日放歌须纵酒",
+      "青春作伴好还乡",
+      "即从巴峡穿巫峡",
+      "便下襄阳向洛阳"
+    ]
+  },
+  {
+    "title": "早春呈水部张十八员外",
+    "author": "韩愈",
+    "grade": "六年级下册",
+    "paragraphs": [
+      "天街小雨润如酥，草色遥看近却无。",
+      "最是一年春好处，绝胜烟柳满皇都。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/ee0b85f/",
+    "sourceHash": "ab2d51d2eabf6bb583a0d9b4c0cc1a8effeb90b08e38a484e28a2918309cf1ee",
+    "id": "poem-101",
+    "lines": [
+      "天街小雨润如酥",
+      "草色遥看近却无",
+      "最是一年春好处",
+      "绝胜烟柳满皇都"
+    ],
+    "forgeable": [
+      "天街小雨润如酥",
+      "草色遥看近却无",
+      "最是一年春好处",
+      "绝胜烟柳满皇都"
+    ]
+  },
+  {
+    "title": "江上渔者",
+    "author": "范仲淹",
+    "grade": "六年级下册",
+    "paragraphs": [
+      "江上往来人，但爱鲈鱼美。",
+      "君看一叶舟，出没风波里。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/bc58add/",
+    "sourceHash": "225f8253d96d9142e0bf4caf7bddfc3ddc3d4ed0f102f0827627166c1a5c4758",
+    "id": "poem-102",
+    "lines": [
+      "江上往来人",
+      "但爱鲈鱼美",
+      "君看一叶舟",
+      "出没风波里"
+    ],
+    "forgeable": [
+      "江上往来人",
+      "但爱鲈鱼美",
+      "君看一叶舟",
+      "出没风波里"
+    ]
+  },
+  {
+    "title": "泊船瓜洲",
+    "author": "王安石",
+    "grade": "六年级下册",
+    "paragraphs": [
+      "京口瓜洲一水间，钟山只隔数重山。",
+      "春风又绿江南岸，明月何时照我还？"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/4f4460b/",
+    "sourceHash": "b9c0bc1d5ee071fafbf7a4ab4dc86d7ca48fae51f2b29ac9dd75234432968864",
+    "id": "poem-103",
+    "lines": [
+      "京口瓜洲一水间",
+      "钟山只隔数重山",
+      "春风又绿江南岸",
+      "明月何时照我还"
+    ],
+    "forgeable": [
+      "京口瓜洲一水间",
+      "钟山只隔数重山",
+      "春风又绿江南岸",
+      "明月何时照我还"
+    ]
+  },
+  {
+    "title": "游园不值",
+    "author": "叶绍翁",
+    "grade": "六年级下册",
+    "paragraphs": [
+      "应怜屐齿印苍苔，小扣柴扉久不开。",
+      "春色满园关不住，一枝红杏出墙来。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/7845ffa/",
+    "sourceHash": "21d37602bcd4f188ca5e5782f3df0f91744c1846198e03d80f933594f57ed3f1",
+    "id": "poem-104",
+    "lines": [
+      "应怜屐齿印苍苔",
+      "小扣柴扉久不开",
+      "春色满园关不住",
+      "一枝红杏出墙来"
+    ],
+    "forgeable": [
+      "应怜屐齿印苍苔",
+      "小扣柴扉久不开",
+      "春色满园关不住",
+      "一枝红杏出墙来"
+    ]
+  },
+  {
+    "title": "卜算子·送鲍浩然之浙东",
+    "author": "王观",
+    "grade": "六年级下册",
+    "paragraphs": [
+      "水是眼波横，山是眉峰聚。欲问行人去那边，眉眼盈盈处。",
+      "才始送春归，又送君归去。若到江南赶上春，千万和春住。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/f3135f7/",
+    "sourceHash": "09dca216e802fc754ca2c71b304aff407446436e8837181fc5bba4ef850a7bb7",
+    "id": "poem-105",
+    "lines": [
+      "水是眼波横",
+      "山是眉峰聚",
+      "欲问行人去那边",
+      "眉眼盈盈处",
+      "才始送春归",
+      "又送君归去",
+      "若到江南赶上春",
+      "千万和春住"
+    ],
+    "forgeable": [
+      "水是眼波横",
+      "山是眉峰聚",
+      "欲问行人去那边",
+      "眉眼盈盈处",
+      "才始送春归",
+      "又送君归去",
+      "若到江南赶上春",
+      "千万和春住"
+    ]
+  },
+  {
+    "title": "浣溪沙·游蕲水清泉寺",
+    "author": "苏轼",
+    "grade": "六年级下册",
+    "paragraphs": [
+      "山下兰芽短浸溪，松间沙路净无泥。萧萧暮雨子规啼。",
+      "谁道人生无再少，门前流水尚能西。休将白发唱黄鸡。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/48abcc8/",
+    "sourceHash": "4eba695b5788aa5fe61eddc4933de1c67975f56bbeb454f5171aa288dbcda5e7",
+    "id": "poem-106",
+    "lines": [
+      "山下兰芽短浸溪",
+      "松间沙路净无泥",
+      "萧萧暮雨子规啼",
+      "谁道人生无再少",
+      "门前流水尚能西",
+      "休将白发唱黄鸡"
+    ],
+    "forgeable": [
+      "山下兰芽短浸溪",
+      "松间沙路净无泥",
+      "萧萧暮雨子规啼",
+      "谁道人生无再少",
+      "门前流水尚能西",
+      "休将白发唱黄鸡"
+    ]
+  },
+  {
+    "title": "清平乐·春归何处",
+    "author": "黄庭坚",
+    "grade": "六年级下册",
+    "paragraphs": [
+      "春归何处？寂寞无行路。若有人知春去处，唤取归来同住。",
+      "春无踪迹谁知？除非问取黄鹂。百啭无人能解，因风飞过蔷薇。"
+    ],
+    "url": "https://www.gushiwenku.cn/shiwen/158b3ab/",
+    "sourceHash": "09d1a6eeb3bc28a6dffecfcfd62b911d8e66a8b24ecc52511ae659da41ac2f38",
+    "id": "poem-107",
+    "lines": [
+      "春归何处",
+      "寂寞无行路",
+      "若有人知春去处",
+      "唤取归来同住",
+      "春无踪迹谁知",
+      "除非问取黄鹂",
+      "百啭无人能解",
+      "因风飞过蔷薇"
+    ],
+    "forgeable": [
+      "寂寞无行路",
+      "若有人知春去处",
+      "唤取归来同住",
+      "春无踪迹谁知",
+      "除非问取黄鹂",
+      "百啭无人能解",
+      "因风飞过蔷薇"
+    ]
+  },
+  {
+    "id": "poem-108",
+    "title": "如梦令·常记溪亭日暮",
+    "author": "李清照",
+    "grade": "常见课外",
+    "paragraphs": [
+      "常记溪亭日暮，沉醉不知归路。",
+      "兴尽晚回舟，误入藕花深处。",
+      "争渡，争渡，惊起一滩鸥鹭。"
+    ],
+    "url": "",
+    "note": "常见课外补充，保留完整句界，不拼接不同诗篇。",
+    "lines": [
+      "常记溪亭日暮",
+      "沉醉不知归路",
+      "兴尽晚回舟",
+      "误入藕花深处",
+      "争渡",
+      "争渡",
+      "惊起一滩鸥鹭"
+    ],
+    "forgeable": [
+      "常记溪亭日暮",
+      "沉醉不知归路",
+      "兴尽晚回舟",
+      "误入藕花深处",
+      "惊起一滩鸥鹭"
+    ]
+  },
+  {
+    "id": "poem-109",
+    "title": "田园乐·其六",
+    "author": "王维",
+    "grade": "常见课外",
+    "paragraphs": [
+      "桃红复含宿雨，柳绿更带朝烟。",
+      "花落家童未扫，莺啼山客犹眠。"
+    ],
+    "url": "",
+    "note": "常见课外补充，保留完整句界，不拼接不同诗篇。",
+    "lines": [
+      "桃红复含宿雨",
+      "柳绿更带朝烟",
+      "花落家童未扫",
+      "莺啼山客犹眠"
+    ],
+    "forgeable": [
+      "桃红复含宿雨",
+      "柳绿更带朝烟",
+      "花落家童未扫",
+      "莺啼山客犹眠"
+    ]
+  }
+]

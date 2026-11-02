@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
-import {WORDS,getWord,getTowerWord,matchWord,wordCategory,wordLearning} from '../dist/engine.mjs';
+import {SHORT_WORDS as WORDS,getWord,getTowerWord,matchWord,wordCategory,wordLearning} from '../dist/engine.mjs';
 import {IDIOM_PROFILES,REVIEWED_IDIOMS} from '../dist/specials.mjs';
 import {COMMON_WORDS,IDIOM_WORDS,SKILL_SCHOOLS,WORD_DEFINITIONS,WORD_REVIEW} from '../dist/lexicon.mjs';
 import {publishedVocabulary} from './published-vocabulary.mjs';

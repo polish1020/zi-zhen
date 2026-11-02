@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {Game,WORDS,getWord,matchWord,enemyPosition,towerStats} from '../dist/engine.mjs';
+import {Game,SHORT_WORDS as WORDS,getWord,matchWord,enemyPosition,towerStats} from '../dist/engine.mjs';
 import {SKILL_TEMPLATES} from '../dist/lexicon.mjs';
 import {aliasSkills} from '../scripts/elemental-aliases.mjs';
 import {auditAliases} from '../scripts/audit-elemental-aliases.mjs';

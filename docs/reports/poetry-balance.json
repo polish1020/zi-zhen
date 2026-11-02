@@ -1,0 +1,225 @@
+{
+  "date": "2026-11-02",
+  "games": 400,
+  "wins": 244,
+  "rate": 0.61,
+  "method": "Two deterministic strategies, each seeds 1–20 across all 10 chapters, real starting ink and costs, skill use enabled, tower ruins allowed; victory means hearts survive. Shared seeds are not independent human samples. No enemy, map, reward or maintenance-cost tuning to force a target win rate.",
+  "chapters": [
+    {
+      "chapter": 1,
+      "wins": 32,
+      "total": 40,
+      "rate": 0.8
+    },
+    {
+      "chapter": 2,
+      "wins": 23,
+      "total": 40,
+      "rate": 0.575
+    },
+    {
+      "chapter": 3,
+      "wins": 22,
+      "total": 40,
+      "rate": 0.55
+    },
+    {
+      "chapter": 4,
+      "wins": 27,
+      "total": 40,
+      "rate": 0.675
+    },
+    {
+      "chapter": 5,
+      "wins": 39,
+      "total": 40,
+      "rate": 0.975
+    },
+    {
+      "chapter": 6,
+      "wins": 26,
+      "total": 40,
+      "rate": 0.65
+    },
+    {
+      "chapter": 7,
+      "wins": 20,
+      "total": 40,
+      "rate": 0.5
+    },
+    {
+      "chapter": 8,
+      "wins": 19,
+      "total": 40,
+      "rate": 0.475
+    },
+    {
+      "chapter": 9,
+      "wins": 27,
+      "total": 40,
+      "rate": 0.675
+    },
+    {
+      "chapter": 10,
+      "wins": 9,
+      "total": 40,
+      "rate": 0.225
+    }
+  ],
+  "normal": {
+    "summary": true,
+    "poetryCombatHash": "7a052cb628398366f2807f92d4188d772a12c28d894a1f813039d7dc53871560",
+    "poetryRulesHash": "38af0ea48429d85ba0c83c964d20486a4cf224324b1096940bc0c3658db07a7d",
+    "poetryDataHash": "617a6dc852fe59ac242c9e7767288dceb5d270779a6981cf93e8ac8d2ab3491d",
+    "engineHash": "6484f8d3b3a6dcecb403661a0bfcb190320de4d8bc5d29cd1eb0d3a2656383e0",
+    "specialsHash": "9123c609756d05908e7d43084e5cc318a7afdb715ebbf672fd069cefb0e90820",
+    "lexiconHash": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
+    "strategyHash": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a",
+    "skills": true,
+    "games": 200,
+    "wins": 104,
+    "rate": 0.52,
+    "reference": "总体50–60%，首章约90%、末章约20%；允许波动，不按固定配额调整",
+    "chapters": [
+      {
+        "chapter": 1,
+        "wins": 15,
+        "total": 20,
+        "rate": 0.75
+      },
+      {
+        "chapter": 2,
+        "wins": 9,
+        "total": 20,
+        "rate": 0.45
+      },
+      {
+        "chapter": 3,
+        "wins": 9,
+        "total": 20,
+        "rate": 0.45
+      },
+      {
+        "chapter": 4,
+        "wins": 13,
+        "total": 20,
+        "rate": 0.65
+      },
+      {
+        "chapter": 5,
+        "wins": 19,
+        "total": 20,
+        "rate": 0.95
+      },
+      {
+        "chapter": 6,
+        "wins": 14,
+        "total": 20,
+        "rate": 0.7
+      },
+      {
+        "chapter": 7,
+        "wins": 7,
+        "total": 20,
+        "rate": 0.35
+      },
+      {
+        "chapter": 8,
+        "wins": 9,
+        "total": 20,
+        "rate": 0.45
+      },
+      {
+        "chapter": 9,
+        "wins": 9,
+        "total": 20,
+        "rate": 0.45
+      },
+      {
+        "chapter": 10,
+        "wins": 0,
+        "total": 20,
+        "rate": 0
+      }
+    ]
+  },
+  "formation": {
+    "summary": true,
+    "poetryCombatHash": "7a052cb628398366f2807f92d4188d772a12c28d894a1f813039d7dc53871560",
+    "poetryRulesHash": "38af0ea48429d85ba0c83c964d20486a4cf224324b1096940bc0c3658db07a7d",
+    "poetryDataHash": "617a6dc852fe59ac242c9e7767288dceb5d270779a6981cf93e8ac8d2ab3491d",
+    "engineHash": "6484f8d3b3a6dcecb403661a0bfcb190320de4d8bc5d29cd1eb0d3a2656383e0",
+    "specialsHash": "9123c609756d05908e7d43084e5cc318a7afdb715ebbf672fd069cefb0e90820",
+    "lexiconHash": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
+    "strategyHash": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a",
+    "skills": true,
+    "games": 200,
+    "wins": 140,
+    "rate": 0.7,
+    "reference": "总体50–60%，首章约90%、末章约20%；允许波动，不按固定配额调整",
+    "chapters": [
+      {
+        "chapter": 1,
+        "wins": 17,
+        "total": 20,
+        "rate": 0.85
+      },
+      {
+        "chapter": 2,
+        "wins": 14,
+        "total": 20,
+        "rate": 0.7
+      },
+      {
+        "chapter": 3,
+        "wins": 13,
+        "total": 20,
+        "rate": 0.65
+      },
+      {
+        "chapter": 4,
+        "wins": 14,
+        "total": 20,
+        "rate": 0.7
+      },
+      {
+        "chapter": 5,
+        "wins": 20,
+        "total": 20,
+        "rate": 1
+      },
+      {
+        "chapter": 6,
+        "wins": 12,
+        "total": 20,
+        "rate": 0.6
+      },
+      {
+        "chapter": 7,
+        "wins": 13,
+        "total": 20,
+        "rate": 0.65
+      },
+      {
+        "chapter": 8,
+        "wins": 10,
+        "total": 20,
+        "rate": 0.5
+      },
+      {
+        "chapter": 9,
+        "wins": 18,
+        "total": 20,
+        "rate": 0.9
+      },
+      {
+        "chapter": 10,
+        "wins": 9,
+        "total": 20,
+        "rate": 0.45
+      }
+    ]
+  },
+  "releaseEngineHash": "c4ff319c5a152bc41856809525c2a43261e64731b61075a355a6e8e45ad893e0",
+  "postSimulationChange": "Only the Chinese poetry defense description was corrected to describe round-end tower healing; reversing this exact one-line text change reproduces the tested engine hash. Combat logic, stats, economy and all poetry programs are unchanged."
+}

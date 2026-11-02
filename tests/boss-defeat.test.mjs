@@ -29,9 +29,9 @@ test('boss leaks, dismissed escorts and ordinary kills never trigger a boss defe
 
 test('three simultaneous skill kills preserve exact prior-engine battle, resources and timing',()=>{
  const fixture=JSON.parse(readFileSync(new URL('./fixtures/boss-defeat-before.json',import.meta.url))),g=Game.restore(structuredClone(fixture.before));
- assert.ok(g.skill());g.step(.1);assert.deepEqual(g.export(),fixture.killed);
+ assert.ok(g.skill());g.step(.1);assert.deepEqual(g.export(),{...fixture.killed,version:10,poetryFieldReady:{}});
  assert.equal(g.events.filter(e=>e.type==='boss-defeated').length,3);g.events=[];
- for(let i=0;i<25;i++)g.step(.1);assert.deepEqual(g.export(),fixture.after26Steps);assert.ok(!g.events.some(e=>e.type==='boss-defeated'));
+ for(let i=0;i<25;i++)g.step(.1);assert.deepEqual(g.export(),{...fixture.after26Steps,version:10,poetryFieldReady:{}});assert.ok(!g.events.some(e=>e.type==='boss-defeated'));
 });
 
 test('a final boss settles victory and rewards immediately; reload cannot replay its death',()=>{

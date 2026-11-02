@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {Game,WORDS,getWord,getTowerWord,matchWord,wordCategory,wordLearning,towerStats,towerDefense,HINT_COST} from '../dist/engine.mjs';
+import {Game,SHORT_WORDS as WORDS,getWord,getTowerWord,matchWord,wordCategory,wordLearning,towerStats,towerDefense,HINT_COST} from '../dist/engine.mjs';
 import {WORD_REVIEW,RETIRED_WORD_PROFILES} from '../dist/lexicon.mjs';
 import {auditVocabulary} from '../scripts/audit-vocabulary-review.mjs';
 

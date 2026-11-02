@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {Game,WORDS,WORD_RUNES,getWord,hasRune,runeEffect,towerStats,wordRules,CHAPTERS,enemyLength,enemyPosition,ENEMIES,MAP_BOSS_POOLS,astralPhase,runeLimit} from '../dist/engine.mjs';
+import {Game,SHORT_WORDS as WORDS,WORD_RUNES,getWord,hasRune,runeEffect,towerStats,wordRules,CHAPTERS,enemyLength,enemyPosition,ENEMIES,MAP_BOSS_POOLS,astralPhase,runeLimit} from '../dist/engine.mjs';
 function add(g,word,pad=0){const chars=[...word];while(chars.length<16)chars.push('文');g.hand=chars.map(ch=>({id:++g.handSerial,ch,used:false}));assert.ok(g.build(word,pad),word);return g.towers.at(-1);}
 function setup(word,pad=0){const g=new Game(0,42);g.ink=5000;add(g,word,pad);g.phase='battle';return g;}
 function target(g,kind='normal',d=130){const e=g.spawn(kind,d);e.hp=e.maxHp=10000;e.speed=1;return e;}

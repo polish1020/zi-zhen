@@ -2,7 +2,7 @@ import {publishedVocabulary} from './published-vocabulary.mjs';
 import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
-import {WORDS,getWord,isGameSkill,wordCategory} from '../dist/engine.mjs';
+import {SHORT_WORDS as WORDS,getWord,isGameSkill,wordCategory} from '../dist/engine.mjs';
 import {aliasSkills} from './elemental-aliases.mjs';
 export const rules=JSON.parse(readFileSync(new URL('../data/elemental-skills.json',import.meta.url)));
 const preserved=new Set(rules.preserveWords),entries=new Map();

@@ -84,7 +84,7 @@ test('all learning families remain valid in mixed formations containing all 94 e
 // Imported below to keep the family matrix readable.
 import {ENEMIES as enemies} from '../dist/engine.mjs';
 test('version six preserves progress and rejects malformed learning states; v5 converts old injury ratios',()=>{
- const {g,t}=arena('三顾茅庐');add(g,'火球',1);enemy(g);fire(g,t,3);g.damageTower(t,20,g.enemies[0]);const snapshot=JSON.parse(JSON.stringify(g.export())),h=Game.restore(snapshot);assert.equal(h.export().version,9);
+ const {g,t}=arena('三顾茅庐');add(g,'火球',1);enemy(g);fire(g,t,3);g.damageTower(t,20,g.enemies[0]);const snapshot=JSON.parse(JSON.stringify(g.export())),h=Game.restore(snapshot);assert.equal(h.export().version,10);
  for(let i=0;i<30;i++){g.step(.1);h.step(.1);}assert.deepEqual(h.export(),g.export());
  for(const [key,value]of [['lessonPowerUntil',NaN],['lessonShield',1e9],['lessonStreak',6],['lessonTarget',-1],['lessonStored',1]]){const bad=structuredClone(snapshot);bad.towers[0][key]=value;assert.throws(()=>Game.restore(bad),key);}
  // Old 金蝉脱壳 was a gold tower: 420 max durability at starting tier four.

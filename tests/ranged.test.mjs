@@ -1,5 +1,5 @@
 import {publishedVocabulary} from '../scripts/published-vocabulary.mjs';
-import test from'node:test';import assert from'node:assert/strict';import{readFileSync}from'node:fs';import{createHash}from'node:crypto';import{Game,WORDS,getWord,towerStats,towerDefense,enemyPosition,enemyLength,RANGED_MIN_RANGE,traitEffect}from'../dist/engine.mjs';
+import test from'node:test';import assert from'node:assert/strict';import{readFileSync}from'node:fs';import{createHash}from'node:crypto';import{Game,SHORT_WORDS as WORDS,getWord,towerStats,towerDefense,enemyPosition,enemyLength,RANGED_MIN_RANGE,traitEffect}from'../dist/engine.mjs';
 import{addedSkills}from'../scripts/audit-elemental-skills.mjs';
 import{aliasSkills}from'../scripts/elemental-aliases.mjs';
 const frozen=JSON.parse(readFileSync(new URL('./fixtures/ranged-v9.json',import.meta.url))),saved=JSON.parse(readFileSync(new URL('./fixtures/ranged-save-v9.json',import.meta.url)));

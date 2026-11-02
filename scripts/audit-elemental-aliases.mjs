@@ -2,7 +2,7 @@ import {publishedVocabulary} from './published-vocabulary.mjs';
 import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
-import {WORDS,getWord,isGameSkill,wordCategory,runeLimit} from '../dist/engine.mjs';
+import {SHORT_WORDS as WORDS,getWord,isGameSkill,wordCategory,runeLimit} from '../dist/engine.mjs';
 import {aliasRules,aliasSkills} from './elemental-aliases.mjs';
 export const PRE_ALIAS_PROFILE_HASH='03da316b15ca0c8898ad72308260ca8c98fe4b0774d6439c8c1d97b4836958f9';
 export function auditAliases(){

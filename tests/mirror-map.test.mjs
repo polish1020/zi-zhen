@@ -27,7 +27,7 @@ test('genuine previous-release mirror battle retains route, pad, enemy position,
  const copy=Game.restore(JSON.parse(JSON.stringify(g.export())));assert.deepEqual(copy.export(),g.export());
  for(let i=0;i<200;i++){g.step(.1);copy.step(.1);}assert.deepEqual(copy.export(),g.export());
  const comparable=g.export();delete comparable.mirrorLayout;for(const e of comparable.enemies)delete e.mirrorLayout;
- assert.deepEqual(comparable,fixture.after20Seconds,'the old route battle must reproduce the previous engine after twenty seconds');
+ assert.deepEqual(comparable,{...fixture.after20Seconds,version:10,poetryFieldReady:{}},'the old route battle must reproduce the previous engine after twenty seconds');
  const child=g.spawn('mirrorling',600,1);assert.equal(child.mirrorLayout,1);assert.equal(enemyLength(child),1820);
  child.hp=child.maxHp*.4;g.updateEnemies(.01);assert.ok(g.enemies.filter(e=>e.isCopy).every(e=>e.mirrorLayout===1));
  assert.ok(g.enemies.some(e=>e.isCopy));assert.equal(g.continueEndless(),false);
