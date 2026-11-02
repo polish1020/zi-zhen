@@ -15,9 +15,9 @@
     "method": "Synthetic Node-only 16-tower/80-enemy fixture with shared field cooldowns cleared only during setup to increase load; 100 live update ticks, then discard effects. Excludes drawing, other engine systems and actual phone hardware.",
     "liveFields": 34,
     "ticks": 100,
-    "medianMs": 0.025,
-    "p95Ms": 0.831,
-    "maximumMs": 27.638
+    "medianMs": 0.026,
+    "p95Ms": 1.079,
+    "maximumMs": 1.938
   },
   "rules": [
     {
@@ -26,17 +26,17 @@
       "effect": "留下深潭；地面敌人停留越久下沉越深，每停留 0.7 秒加深一层，最多减速 45%；离开水域后恢复",
       "actualActivations": 187,
       "configuredLines": 17,
-      "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 43.999999999999844,
+      "remainingAidBudget": 165
     },
     {
       "rule": "waterfall",
       "name": "瀑流",
       "effect": "瀑布沿目标路段奔涌，反复冲击经过的敌人并向后推退",
-      "actualActivations": 23,
+      "actualActivations": 28,
       "configuredLines": 3,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 184.79999999999998
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "river",
@@ -44,17 +44,17 @@
       "effect": "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
       "actualActivations": 4,
       "configuredLines": 41,
-      "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 44,
+      "remainingAidBudget": 165
     },
     {
       "rule": "undertow",
       "name": "回流",
       "effect": "逆流沿路线回卷，把撞上波头的敌人向来路拉回",
-      "actualActivations": 12,
+      "actualActivations": 13,
       "configuredLines": 6,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "eddy",
@@ -62,8 +62,8 @@
       "effect": "在目标处留下旋涡；进入后走得过远会被拉回一次",
       "actualActivations": 2,
       "configuredLines": 6,
-      "remainingDamageBudget": 170.5,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 350.9,
+      "remainingAidBudget": 165
     },
     {
       "rule": "mist",
@@ -71,8 +71,8 @@
       "effect": "云雾掩护附近词塔，敌人优先转攻其他可攻击的塔；雾中蓄力的敌人会短暂减速",
       "actualActivations": 159,
       "configuredLines": 17,
-      "remainingDamageBudget": 308,
-      "remainingAidBudget": 184.79999999999998
+      "remainingDamageBudget": 1848,
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "bridge",
@@ -80,8 +80,8 @@
       "effect": "在路段立起渡桥，过桥敌人会引来最近友塔的一次援击",
       "actualActivations": 4,
       "configuredLines": 4,
-      "remainingDamageBudget": 184,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 375.19999999999993,
+      "remainingAidBudget": 165
     },
     {
       "rule": "ferry",
@@ -89,8 +89,8 @@
       "effect": "小舟为附近友塔摆渡攻击，周期性将一道友塔火力送向远处敌人",
       "actualActivations": 6,
       "configuredLines": 18,
-      "remainingDamageBudget": 250.25000000000006,
-      "remainingAidBudget": 184.79999999999998
+      "remainingDamageBudget": 1628.55,
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "seed",
@@ -98,16 +98,16 @@
       "effect": "敌人在种子区倒下后留下嫩芽，下一名靠近的敌人会触发芽刺",
       "actualActivations": 4,
       "configuredLines": 4,
-      "remainingDamageBudget": 99,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 222.19999999999993,
+      "remainingAidBudget": 165
     },
     {
       "rule": "lotus",
       "name": "莲叶",
       "effect": "莲叶护盾游向受伤友塔；护盾破碎或消失后转向另一座受伤词塔",
-      "actualActivations": 5,
+      "actualActivations": 6,
       "configuredLines": 13,
-      "remainingDamageBudget": 220,
+      "remainingDamageBudget": 440,
       "remainingAidBudget": 0
     },
     {
@@ -116,8 +116,8 @@
       "effect": "用藤蔓连接两名敌人；它们拉开距离时，领先者会被牵回",
       "actualActivations": 3,
       "configuredLines": 6,
-      "remainingDamageBudget": 165,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 341,
+      "remainingAidBudget": 165
     },
     {
       "rule": "willow",
@@ -126,7 +126,7 @@
       "actualActivations": 16,
       "configuredLines": 9,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "bamboo",
@@ -135,34 +135,34 @@
       "actualActivations": 3,
       "configuredLines": 7,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "plum",
       "name": "寒梅",
       "effect": "寒梅遇到被减速或冻结的敌人时开放，爆发花刺",
-      "actualActivations": 6,
+      "actualActivations": 7,
       "configuredLines": 9,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "leaves",
       "name": "落叶",
       "effect": "落叶贴附经过的敌人；敌人施法时叶片碎裂，削去护盾并打断蓄力",
-      "actualActivations": 14,
+      "actualActivations": 15,
       "configuredLines": 8,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "petals",
       "name": "飞花",
       "effect": "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击",
-      "actualActivations": 13,
+      "actualActivations": 14,
       "configuredLines": 25,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "grass",
@@ -170,8 +170,8 @@
       "effect": "草地照料受伤友塔，只有耐久不足一半时才会持续修复",
       "actualActivations": 36,
       "configuredLines": 16,
-      "remainingDamageBudget": 308,
-      "remainingAidBudget": 34.84500000000001
+      "remainingDamageBudget": 1848,
+      "remainingAidBudget": 342.8449999999999
     },
     {
       "rule": "sprout",
@@ -179,8 +179,8 @@
       "effect": "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人",
       "actualActivations": 2,
       "configuredLines": 20,
-      "remainingDamageBudget": 154,
-      "remainingAidBudget": 184.79999999999998
+      "remainingDamageBudget": 1262.8000000000002,
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "grounding",
@@ -188,44 +188,44 @@
       "effect": "将范围内的飞行敌人短暂压落，地面攻击也能命中；Boss 落地时间较短",
       "actualActivations": 2,
       "configuredLines": 6,
-      "remainingDamageBudget": 187,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 380.6,
+      "remainingAidBudget": 165
     },
     {
       "rule": "updraft",
       "name": "升风",
       "effect": "托起靠近的地面敌人，打断进攻；落下时冲击周围敌人",
-      "actualActivations": 14,
+      "actualActivations": 16,
       "configuredLines": 8,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "kite",
       "name": "纸鸢",
       "effect": "纸鸢绕塔盘旋，经过敌人上方时俯冲，优先拦截飞行敌人",
-      "actualActivations": 7,
+      "actualActivations": 8,
       "configuredLines": 7,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "swallow",
       "name": "归燕",
       "effect": "飞燕沿塔与目标之间往返，去程与回程分别掠击经过的敌人",
-      "actualActivations": 10,
+      "actualActivations": 11,
       "configuredLines": 2,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "geese",
       "name": "雁阵",
       "effect": "雁阵从两翼合围，轮流截击前方、左翼与右翼的敌人",
-      "actualActivations": 6,
+      "actualActivations": 7,
       "configuredLines": 8,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "stars",
@@ -233,26 +233,26 @@
       "effect": "布下三颗悬星；敌人靠近时星子逐颗坠落，覆盖不同落点",
       "actualActivations": 3,
       "configuredLines": 9,
-      "remainingDamageBudget": 5.5,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 53.89999999999992,
+      "remainingAidBudget": 165
     },
     {
       "rule": "meteor",
       "name": "流星",
       "effect": "星芒追随移动目标，连续落击；原目标倒下后会转向邻近敌人",
-      "actualActivations": 4,
+      "actualActivations": 6,
       "configuredLines": 2,
-      "remainingDamageBudget": 0,
-      "remainingAidBudget": 184.79999999999998
+      "remainingDamageBudget": 92.40000000000043,
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "moon",
       "name": "月照",
       "effect": "月光绕塔扫过，照见潜行并标记被光束扫中的敌人",
-      "actualActivations": 31,
+      "actualActivations": 32,
       "configuredLines": 23,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "sun",
@@ -261,16 +261,16 @@
       "actualActivations": 20,
       "configuredLines": 19,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "lantern",
       "name": "灯火",
       "effect": "灯火照亮附近来敌，发现敌人准备攻塔时打断其蓄力",
-      "actualActivations": 93,
+      "actualActivations": 94,
       "configuredLines": 8,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "echo",
@@ -278,17 +278,17 @@
       "effect": "记下目标接下来受到的真实伤害，片刻后将一部分伤害化为回响",
       "actualActivations": 1,
       "configuredLines": 10,
-      "remainingDamageBudget": 234.85000000000002,
-      "remainingAidBudget": 184.79999999999998
+      "remainingDamageBudget": 1570.03,
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "bell",
       "name": "钟声",
       "effect": "钟波逐圈传开；碰到正在攻塔或施法的敌人时打断蓄力",
-      "actualActivations": 13,
+      "actualActivations": 14,
       "configuredLines": 11,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "song",
@@ -296,17 +296,17 @@
       "effect": "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
       "actualActivations": 8,
       "configuredLines": 20,
-      "remainingDamageBudget": 22,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 83.59999999999992,
+      "remainingAidBudget": 165
     },
     {
       "rule": "silence_watch",
       "name": "静听",
       "effect": "静听敌人的行动，只在敌人开始蓄力时施加缄默",
-      "actualActivations": 23,
+      "actualActivations": 24,
       "configuredLines": 10,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "lullaby",
@@ -315,7 +315,7 @@
       "actualActivations": 13,
       "configuredLines": 11,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "call",
@@ -323,26 +323,26 @@
       "effect": "向最远的友塔发出呼唤，友塔回赠一道援击并得到少量修复",
       "actualActivations": 2,
       "configuredLines": 7,
-      "remainingDamageBudget": 293,
-      "remainingAidBudget": 170.79999999999998
+      "remainingDamageBudget": 1791,
+      "remainingAidBudget": 478.8
     },
     {
       "rule": "chorus",
       "name": "合鸣",
       "effect": "三座词塔结成共鸣三角；跨越连线的敌人受击，参与的塔分享护盾",
-      "actualActivations": 7,
+      "actualActivations": 8,
       "configuredLines": 7,
-      "remainingDamageBudget": 0,
-      "remainingAidBudget": 164.49999999999997
+      "remainingDamageBudget": 267.96000000000043,
+      "remainingAidBudget": 472.5
     },
     {
       "rule": "drum",
       "name": "鼓点",
       "effect": "沿路追随来敌的脚步；敌人每前进一段距离便遭鼓声震击",
-      "actualActivations": 6,
+      "actualActivations": 7,
       "configuredLines": 4,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "resolve",
@@ -350,23 +350,23 @@
       "effect": "词塔耐久低于一半时，记住下一次受到的伤害并还击攻击者",
       "actualActivations": 11,
       "configuredLines": 8,
-      "remainingDamageBudget": 253,
-      "remainingAidBudget": 184.79999999999998
+      "remainingDamageBudget": 1639,
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "fellowship",
       "name": "同舟",
       "effect": "连接两座受伤词塔，为两者分担部分受击并储存一道反击",
-      "actualActivations": 32,
+      "actualActivations": 38,
       "configuredLines": 12,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 155.21099999999996
+      "remainingAidBudget": 463.2110000000002
     },
     {
       "rule": "return_home",
       "name": "归心",
       "effect": "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾",
-      "actualActivations": 11,
+      "actualActivations": 13,
       "configuredLines": 26,
       "remainingDamageBudget": 0,
       "remainingAidBudget": 0
@@ -377,8 +377,8 @@
       "effect": "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位",
       "actualActivations": 6,
       "configuredLines": 25,
-      "remainingDamageBudget": 194.60000000000002,
-      "remainingAidBudget": 184.79999999999998
+      "remainingDamageBudget": 1417.0800000000004,
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "memory",
@@ -386,8 +386,8 @@
       "effect": "记住场内倒下的敌人种类，再遇同类时提前揭示弱点",
       "actualActivations": 15,
       "configuredLines": 14,
-      "remainingDamageBudget": 82.5,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 192.5,
+      "remainingAidBudget": 165
     },
     {
       "rule": "farewell",
@@ -396,7 +396,7 @@
       "actualActivations": 3,
       "configuredLines": 10,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "reunion",
@@ -404,26 +404,26 @@
       "effect": "连接分散的两名敌人，等它们靠近时引发相逢冲击",
       "actualActivations": 2,
       "configuredLines": 7,
-      "remainingDamageBudget": 92.39999999999999,
-      "remainingAidBudget": 184.79999999999998
+      "remainingDamageBudget": 1028.7200000000003,
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "solitude",
       "name": "独守",
       "effect": "追踪落单的敌人；它与同伴距离足够远时承受额外独守打击",
-      "actualActivations": 6,
+      "actualActivations": 7,
       "configuredLines": 12,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "companions",
       "name": "结伴",
       "effect": "找出混编敌群；相邻的敌人种类越不同，越容易触发破阵冲击",
-      "actualActivations": 13,
+      "actualActivations": 14,
       "configuredLines": 1,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "rally",
@@ -431,35 +431,35 @@
       "effect": "附近友塔受伤后得到短暂鼓舞；再次受伤不会重复叠加",
       "actualActivations": 54,
       "configuredLines": 6,
-      "remainingDamageBudget": 308,
-      "remainingAidBudget": 184.79999999999998
+      "remainingDamageBudget": 1848,
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "wall",
       "name": "山壁",
       "effect": "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停",
-      "actualActivations": 12,
+      "actualActivations": 13,
       "configuredLines": 26,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "gate",
       "name": "关隘",
       "effect": "设下一道关隘；越过关口的前排敌人会受到守关重击",
-      "actualActivations": 3,
+      "actualActivations": 4,
       "configuredLines": 19,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 184.79999999999998
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "mirror",
       "name": "明镜",
       "effect": "明镜保护附近词塔，将下一次来袭的一部分伤害反射给攻击者",
-      "actualActivations": 15,
+      "actualActivations": 17,
       "configuredLines": 9,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 96.32
+      "remainingAidBudget": 129.32
     },
     {
       "rule": "umbrella",
@@ -467,8 +467,8 @@
       "effect": "撑起雨盖，将附近词塔接下来的三次受击伤害削减 35%，并向攻击来源落下水珠",
       "actualActivations": 3,
       "configuredLines": 6,
-      "remainingDamageBudget": 193.75,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 392.75,
+      "remainingAidBudget": 165
     },
     {
       "rule": "purity",
@@ -476,8 +476,8 @@
       "effect": "清气在友塔间流转，持续清除腐蚀、冰滞和封禁",
       "actualActivations": 60,
       "configuredLines": 16,
-      "remainingDamageBudget": 308,
-      "remainingAidBudget": 184.79999999999998
+      "remainingDamageBudget": 1848,
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "medicine",
@@ -485,8 +485,8 @@
       "effect": "药香轮流照顾最虚弱的友塔；溢出的修复会凝成短暂护盾",
       "actualActivations": 12,
       "configuredLines": 16,
-      "remainingDamageBudget": 220,
-      "remainingAidBudget": 39.39999999999999
+      "remainingDamageBudget": 440,
+      "remainingAidBudget": 72.40000000000002
     },
     {
       "rule": "offering",
@@ -494,8 +494,8 @@
       "effect": "贡献自身最多 6% 最大耐久，以 125% 效率照料最虚弱的友塔；自身耐久不足时停止贡献",
       "actualActivations": 1,
       "configuredLines": 14,
-      "remainingDamageBudget": 220,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 440,
+      "remainingAidBudget": 165
     },
     {
       "rule": "forge",
@@ -503,35 +503,35 @@
       "effect": "将附近词塔遭受的伤害锤炼成铁屑，蓄足后击碎敌人的护甲",
       "actualActivations": 3,
       "configuredLines": 7,
-      "remainingDamageBudget": 0,
-      "remainingAidBudget": 184.79999999999998
+      "remainingDamageBudget": 619.0800000000003,
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "frost_armor",
       "name": "霜衣",
       "effect": "给附近友塔披上霜衣；它们受击时，寒气沿攻击来路反扑",
-      "actualActivations": 67,
+      "actualActivations": 68,
       "configuredLines": 1,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 119.44
+      "remainingAidBudget": 152.44
     },
     {
       "rule": "bastion",
       "name": "孤城",
       "effect": "耐久危急时化为孤城，暂时减伤并吸引附近来敌的攻击",
-      "actualActivations": 64,
+      "actualActivations": 65,
       "configuredLines": 5,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "trail",
       "name": "履痕",
       "effect": "敌人走过的路留下短暂墨迹，后来经过的敌人会踩中墨痕",
-      "actualActivations": 6,
+      "actualActivations": 7,
       "configuredLines": 15,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "footprints",
@@ -539,8 +539,8 @@
       "effect": "跟随来敌的脚印逐次显形，脚印越过转角时追加追踪打击",
       "actualActivations": 90,
       "configuredLines": 11,
-      "remainingDamageBudget": 44,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 123.20000000000003,
+      "remainingAidBudget": 165
     },
     {
       "rule": "turning",
@@ -548,8 +548,8 @@
       "effect": "监视道路转折，敌人在转角现身时受到一记折返攻击",
       "actualActivations": 2,
       "configuredLines": 7,
-      "remainingDamageBudget": 138.60000000000002,
-      "remainingAidBudget": 184.79999999999998
+      "remainingDamageBudget": 1204.2799999999997,
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "horizon",
@@ -557,8 +557,8 @@
       "effect": "锁定最远的来敌，期间普攻能越过原射程追踪这一名目标",
       "actualActivations": 2,
       "configuredLines": 18,
-      "remainingDamageBudget": 220,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 440,
+      "remainingAidBudget": 165
     },
     {
       "rule": "ascend",
@@ -566,8 +566,8 @@
       "effect": "每次安稳站立都会升高一层视野；受击时退回地面，重新登高",
       "actualActivations": 29,
       "configuredLines": 12,
-      "remainingDamageBudget": 143,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 301.4,
+      "remainingAidBudget": 165
     },
     {
       "rule": "sand",
@@ -575,8 +575,8 @@
       "effect": "让地面来敌裹上流沙；它移动时抖落沙粒，后方敌人踩中沙粒受阻",
       "actualActivations": 14,
       "configuredLines": 7,
-      "remainingDamageBudget": 66,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 162.79999999999993,
+      "remainingAidBudget": 165
     },
     {
       "rule": "harvest",
@@ -584,26 +584,26 @@
       "effect": "留下收获印记，只有真实掉落墨点的敌人倒下时才可额外采收",
       "actualActivations": 2,
       "configuredLines": 10,
-      "remainingDamageBudget": 220,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 440,
+      "remainingAidBudget": 165
     },
     {
       "rule": "weave",
       "name": "织网",
       "effect": "在两座词塔之间织出丝线，敌人穿线时受伤并被丝线牵缓",
-      "actualActivations": 11,
+      "actualActivations": 12,
       "configuredLines": 11,
-      "remainingDamageBudget": 0,
-      "remainingAidBudget": 184.79999999999998
+      "remainingDamageBudget": 267.96000000000043,
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "needle",
       "name": "穿针",
       "effect": "细丝记住攻击友塔的敌人；敌人再次出手时遭到穿针反击",
-      "actualActivations": 4,
+      "actualActivations": 6,
       "configuredLines": 4,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 184.79999999999998
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "clock",
@@ -611,8 +611,8 @@
       "effect": "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔",
       "actualActivations": 12,
       "configuredLines": 30,
-      "remainingDamageBudget": 88,
-      "remainingAidBudget": 75.29999999999998
+      "remainingDamageBudget": 202.39999999999992,
+      "remainingAidBudget": 108.29999999999998
     },
     {
       "rule": "seasons",
@@ -620,8 +620,8 @@
       "effect": "按春夏秋冬轮换：萌发、日照、落叶、霜圈，每次施法进入下一季",
       "actualActivations": 12,
       "configuredLines": 8,
-      "remainingDamageBudget": 220,
-      "remainingAidBudget": 71.77500000000002
+      "remainingDamageBudget": 440,
+      "remainingAidBudget": 104.77500000000002
     },
     {
       "rule": "renewal",
@@ -629,8 +629,8 @@
       "effect": "在废墟旁长出临时草木幻身协战；废墟仍需付费重建",
       "actualActivations": 2,
       "configuredLines": 11,
-      "remainingDamageBudget": 143,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 301.4,
+      "remainingAidBudget": 165
     },
     {
       "rule": "spring_back",
@@ -639,7 +639,7 @@
       "actualActivations": 11,
       "configuredLines": 9,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "book",
@@ -647,17 +647,17 @@
       "effect": "观察不同敌人的行动，认出三种敌人后标明同类弱点",
       "actualActivations": 24,
       "configuredLines": 20,
-      "remainingDamageBudget": 44,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 123.19999999999993,
+      "remainingAidBudget": 165
     },
     {
       "rule": "rainbow",
       "name": "百彩",
       "effect": "附近属性不同的词塔一起架起彩虹，虹桥依次连向不同种类的来敌",
-      "actualActivations": 9,
+      "actualActivations": 10,
       "configuredLines": 10,
-      "remainingDamageBudget": 0,
-      "remainingAidBudget": 184.79999999999998
+      "remainingDamageBudget": 385.0000000000004,
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "dew",
@@ -665,8 +665,8 @@
       "effect": "清露凝在友塔上，第一次受击时化为修复，并向附近敌人溅开",
       "actualActivations": 5,
       "configuredLines": 14,
-      "remainingDamageBudget": 137.5,
-      "remainingAidBudget": 100.78
+      "remainingDamageBudget": 291.5,
+      "remainingAidBudget": 133.78
     },
     {
       "rule": "cloud",
@@ -674,8 +674,8 @@
       "effect": "云影沿路线漂移，遮住经过的敌人视线，延缓其首次攻塔",
       "actualActivations": 8,
       "configuredLines": 13,
-      "remainingDamageBudget": 44,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 123.19999999999993,
+      "remainingAidBudget": 165
     },
     {
       "rule": "scent",
@@ -683,8 +683,8 @@
       "effect": "香气跟随一名敌人，逐渐吸引周围同伴靠近，再一同被花香减速",
       "actualActivations": 104,
       "configuredLines": 6,
-      "remainingDamageBudget": 27.5,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 93.5,
+      "remainingAidBudget": 165
     },
     {
       "rule": "snowdrift",
@@ -692,17 +692,17 @@
       "effect": "积雪随时间变厚，后来踏入的地面敌人会受到更强的阻碍",
       "actualActivations": 241,
       "configuredLines": 17,
-      "remainingDamageBudget": 50.60000000000002,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 135.07999999999998,
+      "remainingAidBudget": 165
     },
     {
       "rule": "ember",
       "name": "余烬",
       "effect": "余烬等待敌人的护盾破裂，随后化作一团会蔓延一次的火焰",
-      "actualActivations": 5,
+      "actualActivations": 7,
       "configuredLines": 3,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "pearl",
@@ -711,7 +711,7 @@
       "actualActivations": 3,
       "configuredLines": 5,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "wine",
@@ -719,8 +719,8 @@
       "effect": "给友塔一杯短暂振奋；连续攻击后稍歇，再送出一记蓄势打击",
       "actualActivations": 5,
       "configuredLines": 12,
-      "remainingDamageBudget": 154,
-      "remainingAidBudget": 184.79999999999998
+      "remainingDamageBudget": 1262.8000000000002,
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "oath",
@@ -728,8 +728,8 @@
       "effect": "与一个目标立下挑战；目标仍在场时专注追击，倒下后护佑附近友塔",
       "actualActivations": 18,
       "configuredLines": 9,
-      "remainingDamageBudget": 0,
-      "remainingAidBudget": 184.79999999999998
+      "remainingDamageBudget": 619.0800000000004,
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "beacon",
@@ -737,44 +737,44 @@
       "effect": "标记最接近山门的来敌，沿各入口燃起烽火接力拦截",
       "actualActivations": 3,
       "configuredLines": 5,
-      "remainingDamageBudget": 215.60000000000002,
-      "remainingAidBudget": 184.79999999999998
+      "remainingDamageBudget": 1496.88,
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "compass",
       "name": "指路",
       "effect": "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人",
-      "actualActivations": 17,
+      "actualActivations": 18,
       "configuredLines": 22,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "shroud",
       "name": "隐迹",
       "effect": "隐去受伤友塔的踪迹；来敌转攻他塔时，原塔送出伏击",
-      "actualActivations": 64,
+      "actualActivations": 65,
       "configuredLines": 11,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "harvest_field",
       "name": "耕田",
       "effect": "将路边开垦成小田；敌人走过时松土，累计经过三名敌人便长出一束谷刺",
-      "actualActivations": 5,
+      "actualActivations": 6,
       "configuredLines": 14,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "afterglow",
       "name": "返照",
       "effect": "余光从目标处折返，照到背后的来敌时追加一次回照",
-      "actualActivations": 9,
+      "actualActivations": 10,
       "configuredLines": 14,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "horizon_gate",
@@ -782,8 +782,8 @@
       "effect": "在道路两侧张开双门；从不同入口来的敌人在门前分别被截击",
       "actualActivations": 2,
       "configuredLines": 3,
-      "remainingDamageBudget": 184.8,
-      "remainingAidBudget": 184.79999999999998
+      "remainingDamageBudget": 1379.8400000000001,
+      "remainingAidBudget": 492.8
     },
     {
       "rule": "ink_wash",
@@ -791,8 +791,8 @@
       "effect": "淡墨浸染一名敌人，周围同伴接触时染上墨迹；染色不递归扩散",
       "actualActivations": 26,
       "configuredLines": 6,
-      "remainingDamageBudget": 27.5,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 93.5,
+      "remainingAidBudget": 165
     },
     {
       "rule": "cocoon",
@@ -800,17 +800,17 @@
       "effect": "丝茧保护一座友塔，保护结束时依照吸收的伤害化蝶反击",
       "actualActivations": 2,
       "configuredLines": 3,
-      "remainingDamageBudget": 77,
-      "remainingAidBudget": 117.92999999999998
+      "remainingDamageBudget": 970.2,
+      "remainingAidBudget": 425.93
     },
     {
       "rule": "shadow",
       "name": "影随",
       "effect": "让墨影跟随目标，目标停步或蓄力时影子才会落下攻击",
-      "actualActivations": 5,
+      "actualActivations": 6,
       "configuredLines": 8,
       "remainingDamageBudget": 0,
-      "remainingAidBudget": 132
+      "remainingAidBudget": 165
     },
     {
       "rule": "scatter",
@@ -818,8 +818,8 @@
       "effect": "一束光先聚于目标，目标倒下或走远后散成星点迎击后续敌人",
       "actualActivations": 2,
       "configuredLines": 4,
-      "remainingDamageBudget": 88,
-      "remainingAidBudget": 132
+      "remainingDamageBudget": 202.39999999999998,
+      "remainingAidBudget": 165
     },
     {
       "rule": "lantern_chain",
@@ -827,17 +827,17 @@
       "effect": "灯火从友塔向另一座友塔依次点亮；每亮一盏，照击连线旁的一名来敌",
       "actualActivations": 13,
       "configuredLines": 3,
-      "remainingDamageBudget": 44,
-      "remainingAidBudget": 94.875
+      "remainingDamageBudget": 123.20000000000003,
+      "remainingAidBudget": 127.875
     }
   ],
   "hashes": {
-    "dist/engine.mjs": "3ea152d3d9ab6492e5036ff0f37a77712c6e095c4c76370b9b56e71688594d39",
-    "dist/poetry-scenes.mjs": "61e5e3d5d3769d7eb7a324daef522f1574c14e6305bcffdd2c7a2b9d9e85a59d",
+    "dist/engine.mjs": "c2724470555c736520e2259f2d7bd0771506b96fd51e812e5144362376cbc046",
+    "dist/poetry-scenes.mjs": "6bb80c0d31a8f9a1e093ad1def3212818855d1ad3c9766a1b7a8391ddd76274b",
     "dist/poetry-impact.mjs": "6a1948153db8e5b214b73a8d512b52974b28b7344aa155c003276931a961691b",
-    "dist/poetry-scene-rules.mjs": "4770e0da25a03c6a21205de9a32ec875e9aa4f301174f35ac1a1c98845f4321a",
-    "dist/poetry-scene-art.mjs": "9bbc75aef75bfb2ed1c933cb031811db4ef82198e08140faf66a432d457fbc6d",
-    "dist/poetry-rules.mjs": "de07c566d4efb3713570867cee4775f0e8fe74f7e6fb15d492adfb3f01e7f90b",
+    "dist/poetry-scene-rules.mjs": "1a3db93796b67dfcd1ebfdaf997c626d45ea70dc447f0c25bfd82bfdcc7b231d",
+    "dist/poetry-scene-art.mjs": "095e7c5033450f37a6cbdc3de79b4f55a30b9e9dbdc2b988ce6104a6108dcd73",
+    "dist/poetry-rules.mjs": "e2393b61cad40163e68b379c682397509c33d393a9006583324daec879726970",
     "dist/poetry-data.mjs": "b5accdb3cfb093ed3ac5f5c3ed11566a5e5830f3f4b540b87cb6231c3f76c719",
     "data/poetry-signatures.txt": "fadc89e745826f9b1a59ee6df81e1e5fd94f8f633647196c42f30a4d8ae55946"
   },

@@ -1,0 +1,5489 @@
+{
+  "solo": {
+    "date": "2026-11-02",
+    "sourceHashes": {
+      "dist/engine.mjs": "c2724470555c736520e2259f2d7bd0771506b96fd51e812e5144362376cbc046",
+      "dist/poetry-rules.mjs": "43016b5f9e60e0e3d76644e52a827b6b3280acd8ff17f60a7d83d50629ab116f",
+      "dist/poetry-combat.mjs": "74ce73974f29ecad6f6881f05492858e901a6dd4e06561e04fe4f820f06f6d29",
+      "dist/poetry-scenes.mjs": "6bb80c0d31a8f9a1e093ad1def3212818855d1ad3c9766a1b7a8391ddd76274b",
+      "dist/poetry-scene-rules.mjs": "1a3db93796b67dfcd1ebfdaf997c626d45ea70dc447f0c25bfd82bfdcc7b231d",
+      "dist/poetry-impact.mjs": "6a1948153db8e5b214b73a8d512b52974b28b7344aa155c003276931a961691b",
+      "dist/poetry-data.mjs": "b5accdb3cfb093ed3ac5f5c3ed11566a5e5830f3f4b540b87cb6231c3f76c719",
+      "dist/specials.mjs": "7e70298ab8214e98ffc0965e0a5125ebaf5e6c28be741074836d3309299cf945",
+      "tests/strategy.mjs": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a"
+    },
+    "method": "60 seconds, 50ms ticks, production attacks/scenes/zones/enemy status updates; includes actual poison, burn and bleed. All 483 poetry lines at legal maximum levels, plus their native levels and legal level-6 subset. Four-character controls sample up to 24 distinct mechanical profiles per attribute at their legal level-6 maximum, evenly across sorted configuration keys; samples are equally weighted, not word-frequency weighted and not every short-word recipe. Compare maximum development separately from common level 6 and normalize actual construction+upgrade investment. Eight tightly clustered stationary high-HP targets favor area skills. Boss is the base ground Boss with no healing/casting/retaliation/summons/shields or half-health transitions in this fixture. No ally support, travel, kills, tower damage or utility is monetized here; real endless tests evaluate those outcomes.",
+    "controlProfiles": 2425,
+    "controlSample": 359,
+    "measurements": 4488,
+    "summary": [
+      {
+        "group": "max",
+        "scenario": "single",
+        "type": "poetry",
+        "damage": {
+          "n": 483,
+          "min": 248.92,
+          "p10": 275.18,
+          "median": 409.79,
+          "p90": 670.98,
+          "max": 1011.26
+        },
+        "per100Ink": {
+          "n": 483,
+          "min": 31.75,
+          "p10": 33.12,
+          "median": 39.57,
+          "p90": 57.91,
+          "max": 87.18
+        },
+        "investment": {
+          "n": 483,
+          "min": 784,
+          "p10": 784,
+          "median": 1160,
+          "p90": 1160,
+          "max": 1160
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "single",
+        "type": "splash",
+        "damage": {
+          "n": 24,
+          "min": 154.57,
+          "p10": 176.37,
+          "median": 225.13,
+          "p90": 269.56,
+          "max": 345.62
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 37.79,
+          "p10": 43.12,
+          "median": 55.04,
+          "p90": 65.91,
+          "max": 84.5
+        },
+        "investment": {
+          "n": 24,
+          "min": 409,
+          "p10": 409,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "single",
+        "type": "learning",
+        "damage": {
+          "n": 24,
+          "min": 219.42,
+          "p10": 244.9,
+          "median": 286.73,
+          "p90": 360.62,
+          "max": 436.82
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 53.65,
+          "p10": 59.88,
+          "median": 70.11,
+          "p90": 88.17,
+          "max": 106.8
+        },
+        "investment": {
+          "n": 24,
+          "min": 387,
+          "p10": 409,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "single",
+        "type": "slow",
+        "damage": {
+          "n": 24,
+          "min": 64,
+          "p10": 68,
+          "median": 97.5,
+          "p90": 108,
+          "max": 120.37
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 18.66,
+          "p10": 19.83,
+          "median": 28.43,
+          "p90": 31.49,
+          "max": 35.09
+        },
+        "investment": {
+          "n": 24,
+          "min": 343,
+          "p10": 343,
+          "median": 343,
+          "p90": 343,
+          "max": 343
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "single",
+        "type": "chain",
+        "damage": {
+          "n": 24,
+          "min": 145.83,
+          "p10": 149.17,
+          "median": 207.58,
+          "p90": 233.12,
+          "max": 258.04
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 26.76,
+          "p10": 27.37,
+          "median": 38.09,
+          "p90": 42.77,
+          "max": 47.35
+        },
+        "investment": {
+          "n": 24,
+          "min": 545,
+          "p10": 545,
+          "median": 545,
+          "p90": 545,
+          "max": 545
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "single",
+        "type": "fast",
+        "damage": {
+          "n": 24,
+          "min": 219.3,
+          "p10": 225.66,
+          "median": 274.45,
+          "p90": 328.95,
+          "max": 340.5
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 63.94,
+          "p10": 65.79,
+          "median": 80.02,
+          "p90": 95.9,
+          "max": 99.27
+        },
+        "investment": {
+          "n": 24,
+          "min": 343,
+          "p10": 343,
+          "median": 343,
+          "p90": 343,
+          "max": 343
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "single",
+        "type": "aura",
+        "damage": {
+          "n": 24,
+          "min": 32.12,
+          "p10": 36.03,
+          "median": 45.6,
+          "p90": 57.59,
+          "max": 64.97
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 7.23,
+          "p10": 8.12,
+          "median": 10.27,
+          "p90": 12.97,
+          "max": 14.63
+        },
+        "investment": {
+          "n": 24,
+          "min": 444,
+          "p10": 444,
+          "median": 444,
+          "p90": 444,
+          "max": 444
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "single",
+        "type": "poison",
+        "damage": {
+          "n": 24,
+          "min": 127.64,
+          "p10": 134.22,
+          "median": 163.62,
+          "p90": 188.28,
+          "max": 216.87
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 28.75,
+          "p10": 30.23,
+          "median": 36.85,
+          "p90": 42.4,
+          "max": 48.84
+        },
+        "investment": {
+          "n": 24,
+          "min": 444,
+          "p10": 444,
+          "median": 444,
+          "p90": 444,
+          "max": 444
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "single",
+        "type": "sniper",
+        "damage": {
+          "n": 23,
+          "min": 165.93,
+          "p10": 173.53,
+          "median": 245.82,
+          "p90": 320.83,
+          "max": 342.98
+        },
+        "per100Ink": {
+          "n": 23,
+          "min": 32.54,
+          "p10": 34.03,
+          "median": 48.38,
+          "p90": 62.91,
+          "max": 67.25
+        },
+        "investment": {
+          "n": 23,
+          "min": 483,
+          "p10": 510,
+          "median": 510,
+          "p90": 510,
+          "max": 510
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "single",
+        "type": "income",
+        "damage": {
+          "n": 24,
+          "min": 20.27,
+          "p10": 24.5,
+          "median": 31.2,
+          "p90": 35.88,
+          "max": 46.38
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 5.42,
+          "p10": 6.55,
+          "median": 8.59,
+          "p90": 9.59,
+          "max": 12.4
+        },
+        "investment": {
+          "n": 24,
+          "min": 354,
+          "p10": 374,
+          "median": 374,
+          "p90": 374,
+          "max": 374
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "single",
+        "type": "pierce",
+        "damage": {
+          "n": 24,
+          "min": 163.63,
+          "p10": 168.44,
+          "median": 224.23,
+          "p90": 253.99,
+          "max": 305.53
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 34.16,
+          "p10": 35.16,
+          "median": 46.81,
+          "p90": 53.03,
+          "max": 63.79
+        },
+        "investment": {
+          "n": 24,
+          "min": 479,
+          "p10": 479,
+          "median": 479,
+          "p90": 479,
+          "max": 479
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "single",
+        "type": "pulse",
+        "damage": {
+          "n": 24,
+          "min": 70.5,
+          "p10": 77.25,
+          "median": 109.67,
+          "p90": 125.65,
+          "max": 131.16
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 15.88,
+          "p10": 17.4,
+          "median": 24.7,
+          "p90": 28.3,
+          "max": 29.54
+        },
+        "investment": {
+          "n": 24,
+          "min": 444,
+          "p10": 444,
+          "median": 444,
+          "p90": 444,
+          "max": 444
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "single",
+        "type": "mark",
+        "damage": {
+          "n": 24,
+          "min": 114.68,
+          "p10": 117.44,
+          "median": 141.86,
+          "p90": 168.37,
+          "max": 177.3
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 28.04,
+          "p10": 28.71,
+          "median": 34.68,
+          "p90": 41.17,
+          "max": 45.81
+        },
+        "investment": {
+          "n": 24,
+          "min": 387,
+          "p10": 387,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "single",
+        "type": "echo",
+        "damage": {
+          "n": 24,
+          "min": 242,
+          "p10": 246.03,
+          "median": 302.96,
+          "p90": 357.9,
+          "max": 369.94
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 59.17,
+          "p10": 60.15,
+          "median": 74.07,
+          "p90": 87.51,
+          "max": 90.45
+        },
+        "investment": {
+          "n": 24,
+          "min": 409,
+          "p10": 409,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "single",
+        "type": "basic",
+        "damage": {
+          "n": 24,
+          "min": 111.23,
+          "p10": 125.43,
+          "median": 166.14,
+          "p90": 190.13,
+          "max": 196.63
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 29.74,
+          "p10": 35.43,
+          "median": 44.42,
+          "p90": 50.84,
+          "max": 52.58
+        },
+        "investment": {
+          "n": 24,
+          "min": 354,
+          "p10": 354,
+          "median": 374,
+          "p90": 374,
+          "max": 374
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "single",
+        "type": "heavy",
+        "damage": {
+          "n": 24,
+          "min": 254.07,
+          "p10": 299.08,
+          "median": 351.83,
+          "p90": 393.23,
+          "max": 452.33
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 43.8,
+          "p10": 51.57,
+          "median": 61.54,
+          "p90": 67.8,
+          "max": 77.99
+        },
+        "investment": {
+          "n": 24,
+          "min": 550,
+          "p10": 580,
+          "median": 580,
+          "p90": 580,
+          "max": 580
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "pack",
+        "type": "poetry",
+        "damage": {
+          "n": 483,
+          "min": 300.23,
+          "p10": 373.09,
+          "median": 699.45,
+          "p90": 1170.44,
+          "max": 1605.98
+        },
+        "per100Ink": {
+          "n": 483,
+          "min": 38.29,
+          "p10": 46.45,
+          "median": 65.05,
+          "p90": 101.09,
+          "max": 138.45
+        },
+        "investment": {
+          "n": 483,
+          "min": 784,
+          "p10": 784,
+          "median": 1160,
+          "p90": 1160,
+          "max": 1160
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "pack",
+        "type": "splash",
+        "damage": {
+          "n": 24,
+          "min": 654.06,
+          "p10": 912.49,
+          "median": 1261.45,
+          "p90": 1450.55,
+          "max": 1994.7
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 159.92,
+          "p10": 223.1,
+          "median": 308.42,
+          "p90": 354.66,
+          "max": 487.7
+        },
+        "investment": {
+          "n": 24,
+          "min": 409,
+          "p10": 409,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "pack",
+        "type": "learning",
+        "damage": {
+          "n": 24,
+          "min": 244.9,
+          "p10": 254.53,
+          "median": 325.99,
+          "p90": 410.98,
+          "max": 704.32
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 59.88,
+          "p10": 62.23,
+          "median": 79.7,
+          "p90": 106.2,
+          "max": 172.2
+        },
+        "investment": {
+          "n": 24,
+          "min": 387,
+          "p10": 409,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "pack",
+        "type": "slow",
+        "damage": {
+          "n": 24,
+          "min": 64,
+          "p10": 68,
+          "median": 98.17,
+          "p90": 120.37,
+          "max": 269.04
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 18.66,
+          "p10": 19.83,
+          "median": 28.62,
+          "p90": 35.09,
+          "max": 78.44
+        },
+        "investment": {
+          "n": 24,
+          "min": 343,
+          "p10": 343,
+          "median": 343,
+          "p90": 343,
+          "max": 343
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "pack",
+        "type": "chain",
+        "damage": {
+          "n": 24,
+          "min": 424.86,
+          "p10": 432.54,
+          "median": 597.92,
+          "p90": 666.71,
+          "max": 966.79
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 77.96,
+          "p10": 79.36,
+          "median": 109.71,
+          "p90": 122.33,
+          "max": 177.39
+        },
+        "investment": {
+          "n": 24,
+          "min": 545,
+          "p10": 545,
+          "median": 545,
+          "p90": 545,
+          "max": 545
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "pack",
+        "type": "fast",
+        "damage": {
+          "n": 24,
+          "min": 219.64,
+          "p10": 226.01,
+          "median": 317.62,
+          "p90": 367.01,
+          "max": 744.77
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 64.04,
+          "p10": 65.89,
+          "median": 92.6,
+          "p90": 107,
+          "max": 217.13
+        },
+        "investment": {
+          "n": 24,
+          "min": 343,
+          "p10": 343,
+          "median": 343,
+          "p90": 343,
+          "max": 343
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "pack",
+        "type": "aura",
+        "damage": {
+          "n": 24,
+          "min": 32.12,
+          "p10": 36.03,
+          "median": 51.47,
+          "p90": 58.01,
+          "max": 149.56
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 7.23,
+          "p10": 8.12,
+          "median": 11.59,
+          "p90": 13.07,
+          "max": 33.68
+        },
+        "investment": {
+          "n": 24,
+          "min": 444,
+          "p10": 444,
+          "median": 444,
+          "p90": 444,
+          "max": 444
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "pack",
+        "type": "poison",
+        "damage": {
+          "n": 24,
+          "min": 225.35,
+          "p10": 255.81,
+          "median": 298.87,
+          "p90": 431.8,
+          "max": 609.95
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 50.75,
+          "p10": 57.62,
+          "median": 67.31,
+          "p90": 97.25,
+          "max": 137.38
+        },
+        "investment": {
+          "n": 24,
+          "min": 444,
+          "p10": 444,
+          "median": 444,
+          "p90": 444,
+          "max": 444
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "pack",
+        "type": "sniper",
+        "damage": {
+          "n": 23,
+          "min": 165.93,
+          "p10": 213.75,
+          "median": 250.35,
+          "p90": 322.15,
+          "max": 701.45
+        },
+        "per100Ink": {
+          "n": 23,
+          "min": 32.54,
+          "p10": 41.91,
+          "median": 49.21,
+          "p90": 63.17,
+          "max": 137.54
+        },
+        "investment": {
+          "n": 23,
+          "min": 483,
+          "p10": 510,
+          "median": 510,
+          "p90": 510,
+          "max": 510
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "pack",
+        "type": "income",
+        "damage": {
+          "n": 24,
+          "min": 20.27,
+          "p10": 24.5,
+          "median": 32.12,
+          "p90": 36.8,
+          "max": 46.38
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 5.42,
+          "p10": 6.55,
+          "median": 8.77,
+          "p90": 9.84,
+          "max": 12.4
+        },
+        "investment": {
+          "n": 24,
+          "min": 354,
+          "p10": 374,
+          "median": 374,
+          "p90": 374,
+          "max": 374
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "pack",
+        "type": "pierce",
+        "damage": {
+          "n": 24,
+          "min": 459.98,
+          "p10": 542.62,
+          "median": 603.42,
+          "p90": 685.79,
+          "max": 758.99
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 96.03,
+          "p10": 113.28,
+          "median": 125.97,
+          "p90": 143.17,
+          "max": 158.45
+        },
+        "investment": {
+          "n": 24,
+          "min": 479,
+          "p10": 479,
+          "median": 479,
+          "p90": 479,
+          "max": 479
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "pack",
+        "type": "pulse",
+        "damage": {
+          "n": 24,
+          "min": 564,
+          "p10": 617.74,
+          "median": 795.66,
+          "p90": 933.16,
+          "max": 989.33
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 127.03,
+          "p10": 139.13,
+          "median": 179.2,
+          "p90": 210.17,
+          "max": 222.82
+        },
+        "investment": {
+          "n": 24,
+          "min": 444,
+          "p10": 444,
+          "median": 444,
+          "p90": 444,
+          "max": 444
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "pack",
+        "type": "mark",
+        "damage": {
+          "n": 24,
+          "min": 114.68,
+          "p10": 120.21,
+          "median": 149.01,
+          "p90": 202.54,
+          "max": 494.3
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 28.04,
+          "p10": 29.39,
+          "median": 36.43,
+          "p90": 52.34,
+          "max": 127.72
+        },
+        "investment": {
+          "n": 24,
+          "min": 387,
+          "p10": 387,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "pack",
+        "type": "echo",
+        "damage": {
+          "n": 24,
+          "min": 246.03,
+          "p10": 256.06,
+          "median": 336.11,
+          "p90": 369.94,
+          "max": 552.81
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 60.15,
+          "p10": 62.61,
+          "median": 82.18,
+          "p90": 90.45,
+          "max": 135.16
+        },
+        "investment": {
+          "n": 24,
+          "min": 409,
+          "p10": 409,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "pack",
+        "type": "basic",
+        "damage": {
+          "n": 24,
+          "min": 137.87,
+          "p10": 195,
+          "median": 218.33,
+          "p90": 243.27,
+          "max": 512.85
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 36.86,
+          "p10": 54.37,
+          "median": 58.41,
+          "p90": 66.52,
+          "max": 137.13
+        },
+        "investment": {
+          "n": 24,
+          "min": 354,
+          "p10": 354,
+          "median": 374,
+          "p90": 374,
+          "max": 374
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "pack",
+        "type": "heavy",
+        "damage": {
+          "n": 24,
+          "min": 299.08,
+          "p10": 310.27,
+          "median": 368,
+          "p90": 472.76,
+          "max": 1161.94
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 51.57,
+          "p10": 53.49,
+          "median": 63.54,
+          "p90": 81.51,
+          "max": 200.33
+        },
+        "investment": {
+          "n": 24,
+          "min": 550,
+          "p10": 580,
+          "median": 580,
+          "p90": 580,
+          "max": 580
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "boss",
+        "type": "poetry",
+        "damage": {
+          "n": 483,
+          "min": 248.92,
+          "p10": 275.18,
+          "median": 409.79,
+          "p90": 670.98,
+          "max": 1011.26
+        },
+        "per100Ink": {
+          "n": 483,
+          "min": 31.75,
+          "p10": 33.12,
+          "median": 39.65,
+          "p90": 57.91,
+          "max": 87.18
+        },
+        "investment": {
+          "n": 483,
+          "min": 784,
+          "p10": 784,
+          "median": 1160,
+          "p90": 1160,
+          "max": 1160
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "boss",
+        "type": "splash",
+        "damage": {
+          "n": 24,
+          "min": 154.57,
+          "p10": 176.37,
+          "median": 225.13,
+          "p90": 269.56,
+          "max": 345.62
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 37.79,
+          "p10": 43.12,
+          "median": 55.04,
+          "p90": 65.91,
+          "max": 84.5
+        },
+        "investment": {
+          "n": 24,
+          "min": 409,
+          "p10": 409,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "boss",
+        "type": "learning",
+        "damage": {
+          "n": 24,
+          "min": 219.42,
+          "p10": 244.9,
+          "median": 286.73,
+          "p90": 360.62,
+          "max": 436.82
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 53.65,
+          "p10": 59.88,
+          "median": 70.11,
+          "p90": 90.26,
+          "max": 106.8
+        },
+        "investment": {
+          "n": 24,
+          "min": 387,
+          "p10": 409,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "boss",
+        "type": "slow",
+        "damage": {
+          "n": 24,
+          "min": 64,
+          "p10": 68,
+          "median": 97.5,
+          "p90": 108,
+          "max": 120.37
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 18.66,
+          "p10": 19.83,
+          "median": 28.43,
+          "p90": 31.49,
+          "max": 35.09
+        },
+        "investment": {
+          "n": 24,
+          "min": 343,
+          "p10": 343,
+          "median": 343,
+          "p90": 343,
+          "max": 343
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "boss",
+        "type": "chain",
+        "damage": {
+          "n": 24,
+          "min": 145.83,
+          "p10": 149.17,
+          "median": 207.58,
+          "p90": 233.12,
+          "max": 258.04
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 26.76,
+          "p10": 27.37,
+          "median": 38.09,
+          "p90": 42.77,
+          "max": 47.35
+        },
+        "investment": {
+          "n": 24,
+          "min": 545,
+          "p10": 545,
+          "median": 545,
+          "p90": 545,
+          "max": 545
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "boss",
+        "type": "fast",
+        "damage": {
+          "n": 24,
+          "min": 219.3,
+          "p10": 225.66,
+          "median": 274.45,
+          "p90": 328.95,
+          "max": 340.5
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 63.94,
+          "p10": 65.79,
+          "median": 80.02,
+          "p90": 95.9,
+          "max": 99.27
+        },
+        "investment": {
+          "n": 24,
+          "min": 343,
+          "p10": 343,
+          "median": 343,
+          "p90": 343,
+          "max": 343
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "boss",
+        "type": "aura",
+        "damage": {
+          "n": 24,
+          "min": 32.12,
+          "p10": 36.03,
+          "median": 45.6,
+          "p90": 57.59,
+          "max": 64.97
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 7.23,
+          "p10": 8.12,
+          "median": 10.27,
+          "p90": 12.97,
+          "max": 14.63
+        },
+        "investment": {
+          "n": 24,
+          "min": 444,
+          "p10": 444,
+          "median": 444,
+          "p90": 444,
+          "max": 444
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "boss",
+        "type": "poison",
+        "damage": {
+          "n": 24,
+          "min": 127.64,
+          "p10": 134.22,
+          "median": 163.62,
+          "p90": 188.28,
+          "max": 216.87
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 28.75,
+          "p10": 30.23,
+          "median": 36.85,
+          "p90": 42.4,
+          "max": 48.84
+        },
+        "investment": {
+          "n": 24,
+          "min": 444,
+          "p10": 444,
+          "median": 444,
+          "p90": 444,
+          "max": 444
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "boss",
+        "type": "sniper",
+        "damage": {
+          "n": 23,
+          "min": 165.93,
+          "p10": 173.53,
+          "median": 245.82,
+          "p90": 320.83,
+          "max": 342.98
+        },
+        "per100Ink": {
+          "n": 23,
+          "min": 32.54,
+          "p10": 34.03,
+          "median": 48.38,
+          "p90": 62.91,
+          "max": 67.25
+        },
+        "investment": {
+          "n": 23,
+          "min": 483,
+          "p10": 510,
+          "median": 510,
+          "p90": 510,
+          "max": 510
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "boss",
+        "type": "income",
+        "damage": {
+          "n": 24,
+          "min": 20.27,
+          "p10": 24.5,
+          "median": 31.2,
+          "p90": 35.88,
+          "max": 46.38
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 5.42,
+          "p10": 6.55,
+          "median": 8.59,
+          "p90": 9.59,
+          "max": 12.4
+        },
+        "investment": {
+          "n": 24,
+          "min": 354,
+          "p10": 374,
+          "median": 374,
+          "p90": 374,
+          "max": 374
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "boss",
+        "type": "pierce",
+        "damage": {
+          "n": 24,
+          "min": 163.63,
+          "p10": 168.44,
+          "median": 224.23,
+          "p90": 253.99,
+          "max": 305.53
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 34.16,
+          "p10": 35.16,
+          "median": 46.81,
+          "p90": 53.03,
+          "max": 63.79
+        },
+        "investment": {
+          "n": 24,
+          "min": 479,
+          "p10": 479,
+          "median": 479,
+          "p90": 479,
+          "max": 479
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "boss",
+        "type": "pulse",
+        "damage": {
+          "n": 24,
+          "min": 70.5,
+          "p10": 77.25,
+          "median": 109.67,
+          "p90": 125.65,
+          "max": 131.16
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 15.88,
+          "p10": 17.4,
+          "median": 24.7,
+          "p90": 28.3,
+          "max": 29.54
+        },
+        "investment": {
+          "n": 24,
+          "min": 444,
+          "p10": 444,
+          "median": 444,
+          "p90": 444,
+          "max": 444
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "boss",
+        "type": "mark",
+        "damage": {
+          "n": 24,
+          "min": 114.68,
+          "p10": 117.44,
+          "median": 141.86,
+          "p90": 168.37,
+          "max": 177.3
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 28.04,
+          "p10": 28.71,
+          "median": 34.68,
+          "p90": 41.17,
+          "max": 45.81
+        },
+        "investment": {
+          "n": 24,
+          "min": 387,
+          "p10": 387,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "boss",
+        "type": "echo",
+        "damage": {
+          "n": 24,
+          "min": 242,
+          "p10": 246.03,
+          "median": 302.96,
+          "p90": 357.9,
+          "max": 369.94
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 59.17,
+          "p10": 60.15,
+          "median": 74.07,
+          "p90": 87.51,
+          "max": 90.45
+        },
+        "investment": {
+          "n": 24,
+          "min": 409,
+          "p10": 409,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "boss",
+        "type": "basic",
+        "damage": {
+          "n": 24,
+          "min": 111.23,
+          "p10": 125.43,
+          "median": 166.14,
+          "p90": 191.7,
+          "max": 196.63
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 29.74,
+          "p10": 35.43,
+          "median": 44.42,
+          "p90": 51.26,
+          "max": 52.58
+        },
+        "investment": {
+          "n": 24,
+          "min": 354,
+          "p10": 354,
+          "median": 374,
+          "p90": 374,
+          "max": 374
+        }
+      },
+      {
+        "group": "max",
+        "scenario": "boss",
+        "type": "heavy",
+        "damage": {
+          "n": 24,
+          "min": 254.07,
+          "p10": 299.08,
+          "median": 351.83,
+          "p90": 393.23,
+          "max": 452.33
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 43.8,
+          "p10": 51.57,
+          "median": 61.54,
+          "p90": 67.8,
+          "max": 77.99
+        },
+        "investment": {
+          "n": 24,
+          "min": 550,
+          "p10": 580,
+          "median": 580,
+          "p90": 580,
+          "max": 580
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "single",
+        "type": "poetry",
+        "damage": {
+          "n": 195,
+          "min": 113.81,
+          "p10": 164.77,
+          "median": 189.39,
+          "p90": 251.04,
+          "max": 307.49
+        },
+        "per100Ink": {
+          "n": 195,
+          "min": 34.49,
+          "p10": 35.94,
+          "median": 41.99,
+          "p90": 54.39,
+          "max": 76.45
+        },
+        "investment": {
+          "n": 195,
+          "min": 330,
+          "p10": 330,
+          "median": 473,
+          "p90": 473,
+          "max": 473
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "single",
+        "type": "splash",
+        "damage": {
+          "n": 24,
+          "min": 154.57,
+          "p10": 176.37,
+          "median": 225.13,
+          "p90": 269.56,
+          "max": 345.62
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 37.79,
+          "p10": 43.12,
+          "median": 55.04,
+          "p90": 65.91,
+          "max": 84.5
+        },
+        "investment": {
+          "n": 24,
+          "min": 409,
+          "p10": 409,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "single",
+        "type": "learning",
+        "damage": {
+          "n": 24,
+          "min": 219.42,
+          "p10": 244.9,
+          "median": 286.73,
+          "p90": 360.62,
+          "max": 436.82
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 53.65,
+          "p10": 59.88,
+          "median": 70.11,
+          "p90": 88.17,
+          "max": 106.8
+        },
+        "investment": {
+          "n": 24,
+          "min": 387,
+          "p10": 409,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "single",
+        "type": "slow",
+        "damage": {
+          "n": 24,
+          "min": 64,
+          "p10": 68,
+          "median": 97.5,
+          "p90": 108,
+          "max": 120.37
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 18.66,
+          "p10": 19.83,
+          "median": 28.43,
+          "p90": 31.49,
+          "max": 35.09
+        },
+        "investment": {
+          "n": 24,
+          "min": 343,
+          "p10": 343,
+          "median": 343,
+          "p90": 343,
+          "max": 343
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "single",
+        "type": "chain",
+        "damage": {
+          "n": 24,
+          "min": 145.83,
+          "p10": 149.17,
+          "median": 207.58,
+          "p90": 233.12,
+          "max": 258.04
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 26.76,
+          "p10": 27.37,
+          "median": 38.09,
+          "p90": 42.77,
+          "max": 47.35
+        },
+        "investment": {
+          "n": 24,
+          "min": 545,
+          "p10": 545,
+          "median": 545,
+          "p90": 545,
+          "max": 545
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "single",
+        "type": "fast",
+        "damage": {
+          "n": 24,
+          "min": 219.3,
+          "p10": 225.66,
+          "median": 274.45,
+          "p90": 328.95,
+          "max": 340.5
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 63.94,
+          "p10": 65.79,
+          "median": 80.02,
+          "p90": 95.9,
+          "max": 99.27
+        },
+        "investment": {
+          "n": 24,
+          "min": 343,
+          "p10": 343,
+          "median": 343,
+          "p90": 343,
+          "max": 343
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "single",
+        "type": "aura",
+        "damage": {
+          "n": 24,
+          "min": 32.12,
+          "p10": 36.03,
+          "median": 45.6,
+          "p90": 57.59,
+          "max": 64.97
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 7.23,
+          "p10": 8.12,
+          "median": 10.27,
+          "p90": 12.97,
+          "max": 14.63
+        },
+        "investment": {
+          "n": 24,
+          "min": 444,
+          "p10": 444,
+          "median": 444,
+          "p90": 444,
+          "max": 444
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "single",
+        "type": "poison",
+        "damage": {
+          "n": 24,
+          "min": 127.64,
+          "p10": 134.22,
+          "median": 163.62,
+          "p90": 188.28,
+          "max": 216.87
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 28.75,
+          "p10": 30.23,
+          "median": 36.85,
+          "p90": 42.4,
+          "max": 48.84
+        },
+        "investment": {
+          "n": 24,
+          "min": 444,
+          "p10": 444,
+          "median": 444,
+          "p90": 444,
+          "max": 444
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "single",
+        "type": "sniper",
+        "damage": {
+          "n": 23,
+          "min": 165.93,
+          "p10": 173.53,
+          "median": 245.82,
+          "p90": 320.83,
+          "max": 342.98
+        },
+        "per100Ink": {
+          "n": 23,
+          "min": 32.54,
+          "p10": 34.03,
+          "median": 48.38,
+          "p90": 62.91,
+          "max": 67.25
+        },
+        "investment": {
+          "n": 23,
+          "min": 483,
+          "p10": 510,
+          "median": 510,
+          "p90": 510,
+          "max": 510
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "single",
+        "type": "income",
+        "damage": {
+          "n": 24,
+          "min": 20.27,
+          "p10": 24.5,
+          "median": 31.2,
+          "p90": 35.88,
+          "max": 46.38
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 5.42,
+          "p10": 6.55,
+          "median": 8.59,
+          "p90": 9.59,
+          "max": 12.4
+        },
+        "investment": {
+          "n": 24,
+          "min": 354,
+          "p10": 374,
+          "median": 374,
+          "p90": 374,
+          "max": 374
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "single",
+        "type": "pierce",
+        "damage": {
+          "n": 24,
+          "min": 163.63,
+          "p10": 168.44,
+          "median": 224.23,
+          "p90": 253.99,
+          "max": 305.53
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 34.16,
+          "p10": 35.16,
+          "median": 46.81,
+          "p90": 53.03,
+          "max": 63.79
+        },
+        "investment": {
+          "n": 24,
+          "min": 479,
+          "p10": 479,
+          "median": 479,
+          "p90": 479,
+          "max": 479
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "single",
+        "type": "pulse",
+        "damage": {
+          "n": 24,
+          "min": 70.5,
+          "p10": 77.25,
+          "median": 109.67,
+          "p90": 125.65,
+          "max": 131.16
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 15.88,
+          "p10": 17.4,
+          "median": 24.7,
+          "p90": 28.3,
+          "max": 29.54
+        },
+        "investment": {
+          "n": 24,
+          "min": 444,
+          "p10": 444,
+          "median": 444,
+          "p90": 444,
+          "max": 444
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "single",
+        "type": "mark",
+        "damage": {
+          "n": 24,
+          "min": 114.68,
+          "p10": 117.44,
+          "median": 141.86,
+          "p90": 168.37,
+          "max": 177.3
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 28.04,
+          "p10": 28.71,
+          "median": 34.68,
+          "p90": 41.17,
+          "max": 45.81
+        },
+        "investment": {
+          "n": 24,
+          "min": 387,
+          "p10": 387,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "single",
+        "type": "echo",
+        "damage": {
+          "n": 24,
+          "min": 242,
+          "p10": 246.03,
+          "median": 302.96,
+          "p90": 357.9,
+          "max": 369.94
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 59.17,
+          "p10": 60.15,
+          "median": 74.07,
+          "p90": 87.51,
+          "max": 90.45
+        },
+        "investment": {
+          "n": 24,
+          "min": 409,
+          "p10": 409,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "single",
+        "type": "basic",
+        "damage": {
+          "n": 24,
+          "min": 111.23,
+          "p10": 125.43,
+          "median": 166.14,
+          "p90": 190.13,
+          "max": 196.63
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 29.74,
+          "p10": 35.43,
+          "median": 44.42,
+          "p90": 50.84,
+          "max": 52.58
+        },
+        "investment": {
+          "n": 24,
+          "min": 354,
+          "p10": 354,
+          "median": 374,
+          "p90": 374,
+          "max": 374
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "single",
+        "type": "heavy",
+        "damage": {
+          "n": 24,
+          "min": 254.07,
+          "p10": 299.08,
+          "median": 351.83,
+          "p90": 393.23,
+          "max": 452.33
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 43.8,
+          "p10": 51.57,
+          "median": 61.54,
+          "p90": 67.8,
+          "max": 77.99
+        },
+        "investment": {
+          "n": 24,
+          "min": 550,
+          "p10": 580,
+          "median": 580,
+          "p90": 580,
+          "max": 580
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "pack",
+        "type": "poetry",
+        "damage": {
+          "n": 195,
+          "min": 153.89,
+          "p10": 225.92,
+          "median": 282.22,
+          "p90": 348.23,
+          "max": 420.57
+        },
+        "per100Ink": {
+          "n": 195,
+          "min": 42.45,
+          "p10": 48.69,
+          "median": 61.51,
+          "p90": 76.45,
+          "max": 126.19
+        },
+        "investment": {
+          "n": 195,
+          "min": 330,
+          "p10": 330,
+          "median": 473,
+          "p90": 473,
+          "max": 473
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "pack",
+        "type": "splash",
+        "damage": {
+          "n": 24,
+          "min": 654.06,
+          "p10": 912.49,
+          "median": 1261.45,
+          "p90": 1450.55,
+          "max": 1994.7
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 159.92,
+          "p10": 223.1,
+          "median": 308.42,
+          "p90": 354.66,
+          "max": 487.7
+        },
+        "investment": {
+          "n": 24,
+          "min": 409,
+          "p10": 409,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "pack",
+        "type": "learning",
+        "damage": {
+          "n": 24,
+          "min": 244.9,
+          "p10": 254.53,
+          "median": 325.99,
+          "p90": 410.98,
+          "max": 704.32
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 59.88,
+          "p10": 62.23,
+          "median": 79.7,
+          "p90": 106.2,
+          "max": 172.2
+        },
+        "investment": {
+          "n": 24,
+          "min": 387,
+          "p10": 409,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "pack",
+        "type": "slow",
+        "damage": {
+          "n": 24,
+          "min": 64,
+          "p10": 68,
+          "median": 98.17,
+          "p90": 120.37,
+          "max": 269.04
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 18.66,
+          "p10": 19.83,
+          "median": 28.62,
+          "p90": 35.09,
+          "max": 78.44
+        },
+        "investment": {
+          "n": 24,
+          "min": 343,
+          "p10": 343,
+          "median": 343,
+          "p90": 343,
+          "max": 343
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "pack",
+        "type": "chain",
+        "damage": {
+          "n": 24,
+          "min": 424.86,
+          "p10": 432.54,
+          "median": 597.92,
+          "p90": 666.71,
+          "max": 966.79
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 77.96,
+          "p10": 79.36,
+          "median": 109.71,
+          "p90": 122.33,
+          "max": 177.39
+        },
+        "investment": {
+          "n": 24,
+          "min": 545,
+          "p10": 545,
+          "median": 545,
+          "p90": 545,
+          "max": 545
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "pack",
+        "type": "fast",
+        "damage": {
+          "n": 24,
+          "min": 219.64,
+          "p10": 226.01,
+          "median": 317.62,
+          "p90": 367.01,
+          "max": 744.77
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 64.04,
+          "p10": 65.89,
+          "median": 92.6,
+          "p90": 107,
+          "max": 217.13
+        },
+        "investment": {
+          "n": 24,
+          "min": 343,
+          "p10": 343,
+          "median": 343,
+          "p90": 343,
+          "max": 343
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "pack",
+        "type": "aura",
+        "damage": {
+          "n": 24,
+          "min": 32.12,
+          "p10": 36.03,
+          "median": 51.47,
+          "p90": 58.01,
+          "max": 149.56
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 7.23,
+          "p10": 8.12,
+          "median": 11.59,
+          "p90": 13.07,
+          "max": 33.68
+        },
+        "investment": {
+          "n": 24,
+          "min": 444,
+          "p10": 444,
+          "median": 444,
+          "p90": 444,
+          "max": 444
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "pack",
+        "type": "poison",
+        "damage": {
+          "n": 24,
+          "min": 225.35,
+          "p10": 255.81,
+          "median": 298.87,
+          "p90": 431.8,
+          "max": 609.95
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 50.75,
+          "p10": 57.62,
+          "median": 67.31,
+          "p90": 97.25,
+          "max": 137.38
+        },
+        "investment": {
+          "n": 24,
+          "min": 444,
+          "p10": 444,
+          "median": 444,
+          "p90": 444,
+          "max": 444
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "pack",
+        "type": "sniper",
+        "damage": {
+          "n": 23,
+          "min": 165.93,
+          "p10": 213.75,
+          "median": 250.35,
+          "p90": 322.15,
+          "max": 701.45
+        },
+        "per100Ink": {
+          "n": 23,
+          "min": 32.54,
+          "p10": 41.91,
+          "median": 49.21,
+          "p90": 63.17,
+          "max": 137.54
+        },
+        "investment": {
+          "n": 23,
+          "min": 483,
+          "p10": 510,
+          "median": 510,
+          "p90": 510,
+          "max": 510
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "pack",
+        "type": "income",
+        "damage": {
+          "n": 24,
+          "min": 20.27,
+          "p10": 24.5,
+          "median": 32.12,
+          "p90": 36.8,
+          "max": 46.38
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 5.42,
+          "p10": 6.55,
+          "median": 8.77,
+          "p90": 9.84,
+          "max": 12.4
+        },
+        "investment": {
+          "n": 24,
+          "min": 354,
+          "p10": 374,
+          "median": 374,
+          "p90": 374,
+          "max": 374
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "pack",
+        "type": "pierce",
+        "damage": {
+          "n": 24,
+          "min": 459.98,
+          "p10": 542.62,
+          "median": 603.42,
+          "p90": 685.79,
+          "max": 758.99
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 96.03,
+          "p10": 113.28,
+          "median": 125.97,
+          "p90": 143.17,
+          "max": 158.45
+        },
+        "investment": {
+          "n": 24,
+          "min": 479,
+          "p10": 479,
+          "median": 479,
+          "p90": 479,
+          "max": 479
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "pack",
+        "type": "pulse",
+        "damage": {
+          "n": 24,
+          "min": 564,
+          "p10": 617.74,
+          "median": 795.66,
+          "p90": 933.16,
+          "max": 989.33
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 127.03,
+          "p10": 139.13,
+          "median": 179.2,
+          "p90": 210.17,
+          "max": 222.82
+        },
+        "investment": {
+          "n": 24,
+          "min": 444,
+          "p10": 444,
+          "median": 444,
+          "p90": 444,
+          "max": 444
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "pack",
+        "type": "mark",
+        "damage": {
+          "n": 24,
+          "min": 114.68,
+          "p10": 120.21,
+          "median": 149.01,
+          "p90": 202.54,
+          "max": 494.3
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 28.04,
+          "p10": 29.39,
+          "median": 36.43,
+          "p90": 52.34,
+          "max": 127.72
+        },
+        "investment": {
+          "n": 24,
+          "min": 387,
+          "p10": 387,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "pack",
+        "type": "echo",
+        "damage": {
+          "n": 24,
+          "min": 246.03,
+          "p10": 256.06,
+          "median": 336.11,
+          "p90": 369.94,
+          "max": 552.81
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 60.15,
+          "p10": 62.61,
+          "median": 82.18,
+          "p90": 90.45,
+          "max": 135.16
+        },
+        "investment": {
+          "n": 24,
+          "min": 409,
+          "p10": 409,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "pack",
+        "type": "basic",
+        "damage": {
+          "n": 24,
+          "min": 137.87,
+          "p10": 195,
+          "median": 218.33,
+          "p90": 243.27,
+          "max": 512.85
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 36.86,
+          "p10": 54.37,
+          "median": 58.41,
+          "p90": 66.52,
+          "max": 137.13
+        },
+        "investment": {
+          "n": 24,
+          "min": 354,
+          "p10": 354,
+          "median": 374,
+          "p90": 374,
+          "max": 374
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "pack",
+        "type": "heavy",
+        "damage": {
+          "n": 24,
+          "min": 299.08,
+          "p10": 310.27,
+          "median": 368,
+          "p90": 472.76,
+          "max": 1161.94
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 51.57,
+          "p10": 53.49,
+          "median": 63.54,
+          "p90": 81.51,
+          "max": 200.33
+        },
+        "investment": {
+          "n": 24,
+          "min": 550,
+          "p10": 580,
+          "median": 580,
+          "p90": 580,
+          "max": 580
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "boss",
+        "type": "poetry",
+        "damage": {
+          "n": 195,
+          "min": 113.81,
+          "p10": 164.77,
+          "median": 189.39,
+          "p90": 251.04,
+          "max": 307.49
+        },
+        "per100Ink": {
+          "n": 195,
+          "min": 34.49,
+          "p10": 35.94,
+          "median": 41.99,
+          "p90": 54.39,
+          "max": 76.45
+        },
+        "investment": {
+          "n": 195,
+          "min": 330,
+          "p10": 330,
+          "median": 473,
+          "p90": 473,
+          "max": 473
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "boss",
+        "type": "splash",
+        "damage": {
+          "n": 24,
+          "min": 154.57,
+          "p10": 176.37,
+          "median": 225.13,
+          "p90": 269.56,
+          "max": 345.62
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 37.79,
+          "p10": 43.12,
+          "median": 55.04,
+          "p90": 65.91,
+          "max": 84.5
+        },
+        "investment": {
+          "n": 24,
+          "min": 409,
+          "p10": 409,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "boss",
+        "type": "learning",
+        "damage": {
+          "n": 24,
+          "min": 219.42,
+          "p10": 244.9,
+          "median": 286.73,
+          "p90": 360.62,
+          "max": 436.82
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 53.65,
+          "p10": 59.88,
+          "median": 70.11,
+          "p90": 90.26,
+          "max": 106.8
+        },
+        "investment": {
+          "n": 24,
+          "min": 387,
+          "p10": 409,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "boss",
+        "type": "slow",
+        "damage": {
+          "n": 24,
+          "min": 64,
+          "p10": 68,
+          "median": 97.5,
+          "p90": 108,
+          "max": 120.37
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 18.66,
+          "p10": 19.83,
+          "median": 28.43,
+          "p90": 31.49,
+          "max": 35.09
+        },
+        "investment": {
+          "n": 24,
+          "min": 343,
+          "p10": 343,
+          "median": 343,
+          "p90": 343,
+          "max": 343
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "boss",
+        "type": "chain",
+        "damage": {
+          "n": 24,
+          "min": 145.83,
+          "p10": 149.17,
+          "median": 207.58,
+          "p90": 233.12,
+          "max": 258.04
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 26.76,
+          "p10": 27.37,
+          "median": 38.09,
+          "p90": 42.77,
+          "max": 47.35
+        },
+        "investment": {
+          "n": 24,
+          "min": 545,
+          "p10": 545,
+          "median": 545,
+          "p90": 545,
+          "max": 545
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "boss",
+        "type": "fast",
+        "damage": {
+          "n": 24,
+          "min": 219.3,
+          "p10": 225.66,
+          "median": 274.45,
+          "p90": 328.95,
+          "max": 340.5
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 63.94,
+          "p10": 65.79,
+          "median": 80.02,
+          "p90": 95.9,
+          "max": 99.27
+        },
+        "investment": {
+          "n": 24,
+          "min": 343,
+          "p10": 343,
+          "median": 343,
+          "p90": 343,
+          "max": 343
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "boss",
+        "type": "aura",
+        "damage": {
+          "n": 24,
+          "min": 32.12,
+          "p10": 36.03,
+          "median": 45.6,
+          "p90": 57.59,
+          "max": 64.97
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 7.23,
+          "p10": 8.12,
+          "median": 10.27,
+          "p90": 12.97,
+          "max": 14.63
+        },
+        "investment": {
+          "n": 24,
+          "min": 444,
+          "p10": 444,
+          "median": 444,
+          "p90": 444,
+          "max": 444
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "boss",
+        "type": "poison",
+        "damage": {
+          "n": 24,
+          "min": 127.64,
+          "p10": 134.22,
+          "median": 163.62,
+          "p90": 188.28,
+          "max": 216.87
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 28.75,
+          "p10": 30.23,
+          "median": 36.85,
+          "p90": 42.4,
+          "max": 48.84
+        },
+        "investment": {
+          "n": 24,
+          "min": 444,
+          "p10": 444,
+          "median": 444,
+          "p90": 444,
+          "max": 444
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "boss",
+        "type": "sniper",
+        "damage": {
+          "n": 23,
+          "min": 165.93,
+          "p10": 173.53,
+          "median": 245.82,
+          "p90": 320.83,
+          "max": 342.98
+        },
+        "per100Ink": {
+          "n": 23,
+          "min": 32.54,
+          "p10": 34.03,
+          "median": 48.38,
+          "p90": 62.91,
+          "max": 67.25
+        },
+        "investment": {
+          "n": 23,
+          "min": 483,
+          "p10": 510,
+          "median": 510,
+          "p90": 510,
+          "max": 510
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "boss",
+        "type": "income",
+        "damage": {
+          "n": 24,
+          "min": 20.27,
+          "p10": 24.5,
+          "median": 31.2,
+          "p90": 35.88,
+          "max": 46.38
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 5.42,
+          "p10": 6.55,
+          "median": 8.59,
+          "p90": 9.59,
+          "max": 12.4
+        },
+        "investment": {
+          "n": 24,
+          "min": 354,
+          "p10": 374,
+          "median": 374,
+          "p90": 374,
+          "max": 374
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "boss",
+        "type": "pierce",
+        "damage": {
+          "n": 24,
+          "min": 163.63,
+          "p10": 168.44,
+          "median": 224.23,
+          "p90": 253.99,
+          "max": 305.53
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 34.16,
+          "p10": 35.16,
+          "median": 46.81,
+          "p90": 53.03,
+          "max": 63.79
+        },
+        "investment": {
+          "n": 24,
+          "min": 479,
+          "p10": 479,
+          "median": 479,
+          "p90": 479,
+          "max": 479
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "boss",
+        "type": "pulse",
+        "damage": {
+          "n": 24,
+          "min": 70.5,
+          "p10": 77.25,
+          "median": 109.67,
+          "p90": 125.65,
+          "max": 131.16
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 15.88,
+          "p10": 17.4,
+          "median": 24.7,
+          "p90": 28.3,
+          "max": 29.54
+        },
+        "investment": {
+          "n": 24,
+          "min": 444,
+          "p10": 444,
+          "median": 444,
+          "p90": 444,
+          "max": 444
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "boss",
+        "type": "mark",
+        "damage": {
+          "n": 24,
+          "min": 114.68,
+          "p10": 117.44,
+          "median": 141.86,
+          "p90": 168.37,
+          "max": 177.3
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 28.04,
+          "p10": 28.71,
+          "median": 34.68,
+          "p90": 41.17,
+          "max": 45.81
+        },
+        "investment": {
+          "n": 24,
+          "min": 387,
+          "p10": 387,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "boss",
+        "type": "echo",
+        "damage": {
+          "n": 24,
+          "min": 242,
+          "p10": 246.03,
+          "median": 302.96,
+          "p90": 357.9,
+          "max": 369.94
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 59.17,
+          "p10": 60.15,
+          "median": 74.07,
+          "p90": 87.51,
+          "max": 90.45
+        },
+        "investment": {
+          "n": 24,
+          "min": 409,
+          "p10": 409,
+          "median": 409,
+          "p90": 409,
+          "max": 409
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "boss",
+        "type": "basic",
+        "damage": {
+          "n": 24,
+          "min": 111.23,
+          "p10": 125.43,
+          "median": 166.14,
+          "p90": 191.7,
+          "max": 196.63
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 29.74,
+          "p10": 35.43,
+          "median": 44.42,
+          "p90": 51.26,
+          "max": 52.58
+        },
+        "investment": {
+          "n": 24,
+          "min": 354,
+          "p10": 354,
+          "median": 374,
+          "p90": 374,
+          "max": 374
+        }
+      },
+      {
+        "group": "level6",
+        "scenario": "boss",
+        "type": "heavy",
+        "damage": {
+          "n": 24,
+          "min": 254.07,
+          "p10": 299.08,
+          "median": 351.83,
+          "p90": 393.23,
+          "max": 452.33
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 43.8,
+          "p10": 51.57,
+          "median": 61.54,
+          "p90": 67.8,
+          "max": 77.99
+        },
+        "investment": {
+          "n": 24,
+          "min": 550,
+          "p10": 580,
+          "median": 580,
+          "p90": 580,
+          "max": 580
+        }
+      },
+      {
+        "group": "native5",
+        "scenario": "single",
+        "type": "poetry",
+        "damage": {
+          "n": 171,
+          "min": 89.89,
+          "p10": 93.06,
+          "median": 108.9,
+          "p90": 142.46,
+          "max": 176.49
+        },
+        "per100Ink": {
+          "n": 171,
+          "min": 33.29,
+          "p10": 34.47,
+          "median": 40.33,
+          "p90": 52.76,
+          "max": 65.37
+        },
+        "investment": {
+          "n": 171,
+          "min": 270,
+          "p10": 270,
+          "median": 270,
+          "p90": 270,
+          "max": 270
+        }
+      },
+      {
+        "group": "native5",
+        "scenario": "pack",
+        "type": "poetry",
+        "damage": {
+          "n": 171,
+          "min": 112.2,
+          "p10": 126.85,
+          "median": 158.4,
+          "p90": 197.9,
+          "max": 244.84
+        },
+        "per100Ink": {
+          "n": 171,
+          "min": 41.56,
+          "p10": 46.98,
+          "median": 58.67,
+          "p90": 73.3,
+          "max": 90.68
+        },
+        "investment": {
+          "n": 171,
+          "min": 270,
+          "p10": 270,
+          "median": 270,
+          "p90": 270,
+          "max": 270
+        }
+      },
+      {
+        "group": "native5",
+        "scenario": "boss",
+        "type": "poetry",
+        "damage": {
+          "n": 171,
+          "min": 89.89,
+          "p10": 93.06,
+          "median": 108.9,
+          "p90": 142.46,
+          "max": 176.49
+        },
+        "per100Ink": {
+          "n": 171,
+          "min": 33.29,
+          "p10": 34.47,
+          "median": 40.33,
+          "p90": 52.76,
+          "max": 65.37
+        },
+        "investment": {
+          "n": 171,
+          "min": 270,
+          "p10": 270,
+          "median": 270,
+          "p90": 270,
+          "max": 270
+        }
+      },
+      {
+        "group": "native6",
+        "scenario": "single",
+        "type": "poetry",
+        "damage": {
+          "n": 24,
+          "min": 113.81,
+          "p10": 118.39,
+          "median": 135.08,
+          "p90": 190.16,
+          "max": 252.3
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 34.49,
+          "p10": 35.87,
+          "median": 40.93,
+          "p90": 57.62,
+          "max": 76.45
+        },
+        "investment": {
+          "n": 24,
+          "min": 330,
+          "p10": 330,
+          "median": 330,
+          "p90": 330,
+          "max": 330
+        }
+      },
+      {
+        "group": "native6",
+        "scenario": "pack",
+        "type": "poetry",
+        "damage": {
+          "n": 24,
+          "min": 153.89,
+          "p10": 212.97,
+          "median": 243.85,
+          "p90": 328.46,
+          "max": 416.42
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 46.63,
+          "p10": 64.54,
+          "median": 73.89,
+          "p90": 99.53,
+          "max": 126.19
+        },
+        "investment": {
+          "n": 24,
+          "min": 330,
+          "p10": 330,
+          "median": 330,
+          "p90": 330,
+          "max": 330
+        }
+      },
+      {
+        "group": "native6",
+        "scenario": "boss",
+        "type": "poetry",
+        "damage": {
+          "n": 24,
+          "min": 113.81,
+          "p10": 118.39,
+          "median": 135.08,
+          "p90": 190.16,
+          "max": 252.3
+        },
+        "per100Ink": {
+          "n": 24,
+          "min": 34.49,
+          "p10": 35.87,
+          "median": 40.93,
+          "p90": 57.62,
+          "max": 76.45
+        },
+        "investment": {
+          "n": 24,
+          "min": 330,
+          "p10": 330,
+          "median": 330,
+          "p90": 330,
+          "max": 330
+        }
+      },
+      {
+        "group": "native7",
+        "scenario": "single",
+        "type": "poetry",
+        "damage": {
+          "n": 288,
+          "min": 133.52,
+          "p10": 141.49,
+          "median": 181.98,
+          "p90": 280.54,
+          "max": 414.26
+        },
+        "per100Ink": {
+          "n": 288,
+          "min": 33.38,
+          "p10": 35.37,
+          "median": 45.49,
+          "p90": 70.13,
+          "max": 103.57
+        },
+        "investment": {
+          "n": 288,
+          "min": 400,
+          "p10": 400,
+          "median": 400,
+          "p90": 400,
+          "max": 400
+        }
+      },
+      {
+        "group": "native7",
+        "scenario": "pack",
+        "type": "poetry",
+        "damage": {
+          "n": 288,
+          "min": 190.34,
+          "p10": 240.24,
+          "median": 357.46,
+          "p90": 499.92,
+          "max": 672.98
+        },
+        "per100Ink": {
+          "n": 288,
+          "min": 47.59,
+          "p10": 60.06,
+          "median": 89.37,
+          "p90": 124.98,
+          "max": 168.24
+        },
+        "investment": {
+          "n": 288,
+          "min": 400,
+          "p10": 400,
+          "median": 400,
+          "p90": 400,
+          "max": 400
+        }
+      },
+      {
+        "group": "native7",
+        "scenario": "boss",
+        "type": "poetry",
+        "damage": {
+          "n": 288,
+          "min": 133.52,
+          "p10": 141.49,
+          "median": 181.98,
+          "p90": 280.54,
+          "max": 414.26
+        },
+        "per100Ink": {
+          "n": 288,
+          "min": 33.38,
+          "p10": 35.37,
+          "median": 45.49,
+          "p90": 70.13,
+          "max": 103.57
+        },
+        "investment": {
+          "n": 288,
+          "min": 400,
+          "p10": 400,
+          "median": 400,
+          "p90": 400,
+          "max": 400
+        }
+      }
+    ]
+  },
+  "maintained": {
+    "date": "2026-11-02",
+    "sourceHashes": {
+      "dist/engine.mjs": "c2724470555c736520e2259f2d7bd0771506b96fd51e812e5144362376cbc046",
+      "dist/poetry-rules.mjs": "43016b5f9e60e0e3d76644e52a827b6b3280acd8ff17f60a7d83d50629ab116f",
+      "dist/poetry-combat.mjs": "74ce73974f29ecad6f6881f05492858e901a6dd4e06561e04fe4f820f06f6d29",
+      "dist/poetry-scenes.mjs": "6bb80c0d31a8f9a1e093ad1def3212818855d1ad3c9766a1b7a8391ddd76274b",
+      "dist/poetry-scene-rules.mjs": "1a3db93796b67dfcd1ebfdaf997c626d45ea70dc447f0c25bfd82bfdcc7b231d",
+      "dist/poetry-impact.mjs": "6a1948153db8e5b214b73a8d512b52974b28b7344aa155c003276931a961691b",
+      "dist/poetry-data.mjs": "b5accdb3cfb093ed3ac5f5c3ed11566a5e5830f3f4b540b87cb6231c3f76c719",
+      "dist/specials.mjs": "7e70298ab8214e98ffc0965e0a5125ebaf5e6c28be741074836d3309299cf945",
+      "tests/strategy.mjs": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a"
+    },
+    "maintenanceEnabled": true,
+    "modes": [
+      "budget6000"
+    ],
+    "method": "按截图选择第2章竹海听风，测主线10轮之后的第11轮、首个无尽轮内三波，30秒间隔、真实随机Boss/护卫/回血/护盾/攻塔/山门伤害。各阵容与条件使用种子1—20，属于配对控制实验，不是独立人类胜率。预设字牌齐备，不计寻找/刷新字牌费用，实际支付建造、阵位解锁与升级费用。budgetNNNN使用该总资金，按相同阵位优先级尽量建塔并预留1000墨点，然后按固定顺序合法升级；阵容形成后不再补塔或升级。max16为16座各自合法满级塔，记录不同建设成本，另留相同1000战斗余额，并非等投入。native8/native16为8/16座未升级塔，另留1000余额，mixed的native8为4常规+4诗塔。maintenanceEnabled=true时沿用同一维护策略、每2秒检查一次并按真实价格维修/重建；false不手动维修，但词塔自身修复和护盾技能照常。落墨使用相同受限策略。战斗不加钱、不启用调试、不削弱敌人。随机诗句按5/6/7字等概率，并按当前早年级70%偏好抽取；其他阵容为明确列出的固定示例，不是最优玩家求解器。敌方HP/护盾属性记录真实扣除量，过量击杀不重复计伤，回复另计。持续伤害没有完整归属来源标签，因此damageBySource不能作为完整的混合队属性输出占比图。胜利表示爱心未耗尽且清完这三波，不表示整个无尽通关。",
+    "cases": 80,
+    "summary": [
+      {
+        "mode": "budget6000",
+        "team": "poetry-random",
+        "cases": 20,
+        "wins": 20,
+        "winRate": 100,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "hearts": {
+          "n": 20,
+          "min": 20,
+          "p10": 20,
+          "median": 20,
+          "p90": 20,
+          "max": 20
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 14,
+          "p10": 14,
+          "median": 14,
+          "p90": 15,
+          "max": 15
+        },
+        "investment": {
+          "n": 20,
+          "min": 4820,
+          "p10": 4830,
+          "median": 4920,
+          "p90": 4983,
+          "max": 5000
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 304,
+          "p90": 558,
+          "max": 897
+        },
+        "damage": {
+          "n": 20,
+          "min": 207286.81,
+          "p10": 208344.11,
+          "median": 227995.83,
+          "p90": 244359.22,
+          "max": 255914.8
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 4575.82,
+          "p10": 7127.22,
+          "median": 13163.69,
+          "p90": 20438.91,
+          "max": 22381.56
+        },
+        "ruins": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 57,
+          "p10": 64,
+          "median": 86,
+          "p90": 102,
+          "max": 108
+        }
+      },
+      {
+        "mode": "budget6000",
+        "team": "poetry-offense",
+        "cases": 20,
+        "wins": 20,
+        "winRate": 100,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "hearts": {
+          "n": 20,
+          "min": 20,
+          "p10": 20,
+          "median": 20,
+          "p90": 20,
+          "max": 20
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 14,
+          "p10": 14,
+          "median": 14,
+          "p90": 14,
+          "max": 14
+        },
+        "investment": {
+          "n": 20,
+          "min": 4960,
+          "p10": 4960,
+          "median": 4960,
+          "p90": 4960,
+          "max": 4960
+        },
+        "repairs": {
+          "n": 20,
+          "min": 41,
+          "p10": 82,
+          "median": 90,
+          "p90": 135,
+          "max": 237
+        },
+        "damage": {
+          "n": 20,
+          "min": 197342.81,
+          "p10": 201655.65,
+          "median": 215668.25,
+          "p90": 229387.53,
+          "max": 235656.79
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 4645.27,
+          "p10": 4789.85,
+          "median": 9955.23,
+          "p90": 12376.59,
+          "max": 16637.65
+        },
+        "ruins": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 55,
+          "p10": 58,
+          "median": 60,
+          "p90": 63,
+          "max": 64
+        }
+      },
+      {
+        "mode": "budget6000",
+        "team": "no-poetry",
+        "cases": 20,
+        "wins": 20,
+        "winRate": 100,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "hearts": {
+          "n": 20,
+          "min": 20,
+          "p10": 20,
+          "median": 20,
+          "p90": 20,
+          "max": 20
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 16,
+          "p10": 16,
+          "median": 16,
+          "p90": 16,
+          "max": 16
+        },
+        "investment": {
+          "n": 20,
+          "min": 4891,
+          "p10": 4891,
+          "median": 4891,
+          "p90": 4891,
+          "max": 4891
+        },
+        "repairs": {
+          "n": 20,
+          "min": 134,
+          "p10": 177,
+          "median": 186,
+          "p90": 215,
+          "max": 266
+        },
+        "damage": {
+          "n": 20,
+          "min": 207219.76,
+          "p10": 209197.32,
+          "median": 221187.06,
+          "p90": 234572.5,
+          "max": 241139.01
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 8341.67,
+          "p10": 9658.2,
+          "median": 13468.87,
+          "p90": 18576.48,
+          "max": 21864.52
+        },
+        "ruins": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        }
+      },
+      {
+        "mode": "budget6000",
+        "team": "mixed",
+        "cases": 20,
+        "wins": 20,
+        "winRate": 100,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "hearts": {
+          "n": 20,
+          "min": 20,
+          "p10": 20,
+          "median": 20,
+          "p90": 20,
+          "max": 20
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 16,
+          "p10": 16,
+          "median": 16,
+          "p90": 16,
+          "max": 16
+        },
+        "investment": {
+          "n": 20,
+          "min": 4917,
+          "p10": 4917,
+          "median": 4917,
+          "p90": 4917,
+          "max": 4917
+        },
+        "repairs": {
+          "n": 20,
+          "min": 208,
+          "p10": 216,
+          "median": 315,
+          "p90": 388,
+          "max": 464
+        },
+        "damage": {
+          "n": 20,
+          "min": 209983.99,
+          "p10": 211110.17,
+          "median": 228473.19,
+          "p90": 237146.31,
+          "max": 251584.4
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 8310.95,
+          "p10": 10643.09,
+          "median": 13851.31,
+          "p90": 19316.53,
+          "max": 23287.71
+        },
+        "ruins": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 22,
+          "p10": 22,
+          "median": 23,
+          "p90": 24,
+          "max": 24
+        }
+      }
+    ]
+  },
+  "stress": {
+    "date": "2026-11-02",
+    "sourceHashes": {
+      "dist/engine.mjs": "c2724470555c736520e2259f2d7bd0771506b96fd51e812e5144362376cbc046",
+      "dist/poetry-rules.mjs": "43016b5f9e60e0e3d76644e52a827b6b3280acd8ff17f60a7d83d50629ab116f",
+      "dist/poetry-combat.mjs": "74ce73974f29ecad6f6881f05492858e901a6dd4e06561e04fe4f820f06f6d29",
+      "dist/poetry-scenes.mjs": "6bb80c0d31a8f9a1e093ad1def3212818855d1ad3c9766a1b7a8391ddd76274b",
+      "dist/poetry-scene-rules.mjs": "1a3db93796b67dfcd1ebfdaf997c626d45ea70dc447f0c25bfd82bfdcc7b231d",
+      "dist/poetry-impact.mjs": "6a1948153db8e5b214b73a8d512b52974b28b7344aa155c003276931a961691b",
+      "dist/poetry-data.mjs": "b5accdb3cfb093ed3ac5f5c3ed11566a5e5830f3f4b540b87cb6231c3f76c719",
+      "dist/specials.mjs": "7e70298ab8214e98ffc0965e0a5125ebaf5e6c28be741074836d3309299cf945",
+      "tests/strategy.mjs": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a"
+    },
+    "maintenanceEnabled": false,
+    "modes": [
+      "budget4000",
+      "budget6000",
+      "native8",
+      "native16"
+    ],
+    "method": "按截图选择第2章竹海听风，测主线10轮之后的第11轮、首个无尽轮内三波，30秒间隔、真实随机Boss/护卫/回血/护盾/攻塔/山门伤害。各阵容与条件使用种子1—20，属于配对控制实验，不是独立人类胜率。预设字牌齐备，不计寻找/刷新字牌费用，实际支付建造、阵位解锁与升级费用。budgetNNNN使用该总资金，按相同阵位优先级尽量建塔并预留1000墨点，然后按固定顺序合法升级；阵容形成后不再补塔或升级。max16为16座各自合法满级塔，记录不同建设成本，另留相同1000战斗余额，并非等投入。native8/native16为8/16座未升级塔，另留1000余额，mixed的native8为4常规+4诗塔。maintenanceEnabled=true时沿用同一维护策略、每2秒检查一次并按真实价格维修/重建；false不手动维修，但词塔自身修复和护盾技能照常。落墨使用相同受限策略。战斗不加钱、不启用调试、不削弱敌人。随机诗句按5/6/7字等概率，并按当前早年级70%偏好抽取；其他阵容为明确列出的固定示例，不是最优玩家求解器。敌方HP/护盾属性记录真实扣除量，过量击杀不重复计伤，回复另计。持续伤害没有完整归属来源标签，因此damageBySource不能作为完整的混合队属性输出占比图。胜利表示爱心未耗尽且清完这三波，不表示整个无尽通关。",
+    "cases": 320,
+    "summary": [
+      {
+        "mode": "budget4000",
+        "team": "poetry-random",
+        "cases": 20,
+        "wins": 0,
+        "winRate": 0,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 20
+        },
+        "hearts": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 8,
+          "p10": 8,
+          "median": 9,
+          "p90": 9,
+          "max": 10
+        },
+        "investment": {
+          "n": 20,
+          "min": 2800,
+          "p10": 2800,
+          "median": 2930,
+          "p90": 3000,
+          "max": 3000
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "damage": {
+          "n": 20,
+          "min": 93369.65,
+          "p10": 94313.49,
+          "median": 142481.77,
+          "p90": 170179.12,
+          "max": 187812.89
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 9058.18,
+          "p10": 13655.24,
+          "median": 18565.98,
+          "p90": 21538,
+          "max": 23245.36
+        },
+        "ruins": {
+          "n": 20,
+          "min": 3,
+          "p10": 3,
+          "median": 5,
+          "p90": 6,
+          "max": 6
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 34,
+          "p10": 36,
+          "median": 47,
+          "p90": 55,
+          "max": 63
+        }
+      },
+      {
+        "mode": "budget4000",
+        "team": "poetry-offense",
+        "cases": 20,
+        "wins": 0,
+        "winRate": 0,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 20
+        },
+        "hearts": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 9,
+          "p10": 9,
+          "median": 9,
+          "p90": 9,
+          "max": 9
+        },
+        "investment": {
+          "n": 20,
+          "min": 2950,
+          "p10": 2950,
+          "median": 2950,
+          "p90": 2950,
+          "max": 2950
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "damage": {
+          "n": 20,
+          "min": 120715.23,
+          "p10": 122044.81,
+          "median": 137242.07,
+          "p90": 155897.2,
+          "max": 163832.54
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 12619.36,
+          "p10": 12851.67,
+          "median": 17604.56,
+          "p90": 22913.11,
+          "max": 23548.69
+        },
+        "ruins": {
+          "n": 20,
+          "min": 5,
+          "p10": 5,
+          "median": 6,
+          "p90": 6,
+          "max": 6
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 34,
+          "p10": 35,
+          "median": 38,
+          "p90": 44,
+          "max": 48
+        }
+      },
+      {
+        "mode": "budget4000",
+        "team": "no-poetry",
+        "cases": 20,
+        "wins": 0,
+        "winRate": 0,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 20
+        },
+        "hearts": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 16,
+          "p10": 16,
+          "median": 16,
+          "p90": 16,
+          "max": 16
+        },
+        "investment": {
+          "n": 20,
+          "min": 2949,
+          "p10": 2949,
+          "median": 2949,
+          "p90": 2949,
+          "max": 2949
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "damage": {
+          "n": 20,
+          "min": 128453.56,
+          "p10": 134808.79,
+          "median": 145608.61,
+          "p90": 153843.34,
+          "max": 156478.19
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 10307.03,
+          "p10": 10703.54,
+          "median": 14851.77,
+          "p90": 19286.22,
+          "max": 20525.6
+        },
+        "ruins": {
+          "n": 20,
+          "min": 9,
+          "p10": 9,
+          "median": 11,
+          "p90": 11,
+          "max": 11
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        }
+      },
+      {
+        "mode": "budget4000",
+        "team": "mixed",
+        "cases": 20,
+        "wins": 0,
+        "winRate": 0,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 20
+        },
+        "hearts": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 15,
+          "p10": 15,
+          "median": 15,
+          "p90": 15,
+          "max": 15
+        },
+        "investment": {
+          "n": 20,
+          "min": 2942,
+          "p10": 2942,
+          "median": 2942,
+          "p90": 2942,
+          "max": 2942
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "damage": {
+          "n": 20,
+          "min": 116963.98,
+          "p10": 120621.48,
+          "median": 128466.95,
+          "p90": 150988.14,
+          "max": 152207.56
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 11087.89,
+          "p10": 11530.24,
+          "median": 16299.14,
+          "p90": 22364.55,
+          "max": 22706.86
+        },
+        "ruins": {
+          "n": 20,
+          "min": 10,
+          "p10": 10,
+          "median": 11,
+          "p90": 11,
+          "max": 11
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 15,
+          "p10": 15,
+          "median": 16,
+          "p90": 18,
+          "max": 18
+        }
+      },
+      {
+        "mode": "budget6000",
+        "team": "poetry-random",
+        "cases": 20,
+        "wins": 19,
+        "winRate": 95,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 1
+        },
+        "hearts": {
+          "n": 20,
+          "min": 0,
+          "p10": 4,
+          "median": 20,
+          "p90": 20,
+          "max": 20
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 14,
+          "p10": 14,
+          "median": 14,
+          "p90": 15,
+          "max": 15
+        },
+        "investment": {
+          "n": 20,
+          "min": 4820,
+          "p10": 4830,
+          "median": 4920,
+          "p90": 4983,
+          "max": 5000
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "damage": {
+          "n": 20,
+          "min": 208068.65,
+          "p10": 208532.86,
+          "median": 229497.1,
+          "p90": 244881.17,
+          "max": 259788.59
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 4575.82,
+          "p10": 7315.97,
+          "median": 13871.3,
+          "p90": 24028.65,
+          "max": 26125.38
+        },
+        "ruins": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 4,
+          "p90": 8,
+          "max": 9
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 57,
+          "p10": 64,
+          "median": 81,
+          "p90": 94,
+          "max": 100
+        }
+      },
+      {
+        "mode": "budget6000",
+        "team": "poetry-offense",
+        "cases": 20,
+        "wins": 20,
+        "winRate": 100,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "hearts": {
+          "n": 20,
+          "min": 20,
+          "p10": 20,
+          "median": 20,
+          "p90": 20,
+          "max": 20
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 14,
+          "p10": 14,
+          "median": 14,
+          "p90": 14,
+          "max": 14
+        },
+        "investment": {
+          "n": 20,
+          "min": 4960,
+          "p10": 4960,
+          "median": 4960,
+          "p90": 4960,
+          "max": 4960
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "damage": {
+          "n": 20,
+          "min": 197342.81,
+          "p10": 202236.65,
+          "median": 215668.25,
+          "p90": 229297.47,
+          "max": 236325.22
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 4645.27,
+          "p10": 4789.85,
+          "median": 9865.18,
+          "p90": 12298.85,
+          "max": 15964.04
+        },
+        "ruins": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 2,
+          "max": 3
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 55,
+          "p10": 56,
+          "median": 59,
+          "p90": 62,
+          "max": 63
+        }
+      },
+      {
+        "mode": "budget6000",
+        "team": "no-poetry",
+        "cases": 20,
+        "wins": 20,
+        "winRate": 100,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "hearts": {
+          "n": 20,
+          "min": 20,
+          "p10": 20,
+          "median": 20,
+          "p90": 20,
+          "max": 20
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 16,
+          "p10": 16,
+          "median": 16,
+          "p90": 16,
+          "max": 16
+        },
+        "investment": {
+          "n": 20,
+          "min": 4891,
+          "p10": 4891,
+          "median": 4891,
+          "p90": 4891,
+          "max": 4891
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "damage": {
+          "n": 20,
+          "min": 206729.69,
+          "p10": 209152.73,
+          "median": 220973.39,
+          "p90": 235304.34,
+          "max": 240319.78
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 8341.67,
+          "p10": 9655.39,
+          "median": 13067.11,
+          "p90": 18674.22,
+          "max": 22778.15
+        },
+        "ruins": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 1,
+          "p90": 2,
+          "max": 3
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        }
+      },
+      {
+        "mode": "budget6000",
+        "team": "mixed",
+        "cases": 20,
+        "wins": 20,
+        "winRate": 100,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "hearts": {
+          "n": 20,
+          "min": 12,
+          "p10": 16,
+          "median": 20,
+          "p90": 20,
+          "max": 20
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 16,
+          "p10": 16,
+          "median": 16,
+          "p90": 16,
+          "max": 16
+        },
+        "investment": {
+          "n": 20,
+          "min": 4917,
+          "p10": 4917,
+          "median": 4917,
+          "p90": 4917,
+          "max": 4917
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "damage": {
+          "n": 20,
+          "min": 216982.07,
+          "p10": 219109.43,
+          "median": 231972.64,
+          "p90": 244284.76,
+          "max": 261455.42
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 9075.35,
+          "p10": 11961.03,
+          "median": 15258.42,
+          "p90": 20567.47,
+          "max": 27266.01
+        },
+        "ruins": {
+          "n": 20,
+          "min": 4,
+          "p10": 4,
+          "median": 4,
+          "p90": 5,
+          "max": 5
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 22,
+          "p10": 22,
+          "median": 23,
+          "p90": 24,
+          "max": 25
+        }
+      },
+      {
+        "mode": "native8",
+        "team": "poetry-random",
+        "cases": 20,
+        "wins": 0,
+        "winRate": 0,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 20
+        },
+        "hearts": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 8,
+          "p10": 8,
+          "median": 8,
+          "p90": 8,
+          "max": 8
+        },
+        "investment": {
+          "n": 20,
+          "min": 2350,
+          "p10": 2410,
+          "median": 2600,
+          "p90": 2730,
+          "max": 2800
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "damage": {
+          "n": 20,
+          "min": 79375.29,
+          "p10": 87880.19,
+          "median": 112175.8,
+          "p90": 170179.12,
+          "max": 182574.12
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 8310.06,
+          "p10": 11086.47,
+          "median": 14631.57,
+          "p90": 19416.33,
+          "max": 23824.78
+        },
+        "ruins": {
+          "n": 20,
+          "min": 4,
+          "p10": 4,
+          "median": 4,
+          "p90": 5,
+          "max": 5
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 30,
+          "p10": 31,
+          "median": 36,
+          "p90": 45,
+          "max": 56
+        }
+      },
+      {
+        "mode": "native8",
+        "team": "poetry-offense",
+        "cases": 20,
+        "wins": 0,
+        "winRate": 0,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 20
+        },
+        "hearts": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 8,
+          "p10": 8,
+          "median": 8,
+          "p90": 8,
+          "max": 8
+        },
+        "investment": {
+          "n": 20,
+          "min": 2680,
+          "p10": 2680,
+          "median": 2680,
+          "p90": 2680,
+          "max": 2680
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "damage": {
+          "n": 20,
+          "min": 107812.07,
+          "p10": 109315.48,
+          "median": 129437.2,
+          "p90": 146576.5,
+          "max": 152040.63
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 10124.22,
+          "p10": 11563.83,
+          "median": 15228.15,
+          "p90": 21155.6,
+          "max": 24449.49
+        },
+        "ruins": {
+          "n": 20,
+          "min": 4,
+          "p10": 4,
+          "median": 5,
+          "p90": 5,
+          "max": 6
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 27,
+          "p10": 31,
+          "median": 34,
+          "p90": 40,
+          "max": 41
+        }
+      },
+      {
+        "mode": "native8",
+        "team": "no-poetry",
+        "cases": 20,
+        "wins": 0,
+        "winRate": 0,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 20
+        },
+        "hearts": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 8,
+          "p10": 8,
+          "median": 8,
+          "p90": 8,
+          "max": 8
+        },
+        "investment": {
+          "n": 20,
+          "min": 1235,
+          "p10": 1235,
+          "median": 1235,
+          "p90": 1235,
+          "max": 1235
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "damage": {
+          "n": 20,
+          "min": 42267.02,
+          "p10": 43304.6,
+          "median": 56039.92,
+          "p90": 58656.48,
+          "max": 61242.25
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 4863.53,
+          "p10": 4994.93,
+          "median": 6408.51,
+          "p90": 8266.01,
+          "max": 11894.37
+        },
+        "ruins": {
+          "n": 20,
+          "min": 4,
+          "p10": 4,
+          "median": 4,
+          "p90": 5,
+          "max": 5
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        }
+      },
+      {
+        "mode": "native8",
+        "team": "mixed",
+        "cases": 20,
+        "wins": 0,
+        "winRate": 0,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 20
+        },
+        "hearts": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 8,
+          "p10": 8,
+          "median": 8,
+          "p90": 8,
+          "max": 8
+        },
+        "investment": {
+          "n": 20,
+          "min": 1845,
+          "p10": 1845,
+          "median": 1845,
+          "p90": 1845,
+          "max": 1845
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "damage": {
+          "n": 20,
+          "min": 59850.01,
+          "p10": 62091.68,
+          "median": 74485.74,
+          "p90": 84917.91,
+          "max": 88689.71
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 5658.85,
+          "p10": 6191.82,
+          "median": 8391.92,
+          "p90": 12537.78,
+          "max": 14076.9
+        },
+        "ruins": {
+          "n": 20,
+          "min": 4,
+          "p10": 4,
+          "median": 4,
+          "p90": 4,
+          "max": 5
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 11,
+          "p10": 11,
+          "median": 12,
+          "p90": 13,
+          "max": 15
+        }
+      },
+      {
+        "mode": "native16",
+        "team": "poetry-random",
+        "cases": 20,
+        "wins": 20,
+        "winRate": 100,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "hearts": {
+          "n": 20,
+          "min": 10,
+          "p10": 12,
+          "median": 20,
+          "p90": 20,
+          "max": 20
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 16,
+          "p10": 16,
+          "median": 16,
+          "p90": 16,
+          "max": 16
+        },
+        "investment": {
+          "n": 20,
+          "min": 5280,
+          "p10": 5290,
+          "median": 5550,
+          "p90": 5690,
+          "max": 5950
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "damage": {
+          "n": 20,
+          "min": 206316.06,
+          "p10": 208332.78,
+          "median": 229367.97,
+          "p90": 248260,
+          "max": 255160.42
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 5076.77,
+          "p10": 6191.32,
+          "median": 12055.5,
+          "p90": 21185.35,
+          "max": 23275.1
+        },
+        "ruins": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 2,
+          "p90": 7,
+          "max": 9
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 62,
+          "p10": 69,
+          "median": 84,
+          "p90": 98,
+          "max": 105
+        }
+      },
+      {
+        "mode": "native16",
+        "team": "poetry-offense",
+        "cases": 20,
+        "wins": 20,
+        "winRate": 100,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "hearts": {
+          "n": 20,
+          "min": 20,
+          "p10": 20,
+          "median": 20,
+          "p90": 20,
+          "max": 20
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 16,
+          "p10": 16,
+          "median": 16,
+          "p90": 16,
+          "max": 16
+        },
+        "investment": {
+          "n": 20,
+          "min": 5380,
+          "p10": 5380,
+          "median": 5380,
+          "p90": 5380,
+          "max": 5380
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "damage": {
+          "n": 20,
+          "min": 202287.98,
+          "p10": 208287.84,
+          "median": 220745.37,
+          "p90": 236470.96,
+          "max": 249396.42
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 7415.75,
+          "p10": 7894.45,
+          "median": 11592.31,
+          "p90": 15802.9,
+          "max": 20805.82
+        },
+        "ruins": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 1,
+          "p90": 4,
+          "max": 6
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 65,
+          "p10": 66,
+          "median": 69,
+          "p90": 75,
+          "max": 80
+        }
+      },
+      {
+        "mode": "native16",
+        "team": "no-poetry",
+        "cases": 20,
+        "wins": 0,
+        "winRate": 0,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 20
+        },
+        "hearts": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 16,
+          "p10": 16,
+          "median": 16,
+          "p90": 16,
+          "max": 16
+        },
+        "investment": {
+          "n": 20,
+          "min": 2702,
+          "p10": 2702,
+          "median": 2702,
+          "p90": 2702,
+          "max": 2702
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "damage": {
+          "n": 20,
+          "min": 103950.03,
+          "p10": 104879.68,
+          "median": 112848.73,
+          "p90": 126797.95,
+          "max": 134138.76
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 8984.81,
+          "p10": 9837.67,
+          "median": 12636.27,
+          "p90": 18079.49,
+          "max": 19975.78
+        },
+        "ruins": {
+          "n": 20,
+          "min": 10,
+          "p10": 11,
+          "median": 11,
+          "p90": 11,
+          "max": 12
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        }
+      },
+      {
+        "mode": "native16",
+        "team": "mixed",
+        "cases": 20,
+        "wins": 0,
+        "winRate": 0,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 20
+        },
+        "hearts": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 16,
+          "p10": 16,
+          "median": 16,
+          "p90": 16,
+          "max": 16
+        },
+        "investment": {
+          "n": 20,
+          "min": 3336,
+          "p10": 3336,
+          "median": 3336,
+          "p90": 3336,
+          "max": 3336
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "damage": {
+          "n": 20,
+          "min": 124708.49,
+          "p10": 125155.81,
+          "median": 136041.7,
+          "p90": 157530.97,
+          "max": 160636.47
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 10470.38,
+          "p10": 13007.19,
+          "median": 16267.14,
+          "p90": 22626.81,
+          "max": 23594.05
+        },
+        "ruins": {
+          "n": 20,
+          "min": 9,
+          "p10": 10,
+          "median": 11,
+          "p90": 11,
+          "max": 11
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 18,
+          "p10": 18,
+          "median": 19,
+          "p90": 22,
+          "max": 22
+        }
+      }
+    ]
+  },
+  "endless": {
+    "date": "2026-11-02",
+    "sourceHashes": {
+      "dist/engine.mjs": "c2724470555c736520e2259f2d7bd0771506b96fd51e812e5144362376cbc046",
+      "dist/poetry-rules.mjs": "43016b5f9e60e0e3d76644e52a827b6b3280acd8ff17f60a7d83d50629ab116f",
+      "dist/poetry-combat.mjs": "74ce73974f29ecad6f6881f05492858e901a6dd4e06561e04fe4f820f06f6d29",
+      "dist/poetry-scenes.mjs": "6bb80c0d31a8f9a1e093ad1def3212818855d1ad3c9766a1b7a8391ddd76274b",
+      "dist/poetry-scene-rules.mjs": "1a3db93796b67dfcd1ebfdaf997c626d45ea70dc447f0c25bfd82bfdcc7b231d",
+      "dist/poetry-impact.mjs": "6a1948153db8e5b214b73a8d512b52974b28b7344aa155c003276931a961691b",
+      "dist/poetry-data.mjs": "b5accdb3cfb093ed3ac5f5c3ed11566a5e5830f3f4b540b87cb6231c3f76c719",
+      "dist/specials.mjs": "7e70298ab8214e98ffc0965e0a5125ebaf5e6c28be741074836d3309299cf945",
+      "tests/strategy.mjs": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a"
+    },
+    "maintenanceEnabled": true,
+    "modes": [
+      "budget8000",
+      "max16"
+    ],
+    "method": "按截图选择第2章竹海听风，测主线10轮之后的第11轮、首个无尽轮内三波，30秒间隔、真实随机Boss/护卫/回血/护盾/攻塔/山门伤害。各阵容与条件使用种子1—20，属于配对控制实验，不是独立人类胜率。预设字牌齐备，不计寻找/刷新字牌费用，实际支付建造、阵位解锁与升级费用。budgetNNNN使用该总资金，按相同阵位优先级尽量建塔并预留1000墨点，然后按固定顺序合法升级；阵容形成后不再补塔或升级。max16为16座各自合法满级塔，记录不同建设成本，另留相同1000战斗余额，并非等投入。native8/native16为8/16座未升级塔，另留1000余额，mixed的native8为4常规+4诗塔。maintenanceEnabled=true时沿用同一维护策略、每2秒检查一次并按真实价格维修/重建；false不手动维修，但词塔自身修复和护盾技能照常。落墨使用相同受限策略。战斗不加钱、不启用调试、不削弱敌人。随机诗句按5/6/7字等概率，并按当前早年级70%偏好抽取；其他阵容为明确列出的固定示例，不是最优玩家求解器。敌方HP/护盾属性记录真实扣除量，过量击杀不重复计伤，回复另计。持续伤害没有完整归属来源标签，因此damageBySource不能作为完整的混合队属性输出占比图。胜利表示爱心未耗尽且清完这三波，不表示整个无尽通关。",
+    "cases": 160,
+    "summary": [
+      {
+        "mode": "budget8000",
+        "team": "poetry-random",
+        "cases": 20,
+        "wins": 20,
+        "winRate": 100,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "hearts": {
+          "n": 20,
+          "min": 20,
+          "p10": 20,
+          "median": 20,
+          "p90": 20,
+          "max": 20
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 16,
+          "p10": 16,
+          "median": 16,
+          "p90": 16,
+          "max": 16
+        },
+        "investment": {
+          "n": 20,
+          "min": 6804,
+          "p10": 6811,
+          "median": 6913,
+          "p90": 6980,
+          "max": 6980
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 104,
+          "p90": 226,
+          "max": 263
+        },
+        "damage": {
+          "n": 20,
+          "min": 198775.48,
+          "p10": 203958.8,
+          "median": 214963.65,
+          "p90": 229919.36,
+          "max": 236442.1
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 2034.68,
+          "p10": 3973.82,
+          "median": 9172.43,
+          "p90": 12225.19,
+          "max": 16073.7
+        },
+        "ruins": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 55,
+          "p10": 56,
+          "median": 66,
+          "p90": 75,
+          "max": 85
+        }
+      },
+      {
+        "mode": "budget8000",
+        "team": "poetry-offense",
+        "cases": 20,
+        "wins": 20,
+        "winRate": 100,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "hearts": {
+          "n": 20,
+          "min": 20,
+          "p10": 20,
+          "median": 20,
+          "p90": 20,
+          "max": 20
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 16,
+          "p10": 16,
+          "median": 16,
+          "p90": 16,
+          "max": 16
+        },
+        "investment": {
+          "n": 20,
+          "min": 6889,
+          "p10": 6889,
+          "median": 6889,
+          "p90": 6889,
+          "max": 6889
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 41,
+          "p90": 87,
+          "max": 91
+        },
+        "damage": {
+          "n": 20,
+          "min": 194690.16,
+          "p10": 199086.21,
+          "median": 207130.77,
+          "p90": 220781.39,
+          "max": 229127.34
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 2123.63,
+          "p10": 2337.26,
+          "median": 4618.8,
+          "p90": 6894.61,
+          "max": 9050.12
+        },
+        "ruins": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 46,
+          "p10": 46,
+          "median": 48,
+          "p90": 51,
+          "max": 52
+        }
+      },
+      {
+        "mode": "budget8000",
+        "team": "no-poetry",
+        "cases": 20,
+        "wins": 20,
+        "winRate": 100,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "hearts": {
+          "n": 20,
+          "min": 20,
+          "p10": 20,
+          "median": 20,
+          "p90": 20,
+          "max": 20
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 16,
+          "p10": 16,
+          "median": 16,
+          "p90": 16,
+          "max": 16
+        },
+        "investment": {
+          "n": 20,
+          "min": 6946,
+          "p10": 6946,
+          "median": 6946,
+          "p90": 6946,
+          "max": 6946
+        },
+        "repairs": {
+          "n": 20,
+          "min": 62,
+          "p10": 62,
+          "median": 63,
+          "p90": 64,
+          "max": 136
+        },
+        "damage": {
+          "n": 20,
+          "min": 202320.56,
+          "p10": 203425.1,
+          "median": 215182.24,
+          "p90": 230965.27,
+          "max": 234338.67
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 4705.02,
+          "p10": 5322.3,
+          "median": 9146.16,
+          "p90": 12490.36,
+          "max": 14962.65
+        },
+        "ruins": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        }
+      },
+      {
+        "mode": "budget8000",
+        "team": "mixed",
+        "cases": 20,
+        "wins": 20,
+        "winRate": 100,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "hearts": {
+          "n": 20,
+          "min": 20,
+          "p10": 20,
+          "median": 20,
+          "p90": 20,
+          "max": 20
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 16,
+          "p10": 16,
+          "median": 16,
+          "p90": 16,
+          "max": 16
+        },
+        "investment": {
+          "n": 20,
+          "min": 6881,
+          "p10": 6881,
+          "median": 6881,
+          "p90": 6881,
+          "max": 6881
+        },
+        "repairs": {
+          "n": 20,
+          "min": 62,
+          "p10": 62,
+          "median": 64,
+          "p90": 68,
+          "max": 126
+        },
+        "damage": {
+          "n": 20,
+          "min": 208278.91,
+          "p10": 209611.88,
+          "median": 223206.47,
+          "p90": 234792.57,
+          "max": 244730.17
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 10071.43,
+          "p10": 10134.32,
+          "median": 12730.92,
+          "p90": 19224.8,
+          "max": 22385.92
+        },
+        "ruins": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 16,
+          "p10": 17,
+          "median": 18,
+          "p90": 19,
+          "max": 19
+        }
+      },
+      {
+        "mode": "max16",
+        "team": "poetry-random",
+        "cases": 20,
+        "wins": 20,
+        "winRate": 100,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "hearts": {
+          "n": 20,
+          "min": 20,
+          "p10": 20,
+          "median": 20,
+          "p90": 20,
+          "max": 20
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 16,
+          "p10": 16,
+          "median": 16,
+          "p90": 16,
+          "max": 16
+        },
+        "investment": {
+          "n": 20,
+          "min": 14787,
+          "p10": 14817,
+          "median": 15569,
+          "p90": 15975,
+          "max": 16727
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 208
+        },
+        "damage": {
+          "n": 20,
+          "min": 192605.13,
+          "p10": 196910.58,
+          "median": 202193.12,
+          "p90": 216423.32,
+          "max": 224996.14
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 209.96,
+          "p10": 265.29,
+          "median": 1352.71,
+          "p90": 3095.92,
+          "max": 5285.37
+        },
+        "ruins": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 39,
+          "p10": 39,
+          "median": 44,
+          "p90": 50,
+          "max": 52
+        }
+      },
+      {
+        "mode": "max16",
+        "team": "poetry-offense",
+        "cases": 20,
+        "wins": 20,
+        "winRate": 100,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "hearts": {
+          "n": 20,
+          "min": 20,
+          "p10": 20,
+          "median": 20,
+          "p90": 20,
+          "max": 20
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 16,
+          "p10": 16,
+          "median": 16,
+          "p90": 16,
+          "max": 16
+        },
+        "investment": {
+          "n": 20,
+          "min": 15080,
+          "p10": 15080,
+          "median": 15080,
+          "p90": 15080,
+          "max": 15080
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "damage": {
+          "n": 20,
+          "min": 192490.22,
+          "p10": 196280.3,
+          "median": 202994.54,
+          "p90": 215167.65,
+          "max": 224940.59
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 426.74,
+          "p10": 441.55,
+          "median": 1179.65,
+          "p90": 2988.54,
+          "max": 3787.34
+        },
+        "ruins": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 36,
+          "p10": 36,
+          "median": 38,
+          "p90": 40,
+          "max": 41
+        }
+      },
+      {
+        "mode": "max16",
+        "team": "no-poetry",
+        "cases": 20,
+        "wins": 20,
+        "winRate": 100,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "hearts": {
+          "n": 20,
+          "min": 20,
+          "p10": 20,
+          "median": 20,
+          "p90": 20,
+          "max": 20
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 16,
+          "p10": 16,
+          "median": 16,
+          "p90": 16,
+          "max": 16
+        },
+        "investment": {
+          "n": 20,
+          "min": 7284,
+          "p10": 7284,
+          "median": 7284,
+          "p90": 7284,
+          "max": 7284
+        },
+        "repairs": {
+          "n": 20,
+          "min": 62,
+          "p10": 62,
+          "median": 63,
+          "p90": 64,
+          "max": 136
+        },
+        "damage": {
+          "n": 20,
+          "min": 202320.56,
+          "p10": 203425.1,
+          "median": 215182.24,
+          "p90": 230965.27,
+          "max": 234338.67
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 4705.02,
+          "p10": 5322.3,
+          "median": 9146.16,
+          "p90": 12490.36,
+          "max": 14962.65
+        },
+        "ruins": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        }
+      },
+      {
+        "mode": "max16",
+        "team": "mixed",
+        "cases": 20,
+        "wins": 20,
+        "winRate": 100,
+        "failedByPart": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "hearts": {
+          "n": 20,
+          "min": 20,
+          "p10": 20,
+          "median": 20,
+          "p90": 20,
+          "max": 20
+        },
+        "towerCount": {
+          "n": 20,
+          "min": 16,
+          "p10": 16,
+          "median": 16,
+          "p90": 16,
+          "max": 16
+        },
+        "investment": {
+          "n": 20,
+          "min": 9125,
+          "p10": 9125,
+          "median": 9125,
+          "p90": 9125,
+          "max": 9125
+        },
+        "repairs": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 63,
+          "max": 68
+        },
+        "damage": {
+          "n": 20,
+          "min": 201424.43,
+          "p10": 205560.85,
+          "median": 218903.72,
+          "p90": 232323.31,
+          "max": 237640.31
+        },
+        "enemyHealing": {
+          "n": 20,
+          "min": 6621.41,
+          "p10": 6793.12,
+          "median": 11514.15,
+          "p90": 16005.97,
+          "max": 18790.53
+        },
+        "ruins": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "globalLockPercent": {
+          "n": 20,
+          "min": 0,
+          "p10": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "poetryCasts": {
+          "n": 20,
+          "min": 19,
+          "p10": 19,
+          "median": 20,
+          "p90": 20,
+          "max": 20
+        }
+      }
+    ]
+  }
+}

@@ -123,7 +123,7 @@ export function drawPoetryEffect(ctx,f,progress,{reduced=false,decorate=true,uni
  if(f.kind==='poem-ink'){
   drawPoetryProjectile(ctx,f,progress,{reduced,decorate,unit});return;
  }
- const field=l.field,wide=f.field,center=wide?{x:450,y:255}:to,radius=wide?380:75+phase*45;
+ const field=f.fieldKinds??l.field,wide=f.field,center=wide?{x:450,y:255}:to,radius=wide?380:75+phase*45;
  if(wide){
   ctx.save();ctx.globalAlpha*=.35;ctx.strokeStyle=color;ctx.lineWidth=2;
   ctx.beginPath();ctx.ellipse(center.x,center.y,420,225,0,0,7);ctx.stroke();ctx.setLineDash([10,13]);ctx.beginPath();ctx.ellipse(center.x,center.y,404,210,0,0,7);ctx.stroke();ctx.restore();

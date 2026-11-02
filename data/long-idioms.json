@@ -1,0 +1,14 @@
+{
+  "百闻不如一见": {
+    "kind": "idiom",
+    "group": "观察求证",
+    "meaning": "听别人说上一百次，也不如自己亲眼看一次。提醒我们亲自观察、核实，不能只凭传闻。",
+    "culture": true,
+    "special": "precision",
+    "move": "precision",
+    "cost": 330,
+    "damage": 132,
+    "range": 270,
+    "rate": 1.35
+  }
+}

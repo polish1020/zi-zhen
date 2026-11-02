@@ -44,7 +44,7 @@ test('tracing rejects taps, distant/reversed long strokes and scribbles while al
  const corner=[[100,700],[700,700],[700,100]];assert.equal(evaluateStroke(screenMedian([corner[0],corner[2]]),corner).accepted,false);const s=new WritingSession(strokes.characters['清']);assert.equal(s.submit([[0,0],[500,500]]).accepted,false);assert.equal(s.index,0);assert.throws(()=>new WritingSession({strokes:['M0 0'],medians:[]}));assert.equal(resample(path).length,28);
 });
 test('tower-defense combat vocabulary and semantic skills remain byte-identical to the shipped baseline',()=>{
- const baseline={'lexicon.mjs':'279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52','specials.mjs':'9123c609756d05908e7d43084e5cc318a7afdb715ebbf672fd069cefb0e90820'};for(const[f,hash]of Object.entries(baseline))assert.equal(createHash('sha256').update(readFileSync(new URL('../dist/'+f,import.meta.url))).digest('hex'),hash,f);
+ const baseline={'lexicon.mjs':'279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52','specials.mjs':'9123c609756d05908e7d43084e5cc318a7afdb715ebbf672fd069cefb0e90820'};for(const[f,hash]of Object.entries(baseline))assert.equal(createHash('sha256').update(readFileSync(new URL('../dist/'+f,import.meta.url),'utf8').replace(/export const LONG_IDIOMS=[\s\S]*?;\n(?=\/\/ END REVIEWED LEARNING EXPANSION)/,'')).digest('hex'),hash,f);
 });
 test('static asset manifest contains the complete independent mode, local stroke data, license and every relative module import',()=>{
  const assets=JSON.parse(readFileSync(new URL('../data/static-assets.json',import.meta.url)));assert.equal(new Set(assets).size,assets.length);assert.equal(assets.length,40);

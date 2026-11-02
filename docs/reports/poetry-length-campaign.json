@@ -1,0 +1,194 @@
+{
+  "date": "2026-11-02",
+  "method": "Production 10-chapter campaigns; two existing strategies, same seeds 1–20 per chapter, paid skills/maintenance, real random hands including long idioms. No forced outcome quotas; hearts >0 at campaign clear is victory; ruins allowed. 400 simulations are strategy fixtures, not independent human players. Source hashes asserted after each run.",
+  "games": 400,
+  "wins": 273,
+  "chapters": [
+    {
+      "chapter": 1,
+      "wins": 40,
+      "total": 40
+    },
+    {
+      "chapter": 2,
+      "wins": 31,
+      "total": 40
+    },
+    {
+      "chapter": 3,
+      "wins": 27,
+      "total": 40
+    },
+    {
+      "chapter": 4,
+      "wins": 30,
+      "total": 40
+    },
+    {
+      "chapter": 5,
+      "wins": 40,
+      "total": 40
+    },
+    {
+      "chapter": 6,
+      "wins": 27,
+      "total": 40
+    },
+    {
+      "chapter": 7,
+      "wins": 22,
+      "total": 40
+    },
+    {
+      "chapter": 8,
+      "wins": 16,
+      "total": 40
+    },
+    {
+      "chapter": 9,
+      "wins": 31,
+      "total": 40
+    },
+    {
+      "chapter": 10,
+      "wins": 9,
+      "total": 40
+    }
+  ],
+  "strategies": [
+    {
+      "strategy": "base",
+      "chapters": [
+        {
+          "chapter": 1,
+          "wins": 20,
+          "total": 20
+        },
+        {
+          "chapter": 2,
+          "wins": 15,
+          "total": 20
+        },
+        {
+          "chapter": 3,
+          "wins": 12,
+          "total": 20
+        },
+        {
+          "chapter": 4,
+          "wins": 13,
+          "total": 20
+        },
+        {
+          "chapter": 5,
+          "wins": 20,
+          "total": 20
+        },
+        {
+          "chapter": 6,
+          "wins": 12,
+          "total": 20
+        },
+        {
+          "chapter": 7,
+          "wins": 9,
+          "total": 20
+        },
+        {
+          "chapter": 8,
+          "wins": 6,
+          "total": 20
+        },
+        {
+          "chapter": 9,
+          "wins": 13,
+          "total": 20
+        },
+        {
+          "chapter": 10,
+          "wins": 0,
+          "total": 20
+        }
+      ],
+      "hashes": {
+        "poetryScenesHash": "6bb80c0d31a8f9a1e093ad1def3212818855d1ad3c9766a1b7a8391ddd76274b",
+        "poetryImpactHash": "6a1948153db8e5b214b73a8d512b52974b28b7344aa155c003276931a961691b",
+        "poetrySceneRulesHash": "1a3db93796b67dfcd1ebfdaf997c626d45ea70dc447f0c25bfd82bfdcc7b231d",
+        "poetryCombatHash": "ebed11ca88f3a0480ffb86d2114062db5ee3ccb59fae839a5e65a2970643fa39",
+        "poetryRulesHash": "e2393b61cad40163e68b379c682397509c33d393a9006583324daec879726970",
+        "poetryDataHash": "b5accdb3cfb093ed3ac5f5c3ed11566a5e5830f3f4b540b87cb6231c3f76c719",
+        "engineHash": "c2724470555c736520e2259f2d7bd0771506b96fd51e812e5144362376cbc046",
+        "specialsHash": "7e70298ab8214e98ffc0965e0a5125ebaf5e6c28be741074836d3309299cf945",
+        "lexiconHash": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
+        "strategyHash": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a"
+      }
+    },
+    {
+      "strategy": "formation",
+      "chapters": [
+        {
+          "chapter": 1,
+          "wins": 20,
+          "total": 20
+        },
+        {
+          "chapter": 2,
+          "wins": 16,
+          "total": 20
+        },
+        {
+          "chapter": 3,
+          "wins": 15,
+          "total": 20
+        },
+        {
+          "chapter": 4,
+          "wins": 17,
+          "total": 20
+        },
+        {
+          "chapter": 5,
+          "wins": 20,
+          "total": 20
+        },
+        {
+          "chapter": 6,
+          "wins": 15,
+          "total": 20
+        },
+        {
+          "chapter": 7,
+          "wins": 13,
+          "total": 20
+        },
+        {
+          "chapter": 8,
+          "wins": 10,
+          "total": 20
+        },
+        {
+          "chapter": 9,
+          "wins": 18,
+          "total": 20
+        },
+        {
+          "chapter": 10,
+          "wins": 9,
+          "total": 20
+        }
+      ],
+      "hashes": {
+        "poetryScenesHash": "6bb80c0d31a8f9a1e093ad1def3212818855d1ad3c9766a1b7a8391ddd76274b",
+        "poetryImpactHash": "6a1948153db8e5b214b73a8d512b52974b28b7344aa155c003276931a961691b",
+        "poetrySceneRulesHash": "1a3db93796b67dfcd1ebfdaf997c626d45ea70dc447f0c25bfd82bfdcc7b231d",
+        "poetryCombatHash": "ebed11ca88f3a0480ffb86d2114062db5ee3ccb59fae839a5e65a2970643fa39",
+        "poetryRulesHash": "e2393b61cad40163e68b379c682397509c33d393a9006583324daec879726970",
+        "poetryDataHash": "b5accdb3cfb093ed3ac5f5c3ed11566a5e5830f3f4b540b87cb6231c3f76c719",
+        "engineHash": "c2724470555c736520e2259f2d7bd0771506b96fd51e812e5144362376cbc046",
+        "specialsHash": "7e70298ab8214e98ffc0965e0a5125ebaf5e6c28be741074836d3309299cf945",
+        "lexiconHash": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
+        "strategyHash": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a"
+      }
+    }
+  ]
+}

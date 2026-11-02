@@ -1,3 +1,10 @@
+// Length strengthens the verse's own technique; ordinary attacks keep their base profile.
+export const POETRY_MASTERY=Object.freeze({
+ 5:Object.freeze({opening:1.6,scene:1.8,budget:8,aid:1.5,support:1}),
+ 6:Object.freeze({opening:2.2,scene:2.6,budget:14,aid:2.2,support:1.15}),
+ 7:Object.freeze({opening:3,scene:3.8,budget:24,aid:3.2,support:1.3})
+});
+export const poetryMastery=word=>POETRY_MASTERY[typeof word==='number'?word:word.length];
 // Scene rules create persistent, interactive battlefield behavior.
 // Durations and budgets are shared by execution, descriptions and validation.
 export const SCENE_LIFE=6,SCENE_LIMIT=64,SCENE_TICK=.5;

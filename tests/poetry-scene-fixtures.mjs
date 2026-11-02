@@ -1,3 +1,4 @@
+import{poetryMastery}from'../dist/poetry-scene-rules.mjs';
 import assert from 'node:assert/strict';
 import {Game,POEM_LINES,towerStats,towerDefense,enemyPosition} from '../dist/engine.mjs';
 import {recordPoetryDeath} from '../dist/poetry-scenes.mjs';
@@ -31,6 +32,6 @@ export function exerciseRule(rule){
   if(step%10===0)assert.deepEqual(Game.restore(g.export()).export(),g.export(),rule+' roundtrip');
   g.effects=[];g.events=[];
  }
- assert.ok(s.budget>=0&&s.budget<=s.power*4/POEM_LINES.find(l=>l.word===s.word).signature.program.length+1e-9);
+ assert.ok(s.budget>=0&&s.budget<=s.power*poetryMastery(s.word).budget/POEM_LINES.find(l=>l.word===s.word).signature.program.length+1e-9);
  return{activity:maxActivity,g,t,s};
 }

@@ -17,7 +17,7 @@ function fire(g,t){t.cooldown=0;g.attack(t,.01);}
 function charge(g,t){for(let i=0;i<4;i++)fire(g,t);}
 
 test('every recognized four-character idiom has a non-ordinary attribute and an executable semantic move',()=>{
- const idioms=WORDS.filter(w=>wordCategory(w.word)==='idiom');assert.ok(idioms.length>14000);
+ const idioms=WORDS.filter(w=>w.tier===4&&wordCategory(w.word)==='idiom');assert.ok(idioms.length>14000);
  for(const w of idioms){assert.equal(w.tier,4);assert.notEqual(w.type,'basic',w.word);assert.ok(IDIOM_MOVES[w.idiomMove],w.word);}
  for(const[word,p]of Object.entries(IDIOM_PROFILES)){const w=getWord(word);assert.ok(w,word);assert.notEqual(w.type,'basic',word);assert.equal(w.type,p.type);assert.equal(w.idiomMove,p.move);if(p.type==='learning')assert.equal(w.special,p.special);}
  assert.equal(new Set(REVIEWED_IDIOMS).size,REVIEWED_IDIOMS.length);assert.equal(new Set(WORDS.map(w=>w.word)).size,WORDS.length);

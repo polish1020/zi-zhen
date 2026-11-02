@@ -3,15 +3,15 @@ import {POETRY_WORDS,POEMS,POEM_LINES,POEM_INDEX,VERSE_INDEX,MAX_WORD_LENGTH,POE
 import {attackPoetry} from './poetry-combat.mjs';
 export {POEMS,POEM_LINES,POEM_INDEX,VERSE_INDEX,MAX_WORD_LENGTH,POETRY_DRAW_CHANCE,verseStatus,POETRY_CONTROL_NOTE} from './poetry-rules.mjs';
 import {COMMON_WORDS,IDIOM_WORDS,SKILL_SCHOOLS,WORD_LEARNING,SKILL_TEMPLATES,WORD_DEFINITIONS,WORD_CORRECTION_MEANINGS,WORD_REVIEW,RETIRED_WORD_PROFILES} from './lexicon.mjs';
-import {SPECIAL_EFFECTS,SPECIAL_WORDS,SPECIAL_RUNE_OVERRIDES,PREVIOUS_SPECIAL_WORDS,SPECIAL_LESSONS,SPECIAL_PALETTES,IDIOM_PROFILES,REVIEWED_IDIOMS,PREVIOUS_LEARNING_WORDS,IDIOM_MOVES,IDIOM_LESSONS,V8_BASIC_FOUR_CORRECTIONS} from './specials.mjs';
+import {LONG_IDIOMS,SPECIAL_EFFECTS,SPECIAL_WORDS,SPECIAL_RUNE_OVERRIDES,PREVIOUS_SPECIAL_WORDS,SPECIAL_LESSONS,SPECIAL_PALETTES,IDIOM_PROFILES,REVIEWED_IDIOMS,PREVIOUS_LEARNING_WORDS,IDIOM_MOVES,IDIOM_LESSONS,V8_BASIC_FOUR_CORRECTIONS} from './specials.mjs';
 export {SPECIAL_EFFECTS,IDIOM_MOVES} from './specials.mjs';
 const IDIOM_SET=new Set(REVIEWED_IDIOMS);
 const RETIRED_INDEX=new Map(RETIRED_WORD_PROFILES.map(w=>[w.word,w]));
-export const wordCategory=word=>VERSE_INDEX.has(word)?'poetry':RETIRED_INDEX.has(word)?'legacy':(WORD_LEARNING[word]?.kind==='idiom'||SPECIAL_LESSONS[word]?.kind==='idiom'||IDIOM_SET.has(word))?'idiom':SKILL_SCHOOLS[word]?'skill':word.length===4?'phrase':'common';
+export const wordCategory=word=>VERSE_INDEX.has(word)?'poetry':RETIRED_INDEX.has(word)?'legacy':(LONG_IDIOMS[word]||WORD_LEARNING[word]?.kind==='idiom'||SPECIAL_LESSONS[word]?.kind==='idiom'||IDIOM_SET.has(word))?'idiom':SKILL_SCHOOLS[word]?'skill':word.length===4?'phrase':'common';
 export function wordLearning(word){
  const line=VERSE_INDEX.get(word);if(line){const poem=POEM_INDEX.get(line.poem);return{kind:'poetry',culture:true,group:poem.author+'《'+poem.title+'》',meaning:line.meaning,poem:poem.id};}
  const review=WORD_REVIEW[word];if(review)return {kind:'legacy',group:'词条订正',meaning:review.replacement?`旧版误收词条。规范写法是「${review.replacement}」。${wordLearning(review.replacement)?.meaning||''}已造出的旧塔可继续使用，此写法不再用于组词。`:'这是截断或损坏的旧词条，不能作为完整词语。已造出的旧塔可继续使用，此写法不再用于组词。'};
- return WORD_LEARNING[word]||SPECIAL_LESSONS[word]||IDIOM_LESSONS[word]||(WORD_CORRECTION_MEANINGS[word]?{kind:'phrase',group:'词义辨析',meaning:WORD_CORRECTION_MEANINGS[word]}:null)||(WORD_DEFINITIONS[word]&&wordCategory(word)!=='skill'?{kind:wordCategory(word)==='idiom'?'idiom':'word',group:'词义',meaning:WORD_DEFINITIONS[word]}:null);
+ return LONG_IDIOMS[word]||WORD_LEARNING[word]||SPECIAL_LESSONS[word]||IDIOM_LESSONS[word]||(WORD_CORRECTION_MEANINGS[word]?{kind:'phrase',group:'词义辨析',meaning:WORD_CORRECTION_MEANINGS[word]}:null)||(WORD_DEFINITIONS[word]&&wordCategory(word)!=='skill'?{kind:wordCategory(word)==='idiom'?'idiom':'word',group:'词义',meaning:WORD_DEFINITIONS[word]}:null);
 }
 export const isGameSkill=word=>Object.hasOwn(SKILL_SCHOOLS,word);
 export const isCultureWord=word=>wordLearning(word)?.culture===true;
@@ -311,11 +311,13 @@ export const SHORT_WORDS=ORIGINAL_WORDS.filter(w=>!RETIRED_INDEX.has(w.word)).ma
  const f=SPECIAL_EFFECTS[special],runes=(SPECIAL_RUNE_OVERRIDES[w.word]||f.runes).slice(0,runeLimit(w.tier));
  return {...w,type:'learning',icon:'学',name:'学识',color:SPECIAL_PALETTES[special]||'#9b774b',special,...(idiom?{idiomMove:idiom.move}:{}),trait:'balanced',runes,tag:f.name,desc:specialDescription({...w,special}),cost:Math.round(60*PRICE[w.tier]),damage:Math.max(1,Math.round(22*learningPower[w.tier]*f.damage*runes.reduce((m,id)=>m*WORD_RUNES[id].damage,1))),range:180+(w.tier-2)*12+f.range+(runes.includes('sky')?12:0),rate:Number((1.05*f.rate).toFixed(4)),aura:0,income:0};
 });
-export const WORDS=[...SHORT_WORDS,...POETRY_WORDS];
+const LONG_IDIOM_WORDS=Object.entries(LONG_IDIOMS).map(([word,l])=>({word,type:'learning',icon:'学',name:'学识',color:SPECIAL_PALETTES[l.special]||'#9b774b',tier:word.length,maxLevel:word.length+2,special:l.special,idiomMove:l.move,trait:'balanced',runes:[],tag:SPECIAL_EFFECTS[l.special].name,desc:SPECIAL_EFFECTS[l.special].desc,cost:l.cost,damage:l.damage,range:l.range,rate:l.rate,aura:0,income:0}));
+export const WORDS=[...SHORT_WORDS,...LONG_IDIOM_WORDS,...POETRY_WORDS];
 const MEANING_HAND_WORDS='学习 读书 知识 朋友 伙伴 合作 团结 勇敢 英雄 努力 奋斗 成长 医生 健康 康复 和平 安宁 守护 母亲 家人 开心 快乐 感谢 谢谢 欢迎 工作 旅行 音乐 歌声 回声 沉默 缄默 撕裂 切割 背刺 侧翼 正面 冲锋 复活 重生 祝福 财富 丰收 秋天 夏天 冬天 春天 花朵 玫瑰 莲花 草木 森林 老虎 白虎 灵兽 人参 三七 五个 三倍 三尺 百米 千米 火毒箭 冰毒箭 冰火箭 月光箭 圣光箭 星辰箭 千里眼 顺风耳 寒冰毒箭 冰霜毒箭 冰霜毒雾 火焰毒云 雷霆毒箭 冰火双刃 冰火风暴 风雷之箭 浴火重生 涅槃重生 死而复生 起死回生 滴水穿石 水滴石穿 一心一意 全神贯注 老马识途 守株待兔 画龙点睛 破釜沉舟 釜底抽薪 乘风破浪 声东击西 暗度陈仓 春暖花开 百花齐放 众志成城 坚不可摧 日积月累 厚积薄发 积少成多 自强不息 齐心协力 同舟共济'.split(' ').map(word=>WORDS.find(w=>w.word===word)).filter(Boolean);
 export const GRADES=['','凡字','灵词','妙语','天成','诗章','华章','绝唱'];
 export function gradeEffect(w){
  if(w.poem)return `诗句塔：${w.tier} 字起始 ${w.tier} 级，可升至 ${w.maxLevel} 级；每次普攻积蓄 1 点诗韵，蓄满 4 点且冷却结束时释放独有绝技。${POETRY_CONTROL_NOTE}`;
+ if(LONG_IDIOMS[w.word])return `${w.tier} 字成语，从 ${w.tier} 级起步，可升至 ${w.maxLevel} 级；${SPECIAL_EFFECTS[w.special].desc}`;
  if(w.special)return `${w.tier>=3?'长词增益：'+(w.tier===4?'四字招式三档，额外收益按当前招式说明':'三字招式二档，额外收益按当前招式说明')+'。':''}以「${SPECIAL_EFFECTS[w.special].name}」为核心效果；字数决定初始等级，升级最多两次，提升伤害、射程与攻速；附加词义最多 ${runeLimit(w.tier)} 个。`;
  const n=w.tier,r=wordRules(w);
  const effects={
@@ -375,6 +377,8 @@ export function drawHandWords(random){
  const plan=drawShortHandWords(random),pick=xs=>xs[Math.min(xs.length-1,Math.floor(random()*xs.length))];let remaining=HAND_SIZE-16;
  if(random()<POETRY_DRAW_CHANCE){const length=pick([5,6,7]),pool=POETRY_POOLS[length],preferred=random()<.7&&pool.early.length?pool.early:pool.all,verse=pick(preferred).word;plan.push(verse);remaining-=length;}
  // The complete verse uses its own cards, separately from the six short words.
+ // Long idioms use only spare slots, preserving all six short recipes and the poem.
+ if(remaining>=6&&random()<.08){const word=pick(LONG_IDIOM_WORDS).word;if(word.length<=remaining){plan.push(word);remaining-=word.length;}}
  // Sample the remaining spare cards individually for cross-combinations.
  for(let i=0;i<remaining;i++){const pool=pick(POEM_LINES),chars=[...pool.word];plan.push(pick(chars));}
  return plan;

@@ -1,12 +1,13 @@
+import{poetryMastery}from'./poetry-scene-rules.mjs';
 import{poetryImpact}from'./poetry-impact.mjs';
 import{createPoetryScenes}from'./poetry-scenes.mjs';
-import {VERSE_INDEX,FIELD_INTERVALS,POETRY_TECHNIQUE_POWER} from './poetry-rules.mjs';
+import {VERSE_INDEX,POETRY_TECHNIQUE_POWER} from './poetry-rules.mjs';
 const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y),clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 // Independent poetry combat. It shares the battlefield's actual enemies,
 // shields, armour, ward protection and reflection rules, never bypassing them.
 export function attackPoetry(g,t,dt,api){
  const {word:w,stats,defense,position,length,isAir,enemy,iceShell,shellLimit}=api;
- const l=VERSE_INDEX.get(w.word),p=g.pads[t.pad],now=g.time;
+ const l=VERSE_INDEX.get(w.word),p=g.pads[t.pad],now=g.time,mastery=poetryMastery(w.word);
  const living=g.enemies.filter(e=>e.hp>0&&e.d<length(e));if(!living.length)return;
  const points=new Map(living.map(e=>[e.id,position(e)])),at=e=>points.get(e.id)||position(e);
  const local=living.filter(e=>(distance(p,at(e))<=stats.range||t.verseHorizonUntil>now&&t.verseHorizonTarget===e.id));
@@ -27,7 +28,7 @@ export function attackPoetry(g,t,dt,api){
  const lights=g.activeTowers.filter(a=>a.id!==t.id&&api.getWord(a.word).type==='aura'&&distance(g.pads[a.pad],p)<=api.towerStats(a).range);
  const buff=Math.max(0,...lights.map(a=>api.towerStats(a).aura));
  const damage=stats.damage*(1+buff),affected=new Set();let technique=false,attackPower=1;
- const hit=(e,ratio=1)=>{if(!e||e.hp<=0)return;affected.add(e);poetryImpact(g,t,e,damage*ratio*attackPower*(technique?POETRY_TECHNIQUE_POWER:1),api,p);};
+ const hit=(e,ratio=1)=>{if(!e||e.hp<=0)return;affected.add(e);poetryImpact(g,t,e,damage*ratio*attackPower*(technique?POETRY_TECHNIQUE_POWER*mastery.opening:1),api,p);};
  const slow=(e,factor,seconds)=>{if(iceShell(e))return;e.slowFactor=Math.min(e.slowUntil>now?e.slowFactor??1:1,factor);e.slowUntil=Math.max(e.slowUntil||0,now+seconds);};
  const freeze=(e,seconds)=>{if(iceShell(e)||e.freezeReady>now)return;e.freezeUntil=Math.max(e.freezeUntil||0,now+seconds*(enemy[e.kind].boss?.25:1));e.freezeReady=now+6;};
  const silence=(e,seconds)=>{if(e.silenceReady>now)return;e.silencedUntil=Math.max(e.silencedUntil||0,now+seconds*(enemy[e.kind].boss?.25:1));e.silenceReady=now+4;};
@@ -41,14 +42,14 @@ export function attackPoetry(g,t,dt,api){
  }
  if((t.verseCharge||0)<l.charge||t.verseReadyAt>now||!((t.hp??defense.maxHp)>0))return;
  if(!local.length&&!l.field.length)return;
- g.poetryFieldReady??={};if(l.field.some(k=>g.poetryFieldReady[k]>now))return;
+ const fields=l.field;
  const target=rank(local.length?local:living)[0],q=at(target),within=living.filter(e=>distance(p,at(e))<=stats.range);
  affected.clear();technique=true;
  const ordered=rank(within.length?within:[target]);
  const allies=(count,injured=true)=>g.activeTowers.filter(a=>distance(g.pads[a.pad],p)<=stats.range).sort((a,b)=>injured?(a.hp/api.towerDefense(a).maxHp)-(b.hp/api.towerDefense(b).maxHp)||a.id-b.id:a.id-b.id).slice(0,count);
- const protect=(a,fraction,seconds)=>{const value=api.towerDefense(a).maxHp*Math.min(.2,fraction);a.verseShield=Math.max(a.verseShieldUntil>now?a.verseShield||0:0,value);a.verseShieldUntil=Math.max(a.verseShieldUntil||0,now+seconds);};
- const heal=(a,fraction)=>{a.hp=Math.min(api.towerDefense(a).maxHp,a.hp+api.towerDefense(a).maxHp*fraction);};
- const haste=(a,power,seconds)=>{a.verseHastePower=Math.max(a.verseHasteUntil>now?a.verseHastePower||0:0,power);a.verseHasteUntil=Math.max(a.verseHasteUntil||0,now+seconds);};
+ const protect=(a,fraction,seconds)=>{const value=api.towerDefense(a).maxHp*Math.min(.2,fraction*mastery.support);a.verseShield=Math.max(a.verseShieldUntil>now?a.verseShield||0:0,value);a.verseShieldUntil=Math.max(a.verseShieldUntil||0,now+seconds);};
+ const heal=(a,fraction)=>{a.hp=Math.min(api.towerDefense(a).maxHp,a.hp+api.towerDefense(a).maxHp*fraction*mastery.support);};
+ const haste=(a,power,seconds)=>{a.verseHastePower=Math.max(a.verseHasteUntil>now?a.verseHastePower||0:0,Math.min(.25,power*mastery.support));a.verseHasteUntil=Math.max(a.verseHasteUntil||0,now+seconds);};
  for(const[k,a,b,c]of l.ops){
   if(k==='strike'){for(let i=0;i<a;i++)hit(target.hp>0?target:ordered.find(e=>e.hp>0),b);}
   else if(k==='burst'){for(const e of rank(living.filter(e=>distance(at(e),q)<=c)).slice(0,a))hit(e,b);}
@@ -58,7 +59,7 @@ export function attackPoetry(g,t,dt,api){
   else if(k==='sky'||k==='ground'){const preferred=ordered.filter(e=>isAir(e)===(k==='sky')),rest=k==='sky'?ordered.filter(e=>!preferred.includes(e)):[];for(const e of[...preferred,...rest].slice(0,a))hit(e,b);}
   else if(k==='heal')for(const friend of allies(b))heal(friend,a);
   else if(k==='shield')for(const friend of allies(c))protect(friend,a,b);
-  else if(k==='guard')for(const friend of allies(c)){friend.verseGuardPower=Math.max(friend.verseGuardUntil>now?friend.verseGuardPower||0:0,a);friend.verseGuardUntil=Math.max(friend.verseGuardUntil||0,now+b);}
+  else if(k==='guard')for(const friend of allies(c)){friend.verseGuardPower=Math.max(friend.verseGuardUntil>now?friend.verseGuardPower||0:0,Math.min(.2,a*mastery.support));friend.verseGuardUntil=Math.max(friend.verseGuardUntil||0,now+b);}
   else if(k==='haste')for(const friend of allies(c,false))haste(friend,a,b);
   else if(k==='allShield')for(const friend of g.activeTowers)protect(friend,a,b);
   else if(k==='allMend')for(const friend of g.activeTowers){heal(friend,a);friend.chillUntil=0;friend.corrodedUntil=0;}
@@ -71,7 +72,7 @@ export function attackPoetry(g,t,dt,api){
   else for(const e of affected){if(e.hp<=0)continue;
    if(k==='slow')slow(e,a,b);if(k==='freeze')freeze(e,a);if(k==='silence')silence(e,a);
    if(k==='mark'){e.markPower=Math.max(e.markUntil>now?e.markPower||0:0,a);e.markUntil=Math.max(e.markUntil||0,now+b);}
-   if(k==='burn'){e.burnDps=Math.max(e.burnUntil>now?e.burnDps||0:0,damage*a*POETRY_TECHNIQUE_POWER);e.burnUntil=Math.max(e.burnUntil||0,now+b);}
+   if(k==='burn'){e.burnDps=Math.max(e.burnUntil>now?e.burnDps||0:0,damage*a*POETRY_TECHNIQUE_POWER*mastery.opening);e.burnUntil=Math.max(e.burnUntil||0,now+b);}
    if(k==='armor')e.breakUntil=Math.max(e.breakUntil||0,now+a);
    if(k==='shred')e.shield=Math.max(0,(e.shield||0)-Math.min((e.shield||0)*a,damage*3));
    if(k==='reveal')e.lightUntil=Math.max(e.lightUntil||0,now+a);
@@ -79,7 +80,6 @@ export function attackPoetry(g,t,dt,api){
   }
  }
  createPoetryScenes(g,t,l,target,api);
- for(const key of l.field)g.poetryFieldReady[key]=now+FIELD_INTERVALS[key];
  t.verseCharge=0;t.verseReadyAt=now+l.cooldown;t.verseCasts=(t.verseCasts||0)+1;
- const field=l.field.length>0;g.effects.push({kind:'poem-cast',word:w.word,art:l.art,color:w.color,from:{...p},to:{...q},aim:l.aim,field,shot:t.verseCasts,allyPoints:field?g.activeTowers.map(a=>({...g.pads[a.pad]})):[],points:[...affected].slice(0,16).map(e=>({...at(e)})),life:field?2.1:1.35,max:field?2.1:1.35});g.emit('poem-cast',{word:w.word,poem:w.poem,art:l.art,field});
+ const field=fields.length>0;g.effects.push({kind:'poem-cast',word:w.word,art:l.art,color:w.color,from:{...p},to:{...q},aim:l.aim,field,fieldKinds:fields,shot:t.verseCasts,allyPoints:field?g.activeTowers.map(a=>({...g.pads[a.pad]})):[],points:[...affected].slice(0,16).map(e=>({...at(e)})),life:field?2.1:1.35,max:field?2.1:1.35});g.emit('poem-cast',{word:w.word,poem:w.poem,art:l.art,field});
 }

@@ -1,4 +1,4 @@
-import{SCENE_RULES,SCENE_LIFE,SCENE_LIMIT,SCENE_TICK}from'./poetry-scene-rules.mjs';
+import{SCENE_RULES,SCENE_LIFE,SCENE_LIMIT,SCENE_TICK,poetryMastery}from'./poetry-scene-rules.mjs';
 import{poetryImpact}from'./poetry-impact.mjs';
 function signalScene(g,s){s.activity=(s.activity||0)+1;if(s.activity===1)g.emit('poem-scene-action',{word:s.word,rule:s.rule});}
 const dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y),clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
@@ -10,7 +10,7 @@ export function createPoetryScenes(g,t,line,target,api){
  const origin=g.pads[t.pad],point=api.position(target),power=api.towerStats(t).damage,route=target.route??0,d=target.d/api.length(target)*api.length({...target,kind:'normal'});
  for(const rule of line.signature.program){
   if(g.poetryScenes.length>=SCENE_LIMIT)break;
-  const s={id:g.nextId++,tower:t.id,word:t.word,rule,born:g.time,until:g.time+SCENE_LIFE,next:g.time,beat:0,power,budget:power*4/line.signature.program.length,aid:power*1.2,x:point.x,y:point.y,ox:origin.x,oy:origin.y,route,d,target:target.id,targets:[],seen:[],records:[],points:[],events:[],activity:0,a:0,b:0,c:0,mode:(t.verseCasts||0)%4};
+  const s={id:g.nextId++,tower:t.id,word:t.word,rule,born:g.time,until:g.time+SCENE_LIFE,next:g.time,beat:0,power,budget:power*poetryMastery(t.word).budget/line.signature.program.length,aid:power*poetryMastery(t.word).aid,x:point.x,y:point.y,ox:origin.x,oy:origin.y,route,d,target:target.id,targets:[],seen:[],records:[],points:[],events:[],activity:0,a:0,b:0,c:0,mode:(t.verseCasts||0)%4};
   g.poetryScenes.push(s);g.effects.push({kind:'poem-scene-born',word:t.word,rule,name:line.signature.name,to:{...point},from:{...origin},color:api.getWord(t.word).color,life:1.4,max:1.4});
  }
 }
@@ -47,7 +47,7 @@ export function updatePoetryScenes(g,dt,api){
   const target=()=>g.enemies.find(e=>e.id===s.target&&e.hp>0&&e.d<api.length(e));
   const record=e=>{let r=s.records.find(r=>r.id===e.id);if(!r&&s.records.length<32){const p=pos(e);r={id:e.id,hp:Math.max(0,e.hp),d:e.d,x:p.x,y:p.y,at:now,used:false,kind:e.kind};s.records.push(r);}return r;};
   const once=e=>{if(s.seen.includes(e.id)||s.seen.length>=96)return false;s.seen.push(e.id);return true;};
-  const hit=(e,m=.3)=>{if(!e||e.hp<=0||s.budget<=0)return 0;const raw=Math.min(s.budget,s.power*Math.max(0,m));s.budget-=raw;const before=e.hp+(e.shield||0),value=poetryImpact(g,owner,e,raw,api,center,s.rule);if(e.hp+(e.shield||0)<before)activate();return value;};
+  const hit=(e,m=.3)=>{if(!e||e.hp<=0||s.budget<=0)return 0;const raw=Math.min(s.budget,s.power*Math.max(0,m)*poetryMastery(s.word).scene);s.budget-=raw;const before=e.hp+(e.shield||0),value=poetryImpact(g,owner,e,raw,api,center,s.rule);if(e.hp+(e.shield||0)<before)activate();return value;};
   const mark=(e,p=.12,secs=2)=>{if(!e||e.hp<=0)return;activate();e.markPower=Math.max(e.markUntil>now?e.markPower||0:0,p);e.markUntil=Math.max(e.markUntil||0,now+secs);};
   const reveal=(e,secs=2)=>{activate();e.lightUntil=Math.max(e.lightUntil||0,now+secs);};
   const slow=(e,f=.65,secs=.65)=>{if(api.iceShell(e))return;activate();e.slowFactor=Math.min(e.slowUntil>now?e.slowFactor??1:1,api.enemy[e.kind].boss?Math.max(.75,f):f);e.slowUntil=Math.max(e.slowUntil||0,now+secs);};
@@ -181,7 +181,7 @@ export function validatePoetryScenes(data,api){
   if(!s||typeof s!=='object'||Object.keys(s).some(k=>!fields.has(k))||!Object.hasOwn(SCENE_RULES,s.rule))throw Error('Invalid scene rule');
   const t=data.towers.find(t=>t.id===s.tower),l=api.line(s.word),key=s.tower+':'+s.rule;if(programs.has(key))throw Error('Duplicate scene rule');programs.add(key);
   if(!t||t.word!==s.word||!l?.signature.program.includes(s.rule)||!int(s.id)||s.id<1||s.id>=data.nextId||ids.has(s.id))throw Error('Invalid scene owner');ids.add(s.id);
-  if(!['born','until','next','power','budget','aid','d','a','b','c'].every(k=>nonnegative(s[k]))||!['x','y','ox','oy'].every(k=>xy(s[k]))||!['beat','route','target','mode','activity'].every(k=>int(s[k]))||s.mode>3||s.route>=api.routes(data.chapter,data.mirrorLayout)||s.born>data.time+1e-6||Math.abs(s.until-s.born-SCENE_LIFE)>1e-6||s.next<s.born||s.next>s.until+1||s.power>api.towerStats(t).damage+1e-6||s.budget>s.power*4/l.signature.program.length+1e-6||s.aid>s.power*1.2+1e-6)throw Error('Invalid scene budget');
+  if(!['born','until','next','power','budget','aid','d','a','b','c'].every(k=>nonnegative(s[k]))||!['x','y','ox','oy'].every(k=>xy(s[k]))||!['beat','route','target','mode','activity'].every(k=>int(s[k]))||s.mode>3||s.route>=api.routes(data.chapter,data.mirrorLayout)||s.born>data.time+1e-6||Math.abs(s.until-s.born-SCENE_LIFE)>1e-6||s.next<s.born||s.next>s.until+1||s.power>api.towerStats(t).damage+1e-6||s.budget>s.power*poetryMastery(s.word).budget/l.signature.program.length+1e-6||s.aid>s.power*poetryMastery(s.word).aid+1e-6)throw Error('Invalid scene budget');
   for(const[key,limit]of[['targets',16],['seen',96]])if(!Array.isArray(s[key])||s[key].length>limit||new Set(s[key]).size!==s[key].length||s[key].some(id=>!int(id)||id<1||id>=data.nextId))throw Error('Invalid scene targets');
   if(!Array.isArray(s.records)||s.records.length>32||new Set(s.records.map(r=>r?.id)).size!==s.records.length||s.records.some(r=>!r||!int(r.id)||r.id<1||r.id>=data.nextId||!['hp','d','at'].every(k=>nonnegative(r[k]))||!xy(r.x)||!xy(r.y)||typeof r.used!=='boolean'||!api.enemy[r.kind]||Object.keys(r).some(k=>!['id','hp','d','x','y','at','used','kind'].includes(k))))throw Error('Invalid scene records');
   if(!Array.isArray(s.points)||s.points.length>16||s.points.some(p=>!p||!xy(p.x)||!xy(p.y)||typeof p.used!=='boolean'||Object.keys(p).some(k=>!['x','y','used'].includes(k))))throw Error('Invalid scene points');
