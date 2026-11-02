@@ -394,3 +394,7 @@ html[data-standalone="true"].game-open body.playing .forge-panel { padding-botto
 #codex-browser .codex-pick{margin-top:9px}
 .modal-back{display:block;margin:0 36px 10px 0;min-height:32px;color:#627956;font-size:13px;text-align:left}
 @media(max-width:360px){#codex-browser .codex-filters{gap:3px}#codex-browser .codex-filters button{font-size:11px}.codex-basic-filters{gap:5px}#codex-browser .codex-trait-label{gap:4px;font-size:10px}#codex-browser .codex-trait-label select{font-size:11px;padding:4px}}
+
+.poetry-grade-setting select{font:inherit;color:inherit;min-height:44px;max-width:100%;border:1px solid #ced6bc;border-radius:3px;background:#f5f4e9;padding:9px 8px;flex:0 0 auto;}
+.poetry-grade-setting>div{min-width:0;}
+@media(max-width:420px){.poetry-grade-setting{align-items:flex-start;flex-wrap:wrap;}.poetry-grade-setting select{width:100%;font-size:16px;}}

@@ -3,6 +3,9 @@ import {POEMS,POEM_LINES} from './poetry-data.mjs';
 export {POEMS,POEM_LINES};
 export const POEM_INDEX=new Map(POEMS.map(p=>[p.id,p]));
 export const VERSE_INDEX=new Map(POEM_LINES.map(l=>[l.word,l]));
+export const POETRY_GRADES=Object.freeze([{value:0,label:'全部诗词（含课外）'},...Array.from({length:6},(_,i)=>({value:i+1,label:'一二三四五六'[i]+'年级及以下'}))].map(Object.freeze));
+export const validPoetryGrade=n=>Number.isInteger(n)&&n>=0&&n<=6;
+export function poemWithinGrade(id,grade=0){const p=POEM_INDEX.get(id);if(!p)return false;if(grade===0)return true;const n='一二三四五六'.indexOf(p.grade[0])+1;return n>0&&n<=grade;}
 export const MAX_WORD_LENGTH=7;
 export const POETRY_TECHNIQUE_POWER=.9;
 export const POETRY_DRAW_CHANCE=1;

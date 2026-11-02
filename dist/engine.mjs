@@ -1,7 +1,7 @@
 import{updatePoetryScenes,recordPoetryHit,recordPoetryDeath,shelterPoetryHit,poetryThreat,clearPoetryScenes,clonePoetryScenes,validatePoetryScenes}from'./poetry-scenes.mjs';
-import {POETRY_WORDS,POEMS,POEM_LINES,POEM_INDEX,VERSE_INDEX,MAX_WORD_LENGTH,POETRY_DRAW_CHANCE,FIELD_INTERVALS,verseDescription,verseStatus,POETRY_CONTROL_NOTE} from './poetry-rules.mjs';
+import {POETRY_WORDS,POEMS,POEM_LINES,POEM_INDEX,VERSE_INDEX,MAX_WORD_LENGTH,POETRY_DRAW_CHANCE,POETRY_GRADES,validPoetryGrade,poemWithinGrade,FIELD_INTERVALS,verseDescription,verseStatus,POETRY_CONTROL_NOTE} from './poetry-rules.mjs';
 import {attackPoetry} from './poetry-combat.mjs';
-export {POEMS,POEM_LINES,POEM_INDEX,VERSE_INDEX,MAX_WORD_LENGTH,POETRY_DRAW_CHANCE,verseStatus,POETRY_CONTROL_NOTE} from './poetry-rules.mjs';
+export {POEMS,POEM_LINES,POEM_INDEX,VERSE_INDEX,MAX_WORD_LENGTH,POETRY_DRAW_CHANCE,POETRY_GRADES,poemWithinGrade,verseStatus,POETRY_CONTROL_NOTE} from './poetry-rules.mjs';
 import {COMMON_WORDS,IDIOM_WORDS,SKILL_SCHOOLS,WORD_LEARNING,SKILL_TEMPLATES,WORD_DEFINITIONS,WORD_CORRECTION_MEANINGS,WORD_REVIEW,RETIRED_WORD_PROFILES} from './lexicon.mjs';
 import {LONG_IDIOMS,SPECIAL_EFFECTS,SPECIAL_WORDS,SPECIAL_RUNE_OVERRIDES,PREVIOUS_SPECIAL_WORDS,SPECIAL_LESSONS,SPECIAL_PALETTES,IDIOM_PROFILES,REVIEWED_IDIOMS,PREVIOUS_LEARNING_WORDS,IDIOM_MOVES,IDIOM_LESSONS,V8_BASIC_FOUR_CORRECTIONS} from './specials.mjs';
 export {SPECIAL_EFFECTS,IDIOM_MOVES} from './specials.mjs';
@@ -365,25 +365,27 @@ const HAND_POOLS=Object.fromEntries([2,3,4].map(tier=>[tier,{
  culture:CULTURE_HAND_WORDS.filter(w=>w.tier===tier)
 }]));
 const HAND_STARTERS=HAND_POOLS[3].fallback.filter(w=>w.damage>0&&!['aura','income'].includes(w.type)&&[...w.word].some(ch=>{const one=WORD_INDEX.get(ch);return one?.damage>0&&one.cost<=37;}));
-const POETRY_POOLS=Object.fromEntries([5,6,7].map(n=>[n,{all:POEM_LINES.filter(l=>l.word.length===n),early:POEM_LINES.filter(l=>l.word.length===n&&/^[一二]年级/.test(POEM_INDEX.get(l.poem).grade))}]));
+const POETRY_POOLS=Object.fromEntries(POETRY_GRADES.map(({value:grade})=>[grade,Object.fromEntries([5,6,7].map(n=>[n,{all:POEM_LINES.filter(l=>l.word.length===n&&poemWithinGrade(l.poem,grade)),early:POEM_LINES.filter(l=>l.word.length===n&&poemWithinGrade(l.poem,grade)&&/^[一二]年级/.test(POEM_INDEX.get(l.poem).grade))}]))]));
 // Relative weights are renormalized over lengths that fit the remaining slots.
 export const HAND_EXTRA_LENGTH_WEIGHTS=Object.freeze([[7,14],[6,10],[5,16],[4,25],[3,20],[2,15]].map(Object.freeze));
-export function drawHandWords(random){
+export function drawHandWords(random,poetryGrade=0){
+ if(!validPoetryGrade(poetryGrade))throw Error('Invalid poetry grade');
+ const pools=POETRY_POOLS[poetryGrade];
  const pick=xs=>xs[Math.min(xs.length-1,Math.floor(random()*xs.length))],seen=new Set();
  const distinct=(draw,fallback)=>{for(let n=0;n<12;n++){const w=draw();if(w&&!seen.has(w.word)){seen.add(w.word);return w.word;}}const w=pick(fallback.filter(w=>!seen.has(w.word)));seen.add(w.word);return w.word;};
  const short=tier=>{const p=HAND_POOLS[tier];return distinct(()=>{const roll=random();if(roll<.15)return pick(random()<.5?p.learning:p.meaning);if(tier===4&&roll<.65)return pick(random()<.35?LONG_LEARNING_WORDS:LEARNING_HAND_WORDS);if(roll<(tier===4?.85:.45))return pick(p.skills);if(roll<(tier===4?.95:.65))return pick(p.culture);return pick(p.fallback);},p.fallback);};
- const verse=tier=>{const p=POETRY_POOLS[tier];return distinct(()=>{const preferred=random()<.7&&p.early.length?p.early:p.all;return pick(preferred);},p.all);};
- const plan=[verse(pick([5,6,7])),short(4),short(4),distinct(()=>pick(HAND_STARTERS),HAND_STARTERS),short(3),short(3)];
+ const verse=tier=>{const p=pools[tier];return distinct(()=>{const preferred=random()<.7&&p.early.length?p.early:p.all;return pick(preferred);},p.all);};
+ const plan=[verse(pick([5,6,7].filter(n=>pools[n].all.length))),short(4),short(4),distinct(()=>pick(HAND_STARTERS),HAND_STARTERS),short(3),short(3)];
  let remaining=HAND_SIZE-plan.reduce((n,w)=>n+w.length,0),maximum=MAX_WORD_LENGTH;
  while(remaining>0){
   // Keep the random extras in descending length order. Reject a choice if its
   // smaller tail could not be filled by complete words (2 alone needs evenness).
-  const options=HAND_EXTRA_LENGTH_WEIGHTS.filter(([n])=>n<=maximum&&n<=remaining&&(remaining===n||remaining-n>=2&&(n>=3||(remaining-n)%2===0)));
+  const options=HAND_EXTRA_LENGTH_WEIGHTS.filter(([n])=>n<=maximum&&n<=remaining&&(n<=4||pools[n].all.length||n===6&&LONG_IDIOM_WORDS.some(w=>!seen.has(w.word)))&&(remaining===n||remaining-n>=2&&(n>=3||(remaining-n)%2===0)));
   const total=options.reduce((n,[,weight])=>n+weight,0);let roll=random()*total;
   const length=(options.find(([,weight])=>(roll-=weight)<0)||options.at(-1))[0];
   let word;
   if(length<=4)word=short(length);
-  else if(length===6&&LONG_IDIOM_WORDS.some(w=>!seen.has(w.word))&&random()<.5)word=distinct(()=>pick(LONG_IDIOM_WORDS),LONG_IDIOM_WORDS);
+  else if(length===6&&LONG_IDIOM_WORDS.some(w=>!seen.has(w.word))&&(!pools[6].all.length||random()<.5))word=distinct(()=>pick(LONG_IDIOM_WORDS),LONG_IDIOM_WORDS);
   else word=verse(length);
   plan.push(word);remaining-=length;maximum=length;
  }
@@ -914,28 +916,30 @@ export class Game {
    t.hp=Math.min(max,before+max*(.3+extra+(getTowerWord(t.word).type==='basic'?.05:0)));recovered+=t.hp-before;
   }return recovered;
  }
- constructor(chapter=0,seed=(Math.random()*4294967296)>>>0){this.debugMode=false;this.chapter=chapter;this.campaignRounds=CHAPTERS[chapter].rounds;this.wave=0;this.endless=false;this.unlockedPads=Array.from({length:FREE_PAD_COUNT},(_,i)=>i);this.hp=CHAPTERS[chapter].hp;this.ink=CHAPTERS[chapter].ink;this.towers=[];this.enemies=[];this.effects=[];this.zones=[];this.poetryScenes=[];this.poetryBonusEarned=0;this.queue=[];this.time=0;this.spawnTime=0;this.autoWaveAt=0;this.pendingWaves=null;this.phase='prepare';this.kills=0;this.nextId=1;this.skillReady=0;this.skillUses=0;this.hintUses=0;this.killInkRemainder=0;this.totalEarned=0;this.bountyEarned=0;this.barrierSpent=0;this.soulHealed=0;this.reviveUsed=false;this.bossDraws=[];this.bossBreachedRound=0;this.events=[];this.rngState=(seed>>>0)||1;this.refreshes=0;this.handSerial=0;this.hand=[];if(chapter===7)this.mirrorLayout=2;for(let i=0;i<4;i++)this.random();this.drawHand();}
+ constructor(chapter=0,seed=(Math.random()*4294967296)>>>0,poetryGrade=0){if(!validPoetryGrade(poetryGrade))throw Error('Invalid poetry grade');this.poetryGrade=poetryGrade;this.debugMode=false;this.chapter=chapter;this.campaignRounds=CHAPTERS[chapter].rounds;this.wave=0;this.endless=false;this.unlockedPads=Array.from({length:FREE_PAD_COUNT},(_,i)=>i);this.hp=CHAPTERS[chapter].hp;this.ink=CHAPTERS[chapter].ink;this.towers=[];this.enemies=[];this.effects=[];this.zones=[];this.poetryScenes=[];this.poetryBonusEarned=0;this.queue=[];this.time=0;this.spawnTime=0;this.autoWaveAt=0;this.pendingWaves=null;this.phase='prepare';this.kills=0;this.nextId=1;this.skillReady=0;this.skillUses=0;this.hintUses=0;this.killInkRemainder=0;this.totalEarned=0;this.bountyEarned=0;this.barrierSpent=0;this.soulHealed=0;this.reviveUsed=false;this.bossDraws=[];this.bossBreachedRound=0;this.events=[];this.rngState=(seed>>>0)||1;this.refreshes=0;this.handSerial=0;this.hand=[];if(chapter===7)this.mirrorLayout=2;for(let i=0;i<4;i++)this.random();this.drawHand();}
  emit(type,data={}){this.events.push({type,...data});}
  random(){let x=this.rngState;x^=x<<13;x^=x>>>17;x^=x<<5;this.rngState=x>>>0;return this.rngState/4294967296;}
  drawHand(){
   this.hintWord=null;
-  const letters=drawHandWords(()=>this.random()).flatMap(word=>[...word]);
+  const letters=drawHandWords(()=>this.random(),this.poetryGrade).flatMap(word=>[...word]);
   for(let i=letters.length-1;i>0;i--){const j=Math.floor(this.random()*(i+1));[letters[i],letters[j]]=[letters[j],letters[i]];}
   this.hand=letters.map(ch=>({id:++this.handSerial,ch,used:false}));
  }
+ setPoetryGrade(grade){if(!validPoetryGrade(grade))throw Error('Invalid poetry grade');this.poetryGrade=grade;if(this.hintWord&&!this.allowsWord(this.hintWord))this.hintWord=null;this._wordCacheKey=null;}
+ allowsWord(word){const w=typeof word==='string'?getTowerWord(word):word;return !!w&&(!w.poem||poemWithinGrade(w.poem,this.poetryGrade));}
  // Debug bypasses only ink spending; word order, cards, cooldowns and limits still apply.
  inkCost(cost){return this.debugMode?0:cost;}
  canAfford(cost){return this.ink>=this.inkCost(cost);}
  padUnlocked(pad){return this.unlockedPads.includes(pad);}
  unlockCost(){return 40+(this.unlockedPads.length-FREE_PAD_COUNT)*20;}
  unlockPad(pad){if(!this.pads[pad]||this.padUnlocked(pad)||['won','lost'].includes(this.phase)||!this.canAfford(this.unlockCost()))return false;const cost=this.unlockCost();this.ink-=this.inkCost(cost);this.unlockedPads.push(pad);this.emit('unlock',{pad,cost:this.inkCost(cost)});return true;}
- hintCost(){return this.hintWord&&this.tilesFor(this.hintWord)?0:HINT_COST*(this.hintUses+1);}
- requestHint(){if(['won','lost'].includes(this.phase))return false;if(this.hintWord&&this.tilesFor(this.hintWord))return {word:this.hintWord,cost:0};const word=this.availableWords().sort((a,b)=>b.tier-a.tier||a.cost-b.cost)[0],cost=this.hintCost();if(!word||!this.canAfford(cost))return false;this.ink-=this.inkCost(cost);this.hintUses++;this.hintWord=word.word;this.emit('hint',{word:word.word,cost:this.inkCost(cost)});return {word:word.word,cost:this.inkCost(cost)};}
+ hintCost(){return this.hintWord&&this.allowsWord(this.hintWord)&&this.tilesFor(this.hintWord)?0:HINT_COST*(this.hintUses+1);}
+ requestHint(){if(['won','lost'].includes(this.phase))return false;if(this.hintWord&&this.allowsWord(this.hintWord)&&this.tilesFor(this.hintWord))return {word:this.hintWord,cost:0};const word=this.availableWords().sort((a,b)=>b.tier-a.tier||a.cost-b.cost)[0],cost=this.hintCost();if(!word||!this.canAfford(cost))return false;this.ink-=this.inkCost(cost);this.hintUses++;this.hintWord=word.word;this.emit('hint',{word:word.word,cost:this.inkCost(cost)});return {word:word.word,cost:this.inkCost(cost)};}
  refreshCost(){return REFRESH_COST;}
  refreshHand(){if(['won','lost'].includes(this.phase)||!this.canAfford(this.refreshCost()))return false;const cost=this.refreshCost();this.ink-=this.inkCost(cost);this.refreshes++;this.drawHand();this.emit('refresh',{cost:this.inkCost(cost)});return true;}
  tilesFor(word){const ids=[];for(const ch of word){const tile=this.hand.find(t=>!t.used&&t.ch===ch&&!ids.includes(t.id));if(!tile)return null;ids.push(tile.id);}return ids;}
- availableWords(){const key=this.hand.map(t=>t.used?'_':t.ch).join('');if(this._wordCacheKey!==key){const counts=new Map();for(const t of this.hand)if(!t.used)counts.set(t.ch,(counts.get(t.ch)||0)+1);const found=[];const visit=prefix=>{for(const [ch,count]of counts){if(!count)continue;const next=prefix+ch;if(!WORD_PREFIXES.has(next))continue;const w=getTowerWord(next);if(w)found.push(w);if(next.length<MAX_WORD_LENGTH){counts.set(ch,count-1);visit(next);counts.set(ch,count);}}};visit('');this._wordCacheKey=key;this._wordCache=found;}return this._wordCache.slice();}
- canBuild(word,ids){const w=getWord(word);if(!w||!this.canAfford(w.cost)||['won','lost'].includes(this.phase))return false;const chosen=ids??this.tilesFor(word);if(!chosen||chosen.length!==w.tier||new Set(chosen).size!==chosen.length)return false;const tiles=chosen.map(id=>this.hand.find(t=>t.id===id&&!t.used));return tiles.every(Boolean)&&tiles.map(t=>t.ch).join('')===word;}
+ availableWords(){const key=this.poetryGrade+':'+this.hand.map(t=>t.used?'_':t.ch).join('');if(this._wordCacheKey!==key){const counts=new Map();for(const t of this.hand)if(!t.used)counts.set(t.ch,(counts.get(t.ch)||0)+1);const found=[];const visit=prefix=>{for(const [ch,count]of counts){if(!count)continue;const next=prefix+ch;if(!WORD_PREFIXES.has(next))continue;const w=getTowerWord(next);if(w&&this.allowsWord(w))found.push(w);if(next.length<MAX_WORD_LENGTH){counts.set(ch,count-1);visit(next);counts.set(ch,count);}}};visit('');this._wordCacheKey=key;this._wordCache=found;}return this._wordCache.slice();}
+ canBuild(word,ids){const w=getWord(word);if(!w||!this.allowsWord(w)||!this.canAfford(w.cost)||['won','lost'].includes(this.phase))return false;const chosen=ids??this.tilesFor(word);if(!chosen||chosen.length!==w.tier||new Set(chosen).size!==chosen.length)return false;const tiles=chosen.map(id=>this.hand.find(t=>t.id===id&&!t.used));return tiles.every(Boolean)&&tiles.map(t=>t.ch).join('')===word;}
  build(word,pad,ids){const w=getWord(word),chosen=ids??this.tilesFor(word);if(!this.pads[pad]||!this.padUnlocked(pad)||this.towers.some(t=>t.pad===pad)||!this.canBuild(word,chosen))return false;this.ink-=this.inkCost(w.cost);for(const id of chosen)this.hand.find(t=>t.id===id).used=true;if(this.hintWord&&!this.tilesFor(this.hintWord))this.hintWord=null;const tower={word,pad,level:w.tier,spent:w.cost,cooldown:0,id:this.nextId++,repairReadyAt:0,rebuilds:0};tower.hp=towerDefense(tower).maxHp;this.towers.push(tower);this.emit('build',{word});return true;}
  upgrade(id){const t=this.towers.find(t=>t.id===id);if(!t||!towerActive(t)||t.level>=getTowerWord(t.word).maxLevel||['won','lost'].includes(this.phase))return false;const cost=this.upgradeCost(t);if(!this.canAfford(cost))return false;const max=towerDefense(t).maxHp;this.ink-=this.inkCost(cost);t.spent+=cost;t.level++;t.hp=(t.hp??max)+towerDefense(t).maxHp-max;this.emit('upgrade',{pad:t.pad,level:t.level});return true;}
  upgradeCost(t){const w=getTowerWord(t.word);return Math.round(w.cost*(t.level===w.tier?.75:1.15)*(hasRune(w,'study')?.92:1));}
@@ -1353,9 +1357,10 @@ export class Game {
   if(w.idiomMove)this.idiomAttack(t,w,target,targets,hit,slow,damage,shotNumber,empowered);
   t.cooldown=stats.rate/(w.special==='rhythm'?1+streak*(.01+learningRank(w)*.01):1)*(w.special==='resolve'&&(t.hp??towerDefense(t).maxHp)/towerDefense(t).maxHp<.4?.9:1)*(w.special==='bargain'&&shotNumber%4===0?1.4:1)*(hasRune(w,'tempo')&&t.shots%4===0?.88:1)*(1+disruption)/(1+haste);
  }
- export(){const {effects,events,_wordCacheKey,_wordCache,debugMode,...data}=this;return {...data,...(debugMode?{debugMode:true}:{}),towers:this.towers.map(t=>({...t})),enemies:this.enemies.map(e=>({...e,...(e.bossTargets?{bossTargets:[...e.bossTargets]}:{})})),queue:this.queue.map(e=>({...e})),hand:this.hand.map(t=>({...t})),unlockedPads:[...this.unlockedPads],bossDraws:this.bossDraws.map(x=>({...x})),zones:this.zones.map(z=>({...z})),poetryFieldReady:{...(this.poetryFieldReady||{})},poetryScenes:clonePoetryScenes(this.poetryScenes||[]),poetryBonusEarned:this.poetryBonusEarned||0,pendingWaves:this.pendingWaves?[...this.pendingWaves]:this.phase==='battle'&&this.wave>0?[this.wave]:[],version:11};}
+ export(){const {effects,events,_wordCacheKey,_wordCache,debugMode,poetryGrade,...data}=this;return {...data,...(debugMode?{debugMode:true}:{}),...(poetryGrade?{poetryGrade}:{}),towers:this.towers.map(t=>({...t})),enemies:this.enemies.map(e=>({...e,...(e.bossTargets?{bossTargets:[...e.bossTargets]}:{})})),queue:this.queue.map(e=>({...e})),hand:this.hand.map(t=>({...t})),unlockedPads:[...this.unlockedPads],bossDraws:this.bossDraws.map(x=>({...x})),zones:this.zones.map(z=>({...z})),poetryFieldReady:{...(this.poetryFieldReady||{})},poetryScenes:clonePoetryScenes(this.poetryScenes||[]),poetryBonusEarned:this.poetryBonusEarned||0,pendingWaves:this.pendingWaves?[...this.pendingWaves]:this.phase==='battle'&&this.wave>0?[this.wave]:[],version:11};}
  static restore(data){
  const finite=n=>typeof n==='number'&&Number.isFinite(n),int=n=>Number.isInteger(n)&&n>=0,kind=k=>Object.hasOwn(ENEMIES,k);
+ if(data?.poetryGrade!==undefined&&!validPoetryGrade(data.poetryGrade))throw Error('Invalid poetry grade');
  if(data?.debugMode!==undefined&&typeof data.debugMode!=='boolean')throw Error('Invalid debug mode');
  if(!data||![1,2,3,4,5,6,7,8,9,10,11].includes(data.version)||!int(data.chapter)||!CHAPTERS[data.chapter]||!int(data.wave)||(data.endless!==undefined&&typeof data.endless!=='boolean')||(!data.endless&&data.version<5&&data.wave>(data.version<3?CHAPTERS[data.chapter].rounds:CHAPTERS[data.chapter].waves))||!['prepare','battle','intermission','won','lost'].includes(data.phase)||!['ink','hp','time','skillReady','totalEarned'].every(k=>finite(data[k])&&data[k]>=0)||data.hp>CHAPTERS[data.chapter].hp||!['kills','nextId'].every(k=>int(data[k]))||!finite(data.spawnTime)||!Array.isArray(data.towers)||!Array.isArray(data.enemies)||!Array.isArray(data.queue))throw Error('Invalid save');
  if(data.mirrorLayout!==undefined&&(data.chapter!==7||![1,2].includes(data.mirrorLayout)))throw Error('Invalid mirror layout');
@@ -1397,7 +1402,7 @@ export class Game {
  if(data.poetryFieldReady!==undefined&&(!data.poetryFieldReady||typeof data.poetryFieldReady!=='object'||Array.isArray(data.poetryFieldReady)||Object.entries(data.poetryFieldReady).some(([key,value])=>!Object.hasOwn(FIELD_INTERVALS,key)||!finite(value)||value<0)))throw Error('Invalid poetry field cooldown');
  if(data.towers.some(t=>['verseReadyAt','verseShieldUntil','verseGuardUntil','verseHasteUntil'].some(k=>t[k]!==undefined&&(!finite(t[k])||t[k]<0))||(t.verseCharge!==undefined&&(!getTowerWord(t.word).poem||!int(t.verseCharge)||t.verseCharge>4))||(t.verseCasts!==undefined&&(!getTowerWord(t.word).poem||!int(t.verseCasts)))||(t.verseShield!==undefined&&(!finite(t.verseShield)||t.verseShield<0||t.verseShield>towerDefense(t).maxHp*.2+1e-6))||(t.verseGuardPower!==undefined&&(!finite(t.verseGuardPower)||t.verseGuardPower<0||t.verseGuardPower>.2))||(t.verseHastePower!==undefined&&(!finite(t.verseHastePower)||t.verseHastePower<0||t.verseHastePower>.25))))throw Error('Invalid verse state');
  validatePoetryScenes(data,{...POETRY_API,line:word=>VERSE_INDEX.get(word),routes:(ch,layout)=>getMap(ch,layout).routes.length});
- const g=new Game(data.chapter);g.debugMode=data.debugMode===true;g.poetryScenes=clonePoetryScenes(data.poetryScenes||[]);g.poetryBonusEarned=data.poetryBonusEarned||0;g.poetryFieldReady={...(data.poetryFieldReady||{})};if(data.chapter===7)g.mirrorLayout=data.mirrorLayout??1;g.campaignRounds=campaignRounds;g.bossBreachedRound=data.bossBreachedRound??0;g.bossDraws=(data.bossDraws||[]).map(x=>({...x}));g.zones=(data.zones||[]).map(z=>({...z}));g.reviveUsed=data.reviveUsed??false;g.barrierSpent=data.barrierSpent??0;g.soulHealed=data.soulHealed??0;g.bountyEarned=data.bountyEarned??0;g.autoWaveAt=data.autoWaveAt??0;g.endless=data.endless===true;g.skillUses=data.skillUses??0;g.hintUses=data.hintUses??0;g.killInkRemainder=data.killInkRemainder??0;for(const k of ['wave','hp','ink','towers','enemies','queue','time','spawnTime','phase','kills','nextId','skillReady','totalEarned'])g[k]=data[k];
+ const g=new Game(data.chapter);g.debugMode=data.debugMode===true;g.poetryGrade=data.poetryGrade??0;g.poetryScenes=clonePoetryScenes(data.poetryScenes||[]);g.poetryBonusEarned=data.poetryBonusEarned||0;g.poetryFieldReady={...(data.poetryFieldReady||{})};if(data.chapter===7)g.mirrorLayout=data.mirrorLayout??1;g.campaignRounds=campaignRounds;g.bossBreachedRound=data.bossBreachedRound??0;g.bossDraws=(data.bossDraws||[]).map(x=>({...x}));g.zones=(data.zones||[]).map(z=>({...z}));g.reviveUsed=data.reviveUsed??false;g.barrierSpent=data.barrierSpent??0;g.soulHealed=data.soulHealed??0;g.bountyEarned=data.bountyEarned??0;g.autoWaveAt=data.autoWaveAt??0;g.endless=data.endless===true;g.skillUses=data.skillUses??0;g.hintUses=data.hintUses??0;g.killInkRemainder=data.killInkRemainder??0;for(const k of ['wave','hp','ink','towers','enemies','queue','time','spawnTime','phase','kills','nextId','skillReady','totalEarned'])g[k]=data[k];
  if(data.version>=2){
   const chars=SAVED_WORD_CHARACTERS;
   if(!int(data.rngState)||data.rngState===0||data.rngState>4294967295||!int(data.refreshes)||!int(data.handSerial)||!Array.isArray(data.hand)||![16,HAND_SIZE].includes(data.hand.length)||new Set(data.hand.map(t=>t?.id)).size!==data.hand.length||data.hand.some(t=>!t||!int(t.id)||t.id===0||t.id>data.handSerial||!chars.has(t.ch)||typeof t.used!=='boolean')||data.towers.some(t=>!finite(t.spent)||t.spent<0)||data.enemies.some(e=>(e.poisonDps!==undefined&&(!finite(e.poisonDps)||e.poisonDps<0))||(e.poisonUntil!==undefined&&(!finite(e.poisonUntil)||!finite(e.poisonDps)))))throw Error('Invalid word tray');
@@ -1408,7 +1413,7 @@ export class Game {
  if(data.version<3)g.wave=data.phase==='prepare'||data.phase==='won'?data.wave*3:Math.max(1,(data.wave-1)*3+1);
  if(data.unlockedPads!==undefined){if(!Array.isArray(data.unlockedPads)||data.unlockedPads.length<FREE_PAD_COUNT||data.unlockedPads.length>PADS.length||new Set(data.unlockedPads).size!==data.unlockedPads.length||data.unlockedPads.some(i=>!int(i)||!PADS[i])||Array.from({length:FREE_PAD_COUNT},(_,i)=>i).some(i=>!data.unlockedPads.includes(i)))throw Error('Invalid unlocked pads');g.unlockedPads=[...data.unlockedPads];}
  if(g.towers.some(t=>!g.padUnlocked(t.pad)))throw Error('Tower on locked pad');
- if(data.hintWord!==undefined&&data.hintWord!==null){if(typeof data.hintWord!=='string'||!getTowerWord(data.hintWord)||!g.tilesFor(data.hintWord))throw Error('Invalid saved hint');if(RETIRED_INDEX.has(data.hintWord)){if(g.hintUses>0){g.ink+=HINT_COST*g.hintUses;g.hintUses--;}}else g.hintWord=data.hintWord;}
+ if(data.hintWord!==undefined&&data.hintWord!==null){if(typeof data.hintWord!=='string'||!getTowerWord(data.hintWord)||!g.tilesFor(data.hintWord))throw Error('Invalid saved hint');if(RETIRED_INDEX.has(data.hintWord)){if(g.hintUses>0){g.ink+=HINT_COST*g.hintUses;g.hintUses--;}}else if(g.allowsWord(data.hintWord))g.hintWord=data.hintWord;}
  if(data.version<4){
   g.pendingWaves=g.phase==='battle'&&g.wave>0?[g.wave]:[];
   const batch=getMap(g.chapter,g.mirrorLayout).mode==='simultaneous'?getMap(g.chapter,g.mirrorLayout).routes.length:1,interval=Math.max(.4,1.03-Math.ceil(g.wave/3)*.035);g.queue=g.queue.map((e,i)=>({...e,wave:g.wave,at:g.time+Math.max(0,g.spawnTime)+Math.floor(i/batch)*interval*batch}));

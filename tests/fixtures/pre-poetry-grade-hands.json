@@ -1,0 +1,6 @@
+{
+  "sourceCommit": "1b2277b9ff82d16638be148f9f71e2664bf9e38f",
+  "method": "Array of 200 initial Game(i % 10, i + 1).export() snapshots, JSON.stringify in seed order; default all-poems mode.",
+  "count": 200,
+  "hash": "b73a159b08693bc5af98fc13ba68bddd6e62a2b2c7f2dd4c6c0ee552b0b81526"
+}

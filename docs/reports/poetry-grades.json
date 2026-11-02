@@ -1,0 +1,147 @@
+{
+  "date": "2026-11-02",
+  "method": "1000 deterministic recipe plans for each of all/grades 1–6; cumulative grade scopes from existing corpus labels. Every guarantee and extra poem must belong to an eligible poem; no single-character fillers, no duplicate recipes, all plans use exactly 32 cards. Missing verse-length pools are excluded, never replaced by higher grades. Ten plans per scope are actually built with real costs and all 32 cards consumed using a test-only 10000 wallet. Default all-mode initial exports/RNG/hand bytes additionally match 200 frozen pre-feature snapshots. These checks validate selection and compatibility, not the win rate of restricted-grade armies.",
+  "sourceHashes": {
+    "dist/engine.mjs": "e143b4a7342d6506feee52cc04dbd776f072ebc23c0fde164909a4ece79feb2d",
+    "dist/poetry-rules.mjs": "df0b5bf2a5bb41b32fd8a7f52e653aa74401c3bfd9b8d49f912aa01461aedcb6",
+    "dist/poetry-data.mjs": "b5accdb3cfb093ed3ac5f5c3ed11566a5e5830f3f4b540b87cb6231c3f76c719"
+  },
+  "totalSamples": 7000,
+  "independentWholeHandBuilds": 70,
+  "defaultSnapshots": "tests/fixtures/pre-poetry-grade-hands.json",
+  "grades": [
+    {
+      "grade": 0,
+      "label": "全部诗词（含课外）",
+      "eligiblePoems": 109,
+      "eligibleLines": 483,
+      "eligibleLengths": {
+        "5": 171,
+        "6": 24,
+        "7": 288
+      },
+      "samples": 1000,
+      "guaranteedPoemLengths": {
+        "5": 333,
+        "6": 335,
+        "7": 332
+      },
+      "extraPoems": 358,
+      "independentWholeHandBuilds": 10
+    },
+    {
+      "grade": 1,
+      "label": "一年级及以下",
+      "eligiblePoems": 13,
+      "eligibleLines": 54,
+      "eligibleLengths": {
+        "5": 42,
+        "6": 0,
+        "7": 12
+      },
+      "samples": 1000,
+      "guaranteedPoemLengths": {
+        "5": 500,
+        "6": 0,
+        "7": 500
+      },
+      "extraPoems": 285,
+      "independentWholeHandBuilds": 10
+    },
+    {
+      "grade": 2,
+      "label": "二年级及以下",
+      "eligiblePoems": 27,
+      "eligibleLines": 111,
+      "eligibleLengths": {
+        "5": 74,
+        "6": 0,
+        "7": 37
+      },
+      "samples": 1000,
+      "guaranteedPoemLengths": {
+        "5": 500,
+        "6": 0,
+        "7": 500
+      },
+      "extraPoems": 287,
+      "independentWholeHandBuilds": 10
+    },
+    {
+      "grade": 3,
+      "label": "三年级及以下",
+      "eligiblePoems": 45,
+      "eligibleLines": 183,
+      "eligibleLengths": {
+        "5": 84,
+        "6": 0,
+        "7": 99
+      },
+      "samples": 1000,
+      "guaranteedPoemLengths": {
+        "5": 500,
+        "6": 0,
+        "7": 500
+      },
+      "extraPoems": 286,
+      "independentWholeHandBuilds": 10
+    },
+    {
+      "grade": 4,
+      "label": "四年级及以下",
+      "eligiblePoems": 62,
+      "eligibleLines": 254,
+      "eligibleLengths": {
+        "5": 101,
+        "6": 5,
+        "7": 148
+      },
+      "samples": 1000,
+      "guaranteedPoemLengths": {
+        "5": 333,
+        "6": 335,
+        "7": 332
+      },
+      "extraPoems": 358,
+      "independentWholeHandBuilds": 10
+    },
+    {
+      "grade": 5,
+      "label": "五年级及以下",
+      "eligiblePoems": 82,
+      "eligibleLines": 337,
+      "eligibleLengths": {
+        "5": 115,
+        "6": 5,
+        "7": 217
+      },
+      "samples": 1000,
+      "guaranteedPoemLengths": {
+        "5": 333,
+        "6": 335,
+        "7": 332
+      },
+      "extraPoems": 358,
+      "independentWholeHandBuilds": 10
+    },
+    {
+      "grade": 6,
+      "label": "六年级及以下",
+      "eligiblePoems": 107,
+      "eligibleLines": 474,
+      "eligibleLengths": {
+        "5": 170,
+        "6": 16,
+        "7": 288
+      },
+      "samples": 1000,
+      "guaranteedPoemLengths": {
+        "5": 333,
+        "6": 335,
+        "7": 332
+      },
+      "extraPoems": 358,
+      "independentWholeHandBuilds": 10
+    }
+  ]
+}
