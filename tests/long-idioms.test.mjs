@@ -11,7 +11,7 @@ test('seeing tower reveals enemies and releases its precision finisher in actual
  for(let i=0;i<4;i++){g.time=10+i*2;t.cooldown=0;g.attack(t,.1);}
  assert.equal(t.idiomCasts,1);assert.ok(e.lightUntil>g.time);assert.ok(e.hp<e.maxHp-towerStats(t).damage*6);assert.ok(e.d<enemyLength(e));assert.deepEqual(Game.restore(g.export()).export(),g.export());
 });
-test('long idiom can be randomly drawn without displacing a complete poem or the six independent short recipes',()=>{
- let seen=0;for(let seed=1;seed<=600;seed++){const g=new Game(seed%10,seed);if(!g.tilesFor(word))continue;seen++;assert.equal(g.hand.length,32);const available=g.availableWords();assert.ok(available.some(w=>w.poem));for(const[n,min]of[[2,3],[3,2],[4,1]])assert.ok(available.filter(w=>w.tier===n).length>=min);}
- assert.ok(seen>=20&&seen<=90,`${seen}/600 hands`);
+test('long idiom can be randomly drawn without displacing a complete poem or the five independent short recipes',()=>{
+ let seen=0;for(let seed=1;seed<=600;seed++){const g=new Game(seed%10,seed);if(!g.tilesFor(word))continue;seen++;assert.equal(g.hand.length,32);const available=g.availableWords();assert.ok(available.some(w=>w.poem));for(const[n,min]of[[3,3],[4,2]])assert.ok(available.filter(w=>w.tier===n).length>=min);}
+ assert.ok(seen>=5&&seen<=100,`${seen}/600 hands`);
 });

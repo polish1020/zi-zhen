@@ -356,7 +356,7 @@ export const getWord=word=>WORD_INDEX.get(word);
 // Retired recipes are never forgeable; only already-built saved towers and
 // their effects may resolve their exact released profile.
 export const getTowerWord=word=>WORD_INDEX.get(word)||RETIRED_INDEX.get(word);
-// Build a complete six-word set before shuffling so guarantees do not compete for tiles.
+// Every recipe owns its cards. No loose characters are used to fill a tray.
 const HAND_POOLS=Object.fromEntries([2,3,4].map(tier=>[tier,{
  fallback:COMBAT_WORDS.filter(w=>w.tier===tier),
  learning:LEARNING_EVERYDAY_WORDS.filter(w=>w.tier===tier),
@@ -364,25 +364,32 @@ const HAND_POOLS=Object.fromEntries([2,3,4].map(tier=>[tier,{
  skills:SKILL_HAND_WORDS.filter(w=>w.tier===tier),
  culture:CULTURE_HAND_WORDS.filter(w=>w.tier===tier)
 }]));
-const HAND_STARTERS=HAND_POOLS[2].fallback.filter(w=>w.damage>0&&!['aura','income'].includes(w.type)&&[...w.word].some(ch=>{const one=getTowerWord(ch);return one?.damage>0&&one.cost<=37;}));
-function drawShortHandWords(random){
- const pick=xs=>xs[Math.floor(random()*xs.length)];
- const themed=tier=>{const p=HAND_POOLS[tier],roll=random();if(roll<.15)return pick(random()<.5?p.learning:p.meaning);if(tier===4&&roll<.65)return pick(random()<.35?LONG_LEARNING_WORDS:LEARNING_HAND_WORDS);if(roll<(tier===4?.85:.45))return pick(p.skills);if(roll<(tier===4?.95:.65))return pick(p.culture);return pick(p.fallback);};
- const distinct=(tier,seen)=>{for(let attempt=0;attempt<12;attempt++){const w=themed(tier);if(w&&!seen.has(w.word)){seen.add(w.word);return w;}}const w=pick(HAND_POOLS[tier].fallback.filter(w=>!seen.has(w.word)));seen.add(w.word);return w;};
- const starter=pick(HAND_STARTERS),shortSeen=new Set([starter.word]),mediumSeen=new Set();
- return[starter,distinct(2,shortSeen),distinct(2,shortSeen),distinct(3,mediumSeen),distinct(3,mediumSeen),themed(4)].map(w=>w.word);
-}
+const HAND_STARTERS=HAND_POOLS[3].fallback.filter(w=>w.damage>0&&!['aura','income'].includes(w.type)&&[...w.word].some(ch=>{const one=WORD_INDEX.get(ch);return one?.damage>0&&one.cost<=37;}));
 const POETRY_POOLS=Object.fromEntries([5,6,7].map(n=>[n,{all:POEM_LINES.filter(l=>l.word.length===n),early:POEM_LINES.filter(l=>l.word.length===n&&/^[一二]年级/.test(POEM_INDEX.get(l.poem).grade))}]));
+// Relative weights are renormalized over lengths that fit the remaining slots.
+export const HAND_EXTRA_LENGTH_WEIGHTS=Object.freeze([[7,14],[6,10],[5,16],[4,25],[3,20],[2,15]].map(Object.freeze));
 export function drawHandWords(random){
- const plan=drawShortHandWords(random),pick=xs=>xs[Math.min(xs.length-1,Math.floor(random()*xs.length))];let remaining=HAND_SIZE-16;
- if(random()<POETRY_DRAW_CHANCE){const length=pick([5,6,7]),pool=POETRY_POOLS[length],preferred=random()<.7&&pool.early.length?pool.early:pool.all,verse=pick(preferred).word;plan.push(verse);remaining-=length;}
- // The complete verse uses its own cards, separately from the six short words.
- // Long idioms use only spare slots, preserving all six short recipes and the poem.
- if(remaining>=6&&random()<.08){const word=pick(LONG_IDIOM_WORDS).word;if(word.length<=remaining){plan.push(word);remaining-=word.length;}}
- // Sample the remaining spare cards individually for cross-combinations.
- for(let i=0;i<remaining;i++){const pool=pick(POEM_LINES),chars=[...pool.word];plan.push(pick(chars));}
+ const pick=xs=>xs[Math.min(xs.length-1,Math.floor(random()*xs.length))],seen=new Set();
+ const distinct=(draw,fallback)=>{for(let n=0;n<12;n++){const w=draw();if(w&&!seen.has(w.word)){seen.add(w.word);return w.word;}}const w=pick(fallback.filter(w=>!seen.has(w.word)));seen.add(w.word);return w.word;};
+ const short=tier=>{const p=HAND_POOLS[tier];return distinct(()=>{const roll=random();if(roll<.15)return pick(random()<.5?p.learning:p.meaning);if(tier===4&&roll<.65)return pick(random()<.35?LONG_LEARNING_WORDS:LEARNING_HAND_WORDS);if(roll<(tier===4?.85:.45))return pick(p.skills);if(roll<(tier===4?.95:.65))return pick(p.culture);return pick(p.fallback);},p.fallback);};
+ const verse=tier=>{const p=POETRY_POOLS[tier];return distinct(()=>{const preferred=random()<.7&&p.early.length?p.early:p.all;return pick(preferred);},p.all);};
+ const plan=[verse(pick([5,6,7])),short(4),short(4),distinct(()=>pick(HAND_STARTERS),HAND_STARTERS),short(3),short(3)];
+ let remaining=HAND_SIZE-plan.reduce((n,w)=>n+w.length,0),maximum=MAX_WORD_LENGTH;
+ while(remaining>0){
+  // Keep the random extras in descending length order. Reject a choice if its
+  // smaller tail could not be filled by complete words (2 alone needs evenness).
+  const options=HAND_EXTRA_LENGTH_WEIGHTS.filter(([n])=>n<=maximum&&n<=remaining&&(remaining===n||remaining-n>=2&&(n>=3||(remaining-n)%2===0)));
+  const total=options.reduce((n,[,weight])=>n+weight,0);let roll=random()*total;
+  const length=(options.find(([,weight])=>(roll-=weight)<0)||options.at(-1))[0];
+  let word;
+  if(length<=4)word=short(length);
+  else if(length===6&&LONG_IDIOM_WORDS.some(w=>!seen.has(w.word))&&random()<.5)word=distinct(()=>pick(LONG_IDIOM_WORDS),LONG_IDIOM_WORDS);
+  else word=verse(length);
+  plan.push(word);remaining-=length;maximum=length;
+ }
  return plan;
 }
+
 export function towerStats(t){const w=getTowerWord(t.word),up=t.level-w.tier;return {damage:Math.round(w.damage*(1+up*(.65+(hasRune(w,'growth')?.1:0)))),range:w.range+up*15+(w.poem?Math.min(3,t.verseElevation||0)*18:0),rate:w.rate/(1+up*.14),aura:w.aura,income:Math.round(w.income*(1+up*.5))};}
 export const towerActive=t=>(t.hp??1)>0;
 export const TOWER_DEFENSES={
