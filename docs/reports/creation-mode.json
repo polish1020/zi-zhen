@@ -1,0 +1,79 @@
+{
+  "date": "2026-11-02",
+  "route": "/glyph.html",
+  "legacyRoute": "/glyph-lessons.html",
+  "characters": 329,
+  "components": 249,
+  "creationEntries": 304,
+  "words": 166,
+  "wordLengths": {
+    "2": 133,
+    "3": 23,
+    "4": 10
+  },
+  "layouts": {
+    "single": 74,
+    "lr": 167,
+    "stack": 73,
+    "surround": 11,
+    "triple": 4
+  },
+  "categories": {
+    "生灵": 61,
+    "草木": 67,
+    "山水": 43,
+    "屋舍": 49,
+    "天象": 49,
+    "变化": 35
+  },
+  "discoveryRules": 17,
+  "maxObjects": 80,
+  "maxOldPaintings": 8,
+  "saveKey": "wordward-creation-save-v1",
+  "voice": false,
+  "randomness": [
+    "Complete-recipe suggestions with all components always open",
+    "Seeded visual variants and size",
+    "Chance of harmless butterfly/bird/frog visitors when habitat requirements are met",
+    "Undo restores both painting and RNG state"
+  ],
+  "referenceReview": {
+    "source": "skishore/makemeahanzi dictionary.txt, consulted for modern structure verification; no source text or stroke paths copied into the new catalog",
+    "method": "Compared reviewed non-whole recipes with IDS reference. 足旁 is represented as ⻊; 岛 uses the named transformed 鸟字头. Complex forms including 茶、船、原、亮、春、布、步 are retained whole rather than given an uncertain recipe.",
+    "meaning": "Project-authored short definitions; four-character entries are not automatically labeled idioms."
+  },
+  "legacyCombatHashes": {
+    "engine.mjs": "1c0a7467438132012e3669cb466745f88f47d082f04cd7bcfbc87b5e6d9836c7",
+    "lexicon.mjs": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
+    "specials.mjs": "9123c609756d05908e7d43084e5cc318a7afdb715ebbf672fd069cefb0e90820"
+  },
+  "assets": {
+    "index.html": "9b216baba830fdd5707a60b8ea155a82a361141ece3345439a71c6e27d93260f",
+    "style.css": "49823fdd7715d06ddba0c5b558bb82b73e6a0c920460140df266f2bd85c3a56a",
+    "responsive.css": "589724b123b6f46de7287162a452fbd6e42e4eaab24ef9bc756ef4d124d3c364",
+    "gameplay.css": "78c10a591ed5974f8f479afaf4e8bad12654b6f9a06919bd251efe6a4e4a6118",
+    "modes.css": "81717d4faf51be65daba8cd8b0add0bb9390b96b65f653845d1d42e5836feb87",
+    "manifest.webmanifest": "8ec6e2d2cb7f817d3628d3c0e380787f7e796778f6db79fde1dc25ee0b1b890e",
+    "THIRD-PARTY-NOTICES.txt": "c6f4f649b15fabcf0e8bb4e1ea4f798be32fd615df73c5741fa601e03eca510f",
+    "ARPHICPL.TXT": "5590533436c70f10f2f524ee61456238c290175c6662fbe1c700b5f038a6d328",
+    "icon.svg": "0a04f016c10e78b18a9f3b4c2b59f185e6ecbcd17a1d8f11f477a51d0690918b",
+    "app.mjs": "b829676bb5efaa1ee8607172ac28c6d9970710b8912ed44d52542fc8cab9c0b0",
+    "engine.mjs": "1c0a7467438132012e3669cb466745f88f47d082f04cd7bcfbc87b5e6d9836c7",
+    "lexicon.mjs": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
+    "specials.mjs": "9123c609756d05908e7d43084e5cc318a7afdb715ebbf672fd069cefb0e90820",
+    "glyph.html": "5598870a6fba999ec89d1e3d3fd23cee162552d006d8b250ad4317654625ecde",
+    "glyph.css": "34341441f298a1c1bef6d03f40a6202c1b53ac94ee921886de83d118be9e8507",
+    "glyph-app.mjs": "9caaaf12527d9b53a878061e93a1086d8301f3543c1fc6dfa7550c1557ebfa1e",
+    "glyph-data.mjs": "f9b823d0f46d5ef4c646cf1c7acbe79d9280d5a85fecd1ddcdfcae422ac807c6",
+    "glyph-engine.mjs": "3c17eb30c86f014ef74a7198bfed020debfa35409252c54475adc3ffb0662f33",
+    "glyph-art.mjs": "bb7cc845886aa3166bf9358ae81010b87aaf84e4829a6068763caeaf0c400763",
+    "glyph-strokes.json": "65855f1f27f08afdddb704f8b1c1ccff8d154599126ae58e68efef862dbaccc2",
+    "glyph-lessons.html": "e9d245d11ea64ac57e7a78651066a0fc0ef913d004d44c32b3338c2c64801343",
+    "creation-data.mjs": "e6c19ec39cc916a4a7da8b0cca87b175f0f9449f16348033200011e212304d40",
+    "creation-engine.mjs": "37781e2b5c305b11bb8f5811213bd08f65f46bd6023b1380c1b2edccf88c711c",
+    "creation-art.mjs": "72f3186fb7d3e9ee43a251debe109f9df838d04d80083069a4ae3aec9a15d809",
+    "creation-app.mjs": "cb3eae0d11f1181fdc08583992e39826bc615c6171e8b0822efb06f1e6d0be9a",
+    "creation.css": "62f17651189bd80cef4ead3fbb5fb4eace1d85fc5947c33e976d2d17e0ee6190"
+  },
+  "validation": "342 rule tests, four viewport Chromium/WebKit flows, real pointer placement/drag, world reactions, independent storage, SVG export, album, blocked storage, and legacy lesson regression. Simulated iOS standalone is not a physical-device test."
+}

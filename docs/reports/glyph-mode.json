@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-01",
+  "date": "2026-11-02",
   "baselineCommit": "84b295587ed7f093e88d325619128cb2d4c76d50",
   "levels": 20,
   "missionCharacters": 60,
@@ -16,7 +16,7 @@
   },
   "storageKey": "wordward-glyph-save-v1",
   "practice": "Ordered tracing against authored stroke paths/medians; not arbitrary handwriting recognition. Watching a demonstration does not record a completed practice.",
-  "speech": "Browser/OS speech synthesis with Chinese voice selection and visible pinyin; voice availability depends on the device. No server speech service.",
+  "speech": "Voice paused; pinyin and definitions remain visible. Legacy read-aloud controls are hidden.",
   "source": {
     "title": "Wordward offline tracing subset",
     "modifiedAt": "2026-11-01",
@@ -28,7 +28,7 @@
     "note": "Selected 76 original character records and aggregated them for offline use on the stated date. Stroke paths and medians are unchanged. This data subset may be copied and modified under the Arphic Public License; it is provided without warranty."
   },
   "assets": {
-    "index.html": "9de6685d42dc18a9f04c6be7de5ebafde9c4077360fffc664148c6e230093da8",
+    "index.html": "9b216baba830fdd5707a60b8ea155a82a361141ece3345439a71c6e27d93260f",
     "style.css": "49823fdd7715d06ddba0c5b558bb82b73e6a0c920460140df266f2bd85c3a56a",
     "responsive.css": "589724b123b6f46de7287162a452fbd6e42e4eaab24ef9bc756ef4d124d3c364",
     "gameplay.css": "78c10a591ed5974f8f479afaf4e8bad12654b6f9a06919bd251efe6a4e4a6118",
@@ -41,13 +41,19 @@
     "engine.mjs": "1c0a7467438132012e3669cb466745f88f47d082f04cd7bcfbc87b5e6d9836c7",
     "lexicon.mjs": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
     "specials.mjs": "9123c609756d05908e7d43084e5cc318a7afdb715ebbf672fd069cefb0e90820",
-    "glyph.html": "232942bc7d5d051ff6fd3414aa3af2d4b4ec2d54743e7d054d120dac50e41320",
+    "glyph.html": "5598870a6fba999ec89d1e3d3fd23cee162552d006d8b250ad4317654625ecde",
     "glyph.css": "34341441f298a1c1bef6d03f40a6202c1b53ac94ee921886de83d118be9e8507",
-    "glyph-app.mjs": "7abe4322504484b534a353e459202fe76056d73e09460edbb26cc214f0fca517",
+    "glyph-app.mjs": "9caaaf12527d9b53a878061e93a1086d8301f3543c1fc6dfa7550c1557ebfa1e",
     "glyph-data.mjs": "f9b823d0f46d5ef4c646cf1c7acbe79d9280d5a85fecd1ddcdfcae422ac807c6",
     "glyph-engine.mjs": "3c17eb30c86f014ef74a7198bfed020debfa35409252c54475adc3ffb0662f33",
     "glyph-art.mjs": "bb7cc845886aa3166bf9358ae81010b87aaf84e4829a6068763caeaf0c400763",
-    "glyph-strokes.json": "65855f1f27f08afdddb704f8b1c1ccff8d154599126ae58e68efef862dbaccc2"
+    "glyph-strokes.json": "65855f1f27f08afdddb704f8b1c1ccff8d154599126ae58e68efef862dbaccc2",
+    "glyph-lessons.html": "e9d245d11ea64ac57e7a78651066a0fc0ef913d004d44c32b3338c2c64801343",
+    "creation-data.mjs": "e6c19ec39cc916a4a7da8b0cca87b175f0f9449f16348033200011e212304d40",
+    "creation-engine.mjs": "37781e2b5c305b11bb8f5811213bd08f65f46bd6023b1380c1b2edccf88c711c",
+    "creation-art.mjs": "72f3186fb7d3e9ee43a251debe109f9df838d04d80083069a4ae3aec9a15d809",
+    "creation-app.mjs": "cb3eae0d11f1181fdc08583992e39826bc615c6171e8b0822efb06f1e6d0be9a",
+    "creation.css": "62f17651189bd80cef4ead3fbb5fb4eace1d85fc5947c33e976d2d17e0ee6190"
   },
   "levelsAndWords": [
     {

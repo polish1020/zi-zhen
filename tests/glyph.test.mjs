@@ -47,7 +47,7 @@ test('tower-defense engine, combat vocabulary and semantic skills remain byte-id
  const baseline={'engine.mjs':'1c0a7467438132012e3669cb466745f88f47d082f04cd7bcfbc87b5e6d9836c7','lexicon.mjs':'279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52','specials.mjs':'9123c609756d05908e7d43084e5cc318a7afdb715ebbf672fd069cefb0e90820'};for(const[f,hash]of Object.entries(baseline))assert.equal(createHash('sha256').update(readFileSync(new URL('../dist/'+f,import.meta.url))).digest('hex'),hash,f);
 });
 test('static asset manifest contains the complete independent mode, local stroke data, license and every relative module import',()=>{
- const assets=JSON.parse(readFileSync(new URL('../data/static-assets.json',import.meta.url)));assert.equal(new Set(assets).size,assets.length);assert.equal(assets.length,20);
+ const assets=JSON.parse(readFileSync(new URL('../data/static-assets.json',import.meta.url)));assert.equal(new Set(assets).size,assets.length);assert.equal(assets.length,26);
  for(const file of assets){const text=readFileSync(new URL('../dist/'+file,import.meta.url),'utf8');assert.ok(text.length);for(const match of text.matchAll(/(?:from\s*|import\s*)['"]\.\/([^'"]+\.mjs)['"]/g))assert.ok(assets.includes(match[1]),file+' imports '+match[1]);}
- assert.match(readFileSync(new URL('../dist/index.html',import.meta.url),'utf8'),/id="enter-glyph"/);assert.match(readFileSync(new URL('../dist/glyph.html',import.meta.url),'utf8'),/ARPHICPL\.TXT/);assert.match(readFileSync(new URL('../dist/glyph-app.mjs',import.meta.url),'utf8'),/fetch\('\.\/glyph-strokes\.json'\)/);
+ assert.match(readFileSync(new URL('../dist/index.html',import.meta.url),'utf8'),/id="enter-glyph"/);assert.match(readFileSync(new URL('../dist/glyph-lessons.html',import.meta.url),'utf8'),/ARPHICPL\.TXT/);assert.match(readFileSync(new URL('../dist/glyph-app.mjs',import.meta.url),'utf8'),/fetch\('\.\/glyph-strokes\.json'\)/);
 });
