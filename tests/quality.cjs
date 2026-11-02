@@ -1,3 +1,4 @@
+const{openCodex,selectCodexFilter}=require('./codex-helpers.cjs');
 const assert = require('node:assert/strict');
 const { chromium, webkit } = require('/opt/codex/cua_node/lib/node_modules/playwright-core');
 const base = process.env.BASE_URL || 'http://127.0.0.1:4173';
@@ -44,16 +45,16 @@ const engine = process.env.BROWSER || 'chromium';
         }
         await page.locator('#back-forge').click();
       }
-      await page.locator('#jump-codex').click();
-      await page.locator('[data-length="1"]').click(); await page.locator('#codex-rune').selectOption('toxin');
+      await openCodex(page);
+      await page.locator('[data-length="1"]').click(); await selectCodexFilter(page,'#codex-rune','toxin');
       assert.equal(await page.locator('.codex-card').count(),0,'single-character words must not be offered in perk filters');
       await page.locator('[data-length="2"]').click(); await page.locator('#codex-search').fill('学习');
-      await page.locator('#codex-rune').selectOption('focus'); assert.equal(await page.locator('.codex-card').count(),0);
-      await page.locator('#codex-rune').selectOption('study'); await page.locator('[data-word-effect="学习"]').click();
+      await selectCodexFilter(page,'#codex-rune','focus'); assert.equal(await page.locator('.codex-card').count(),0);
+      await selectCodexFilter(page,'#codex-rune','study'); await page.locator('[data-word-effect="学习"]').click();
       assert.match(await page.locator('.meaning-effect-card').innerText(),/1\/1/);
       assert.match(await page.locator('.meaning-effect-card').innerText(),/研习/);
       assert.ok(!(await page.locator('.meaning-effect-card').innerText()).includes('专注'));
-      await page.locator('#effect-done').click(); await page.locator('#jump-codex').click();
+      await page.locator('#effect-done').click(); await openCodex(page);
       await page.locator('#codex-search').fill('寒冰毒箭'); await page.locator('[data-word-effect="寒冰毒箭"]').click();
       assert.match(await page.locator('.meaning-effect-card').innerText(),/2\/2/);
       assert.match(await page.locator('.meaning-effect-card').innerText(),/凝霜.*淬毒/s);

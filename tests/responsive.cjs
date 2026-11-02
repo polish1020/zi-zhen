@@ -1,3 +1,4 @@
+const{openCodex,selectCodexFilter}=require('./codex-helpers.cjs');
 const assert=require('node:assert/strict');
 const {chromium,webkit}=require('/opt/codex/cua_node/lib/node_modules/playwright-core');
 const baseURL=process.env.BASE_URL||'http://127.0.0.1:4173',engine=process.env.BROWSER||'chromium';
@@ -32,7 +33,7 @@ const baseURL=process.env.BASE_URL||'http://127.0.0.1:4173',engine=process.env.B
  const tray=await p.locator('.char').evaluateAll(xs=>xs.map(x=>[x.dataset.tile,x.dataset.char]));await p.reload();await enter();assert.deepEqual(await p.locator('.char').evaluateAll(xs=>xs.map(x=>[x.dataset.tile,x.dataset.char])),tray);
  await press('#start');await p.waitForFunction(()=>document.querySelector('#phase-label').textContent.includes('进行中'));await press('#start');assert.ok(await p.locator('#pause-overlay').isVisible());await p.reload();await enter();assert.ok(await p.locator('#pause-overlay').isVisible());
  if(mobile){await p.setViewportSize({width:height,height:width});await fits();await p.setViewportSize({width,height});await fits();}
- await press('#jump-codex');assert.equal(await p.locator('.codex-card').count(),40);await press('[data-length="4"]');assert.ok(await p.locator('.codex-card').count()>0&&await p.locator('.codex-card').count()<=40);await press('#close-modal');
+ await openCodex(p);assert.equal(await p.locator('.codex-card').count(),40);await press('[data-length="4"]');assert.ok(await p.locator('.codex-card').count()>0&&await p.locator('.codex-card').count()<=40);await press('#close-modal');
  await press('#settings');await press('#close-modal');
  if(mobile){const scale=await p.locator('.map-target').evaluateAll(xs=>{const c=i=>{const r=xs[i].getBoundingClientRect();return{x:r.x+r.width/2,y:r.y+r.height/2};};return{x:(c(5).x-c(0).x)/(365-100),y:(c(3).y-c(0).y)/(420-78)};});assert.ok(Math.abs(scale.x-scale.y)<.002,'map must use uniform scaling');}
  if(width===390||width===1440)await p.screenshot({path:`/workspace/shared/wordward-combined-${width}.png`,fullPage:!mobile});assert.deepEqual(errors,[]);console.log(`PASS ${engine} ${width}x${height}: start screen, combined panels, filled hand, uniform map, strict order, word effect, categorized effects, single-click details and upgrade, restore`);await ctx.close();

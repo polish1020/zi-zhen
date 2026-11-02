@@ -1,0 +1,5022 @@
+{
+  "date": "2026-11-02",
+  "method": "60 seconds, starting tower level, stationary normal enemies without armor or shields, reset positions each tick; partition real HP loss at poem-ink and poem-cast events. Marks can amplify ordinary attacks; that damage remains in the ordinary part. Excludes burning ticks, allied DPS benefit, movement control, shielding, healing and other utility. Not a campaign output share.",
+  "allVerse8Targets": {
+    "count": 483,
+    "median": 41.2,
+    "minimum": 25,
+    "maximum": 57.1,
+    "p10": 31.8,
+    "p90": 48.7
+  },
+  "examples": [
+    {
+      "single": {
+        "word": "桃花潭水深千尺",
+        "enemies": 1,
+        "normal": 6930,
+        "technique": 3696,
+        "techniqueShare": 34.8,
+        "dps": 177.1,
+        "shots": 45,
+        "casts": 5
+      },
+      "group": {
+        "word": "桃花潭水深千尺",
+        "enemies": 8,
+        "normal": 6930,
+        "technique": 3696,
+        "techniqueShare": 34.8,
+        "dps": 177.1,
+        "shots": 45,
+        "casts": 5
+      }
+    },
+    {
+      "single": {
+        "word": "飞流直下三千尺",
+        "enemies": 1,
+        "normal": 6930,
+        "technique": 4851,
+        "techniqueShare": 41.2,
+        "dps": 196.4,
+        "shots": 45,
+        "casts": 5
+      },
+      "group": {
+        "word": "飞流直下三千尺",
+        "enemies": 8,
+        "normal": 6930,
+        "technique": 8316,
+        "techniqueShare": 54.5,
+        "dps": 254.1,
+        "shots": 45,
+        "casts": 5
+      }
+    },
+    {
+      "single": {
+        "word": "千山鸟飞绝",
+        "enemies": 1,
+        "normal": 4950,
+        "technique": 594,
+        "techniqueShare": 10.7,
+        "dps": 92.4,
+        "shots": 45,
+        "casts": 4
+      },
+      "group": {
+        "word": "千山鸟飞绝",
+        "enemies": 8,
+        "normal": 4950,
+        "technique": 3564,
+        "techniqueShare": 41.9,
+        "dps": 141.9,
+        "shots": 45,
+        "casts": 4
+      }
+    },
+    {
+      "single": {
+        "word": "孤舟蓑笠翁",
+        "enemies": 1,
+        "normal": 4950,
+        "technique": 2046,
+        "techniqueShare": 29.2,
+        "dps": 116.6,
+        "shots": 45,
+        "casts": 4
+      },
+      "group": {
+        "word": "孤舟蓑笠翁",
+        "enemies": 8,
+        "normal": 4950,
+        "technique": 2046,
+        "techniqueShare": 29.2,
+        "dps": 116.6,
+        "shots": 45,
+        "casts": 4
+      }
+    },
+    {
+      "single": {
+        "word": "润物细无声",
+        "enemies": 1,
+        "normal": 4950,
+        "technique": 627,
+        "techniqueShare": 11.2,
+        "dps": 93,
+        "shots": 45,
+        "casts": 4
+      },
+      "group": {
+        "word": "润物细无声",
+        "enemies": 8,
+        "normal": 4950,
+        "technique": 3135,
+        "techniqueShare": 38.8,
+        "dps": 134.8,
+        "shots": 45,
+        "casts": 4
+      }
+    },
+    {
+      "single": {
+        "word": "春风又绿江南岸",
+        "enemies": 1,
+        "normal": 6930,
+        "technique": 832,
+        "techniqueShare": 10.7,
+        "dps": 129.4,
+        "shots": 45,
+        "casts": 4
+      },
+      "group": {
+        "word": "春风又绿江南岸",
+        "enemies": 8,
+        "normal": 6930,
+        "technique": 6653,
+        "techniqueShare": 49,
+        "dps": 226.4,
+        "shots": 45,
+        "casts": 4
+      }
+    },
+    {
+      "single": {
+        "word": "更上一层楼",
+        "enemies": 1,
+        "normal": 4950,
+        "technique": 2599,
+        "techniqueShare": 34.4,
+        "dps": 125.8,
+        "shots": 45,
+        "casts": 5
+      },
+      "group": {
+        "word": "更上一层楼",
+        "enemies": 8,
+        "normal": 4950,
+        "technique": 2599,
+        "techniqueShare": 34.4,
+        "dps": 125.8,
+        "shots": 45,
+        "casts": 5
+      }
+    },
+    {
+      "single": {
+        "word": "孤帆远影碧空尽",
+        "enemies": 1,
+        "normal": 6930,
+        "technique": 1097,
+        "techniqueShare": 13.7,
+        "dps": 133.8,
+        "shots": 45,
+        "casts": 5
+      },
+      "group": {
+        "word": "孤帆远影碧空尽",
+        "enemies": 8,
+        "normal": 6930,
+        "technique": 3292,
+        "techniqueShare": 32.2,
+        "dps": 170.4,
+        "shots": 45,
+        "casts": 5
+      }
+    }
+  ],
+  "all": [
+    {
+      "word": "曲项向天歌",
+      "enemies": 8,
+      "normal": 5060,
+      "technique": 1683,
+      "techniqueShare": 25,
+      "dps": 112.4,
+      "shots": 46,
+      "casts": 4
+    },
+    {
+      "word": "白毛浮绿水",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2640,
+      "techniqueShare": 34.8,
+      "dps": 126.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "红掌拨清波",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 1856,
+      "techniqueShare": 27.3,
+      "dps": 113.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "江南可采莲",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3094,
+      "techniqueShare": 38.5,
+      "dps": 134.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "莲叶何田田",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3465,
+      "techniqueShare": 41.2,
+      "dps": 140.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "鱼戏莲叶间",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 1733,
+      "techniqueShare": 25.9,
+      "dps": 111.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "鱼戏莲叶东",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2640,
+      "techniqueShare": 34.8,
+      "dps": 126.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "鱼戏莲叶西",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2475,
+      "techniqueShare": 33.3,
+      "dps": 123.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "鱼戏莲叶南",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3135,
+      "techniqueShare": 38.8,
+      "dps": 134.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "鱼戏莲叶北",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3135,
+      "techniqueShare": 38.8,
+      "dps": 134.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "远看山有色",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 1650,
+      "techniqueShare": 25,
+      "dps": 110,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "近听水无声",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2970,
+      "techniqueShare": 37.5,
+      "dps": 132,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "春去花还在",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3218,
+      "techniqueShare": 39.4,
+      "dps": 136.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "人来鸟不惊",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2640,
+      "techniqueShare": 34.8,
+      "dps": 126.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "锄禾日当午",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2310,
+      "techniqueShare": 31.8,
+      "dps": 121,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "汗滴禾下土",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2112,
+      "techniqueShare": 29.9,
+      "dps": 117.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "谁知盘中餐",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 1856,
+      "techniqueShare": 27.3,
+      "dps": 113.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "粒粒皆辛苦",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2681,
+      "techniqueShare": 35.1,
+      "dps": 127.2,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "小时不识月",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2145,
+      "techniqueShare": 30.2,
+      "dps": 118.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "呼作白玉盘",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2640,
+      "techniqueShare": 34.8,
+      "dps": 126.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "又疑瑶台镜",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2640,
+      "techniqueShare": 34.8,
+      "dps": 126.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "飞在青云端",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3465,
+      "techniqueShare": 41.2,
+      "dps": 140.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "解落三秋叶",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3754,
+      "techniqueShare": 43.1,
+      "dps": 145.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "能开二月花",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2640,
+      "techniqueShare": 34.8,
+      "dps": 126.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "过江千尺浪",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2112,
+      "techniqueShare": 29.9,
+      "dps": 117.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "入竹万竿斜",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3960,
+      "techniqueShare": 44.4,
+      "dps": 148.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "春眠不觉晓",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2508,
+      "techniqueShare": 33.6,
+      "dps": 124.3,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "处处闻啼鸟",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2475,
+      "techniqueShare": 33.3,
+      "dps": 123.8,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "夜来风雨声",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2772,
+      "techniqueShare": 35.9,
+      "dps": 128.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "花落知多少",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3465,
+      "techniqueShare": 41.2,
+      "dps": 140.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "李白乘舟将欲行",
+      "enemies": 8,
+      "normal": 7392,
+      "technique": 3119,
+      "techniqueShare": 29.7,
+      "dps": 175.2,
+      "shots": 48,
+      "casts": 5
+    },
+    {
+      "word": "忽闻岸上踏歌声",
+      "enemies": 8,
+      "normal": 7084,
+      "technique": 4158,
+      "techniqueShare": 37,
+      "dps": 187.4,
+      "shots": 46,
+      "casts": 4
+    },
+    {
+      "word": "桃花潭水深千尺",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3696,
+      "techniqueShare": 34.8,
+      "dps": 177.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "不及汪伦送我情",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3326,
+      "techniqueShare": 32.4,
+      "dps": 170.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "床前明月光",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 1881,
+      "techniqueShare": 27.5,
+      "dps": 113.8,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "疑是地上霜",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2640,
+      "techniqueShare": 34.8,
+      "dps": 126.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "举头望明月",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2640,
+      "techniqueShare": 34.8,
+      "dps": 126.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "低头思故乡",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 1914,
+      "techniqueShare": 27.9,
+      "dps": 114.4,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "松下问童子",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 1980,
+      "techniqueShare": 28.6,
+      "dps": 115.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "言师采药去",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2228,
+      "techniqueShare": 31,
+      "dps": 119.6,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "只在此山中",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2599,
+      "techniqueShare": 34.4,
+      "dps": 125.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "云深不知处",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2475,
+      "techniqueShare": 33.3,
+      "dps": 123.8,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "小娃撑小艇",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3135,
+      "techniqueShare": 38.8,
+      "dps": 134.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "偷采白莲回",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2104,
+      "techniqueShare": 29.8,
+      "dps": 117.6,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "不解藏踪迹",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2244,
+      "techniqueShare": 31.2,
+      "dps": 119.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "浮萍一道开",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 1980,
+      "techniqueShare": 28.6,
+      "dps": 115.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "泉眼无声惜细流",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3696,
+      "techniqueShare": 34.8,
+      "dps": 177.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "树阴照水爱晴柔",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3511,
+      "techniqueShare": 33.6,
+      "dps": 174,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "小荷才露尖尖角",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3812,
+      "techniqueShare": 35.5,
+      "dps": 179,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "早有蜻蜓立上头",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4909,
+      "techniqueShare": 41.5,
+      "dps": 197.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "头上红冠不用裁",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3638,
+      "techniqueShare": 34.4,
+      "dps": 176.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "满身雪白走将来",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4712,
+      "techniqueShare": 40.5,
+      "dps": 194,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "平生不敢轻言语",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 2772,
+      "techniqueShare": 28.6,
+      "dps": 161.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "一叫千门万户开",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4204,
+      "techniqueShare": 37.8,
+      "dps": 185.6,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "墙角数枝梅",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2228,
+      "techniqueShare": 31,
+      "dps": 119.6,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "凌寒独自开",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2640,
+      "techniqueShare": 34.8,
+      "dps": 126.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "遥知不是雪",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2376,
+      "techniqueShare": 32.4,
+      "dps": 122.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "为有暗香来",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2772,
+      "techniqueShare": 35.9,
+      "dps": 128.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "蓬头稚子学垂纶",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4158,
+      "techniqueShare": 37.5,
+      "dps": 184.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "侧坐莓苔草映身",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4620,
+      "techniqueShare": 40,
+      "dps": 192.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "路人借问遥招手",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4909,
+      "techniqueShare": 41.5,
+      "dps": 197.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "怕得鱼惊不应人",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3881,
+      "techniqueShare": 35.9,
+      "dps": 180.2,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "白日依山尽",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2805,
+      "techniqueShare": 36.2,
+      "dps": 129.3,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "黄河入海流",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2475,
+      "techniqueShare": 33.3,
+      "dps": 123.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "欲穷千里目",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2310,
+      "techniqueShare": 31.8,
+      "dps": 121,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "更上一层楼",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2599,
+      "techniqueShare": 34.4,
+      "dps": 125.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "日照香炉生紫烟",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5544,
+      "techniqueShare": 44.4,
+      "dps": 207.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "遥看瀑布挂前川",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5198,
+      "techniqueShare": 42.9,
+      "dps": 202.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "飞流直下三千尺",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 8316,
+      "techniqueShare": 54.5,
+      "dps": 254.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "疑是银河落九天",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4435,
+      "techniqueShare": 39,
+      "dps": 189.4,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "千山鸟飞绝",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3564,
+      "techniqueShare": 41.9,
+      "dps": 141.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "万径人踪灭",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3366,
+      "techniqueShare": 40.5,
+      "dps": 138.6,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "孤舟蓑笠翁",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2046,
+      "techniqueShare": 29.2,
+      "dps": 116.6,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "独钓寒江雪",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2970,
+      "techniqueShare": 37.5,
+      "dps": 132,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "危楼高百尺",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2846,
+      "techniqueShare": 36.5,
+      "dps": 129.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "手可摘星辰",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 4620,
+      "techniqueShare": 48.3,
+      "dps": 159.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "不敢高声语",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2508,
+      "techniqueShare": 33.6,
+      "dps": 124.3,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "恐惊天上人",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2244,
+      "techniqueShare": 31.2,
+      "dps": 119.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "风吹草低见牛羊",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4805,
+      "techniqueShare": 40.9,
+      "dps": 195.6,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "草长莺飞二月天",
+      "enemies": 8,
+      "normal": 7238,
+      "technique": 6064,
+      "techniqueShare": 45.6,
+      "dps": 221.7,
+      "shots": 47,
+      "casts": 5
+    },
+    {
+      "word": "拂堤杨柳醉春烟",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6237,
+      "techniqueShare": 47.4,
+      "dps": 219.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "儿童散学归来早",
+      "enemies": 8,
+      "normal": 7084,
+      "technique": 2587,
+      "techniqueShare": 26.8,
+      "dps": 161.2,
+      "shots": 46,
+      "casts": 4
+    },
+    {
+      "word": "忙趁东风放纸鸢",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6583,
+      "techniqueShare": 48.7,
+      "dps": 225.2,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "碧玉妆成一树高",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3985,
+      "techniqueShare": 36.5,
+      "dps": 181.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "万条垂下绿丝绦",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6468,
+      "techniqueShare": 48.3,
+      "dps": 223.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "不知细叶谁裁出",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 2772,
+      "techniqueShare": 28.6,
+      "dps": 161.7,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "二月春风似剪刀",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 7681,
+      "techniqueShare": 52.6,
+      "dps": 243.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "离离原上草",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3960,
+      "techniqueShare": 44.4,
+      "dps": 148.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "一岁一枯荣",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 1980,
+      "techniqueShare": 28.6,
+      "dps": 115.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "野火烧不尽",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3135,
+      "techniqueShare": 38.8,
+      "dps": 134.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "春风吹又生",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2640,
+      "techniqueShare": 34.8,
+      "dps": 126.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "远芳侵古道",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2104,
+      "techniqueShare": 29.8,
+      "dps": 117.6,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "晴翠接荒城",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3234,
+      "techniqueShare": 39.5,
+      "dps": 136.4,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "又送王孙去",
+      "enemies": 8,
+      "normal": 5170,
+      "technique": 3135,
+      "techniqueShare": 37.7,
+      "dps": 138.4,
+      "shots": 47,
+      "casts": 5
+    },
+    {
+      "word": "萋萋满别情",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3713,
+      "techniqueShare": 42.9,
+      "dps": 144.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "毕竟西湖六月中",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6064,
+      "techniqueShare": 46.7,
+      "dps": 216.6,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "风光不与四时同",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3811,
+      "techniqueShare": 35.5,
+      "dps": 179,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "接天莲叶无穷碧",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5544,
+      "techniqueShare": 44.4,
+      "dps": 207.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "映日荷花别样红",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 7277,
+      "techniqueShare": 51.2,
+      "dps": 236.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "两个黄鹂鸣翠柳",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6584,
+      "techniqueShare": 48.7,
+      "dps": 225.2,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "一行白鹭上青天",
+      "enemies": 8,
+      "normal": 7084,
+      "technique": 3142,
+      "techniqueShare": 30.7,
+      "dps": 170.4,
+      "shots": 46,
+      "casts": 4
+    },
+    {
+      "word": "窗含西岭千秋雪",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4435,
+      "techniqueShare": 39,
+      "dps": 189.4,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "门泊东吴万里船",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3927,
+      "techniqueShare": 36.2,
+      "dps": 180.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "春种一粒粟",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2558,
+      "techniqueShare": 34.1,
+      "dps": 125.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "秋收万颗子",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 4290,
+      "techniqueShare": 46.4,
+      "dps": 154,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "四海无闲田",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3432,
+      "techniqueShare": 40.9,
+      "dps": 139.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "农夫犹饿死",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2178,
+      "techniqueShare": 30.6,
+      "dps": 118.8,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "月黑见渔灯",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2112,
+      "techniqueShare": 29.9,
+      "dps": 117.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "孤光一点萤",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3300,
+      "techniqueShare": 40,
+      "dps": 137.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "微微风簇浪",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 4208,
+      "techniqueShare": 45.9,
+      "dps": 152.6,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "散作满河星",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3696,
+      "techniqueShare": 42.7,
+      "dps": 144.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "牧童骑黄牛",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2475,
+      "techniqueShare": 33.3,
+      "dps": 123.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "歌声振林樾",
+      "enemies": 8,
+      "normal": 5170,
+      "technique": 3168,
+      "techniqueShare": 38,
+      "dps": 139,
+      "shots": 47,
+      "casts": 4
+    },
+    {
+      "word": "意欲捕鸣蝉",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3465,
+      "techniqueShare": 41.2,
+      "dps": 140.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "忽然闭口立",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2640,
+      "techniqueShare": 34.8,
+      "dps": 126.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "远上寒山石径斜",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4389,
+      "techniqueShare": 38.8,
+      "dps": 188.6,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "白云生处有人家",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5198,
+      "techniqueShare": 42.9,
+      "dps": 202.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "停车坐爱枫林晚",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4158,
+      "techniqueShare": 37.5,
+      "dps": 184.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "霜叶红于二月花",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6468,
+      "techniqueShare": 48.3,
+      "dps": 223.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "荷尽已无擎雨盖",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5486,
+      "techniqueShare": 44.2,
+      "dps": 206.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "菊残犹有傲霜枝",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4273,
+      "techniqueShare": 38.1,
+      "dps": 186.7,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "一年好景君须记",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4909,
+      "techniqueShare": 41.5,
+      "dps": 197.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "最是橙黄橘绿时",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6064,
+      "techniqueShare": 46.7,
+      "dps": 216.6,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "萧萧梧叶送寒声",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6468,
+      "techniqueShare": 48.3,
+      "dps": 223.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "江上秋风动客情",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3696,
+      "techniqueShare": 34.8,
+      "dps": 177.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "知有儿童挑促织",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3465,
+      "techniqueShare": 33.3,
+      "dps": 173.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "夜深篱落一灯明",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4435,
+      "techniqueShare": 39,
+      "dps": 189.4,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "天门中断楚江开",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5198,
+      "techniqueShare": 42.9,
+      "dps": 202.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "碧水东流至此回",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5890,
+      "techniqueShare": 45.9,
+      "dps": 213.7,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "两岸青山相对出",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4389,
+      "techniqueShare": 38.8,
+      "dps": 188.7,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "孤帆一片日边来",
+      "enemies": 8,
+      "normal": 7392,
+      "technique": 3465,
+      "techniqueShare": 31.9,
+      "dps": 180.9,
+      "shots": 48,
+      "casts": 5
+    },
+    {
+      "word": "水光潋滟晴方好",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6237,
+      "techniqueShare": 47.4,
+      "dps": 219.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "山色空蒙雨亦奇",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4851,
+      "techniqueShare": 41.2,
+      "dps": 196.3,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "欲把西湖比西子",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3985,
+      "techniqueShare": 36.5,
+      "dps": 181.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "淡妆浓抹总相宜",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5659,
+      "techniqueShare": 45,
+      "dps": 209.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "湖光秋月两相和",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4435,
+      "techniqueShare": 39,
+      "dps": 189.4,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "潭面无风镜未磨",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4043,
+      "techniqueShare": 36.8,
+      "dps": 182.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "遥望洞庭山水翠",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4851,
+      "techniqueShare": 41.2,
+      "dps": 196.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "白银盘里一青螺",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3696,
+      "techniqueShare": 34.8,
+      "dps": 177.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "朝辞白帝彩云间",
+      "enemies": 8,
+      "normal": 7084,
+      "technique": 4990,
+      "techniqueShare": 41.3,
+      "dps": 201.2,
+      "shots": 46,
+      "casts": 4
+    },
+    {
+      "word": "千里江陵一日还",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3292,
+      "techniqueShare": 32.2,
+      "dps": 170.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "两岸猿声啼不住",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6468,
+      "techniqueShare": 48.3,
+      "dps": 223.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "轻舟已过万重山",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4331,
+      "techniqueShare": 38.5,
+      "dps": 187.7,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "荷叶罗裙一色裁",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4990,
+      "techniqueShare": 41.9,
+      "dps": 198.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "芙蓉向脸两边开",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5890,
+      "techniqueShare": 45.9,
+      "dps": 213.7,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "乱入池中看不见",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4158,
+      "techniqueShare": 37.5,
+      "dps": 184.8,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "闻歌始觉有人来",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4620,
+      "techniqueShare": 40,
+      "dps": 192.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "迟日江山丽",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3300,
+      "techniqueShare": 40,
+      "dps": 137.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "春风花草香",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2970,
+      "techniqueShare": 37.5,
+      "dps": 132,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "泥融飞燕子",
+      "enemies": 8,
+      "normal": 5170,
+      "technique": 4208,
+      "techniqueShare": 44.9,
+      "dps": 156.3,
+      "shots": 47,
+      "casts": 5
+    },
+    {
+      "word": "沙暖睡鸳鸯",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3713,
+      "techniqueShare": 42.9,
+      "dps": 144.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "竹外桃花三两枝",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6815,
+      "techniqueShare": 49.6,
+      "dps": 229.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "春江水暖鸭先知",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 2495,
+      "techniqueShare": 26.5,
+      "dps": 157.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "蒌蒿满地芦芽短",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6064,
+      "techniqueShare": 46.7,
+      "dps": 216.6,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "正是河豚欲上时",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4505,
+      "techniqueShare": 39.4,
+      "dps": 190.6,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "梅子黄时日日晴",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5174,
+      "techniqueShare": 42.7,
+      "dps": 201.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "小溪泛尽却山行",
+      "enemies": 8,
+      "normal": 7392,
+      "technique": 3292,
+      "techniqueShare": 30.8,
+      "dps": 178.1,
+      "shots": 48,
+      "casts": 5
+    },
+    {
+      "word": "绿阴不减来时路",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5890,
+      "techniqueShare": 45.9,
+      "dps": 213.7,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "添得黄鹂四五声",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 7912,
+      "techniqueShare": 53.3,
+      "dps": 247.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "风景旧曾谙",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2805,
+      "techniqueShare": 36.2,
+      "dps": 129.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "日出江花红胜火",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6872,
+      "techniqueShare": 49.8,
+      "dps": 230,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "春来江水绿如蓝",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 2957,
+      "techniqueShare": 29.9,
+      "dps": 164.8,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "能不忆江南",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2970,
+      "techniqueShare": 37.5,
+      "dps": 132,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "爆竹声中一岁除",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 7392,
+      "techniqueShare": 51.6,
+      "dps": 238.7,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "春风送暖入屠苏",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4712,
+      "techniqueShare": 40.5,
+      "dps": 194,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "千门万户曈曈日",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5174,
+      "techniqueShare": 42.7,
+      "dps": 201.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "总把新桃换旧符",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3511,
+      "techniqueShare": 33.6,
+      "dps": 174,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "清明时节雨纷纷",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4805,
+      "techniqueShare": 40.9,
+      "dps": 195.6,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "路上行人欲断魂",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3188,
+      "techniqueShare": 31.5,
+      "dps": 168.6,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "借问酒家何处有",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5775,
+      "techniqueShare": 45.5,
+      "dps": 211.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "牧童遥指杏花村",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5544,
+      "techniqueShare": 44.4,
+      "dps": 207.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "独在异乡为异客",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4504,
+      "techniqueShare": 39.4,
+      "dps": 190.6,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "每逢佳节倍思亲",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4712,
+      "techniqueShare": 40.5,
+      "dps": 194,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "遥知兄弟登高处",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3696,
+      "techniqueShare": 34.8,
+      "dps": 177.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "遍插茱萸少一人",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6872,
+      "techniqueShare": 49.8,
+      "dps": 230,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "独怜幽草涧边生",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5486,
+      "techniqueShare": 44.2,
+      "dps": 206.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "上有黄鹂深树鸣",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6468,
+      "techniqueShare": 48.3,
+      "dps": 223.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "春潮带雨晚来急",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3696,
+      "techniqueShare": 34.8,
+      "dps": 177.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "野渡无人舟自横",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3326,
+      "techniqueShare": 32.4,
+      "dps": 170.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "人间四月芳菲尽",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6468,
+      "techniqueShare": 48.3,
+      "dps": 223.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "山寺桃花始盛开",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4990,
+      "techniqueShare": 41.9,
+      "dps": 198.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "长恨春归无觅处",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5544,
+      "techniqueShare": 44.4,
+      "dps": 207.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "不知转入此中来",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5544,
+      "techniqueShare": 44.4,
+      "dps": 207.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "空山不见人",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2442,
+      "techniqueShare": 33,
+      "dps": 123.2,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "但闻人语响",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3135,
+      "techniqueShare": 38.8,
+      "dps": 134.8,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "返景入深林",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2970,
+      "techniqueShare": 37.5,
+      "dps": 132,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "复照青苔上",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3506,
+      "techniqueShare": 41.5,
+      "dps": 140.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "一道残阳铺水中",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3927,
+      "techniqueShare": 36.2,
+      "dps": 180.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "半江瑟瑟半江红",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6583,
+      "techniqueShare": 48.7,
+      "dps": 225.2,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "可怜九月初三夜",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5890,
+      "techniqueShare": 45.9,
+      "dps": 213.7,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "露似真珠月似弓",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4158,
+      "techniqueShare": 37.5,
+      "dps": 184.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "横看成岭侧成峰",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4620,
+      "techniqueShare": 40,
+      "dps": 192.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "远近高低各不同",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6237,
+      "techniqueShare": 47.4,
+      "dps": 219.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "不识庐山真面目",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3511,
+      "techniqueShare": 33.6,
+      "dps": 174,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "只缘身在此山中",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6237,
+      "techniqueShare": 47.4,
+      "dps": 219.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "梅雪争春未肯降",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3985,
+      "techniqueShare": 36.5,
+      "dps": 181.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "骚人阁笔费评章",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3638,
+      "techniqueShare": 34.4,
+      "dps": 176.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "梅须逊雪三分白",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4851,
+      "techniqueShare": 41.2,
+      "dps": 196.3,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "雪却输梅一段香",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5174,
+      "techniqueShare": 42.7,
+      "dps": 201.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "云母屏风烛影深",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4043,
+      "techniqueShare": 36.8,
+      "dps": 182.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "长河渐落晓星沉",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3927,
+      "techniqueShare": 36.2,
+      "dps": 180.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "嫦娥应悔偷灵药",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5486,
+      "techniqueShare": 44.2,
+      "dps": 206.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "碧海青天夜夜心",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3465,
+      "techniqueShare": 33.3,
+      "dps": 173.3,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "秦时明月汉时关",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3326,
+      "techniqueShare": 32.4,
+      "dps": 170.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "万里长征人未还",
+      "enemies": 8,
+      "normal": 7392,
+      "technique": 6872,
+      "techniqueShare": 48.2,
+      "dps": 237.7,
+      "shots": 48,
+      "casts": 5
+    },
+    {
+      "word": "但使龙城飞将在",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4851,
+      "techniqueShare": 41.2,
+      "dps": 196.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "不教胡马度阴山",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5914,
+      "techniqueShare": 46,
+      "dps": 214.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "葡萄美酒夜光杯",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3811,
+      "techniqueShare": 35.5,
+      "dps": 179,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "欲饮琵琶马上催",
+      "enemies": 8,
+      "normal": 7238,
+      "technique": 5174,
+      "techniqueShare": 41.7,
+      "dps": 206.9,
+      "shots": 47,
+      "casts": 4
+    },
+    {
+      "word": "醉卧沙场君莫笑",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4620,
+      "techniqueShare": 40,
+      "dps": 192.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "古来征战几人回",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4990,
+      "techniqueShare": 41.9,
+      "dps": 198.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "生当作人杰",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3218,
+      "techniqueShare": 39.4,
+      "dps": 136.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "死亦为鬼雄",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3465,
+      "techniqueShare": 41.2,
+      "dps": 140.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "至今思项羽",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2508,
+      "techniqueShare": 33.6,
+      "dps": 124.3,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "不肯过江东",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 5198,
+      "techniqueShare": 51.2,
+      "dps": 169.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "千里黄云白日曛",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5174,
+      "techniqueShare": 42.7,
+      "dps": 201.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "北风吹雁雪纷纷",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5821,
+      "techniqueShare": 45.7,
+      "dps": 212.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "莫愁前路无知己",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5498,
+      "techniqueShare": 44.2,
+      "dps": 207.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "天下谁人不识君",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5498,
+      "techniqueShare": 44.2,
+      "dps": 207.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "篱落疏疏一径深",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 2945,
+      "techniqueShare": 29.8,
+      "dps": 164.6,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "树头新绿未成阴",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5775,
+      "techniqueShare": 45.5,
+      "dps": 211.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "儿童急走追黄蝶",
+      "enemies": 8,
+      "normal": 7238,
+      "technique": 6583,
+      "techniqueShare": 47.6,
+      "dps": 230.4,
+      "shots": 47,
+      "casts": 5
+    },
+    {
+      "word": "飞入菜花无处寻",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4990,
+      "techniqueShare": 41.9,
+      "dps": 198.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "梅子金黄杏子肥",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6583,
+      "techniqueShare": 48.7,
+      "dps": 225.2,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "麦花雪白菜花稀",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6468,
+      "techniqueShare": 48.3,
+      "dps": 223.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "日长篱落无人过",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3419,
+      "techniqueShare": 33,
+      "dps": 172.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "惟有蜻蜓蛱蝶飞",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6468,
+      "techniqueShare": 48.3,
+      "dps": 223.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "溪上青青草",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3960,
+      "techniqueShare": 44.4,
+      "dps": 148.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "醉里吴音相媚好",
+      "enemies": 8,
+      "normal": 7238,
+      "technique": 4990,
+      "techniqueShare": 40.8,
+      "dps": 203.8,
+      "shots": 47,
+      "casts": 4
+    },
+    {
+      "word": "白发谁家翁媪",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 2495,
+      "techniqueShare": 29.6,
+      "dps": 140.6,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "大儿锄豆溪东",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 3960,
+      "techniqueShare": 40,
+      "dps": 165,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "中儿正织鸡笼",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 4702,
+      "techniqueShare": 44.2,
+      "dps": 177.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "最喜小儿亡赖",
+      "enemies": 8,
+      "normal": 6204,
+      "technique": 3168,
+      "techniqueShare": 33.8,
+      "dps": 156.2,
+      "shots": 47,
+      "casts": 5
+    },
+    {
+      "word": "溪头卧剥莲蓬",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 4702,
+      "techniqueShare": 44.2,
+      "dps": 177.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "不论平地与山尖",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6468,
+      "techniqueShare": 48.3,
+      "dps": 223.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "无限风光尽被占",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6930,
+      "techniqueShare": 50,
+      "dps": 231,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "采得百花成蜜后",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4158,
+      "techniqueShare": 37.5,
+      "dps": 184.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "为谁辛苦为谁甜",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4712,
+      "techniqueShare": 40.5,
+      "dps": 194,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "众鸟高飞尽",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 4224,
+      "techniqueShare": 46,
+      "dps": 152.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "孤云独去闲",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2442,
+      "techniqueShare": 33,
+      "dps": 123.2,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "相看两不厌",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3218,
+      "techniqueShare": 39.4,
+      "dps": 136.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "只有敬亭山",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 4125,
+      "techniqueShare": 45.5,
+      "dps": 151.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "寒雨连江夜入吴",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3142,
+      "techniqueShare": 31.2,
+      "dps": 167.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "平明送客楚山孤",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4990,
+      "techniqueShare": 41.9,
+      "dps": 198.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "洛阳亲友如相问",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5486,
+      "techniqueShare": 44.2,
+      "dps": 206.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "一片冰心在玉壶",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3604,
+      "techniqueShare": 34.2,
+      "dps": 175.6,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "月黑雁飞高",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3630,
+      "techniqueShare": 42.3,
+      "dps": 143,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "单于夜遁逃",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2351,
+      "techniqueShare": 32.2,
+      "dps": 121.7,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "欲将轻骑逐",
+      "enemies": 8,
+      "normal": 5280,
+      "technique": 2970,
+      "techniqueShare": 36,
+      "dps": 137.5,
+      "shots": 48,
+      "casts": 5
+    },
+    {
+      "word": "大雪满弓刀",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3927,
+      "techniqueShare": 44.2,
+      "dps": 147.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "我家洗砚池头树",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4389,
+      "techniqueShare": 38.8,
+      "dps": 188.6,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "朵朵花开淡墨痕",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6468,
+      "techniqueShare": 48.3,
+      "dps": 223.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "不要人夸好颜色",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4158,
+      "techniqueShare": 37.5,
+      "dps": 184.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "只留清气满乾坤",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3511,
+      "techniqueShare": 33.6,
+      "dps": 174,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "七夕今宵看碧霄",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5498,
+      "techniqueShare": 44.2,
+      "dps": 207.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "牵牛织女渡河桥",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4158,
+      "techniqueShare": 37.5,
+      "dps": 184.8,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "家家乞巧望秋月",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5174,
+      "techniqueShare": 42.7,
+      "dps": 201.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "穿尽红丝几万条",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3927,
+      "techniqueShare": 36.2,
+      "dps": 180.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "死去元知万事空",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3788,
+      "techniqueShare": 35.3,
+      "dps": 178.6,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "但悲不见九州同",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5174,
+      "techniqueShare": 42.7,
+      "dps": 201.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "王师北定中原日",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 7854,
+      "techniqueShare": 53.1,
+      "dps": 246.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "家祭无忘告乃翁",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5267,
+      "techniqueShare": 43.2,
+      "dps": 203.3,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "山外青山楼外楼",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4389,
+      "techniqueShare": 38.8,
+      "dps": 188.6,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "西湖歌舞几时休",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5544,
+      "techniqueShare": 44.4,
+      "dps": 207.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "暖风熏得游人醉",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5914,
+      "techniqueShare": 46,
+      "dps": 214.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "直把杭州作汴州",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3604,
+      "techniqueShare": 34.2,
+      "dps": 175.6,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "九州生气恃风雷",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 8316,
+      "techniqueShare": 54.5,
+      "dps": 254.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "万马齐喑究可哀",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5174,
+      "techniqueShare": 42.7,
+      "dps": 201.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "我劝天公重抖擞",
+      "enemies": 8,
+      "normal": 7238,
+      "technique": 5821,
+      "techniqueShare": 44.6,
+      "dps": 217.7,
+      "shots": 47,
+      "casts": 4
+    },
+    {
+      "word": "不拘一格降人才",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6930,
+      "techniqueShare": 50,
+      "dps": 231,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "空山新雨后",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3135,
+      "techniqueShare": 38.8,
+      "dps": 134.8,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "天气晚来秋",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3564,
+      "techniqueShare": 41.9,
+      "dps": 141.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "明月松间照",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 1980,
+      "techniqueShare": 28.6,
+      "dps": 115.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "清泉石上流",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2104,
+      "techniqueShare": 29.8,
+      "dps": 117.6,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "竹喧归浣女",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3762,
+      "techniqueShare": 43.2,
+      "dps": 145.2,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "莲动下渔舟",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 4208,
+      "techniqueShare": 45.9,
+      "dps": 152.6,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "随意春芳歇",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2723,
+      "techniqueShare": 35.5,
+      "dps": 127.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "王孙自可留",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3218,
+      "techniqueShare": 39.4,
+      "dps": 136.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "月落乌啼霜满天",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5498,
+      "techniqueShare": 44.2,
+      "dps": 207.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "江枫渔火对愁眠",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5498,
+      "techniqueShare": 44.2,
+      "dps": 207.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "姑苏城外寒山寺",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4620,
+      "techniqueShare": 40,
+      "dps": 192.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "夜半钟声到客船",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5544,
+      "techniqueShare": 44.4,
+      "dps": 207.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "身向榆关那畔行",
+      "enemies": 8,
+      "normal": 7546,
+      "technique": 3927,
+      "techniqueShare": 34.2,
+      "dps": 191.2,
+      "shots": 49,
+      "casts": 5
+    },
+    {
+      "word": "夜深千帐灯",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3696,
+      "techniqueShare": 42.7,
+      "dps": 144.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "聒碎乡心梦不成",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3604,
+      "techniqueShare": 34.2,
+      "dps": 175.6,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "故园无此声",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3762,
+      "techniqueShare": 43.2,
+      "dps": 145.2,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "西塞山前白鹭飞",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6283,
+      "techniqueShare": 47.6,
+      "dps": 220.2,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "桃花流水鳜鱼肥",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 7277,
+      "techniqueShare": 51.2,
+      "dps": 236.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "斜风细雨不须归",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 2633,
+      "techniqueShare": 27.5,
+      "dps": 159.4,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "半亩方塘一鉴开",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6583,
+      "techniqueShare": 48.7,
+      "dps": 225.2,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "天光云影共徘徊",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5498,
+      "techniqueShare": 44.2,
+      "dps": 207.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "问渠那得清如许",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4273,
+      "techniqueShare": 38.1,
+      "dps": 186.7,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "为有源头活水来",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3326,
+      "techniqueShare": 32.4,
+      "dps": 170.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "昨夜江边春水生",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3142,
+      "techniqueShare": 31.2,
+      "dps": 167.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "艨艟巨舰一毛轻",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4331,
+      "techniqueShare": 38.5,
+      "dps": 187.7,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "向来枉费推移力",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4851,
+      "techniqueShare": 41.2,
+      "dps": 196.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "此日中流自在行",
+      "enemies": 8,
+      "normal": 7238,
+      "technique": 5544,
+      "techniqueShare": 43.4,
+      "dps": 213,
+      "shots": 47,
+      "casts": 4
+    },
+    {
+      "word": "昼出耘田夜绩麻",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6872,
+      "techniqueShare": 49.8,
+      "dps": 230,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "村庄儿女各当家",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6872,
+      "techniqueShare": 49.8,
+      "dps": 230,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "童孙未解供耕织",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3927,
+      "techniqueShare": 36.2,
+      "dps": 180.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "也傍桑阴学种瓜",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6468,
+      "techniqueShare": 48.3,
+      "dps": 223.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "稚子金盆脱晓冰",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4678,
+      "techniqueShare": 40.3,
+      "dps": 193.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "彩丝穿取当银钲",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6583,
+      "techniqueShare": 48.7,
+      "dps": 225.2,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "敲成玉磬穿林响",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5914,
+      "techniqueShare": 46,
+      "dps": 214.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "忽作玻璃碎地声",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 7277,
+      "techniqueShare": 51.2,
+      "dps": 236.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "草满池塘水满陂",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6468,
+      "techniqueShare": 48.3,
+      "dps": 223.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "山衔落日浸寒漪",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3511,
+      "techniqueShare": 33.6,
+      "dps": 174,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "牧童归去横牛背",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4158,
+      "techniqueShare": 37.5,
+      "dps": 184.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "短笛无腔信口吹",
+      "enemies": 8,
+      "normal": 7238,
+      "technique": 5174,
+      "techniqueShare": 41.7,
+      "dps": 206.9,
+      "shots": 47,
+      "casts": 4
+    },
+    {
+      "word": "人闲桂花落",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3919,
+      "techniqueShare": 44.2,
+      "dps": 147.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "夜静春山空",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3465,
+      "techniqueShare": 41.2,
+      "dps": 140.3,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "月出惊山鸟",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 4950,
+      "techniqueShare": 50,
+      "dps": 165,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "时鸣春涧中",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3927,
+      "techniqueShare": 44.2,
+      "dps": 147.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "青海长云暗雪山",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3696,
+      "techniqueShare": 34.8,
+      "dps": 177.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "孤城遥望玉门关",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3696,
+      "techniqueShare": 34.8,
+      "dps": 177.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "黄沙百战穿金甲",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4620,
+      "techniqueShare": 40,
+      "dps": 192.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "不破楼兰终不还",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 8316,
+      "techniqueShare": 54.5,
+      "dps": 254.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "渭城朝雨浥轻尘",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5174,
+      "techniqueShare": 42.7,
+      "dps": 201.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "客舍青青柳色新",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6583,
+      "techniqueShare": 48.7,
+      "dps": 225.2,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "劝君更尽一杯酒",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4331,
+      "techniqueShare": 38.5,
+      "dps": 187.7,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "西出阳关无故人",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3142,
+      "techniqueShare": 31.2,
+      "dps": 167.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "三万里河东入海",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5486,
+      "techniqueShare": 44.2,
+      "dps": 206.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "五千仞岳上摩天",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4851,
+      "techniqueShare": 41.2,
+      "dps": 196.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "遗民泪尽胡尘里",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5821,
+      "techniqueShare": 45.7,
+      "dps": 212.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "南望王师又一年",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3881,
+      "techniqueShare": 35.9,
+      "dps": 180.2,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "黄河远上白云间",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4158,
+      "techniqueShare": 37.5,
+      "dps": 184.8,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "一片孤城万仞山",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3604,
+      "techniqueShare": 34.2,
+      "dps": 175.6,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "羌笛何须怨杨柳",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5914,
+      "techniqueShare": 46,
+      "dps": 214.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "春风不度玉门关",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 7854,
+      "techniqueShare": 53.1,
+      "dps": 246.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "故人西辞黄鹤楼",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4505,
+      "techniqueShare": 39.4,
+      "dps": 190.6,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "烟花三月下扬州",
+      "enemies": 8,
+      "normal": 7238,
+      "technique": 5914,
+      "techniqueShare": 45,
+      "dps": 219.2,
+      "shots": 47,
+      "casts": 4
+    },
+    {
+      "word": "孤帆远影碧空尽",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3292,
+      "techniqueShare": 32.2,
+      "dps": 170.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "唯见长江天际流",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3927,
+      "techniqueShare": 36.2,
+      "dps": 180.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "绿遍山原白满川",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5914,
+      "techniqueShare": 46,
+      "dps": 214.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "子规声里雨如烟",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5821,
+      "techniqueShare": 45.7,
+      "dps": 212.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "乡村四月闲人少",
+      "enemies": 8,
+      "normal": 7392,
+      "technique": 7854,
+      "techniqueShare": 51.5,
+      "dps": 254.1,
+      "shots": 48,
+      "casts": 5
+    },
+    {
+      "word": "才了蚕桑又插田",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3326,
+      "techniqueShare": 32.4,
+      "dps": 170.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "移舟泊烟渚",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2599,
+      "techniqueShare": 34.4,
+      "dps": 125.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "日暮客愁新",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2376,
+      "techniqueShare": 32.4,
+      "dps": 122.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "野旷天低树",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 4703,
+      "techniqueShare": 48.7,
+      "dps": 160.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "江清月近人",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3762,
+      "techniqueShare": 43.2,
+      "dps": 145.2,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "黑云翻墨未遮山",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6283,
+      "techniqueShare": 47.6,
+      "dps": 220.2,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "白雨跳珠乱入船",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4620,
+      "techniqueShare": 40,
+      "dps": 192.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "卷地风来忽吹散",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 7022,
+      "techniqueShare": 50.3,
+      "dps": 232.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "望湖楼下水如天",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3927,
+      "techniqueShare": 36.2,
+      "dps": 180.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "明月别枝惊鹊",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 4514,
+      "techniqueShare": 43.2,
+      "dps": 174.2,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "清风半夜鸣蝉",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 4277,
+      "techniqueShare": 41.9,
+      "dps": 170.3,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "稻花香里说丰年",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5498,
+      "techniqueShare": 44.2,
+      "dps": 207.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "听取蛙声一片",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 4712,
+      "techniqueShare": 44.2,
+      "dps": 177.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "七八个星天外",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 6336,
+      "techniqueShare": 51.6,
+      "dps": 204.6,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "两三点雨山前",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 2495,
+      "techniqueShare": 29.6,
+      "dps": 140.6,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "旧时茅店社林边",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4620,
+      "techniqueShare": 40,
+      "dps": 192.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "路转溪桥忽见",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 5267,
+      "techniqueShare": 47,
+      "dps": 186.8,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "故人具鸡黍",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2846,
+      "techniqueShare": 36.5,
+      "dps": 129.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "邀我至田家",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3564,
+      "techniqueShare": 41.9,
+      "dps": 141.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "绿树村边合",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 5198,
+      "techniqueShare": 51.2,
+      "dps": 169.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "青山郭外斜",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3135,
+      "techniqueShare": 38.8,
+      "dps": 134.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "开轩面场圃",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2508,
+      "techniqueShare": 33.6,
+      "dps": 124.3,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "把酒话桑麻",
+      "enemies": 8,
+      "normal": 5170,
+      "technique": 3762,
+      "techniqueShare": 42.1,
+      "dps": 148.9,
+      "shots": 47,
+      "casts": 4
+    },
+    {
+      "word": "待到重阳日",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2475,
+      "techniqueShare": 33.3,
+      "dps": 123.8,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "还来就菊花",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 4950,
+      "techniqueShare": 50,
+      "dps": 165,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "胜日寻芳泗水滨",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3511,
+      "techniqueShare": 33.6,
+      "dps": 174,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "无边光景一时新",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6283,
+      "techniqueShare": 47.6,
+      "dps": 220.2,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "等闲识得东风面",
+      "enemies": 8,
+      "normal": 7238,
+      "technique": 6653,
+      "techniqueShare": 47.9,
+      "dps": 231.5,
+      "shots": 47,
+      "casts": 4
+    },
+    {
+      "word": "万紫千红总是春",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6283,
+      "techniqueShare": 47.6,
+      "dps": 220.2,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "少小离家老大回",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4620,
+      "techniqueShare": 40,
+      "dps": 192.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "乡音无改鬓毛衰",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3326,
+      "techniqueShare": 32.4,
+      "dps": 170.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "儿童相见不相识",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4620,
+      "techniqueShare": 40,
+      "dps": 192.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "笑问客从何处来",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5498,
+      "techniqueShare": 44.2,
+      "dps": 207.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "九曲黄河万里沙",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5775,
+      "techniqueShare": 45.5,
+      "dps": 211.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "浪淘风簸自天涯",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 8778,
+      "techniqueShare": 55.9,
+      "dps": 261.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "如今直上银河去",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 8778,
+      "techniqueShare": 55.9,
+      "dps": 261.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "同到牵牛织女家",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6283,
+      "techniqueShare": 47.6,
+      "dps": 220.2,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "千里莺啼绿映红",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6283,
+      "techniqueShare": 47.6,
+      "dps": 220.2,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "水村山郭酒旗风",
+      "enemies": 8,
+      "normal": 7392,
+      "technique": 7854,
+      "techniqueShare": 51.5,
+      "dps": 254.1,
+      "shots": 48,
+      "casts": 5
+    },
+    {
+      "word": "南朝四百八十寺",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3742,
+      "techniqueShare": 35.1,
+      "dps": 177.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "多少楼台烟雨中",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5914,
+      "techniqueShare": 46,
+      "dps": 214.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "茅檐长扫净无苔",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 2495,
+      "techniqueShare": 26.5,
+      "dps": 157.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "花木成畦手自栽",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 7277,
+      "techniqueShare": 51.2,
+      "dps": 236.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "一水护田将绿绕",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3326,
+      "techniqueShare": 32.4,
+      "dps": 170.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "两山排闼送青来",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5082,
+      "techniqueShare": 42.3,
+      "dps": 200.2,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "春城无处不飞花",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 8316,
+      "techniqueShare": 54.5,
+      "dps": 254.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "寒食东风御柳斜",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3292,
+      "techniqueShare": 32.2,
+      "dps": 170.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "日暮汉宫传蜡烛",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5821,
+      "techniqueShare": 45.7,
+      "dps": 212.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "轻烟散入五侯家",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5914,
+      "techniqueShare": 46,
+      "dps": 214.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "迢迢牵牛星",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2574,
+      "techniqueShare": 34.2,
+      "dps": 125.4,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "皎皎河汉女",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 4125,
+      "techniqueShare": 45.5,
+      "dps": 151.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "纤纤擢素手",
+      "enemies": 8,
+      "normal": 5280,
+      "technique": 2970,
+      "techniqueShare": 36,
+      "dps": 137.5,
+      "shots": 48,
+      "casts": 5
+    },
+    {
+      "word": "札札弄机杼",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 5280,
+      "techniqueShare": 51.6,
+      "dps": 170.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "终日不成章",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3383,
+      "techniqueShare": 40.6,
+      "dps": 138.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "泣涕零如雨",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3960,
+      "techniqueShare": 44.4,
+      "dps": 148.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "河汉清且浅",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 1980,
+      "techniqueShare": 28.6,
+      "dps": 115.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "相去复几许",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3300,
+      "techniqueShare": 40,
+      "dps": 137.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "盈盈一水间",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 4703,
+      "techniqueShare": 48.7,
+      "dps": 160.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "脉脉不得语",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3960,
+      "techniqueShare": 44.4,
+      "dps": 148.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "中庭地白树栖鸦",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5914,
+      "techniqueShare": 46,
+      "dps": 214.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "冷露无声湿桂花",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5821,
+      "techniqueShare": 45.7,
+      "dps": 212.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "今夜月明人尽望",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6283,
+      "techniqueShare": 47.6,
+      "dps": 220.2,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "不知秋思落谁家",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3604,
+      "techniqueShare": 34.2,
+      "dps": 175.6,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "青青园中葵",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 5198,
+      "techniqueShare": 51.2,
+      "dps": 169.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "朝露待日晞",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 4125,
+      "techniqueShare": 45.5,
+      "dps": 151.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "阳春布德泽",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 4224,
+      "techniqueShare": 46,
+      "dps": 152.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "万物生光辉",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 4224,
+      "techniqueShare": 46,
+      "dps": 152.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "常恐秋节至",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2475,
+      "techniqueShare": 33.3,
+      "dps": 123.8,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "焜黄华叶衰",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 5610,
+      "techniqueShare": 53.1,
+      "dps": 176,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "百川东到海",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3919,
+      "techniqueShare": 44.2,
+      "dps": 147.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "何时复西归",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3465,
+      "techniqueShare": 41.2,
+      "dps": 140.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "少壮不努力",
+      "enemies": 8,
+      "normal": 5390,
+      "technique": 3465,
+      "techniqueShare": 39.1,
+      "dps": 147.6,
+      "shots": 49,
+      "casts": 5
+    },
+    {
+      "word": "老大徒伤悲",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 4389,
+      "techniqueShare": 47,
+      "dps": 155.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "大漠沙如雪",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 4488,
+      "techniqueShare": 47.6,
+      "dps": 157.3,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "燕山月似钩",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3341,
+      "techniqueShare": 40.3,
+      "dps": 138.2,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "何当金络脑",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3135,
+      "techniqueShare": 38.8,
+      "dps": 134.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "快走踏清秋",
+      "enemies": 8,
+      "normal": 5170,
+      "technique": 1881,
+      "techniqueShare": 26.7,
+      "dps": 117.5,
+      "shots": 47,
+      "casts": 4
+    },
+    {
+      "word": "千锤万凿出深山",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4851,
+      "techniqueShare": 41.2,
+      "dps": 196.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "烈火焚烧若等闲",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4678,
+      "techniqueShare": 40.3,
+      "dps": 193.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "粉骨碎身浑不怕",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4158,
+      "techniqueShare": 37.5,
+      "dps": 184.8,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "要留清白在人间",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6283,
+      "techniqueShare": 47.6,
+      "dps": 220.2,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "咬定青山不放松",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5024,
+      "techniqueShare": 42,
+      "dps": 199.2,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "立根原在破岩中",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4851,
+      "techniqueShare": 41.2,
+      "dps": 196.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "千磨万击还坚劲",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4620,
+      "techniqueShare": 40,
+      "dps": 192.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "任尔东西南北风",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6653,
+      "techniqueShare": 49,
+      "dps": 226.4,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "好雨知时节",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3564,
+      "techniqueShare": 41.9,
+      "dps": 141.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "当春乃发生",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3927,
+      "techniqueShare": 44.2,
+      "dps": 147.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "随风潜入夜",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 1980,
+      "techniqueShare": 28.6,
+      "dps": 115.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "润物细无声",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3135,
+      "techniqueShare": 38.8,
+      "dps": 134.8,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "野径云俱黑",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3960,
+      "techniqueShare": 44.4,
+      "dps": 148.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "江船火独明",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2574,
+      "techniqueShare": 34.2,
+      "dps": 125.4,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "晓看红湿处",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 5198,
+      "techniqueShare": 51.2,
+      "dps": 169.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "花重锦官城",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 6270,
+      "techniqueShare": 55.9,
+      "dps": 187,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "剑外忽传收蓟北",
+      "enemies": 8,
+      "normal": 7238,
+      "technique": 6653,
+      "techniqueShare": 47.9,
+      "dps": 231.5,
+      "shots": 47,
+      "casts": 4
+    },
+    {
+      "word": "初闻涕泪满衣裳",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6145,
+      "techniqueShare": 47,
+      "dps": 217.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "却看妻子愁何在",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3742,
+      "techniqueShare": 35.1,
+      "dps": 177.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "漫卷诗书喜欲狂",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 8778,
+      "techniqueShare": 55.9,
+      "dps": 261.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "白日放歌须纵酒",
+      "enemies": 8,
+      "normal": 7392,
+      "technique": 6653,
+      "techniqueShare": 47.4,
+      "dps": 234.1,
+      "shots": 48,
+      "casts": 4
+    },
+    {
+      "word": "青春作伴好还乡",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4620,
+      "techniqueShare": 40,
+      "dps": 192.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "即从巴峡穿巫峡",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5775,
+      "techniqueShare": 45.5,
+      "dps": 211.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "便下襄阳向洛阳",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3696,
+      "techniqueShare": 34.8,
+      "dps": 177.1,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "天街小雨润如酥",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5821,
+      "techniqueShare": 45.7,
+      "dps": 212.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "草色遥看近却无",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5821,
+      "techniqueShare": 45.7,
+      "dps": 212.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "最是一年春好处",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4851,
+      "techniqueShare": 41.2,
+      "dps": 196.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "绝胜烟柳满皇都",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6653,
+      "techniqueShare": 49,
+      "dps": 226.4,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "江上往来人",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 1980,
+      "techniqueShare": 28.6,
+      "dps": 115.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "但爱鲈鱼美",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2805,
+      "techniqueShare": 36.2,
+      "dps": 129.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "君看一叶舟",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3465,
+      "techniqueShare": 41.2,
+      "dps": 140.3,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "出没风波里",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 5198,
+      "techniqueShare": 51.2,
+      "dps": 169.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "京口瓜洲一水间",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 3511,
+      "techniqueShare": 33.6,
+      "dps": 174,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "钟山只隔数重山",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4851,
+      "techniqueShare": 41.2,
+      "dps": 196.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "春风又绿江南岸",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6653,
+      "techniqueShare": 49,
+      "dps": 226.4,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "明月何时照我还",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6283,
+      "techniqueShare": 47.6,
+      "dps": 220.2,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "应怜屐齿印苍苔",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6583,
+      "techniqueShare": 48.7,
+      "dps": 225.2,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "小扣柴扉久不开",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5024,
+      "techniqueShare": 42,
+      "dps": 199.2,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "春色满园关不住",
+      "enemies": 8,
+      "normal": 7238,
+      "technique": 7392,
+      "techniqueShare": 50.5,
+      "dps": 243.8,
+      "shots": 47,
+      "casts": 4
+    },
+    {
+      "word": "一枝红杏出墙来",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4851,
+      "techniqueShare": 41.2,
+      "dps": 196.4,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "水是眼波横",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3300,
+      "techniqueShare": 40,
+      "dps": 137.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "山是眉峰聚",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3341,
+      "techniqueShare": 40.3,
+      "dps": 138.2,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "欲问行人去那边",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6145,
+      "techniqueShare": 47,
+      "dps": 217.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "眉眼盈盈处",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 4703,
+      "techniqueShare": 48.7,
+      "dps": 160.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "才始送春归",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 4389,
+      "techniqueShare": 47,
+      "dps": 155.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "又送君归去",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 3341,
+      "techniqueShare": 40.3,
+      "dps": 138.2,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "若到江南赶上春",
+      "enemies": 8,
+      "normal": 7392,
+      "technique": 3881,
+      "techniqueShare": 34.4,
+      "dps": 187.9,
+      "shots": 48,
+      "casts": 4
+    },
+    {
+      "word": "千万和春住",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 4752,
+      "techniqueShare": 49,
+      "dps": 161.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "山下兰芽短浸溪",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6145,
+      "techniqueShare": 47,
+      "dps": 217.9,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "松间沙路净无泥",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 2772,
+      "techniqueShare": 28.6,
+      "dps": 161.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "萧萧暮雨子规啼",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 6283,
+      "techniqueShare": 47.6,
+      "dps": 220.2,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "谁道人生无再少",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 5198,
+      "techniqueShare": 42.9,
+      "dps": 202.1,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "门前流水尚能西",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 4389,
+      "techniqueShare": 38.8,
+      "dps": 188.6,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "休将白发唱黄鸡",
+      "enemies": 8,
+      "normal": 7238,
+      "technique": 6145,
+      "techniqueShare": 45.9,
+      "dps": 223,
+      "shots": 47,
+      "casts": 4
+    },
+    {
+      "word": "寂寞无行路",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2772,
+      "techniqueShare": 35.9,
+      "dps": 128.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "若有人知春去处",
+      "enemies": 8,
+      "normal": 6930,
+      "technique": 2772,
+      "techniqueShare": 28.6,
+      "dps": 161.7,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "唤取归来同住",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 5544,
+      "techniqueShare": 48.3,
+      "dps": 191.4,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "春无踪迹谁知",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 6237,
+      "techniqueShare": 51.2,
+      "dps": 202.9,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "除非问取黄鹂",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 6930,
+      "techniqueShare": 53.8,
+      "dps": 214.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "百啭无人能解",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 5702,
+      "techniqueShare": 49,
+      "dps": 194,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "因风飞过蔷薇",
+      "enemies": 8,
+      "normal": 6204,
+      "technique": 7128,
+      "techniqueShare": 53.5,
+      "dps": 222.2,
+      "shots": 47,
+      "casts": 5
+    },
+    {
+      "word": "常记溪亭日暮",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 3208,
+      "techniqueShare": 35.1,
+      "dps": 152.5,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "沉醉不知归路",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 5267,
+      "techniqueShare": 47,
+      "dps": 186.8,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "兴尽晚回舟",
+      "enemies": 8,
+      "normal": 4950,
+      "technique": 2599,
+      "techniqueShare": 34.4,
+      "dps": 125.8,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "误入藕花深处",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 5386,
+      "techniqueShare": 47.6,
+      "dps": 188.8,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "惊起一滩鸥鹭",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 7920,
+      "techniqueShare": 57.1,
+      "dps": 231,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "桃红复含宿雨",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 5386,
+      "techniqueShare": 47.6,
+      "dps": 188.8,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "柳绿更带朝烟",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 5386,
+      "techniqueShare": 47.6,
+      "dps": 188.8,
+      "shots": 45,
+      "casts": 4
+    },
+    {
+      "word": "花落家童未扫",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 6930,
+      "techniqueShare": 53.8,
+      "dps": 214.5,
+      "shots": 45,
+      "casts": 5
+    },
+    {
+      "word": "莺啼山客犹眠",
+      "enemies": 8,
+      "normal": 5940,
+      "technique": 5386,
+      "techniqueShare": 47.6,
+      "dps": 188.8,
+      "shots": 45,
+      "casts": 4
+    }
+  ]
+}

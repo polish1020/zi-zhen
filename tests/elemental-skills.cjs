@@ -1,3 +1,4 @@
+const{openCodex,selectCodexFilter}=require('./codex-helpers.cjs');
 const assert=require('node:assert/strict');
 const{chromium,webkit}=require('/opt/codex/cua_node/lib/node_modules/playwright-core');
 const base=process.env.BASE_URL||'http://127.0.0.1:4173',engine=process.env.BROWSER||'chromium';
@@ -21,7 +22,7 @@ const base=process.env.BASE_URL||'http://127.0.0.1:4173',engine=process.env.BROW
    await tapPad(pads[i]);assert.match(await page.locator('.tower-detail h3').innerText(),new RegExp(word));assert.match(await page.locator('.tower-detail').innerText(),/技能词/);await page.locator('#back-forge').click();
   }
   const built=await saved();assert.equal(built.hand.filter(t=>t.used).length,13);assert.equal(built.time,0);
-  await page.locator('#jump-codex').click();await page.locator('#codex-kind').selectOption('skill');for(const word of words){await page.locator('#codex-search').fill(word);assert.equal(await page.locator(`[data-word-effect="${word}"]`).count(),1);}await page.locator('#close-modal').click();
+  await openCodex(page);await page.locator('#codex-kind').selectOption('skill');for(const word of words){await page.locator('#codex-search').fill(word);assert.equal(await page.locator(`[data-word-effect="${word}"]`).count(),1);}await page.locator('#close-modal').click();
   await page.locator('#speed').click();await page.locator('#speed').click();await page.locator('#resume').click();await page.waitForTimeout(1800);await page.locator('#start').click();let state=await saved();assert.ok(state.towers.every(t=>t.shots>0));assert.ok(state.towers[1].shots>=3);assert.ok(state.enemies.some(e=>e.burnDps>0));assert.ok(state.enemies.some(e=>e.slowUntil>state.time));
   await page.reload({waitUntil:'domcontentloaded'});await page.locator('#enter-game').click();const restored=await saved();for(const key of ['towers','enemies','hand','ink','time','rngState'])assert.deepEqual(restored[key],state[key],key);
   await page.locator('#refresh-letters').click();state=await saved();assert.equal(state.ink,ink-50);const available=Game.restore(state).availableWords();for(const[n,min]of[[2,3],[3,2],[4,1]])assert.ok(available.filter(w=>w.tier===n).length>=min);assert.equal(await page.locator('.char.selected').count(),0);

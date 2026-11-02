@@ -373,3 +373,24 @@ html[data-standalone="true"].game-open body.playing .forge-panel { padding-botto
 .battle-notice[data-boss="true"] { color:#8a3d35; background:#f3e4d4; font-weight:650; }
 
 .learning-index{margin:14px 0;color:#6e624a;font-size:12px}.learning-index summary{cursor:pointer;padding:9px;background:#eee5d4;border-radius:5px}.learning-index .meaning-index-list b{color:#92713f}
+
+/* Compact word library; deeper filters are optional. */
+#codex-browser .modal-title{margin:0 0 16px;padding-right:26px;font-size:25px;letter-spacing:1px}
+#codex-browser .codex-filters{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:5px;margin:10px 0}
+#codex-browser .codex-filters button{min-width:0;min-height:38px;font-size:12px;white-space:nowrap}
+.codex-basic-filters,.codex-extra-filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+#codex-browser .codex-trait-label{display:flex;align-items:center;gap:6px;min-width:0;margin:0;font-size:11px}
+#codex-browser .codex-trait-label select{flex:1;width:0;min-width:0;max-width:100%;padding:6px;font-size:12px;min-height:38px}
+.codex-more{margin:10px 0;border-bottom:1px solid #d8dfcc;padding-bottom:8px;color:#728166;font-size:12px}
+.codex-more>summary{cursor:pointer;min-height:28px;line-height:28px}
+.codex-more[open] .codex-extra-filters{margin:8px 0}
+#codex-browser #codex-count{margin:10px 0;font-size:11px}
+#codex-browser .codex-grid{margin-top:0;gap:10px}
+#codex-browser .codex-card{padding:13px}
+#codex-browser .codex-card h3{font-size:20px;margin:0 0 8px}
+#codex-browser .codex-card h3 small{font-size:10px;letter-spacing:0}
+#codex-browser .codex-definition,#codex-browser .codex-effect-summary{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;margin:8px 0;font-size:12px;line-height:1.7}
+#codex-browser .codex-meanings{margin:7px 0;font-size:10px}
+#codex-browser .codex-pick{margin-top:9px}
+.modal-back{display:block;margin:0 36px 10px 0;min-height:32px;color:#627956;font-size:13px;text-align:left}
+@media(max-width:360px){#codex-browser .codex-filters{gap:3px}#codex-browser .codex-filters button{font-size:11px}.codex-basic-filters{gap:5px}#codex-browser .codex-trait-label{gap:4px;font-size:10px}#codex-browser .codex-trait-label select{font-size:11px;padding:4px}}
