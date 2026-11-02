@@ -31,7 +31,7 @@ const engine = process.env.BROWSER || 'chromium';
         await page.locator('.map-target').nth(i).click();
         assert.equal(await page.locator('.meaning-badge').count(),count);
         assert.ok((await page.locator('.rune-capacity').innerText()).includes(`${count}/${count}`));
-        if (i===0) assert.match(await page.locator('.meaning-effect').innerText(),/凡字没有附加特性/);
+        if (i===0) assert.match(await page.locator('.meaning-effect').innerText(),/凡字(?:没有|无)附加特性/);
         if (mobile) {
           const box=await page.locator('#upgrade').boundingBox(); assert.ok(box.y+box.height<=height+1);
           assert.equal(await page.evaluate(()=>document.documentElement.scrollHeight>innerHeight+1),false);

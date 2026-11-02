@@ -233,7 +233,7 @@
   },
   "hashes": {
     "dist/engine.mjs": "671cde5ecc28ab938a70896efaf36787347b91f09f31ab14a425c25f69271934",
-    "dist/poetry-rules.mjs": "7bc1eec66ce06a42cf3d1273de3abde29a0feb9e600d0620165fddd8fa4908f0",
+    "dist/poetry-rules.mjs": "bc2ea7089a2be8195369c5260f469a45d405d1aafeae4e013862cdb191f4eb0b",
     "dist/poetry-combat.mjs": "7a052cb628398366f2807f92d4188d772a12c28d894a1f813039d7dc53871560",
     "dist/poetry-data.mjs": "617a6dc852fe59ac242c9e7767288dceb5d270779a6981cf93e8ac8d2ab3491d",
     "data/poetry-corpus.json": "29767e06de67d209e1a182ec4083077e7c4d64c77b2004526045e4acf5d69802",

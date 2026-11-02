@@ -16,3 +16,18 @@ const opText=([kind,a,b,c])=>({
 export function verseDescription(word){const l=typeof word==='string'?VERSE_INDEX.get(word):word;return `每 ${l.charge} 次普攻蓄满诗韵，绝技冷却 ${l.cooldown} 秒。${l.ops.map(opText).join('；')}。`+(l.field.length?`同类全场效果分别共享施法间隔（${l.field.map(k=>({allShield:'护盾',allFreeze:'冻结',allMend:'修复',allHaste:'攻速',allSlow:'减速',allSilence:'缄默',allWeaken:'削弱',allReveal:'显形'}[k])+' '+FIELD_INTERVALS[k]+' 秒').join('、')}）。`:'');}
 export const POETRY_CONTROL_NOTE='冻结与缄默对 Boss 的持续时间为四分之一；同目标冻结后有 6 秒间隔。未破的冰壳免疫冻结与减速。同类护盾、攻速和减伤取最强值，不累加；只能修复存活塔，不恢复爱心或重建废墟。';
 export function verseStatus(t,time,fieldReady={}){const l=VERSE_INDEX.get(t.word);return{charge:Math.min(l.charge,t.verseCharge||0),need:l.charge,remaining:Math.max(0,(t.verseReadyAt||0)-time,...l.field.map(k=>(fieldReady[k]||0)-time))};}
+
+// Display only rules that can affect this particular verse.
+export function versePresentation(word){
+ const l=typeof word==='string'?VERSE_INDEX.get(word):word,kinds=new Set(l.ops.map(op=>op[0])),has=(...keys)=>keys.some(k=>kinds.has(k)),notes=[];
+ const frozen=has('freeze','allFreeze'),silenced=has('silence','allSilence'),slowed=has('slow','allSlow');
+ if(frozen||silenced)notes.push(`Boss 的${[frozen?'冻结':'',silenced?'缄默':''].filter(Boolean).join('、')}时长为 25%。`);
+ if(frozen)notes.push('同一敌人冻结后，间隔 6 秒才能再次冻结。');
+ if(frozen||slowed)notes.push(`冰壳未破时免疫${[frozen?'冻结':'',slowed?'减速':''].filter(Boolean).join('和')}。`);
+ if(silenced)notes.push('同一敌人的缄默触发间隔为 4 秒。');
+ const buffs=[has('shield','allShield')?'护盾':'',has('haste','allHaste')?'攻速加成':'',has('guard')?'减伤':''].filter(Boolean);
+ if(buffs.length)notes.push(`同类诗意${buffs.join('、')}取最强值。`);
+ if(l.field.length)notes.push(l.field.map(k=>({allShield:'全场护盾',allFreeze:'全场冻结',allMend:'全场修复',allHaste:'全场鼓舞',allSlow:'全场减速',allSilence:'全场缄默',allWeaken:'全场削弱',allReveal:'全场显形'}[k])+'共享 '+FIELD_INTERVALS[k]+' 秒间隔').join('；')+'。');
+ const targets={front:'优先攻击靠近山门的敌人',boss:'优先攻击 Boss',air:'优先攻击飞行敌人',ground:'优先攻击地面敌人',weak:'优先攻击生命比例最低的敌人',rear:'优先攻击后方敌人',nearest:'优先攻击最近的敌人',crowd:'优先攻击密集敌群',shield:'优先攻击护盾最多的敌人',east:'优先攻击东侧敌人',west:'优先攻击西侧敌人',north:'优先攻击北侧敌人',south:'优先攻击南侧敌人'};
+ return{charge:l.charge,cooldown:l.cooldown,targeting:targets[l.aim],effects:l.ops.map(op=>opText(op).replace('本次命中的敌人','命中敌人')),notes};
+}

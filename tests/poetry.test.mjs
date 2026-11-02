@@ -1,6 +1,6 @@
 import test from'node:test';import assert from'node:assert/strict';import{readFileSync}from'node:fs';import{createHash}from'node:crypto';
 import{Game,WORDS,getWord,matchWord,towerDefense,towerStats,POEMS,POEM_LINES,VERSE_INDEX,wordCategory,wordLearning,enemyLength,HAND_SIZE,ENEMIES}from'../dist/engine.mjs';
-import{FIELD_INTERVALS,verseDescription}from'../dist/poetry-rules.mjs';
+import{FIELD_INTERVALS,verseDescription,versePresentation}from'../dist/poetry-rules.mjs';
 const add=(g,word,pad=2)=>{g.ink=1e6;g.hand=[...word.padEnd(32,'月')].map(ch=>({ch,id:++g.handSerial,used:false}));assert.ok(g.build(word,pad),word);return g.towers.at(-1);};
 const arena=word=>{const g=new Game(0,42),t=add(g,word);g.time=10;g.phase='battle';g.wave=1;g.pendingWaves=[1];g.queue=[];for(let i=0;i<8;i++){const e=g.spawn(i===0?'boss':i===1?'flying':'normal',245+i*12);e.hp=e.maxHp=1e7;e.shield=500;}return{g,t};};
 const cast=(g,t)=>{t.verseCharge=4;t.cooldown=100;g.attack(t,.1);};
@@ -37,4 +37,11 @@ test('poetic ordinary hits consume a single allied empowerment; blocked or destr
 });
 test('all 94 enemy identities accept distinct poem casts with finite state, resistances and detached saves',()=>{
  for(const kind of Object.keys(ENEMIES))for(const word of['飞流直下三千尺','千山鸟飞绝','明月松间照','春风又绿江南岸']){const{g,t}=arena(word);g.enemies=[];const e=g.spawn(kind,280);e.hp=e.maxHp=1e7;cast(g,t);assert.ok(Number.isFinite(e.hp),kind);assert.ok(e.hp>0&&e.hp<=e.maxHp,kind);assert.equal(t.verseCasts,1,kind);assert.deepEqual(Game.restore(g.export()).export(),g.export(),kind);}
+});
+
+test('poem details show the real ability and only restrictions applicable to that sentence',()=>{
+ const peach=versePresentation('桃花潭水深千尺');assert.equal(peach.charge,4);assert.equal(peach.cooldown,12);assert.equal(peach.effects.length,2);assert.match(peach.effects[0],/追击 2 次.*240%/);assert.match(peach.effects[1],/减速 50%.*3 秒/);assert.match(peach.notes.join(''),/冰壳.*减速/);assert.doesNotMatch(peach.notes.join(''),/冻结|缄默|护盾|修复|爱心|品质/);assert.match(peach.targeting,/Boss/);
+ const snow=versePresentation('千山鸟飞绝');assert.match(snow.notes.join(''),/Boss.*冻结/);assert.match(snow.notes.join(''),/6 秒/);assert.match(snow.notes.join(''),/全场冻结共享 18 秒/);assert.doesNotMatch(snow.notes.join(''),/缄默|护盾|修复/);
+ const boat=versePresentation('孤舟蓑笠翁');assert.match(boat.notes.join(''),/护盾/);assert.match(boat.notes.join(''),/16 秒/);assert.doesNotMatch(boat.notes.join(''),/Boss|冻结|缄默|品质/);
+ for(const l of POEM_LINES){const view=versePresentation(l.word);assert.equal(view.effects.length,l.ops.length,l.word);assert.ok(view.targeting);assert.ok(view.effects.every(t=>t&&!/undefined|NaN/.test(t)),l.word);}
 });
