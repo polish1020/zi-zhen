@@ -1,6 +1,6 @@
 import{drawPoetryScenes,drawSceneBurst}from'./poetry-scene-art.mjs';
 import {versePresentation} from './poetry-rules.mjs';
-import {drawPoetryTower,drawPoetryEffect} from './poetry-art.mjs';
+import {drawPoetryTower,drawPoetryEffect,drawTowerRuin,poetryProjectileProfile} from './poetry-art.mjs';
 import {POEMS,POEM_INDEX,VERSE_INDEX,MAX_WORD_LENGTH,HAND_SIZE,verseStatus} from './engine.mjs';
 import {SPECIAL_PALETTES,IDIOM_MOVES} from './specials.mjs';
 import {Game,WORDS,CHAPTERS,getMap,getTowerWord as getWord,matchWord,towerStats,GRADES,HINT_COST,REFRESH_COST,SKILL_COOLDOWN,ENEMIES,enemyPosition,wavePlan,gradeEffect,isAir,nativeAir,WAVE_INTERVAL,THEME_UNITS,astralPhase,damageClass,WORD_TRAITS,traitEffect,COMMON_BOSSES,MAP_BOSSES,MAP_BOSS_POOLS,bossChapter,hasIceShell,WORD_RUNES,runeEffect,hasRune,MAP_MINION_POOLS,COMMON_MINIONS,minionChapter,enemyHealthScale,runeLimit,bossSkillName,bossSkillText,towerDefense,towerActive,enemyWeapon,wordCategory,wordLearning,isGameSkill,isCultureWord,rebuildPercent,bossPower,bossPowerText,bossAura,bossAuraText,SPECIAL_EFFECTS,attackName,learningRank} from './engine.mjs';
@@ -104,7 +104,7 @@ function poetrySkill(w){
  const v=versePresentation(w.word);
  return `<div class="poetry-signature-name">${escapeLearningText(v.signatureName)}</div><p class="poetry-trigger">普攻 ${v.charge} 次蓄满 · 冷却 ${v.cooldown} 秒 · 诗境 ${v.sceneDuration} 秒</p><ul class="poetry-scene-list">${v.sceneEffects.map(text=>`<li>${escapeLearningText(text)}。</li>`).join('')}</ul><ul class="poetry-effect-list">${v.effects.map(text=>`<li>${escapeLearningText(text)}。</li>`).join('')}</ul>${v.notes.length?`<p class="poetry-skill-notes">${v.notes.map(escapeLearningText).join(' ')}</p>`:''}`;
 }
-function poetryBasics(w,defense,compact=false){return `<p><b>普攻</b> 墨字攻击单体，${escapeLearningText(versePresentation(w.word).targeting)}。</p>${compact?'':`<p><b>守备</b> 耐久 ${defense.maxHp} · 护甲 ${Math.round(defense.armor*100)}%</p>`}<p>每轮结束恢复自身 30% 最大耐久。</p>`;}
+function poetryBasics(w,defense,compact=false){return `<p><b>普攻</b> ${poetryProjectileProfile(w.word).name}墨字攻击单体，${escapeLearningText(versePresentation(w.word).targeting)}。</p>${compact?'':`<p><b>守备</b> 耐久 ${defense.maxHp} · 护甲 ${Math.round(defense.armor*100)}%</p>`}<p>每轮结束恢复自身 30% 最大耐久。</p>`;}
 function poetryDetails(w,options){
  const defense=towerDefense({word:w.word,level:w.tier});
  openModal(`<div class="modal-eyebrow">古诗句 · ${GRADES[w.tier]}</div><h2 class="modal-title">${w.word}</h2>${identity(w,true)}${learningCard(w)}<div class="word-effect-stats"><div><small>建造消耗</small><b>${game.inkCost(w.cost)} 墨点</b></div><div><small>初始等级 / 上限</small><b>${w.tier} / ${w.maxLevel} 级</b></div><div><small>攻击伤害</small><b>${w.damage}</b></div><div><small>范围 / 攻击间隔</small><b>${w.range} / ${w.rate}s</b></div></div><section class="grade-effect-card word-trait-card poetry-skill-card"><h3>诗意绝技</h3>${poetrySkill(w)}</section><section class="grade-effect-card tower-defense-card poetry-basics">${poetryBasics(w,defense)}</section><button class="primary" id="effect-done">返回组词</button>`,()=>{$('#effect-done').textContent=modalParents.length?'返回词典':'返回组词';$('#effect-done').onclick=closeModal;},options);
@@ -348,10 +348,10 @@ function towerFormArt(w){
 }
 function updatePoetryStatus(){for(const el of document.querySelectorAll('[data-verse-status]')){const t=game.towers.find(a=>a.id===Number(el.dataset.verseStatus));if(!t||!getWord(t.word).poem)continue;const st=verseStatus(t,game.time,game.poetryFieldReady);el.textContent=`诗韵 ${st.charge}/${st.need} · ${st.remaining>0?'绝技冷却 '+st.remaining.toFixed(1)+' 秒':st.charge===st.need?'诗韵蓄满，等待施法':'蓄势中'}`;}}
 function drawTower(t){
- const p=PADS[t.pad],w=getWord(t.word);if(w.poem){drawPoetryTower(ctx,t,w,game.time,{point:p,defense:towerDefense(t),active:towerActive(t),selected:selected===t.id||hover===t.pad,reduced:reducedMotion.matches,labelFont:Math.max(10,7*dpr/boardScale),fieldReady:game.poetryFieldReady});return;}const up=t.level-w.tier,motion=reducedMotion.matches?0:game.time*1000,gradeColor=w.tier===4?'#b69a4e':w.tier===3?'#a087b5':w.color;
+ const p=PADS[t.pad],w=getWord(t.word);if(!towerActive(t)){drawTowerRuin(ctx,t,w,{point:p,selected:selected===t.id||hover===t.pad,labelFont:Math.max(10,7*dpr/boardScale)});return;}if(w.poem){drawPoetryTower(ctx,t,w,game.time,{point:p,defense:towerDefense(t),active:towerActive(t),selected:selected===t.id||hover===t.pad,reduced:reducedMotion.matches,labelFont:Math.max(10,7*dpr/boardScale),fieldReady:game.poetryFieldReady});return;}const up=t.level-w.tier,motion=reducedMotion.matches?0:game.time*1000,gradeColor=w.tier===4?'#b69a4e':w.tier===3?'#a087b5':w.color;
  ctx.save();ctx.translate(p.x,p.y);
  const defense=towerDefense(t),hp=t.hp??defense.maxHp;
- if(!towerActive(t)){silhouette([[-27,22],[-21,-5],[-5,0],[2,-20],[12,4],[28,13],[31,26]],'#8b8a7977','#8a826e');line([{x:-10,y:-8},{x:2,y:4},{x:-4,y:20}],'#6e6557',2);ctx.fillStyle='#756a58';ctx.font='18px serif';ctx.textAlign='center';ctx.fillText(w.icon,0,7);ctx.font='11px system-ui';ctx.fillText(w.word+' · 待重建',0,43);ctx.restore();return;}
+
  if(t.hitUntil>game.time){circle(0,0,36,'#c6794929','#b66346');if(!reducedMotion.matches)ctx.translate(Math.sin(game.time*80)*3,0);}
  ctx.fillStyle='#7e8f6a33';ctx.beginPath();ctx.ellipse(3,24,31+up*2,11,0,0,7);ctx.fill();
  if(w.tier>=3){ctx.save();ctx.translate(0,6);ctx.rotate(motion*.00012);ctx.setLineDash(w.tier===4?[8,4]:[3,7]);circle(0,0,32+up*2,null,gradeColor+'88');ctx.setLineDash([]);ctx.restore();}
@@ -522,10 +522,11 @@ function enemySkillArt(f,progress){
 }
 function drawEffect(f,time,decorate=true){
  if(f.life>f.max)return;
- const a=Math.max(0,f.life/f.max),progress=1-a;ctx.save();ctx.globalAlpha=a;
+ const a=Math.max(0,f.life/f.max),progress=1-a;ctx.save();ctx.globalAlpha=['poem-ink','poem-scene-hit'].includes(f.kind)?Math.max(.55,a):a;
+ if(f.kind==='poem-ink'&&!f.played){f.played=true;attackAudio(poetryProjectileProfile(f.word).sound,time);}
  if(f.sound&&!f.played){f.played=true;attackAudio(f.sound,time);}
- if(f.kind==='poem-scene-hit'||f.kind==='poem-scene-born'){drawSceneBurst(ctx,f,progress,{reduced:reducedMotion.matches});}
- else if(f.kind==='poem-cast'||f.kind==='poem-ink'){drawPoetryEffect(ctx,f,progress,{reduced:reducedMotion.matches,decorate});}
+ if(f.kind==='poem-scene-hit'||f.kind==='poem-scene-born'){drawSceneBurst(ctx,f,progress,{reduced:reducedMotion.matches,decorate,unit:dpr/boardScale});}
+ else if(f.kind==='poem-cast'||f.kind==='poem-ink'){drawPoetryEffect(ctx,f,progress,{reduced:reducedMotion.matches,decorate,unit:dpr/boardScale});}
  else if(f.kind==='siege'){if(!f.played){f.played=true;if(!f.secondary)enemyAttackAudio(f,time);}enemyAttackArt(f.from,f.to,f,f.power&&!reducedMotion.matches?Math.min(1,progress*2):1,decorate&&!reducedMotion.matches);if(f.power){const r=reducedMotion.matches?56:35+progress*55;circle(f.to.x,f.to.y,r,f.color+'0c',f.color+'aa');if(decorate&&!reducedMotion.matches)for(let n=0;n<6;n++){const angle=n*Math.PI/3+progress;const q={x:f.to.x+Math.cos(angle)*r,y:f.to.y+Math.sin(angle)*r};circle(q.x,q.y,4,f.color);}}if(f.boss&&!f.secondary){circle(f.to.x,f.to.y,30+progress*30,null,f.color);}}
  else if(f.kind==='boss-arrival'||f.kind==='boss-burst'){const p=f.to,r=reducedMotion.matches?85:40+progress*(f.kind==='boss-arrival'?140:160);circle(p.x,p.y,r,f.color+'0c',f.color);circle(p.x,p.y,r*.7,null,f.color+'99');for(let i=0;i<8;i++){const angle=i*Math.PI/4+progress*.3;line([{x:p.x+Math.cos(angle)*r*.8,y:p.y+Math.sin(angle)*r*.8},{x:p.x+Math.cos(angle)*r,y:p.y+Math.sin(angle)*r}],f.color,3);}}
  else if(f.kind==='reflected'){line([f.from,f.to],f.color+'99',4);circle(f.to.x,f.to.y,24,null,f.color);}
@@ -871,14 +872,14 @@ function draw(time){if(!W||!H)return;ctx.setTransform(1,0,0,1,0,0);ctx.fillStyle
  // mountain gate at end of trail
  ctx.save();ctx.translate(Math.min(865,Math.max(35,PATH.at(-1).x)),Math.min(470,Math.max(50,PATH.at(-1).y)));ctx.fillStyle='#a4b295';ctx.fillRect(-20,-28,5,50);ctx.fillRect(15,-28,5,50);ctx.fillStyle='#6e8767';ctx.fillRect(-26,-36,52,8);ctx.fillRect(-22,-18,44,5);ctx.beginPath();ctx.moveTo(-34,-35);ctx.quadraticCurveTo(0,-48,34,-35);ctx.lineTo(26,-29);ctx.lineTo(-26,-29);ctx.fill();ctx.fillStyle='#e9e9d6';ctx.fillRect(-9,-29,18,15);ctx.font='9px serif';ctx.textAlign='center';ctx.fillStyle='#68815e';ctx.fillText('山门',0,-18);ctx.restore();
  for(let i=0;i<PADS.length;i++){const p=PADS[i],t=game.towers.find(t=>t.pad===i),highlight=hover===i;if(t)continue;if(!game.padUnlocked(i)){circle(p.x,p.y,23,'#d9dfd0','#a4af96');ctx.fillStyle='#819071';ctx.font='17px serif';ctx.textAlign='center';ctx.fillText('锁',p.x,p.y+6);continue;}circle(p.x,p.y+4,26,'#bdc9ab33');circle(p.x,p.y,23,placing?'#f7f4df':'#eef0e1','#bbc7a8');circle(p.x,p.y,18,null,placing?'#8b9d75':'#d4dcc7');ctx.strokeStyle=placing?'#8a9b70':'#b5c1a3';ctx.lineWidth=1;line([{x:p.x-5,y:p.y},{x:p.x+5,y:p.y}],ctx.strokeStyle,1);line([{x:p.x,y:p.y-5},{x:p.x,y:p.y+5}],ctx.strokeStyle,1);if(placing||highlight){ctx.setLineDash([3,5]);circle(p.x,p.y,30+(placing?Math.sin(time*.002)*1.5:0),null,'#92a47b');ctx.setLineDash([]);}}
- const sel=game.towers.find(t=>t.id===selected);if(sel){const w=getWord(sel.word),p=PADS[sel.pad];if(w.trait==='ward'){ctx.setLineDash([4,5]);circle(p.x,p.y,towerStats(sel).range*.65,w.color+'12',w.color);ctx.setLineDash([]);}circle(p.x,p.y,towerStats(sel).range,w.color+'0e',w.color+'65');}
+ const sel=game.towers.find(t=>t.id===selected);if(sel&&towerActive(sel)){const w=getWord(sel.word),p=PADS[sel.pad];if(w.trait==='ward'){ctx.setLineDash([4,5]);circle(p.x,p.y,towerStats(sel).range*.65,w.color+'12',w.color);ctx.setLineDash([]);}circle(p.x,p.y,towerStats(sel).range,w.color+'0e',w.color+'65');}
  const markedTargets=new Set();for(const e of game.enemies)if(e.hp>0&&e.towerTarget!==undefined)siegeWindup(e,markedTargets);
  for(const e of game.enemies)if(e.hp>0&&ENEMIES[e.kind].boss)drawBossPresence(e,time);
  drawPoetryScenes(ctx,game,{getWord,position:enemyPosition,nativeAir},{reduced:reducedMotion.matches,mobile:mobileLayout.matches});
  for(const t of game.towers)drawTower(t);
  for(const e of game.enemies)if(!ENEMIES[e.kind].boss){drawEnemy(e,time);if(e.escortBossId!==undefined){const p=enemyPosition(e);circle(p.x,p.y,23,null,'#b08c4b');ctx.font=`bold ${Math.max(16,9*dpr/boardScale)}px serif`;ctx.fillStyle='#87682f';ctx.textAlign='center';ctx.fillText(e.escortSummoned?'援':'护',p.x,p.y+34);}}
  for(const e of game.enemies)if(ENEMIES[e.kind].boss)drawEnemy(e,time);
- for(const t of game.towers)if(t.disruptedUntil>game.time){const q=PADS[t.pad];circle(q.x,q.y,31,'#8c6c9922','#9262a5');ctx.font='bold 20px serif';ctx.fillStyle='#875997';ctx.textAlign='center';ctx.fillText('封',q.x,q.y+8);}
+ for(const t of game.towers)if(towerActive(t)&&t.disruptedUntil>game.time){const q=PADS[t.pad];circle(q.x,q.y,31,'#8c6c9922','#9262a5');ctx.font='bold 20px serif';ctx.fillStyle='#875997';ctx.textAlign='center';ctx.fillText('封',q.x,q.y+8);}
 
  const detailBudget=reducedMotion.matches?12:mobileLayout.matches?48:96;for(let i=0;i<game.effects.length;i++)drawEffect(game.effects[i],time,i>=game.effects.length-detailBudget);
  for(const scene of bossDefeats)drawBossDefeat(scene,time);

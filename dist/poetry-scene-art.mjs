@@ -1,5 +1,6 @@
 import{SCENE_RULES,SCENE_LIFE}from'./poetry-scene-rules.mjs';
 import{VERSE_INDEX}from'./poetry-rules.mjs';
+import{drawPoetrySigil,poetryProjectileProfile}from'./poetry-art.mjs';
 const ring=(c,x,y,r,color,w=1)=>{c.beginPath();c.arc(x,y,Math.max(0,r),0,Math.PI*2);c.strokeStyle=color;c.lineWidth=w;c.stroke();};
 const stroke=(c,points,color,width=1)=>{if(!points.length)return;c.beginPath();c.moveTo(points[0].x,points[0].y);for(const p of points.slice(1))c.lineTo(p.x,p.y);c.strokeStyle=color;c.lineWidth=width;c.stroke();};
 const ellipse=(c,x,y,rx,ry,color,fill=false)=>{c.beginPath();c.ellipse(x,y,Math.max(0,rx),Math.max(0,ry),0,0,Math.PI*2);if(fill){c.fillStyle=color;c.fill();}else{c.strokeStyle=color;c.stroke();}};
@@ -59,9 +60,15 @@ export function drawPoetryScenes(ctx,g,api,{reduced=false,mobile=false}={}){
   ctx.restore();
  }
 }
-export function drawSceneBurst(ctx,f,progress,{reduced=false}={}){
- const color=f.color||'#9c9870',r=8+(reduced?.5:progress)*28;ctx.save();ctx.globalAlpha*=1-progress;
- ring(ctx,f.to.x,f.to.y,r,color,2);if(f.kind==='poem-scene-hit'){stroke(ctx,[f.from,f.to],color+'66',1.5);if(f.damage>0){ctx.font='bold 12px system-ui';ctx.textAlign='center';ctx.fillStyle=color;ctx.fillText(Math.round(f.damage),f.to.x,f.to.y-24-progress*12);}}
- else{ctx.font='17px serif';ctx.textAlign='center';ctx.fillStyle=color;ctx.fillText(SCENE_RULES[f.rule]?.[0]||'诗',f.to.x,f.to.y-15-progress*12);}
+export function drawSceneBurst(ctx,f,progress,{reduced=false,decorate=true,unit=1}={}){
+ const s=Math.max(1,Math.min(3.2,unit)),profile=poetryProjectileProfile(f.word,f.rule),color=profile.color,r=(8+(reduced?.4:progress)*16)*s;ctx.save();ctx.globalAlpha*=1-progress;
+ if(f.kind==='poem-scene-hit'){
+  stroke(ctx,[f.from,f.to],'#fff4dfcc',5*s);stroke(ctx,[f.from,f.to],color+'aa',2*s);ring(ctx,f.to.x,f.to.y,r,color,2*s);
+  drawPoetrySigil(ctx,profile,f.to.x,f.to.y,s*.8,reduced?0:progress*.3,progress);
+  if(decorate&&f.damage>0){ctx.font=`bold ${Math.max(12,8*s)}px system-ui`;ctx.textAlign='center';ctx.strokeStyle='#fff4df';ctx.lineWidth=3*s;const text=Math.round(f.damage);ctx.strokeText(text,f.to.x,f.to.y-20*s-progress*10);ctx.fillStyle=color;ctx.fillText(text,f.to.x,f.to.y-20*s-progress*10);}
+ }else{
+  ring(ctx,f.to.x,f.to.y,r,color,2*s);
+  if(decorate){ctx.font=`${Math.max(17,9*s)}px serif`;ctx.textAlign='center';ctx.fillStyle=color;ctx.fillText(SCENE_RULES[f.rule]?.[0]||'诗',f.to.x,f.to.y-15*s-progress*12);}
+ }
  ctx.restore();
 }
