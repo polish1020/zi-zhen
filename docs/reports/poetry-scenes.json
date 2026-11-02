@@ -1,0 +1,8151 @@
+{
+  "date": "2026-11-02",
+  "coverage": {
+    "sentences": 483,
+    "handAuthoredPrograms": 483,
+    "nonnumericDistinctPrograms": 483,
+    "rules": 90,
+    "actuallyActivatedRules": 90,
+    "sceneDuration": 6
+  },
+  "method": "Exact complete sentence → manually authored scene name and two or three interacting rule IDs. Structural audit ignores title, animation, target-priority and ALL numeric parameters; sorted rule sets must be unique. Low-level rules are deliberately shared: this is 483 distinct semantic programs, not 483 unrelated primitives or 483 entirely separately drawn animations. Conditional fixtures isolate each real rule after a genuine cast and use moving enemies, genuine tower injuries, shield absorption, deaths, mixed allies and ruins; ordinary encounters need not activate every conditional rule.",
+  "runtimeCoverage": "All 483 programs execute in Game.step, with mid-field save/restore across all ten chapter maps and entries (tests/poetry-scenes.test.mjs). Additional assertions inspect real ground-only targeting, native flight geometry, boss/ice resistance, pond residence/reset, route-following waterfall, shield transfer/reflection, three-hit shelter, delayed arrivals, remote range, real targeting priority, harvest caps, ruin actors and invalid snapshots.",
+  "graphicsCoverage": "tests/poetry-scenes.cjs draws all 483 programs / all 90 rule IDs in both normal and reduced motion (966 renders per browser) and checks a real running landing/pool/waterfall battle, paused clocks, persistent reload and reachable actions at four viewport sizes in Chromium and WebKit.",
+  "performance": {
+    "method": "Synthetic Node-only 16-tower/80-enemy fixture with shared field cooldowns cleared only during setup to increase load; 100 live update ticks, then discard effects. Excludes drawing, other engine systems and actual phone hardware.",
+    "liveFields": 34,
+    "ticks": 100,
+    "medianMs": 0.025,
+    "p95Ms": 0.831,
+    "maximumMs": 27.638
+  },
+  "rules": [
+    {
+      "rule": "deep_pool",
+      "name": "深潭",
+      "effect": "留下深潭；地面敌人停留越久下沉越深，每停留 0.7 秒加深一层，最多减速 45%；离开水域后恢复",
+      "actualActivations": 187,
+      "configuredLines": 17,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "waterfall",
+      "name": "瀑流",
+      "effect": "瀑布沿目标路段奔涌，反复冲击经过的敌人并向后推退",
+      "actualActivations": 23,
+      "configuredLines": 3,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "river",
+      "name": "顺流",
+      "effect": "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+      "actualActivations": 4,
+      "configuredLines": 41,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "undertow",
+      "name": "回流",
+      "effect": "逆流沿路线回卷，把撞上波头的敌人向来路拉回",
+      "actualActivations": 12,
+      "configuredLines": 6,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "eddy",
+      "name": "旋涡",
+      "effect": "在目标处留下旋涡；进入后走得过远会被拉回一次",
+      "actualActivations": 2,
+      "configuredLines": 6,
+      "remainingDamageBudget": 170.5,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "mist",
+      "name": "云雾",
+      "effect": "云雾掩护附近词塔，敌人优先转攻其他可攻击的塔；雾中蓄力的敌人会短暂减速",
+      "actualActivations": 159,
+      "configuredLines": 17,
+      "remainingDamageBudget": 308,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "bridge",
+      "name": "渡桥",
+      "effect": "在路段立起渡桥，过桥敌人会引来最近友塔的一次援击",
+      "actualActivations": 4,
+      "configuredLines": 4,
+      "remainingDamageBudget": 184,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "ferry",
+      "name": "摆渡",
+      "effect": "小舟为附近友塔摆渡攻击，周期性将一道友塔火力送向远处敌人",
+      "actualActivations": 6,
+      "configuredLines": 18,
+      "remainingDamageBudget": 250.25000000000006,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "seed",
+      "name": "种子",
+      "effect": "敌人在种子区倒下后留下嫩芽，下一名靠近的敌人会触发芽刺",
+      "actualActivations": 4,
+      "configuredLines": 4,
+      "remainingDamageBudget": 99,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "lotus",
+      "name": "莲叶",
+      "effect": "莲叶护盾游向受伤友塔；护盾破碎或消失后转向另一座受伤词塔",
+      "actualActivations": 5,
+      "configuredLines": 13,
+      "remainingDamageBudget": 220,
+      "remainingAidBudget": 0
+    },
+    {
+      "rule": "vine",
+      "name": "藤蔓",
+      "effect": "用藤蔓连接两名敌人；它们拉开距离时，领先者会被牵回",
+      "actualActivations": 3,
+      "configuredLines": 6,
+      "remainingDamageBudget": 165,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "willow",
+      "name": "柳丝",
+      "effect": "柳丝来回摆扫；进入扫线的敌人受到伤害和短暂减速",
+      "actualActivations": 16,
+      "configuredLines": 9,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "bamboo",
+      "name": "竹节",
+      "effect": "竹节记住附近词塔受到的打击，每攒满三次便向来敌反击",
+      "actualActivations": 3,
+      "configuredLines": 7,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "plum",
+      "name": "寒梅",
+      "effect": "寒梅遇到被减速或冻结的敌人时开放，爆发花刺",
+      "actualActivations": 6,
+      "configuredLines": 9,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "leaves",
+      "name": "落叶",
+      "effect": "落叶贴附经过的敌人；敌人施法时叶片碎裂，削去护盾并打断蓄力",
+      "actualActivations": 14,
+      "configuredLines": 8,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "petals",
+      "name": "飞花",
+      "effect": "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击",
+      "actualActivations": 13,
+      "configuredLines": 25,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "grass",
+      "name": "青草",
+      "effect": "草地照料受伤友塔，只有耐久不足一半时才会持续修复",
+      "actualActivations": 36,
+      "configuredLines": 16,
+      "remainingDamageBudget": 308,
+      "remainingAidBudget": 34.84500000000001
+    },
+    {
+      "rule": "sprout",
+      "name": "萌芽",
+      "effect": "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人",
+      "actualActivations": 2,
+      "configuredLines": 20,
+      "remainingDamageBudget": 154,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "grounding",
+      "name": "落羽",
+      "effect": "将范围内的飞行敌人短暂压落，地面攻击也能命中；Boss 落地时间较短",
+      "actualActivations": 2,
+      "configuredLines": 6,
+      "remainingDamageBudget": 187,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "updraft",
+      "name": "升风",
+      "effect": "托起靠近的地面敌人，打断进攻；落下时冲击周围敌人",
+      "actualActivations": 14,
+      "configuredLines": 8,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "kite",
+      "name": "纸鸢",
+      "effect": "纸鸢绕塔盘旋，经过敌人上方时俯冲，优先拦截飞行敌人",
+      "actualActivations": 7,
+      "configuredLines": 7,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "swallow",
+      "name": "归燕",
+      "effect": "飞燕沿塔与目标之间往返，去程与回程分别掠击经过的敌人",
+      "actualActivations": 10,
+      "configuredLines": 2,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "geese",
+      "name": "雁阵",
+      "effect": "雁阵从两翼合围，轮流截击前方、左翼与右翼的敌人",
+      "actualActivations": 6,
+      "configuredLines": 8,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "stars",
+      "name": "星子",
+      "effect": "布下三颗悬星；敌人靠近时星子逐颗坠落，覆盖不同落点",
+      "actualActivations": 3,
+      "configuredLines": 9,
+      "remainingDamageBudget": 5.5,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "meteor",
+      "name": "流星",
+      "effect": "星芒追随移动目标，连续落击；原目标倒下后会转向邻近敌人",
+      "actualActivations": 4,
+      "configuredLines": 2,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "moon",
+      "name": "月照",
+      "effect": "月光绕塔扫过，照见潜行并标记被光束扫中的敌人",
+      "actualActivations": 31,
+      "configuredLines": 23,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "sun",
+      "name": "日轮",
+      "effect": "日轮照射前方，周期性消磨护盾；护盾消失时爆发一次日光",
+      "actualActivations": 20,
+      "configuredLines": 19,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "lantern",
+      "name": "灯火",
+      "effect": "灯火照亮附近来敌，发现敌人准备攻塔时打断其蓄力",
+      "actualActivations": 93,
+      "configuredLines": 8,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "echo",
+      "name": "回响",
+      "effect": "记下目标接下来受到的真实伤害，片刻后将一部分伤害化为回响",
+      "actualActivations": 1,
+      "configuredLines": 10,
+      "remainingDamageBudget": 234.85000000000002,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "bell",
+      "name": "钟声",
+      "effect": "钟波逐圈传开；碰到正在攻塔或施法的敌人时打断蓄力",
+      "actualActivations": 13,
+      "configuredLines": 11,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "song",
+      "name": "歌声",
+      "effect": "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
+      "actualActivations": 8,
+      "configuredLines": 20,
+      "remainingDamageBudget": 22,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "silence_watch",
+      "name": "静听",
+      "effect": "静听敌人的行动，只在敌人开始蓄力时施加缄默",
+      "actualActivations": 23,
+      "configuredLines": 10,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "lullaby",
+      "name": "安眠",
+      "effect": "让尚未受击的来敌暂歇；被攻击时醒来并承受苏醒冲击",
+      "actualActivations": 13,
+      "configuredLines": 11,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "call",
+      "name": "呼应",
+      "effect": "向最远的友塔发出呼唤，友塔回赠一道援击并得到少量修复",
+      "actualActivations": 2,
+      "configuredLines": 7,
+      "remainingDamageBudget": 293,
+      "remainingAidBudget": 170.79999999999998
+    },
+    {
+      "rule": "chorus",
+      "name": "合鸣",
+      "effect": "三座词塔结成共鸣三角；跨越连线的敌人受击，参与的塔分享护盾",
+      "actualActivations": 7,
+      "configuredLines": 7,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 164.49999999999997
+    },
+    {
+      "rule": "drum",
+      "name": "鼓点",
+      "effect": "沿路追随来敌的脚步；敌人每前进一段距离便遭鼓声震击",
+      "actualActivations": 6,
+      "configuredLines": 4,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "resolve",
+      "name": "守志",
+      "effect": "词塔耐久低于一半时，记住下一次受到的伤害并还击攻击者",
+      "actualActivations": 11,
+      "configuredLines": 8,
+      "remainingDamageBudget": 253,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "fellowship",
+      "name": "同舟",
+      "effect": "连接两座受伤词塔，为两者分担部分受击并储存一道反击",
+      "actualActivations": 32,
+      "configuredLines": 12,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 155.21099999999996
+    },
+    {
+      "rule": "return_home",
+      "name": "归心",
+      "effect": "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾",
+      "actualActivations": 11,
+      "configuredLines": 26,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 0
+    },
+    {
+      "rule": "guest",
+      "name": "来客",
+      "effect": "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位",
+      "actualActivations": 6,
+      "configuredLines": 25,
+      "remainingDamageBudget": 194.60000000000002,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "memory",
+      "name": "旧识",
+      "effect": "记住场内倒下的敌人种类，再遇同类时提前揭示弱点",
+      "actualActivations": 15,
+      "configuredLines": 14,
+      "remainingDamageBudget": 82.5,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "farewell",
+      "name": "送别",
+      "effect": "为离开射程的敌人留下一道送别攻击，追至原射程之外",
+      "actualActivations": 3,
+      "configuredLines": 10,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "reunion",
+      "name": "相逢",
+      "effect": "连接分散的两名敌人，等它们靠近时引发相逢冲击",
+      "actualActivations": 2,
+      "configuredLines": 7,
+      "remainingDamageBudget": 92.39999999999999,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "solitude",
+      "name": "独守",
+      "effect": "追踪落单的敌人；它与同伴距离足够远时承受额外独守打击",
+      "actualActivations": 6,
+      "configuredLines": 12,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "companions",
+      "name": "结伴",
+      "effect": "找出混编敌群；相邻的敌人种类越不同，越容易触发破阵冲击",
+      "actualActivations": 13,
+      "configuredLines": 1,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "rally",
+      "name": "振作",
+      "effect": "附近友塔受伤后得到短暂鼓舞；再次受伤不会重复叠加",
+      "actualActivations": 54,
+      "configuredLines": 6,
+      "remainingDamageBudget": 308,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "wall",
+      "name": "山壁",
+      "effect": "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停",
+      "actualActivations": 12,
+      "configuredLines": 26,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "gate",
+      "name": "关隘",
+      "effect": "设下一道关隘；越过关口的前排敌人会受到守关重击",
+      "actualActivations": 3,
+      "configuredLines": 19,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "mirror",
+      "name": "明镜",
+      "effect": "明镜保护附近词塔，将下一次来袭的一部分伤害反射给攻击者",
+      "actualActivations": 15,
+      "configuredLines": 9,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 96.32
+    },
+    {
+      "rule": "umbrella",
+      "name": "雨盖",
+      "effect": "撑起雨盖，将附近词塔接下来的三次受击伤害削减 35%，并向攻击来源落下水珠",
+      "actualActivations": 3,
+      "configuredLines": 6,
+      "remainingDamageBudget": 193.75,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "purity",
+      "name": "清气",
+      "effect": "清气在友塔间流转，持续清除腐蚀、冰滞和封禁",
+      "actualActivations": 60,
+      "configuredLines": 16,
+      "remainingDamageBudget": 308,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "medicine",
+      "name": "药香",
+      "effect": "药香轮流照顾最虚弱的友塔；溢出的修复会凝成短暂护盾",
+      "actualActivations": 12,
+      "configuredLines": 16,
+      "remainingDamageBudget": 220,
+      "remainingAidBudget": 39.39999999999999
+    },
+    {
+      "rule": "offering",
+      "name": "赠心",
+      "effect": "贡献自身最多 6% 最大耐久，以 125% 效率照料最虚弱的友塔；自身耐久不足时停止贡献",
+      "actualActivations": 1,
+      "configuredLines": 14,
+      "remainingDamageBudget": 220,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "forge",
+      "name": "锤炼",
+      "effect": "将附近词塔遭受的伤害锤炼成铁屑，蓄足后击碎敌人的护甲",
+      "actualActivations": 3,
+      "configuredLines": 7,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "frost_armor",
+      "name": "霜衣",
+      "effect": "给附近友塔披上霜衣；它们受击时，寒气沿攻击来路反扑",
+      "actualActivations": 67,
+      "configuredLines": 1,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 119.44
+    },
+    {
+      "rule": "bastion",
+      "name": "孤城",
+      "effect": "耐久危急时化为孤城，暂时减伤并吸引附近来敌的攻击",
+      "actualActivations": 64,
+      "configuredLines": 5,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "trail",
+      "name": "履痕",
+      "effect": "敌人走过的路留下短暂墨迹，后来经过的敌人会踩中墨痕",
+      "actualActivations": 6,
+      "configuredLines": 15,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "footprints",
+      "name": "寻踪",
+      "effect": "跟随来敌的脚印逐次显形，脚印越过转角时追加追踪打击",
+      "actualActivations": 90,
+      "configuredLines": 11,
+      "remainingDamageBudget": 44,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "turning",
+      "name": "曲径",
+      "effect": "监视道路转折，敌人在转角现身时受到一记折返攻击",
+      "actualActivations": 2,
+      "configuredLines": 7,
+      "remainingDamageBudget": 138.60000000000002,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "horizon",
+      "name": "远望",
+      "effect": "锁定最远的来敌，期间普攻能越过原射程追踪这一名目标",
+      "actualActivations": 2,
+      "configuredLines": 18,
+      "remainingDamageBudget": 220,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "ascend",
+      "name": "登高",
+      "effect": "每次安稳站立都会升高一层视野；受击时退回地面，重新登高",
+      "actualActivations": 29,
+      "configuredLines": 12,
+      "remainingDamageBudget": 143,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "sand",
+      "name": "流沙",
+      "effect": "让地面来敌裹上流沙；它移动时抖落沙粒，后方敌人踩中沙粒受阻",
+      "actualActivations": 14,
+      "configuredLines": 7,
+      "remainingDamageBudget": 66,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "harvest",
+      "name": "收获",
+      "effect": "留下收获印记，只有真实掉落墨点的敌人倒下时才可额外采收",
+      "actualActivations": 2,
+      "configuredLines": 10,
+      "remainingDamageBudget": 220,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "weave",
+      "name": "织网",
+      "effect": "在两座词塔之间织出丝线，敌人穿线时受伤并被丝线牵缓",
+      "actualActivations": 11,
+      "configuredLines": 11,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "needle",
+      "name": "穿针",
+      "effect": "细丝记住攻击友塔的敌人；敌人再次出手时遭到穿针反击",
+      "actualActivations": 4,
+      "configuredLines": 4,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "clock",
+      "name": "昼夜",
+      "effect": "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔",
+      "actualActivations": 12,
+      "configuredLines": 30,
+      "remainingDamageBudget": 88,
+      "remainingAidBudget": 75.29999999999998
+    },
+    {
+      "rule": "seasons",
+      "name": "四时",
+      "effect": "按春夏秋冬轮换：萌发、日照、落叶、霜圈，每次施法进入下一季",
+      "actualActivations": 12,
+      "configuredLines": 8,
+      "remainingDamageBudget": 220,
+      "remainingAidBudget": 71.77500000000002
+    },
+    {
+      "rule": "renewal",
+      "name": "再生",
+      "effect": "在废墟旁长出临时草木幻身协战；废墟仍需付费重建",
+      "actualActivations": 2,
+      "configuredLines": 11,
+      "remainingDamageBudget": 143,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "spring_back",
+      "name": "再逢春",
+      "effect": "记住一处落点，等来敌移走后再次开花，拦截后续敌人",
+      "actualActivations": 11,
+      "configuredLines": 9,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "book",
+      "name": "读卷",
+      "effect": "观察不同敌人的行动，认出三种敌人后标明同类弱点",
+      "actualActivations": 24,
+      "configuredLines": 20,
+      "remainingDamageBudget": 44,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "rainbow",
+      "name": "百彩",
+      "effect": "附近属性不同的词塔一起架起彩虹，虹桥依次连向不同种类的来敌",
+      "actualActivations": 9,
+      "configuredLines": 10,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "dew",
+      "name": "朝露",
+      "effect": "清露凝在友塔上，第一次受击时化为修复，并向附近敌人溅开",
+      "actualActivations": 5,
+      "configuredLines": 14,
+      "remainingDamageBudget": 137.5,
+      "remainingAidBudget": 100.78
+    },
+    {
+      "rule": "cloud",
+      "name": "流云",
+      "effect": "云影沿路线漂移，遮住经过的敌人视线，延缓其首次攻塔",
+      "actualActivations": 8,
+      "configuredLines": 13,
+      "remainingDamageBudget": 44,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "scent",
+      "name": "暗香",
+      "effect": "香气跟随一名敌人，逐渐吸引周围同伴靠近，再一同被花香减速",
+      "actualActivations": 104,
+      "configuredLines": 6,
+      "remainingDamageBudget": 27.5,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "snowdrift",
+      "name": "积雪",
+      "effect": "积雪随时间变厚，后来踏入的地面敌人会受到更强的阻碍",
+      "actualActivations": 241,
+      "configuredLines": 17,
+      "remainingDamageBudget": 50.60000000000002,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "ember",
+      "name": "余烬",
+      "effect": "余烬等待敌人的护盾破裂，随后化作一团会蔓延一次的火焰",
+      "actualActivations": 5,
+      "configuredLines": 3,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "pearl",
+      "name": "珠玉",
+      "effect": "将护盾承受的伤害收成珠子；珠子满三颗后飞向前排来敌",
+      "actualActivations": 3,
+      "configuredLines": 5,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "wine",
+      "name": "酌酒",
+      "effect": "给友塔一杯短暂振奋；连续攻击后稍歇，再送出一记蓄势打击",
+      "actualActivations": 5,
+      "configuredLines": 12,
+      "remainingDamageBudget": 154,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "oath",
+      "name": "誓约",
+      "effect": "与一个目标立下挑战；目标仍在场时专注追击，倒下后护佑附近友塔",
+      "actualActivations": 18,
+      "configuredLines": 9,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "beacon",
+      "name": "烽火",
+      "effect": "标记最接近山门的来敌，沿各入口燃起烽火接力拦截",
+      "actualActivations": 3,
+      "configuredLines": 5,
+      "remainingDamageBudget": 215.60000000000002,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "compass",
+      "name": "指路",
+      "effect": "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人",
+      "actualActivations": 17,
+      "configuredLines": 22,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "shroud",
+      "name": "隐迹",
+      "effect": "隐去受伤友塔的踪迹；来敌转攻他塔时，原塔送出伏击",
+      "actualActivations": 64,
+      "configuredLines": 11,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "harvest_field",
+      "name": "耕田",
+      "effect": "将路边开垦成小田；敌人走过时松土，累计经过三名敌人便长出一束谷刺",
+      "actualActivations": 5,
+      "configuredLines": 14,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "afterglow",
+      "name": "返照",
+      "effect": "余光从目标处折返，照到背后的来敌时追加一次回照",
+      "actualActivations": 9,
+      "configuredLines": 14,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "horizon_gate",
+      "name": "天门",
+      "effect": "在道路两侧张开双门；从不同入口来的敌人在门前分别被截击",
+      "actualActivations": 2,
+      "configuredLines": 3,
+      "remainingDamageBudget": 184.8,
+      "remainingAidBudget": 184.79999999999998
+    },
+    {
+      "rule": "ink_wash",
+      "name": "淡墨",
+      "effect": "淡墨浸染一名敌人，周围同伴接触时染上墨迹；染色不递归扩散",
+      "actualActivations": 26,
+      "configuredLines": 6,
+      "remainingDamageBudget": 27.5,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "cocoon",
+      "name": "蚕桑",
+      "effect": "丝茧保护一座友塔，保护结束时依照吸收的伤害化蝶反击",
+      "actualActivations": 2,
+      "configuredLines": 3,
+      "remainingDamageBudget": 77,
+      "remainingAidBudget": 117.92999999999998
+    },
+    {
+      "rule": "shadow",
+      "name": "影随",
+      "effect": "让墨影跟随目标，目标停步或蓄力时影子才会落下攻击",
+      "actualActivations": 5,
+      "configuredLines": 8,
+      "remainingDamageBudget": 0,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "scatter",
+      "name": "星散",
+      "effect": "一束光先聚于目标，目标倒下或走远后散成星点迎击后续敌人",
+      "actualActivations": 2,
+      "configuredLines": 4,
+      "remainingDamageBudget": 88,
+      "remainingAidBudget": 132
+    },
+    {
+      "rule": "lantern_chain",
+      "name": "万灯",
+      "effect": "灯火从友塔向另一座友塔依次点亮；每亮一盏，照击连线旁的一名来敌",
+      "actualActivations": 13,
+      "configuredLines": 3,
+      "remainingDamageBudget": 44,
+      "remainingAidBudget": 94.875
+    }
+  ],
+  "hashes": {
+    "dist/engine.mjs": "3ea152d3d9ab6492e5036ff0f37a77712c6e095c4c76370b9b56e71688594d39",
+    "dist/poetry-scenes.mjs": "61e5e3d5d3769d7eb7a324daef522f1574c14e6305bcffdd2c7a2b9d9e85a59d",
+    "dist/poetry-impact.mjs": "6a1948153db8e5b214b73a8d512b52974b28b7344aa155c003276931a961691b",
+    "dist/poetry-scene-rules.mjs": "4770e0da25a03c6a21205de9a32ec875e9aa4f301174f35ac1a1c98845f4321a",
+    "dist/poetry-scene-art.mjs": "9bbc75aef75bfb2ed1c933cb031811db4ef82198e08140faf66a432d457fbc6d",
+    "dist/poetry-rules.mjs": "de07c566d4efb3713570867cee4775f0e8fe74f7e6fb15d492adfb3f01e7f90b",
+    "dist/poetry-data.mjs": "b5accdb3cfb093ed3ac5f5c3ed11566a5e5830f3f4b540b87cb6231c3f76c719",
+    "data/poetry-signatures.txt": "fadc89e745826f9b1a59ee6df81e1e5fd94f8f633647196c42f30a4d8ae55946"
+  },
+  "catalog": [
+    {
+      "word": "曲项向天歌",
+      "title": "咏鹅",
+      "meaning": "鹅伸长脖子，朝着天空放声歌唱。",
+      "name": "长颈清歌",
+      "rules": [
+        "song",
+        "kite"
+      ],
+      "nonnumericKey": "kite|song",
+      "effects": [
+        "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
+        "纸鸢绕塔盘旋，经过敌人上方时俯冲，优先拦截飞行敌人"
+      ]
+    },
+    {
+      "word": "白毛浮绿水",
+      "title": "咏鹅",
+      "meaning": "洁白的羽毛浮在碧绿的水面上。",
+      "name": "白羽浮莲",
+      "rules": [
+        "lotus",
+        "deep_pool"
+      ],
+      "nonnumericKey": "deep_pool|lotus",
+      "effects": [
+        "莲叶护盾游向受伤友塔；护盾破碎或消失后转向另一座受伤词塔",
+        "留下深潭；地面敌人停留越久下沉越深，每停留 0.7 秒加深一层，最多减速 45%；离开水域后恢复"
+      ]
+    },
+    {
+      "word": "红掌拨清波",
+      "title": "咏鹅",
+      "meaning": "红红的脚掌拨动清清的水波。",
+      "name": "红掌拨澜",
+      "rules": [
+        "river",
+        "afterglow"
+      ],
+      "nonnumericKey": "afterglow|river",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "余光从目标处折返，照到背后的来敌时追加一次回照"
+      ]
+    },
+    {
+      "word": "江南可采莲",
+      "title": "江南",
+      "meaning": "江南到了适合采莲的时节。",
+      "name": "莲间采收",
+      "rules": [
+        "lotus",
+        "harvest"
+      ],
+      "nonnumericKey": "harvest|lotus",
+      "effects": [
+        "莲叶护盾游向受伤友塔；护盾破碎或消失后转向另一座受伤词塔",
+        "留下收获印记，只有真实掉落墨点的敌人倒下时才可额外采收"
+      ]
+    },
+    {
+      "word": "莲叶何田田",
+      "title": "江南",
+      "meaning": "莲叶长得多么茂盛、舒展。",
+      "name": "接叶成荫",
+      "rules": [
+        "lotus",
+        "umbrella"
+      ],
+      "nonnumericKey": "lotus|umbrella",
+      "effects": [
+        "莲叶护盾游向受伤友塔；护盾破碎或消失后转向另一座受伤词塔",
+        "撑起雨盖，将附近词塔接下来的三次受击伤害削减 35%，并向攻击来源落下水珠"
+      ]
+    },
+    {
+      "word": "鱼戏莲叶间",
+      "title": "江南",
+      "meaning": "鱼儿在莲叶之间游来游去。",
+      "name": "游鱼穿叶",
+      "rules": [
+        "eddy",
+        "vine"
+      ],
+      "nonnumericKey": "eddy|vine",
+      "effects": [
+        "在目标处留下旋涡；进入后走得过远会被拉回一次",
+        "用藤蔓连接两名敌人；它们拉开距离时，领先者会被牵回"
+      ]
+    },
+    {
+      "word": "鱼戏莲叶东",
+      "title": "江南",
+      "meaning": "鱼儿游到莲叶的东边。",
+      "name": "东叶游踪",
+      "rules": [
+        "compass",
+        "trail"
+      ],
+      "nonnumericKey": "compass|trail",
+      "effects": [
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人",
+        "敌人走过的路留下短暂墨迹，后来经过的敌人会踩中墨痕"
+      ]
+    },
+    {
+      "word": "鱼戏莲叶西",
+      "title": "江南",
+      "meaning": "鱼儿游到莲叶的西边。",
+      "name": "西叶回游",
+      "rules": [
+        "undertow",
+        "farewell"
+      ],
+      "nonnumericKey": "farewell|undertow",
+      "effects": [
+        "逆流沿路线回卷，把撞上波头的敌人向来路拉回",
+        "为离开射程的敌人留下一道送别攻击，追至原射程之外"
+      ]
+    },
+    {
+      "word": "鱼戏莲叶南",
+      "title": "江南",
+      "meaning": "鱼儿游到莲叶的南边。",
+      "name": "南叶暖塘",
+      "rules": [
+        "deep_pool",
+        "sun"
+      ],
+      "nonnumericKey": "deep_pool|sun",
+      "effects": [
+        "留下深潭；地面敌人停留越久下沉越深，每停留 0.7 秒加深一层，最多减速 45%；离开水域后恢复",
+        "日轮照射前方，周期性消磨护盾；护盾消失时爆发一次日光"
+      ]
+    },
+    {
+      "word": "鱼戏莲叶北",
+      "title": "江南",
+      "meaning": "鱼儿游到莲叶的北边。",
+      "name": "北叶寒波",
+      "rules": [
+        "deep_pool",
+        "snowdrift"
+      ],
+      "nonnumericKey": "deep_pool|snowdrift",
+      "effects": [
+        "留下深潭；地面敌人停留越久下沉越深，每停留 0.7 秒加深一层，最多减速 45%；离开水域后恢复",
+        "积雪随时间变厚，后来踏入的地面敌人会受到更强的阻碍"
+      ]
+    },
+    {
+      "word": "远看山有色",
+      "title": "画",
+      "meaning": "从远处看，画上的山有鲜明的颜色。",
+      "name": "远山着色",
+      "rules": [
+        "horizon",
+        "ink_wash"
+      ],
+      "nonnumericKey": "horizon|ink_wash",
+      "effects": [
+        "锁定最远的来敌，期间普攻能越过原射程追踪这一名目标",
+        "淡墨浸染一名敌人，周围同伴接触时染上墨迹；染色不递归扩散"
+      ]
+    },
+    {
+      "word": "近听水无声",
+      "title": "画",
+      "meaning": "走近听，画中的水没有声音。",
+      "name": "近水静流",
+      "rules": [
+        "silence_watch",
+        "river"
+      ],
+      "nonnumericKey": "river|silence_watch",
+      "effects": [
+        "静听敌人的行动，只在敌人开始蓄力时施加缄默",
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击"
+      ]
+    },
+    {
+      "word": "春去花还在",
+      "title": "画",
+      "meaning": "春天过去了，画里的花还在盛开。",
+      "name": "画里留春",
+      "rules": [
+        "spring_back",
+        "clock"
+      ],
+      "nonnumericKey": "clock|spring_back",
+      "effects": [
+        "记住一处落点，等来敌移走后再次开花，拦截后续敌人",
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔"
+      ]
+    },
+    {
+      "word": "人来鸟不惊",
+      "title": "画",
+      "meaning": "人走近了，画中的鸟也不会受惊。",
+      "name": "静鸟留影",
+      "rules": [
+        "shroud",
+        "shadow"
+      ],
+      "nonnumericKey": "shadow|shroud",
+      "effects": [
+        "隐去受伤友塔的踪迹；来敌转攻他塔时，原塔送出伏击",
+        "让墨影跟随目标，目标停步或蓄力时影子才会落下攻击"
+      ]
+    },
+    {
+      "word": "锄禾日当午",
+      "title": "悯农·其二",
+      "meaning": "正午烈日下，农人仍在田里锄草。",
+      "name": "午日耕田",
+      "rules": [
+        "harvest_field",
+        "sun"
+      ],
+      "nonnumericKey": "harvest_field|sun",
+      "effects": [
+        "将路边开垦成小田；敌人走过时松土，累计经过三名敌人便长出一束谷刺",
+        "日轮照射前方，周期性消磨护盾；护盾消失时爆发一次日光"
+      ]
+    },
+    {
+      "word": "汗滴禾下土",
+      "title": "悯农·其二",
+      "meaning": "汗珠滴进禾苗下面的泥土。",
+      "name": "汗润禾根",
+      "rules": [
+        "dew",
+        "harvest_field"
+      ],
+      "nonnumericKey": "dew|harvest_field",
+      "effects": [
+        "清露凝在友塔上，第一次受击时化为修复，并向附近敌人溅开",
+        "将路边开垦成小田；敌人走过时松土，累计经过三名敌人便长出一束谷刺"
+      ]
+    },
+    {
+      "word": "谁知盘中餐",
+      "title": "悯农·其二",
+      "meaning": "有谁知道碗里的饭从哪里来呢？",
+      "name": "盘中有获",
+      "rules": [
+        "harvest",
+        "offering"
+      ],
+      "nonnumericKey": "harvest|offering",
+      "effects": [
+        "留下收获印记，只有真实掉落墨点的敌人倒下时才可额外采收",
+        "贡献自身最多 6% 最大耐久，以 125% 效率照料最虚弱的友塔；自身耐久不足时停止贡献"
+      ]
+    },
+    {
+      "word": "粒粒皆辛苦",
+      "title": "悯农·其二",
+      "meaning": "每一粒粮食都包含着农人的辛劳。",
+      "name": "粒粒成穗",
+      "rules": [
+        "seed",
+        "harvest_field"
+      ],
+      "nonnumericKey": "harvest_field|seed",
+      "effects": [
+        "敌人在种子区倒下后留下嫩芽，下一名靠近的敌人会触发芽刺",
+        "将路边开垦成小田；敌人走过时松土，累计经过三名敌人便长出一束谷刺"
+      ]
+    },
+    {
+      "word": "小时不识月",
+      "title": "古朗月行（节选）",
+      "meaning": "小时候不认识天上的月亮。",
+      "name": "初识月影",
+      "rules": [
+        "moon",
+        "book"
+      ],
+      "nonnumericKey": "book|moon",
+      "effects": [
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人",
+        "观察不同敌人的行动，认出三种敌人后标明同类弱点"
+      ]
+    },
+    {
+      "word": "呼作白玉盘",
+      "title": "古朗月行（节选）",
+      "meaning": "把圆圆的月亮叫作白玉做的盘子。",
+      "name": "玉盘承光",
+      "rules": [
+        "moon",
+        "pearl"
+      ],
+      "nonnumericKey": "moon|pearl",
+      "effects": [
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人",
+        "将护盾承受的伤害收成珠子；珠子满三颗后飞向前排来敌"
+      ]
+    },
+    {
+      "word": "又疑瑶台镜",
+      "title": "古朗月行（节选）",
+      "meaning": "又怀疑它是瑶台上的明镜。",
+      "name": "瑶台映月",
+      "rules": [
+        "mirror",
+        "afterglow"
+      ],
+      "nonnumericKey": "afterglow|mirror",
+      "effects": [
+        "明镜保护附近词塔，将下一次来袭的一部分伤害反射给攻击者",
+        "余光从目标处折返，照到背后的来敌时追加一次回照"
+      ]
+    },
+    {
+      "word": "飞在青云端",
+      "title": "古朗月行（节选）",
+      "meaning": "那明镜仿佛飞到了高高的青云上。",
+      "name": "云端飞镜",
+      "rules": [
+        "cloud",
+        "updraft"
+      ],
+      "nonnumericKey": "cloud|updraft",
+      "effects": [
+        "云影沿路线漂移，遮住经过的敌人视线，延缓其首次攻塔",
+        "托起靠近的地面敌人，打断进攻；落下时冲击周围敌人"
+      ]
+    },
+    {
+      "word": "解落三秋叶",
+      "title": "风",
+      "meaning": "秋风能吹落深秋的树叶。",
+      "name": "秋风解叶",
+      "rules": [
+        "leaves",
+        "river"
+      ],
+      "nonnumericKey": "leaves|river",
+      "effects": [
+        "落叶贴附经过的敌人；敌人施法时叶片碎裂，削去护盾并打断蓄力",
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击"
+      ]
+    },
+    {
+      "word": "能开二月花",
+      "title": "风",
+      "meaning": "春风能催开早春的鲜花。",
+      "name": "二月催花",
+      "rules": [
+        "spring_back",
+        "petals"
+      ],
+      "nonnumericKey": "petals|spring_back",
+      "effects": [
+        "记住一处落点，等来敌移走后再次开花，拦截后续敌人",
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击"
+      ]
+    },
+    {
+      "word": "过江千尺浪",
+      "title": "风",
+      "meaning": "风掠过江面，掀起高高的波浪。",
+      "name": "千尺江浪",
+      "rules": [
+        "river",
+        "updraft"
+      ],
+      "nonnumericKey": "river|updraft",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "托起靠近的地面敌人，打断进攻；落下时冲击周围敌人"
+      ]
+    },
+    {
+      "word": "入竹万竿斜",
+      "title": "风",
+      "meaning": "风吹进竹林，许多竹竿一起倾斜。",
+      "name": "风过竹海",
+      "rules": [
+        "bamboo",
+        "willow"
+      ],
+      "nonnumericKey": "bamboo|willow",
+      "effects": [
+        "竹节记住附近词塔受到的打击，每攒满三次便向来敌反击",
+        "柳丝来回摆扫；进入扫线的敌人受到伤害和短暂减速"
+      ]
+    },
+    {
+      "word": "春眠不觉晓",
+      "title": "春晓",
+      "meaning": "春天酣睡，不知不觉天已亮了。",
+      "name": "春眠待晓",
+      "rules": [
+        "lullaby",
+        "sun"
+      ],
+      "nonnumericKey": "lullaby|sun",
+      "effects": [
+        "让尚未受击的来敌暂歇；被攻击时醒来并承受苏醒冲击",
+        "日轮照射前方，周期性消磨护盾；护盾消失时爆发一次日光"
+      ]
+    },
+    {
+      "word": "处处闻啼鸟",
+      "title": "春晓",
+      "meaning": "四处都能听见鸟儿的啼叫。",
+      "name": "百鸟相和",
+      "rules": [
+        "song",
+        "geese"
+      ],
+      "nonnumericKey": "geese|song",
+      "effects": [
+        "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
+        "雁阵从两翼合围，轮流截击前方、左翼与右翼的敌人"
+      ]
+    },
+    {
+      "word": "夜来风雨声",
+      "title": "春晓",
+      "meaning": "想起昨夜听到的风雨声。",
+      "name": "夜雨风声",
+      "rules": [
+        "clock",
+        "bell"
+      ],
+      "nonnumericKey": "bell|clock",
+      "effects": [
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔",
+        "钟波逐圈传开；碰到正在攻塔或施法的敌人时打断蓄力"
+      ]
+    },
+    {
+      "word": "花落知多少",
+      "title": "春晓",
+      "meaning": "不知道昨夜有多少花朵被风雨吹落。",
+      "name": "落花记数",
+      "rules": [
+        "petals",
+        "memory"
+      ],
+      "nonnumericKey": "memory|petals",
+      "effects": [
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击",
+        "记住场内倒下的敌人种类，再遇同类时提前揭示弱点"
+      ]
+    },
+    {
+      "word": "李白乘舟将欲行",
+      "title": "赠汪伦",
+      "meaning": "李白乘着小船，正准备离去。",
+      "name": "行舟启程",
+      "rules": [
+        "ferry",
+        "farewell"
+      ],
+      "nonnumericKey": "farewell|ferry",
+      "effects": [
+        "小舟为附近友塔摆渡攻击，周期性将一道友塔火力送向远处敌人",
+        "为离开射程的敌人留下一道送别攻击，追至原射程之外"
+      ]
+    },
+    {
+      "word": "忽闻岸上踏歌声",
+      "title": "赠汪伦",
+      "meaning": "忽然听见岸上传来踏着节拍的歌声。",
+      "name": "岸歌相送",
+      "rules": [
+        "song",
+        "call"
+      ],
+      "nonnumericKey": "call|song",
+      "effects": [
+        "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
+        "向最远的友塔发出呼唤，友塔回赠一道援击并得到少量修复"
+      ]
+    },
+    {
+      "word": "桃花潭水深千尺",
+      "title": "赠汪伦",
+      "meaning": "桃花潭的潭水即使深达千尺。",
+      "name": "千尺深潭",
+      "rules": [
+        "deep_pool",
+        "petals"
+      ],
+      "nonnumericKey": "deep_pool|petals",
+      "effects": [
+        "留下深潭；地面敌人停留越久下沉越深，每停留 0.7 秒加深一层，最多减速 45%；离开水域后恢复",
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击"
+      ]
+    },
+    {
+      "word": "不及汪伦送我情",
+      "title": "赠汪伦",
+      "meaning": "也比不上汪伦送别我的深厚情谊。",
+      "name": "深情相赠",
+      "rules": [
+        "fellowship",
+        "offering"
+      ],
+      "nonnumericKey": "fellowship|offering",
+      "effects": [
+        "连接两座受伤词塔，为两者分担部分受击并储存一道反击",
+        "贡献自身最多 6% 最大耐久，以 125% 效率照料最虚弱的友塔；自身耐久不足时停止贡献"
+      ]
+    },
+    {
+      "word": "床前明月光",
+      "title": "静夜思",
+      "meaning": "明亮的月光洒在床前。",
+      "name": "床前月照",
+      "rules": [
+        "moon",
+        "lantern"
+      ],
+      "nonnumericKey": "lantern|moon",
+      "effects": [
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人",
+        "灯火照亮附近来敌，发现敌人准备攻塔时打断其蓄力"
+      ]
+    },
+    {
+      "word": "疑是地上霜",
+      "title": "静夜思",
+      "meaning": "看上去好像地上铺了一层白霜。",
+      "name": "月影凝霜",
+      "rules": [
+        "afterglow",
+        "snowdrift"
+      ],
+      "nonnumericKey": "afterglow|snowdrift",
+      "effects": [
+        "余光从目标处折返，照到背后的来敌时追加一次回照",
+        "积雪随时间变厚，后来踏入的地面敌人会受到更强的阻碍"
+      ]
+    },
+    {
+      "word": "举头望明月",
+      "title": "静夜思",
+      "meaning": "抬起头，仰望天上明亮的月亮。",
+      "name": "仰首望月",
+      "rules": [
+        "horizon",
+        "moon"
+      ],
+      "nonnumericKey": "horizon|moon",
+      "effects": [
+        "锁定最远的来敌，期间普攻能越过原射程追踪这一名目标",
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人"
+      ]
+    },
+    {
+      "word": "低头思故乡",
+      "title": "静夜思",
+      "meaning": "低下头，思念遥远的故乡。",
+      "name": "归心月影",
+      "rules": [
+        "return_home",
+        "shadow"
+      ],
+      "nonnumericKey": "return_home|shadow",
+      "effects": [
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾",
+        "让墨影跟随目标，目标停步或蓄力时影子才会落下攻击"
+      ]
+    },
+    {
+      "word": "松下问童子",
+      "title": "寻隐者不遇",
+      "meaning": "在松树下向童子打听老师的去向。",
+      "name": "松间问路",
+      "rules": [
+        "book",
+        "compass"
+      ],
+      "nonnumericKey": "book|compass",
+      "effects": [
+        "观察不同敌人的行动，认出三种敌人后标明同类弱点",
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人"
+      ]
+    },
+    {
+      "word": "言师采药去",
+      "title": "寻隐者不遇",
+      "meaning": "童子说，老师到山里采药去了。",
+      "name": "山中药径",
+      "rules": [
+        "medicine",
+        "trail"
+      ],
+      "nonnumericKey": "medicine|trail",
+      "effects": [
+        "药香轮流照顾最虚弱的友塔；溢出的修复会凝成短暂护盾",
+        "敌人走过的路留下短暂墨迹，后来经过的敌人会踩中墨痕"
+      ]
+    },
+    {
+      "word": "只在此山中",
+      "title": "寻隐者不遇",
+      "meaning": "老师就在这座山里面。",
+      "name": "山中寻迹",
+      "rules": [
+        "wall",
+        "footprints"
+      ],
+      "nonnumericKey": "footprints|wall",
+      "effects": [
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停",
+        "跟随来敌的脚印逐次显形，脚印越过转角时追加追踪打击"
+      ]
+    },
+    {
+      "word": "云深不知处",
+      "title": "寻隐者不遇",
+      "meaning": "只是山中云雾浓密，不知道他在何处。",
+      "name": "云深藏踪",
+      "rules": [
+        "cloud",
+        "shroud"
+      ],
+      "nonnumericKey": "cloud|shroud",
+      "effects": [
+        "云影沿路线漂移，遮住经过的敌人视线，延缓其首次攻塔",
+        "隐去受伤友塔的踪迹；来敌转攻他塔时，原塔送出伏击"
+      ]
+    },
+    {
+      "word": "小娃撑小艇",
+      "title": "池上",
+      "meaning": "小孩子撑着一只小船。",
+      "name": "小艇荡波",
+      "rules": [
+        "ferry",
+        "river"
+      ],
+      "nonnumericKey": "ferry|river",
+      "effects": [
+        "小舟为附近友塔摆渡攻击，周期性将一道友塔火力送向远处敌人",
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击"
+      ]
+    },
+    {
+      "word": "偷采白莲回",
+      "title": "池上",
+      "meaning": "悄悄采了白莲，又撑船回来。",
+      "name": "携莲归舟",
+      "rules": [
+        "lotus",
+        "return_home"
+      ],
+      "nonnumericKey": "lotus|return_home",
+      "effects": [
+        "莲叶护盾游向受伤友塔；护盾破碎或消失后转向另一座受伤词塔",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "不解藏踪迹",
+      "title": "池上",
+      "meaning": "他不知道怎样藏起自己的踪迹。",
+      "name": "采莲留踪",
+      "rules": [
+        "footprints",
+        "lotus"
+      ],
+      "nonnumericKey": "footprints|lotus",
+      "effects": [
+        "跟随来敌的脚印逐次显形，脚印越过转角时追加追踪打击",
+        "莲叶护盾游向受伤友塔；护盾破碎或消失后转向另一座受伤词塔"
+      ]
+    },
+    {
+      "word": "浮萍一道开",
+      "title": "池上",
+      "meaning": "船经过后，水上的浮萍分开成一条线。",
+      "name": "浮萍开径",
+      "rules": [
+        "trail",
+        "bridge"
+      ],
+      "nonnumericKey": "bridge|trail",
+      "effects": [
+        "敌人走过的路留下短暂墨迹，后来经过的敌人会踩中墨痕",
+        "在路段立起渡桥，过桥敌人会引来最近友塔的一次援击"
+      ]
+    },
+    {
+      "word": "泉眼无声惜细流",
+      "title": "小池",
+      "meaning": "泉眼舍不得细流，悄悄让泉水流出。",
+      "name": "无声活泉",
+      "rules": [
+        "river",
+        "medicine"
+      ],
+      "nonnumericKey": "medicine|river",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "药香轮流照顾最虚弱的友塔；溢出的修复会凝成短暂护盾"
+      ]
+    },
+    {
+      "word": "树阴照水爱晴柔",
+      "title": "小池",
+      "meaning": "树荫映在水面，喜爱晴天温柔的风光。",
+      "name": "树荫柔波",
+      "rules": [
+        "umbrella",
+        "afterglow"
+      ],
+      "nonnumericKey": "afterglow|umbrella",
+      "effects": [
+        "撑起雨盖，将附近词塔接下来的三次受击伤害削减 35%，并向攻击来源落下水珠",
+        "余光从目标处折返，照到背后的来敌时追加一次回照"
+      ]
+    },
+    {
+      "word": "小荷才露尖尖角",
+      "title": "小池",
+      "meaning": "嫩小的荷叶刚刚露出尖尖的角。",
+      "name": "尖荷初醒",
+      "rules": [
+        "sprout",
+        "needle"
+      ],
+      "nonnumericKey": "needle|sprout",
+      "effects": [
+        "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人",
+        "细丝记住攻击友塔的敌人；敌人再次出手时遭到穿针反击"
+      ]
+    },
+    {
+      "word": "早有蜻蜓立上头",
+      "title": "小池",
+      "meaning": "早就有蜻蜓停在荷叶尖上了。",
+      "name": "蜻蜓点荷",
+      "rules": [
+        "kite",
+        "lotus"
+      ],
+      "nonnumericKey": "kite|lotus",
+      "effects": [
+        "纸鸢绕塔盘旋，经过敌人上方时俯冲，优先拦截飞行敌人",
+        "莲叶护盾游向受伤友塔；护盾破碎或消失后转向另一座受伤词塔"
+      ]
+    },
+    {
+      "word": "头上红冠不用裁",
+      "title": "画鸡",
+      "meaning": "雄鸡头上的红冠天生就有，不用裁制。",
+      "name": "红冠晨哨",
+      "rules": [
+        "sun",
+        "beacon"
+      ],
+      "nonnumericKey": "beacon|sun",
+      "effects": [
+        "日轮照射前方，周期性消磨护盾；护盾消失时爆发一次日光",
+        "标记最接近山门的来敌，沿各入口燃起烽火接力拦截"
+      ]
+    },
+    {
+      "word": "满身雪白走将来",
+      "title": "画鸡",
+      "meaning": "它披着洁白的羽毛，向人走来。",
+      "name": "白羽迎客",
+      "rules": [
+        "geese",
+        "guest"
+      ],
+      "nonnumericKey": "geese|guest",
+      "effects": [
+        "雁阵从两翼合围，轮流截击前方、左翼与右翼的敌人",
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位"
+      ]
+    },
+    {
+      "word": "平生不敢轻言语",
+      "title": "画鸡",
+      "meaning": "平时它不会随便发出叫声。",
+      "name": "蓄声待鸣",
+      "rules": [
+        "silence_watch",
+        "resolve"
+      ],
+      "nonnumericKey": "resolve|silence_watch",
+      "effects": [
+        "静听敌人的行动，只在敌人开始蓄力时施加缄默",
+        "词塔耐久低于一半时，记住下一次受到的伤害并还击攻击者"
+      ]
+    },
+    {
+      "word": "一叫千门万户开",
+      "title": "画鸡",
+      "meaning": "它一声啼叫，千家万户就迎来清晨。",
+      "name": "晓鸣开门",
+      "rules": [
+        "bell",
+        "gate"
+      ],
+      "nonnumericKey": "bell|gate",
+      "effects": [
+        "钟波逐圈传开；碰到正在攻塔或施法的敌人时打断蓄力",
+        "设下一道关隘；越过关口的前排敌人会受到守关重击"
+      ]
+    },
+    {
+      "word": "墙角数枝梅",
+      "title": "梅花",
+      "meaning": "墙角有几枝梅花。",
+      "name": "墙角寒梅",
+      "rules": [
+        "wall",
+        "plum"
+      ],
+      "nonnumericKey": "plum|wall",
+      "effects": [
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停",
+        "寒梅遇到被减速或冻结的敌人时开放，爆发花刺"
+      ]
+    },
+    {
+      "word": "凌寒独自开",
+      "title": "梅花",
+      "meaning": "梅花迎着严寒，独自开放。",
+      "name": "寒中独放",
+      "rules": [
+        "plum",
+        "solitude"
+      ],
+      "nonnumericKey": "plum|solitude",
+      "effects": [
+        "寒梅遇到被减速或冻结的敌人时开放，爆发花刺",
+        "追踪落单的敌人；它与同伴距离足够远时承受额外独守打击"
+      ]
+    },
+    {
+      "word": "遥知不是雪",
+      "title": "梅花",
+      "meaning": "远远望见白色，却知道它并不是雪。",
+      "name": "遥辨梅雪",
+      "rules": [
+        "horizon",
+        "plum"
+      ],
+      "nonnumericKey": "horizon|plum",
+      "effects": [
+        "锁定最远的来敌，期间普攻能越过原射程追踪这一名目标",
+        "寒梅遇到被减速或冻结的敌人时开放，爆发花刺"
+      ]
+    },
+    {
+      "word": "为有暗香来",
+      "title": "梅花",
+      "meaning": "因为有淡淡的梅花香气飘来。",
+      "name": "暗香来袭",
+      "rules": [
+        "scent",
+        "plum"
+      ],
+      "nonnumericKey": "plum|scent",
+      "effects": [
+        "香气跟随一名敌人，逐渐吸引周围同伴靠近，再一同被花香减速",
+        "寒梅遇到被减速或冻结的敌人时开放，爆发花刺"
+      ]
+    },
+    {
+      "word": "蓬头稚子学垂纶",
+      "title": "小儿垂钓",
+      "meaning": "头发蓬松的小孩子正在学习钓鱼。",
+      "name": "学钓结丝",
+      "rules": [
+        "book",
+        "vine"
+      ],
+      "nonnumericKey": "book|vine",
+      "effects": [
+        "观察不同敌人的行动，认出三种敌人后标明同类弱点",
+        "用藤蔓连接两名敌人；它们拉开距离时，领先者会被牵回"
+      ]
+    },
+    {
+      "word": "侧坐莓苔草映身",
+      "title": "小儿垂钓",
+      "meaning": "他侧坐在长着莓苔的草地上，青草掩着身体。",
+      "name": "草映钓影",
+      "rules": [
+        "grass",
+        "shroud"
+      ],
+      "nonnumericKey": "grass|shroud",
+      "effects": [
+        "草地照料受伤友塔，只有耐久不足一半时才会持续修复",
+        "隐去受伤友塔的踪迹；来敌转攻他塔时，原塔送出伏击"
+      ]
+    },
+    {
+      "word": "路人借问遥招手",
+      "title": "小儿垂钓",
+      "meaning": "路人问路时，他远远地招了招手。",
+      "name": "遥手引路",
+      "rules": [
+        "call",
+        "compass"
+      ],
+      "nonnumericKey": "call|compass",
+      "effects": [
+        "向最远的友塔发出呼唤，友塔回赠一道援击并得到少量修复",
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人"
+      ]
+    },
+    {
+      "word": "怕得鱼惊不应人",
+      "title": "小儿垂钓",
+      "meaning": "怕开口会惊跑鱼，所以不出声回答。",
+      "name": "屏息垂纶",
+      "rules": [
+        "lullaby",
+        "silence_watch"
+      ],
+      "nonnumericKey": "lullaby|silence_watch",
+      "effects": [
+        "让尚未受击的来敌暂歇；被攻击时醒来并承受苏醒冲击",
+        "静听敌人的行动，只在敌人开始蓄力时施加缄默"
+      ]
+    },
+    {
+      "word": "白日依山尽",
+      "title": "登鹳雀楼",
+      "meaning": "太阳靠着群山慢慢落下。",
+      "name": "落日山影",
+      "rules": [
+        "wall",
+        "afterglow"
+      ],
+      "nonnumericKey": "afterglow|wall",
+      "effects": [
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停",
+        "余光从目标处折返，照到背后的来敌时追加一次回照"
+      ]
+    },
+    {
+      "word": "黄河入海流",
+      "title": "登鹳雀楼",
+      "meaning": "黄河奔流着汇入大海。",
+      "name": "河流归海",
+      "rules": [
+        "river",
+        "scatter"
+      ],
+      "nonnumericKey": "river|scatter",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "一束光先聚于目标，目标倒下或走远后散成星点迎击后续敌人"
+      ]
+    },
+    {
+      "word": "欲穷千里目",
+      "title": "登鹳雀楼",
+      "meaning": "想要看尽千里之外的景色。",
+      "name": "千里远望",
+      "rules": [
+        "horizon",
+        "beacon"
+      ],
+      "nonnumericKey": "beacon|horizon",
+      "effects": [
+        "锁定最远的来敌，期间普攻能越过原射程追踪这一名目标",
+        "标记最接近山门的来敌，沿各入口燃起烽火接力拦截"
+      ]
+    },
+    {
+      "word": "更上一层楼",
+      "title": "登鹳雀楼",
+      "meaning": "就再登上一层高楼，站得更高。",
+      "name": "层楼远瞰",
+      "rules": [
+        "ascend",
+        "horizon"
+      ],
+      "nonnumericKey": "ascend|horizon",
+      "effects": [
+        "每次安稳站立都会升高一层视野；受击时退回地面，重新登高",
+        "锁定最远的来敌，期间普攻能越过原射程追踪这一名目标"
+      ]
+    },
+    {
+      "word": "日照香炉生紫烟",
+      "title": "望庐山瀑布",
+      "meaning": "阳光照着香炉峰，水雾像紫色烟霞升起。",
+      "name": "紫烟香炉",
+      "rules": [
+        "sun",
+        "mist"
+      ],
+      "nonnumericKey": "mist|sun",
+      "effects": [
+        "日轮照射前方，周期性消磨护盾；护盾消失时爆发一次日光",
+        "云雾掩护附近词塔，敌人优先转攻其他可攻击的塔；雾中蓄力的敌人会短暂减速"
+      ]
+    },
+    {
+      "word": "遥看瀑布挂前川",
+      "title": "望庐山瀑布",
+      "meaning": "远远望去，瀑布像挂在山前的一条白练。",
+      "name": "悬川飞瀑",
+      "rules": [
+        "horizon",
+        "waterfall"
+      ],
+      "nonnumericKey": "horizon|waterfall",
+      "effects": [
+        "锁定最远的来敌，期间普攻能越过原射程追踪这一名目标",
+        "瀑布沿目标路段奔涌，反复冲击经过的敌人并向后推退"
+      ]
+    },
+    {
+      "word": "飞流直下三千尺",
+      "title": "望庐山瀑布",
+      "meaning": "瀑布从高高的山上飞奔而下。",
+      "name": "三千尺瀑",
+      "rules": [
+        "waterfall",
+        "river"
+      ],
+      "nonnumericKey": "river|waterfall",
+      "effects": [
+        "瀑布沿目标路段奔涌，反复冲击经过的敌人并向后推退",
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击"
+      ]
+    },
+    {
+      "word": "疑是银河落九天",
+      "title": "望庐山瀑布",
+      "meaning": "仿佛天上的银河落到了人间。",
+      "name": "银河天落",
+      "rules": [
+        "meteor",
+        "waterfall"
+      ],
+      "nonnumericKey": "meteor|waterfall",
+      "effects": [
+        "星芒追随移动目标，连续落击；原目标倒下后会转向邻近敌人",
+        "瀑布沿目标路段奔涌，反复冲击经过的敌人并向后推退"
+      ]
+    },
+    {
+      "word": "千山鸟飞绝",
+      "title": "江雪",
+      "meaning": "群山间已经看不到飞鸟的身影。",
+      "name": "千山落羽",
+      "rules": [
+        "grounding",
+        "snowdrift"
+      ],
+      "nonnumericKey": "grounding|snowdrift",
+      "effects": [
+        "将范围内的飞行敌人短暂压落，地面攻击也能命中；Boss 落地时间较短",
+        "积雪随时间变厚，后来踏入的地面敌人会受到更强的阻碍"
+      ]
+    },
+    {
+      "word": "万径人踪灭",
+      "title": "江雪",
+      "meaning": "许多道路上也没有行人的踪迹。",
+      "name": "雪没万径",
+      "rules": [
+        "snowdrift",
+        "footprints"
+      ],
+      "nonnumericKey": "footprints|snowdrift",
+      "effects": [
+        "积雪随时间变厚，后来踏入的地面敌人会受到更强的阻碍",
+        "跟随来敌的脚印逐次显形，脚印越过转角时追加追踪打击"
+      ]
+    },
+    {
+      "word": "孤舟蓑笠翁",
+      "title": "江雪",
+      "meaning": "只有孤舟上披蓑戴笠的老翁。",
+      "name": "孤舟蓑盖",
+      "rules": [
+        "ferry",
+        "umbrella"
+      ],
+      "nonnumericKey": "ferry|umbrella",
+      "effects": [
+        "小舟为附近友塔摆渡攻击，周期性将一道友塔火力送向远处敌人",
+        "撑起雨盖，将附近词塔接下来的三次受击伤害削减 35%，并向攻击来源落下水珠"
+      ]
+    },
+    {
+      "word": "独钓寒江雪",
+      "title": "江雪",
+      "meaning": "独自在落雪的寒江上垂钓。",
+      "name": "寒江独钓",
+      "rules": [
+        "vine",
+        "snowdrift"
+      ],
+      "nonnumericKey": "snowdrift|vine",
+      "effects": [
+        "用藤蔓连接两名敌人；它们拉开距离时，领先者会被牵回",
+        "积雪随时间变厚，后来踏入的地面敌人会受到更强的阻碍"
+      ]
+    },
+    {
+      "word": "危楼高百尺",
+      "title": "夜宿山寺",
+      "meaning": "山寺的高楼高达百尺。",
+      "name": "高楼望远",
+      "rules": [
+        "ascend",
+        "solitude"
+      ],
+      "nonnumericKey": "ascend|solitude",
+      "effects": [
+        "每次安稳站立都会升高一层视野；受击时退回地面，重新登高",
+        "追踪落单的敌人；它与同伴距离足够远时承受额外独守打击"
+      ]
+    },
+    {
+      "word": "手可摘星辰",
+      "title": "夜宿山寺",
+      "meaning": "伸手仿佛就能摘到星星。",
+      "name": "摘星入掌",
+      "rules": [
+        "stars",
+        "offering"
+      ],
+      "nonnumericKey": "offering|stars",
+      "effects": [
+        "布下三颗悬星；敌人靠近时星子逐颗坠落，覆盖不同落点",
+        "贡献自身最多 6% 最大耐久，以 125% 效率照料最虚弱的友塔；自身耐久不足时停止贡献"
+      ]
+    },
+    {
+      "word": "不敢高声语",
+      "title": "夜宿山寺",
+      "meaning": "站在高处，不敢大声说话。",
+      "name": "高阁静息",
+      "rules": [
+        "silence_watch",
+        "ascend"
+      ],
+      "nonnumericKey": "ascend|silence_watch",
+      "effects": [
+        "静听敌人的行动，只在敌人开始蓄力时施加缄默",
+        "每次安稳站立都会升高一层视野；受击时退回地面，重新登高"
+      ]
+    },
+    {
+      "word": "恐惊天上人",
+      "title": "夜宿山寺",
+      "meaning": "害怕惊动天上的人。",
+      "name": "天上轻声",
+      "rules": [
+        "lullaby",
+        "grounding"
+      ],
+      "nonnumericKey": "grounding|lullaby",
+      "effects": [
+        "让尚未受击的来敌暂歇；被攻击时醒来并承受苏醒冲击",
+        "将范围内的飞行敌人短暂压落，地面攻击也能命中；Boss 落地时间较短"
+      ]
+    },
+    {
+      "word": "风吹草低见牛羊",
+      "title": "敕勒歌",
+      "meaning": "风吹草低，草丛中的牛羊显露出来。",
+      "name": "风低见形",
+      "rules": [
+        "grass",
+        "footprints"
+      ],
+      "nonnumericKey": "footprints|grass",
+      "effects": [
+        "草地照料受伤友塔，只有耐久不足一半时才会持续修复",
+        "跟随来敌的脚印逐次显形，脚印越过转角时追加追踪打击"
+      ]
+    },
+    {
+      "word": "草长莺飞二月天",
+      "title": "村居",
+      "meaning": "早春二月，青草生长，黄莺飞舞。",
+      "name": "莺飞草长",
+      "rules": [
+        "sprout",
+        "kite"
+      ],
+      "nonnumericKey": "kite|sprout",
+      "effects": [
+        "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人",
+        "纸鸢绕塔盘旋，经过敌人上方时俯冲，优先拦截飞行敌人"
+      ]
+    },
+    {
+      "word": "拂堤杨柳醉春烟",
+      "title": "村居",
+      "meaning": "堤岸上的杨柳轻拂，像醉在春天的烟雾里。",
+      "name": "春柳烟堤",
+      "rules": [
+        "willow",
+        "mist"
+      ],
+      "nonnumericKey": "mist|willow",
+      "effects": [
+        "柳丝来回摆扫；进入扫线的敌人受到伤害和短暂减速",
+        "云雾掩护附近词塔，敌人优先转攻其他可攻击的塔；雾中蓄力的敌人会短暂减速"
+      ]
+    },
+    {
+      "word": "儿童散学归来早",
+      "title": "村居",
+      "meaning": "孩子们放学后早早回了家。",
+      "name": "早归同学",
+      "rules": [
+        "book",
+        "return_home"
+      ],
+      "nonnumericKey": "book|return_home",
+      "effects": [
+        "观察不同敌人的行动，认出三种敌人后标明同类弱点",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "忙趁东风放纸鸢",
+      "title": "村居",
+      "meaning": "趁着东风正好，赶紧放起纸风筝。",
+      "name": "东风纸鸢",
+      "rules": [
+        "kite",
+        "compass"
+      ],
+      "nonnumericKey": "compass|kite",
+      "effects": [
+        "纸鸢绕塔盘旋，经过敌人上方时俯冲，优先拦截飞行敌人",
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人"
+      ]
+    },
+    {
+      "word": "碧玉妆成一树高",
+      "title": "咏柳",
+      "meaning": "高高的柳树像用碧玉妆扮而成。",
+      "name": "碧玉高枝",
+      "rules": [
+        "ascend",
+        "lotus"
+      ],
+      "nonnumericKey": "ascend|lotus",
+      "effects": [
+        "每次安稳站立都会升高一层视野；受击时退回地面，重新登高",
+        "莲叶护盾游向受伤友塔；护盾破碎或消失后转向另一座受伤词塔"
+      ]
+    },
+    {
+      "word": "万条垂下绿丝绦",
+      "title": "咏柳",
+      "meaning": "许多柳条像绿色丝带一样垂下来。",
+      "name": "万缕绿丝",
+      "rules": [
+        "willow",
+        "weave"
+      ],
+      "nonnumericKey": "weave|willow",
+      "effects": [
+        "柳丝来回摆扫；进入扫线的敌人受到伤害和短暂减速",
+        "在两座词塔之间织出丝线，敌人穿线时受伤并被丝线牵缓"
+      ]
+    },
+    {
+      "word": "不知细叶谁裁出",
+      "title": "咏柳",
+      "meaning": "不知道细细的柳叶是谁裁剪出来的。",
+      "name": "细叶裁影",
+      "rules": [
+        "leaves",
+        "needle"
+      ],
+      "nonnumericKey": "leaves|needle",
+      "effects": [
+        "落叶贴附经过的敌人；敌人施法时叶片碎裂，削去护盾并打断蓄力",
+        "细丝记住攻击友塔的敌人；敌人再次出手时遭到穿针反击"
+      ]
+    },
+    {
+      "word": "二月春风似剪刀",
+      "title": "咏柳",
+      "meaning": "原来早春的风像灵巧的剪刀。",
+      "name": "春风剪柳",
+      "rules": [
+        "willow",
+        "forge"
+      ],
+      "nonnumericKey": "forge|willow",
+      "effects": [
+        "柳丝来回摆扫；进入扫线的敌人受到伤害和短暂减速",
+        "将附近词塔遭受的伤害锤炼成铁屑，蓄足后击碎敌人的护甲"
+      ]
+    },
+    {
+      "word": "离离原上草",
+      "title": "赋得古原草送别",
+      "meaning": "原野上的青草长得十分茂盛。",
+      "name": "离离成原",
+      "rules": [
+        "grass",
+        "seed"
+      ],
+      "nonnumericKey": "grass|seed",
+      "effects": [
+        "草地照料受伤友塔，只有耐久不足一半时才会持续修复",
+        "敌人在种子区倒下后留下嫩芽，下一名靠近的敌人会触发芽刺"
+      ]
+    },
+    {
+      "word": "一岁一枯荣",
+      "title": "赋得古原草送别",
+      "meaning": "一年里，草木经历枯萎和繁荣。",
+      "name": "岁岁枯荣",
+      "rules": [
+        "seasons",
+        "renewal"
+      ],
+      "nonnumericKey": "renewal|seasons",
+      "effects": [
+        "按春夏秋冬轮换：萌发、日照、落叶、霜圈，每次施法进入下一季",
+        "在废墟旁长出临时草木幻身协战；废墟仍需付费重建"
+      ]
+    },
+    {
+      "word": "野火烧不尽",
+      "title": "赋得古原草送别",
+      "meaning": "野火也不能把草的生命烧尽。",
+      "name": "野火余根",
+      "rules": [
+        "ember",
+        "renewal"
+      ],
+      "nonnumericKey": "ember|renewal",
+      "effects": [
+        "余烬等待敌人的护盾破裂，随后化作一团会蔓延一次的火焰",
+        "在废墟旁长出临时草木幻身协战；废墟仍需付费重建"
+      ]
+    },
+    {
+      "word": "春风吹又生",
+      "title": "赋得古原草送别",
+      "meaning": "春风吹来，青草又生长起来。",
+      "name": "春回新芽",
+      "rules": [
+        "renewal",
+        "sprout"
+      ],
+      "nonnumericKey": "renewal|sprout",
+      "effects": [
+        "在废墟旁长出临时草木幻身协战；废墟仍需付费重建",
+        "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人"
+      ]
+    },
+    {
+      "word": "远芳侵古道",
+      "title": "赋得古原草送别",
+      "meaning": "草的芬芳延伸到古老的道路上。",
+      "name": "芳草侵径",
+      "rules": [
+        "grass",
+        "trail"
+      ],
+      "nonnumericKey": "grass|trail",
+      "effects": [
+        "草地照料受伤友塔，只有耐久不足一半时才会持续修复",
+        "敌人走过的路留下短暂墨迹，后来经过的敌人会踩中墨痕"
+      ]
+    },
+    {
+      "word": "晴翠接荒城",
+      "title": "赋得古原草送别",
+      "meaning": "晴光中的草色连接着荒凉的城池。",
+      "name": "荒城新绿",
+      "rules": [
+        "bastion",
+        "grass"
+      ],
+      "nonnumericKey": "bastion|grass",
+      "effects": [
+        "耐久危急时化为孤城，暂时减伤并吸引附近来敌的攻击",
+        "草地照料受伤友塔，只有耐久不足一半时才会持续修复"
+      ]
+    },
+    {
+      "word": "又送王孙去",
+      "title": "赋得古原草送别",
+      "meaning": "又一次送朋友远行。",
+      "name": "王孙远行",
+      "rules": [
+        "farewell",
+        "guest"
+      ],
+      "nonnumericKey": "farewell|guest",
+      "effects": [
+        "为离开射程的敌人留下一道送别攻击，追至原射程之外",
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位"
+      ]
+    },
+    {
+      "word": "萋萋满别情",
+      "title": "赋得古原草送别",
+      "meaning": "茂密的青草中寄托着浓浓的惜别之情。",
+      "name": "芳草别情",
+      "rules": [
+        "grass",
+        "fellowship"
+      ],
+      "nonnumericKey": "fellowship|grass",
+      "effects": [
+        "草地照料受伤友塔，只有耐久不足一半时才会持续修复",
+        "连接两座受伤词塔，为两者分担部分受击并储存一道反击"
+      ]
+    },
+    {
+      "word": "毕竟西湖六月中",
+      "title": "晓出净慈寺送林子方",
+      "meaning": "西湖六月的风光确实与众不同。",
+      "name": "六月晴湖",
+      "rules": [
+        "clock",
+        "deep_pool"
+      ],
+      "nonnumericKey": "clock|deep_pool",
+      "effects": [
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔",
+        "留下深潭；地面敌人停留越久下沉越深，每停留 0.7 秒加深一层，最多减速 45%；离开水域后恢复"
+      ]
+    },
+    {
+      "word": "风光不与四时同",
+      "title": "晓出净慈寺送林子方",
+      "meaning": "这里的风景与其他季节都不一样。",
+      "name": "四时异景",
+      "rules": [
+        "seasons",
+        "moon"
+      ],
+      "nonnumericKey": "moon|seasons",
+      "effects": [
+        "按春夏秋冬轮换：萌发、日照、落叶、霜圈，每次施法进入下一季",
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人"
+      ]
+    },
+    {
+      "word": "接天莲叶无穷碧",
+      "title": "晓出净慈寺送林子方",
+      "meaning": "莲叶连到天边，呈现出无边的碧绿。",
+      "name": "碧叶连天",
+      "rules": [
+        "lotus",
+        "chorus"
+      ],
+      "nonnumericKey": "chorus|lotus",
+      "effects": [
+        "莲叶护盾游向受伤友塔；护盾破碎或消失后转向另一座受伤词塔",
+        "三座词塔结成共鸣三角；跨越连线的敌人受击，参与的塔分享护盾"
+      ]
+    },
+    {
+      "word": "映日荷花别样红",
+      "title": "晓出净慈寺送林子方",
+      "meaning": "阳光照耀下，荷花格外鲜红。",
+      "name": "映日红荷",
+      "rules": [
+        "sun",
+        "petals"
+      ],
+      "nonnumericKey": "petals|sun",
+      "effects": [
+        "日轮照射前方，周期性消磨护盾；护盾消失时爆发一次日光",
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击"
+      ]
+    },
+    {
+      "word": "两个黄鹂鸣翠柳",
+      "title": "绝句",
+      "meaning": "两只黄鹂在翠绿的柳树间鸣叫。",
+      "name": "双鹂鸣柳",
+      "rules": [
+        "song",
+        "willow"
+      ],
+      "nonnumericKey": "song|willow",
+      "effects": [
+        "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
+        "柳丝来回摆扫；进入扫线的敌人受到伤害和短暂减速"
+      ]
+    },
+    {
+      "word": "一行白鹭上青天",
+      "title": "绝句",
+      "meaning": "一行白鹭飞向青天。",
+      "name": "白鹭登天",
+      "rules": [
+        "geese",
+        "updraft"
+      ],
+      "nonnumericKey": "geese|updraft",
+      "effects": [
+        "雁阵从两翼合围，轮流截击前方、左翼与右翼的敌人",
+        "托起靠近的地面敌人，打断进攻；落下时冲击周围敌人"
+      ]
+    },
+    {
+      "word": "窗含西岭千秋雪",
+      "title": "绝句",
+      "meaning": "窗中仿佛装进了西岭长久不化的积雪。",
+      "name": "窗含岭雪",
+      "rules": [
+        "gate",
+        "snowdrift"
+      ],
+      "nonnumericKey": "gate|snowdrift",
+      "effects": [
+        "设下一道关隘；越过关口的前排敌人会受到守关重击",
+        "积雪随时间变厚，后来踏入的地面敌人会受到更强的阻碍"
+      ]
+    },
+    {
+      "word": "门泊东吴万里船",
+      "title": "绝句",
+      "meaning": "门前停着从遥远东吴驶来的船。",
+      "name": "门前远舟",
+      "rules": [
+        "gate",
+        "ferry"
+      ],
+      "nonnumericKey": "ferry|gate",
+      "effects": [
+        "设下一道关隘；越过关口的前排敌人会受到守关重击",
+        "小舟为附近友塔摆渡攻击，周期性将一道友塔火力送向远处敌人"
+      ]
+    },
+    {
+      "word": "春种一粒粟",
+      "title": "悯农·其一",
+      "meaning": "春天种下一粒谷子。",
+      "name": "一粟春种",
+      "rules": [
+        "seed",
+        "sprout"
+      ],
+      "nonnumericKey": "seed|sprout",
+      "effects": [
+        "敌人在种子区倒下后留下嫩芽，下一名靠近的敌人会触发芽刺",
+        "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人"
+      ]
+    },
+    {
+      "word": "秋收万颗子",
+      "title": "悯农·其一",
+      "meaning": "秋天能够收获许多粮食。",
+      "name": "万穗秋成",
+      "rules": [
+        "harvest",
+        "harvest_field"
+      ],
+      "nonnumericKey": "harvest|harvest_field",
+      "effects": [
+        "留下收获印记，只有真实掉落墨点的敌人倒下时才可额外采收",
+        "将路边开垦成小田；敌人走过时松土，累计经过三名敌人便长出一束谷刺"
+      ]
+    },
+    {
+      "word": "四海无闲田",
+      "title": "悯农·其一",
+      "meaning": "四处都是耕种的田地，没有闲荒的土地。",
+      "name": "四海耕田",
+      "rules": [
+        "harvest_field",
+        "compass"
+      ],
+      "nonnumericKey": "compass|harvest_field",
+      "effects": [
+        "将路边开垦成小田；敌人走过时松土，累计经过三名敌人便长出一束谷刺",
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人"
+      ]
+    },
+    {
+      "word": "农夫犹饿死",
+      "title": "悯农·其一",
+      "meaning": "辛苦种粮的农人却仍可能忍饥挨饿。",
+      "name": "辛劳相济",
+      "rules": [
+        "offering",
+        "medicine"
+      ],
+      "nonnumericKey": "medicine|offering",
+      "effects": [
+        "贡献自身最多 6% 最大耐久，以 125% 效率照料最虚弱的友塔；自身耐久不足时停止贡献",
+        "药香轮流照顾最虚弱的友塔；溢出的修复会凝成短暂护盾"
+      ]
+    },
+    {
+      "word": "月黑见渔灯",
+      "title": "舟夜书所见",
+      "meaning": "漆黑的月夜里，看见远处一盏渔灯。",
+      "name": "暗水渔灯",
+      "rules": [
+        "lantern",
+        "deep_pool"
+      ],
+      "nonnumericKey": "deep_pool|lantern",
+      "effects": [
+        "灯火照亮附近来敌，发现敌人准备攻塔时打断其蓄力",
+        "留下深潭；地面敌人停留越久下沉越深，每停留 0.7 秒加深一层，最多减速 45%；离开水域后恢复"
+      ]
+    },
+    {
+      "word": "孤光一点萤",
+      "title": "舟夜书所见",
+      "meaning": "孤独的灯光像一小点萤火。",
+      "name": "孤萤点光",
+      "rules": [
+        "lantern",
+        "solitude"
+      ],
+      "nonnumericKey": "lantern|solitude",
+      "effects": [
+        "灯火照亮附近来敌，发现敌人准备攻塔时打断其蓄力",
+        "追踪落单的敌人；它与同伴距离足够远时承受额外独守打击"
+      ]
+    },
+    {
+      "word": "微微风簇浪",
+      "title": "舟夜书所见",
+      "meaning": "微微的风吹起细小的波浪。",
+      "name": "微风簇澜",
+      "rules": [
+        "river",
+        "eddy"
+      ],
+      "nonnumericKey": "eddy|river",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "在目标处留下旋涡；进入后走得过远会被拉回一次"
+      ]
+    },
+    {
+      "word": "散作满河星",
+      "title": "舟夜书所见",
+      "meaning": "灯光的倒影散成满河闪烁的星星。",
+      "name": "满河星散",
+      "rules": [
+        "scatter",
+        "river",
+        "stars"
+      ],
+      "nonnumericKey": "river|scatter|stars",
+      "effects": [
+        "一束光先聚于目标，目标倒下或走远后散成星点迎击后续敌人",
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "布下三颗悬星；敌人靠近时星子逐颗坠落，覆盖不同落点"
+      ]
+    },
+    {
+      "word": "牧童骑黄牛",
+      "title": "所见",
+      "meaning": "牧童骑着黄牛，悠闲地走来。",
+      "name": "牧笛行牛",
+      "rules": [
+        "guest",
+        "drum"
+      ],
+      "nonnumericKey": "drum|guest",
+      "effects": [
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位",
+        "沿路追随来敌的脚步；敌人每前进一段距离便遭鼓声震击"
+      ]
+    },
+    {
+      "word": "歌声振林樾",
+      "title": "所见",
+      "meaning": "歌声在树林间回荡。",
+      "name": "林间歌震",
+      "rules": [
+        "song",
+        "bell"
+      ],
+      "nonnumericKey": "bell|song",
+      "effects": [
+        "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
+        "钟波逐圈传开；碰到正在攻塔或施法的敌人时打断蓄力"
+      ]
+    },
+    {
+      "word": "意欲捕鸣蝉",
+      "title": "所见",
+      "meaning": "忽然想捕捉树上正在鸣叫的蝉。",
+      "name": "捕蝉听声",
+      "rules": [
+        "silence_watch",
+        "needle"
+      ],
+      "nonnumericKey": "needle|silence_watch",
+      "effects": [
+        "静听敌人的行动，只在敌人开始蓄力时施加缄默",
+        "细丝记住攻击友塔的敌人；敌人再次出手时遭到穿针反击"
+      ]
+    },
+    {
+      "word": "忽然闭口立",
+      "title": "所见",
+      "meaning": "他立刻闭上嘴，静静地站住了。",
+      "name": "闭口静候",
+      "rules": [
+        "lullaby",
+        "shadow"
+      ],
+      "nonnumericKey": "lullaby|shadow",
+      "effects": [
+        "让尚未受击的来敌暂歇；被攻击时醒来并承受苏醒冲击",
+        "让墨影跟随目标，目标停步或蓄力时影子才会落下攻击"
+      ]
+    },
+    {
+      "word": "远上寒山石径斜",
+      "title": "山行",
+      "meaning": "沿着弯斜的石路，登上秋天的山。",
+      "name": "寒山曲径",
+      "rules": [
+        "turning",
+        "snowdrift"
+      ],
+      "nonnumericKey": "snowdrift|turning",
+      "effects": [
+        "监视道路转折，敌人在转角现身时受到一记折返攻击",
+        "积雪随时间变厚，后来踏入的地面敌人会受到更强的阻碍"
+      ]
+    },
+    {
+      "word": "白云生处有人家",
+      "title": "山行",
+      "meaning": "白云升起的山间，隐约有人家。",
+      "name": "云生人家",
+      "rules": [
+        "cloud",
+        "return_home"
+      ],
+      "nonnumericKey": "cloud|return_home",
+      "effects": [
+        "云影沿路线漂移，遮住经过的敌人视线，延缓其首次攻塔",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "停车坐爱枫林晚",
+      "title": "山行",
+      "meaning": "停下车，因为喜爱傍晚的枫林。",
+      "name": "停步赏枫",
+      "rules": [
+        "leaves",
+        "lullaby"
+      ],
+      "nonnumericKey": "leaves|lullaby",
+      "effects": [
+        "落叶贴附经过的敌人；敌人施法时叶片碎裂，削去护盾并打断蓄力",
+        "让尚未受击的来敌暂歇；被攻击时醒来并承受苏醒冲击"
+      ]
+    },
+    {
+      "word": "霜叶红于二月花",
+      "title": "山行",
+      "meaning": "经霜的枫叶，比早春的花还要红。",
+      "name": "霜红秋叶",
+      "rules": [
+        "leaves",
+        "seasons"
+      ],
+      "nonnumericKey": "leaves|seasons",
+      "effects": [
+        "落叶贴附经过的敌人；敌人施法时叶片碎裂，削去护盾并打断蓄力",
+        "按春夏秋冬轮换：萌发、日照、落叶、霜圈，每次施法进入下一季"
+      ]
+    },
+    {
+      "word": "荷尽已无擎雨盖",
+      "title": "赠刘景文",
+      "meaning": "荷叶枯尽，已经没有能遮雨的叶盖。",
+      "name": "残荷护雨",
+      "rules": [
+        "lotus",
+        "offering"
+      ],
+      "nonnumericKey": "lotus|offering",
+      "effects": [
+        "莲叶护盾游向受伤友塔；护盾破碎或消失后转向另一座受伤词塔",
+        "贡献自身最多 6% 最大耐久，以 125% 效率照料最虚弱的友塔；自身耐久不足时停止贡献"
+      ]
+    },
+    {
+      "word": "菊残犹有傲霜枝",
+      "title": "赠刘景文",
+      "meaning": "菊花虽残，仍有傲立寒霜的枝条。",
+      "name": "残菊傲霜",
+      "rules": [
+        "plum",
+        "resolve"
+      ],
+      "nonnumericKey": "plum|resolve",
+      "effects": [
+        "寒梅遇到被减速或冻结的敌人时开放，爆发花刺",
+        "词塔耐久低于一半时，记住下一次受到的伤害并还击攻击者"
+      ]
+    },
+    {
+      "word": "一年好景君须记",
+      "title": "赠刘景文",
+      "meaning": "一年中美好的景色，你一定要记住。",
+      "name": "好景留记",
+      "rules": [
+        "memory",
+        "seasons"
+      ],
+      "nonnumericKey": "memory|seasons",
+      "effects": [
+        "记住场内倒下的敌人种类，再遇同类时提前揭示弱点",
+        "按春夏秋冬轮换：萌发、日照、落叶、霜圈，每次施法进入下一季"
+      ]
+    },
+    {
+      "word": "最是橙黄橘绿时",
+      "title": "赠刘景文",
+      "meaning": "正是橙子金黄、橘子青绿的秋天。",
+      "name": "橙黄橘绿",
+      "rules": [
+        "harvest",
+        "rainbow"
+      ],
+      "nonnumericKey": "harvest|rainbow",
+      "effects": [
+        "留下收获印记，只有真实掉落墨点的敌人倒下时才可额外采收",
+        "附近属性不同的词塔一起架起彩虹，虹桥依次连向不同种类的来敌"
+      ]
+    },
+    {
+      "word": "萧萧梧叶送寒声",
+      "title": "夜书所见",
+      "meaning": "梧桐叶沙沙作响，带来秋日的凉意。",
+      "name": "梧叶寒声",
+      "rules": [
+        "leaves",
+        "bell"
+      ],
+      "nonnumericKey": "bell|leaves",
+      "effects": [
+        "落叶贴附经过的敌人；敌人施法时叶片碎裂，削去护盾并打断蓄力",
+        "钟波逐圈传开；碰到正在攻塔或施法的敌人时打断蓄力"
+      ]
+    },
+    {
+      "word": "江上秋风动客情",
+      "title": "夜书所见",
+      "meaning": "江上的秋风，勾起了游子的思乡之情。",
+      "name": "秋江客情",
+      "rules": [
+        "river",
+        "guest"
+      ],
+      "nonnumericKey": "guest|river",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位"
+      ]
+    },
+    {
+      "word": "知有儿童挑促织",
+      "title": "夜书所见",
+      "meaning": "知道有孩子正在逗弄蟋蟀。",
+      "name": "篱间寻声",
+      "rules": [
+        "book",
+        "lantern"
+      ],
+      "nonnumericKey": "book|lantern",
+      "effects": [
+        "观察不同敌人的行动，认出三种敌人后标明同类弱点",
+        "灯火照亮附近来敌，发现敌人准备攻塔时打断其蓄力"
+      ]
+    },
+    {
+      "word": "夜深篱落一灯明",
+      "title": "夜书所见",
+      "meaning": "深夜的篱笆旁，还亮着一盏灯。",
+      "name": "篱落孤灯",
+      "rules": [
+        "lantern",
+        "wall"
+      ],
+      "nonnumericKey": "lantern|wall",
+      "effects": [
+        "灯火照亮附近来敌，发现敌人准备攻塔时打断其蓄力",
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停"
+      ]
+    },
+    {
+      "word": "天门中断楚江开",
+      "title": "望天门山",
+      "meaning": "天门山仿佛被楚江从中间冲开。",
+      "name": "天门江开",
+      "rules": [
+        "horizon_gate",
+        "river"
+      ],
+      "nonnumericKey": "horizon_gate|river",
+      "effects": [
+        "在道路两侧张开双门；从不同入口来的敌人在门前分别被截击",
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击"
+      ]
+    },
+    {
+      "word": "碧水东流至此回",
+      "title": "望天门山",
+      "meaning": "碧绿江水东流，在这里转向回旋。",
+      "name": "碧水东回",
+      "rules": [
+        "undertow",
+        "compass"
+      ],
+      "nonnumericKey": "compass|undertow",
+      "effects": [
+        "逆流沿路线回卷，把撞上波头的敌人向来路拉回",
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人"
+      ]
+    },
+    {
+      "word": "两岸青山相对出",
+      "title": "望天门山",
+      "meaning": "两岸青山相对耸立，仿佛迎面而来。",
+      "name": "双山对峙",
+      "rules": [
+        "wall",
+        "chorus"
+      ],
+      "nonnumericKey": "chorus|wall",
+      "effects": [
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停",
+        "三座词塔结成共鸣三角；跨越连线的敌人受击，参与的塔分享护盾"
+      ]
+    },
+    {
+      "word": "孤帆一片日边来",
+      "title": "望天门山",
+      "meaning": "一只孤帆，从太阳照着的远方驶来。",
+      "name": "日边孤帆",
+      "rules": [
+        "sun",
+        "ferry"
+      ],
+      "nonnumericKey": "ferry|sun",
+      "effects": [
+        "日轮照射前方，周期性消磨护盾；护盾消失时爆发一次日光",
+        "小舟为附近友塔摆渡攻击，周期性将一道友塔火力送向远处敌人"
+      ]
+    },
+    {
+      "word": "水光潋滟晴方好",
+      "title": "饮湖上初晴后雨",
+      "meaning": "晴天时，湖面波光闪动，十分美好。",
+      "name": "晴湖流光",
+      "rules": [
+        "sun",
+        "afterglow"
+      ],
+      "nonnumericKey": "afterglow|sun",
+      "effects": [
+        "日轮照射前方，周期性消磨护盾；护盾消失时爆发一次日光",
+        "余光从目标处折返，照到背后的来敌时追加一次回照"
+      ]
+    },
+    {
+      "word": "山色空蒙雨亦奇",
+      "title": "饮湖上初晴后雨",
+      "meaning": "雨中的山色朦胧，也别有奇妙风姿。",
+      "name": "蒙雨山色",
+      "rules": [
+        "mist",
+        "wall"
+      ],
+      "nonnumericKey": "mist|wall",
+      "effects": [
+        "云雾掩护附近词塔，敌人优先转攻其他可攻击的塔；雾中蓄力的敌人会短暂减速",
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停"
+      ]
+    },
+    {
+      "word": "欲把西湖比西子",
+      "title": "饮湖上初晴后雨",
+      "meaning": "如果把西湖比作美丽的西施。",
+      "name": "湖镜映容",
+      "rules": [
+        "mirror",
+        "deep_pool"
+      ],
+      "nonnumericKey": "deep_pool|mirror",
+      "effects": [
+        "明镜保护附近词塔，将下一次来袭的一部分伤害反射给攻击者",
+        "留下深潭；地面敌人停留越久下沉越深，每停留 0.7 秒加深一层，最多减速 45%；离开水域后恢复"
+      ]
+    },
+    {
+      "word": "淡妆浓抹总相宜",
+      "title": "饮湖上初晴后雨",
+      "meaning": "不论淡雅还是浓艳的妆容，都很合适。",
+      "name": "浓淡相宜",
+      "rules": [
+        "ink_wash",
+        "rainbow"
+      ],
+      "nonnumericKey": "ink_wash|rainbow",
+      "effects": [
+        "淡墨浸染一名敌人，周围同伴接触时染上墨迹；染色不递归扩散",
+        "附近属性不同的词塔一起架起彩虹，虹桥依次连向不同种类的来敌"
+      ]
+    },
+    {
+      "word": "湖光秋月两相和",
+      "title": "望洞庭",
+      "meaning": "秋月与湖光相互映衬，十分和谐。",
+      "name": "湖月相和",
+      "rules": [
+        "moon",
+        "chorus"
+      ],
+      "nonnumericKey": "chorus|moon",
+      "effects": [
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人",
+        "三座词塔结成共鸣三角；跨越连线的敌人受击，参与的塔分享护盾"
+      ]
+    },
+    {
+      "word": "潭面无风镜未磨",
+      "title": "望洞庭",
+      "meaning": "无风的湖面，好像还未打磨的铜镜。",
+      "name": "静潭水镜",
+      "rules": [
+        "deep_pool",
+        "mirror",
+        "shadow"
+      ],
+      "nonnumericKey": "deep_pool|mirror|shadow",
+      "effects": [
+        "留下深潭；地面敌人停留越久下沉越深，每停留 0.7 秒加深一层，最多减速 45%；离开水域后恢复",
+        "明镜保护附近词塔，将下一次来袭的一部分伤害反射给攻击者",
+        "让墨影跟随目标，目标停步或蓄力时影子才会落下攻击"
+      ]
+    },
+    {
+      "word": "遥望洞庭山水翠",
+      "title": "望洞庭",
+      "meaning": "远望洞庭，山水呈现出一片翠绿。",
+      "name": "洞庭远翠",
+      "rules": [
+        "horizon",
+        "grass"
+      ],
+      "nonnumericKey": "grass|horizon",
+      "effects": [
+        "锁定最远的来敌，期间普攻能越过原射程追踪这一名目标",
+        "草地照料受伤友塔，只有耐久不足一半时才会持续修复"
+      ]
+    },
+    {
+      "word": "白银盘里一青螺",
+      "title": "望洞庭",
+      "meaning": "湖像白银盘，君山像盘中的青螺。",
+      "name": "银盘翠螺",
+      "rules": [
+        "pearl",
+        "eddy"
+      ],
+      "nonnumericKey": "eddy|pearl",
+      "effects": [
+        "将护盾承受的伤害收成珠子；珠子满三颗后飞向前排来敌",
+        "在目标处留下旋涡；进入后走得过远会被拉回一次"
+      ]
+    },
+    {
+      "word": "朝辞白帝彩云间",
+      "title": "早发白帝城",
+      "meaning": "早晨告别彩云之间的白帝城。",
+      "name": "彩云辞城",
+      "rules": [
+        "cloud",
+        "farewell"
+      ],
+      "nonnumericKey": "cloud|farewell",
+      "effects": [
+        "云影沿路线漂移，遮住经过的敌人视线，延缓其首次攻塔",
+        "为离开射程的敌人留下一道送别攻击，追至原射程之外"
+      ]
+    },
+    {
+      "word": "千里江陵一日还",
+      "title": "早发白帝城",
+      "meaning": "千里外的江陵，一天就能返回。",
+      "name": "千里归舟",
+      "rules": [
+        "ferry",
+        "return_home"
+      ],
+      "nonnumericKey": "ferry|return_home",
+      "effects": [
+        "小舟为附近友塔摆渡攻击，周期性将一道友塔火力送向远处敌人",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "两岸猿声啼不住",
+      "title": "早发白帝城",
+      "meaning": "两岸猿猴的啼声，一直没有停歇。",
+      "name": "两岸回啼",
+      "rules": [
+        "echo",
+        "chorus"
+      ],
+      "nonnumericKey": "chorus|echo",
+      "effects": [
+        "记下目标接下来受到的真实伤害，片刻后将一部分伤害化为回响",
+        "三座词塔结成共鸣三角；跨越连线的敌人受击，参与的塔分享护盾"
+      ]
+    },
+    {
+      "word": "轻舟已过万重山",
+      "title": "早发白帝城",
+      "meaning": "轻快的小船，已经越过许多重山。",
+      "name": "轻舟越岭",
+      "rules": [
+        "ferry",
+        "turning"
+      ],
+      "nonnumericKey": "ferry|turning",
+      "effects": [
+        "小舟为附近友塔摆渡攻击，周期性将一道友塔火力送向远处敌人",
+        "监视道路转折，敌人在转角现身时受到一记折返攻击"
+      ]
+    },
+    {
+      "word": "荷叶罗裙一色裁",
+      "title": "采莲曲",
+      "meaning": "采莲人的绿裙，与荷叶像同一颜色。",
+      "name": "荷裙同色",
+      "rules": [
+        "lotus",
+        "shroud"
+      ],
+      "nonnumericKey": "lotus|shroud",
+      "effects": [
+        "莲叶护盾游向受伤友塔；护盾破碎或消失后转向另一座受伤词塔",
+        "隐去受伤友塔的踪迹；来敌转攻他塔时，原塔送出伏击"
+      ]
+    },
+    {
+      "word": "芙蓉向脸两边开",
+      "title": "采莲曲",
+      "meaning": "荷花在脸庞的两边绽放，花与人相映。",
+      "name": "双面芙蓉",
+      "rules": [
+        "petals",
+        "reunion"
+      ],
+      "nonnumericKey": "petals|reunion",
+      "effects": [
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击",
+        "连接分散的两名敌人，等它们靠近时引发相逢冲击"
+      ]
+    },
+    {
+      "word": "乱入池中看不见",
+      "title": "采莲曲",
+      "meaning": "人进入荷塘深处，便难以分辨。",
+      "name": "莲池隐迹",
+      "rules": [
+        "deep_pool",
+        "shroud"
+      ],
+      "nonnumericKey": "deep_pool|shroud",
+      "effects": [
+        "留下深潭；地面敌人停留越久下沉越深，每停留 0.7 秒加深一层，最多减速 45%；离开水域后恢复",
+        "隐去受伤友塔的踪迹；来敌转攻他塔时，原塔送出伏击"
+      ]
+    },
+    {
+      "word": "闻歌始觉有人来",
+      "title": "采莲曲",
+      "meaning": "听到歌声，才察觉有人藏在荷塘中。",
+      "name": "闻歌寻人",
+      "rules": [
+        "song",
+        "footprints"
+      ],
+      "nonnumericKey": "footprints|song",
+      "effects": [
+        "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
+        "跟随来敌的脚印逐次显形，脚印越过转角时追加追踪打击"
+      ]
+    },
+    {
+      "word": "迟日江山丽",
+      "title": "绝句·迟日江山丽",
+      "meaning": "春日阳光和暖，山河十分美丽。",
+      "name": "迟日山河",
+      "rules": [
+        "sun",
+        "clock"
+      ],
+      "nonnumericKey": "clock|sun",
+      "effects": [
+        "日轮照射前方，周期性消磨护盾；护盾消失时爆发一次日光",
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔"
+      ]
+    },
+    {
+      "word": "春风花草香",
+      "title": "绝句·迟日江山丽",
+      "meaning": "春风轻拂，花草散发着香气。",
+      "name": "春草芳香",
+      "rules": [
+        "grass",
+        "scent"
+      ],
+      "nonnumericKey": "grass|scent",
+      "effects": [
+        "草地照料受伤友塔，只有耐久不足一半时才会持续修复",
+        "香气跟随一名敌人，逐渐吸引周围同伴靠近，再一同被花香减速"
+      ]
+    },
+    {
+      "word": "泥融飞燕子",
+      "title": "绝句·迟日江山丽",
+      "meaning": "泥土暖融，燕子飞来飞去衔泥筑巢。",
+      "name": "融泥飞燕",
+      "rules": [
+        "swallow",
+        "deep_pool"
+      ],
+      "nonnumericKey": "deep_pool|swallow",
+      "effects": [
+        "飞燕沿塔与目标之间往返，去程与回程分别掠击经过的敌人",
+        "留下深潭；地面敌人停留越久下沉越深，每停留 0.7 秒加深一层，最多减速 45%；离开水域后恢复"
+      ]
+    },
+    {
+      "word": "沙暖睡鸳鸯",
+      "title": "绝句·迟日江山丽",
+      "meaning": "沙滩暖和，一对鸳鸯安静地睡着。",
+      "name": "暖沙相眠",
+      "rules": [
+        "sand",
+        "lullaby"
+      ],
+      "nonnumericKey": "lullaby|sand",
+      "effects": [
+        "让地面来敌裹上流沙；它移动时抖落沙粒，后方敌人踩中沙粒受阻",
+        "让尚未受击的来敌暂歇；被攻击时醒来并承受苏醒冲击"
+      ]
+    },
+    {
+      "word": "竹外桃花三两枝",
+      "title": "惠崇春江晚景",
+      "meaning": "竹林外，两三枝桃花开放了。",
+      "name": "竹外桃枝",
+      "rules": [
+        "bamboo",
+        "petals"
+      ],
+      "nonnumericKey": "bamboo|petals",
+      "effects": [
+        "竹节记住附近词塔受到的打击，每攒满三次便向来敌反击",
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击"
+      ]
+    },
+    {
+      "word": "春江水暖鸭先知",
+      "title": "惠崇春江晚景",
+      "meaning": "春江水转暖，鸭子最先感受到。",
+      "name": "暖江先知",
+      "rules": [
+        "river",
+        "book"
+      ],
+      "nonnumericKey": "book|river",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "观察不同敌人的行动，认出三种敌人后标明同类弱点"
+      ]
+    },
+    {
+      "word": "蒌蒿满地芦芽短",
+      "title": "惠崇春江晚景",
+      "meaning": "蒌蒿长满岸边，芦苇也冒出短芽。",
+      "name": "蒿芦新芽",
+      "rules": [
+        "grass",
+        "sprout"
+      ],
+      "nonnumericKey": "grass|sprout",
+      "effects": [
+        "草地照料受伤友塔，只有耐久不足一半时才会持续修复",
+        "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人"
+      ]
+    },
+    {
+      "word": "正是河豚欲上时",
+      "title": "惠崇春江晚景",
+      "meaning": "正是河豚将要逆流而上的时节。",
+      "name": "水暖潜涌",
+      "rules": [
+        "updraft",
+        "deep_pool"
+      ],
+      "nonnumericKey": "deep_pool|updraft",
+      "effects": [
+        "托起靠近的地面敌人，打断进攻；落下时冲击周围敌人",
+        "留下深潭；地面敌人停留越久下沉越深，每停留 0.7 秒加深一层，最多减速 45%；离开水域后恢复"
+      ]
+    },
+    {
+      "word": "梅子黄时日日晴",
+      "title": "三衢道中",
+      "meaning": "梅子成熟变黄的时节，天天都是晴天。",
+      "name": "梅熟晴时",
+      "rules": [
+        "plum",
+        "sun"
+      ],
+      "nonnumericKey": "plum|sun",
+      "effects": [
+        "寒梅遇到被减速或冻结的敌人时开放，爆发花刺",
+        "日轮照射前方，周期性消磨护盾；护盾消失时爆发一次日光"
+      ]
+    },
+    {
+      "word": "小溪泛尽却山行",
+      "title": "三衢道中",
+      "meaning": "乘船走完小溪，又登上山路。",
+      "name": "溪尽山转",
+      "rules": [
+        "river",
+        "turning"
+      ],
+      "nonnumericKey": "river|turning",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "监视道路转折，敌人在转角现身时受到一记折返攻击"
+      ]
+    },
+    {
+      "word": "绿阴不减来时路",
+      "title": "三衢道中",
+      "meaning": "绿荫并不比来时路上少。",
+      "name": "归路绿荫",
+      "rules": [
+        "umbrella",
+        "trail"
+      ],
+      "nonnumericKey": "trail|umbrella",
+      "effects": [
+        "撑起雨盖，将附近词塔接下来的三次受击伤害削减 35%，并向攻击来源落下水珠",
+        "敌人走过的路留下短暂墨迹，后来经过的敌人会踩中墨痕"
+      ]
+    },
+    {
+      "word": "添得黄鹂四五声",
+      "title": "三衢道中",
+      "meaning": "沿途还多了几声悦耳的黄鹂啼鸣。",
+      "name": "黄鹂添声",
+      "rules": [
+        "song",
+        "echo"
+      ],
+      "nonnumericKey": "echo|song",
+      "effects": [
+        "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
+        "记下目标接下来受到的真实伤害，片刻后将一部分伤害化为回响"
+      ]
+    },
+    {
+      "word": "风景旧曾谙",
+      "title": "忆江南·江南好",
+      "meaning": "江南的美景，以前就十分熟悉。",
+      "name": "旧景重识",
+      "rules": [
+        "memory",
+        "book"
+      ],
+      "nonnumericKey": "book|memory",
+      "effects": [
+        "记住场内倒下的敌人种类，再遇同类时提前揭示弱点",
+        "观察不同敌人的行动，认出三种敌人后标明同类弱点"
+      ]
+    },
+    {
+      "word": "日出江花红胜火",
+      "title": "忆江南·江南好",
+      "meaning": "太阳升起时，江边花朵红得胜过火焰。",
+      "name": "江花映火",
+      "rules": [
+        "sun",
+        "ember"
+      ],
+      "nonnumericKey": "ember|sun",
+      "effects": [
+        "日轮照射前方，周期性消磨护盾；护盾消失时爆发一次日光",
+        "余烬等待敌人的护盾破裂，随后化作一团会蔓延一次的火焰"
+      ]
+    },
+    {
+      "word": "春来江水绿如蓝",
+      "title": "忆江南·江南好",
+      "meaning": "春天的江水，绿得像蓝草染成的颜色。",
+      "name": "春江碧染",
+      "rules": [
+        "river",
+        "ink_wash"
+      ],
+      "nonnumericKey": "ink_wash|river",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "淡墨浸染一名敌人，周围同伴接触时染上墨迹；染色不递归扩散"
+      ]
+    },
+    {
+      "word": "能不忆江南",
+      "title": "忆江南·江南好",
+      "meaning": "这样美好的江南，怎能不令人怀念？",
+      "name": "忆里江南",
+      "rules": [
+        "memory",
+        "return_home"
+      ],
+      "nonnumericKey": "memory|return_home",
+      "effects": [
+        "记住场内倒下的敌人种类，再遇同类时提前揭示弱点",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "爆竹声中一岁除",
+      "title": "元日",
+      "meaning": "爆竹声中，旧的一年过去了。",
+      "name": "爆竹除岁",
+      "rules": [
+        "bell",
+        "seasons"
+      ],
+      "nonnumericKey": "bell|seasons",
+      "effects": [
+        "钟波逐圈传开；碰到正在攻塔或施法的敌人时打断蓄力",
+        "按春夏秋冬轮换：萌发、日照、落叶、霜圈，每次施法进入下一季"
+      ]
+    },
+    {
+      "word": "春风送暖入屠苏",
+      "title": "元日",
+      "meaning": "春风送来暖意，人们饮起屠苏酒。",
+      "name": "屠苏送暖",
+      "rules": [
+        "wine",
+        "medicine"
+      ],
+      "nonnumericKey": "medicine|wine",
+      "effects": [
+        "给友塔一杯短暂振奋；连续攻击后稍歇，再送出一记蓄势打击",
+        "药香轮流照顾最虚弱的友塔；溢出的修复会凝成短暂护盾"
+      ]
+    },
+    {
+      "word": "千门万户曈曈日",
+      "title": "元日",
+      "meaning": "初升的太阳，照亮了千家万户。",
+      "name": "曈曈万门",
+      "rules": [
+        "sun",
+        "gate"
+      ],
+      "nonnumericKey": "gate|sun",
+      "effects": [
+        "日轮照射前方，周期性消磨护盾；护盾消失时爆发一次日光",
+        "设下一道关隘；越过关口的前排敌人会受到守关重击"
+      ]
+    },
+    {
+      "word": "总把新桃换旧符",
+      "title": "元日",
+      "meaning": "家家换上新的桃符，迎接新年。",
+      "name": "新桃替旧",
+      "rules": [
+        "renewal",
+        "purity"
+      ],
+      "nonnumericKey": "purity|renewal",
+      "effects": [
+        "在废墟旁长出临时草木幻身协战；废墟仍需付费重建",
+        "清气在友塔间流转，持续清除腐蚀、冰滞和封禁"
+      ]
+    },
+    {
+      "word": "清明时节雨纷纷",
+      "title": "清明",
+      "meaning": "清明时节，细雨纷纷落下。",
+      "name": "清明纷雨",
+      "rules": [
+        "dew",
+        "mist"
+      ],
+      "nonnumericKey": "dew|mist",
+      "effects": [
+        "清露凝在友塔上，第一次受击时化为修复，并向附近敌人溅开",
+        "云雾掩护附近词塔，敌人优先转攻其他可攻击的塔；雾中蓄力的敌人会短暂减速"
+      ]
+    },
+    {
+      "word": "路上行人欲断魂",
+      "title": "清明",
+      "meaning": "路上的行人，思绪沉重而忧伤。",
+      "name": "雨路愁影",
+      "rules": [
+        "shadow",
+        "trail"
+      ],
+      "nonnumericKey": "shadow|trail",
+      "effects": [
+        "让墨影跟随目标，目标停步或蓄力时影子才会落下攻击",
+        "敌人走过的路留下短暂墨迹，后来经过的敌人会踩中墨痕"
+      ]
+    },
+    {
+      "word": "借问酒家何处有",
+      "title": "清明",
+      "meaning": "向人询问，哪里有可以歇脚的酒家。",
+      "name": "问路寻酌",
+      "rules": [
+        "compass",
+        "wine"
+      ],
+      "nonnumericKey": "compass|wine",
+      "effects": [
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人",
+        "给友塔一杯短暂振奋；连续攻击后稍歇，再送出一记蓄势打击"
+      ]
+    },
+    {
+      "word": "牧童遥指杏花村",
+      "title": "清明",
+      "meaning": "牧童指向远处开满杏花的村庄。",
+      "name": "遥指杏村",
+      "rules": [
+        "compass",
+        "petals"
+      ],
+      "nonnumericKey": "compass|petals",
+      "effects": [
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人",
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击"
+      ]
+    },
+    {
+      "word": "独在异乡为异客",
+      "title": "九月九日忆山东兄弟",
+      "meaning": "独自在他乡，成了离家的人。",
+      "name": "异乡独客",
+      "rules": [
+        "solitude",
+        "guest"
+      ],
+      "nonnumericKey": "guest|solitude",
+      "effects": [
+        "追踪落单的敌人；它与同伴距离足够远时承受额外独守打击",
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位"
+      ]
+    },
+    {
+      "word": "每逢佳节倍思亲",
+      "title": "九月九日忆山东兄弟",
+      "meaning": "每逢佳节，总会更加思念亲人。",
+      "name": "佳节思亲",
+      "rules": [
+        "clock",
+        "return_home"
+      ],
+      "nonnumericKey": "clock|return_home",
+      "effects": [
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "遥知兄弟登高处",
+      "title": "九月九日忆山东兄弟",
+      "meaning": "想起远方的兄弟们正在登高。",
+      "name": "遥望同登",
+      "rules": [
+        "ascend",
+        "fellowship"
+      ],
+      "nonnumericKey": "ascend|fellowship",
+      "effects": [
+        "每次安稳站立都会升高一层视野；受击时退回地面，重新登高",
+        "连接两座受伤词塔，为两者分担部分受击并储存一道反击"
+      ]
+    },
+    {
+      "word": "遍插茱萸少一人",
+      "title": "九月九日忆山东兄弟",
+      "meaning": "兄弟们插戴茱萸时，会发现少了我一人。",
+      "name": "茱萸念友",
+      "rules": [
+        "medicine",
+        "fellowship"
+      ],
+      "nonnumericKey": "fellowship|medicine",
+      "effects": [
+        "药香轮流照顾最虚弱的友塔；溢出的修复会凝成短暂护盾",
+        "连接两座受伤词塔，为两者分担部分受击并储存一道反击"
+      ]
+    },
+    {
+      "word": "独怜幽草涧边生",
+      "title": "滁州西涧",
+      "meaning": "特别喜爱溪涧边独自生长的幽草。",
+      "name": "幽涧怜草",
+      "rules": [
+        "grass",
+        "deep_pool"
+      ],
+      "nonnumericKey": "deep_pool|grass",
+      "effects": [
+        "草地照料受伤友塔，只有耐久不足一半时才会持续修复",
+        "留下深潭；地面敌人停留越久下沉越深，每停留 0.7 秒加深一层，最多减速 45%；离开水域后恢复"
+      ]
+    },
+    {
+      "word": "上有黄鹂深树鸣",
+      "title": "滁州西涧",
+      "meaning": "深深的树丛上，有黄鹂在鸣叫。",
+      "name": "深树鹂声",
+      "rules": [
+        "song",
+        "shroud"
+      ],
+      "nonnumericKey": "shroud|song",
+      "effects": [
+        "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
+        "隐去受伤友塔的踪迹；来敌转攻他塔时，原塔送出伏击"
+      ]
+    },
+    {
+      "word": "春潮带雨晚来急",
+      "title": "滁州西涧",
+      "meaning": "傍晚春潮伴着雨水，来势更加迅急。",
+      "name": "暮雨急潮",
+      "rules": [
+        "river",
+        "clock"
+      ],
+      "nonnumericKey": "clock|river",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔"
+      ]
+    },
+    {
+      "word": "野渡无人舟自横",
+      "title": "滁州西涧",
+      "meaning": "野外渡口无人，小船独自横在水面。",
+      "name": "野渡横舟",
+      "rules": [
+        "ferry",
+        "wall"
+      ],
+      "nonnumericKey": "ferry|wall",
+      "effects": [
+        "小舟为附近友塔摆渡攻击，周期性将一道友塔火力送向远处敌人",
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停"
+      ]
+    },
+    {
+      "word": "人间四月芳菲尽",
+      "title": "大林寺桃花",
+      "meaning": "山下已到四月，许多春花早已凋谢。",
+      "name": "芳尽惜春",
+      "rules": [
+        "petals",
+        "offering"
+      ],
+      "nonnumericKey": "offering|petals",
+      "effects": [
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击",
+        "贡献自身最多 6% 最大耐久，以 125% 效率照料最虚弱的友塔；自身耐久不足时停止贡献"
+      ]
+    },
+    {
+      "word": "山寺桃花始盛开",
+      "title": "大林寺桃花",
+      "meaning": "山寺里的桃花，却才刚刚盛开。",
+      "name": "山寺迟春",
+      "rules": [
+        "spring_back",
+        "gate"
+      ],
+      "nonnumericKey": "gate|spring_back",
+      "effects": [
+        "记住一处落点，等来敌移走后再次开花，拦截后续敌人",
+        "设下一道关隘；越过关口的前排敌人会受到守关重击"
+      ]
+    },
+    {
+      "word": "长恨春归无觅处",
+      "title": "大林寺桃花",
+      "meaning": "常常遗憾春天归去，找不到它的踪影。",
+      "name": "寻春留迹",
+      "rules": [
+        "footprints",
+        "spring_back"
+      ],
+      "nonnumericKey": "footprints|spring_back",
+      "effects": [
+        "跟随来敌的脚印逐次显形，脚印越过转角时追加追踪打击",
+        "记住一处落点，等来敌移走后再次开花，拦截后续敌人"
+      ]
+    },
+    {
+      "word": "不知转入此中来",
+      "title": "大林寺桃花",
+      "meaning": "没想到春光，转到了这座山中。",
+      "name": "转径逢春",
+      "rules": [
+        "turning",
+        "sprout"
+      ],
+      "nonnumericKey": "sprout|turning",
+      "effects": [
+        "监视道路转折，敌人在转角现身时受到一记折返攻击",
+        "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人"
+      ]
+    },
+    {
+      "word": "空山不见人",
+      "title": "鹿柴",
+      "meaning": "幽静的山中，看不见人的身影。",
+      "name": "空山隐人",
+      "rules": [
+        "wall",
+        "shroud"
+      ],
+      "nonnumericKey": "shroud|wall",
+      "effects": [
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停",
+        "隐去受伤友塔的踪迹；来敌转攻他塔时，原塔送出伏击"
+      ]
+    },
+    {
+      "word": "但闻人语响",
+      "title": "鹿柴",
+      "meaning": "却能听到，远处传来人的说话声。",
+      "name": "空谷语声",
+      "rules": [
+        "echo",
+        "guest"
+      ],
+      "nonnumericKey": "echo|guest",
+      "effects": [
+        "记下目标接下来受到的真实伤害，片刻后将一部分伤害化为回响",
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位"
+      ]
+    },
+    {
+      "word": "返景入深林",
+      "title": "鹿柴",
+      "meaning": "夕阳的返照，照进深深的树林。",
+      "name": "深林返景",
+      "rules": [
+        "afterglow",
+        "shadow"
+      ],
+      "nonnumericKey": "afterglow|shadow",
+      "effects": [
+        "余光从目标处折返，照到背后的来敌时追加一次回照",
+        "让墨影跟随目标，目标停步或蓄力时影子才会落下攻击"
+      ]
+    },
+    {
+      "word": "复照青苔上",
+      "title": "鹿柴",
+      "meaning": "又照在，树林下的青苔上。",
+      "name": "苔上重照",
+      "rules": [
+        "afterglow",
+        "sprout"
+      ],
+      "nonnumericKey": "afterglow|sprout",
+      "effects": [
+        "余光从目标处折返，照到背后的来敌时追加一次回照",
+        "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人"
+      ]
+    },
+    {
+      "word": "一道残阳铺水中",
+      "title": "暮江吟",
+      "meaning": "一道夕阳，斜铺在江面上。",
+      "name": "残阳铺水",
+      "rules": [
+        "afterglow",
+        "river",
+        "clock"
+      ],
+      "nonnumericKey": "afterglow|clock|river",
+      "effects": [
+        "余光从目标处折返，照到背后的来敌时追加一次回照",
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔"
+      ]
+    },
+    {
+      "word": "半江瑟瑟半江红",
+      "title": "暮江吟",
+      "meaning": "半边江水碧绿，半边江水殷红。",
+      "name": "双色半江",
+      "rules": [
+        "rainbow",
+        "river"
+      ],
+      "nonnumericKey": "rainbow|river",
+      "effects": [
+        "附近属性不同的词塔一起架起彩虹，虹桥依次连向不同种类的来敌",
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击"
+      ]
+    },
+    {
+      "word": "可怜九月初三夜",
+      "title": "暮江吟",
+      "meaning": "九月初三的夜晚，多么可爱。",
+      "name": "秋夜新月",
+      "rules": [
+        "clock",
+        "moon"
+      ],
+      "nonnumericKey": "clock|moon",
+      "effects": [
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔",
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人"
+      ]
+    },
+    {
+      "word": "露似真珠月似弓",
+      "title": "暮江吟",
+      "meaning": "露珠像珍珠，弯月像一张弓。",
+      "name": "珠露月弓",
+      "rules": [
+        "pearl",
+        "dew",
+        "moon"
+      ],
+      "nonnumericKey": "dew|moon|pearl",
+      "effects": [
+        "将护盾承受的伤害收成珠子；珠子满三颗后飞向前排来敌",
+        "清露凝在友塔上，第一次受击时化为修复，并向附近敌人溅开",
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人"
+      ]
+    },
+    {
+      "word": "横看成岭侧成峰",
+      "title": "题西林壁",
+      "meaning": "横看像连绵山岭，侧看却像高高山峰。",
+      "name": "横岭侧峰",
+      "rules": [
+        "wall",
+        "compass"
+      ],
+      "nonnumericKey": "compass|wall",
+      "effects": [
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停",
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人"
+      ]
+    },
+    {
+      "word": "远近高低各不同",
+      "title": "题西林壁",
+      "meaning": "远近高低不同，所见的样子也各有区别。",
+      "name": "高低远近",
+      "rules": [
+        "ascend",
+        "compass"
+      ],
+      "nonnumericKey": "ascend|compass",
+      "effects": [
+        "每次安稳站立都会升高一层视野；受击时退回地面，重新登高",
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人"
+      ]
+    },
+    {
+      "word": "不识庐山真面目",
+      "title": "题西林壁",
+      "meaning": "为什么看不清庐山的真正面貌？",
+      "name": "庐山迷面",
+      "rules": [
+        "mist",
+        "book"
+      ],
+      "nonnumericKey": "book|mist",
+      "effects": [
+        "云雾掩护附近词塔，敌人优先转攻其他可攻击的塔；雾中蓄力的敌人会短暂减速",
+        "观察不同敌人的行动，认出三种敌人后标明同类弱点"
+      ]
+    },
+    {
+      "word": "只缘身在此山中",
+      "title": "题西林壁",
+      "meaning": "因为自己，就身在这座山里面。",
+      "name": "身在山中",
+      "rules": [
+        "solitude",
+        "wall"
+      ],
+      "nonnumericKey": "solitude|wall",
+      "effects": [
+        "追踪落单的敌人；它与同伴距离足够远时承受额外独守打击",
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停"
+      ]
+    },
+    {
+      "word": "梅雪争春未肯降",
+      "title": "雪梅",
+      "meaning": "梅花和雪争着报春，互不相让。",
+      "name": "梅雪争春",
+      "rules": [
+        "plum",
+        "snowdrift"
+      ],
+      "nonnumericKey": "plum|snowdrift",
+      "effects": [
+        "寒梅遇到被减速或冻结的敌人时开放，爆发花刺",
+        "积雪随时间变厚，后来踏入的地面敌人会受到更强的阻碍"
+      ]
+    },
+    {
+      "word": "骚人阁笔费评章",
+      "title": "雪梅",
+      "meaning": "诗人放下笔，难以评出它们的高下。",
+      "name": "阁笔待评",
+      "rules": [
+        "book",
+        "clock"
+      ],
+      "nonnumericKey": "book|clock",
+      "effects": [
+        "观察不同敌人的行动，认出三种敌人后标明同类弱点",
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔"
+      ]
+    },
+    {
+      "word": "梅须逊雪三分白",
+      "title": "雪梅",
+      "meaning": "论洁白，梅花应让雪胜出几分。",
+      "name": "梅让雪白",
+      "rules": [
+        "plum",
+        "purity"
+      ],
+      "nonnumericKey": "plum|purity",
+      "effects": [
+        "寒梅遇到被减速或冻结的敌人时开放，爆发花刺",
+        "清气在友塔间流转，持续清除腐蚀、冰滞和封禁"
+      ]
+    },
+    {
+      "word": "雪却输梅一段香",
+      "title": "雪梅",
+      "meaning": "论清香，雪却比不过梅花。",
+      "name": "雪逊梅香",
+      "rules": [
+        "snowdrift",
+        "scent"
+      ],
+      "nonnumericKey": "scent|snowdrift",
+      "effects": [
+        "积雪随时间变厚，后来踏入的地面敌人会受到更强的阻碍",
+        "香气跟随一名敌人，逐渐吸引周围同伴靠近，再一同被花香减速"
+      ]
+    },
+    {
+      "word": "云母屏风烛影深",
+      "title": "嫦娥",
+      "meaning": "云母屏风被烛光映出深深的影子。",
+      "name": "烛影云屏",
+      "rules": [
+        "mirror",
+        "shadow"
+      ],
+      "nonnumericKey": "mirror|shadow",
+      "effects": [
+        "明镜保护附近词塔，将下一次来袭的一部分伤害反射给攻击者",
+        "让墨影跟随目标，目标停步或蓄力时影子才会落下攻击"
+      ]
+    },
+    {
+      "word": "长河渐落晓星沉",
+      "title": "嫦娥",
+      "meaning": "银河渐渐沉落，晨星也开始隐没。",
+      "name": "晓星落河",
+      "rules": [
+        "meteor",
+        "river"
+      ],
+      "nonnumericKey": "meteor|river",
+      "effects": [
+        "星芒追随移动目标，连续落击；原目标倒下后会转向邻近敌人",
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击"
+      ]
+    },
+    {
+      "word": "嫦娥应悔偷灵药",
+      "title": "嫦娥",
+      "meaning": "嫦娥或许后悔，当初偷吃了仙药。",
+      "name": "灵药相思",
+      "rules": [
+        "medicine",
+        "return_home"
+      ],
+      "nonnumericKey": "medicine|return_home",
+      "effects": [
+        "药香轮流照顾最虚弱的友塔；溢出的修复会凝成短暂护盾",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "碧海青天夜夜心",
+      "title": "嫦娥",
+      "meaning": "面对碧海青天，她夜夜孤独地思念。",
+      "name": "碧海夜心",
+      "rules": [
+        "moon",
+        "oath"
+      ],
+      "nonnumericKey": "moon|oath",
+      "effects": [
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人",
+        "与一个目标立下挑战；目标仍在场时专注追击，倒下后护佑附近友塔"
+      ]
+    },
+    {
+      "word": "秦时明月汉时关",
+      "title": "出塞",
+      "meaning": "明月与关塞，仿佛仍是秦汉时的模样。",
+      "name": "明月古关",
+      "rules": [
+        "moon",
+        "gate"
+      ],
+      "nonnumericKey": "gate|moon",
+      "effects": [
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人",
+        "设下一道关隘；越过关口的前排敌人会受到守关重击"
+      ]
+    },
+    {
+      "word": "万里长征人未还",
+      "title": "出塞",
+      "meaning": "征人远行万里，却迟迟没有归来。",
+      "name": "征途待归",
+      "rules": [
+        "trail",
+        "return_home"
+      ],
+      "nonnumericKey": "return_home|trail",
+      "effects": [
+        "敌人走过的路留下短暂墨迹，后来经过的敌人会踩中墨痕",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "但使龙城飞将在",
+      "title": "出塞",
+      "meaning": "如果能有飞将军那样的名将镇守。",
+      "name": "飞将守城",
+      "rules": [
+        "guest",
+        "gate"
+      ],
+      "nonnumericKey": "gate|guest",
+      "effects": [
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位",
+        "设下一道关隘；越过关口的前排敌人会受到守关重击"
+      ]
+    },
+    {
+      "word": "不教胡马度阴山",
+      "title": "出塞",
+      "meaning": "就不会让敌人的骑兵，越过阴山。",
+      "name": "阴山拒马",
+      "rules": [
+        "wall",
+        "oath"
+      ],
+      "nonnumericKey": "oath|wall",
+      "effects": [
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停",
+        "与一个目标立下挑战；目标仍在场时专注追击，倒下后护佑附近友塔"
+      ]
+    },
+    {
+      "word": "葡萄美酒夜光杯",
+      "title": "凉州词",
+      "meaning": "美酒盛在，精致的夜光杯中。",
+      "name": "夜光葡杯",
+      "rules": [
+        "wine",
+        "moon"
+      ],
+      "nonnumericKey": "moon|wine",
+      "effects": [
+        "给友塔一杯短暂振奋；连续攻击后稍歇，再送出一记蓄势打击",
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人"
+      ]
+    },
+    {
+      "word": "欲饮琵琶马上催",
+      "title": "凉州词",
+      "meaning": "正要举杯，琵琶声却催促着出发。",
+      "name": "琵琶催征",
+      "rules": [
+        "wine",
+        "drum"
+      ],
+      "nonnumericKey": "drum|wine",
+      "effects": [
+        "给友塔一杯短暂振奋；连续攻击后稍歇，再送出一记蓄势打击",
+        "沿路追随来敌的脚步；敌人每前进一段距离便遭鼓声震击"
+      ]
+    },
+    {
+      "word": "醉卧沙场君莫笑",
+      "title": "凉州词",
+      "meaning": "即使醉倒沙场，也请不要笑话。",
+      "name": "醉卧守阵",
+      "rules": [
+        "wine",
+        "resolve"
+      ],
+      "nonnumericKey": "resolve|wine",
+      "effects": [
+        "给友塔一杯短暂振奋；连续攻击后稍歇，再送出一记蓄势打击",
+        "词塔耐久低于一半时，记住下一次受到的伤害并还击攻击者"
+      ]
+    },
+    {
+      "word": "古来征战几人回",
+      "title": "凉州词",
+      "meaning": "自古出征的人，又有多少能够平安回来？",
+      "name": "征战护归",
+      "rules": [
+        "memory",
+        "fellowship"
+      ],
+      "nonnumericKey": "fellowship|memory",
+      "effects": [
+        "记住场内倒下的敌人种类，再遇同类时提前揭示弱点",
+        "连接两座受伤词塔，为两者分担部分受击并储存一道反击"
+      ]
+    },
+    {
+      "word": "生当作人杰",
+      "title": "夏日绝句",
+      "meaning": "活着，应当做有气节、有作为的人。",
+      "name": "奋身为杰",
+      "rules": [
+        "resolve",
+        "oath"
+      ],
+      "nonnumericKey": "oath|resolve",
+      "effects": [
+        "词塔耐久低于一半时，记住下一次受到的伤害并还击攻击者",
+        "与一个目标立下挑战；目标仍在场时专注追击，倒下后护佑附近友塔"
+      ]
+    },
+    {
+      "word": "死亦为鬼雄",
+      "title": "夏日绝句",
+      "meaning": "即使死去，也要保持英雄的气概。",
+      "name": "雄魂不灭",
+      "rules": [
+        "renewal",
+        "resolve"
+      ],
+      "nonnumericKey": "renewal|resolve",
+      "effects": [
+        "在废墟旁长出临时草木幻身协战；废墟仍需付费重建",
+        "词塔耐久低于一半时，记住下一次受到的伤害并还击攻击者"
+      ]
+    },
+    {
+      "word": "至今思项羽",
+      "title": "夏日绝句",
+      "meaning": "到今天，人们仍然思念项羽。",
+      "name": "追忆英雄",
+      "rules": [
+        "memory",
+        "guest"
+      ],
+      "nonnumericKey": "guest|memory",
+      "effects": [
+        "记住场内倒下的敌人种类，再遇同类时提前揭示弱点",
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位"
+      ]
+    },
+    {
+      "word": "不肯过江东",
+      "title": "夏日绝句",
+      "meaning": "他宁可坚守气节，也不肯渡江苟且逃生。",
+      "name": "誓守江东",
+      "rules": [
+        "oath",
+        "river"
+      ],
+      "nonnumericKey": "oath|river",
+      "effects": [
+        "与一个目标立下挑战；目标仍在场时专注追击，倒下后护佑附近友塔",
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击"
+      ]
+    },
+    {
+      "word": "千里黄云白日曛",
+      "title": "别董大",
+      "meaning": "遥远天空中，黄云遮住了暗淡的太阳。",
+      "name": "黄云蔽日",
+      "rules": [
+        "cloud",
+        "sun"
+      ],
+      "nonnumericKey": "cloud|sun",
+      "effects": [
+        "云影沿路线漂移，遮住经过的敌人视线，延缓其首次攻塔",
+        "日轮照射前方，周期性消磨护盾；护盾消失时爆发一次日光"
+      ]
+    },
+    {
+      "word": "北风吹雁雪纷纷",
+      "title": "别董大",
+      "meaning": "北风吹送雁群，大雪纷纷落下。",
+      "name": "北雁飞雪",
+      "rules": [
+        "geese",
+        "snowdrift"
+      ],
+      "nonnumericKey": "geese|snowdrift",
+      "effects": [
+        "雁阵从两翼合围，轮流截击前方、左翼与右翼的敌人",
+        "积雪随时间变厚，后来踏入的地面敌人会受到更强的阻碍"
+      ]
+    },
+    {
+      "word": "莫愁前路无知己",
+      "title": "别董大",
+      "meaning": "不要担心前路，没有理解你的朋友。",
+      "name": "前路知己",
+      "rules": [
+        "guest",
+        "compass"
+      ],
+      "nonnumericKey": "compass|guest",
+      "effects": [
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位",
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人"
+      ]
+    },
+    {
+      "word": "天下谁人不识君",
+      "title": "别董大",
+      "meaning": "天下又有谁，不知道你的才华呢？",
+      "name": "四海识君",
+      "rules": [
+        "book",
+        "call"
+      ],
+      "nonnumericKey": "book|call",
+      "effects": [
+        "观察不同敌人的行动，认出三种敌人后标明同类弱点",
+        "向最远的友塔发出呼唤，友塔回赠一道援击并得到少量修复"
+      ]
+    },
+    {
+      "word": "篱落疏疏一径深",
+      "title": "宿新市徐公店",
+      "meaning": "稀疏篱笆旁，一条小路通向深处。",
+      "name": "疏篱深径",
+      "rules": [
+        "wall",
+        "trail"
+      ],
+      "nonnumericKey": "trail|wall",
+      "effects": [
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停",
+        "敌人走过的路留下短暂墨迹，后来经过的敌人会踩中墨痕"
+      ]
+    },
+    {
+      "word": "树头新绿未成阴",
+      "title": "宿新市徐公店",
+      "meaning": "树梢刚长出新叶，还没有形成浓荫。",
+      "name": "新绿待荫",
+      "rules": [
+        "sprout",
+        "umbrella"
+      ],
+      "nonnumericKey": "sprout|umbrella",
+      "effects": [
+        "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人",
+        "撑起雨盖，将附近词塔接下来的三次受击伤害削减 35%，并向攻击来源落下水珠"
+      ]
+    },
+    {
+      "word": "儿童急走追黄蝶",
+      "title": "宿新市徐公店",
+      "meaning": "儿童急忙奔跑，追赶黄色的蝴蝶。",
+      "name": "逐蝶穿花",
+      "rules": [
+        "kite",
+        "trail"
+      ],
+      "nonnumericKey": "kite|trail",
+      "effects": [
+        "纸鸢绕塔盘旋，经过敌人上方时俯冲，优先拦截飞行敌人",
+        "敌人走过的路留下短暂墨迹，后来经过的敌人会踩中墨痕"
+      ]
+    },
+    {
+      "word": "飞入菜花无处寻",
+      "title": "宿新市徐公店",
+      "meaning": "蝴蝶飞进菜花中，便找不见了。",
+      "name": "蝶隐菜花",
+      "rules": [
+        "petals",
+        "shroud"
+      ],
+      "nonnumericKey": "petals|shroud",
+      "effects": [
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击",
+        "隐去受伤友塔的踪迹；来敌转攻他塔时，原塔送出伏击"
+      ]
+    },
+    {
+      "word": "梅子金黄杏子肥",
+      "title": "四时田园杂兴·其二十五",
+      "meaning": "梅子金黄，杏子也饱满起来。",
+      "name": "梅杏丰熟",
+      "rules": [
+        "plum",
+        "harvest"
+      ],
+      "nonnumericKey": "harvest|plum",
+      "effects": [
+        "寒梅遇到被减速或冻结的敌人时开放，爆发花刺",
+        "留下收获印记，只有真实掉落墨点的敌人倒下时才可额外采收"
+      ]
+    },
+    {
+      "word": "麦花雪白菜花稀",
+      "title": "四时田园杂兴·其二十五",
+      "meaning": "麦花雪白，油菜花已经稀疏。",
+      "name": "麦白菜疏",
+      "rules": [
+        "harvest_field",
+        "petals"
+      ],
+      "nonnumericKey": "harvest_field|petals",
+      "effects": [
+        "将路边开垦成小田；敌人走过时松土，累计经过三名敌人便长出一束谷刺",
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击"
+      ]
+    },
+    {
+      "word": "日长篱落无人过",
+      "title": "四时田园杂兴·其二十五",
+      "meaning": "白昼渐长，篱笆旁却没有行人经过。",
+      "name": "日长篱静",
+      "rules": [
+        "clock",
+        "wall"
+      ],
+      "nonnumericKey": "clock|wall",
+      "effects": [
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔",
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停"
+      ]
+    },
+    {
+      "word": "惟有蜻蜓蛱蝶飞",
+      "title": "四时田园杂兴·其二十五",
+      "meaning": "只有蜻蜓和蝴蝶，在田间飞舞。",
+      "name": "蜓蝶同飞",
+      "rules": [
+        "kite",
+        "geese"
+      ],
+      "nonnumericKey": "geese|kite",
+      "effects": [
+        "纸鸢绕塔盘旋，经过敌人上方时俯冲，优先拦截飞行敌人",
+        "雁阵从两翼合围，轮流截击前方、左翼与右翼的敌人"
+      ]
+    },
+    {
+      "word": "溪上青青草",
+      "title": "清平乐·村居",
+      "meaning": "溪水上方，长着一片青翠的草。",
+      "name": "溪上青茵",
+      "rules": [
+        "grass",
+        "river"
+      ],
+      "nonnumericKey": "grass|river",
+      "effects": [
+        "草地照料受伤友塔，只有耐久不足一半时才会持续修复",
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击"
+      ]
+    },
+    {
+      "word": "醉里吴音相媚好",
+      "title": "清平乐·村居",
+      "meaning": "带着醉意的乡音，听来温柔亲切。",
+      "name": "吴音亲语",
+      "rules": [
+        "wine",
+        "song"
+      ],
+      "nonnumericKey": "song|wine",
+      "effects": [
+        "给友塔一杯短暂振奋；连续攻击后稍歇，再送出一记蓄势打击",
+        "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击"
+      ]
+    },
+    {
+      "word": "白发谁家翁媪",
+      "title": "清平乐·村居",
+      "meaning": "满头白发的老夫妻，是哪一户人家？",
+      "name": "翁媪相守",
+      "rules": [
+        "fellowship",
+        "medicine",
+        "return_home"
+      ],
+      "nonnumericKey": "fellowship|medicine|return_home",
+      "effects": [
+        "连接两座受伤词塔，为两者分担部分受击并储存一道反击",
+        "药香轮流照顾最虚弱的友塔；溢出的修复会凝成短暂护盾",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "大儿锄豆溪东",
+      "title": "清平乐·村居",
+      "meaning": "大儿子正在溪东，给豆田锄草。",
+      "name": "溪东耘豆",
+      "rules": [
+        "harvest_field",
+        "river"
+      ],
+      "nonnumericKey": "harvest_field|river",
+      "effects": [
+        "将路边开垦成小田；敌人走过时松土，累计经过三名敌人便长出一束谷刺",
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击"
+      ]
+    },
+    {
+      "word": "中儿正织鸡笼",
+      "title": "清平乐·村居",
+      "meaning": "二儿子正在，编织竹制的鸡笼。",
+      "name": "织笼护家",
+      "rules": [
+        "weave",
+        "return_home"
+      ],
+      "nonnumericKey": "return_home|weave",
+      "effects": [
+        "在两座词塔之间织出丝线，敌人穿线时受伤并被丝线牵缓",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "最喜小儿亡赖",
+      "title": "清平乐·村居",
+      "meaning": "最喜欢顽皮可爱的小儿子。",
+      "name": "顽童弄影",
+      "rules": [
+        "guest",
+        "shadow"
+      ],
+      "nonnumericKey": "guest|shadow",
+      "effects": [
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位",
+        "让墨影跟随目标，目标停步或蓄力时影子才会落下攻击"
+      ]
+    },
+    {
+      "word": "溪头卧剥莲蓬",
+      "title": "清平乐·村居",
+      "meaning": "他趴在溪边，正剥着莲蓬吃。",
+      "name": "溪头采蓬",
+      "rules": [
+        "lotus",
+        "harvest_field"
+      ],
+      "nonnumericKey": "harvest_field|lotus",
+      "effects": [
+        "莲叶护盾游向受伤友塔；护盾破碎或消失后转向另一座受伤词塔",
+        "将路边开垦成小田；敌人走过时松土，累计经过三名敌人便长出一束谷刺"
+      ]
+    },
+    {
+      "word": "不论平地与山尖",
+      "title": "蜂",
+      "meaning": "无论平地，还是山峰高处。",
+      "name": "平野山巅",
+      "rules": [
+        "ascend",
+        "harvest_field"
+      ],
+      "nonnumericKey": "ascend|harvest_field",
+      "effects": [
+        "每次安稳站立都会升高一层视野；受击时退回地面，重新登高",
+        "将路边开垦成小田；敌人走过时松土，累计经过三名敌人便长出一束谷刺"
+      ]
+    },
+    {
+      "word": "无限风光尽被占",
+      "title": "蜂",
+      "meaning": "花开的美丽地方，都能看到蜜蜂。",
+      "name": "遍地采芳",
+      "rules": [
+        "horizon",
+        "harvest"
+      ],
+      "nonnumericKey": "harvest|horizon",
+      "effects": [
+        "锁定最远的来敌，期间普攻能越过原射程追踪这一名目标",
+        "留下收获印记，只有真实掉落墨点的敌人倒下时才可额外采收"
+      ]
+    },
+    {
+      "word": "采得百花成蜜后",
+      "title": "蜂",
+      "meaning": "蜜蜂采遍百花，酿成甜蜜之后。",
+      "name": "百花酿蜜",
+      "rules": [
+        "petals",
+        "medicine"
+      ],
+      "nonnumericKey": "medicine|petals",
+      "effects": [
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击",
+        "药香轮流照顾最虚弱的友塔；溢出的修复会凝成短暂护盾"
+      ]
+    },
+    {
+      "word": "为谁辛苦为谁甜",
+      "title": "蜂",
+      "meaning": "这样辛苦忙碌，究竟是为了谁的甜蜜？",
+      "name": "甘蜜相赠",
+      "rules": [
+        "offering",
+        "harvest",
+        "medicine"
+      ],
+      "nonnumericKey": "harvest|medicine|offering",
+      "effects": [
+        "贡献自身最多 6% 最大耐久，以 125% 效率照料最虚弱的友塔；自身耐久不足时停止贡献",
+        "留下收获印记，只有真实掉落墨点的敌人倒下时才可额外采收",
+        "药香轮流照顾最虚弱的友塔；溢出的修复会凝成短暂护盾"
+      ]
+    },
+    {
+      "word": "众鸟高飞尽",
+      "title": "独坐敬亭山",
+      "meaning": "鸟群已经，向高空飞远了。",
+      "name": "鸟尽云空",
+      "rules": [
+        "grounding",
+        "solitude"
+      ],
+      "nonnumericKey": "grounding|solitude",
+      "effects": [
+        "将范围内的飞行敌人短暂压落，地面攻击也能命中；Boss 落地时间较短",
+        "追踪落单的敌人；它与同伴距离足够远时承受额外独守打击"
+      ]
+    },
+    {
+      "word": "孤云独去闲",
+      "title": "独坐敬亭山",
+      "meaning": "一片孤云，也悠闲地独自飘远。",
+      "name": "孤云闲行",
+      "rules": [
+        "cloud",
+        "solitude"
+      ],
+      "nonnumericKey": "cloud|solitude",
+      "effects": [
+        "云影沿路线漂移，遮住经过的敌人视线，延缓其首次攻塔",
+        "追踪落单的敌人；它与同伴距离足够远时承受额外独守打击"
+      ]
+    },
+    {
+      "word": "相看两不厌",
+      "title": "独坐敬亭山",
+      "meaning": "我和山互相凝望，怎么也看不厌。",
+      "name": "山客相看",
+      "rules": [
+        "oath",
+        "mirror"
+      ],
+      "nonnumericKey": "mirror|oath",
+      "effects": [
+        "与一个目标立下挑战；目标仍在场时专注追击，倒下后护佑附近友塔",
+        "明镜保护附近词塔，将下一次来袭的一部分伤害反射给攻击者"
+      ]
+    },
+    {
+      "word": "只有敬亭山",
+      "title": "独坐敬亭山",
+      "meaning": "此时仿佛只有，敬亭山陪伴着我。",
+      "name": "敬亭独守",
+      "rules": [
+        "wall",
+        "bastion"
+      ],
+      "nonnumericKey": "bastion|wall",
+      "effects": [
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停",
+        "耐久危急时化为孤城，暂时减伤并吸引附近来敌的攻击"
+      ]
+    },
+    {
+      "word": "寒雨连江夜入吴",
+      "title": "芙蓉楼送辛渐",
+      "meaning": "寒冷的雨水连着江面，夜里来到吴地。",
+      "name": "寒雨夜江",
+      "rules": [
+        "river",
+        "snowdrift"
+      ],
+      "nonnumericKey": "river|snowdrift",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "积雪随时间变厚，后来踏入的地面敌人会受到更强的阻碍"
+      ]
+    },
+    {
+      "word": "平明送客楚山孤",
+      "title": "芙蓉楼送辛渐",
+      "meaning": "天亮送别朋友，楚地的山显得孤独。",
+      "name": "晓送孤客",
+      "rules": [
+        "farewell",
+        "solitude"
+      ],
+      "nonnumericKey": "farewell|solitude",
+      "effects": [
+        "为离开射程的敌人留下一道送别攻击，追至原射程之外",
+        "追踪落单的敌人；它与同伴距离足够远时承受额外独守打击"
+      ]
+    },
+    {
+      "word": "洛阳亲友如相问",
+      "title": "芙蓉楼送辛渐",
+      "meaning": "洛阳的亲友，如果向你问起我。",
+      "name": "故友传讯",
+      "rules": [
+        "call",
+        "memory"
+      ],
+      "nonnumericKey": "call|memory",
+      "effects": [
+        "向最远的友塔发出呼唤，友塔回赠一道援击并得到少量修复",
+        "记住场内倒下的敌人种类，再遇同类时提前揭示弱点"
+      ]
+    },
+    {
+      "word": "一片冰心在玉壶",
+      "title": "芙蓉楼送辛渐",
+      "meaning": "请告诉他们，我的心像玉壶中的冰一样清澈。",
+      "name": "冰心玉壶",
+      "rules": [
+        "purity",
+        "pearl"
+      ],
+      "nonnumericKey": "pearl|purity",
+      "effects": [
+        "清气在友塔间流转，持续清除腐蚀、冰滞和封禁",
+        "将护盾承受的伤害收成珠子；珠子满三颗后飞向前排来敌"
+      ]
+    },
+    {
+      "word": "月黑雁飞高",
+      "title": "塞下曲",
+      "meaning": "暗淡月色下，雁群飞得很高。",
+      "name": "暗月高雁",
+      "rules": [
+        "geese",
+        "moon"
+      ],
+      "nonnumericKey": "geese|moon",
+      "effects": [
+        "雁阵从两翼合围，轮流截击前方、左翼与右翼的敌人",
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人"
+      ]
+    },
+    {
+      "word": "单于夜遁逃",
+      "title": "塞下曲",
+      "meaning": "敌方首领，想趁着夜色逃走。",
+      "name": "夜遁寻踪",
+      "rules": [
+        "clock",
+        "footprints"
+      ],
+      "nonnumericKey": "clock|footprints",
+      "effects": [
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔",
+        "跟随来敌的脚印逐次显形，脚印越过转角时追加追踪打击"
+      ]
+    },
+    {
+      "word": "欲将轻骑逐",
+      "title": "塞下曲",
+      "meaning": "正要率领轻装骑兵，迅速追击。",
+      "name": "轻骑追逐",
+      "rules": [
+        "guest",
+        "trail"
+      ],
+      "nonnumericKey": "guest|trail",
+      "effects": [
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位",
+        "敌人走过的路留下短暂墨迹，后来经过的敌人会踩中墨痕"
+      ]
+    },
+    {
+      "word": "大雪满弓刀",
+      "title": "塞下曲",
+      "meaning": "大雪纷飞，落满了弓和刀。",
+      "name": "雪满兵刃",
+      "rules": [
+        "frost_armor",
+        "forge"
+      ],
+      "nonnumericKey": "forge|frost_armor",
+      "effects": [
+        "给附近友塔披上霜衣；它们受击时，寒气沿攻击来路反扑",
+        "将附近词塔遭受的伤害锤炼成铁屑，蓄足后击碎敌人的护甲"
+      ]
+    },
+    {
+      "word": "我家洗砚池头树",
+      "title": "墨梅",
+      "meaning": "我家洗砚池旁的梅树。",
+      "name": "洗砚池树",
+      "rules": [
+        "ink_wash",
+        "purity"
+      ],
+      "nonnumericKey": "ink_wash|purity",
+      "effects": [
+        "淡墨浸染一名敌人，周围同伴接触时染上墨迹；染色不递归扩散",
+        "清气在友塔间流转，持续清除腐蚀、冰滞和封禁"
+      ]
+    },
+    {
+      "word": "朵朵花开淡墨痕",
+      "title": "墨梅",
+      "meaning": "开放的每朵梅花，都像淡淡的墨迹。",
+      "name": "淡墨花痕",
+      "rules": [
+        "ink_wash",
+        "petals"
+      ],
+      "nonnumericKey": "ink_wash|petals",
+      "effects": [
+        "淡墨浸染一名敌人，周围同伴接触时染上墨迹；染色不递归扩散",
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击"
+      ]
+    },
+    {
+      "word": "不要人夸好颜色",
+      "title": "墨梅",
+      "meaning": "不需要别人，夸赞花的颜色多么好看。",
+      "name": "不争艳色",
+      "rules": [
+        "purity",
+        "solitude"
+      ],
+      "nonnumericKey": "purity|solitude",
+      "effects": [
+        "清气在友塔间流转，持续清除腐蚀、冰滞和封禁",
+        "追踪落单的敌人；它与同伴距离足够远时承受额外独守打击"
+      ]
+    },
+    {
+      "word": "只留清气满乾坤",
+      "title": "墨梅",
+      "meaning": "只愿把清雅的香气，留在人世之间。",
+      "name": "清气长留",
+      "rules": [
+        "purity",
+        "cloud"
+      ],
+      "nonnumericKey": "cloud|purity",
+      "effects": [
+        "清气在友塔间流转，持续清除腐蚀、冰滞和封禁",
+        "云影沿路线漂移，遮住经过的敌人视线，延缓其首次攻塔"
+      ]
+    },
+    {
+      "word": "七夕今宵看碧霄",
+      "title": "乞巧",
+      "meaning": "七夕之夜，抬头仰望碧蓝的天空。",
+      "name": "七夕观星",
+      "rules": [
+        "stars",
+        "clock"
+      ],
+      "nonnumericKey": "clock|stars",
+      "effects": [
+        "布下三颗悬星；敌人靠近时星子逐颗坠落，覆盖不同落点",
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔"
+      ]
+    },
+    {
+      "word": "牵牛织女渡河桥",
+      "title": "乞巧",
+      "meaning": "想象牛郎织女，渡过银河上的鹊桥。",
+      "name": "星河相会",
+      "rules": [
+        "bridge",
+        "reunion"
+      ],
+      "nonnumericKey": "bridge|reunion",
+      "effects": [
+        "在路段立起渡桥，过桥敌人会引来最近友塔的一次援击",
+        "连接分散的两名敌人，等它们靠近时引发相逢冲击"
+      ]
+    },
+    {
+      "word": "家家乞巧望秋月",
+      "title": "乞巧",
+      "meaning": "家家望着秋月，进行乞巧的活动。",
+      "name": "乞巧望月",
+      "rules": [
+        "weave",
+        "moon"
+      ],
+      "nonnumericKey": "moon|weave",
+      "effects": [
+        "在两座词塔之间织出丝线，敌人穿线时受伤并被丝线牵缓",
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人"
+      ]
+    },
+    {
+      "word": "穿尽红丝几万条",
+      "title": "乞巧",
+      "meaning": "许多人穿针引线，祈求巧手。",
+      "name": "红丝穿引",
+      "rules": [
+        "weave",
+        "needle"
+      ],
+      "nonnumericKey": "needle|weave",
+      "effects": [
+        "在两座词塔之间织出丝线，敌人穿线时受伤并被丝线牵缓",
+        "细丝记住攻击友塔的敌人；敌人再次出手时遭到穿针反击"
+      ]
+    },
+    {
+      "word": "死去元知万事空",
+      "title": "示儿",
+      "meaning": "知道人死后，世间的事都与自己无关。",
+      "name": "余愿留守",
+      "rules": [
+        "renewal",
+        "oath"
+      ],
+      "nonnumericKey": "oath|renewal",
+      "effects": [
+        "在废墟旁长出临时草木幻身协战；废墟仍需付费重建",
+        "与一个目标立下挑战；目标仍在场时专注追击，倒下后护佑附近友塔"
+      ]
+    },
+    {
+      "word": "但悲不见九州同",
+      "title": "示儿",
+      "meaning": "只因没有看见国家统一，而感到悲伤。",
+      "name": "九州待合",
+      "rules": [
+        "reunion",
+        "beacon"
+      ],
+      "nonnumericKey": "beacon|reunion",
+      "effects": [
+        "连接分散的两名敌人，等它们靠近时引发相逢冲击",
+        "标记最接近山门的来敌，沿各入口燃起烽火接力拦截"
+      ]
+    },
+    {
+      "word": "王师北定中原日",
+      "title": "示儿",
+      "meaning": "等到王师收复北方中原的时候。",
+      "name": "北定振军",
+      "rules": [
+        "rally",
+        "compass"
+      ],
+      "nonnumericKey": "compass|rally",
+      "effects": [
+        "附近友塔受伤后得到短暂鼓舞；再次受伤不会重复叠加",
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人"
+      ]
+    },
+    {
+      "word": "家祭无忘告乃翁",
+      "title": "示儿",
+      "meaning": "家祭时，不要忘了把消息告诉父亲。",
+      "name": "家祭告归",
+      "rules": [
+        "offering",
+        "memory"
+      ],
+      "nonnumericKey": "memory|offering",
+      "effects": [
+        "贡献自身最多 6% 最大耐久，以 125% 效率照料最虚弱的友塔；自身耐久不足时停止贡献",
+        "记住场内倒下的敌人种类，再遇同类时提前揭示弱点"
+      ]
+    },
+    {
+      "word": "山外青山楼外楼",
+      "title": "题临安邸",
+      "meaning": "青山之外还有青山，楼阁之外还有楼阁。",
+      "name": "楼外重山",
+      "rules": [
+        "ascend",
+        "wall"
+      ],
+      "nonnumericKey": "ascend|wall",
+      "effects": [
+        "每次安稳站立都会升高一层视野；受击时退回地面，重新登高",
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停"
+      ]
+    },
+    {
+      "word": "西湖歌舞几时休",
+      "title": "题临安邸",
+      "meaning": "西湖上的歌舞，不知何时才肯停下。",
+      "name": "笙歌知止",
+      "rules": [
+        "song",
+        "silence_watch"
+      ],
+      "nonnumericKey": "silence_watch|song",
+      "effects": [
+        "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
+        "静听敌人的行动，只在敌人开始蓄力时施加缄默"
+      ]
+    },
+    {
+      "word": "暖风熏得游人醉",
+      "title": "题临安邸",
+      "meaning": "暖风把游人，吹得陶醉昏沉。",
+      "name": "暖风醉客",
+      "rules": [
+        "wine",
+        "mist"
+      ],
+      "nonnumericKey": "mist|wine",
+      "effects": [
+        "给友塔一杯短暂振奋；连续攻击后稍歇，再送出一记蓄势打击",
+        "云雾掩护附近词塔，敌人优先转攻其他可攻击的塔；雾中蓄力的敌人会短暂减速"
+      ]
+    },
+    {
+      "word": "直把杭州作汴州",
+      "title": "题临安邸",
+      "meaning": "简直把杭州，当成了旧都汴州。",
+      "name": "异城归梦",
+      "rules": [
+        "mirror",
+        "return_home"
+      ],
+      "nonnumericKey": "mirror|return_home",
+      "effects": [
+        "明镜保护附近词塔，将下一次来袭的一部分伤害反射给攻击者",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "九州生气恃风雷",
+      "title": "己亥杂诗",
+      "meaning": "国家的生气，仿佛有赖于风雷激荡。",
+      "name": "风雷振野",
+      "rules": [
+        "rally",
+        "bell"
+      ],
+      "nonnumericKey": "bell|rally",
+      "effects": [
+        "附近友塔受伤后得到短暂鼓舞；再次受伤不会重复叠加",
+        "钟波逐圈传开；碰到正在攻塔或施法的敌人时打断蓄力"
+      ]
+    },
+    {
+      "word": "万马齐喑究可哀",
+      "title": "己亥杂诗",
+      "meaning": "大家都沉默不言，令人感到悲哀。",
+      "name": "破寂马鸣",
+      "rules": [
+        "silence_watch",
+        "drum"
+      ],
+      "nonnumericKey": "drum|silence_watch",
+      "effects": [
+        "静听敌人的行动，只在敌人开始蓄力时施加缄默",
+        "沿路追随来敌的脚步；敌人每前进一段距离便遭鼓声震击"
+      ]
+    },
+    {
+      "word": "我劝天公重抖擞",
+      "title": "己亥杂诗",
+      "meaning": "劝告上天，重新振作精神。",
+      "name": "振神破云",
+      "rules": [
+        "rally",
+        "updraft"
+      ],
+      "nonnumericKey": "rally|updraft",
+      "effects": [
+        "附近友塔受伤后得到短暂鼓舞；再次受伤不会重复叠加",
+        "托起靠近的地面敌人，打断进攻；落下时冲击周围敌人"
+      ]
+    },
+    {
+      "word": "不拘一格降人才",
+      "title": "己亥杂诗",
+      "meaning": "不要拘守一种标准，要广泛选用人才。",
+      "name": "百才来助",
+      "rules": [
+        "guest",
+        "rainbow"
+      ],
+      "nonnumericKey": "guest|rainbow",
+      "effects": [
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位",
+        "附近属性不同的词塔一起架起彩虹，虹桥依次连向不同种类的来敌"
+      ]
+    },
+    {
+      "word": "空山新雨后",
+      "title": "山居秋暝",
+      "meaning": "空旷的山中，刚下过一场雨。",
+      "name": "新雨空山",
+      "rules": [
+        "purity",
+        "wall"
+      ],
+      "nonnumericKey": "purity|wall",
+      "effects": [
+        "清气在友塔间流转，持续清除腐蚀、冰滞和封禁",
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停"
+      ]
+    },
+    {
+      "word": "天气晚来秋",
+      "title": "山居秋暝",
+      "meaning": "傍晚的天气，已经有了秋天的凉意。",
+      "name": "暮秋凉境",
+      "rules": [
+        "clock",
+        "snowdrift"
+      ],
+      "nonnumericKey": "clock|snowdrift",
+      "effects": [
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔",
+        "积雪随时间变厚，后来踏入的地面敌人会受到更强的阻碍"
+      ]
+    },
+    {
+      "word": "明月松间照",
+      "title": "山居秋暝",
+      "meaning": "明亮的月光，从松树间照下来。",
+      "name": "松月流照",
+      "rules": [
+        "moon",
+        "afterglow"
+      ],
+      "nonnumericKey": "afterglow|moon",
+      "effects": [
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人",
+        "余光从目标处折返，照到背后的来敌时追加一次回照"
+      ]
+    },
+    {
+      "word": "清泉石上流",
+      "title": "山居秋暝",
+      "meaning": "清澈的泉水，在石头上流淌。",
+      "name": "石上清泉",
+      "rules": [
+        "river",
+        "purity"
+      ],
+      "nonnumericKey": "purity|river",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "清气在友塔间流转，持续清除腐蚀、冰滞和封禁"
+      ]
+    },
+    {
+      "word": "竹喧归浣女",
+      "title": "山居秋暝",
+      "meaning": "竹林里传来喧笑，洗衣女子正归来。",
+      "name": "竹喧归人",
+      "rules": [
+        "bamboo",
+        "return_home"
+      ],
+      "nonnumericKey": "bamboo|return_home",
+      "effects": [
+        "竹节记住附近词塔受到的打击，每攒满三次便向来敌反击",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "莲动下渔舟",
+      "title": "山居秋暝",
+      "meaning": "莲叶摇动，原来渔船正顺流而下。",
+      "name": "莲动舟行",
+      "rules": [
+        "lotus",
+        "ferry"
+      ],
+      "nonnumericKey": "ferry|lotus",
+      "effects": [
+        "莲叶护盾游向受伤友塔；护盾破碎或消失后转向另一座受伤词塔",
+        "小舟为附近友塔摆渡攻击，周期性将一道友塔火力送向远处敌人"
+      ]
+    },
+    {
+      "word": "随意春芳歇",
+      "title": "山居秋暝",
+      "meaning": "任凭春天的芳草花朵，随季节凋谢。",
+      "name": "春芳暂歇",
+      "rules": [
+        "petals",
+        "lullaby"
+      ],
+      "nonnumericKey": "lullaby|petals",
+      "effects": [
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击",
+        "让尚未受击的来敌暂歇；被攻击时醒来并承受苏醒冲击"
+      ]
+    },
+    {
+      "word": "王孙自可留",
+      "title": "山居秋暝",
+      "meaning": "这样的山中景色，仍值得长久停留。",
+      "name": "留客山居",
+      "rules": [
+        "guest",
+        "grass"
+      ],
+      "nonnumericKey": "grass|guest",
+      "effects": [
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位",
+        "草地照料受伤友塔，只有耐久不足一半时才会持续修复"
+      ]
+    },
+    {
+      "word": "月落乌啼霜满天",
+      "title": "枫桥夜泊",
+      "meaning": "月亮西沉，乌鸦啼叫，寒霜满天。",
+      "name": "乌啼落霜",
+      "rules": [
+        "bell",
+        "snowdrift"
+      ],
+      "nonnumericKey": "bell|snowdrift",
+      "effects": [
+        "钟波逐圈传开；碰到正在攻塔或施法的敌人时打断蓄力",
+        "积雪随时间变厚，后来踏入的地面敌人会受到更强的阻碍"
+      ]
+    },
+    {
+      "word": "江枫渔火对愁眠",
+      "title": "枫桥夜泊",
+      "meaning": "江边枫树与渔灯，陪着游子面对愁绪。",
+      "name": "枫火愁眠",
+      "rules": [
+        "lantern",
+        "lullaby"
+      ],
+      "nonnumericKey": "lantern|lullaby",
+      "effects": [
+        "灯火照亮附近来敌，发现敌人准备攻塔时打断其蓄力",
+        "让尚未受击的来敌暂歇；被攻击时醒来并承受苏醒冲击"
+      ]
+    },
+    {
+      "word": "姑苏城外寒山寺",
+      "title": "枫桥夜泊",
+      "meaning": "姑苏城外，有一座寒山寺。",
+      "name": "寒寺城外",
+      "rules": [
+        "gate",
+        "bell",
+        "echo"
+      ],
+      "nonnumericKey": "bell|echo|gate",
+      "effects": [
+        "设下一道关隘；越过关口的前排敌人会受到守关重击",
+        "钟波逐圈传开；碰到正在攻塔或施法的敌人时打断蓄力",
+        "记下目标接下来受到的真实伤害，片刻后将一部分伤害化为回响"
+      ]
+    },
+    {
+      "word": "夜半钟声到客船",
+      "title": "枫桥夜泊",
+      "meaning": "半夜的钟声，传到了旅人的船上。",
+      "name": "夜钟客舟",
+      "rules": [
+        "bell",
+        "ferry"
+      ],
+      "nonnumericKey": "bell|ferry",
+      "effects": [
+        "钟波逐圈传开；碰到正在攻塔或施法的敌人时打断蓄力",
+        "小舟为附近友塔摆渡攻击，周期性将一道友塔火力送向远处敌人"
+      ]
+    },
+    {
+      "word": "身向榆关那畔行",
+      "title": "长相思·山一程",
+      "meaning": "踏过山水，军队正向榆关那边行进。",
+      "name": "榆关行旅",
+      "rules": [
+        "gate",
+        "trail"
+      ],
+      "nonnumericKey": "gate|trail",
+      "effects": [
+        "设下一道关隘；越过关口的前排敌人会受到守关重击",
+        "敌人走过的路留下短暂墨迹，后来经过的敌人会踩中墨痕"
+      ]
+    },
+    {
+      "word": "夜深千帐灯",
+      "title": "长相思·山一程",
+      "meaning": "夜深了，许多营帐还点着灯。",
+      "name": "千帐夜灯",
+      "rules": [
+        "lantern_chain",
+        "clock"
+      ],
+      "nonnumericKey": "clock|lantern_chain",
+      "effects": [
+        "灯火从友塔向另一座友塔依次点亮；每亮一盏，照击连线旁的一名来敌",
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔"
+      ]
+    },
+    {
+      "word": "聒碎乡心梦不成",
+      "title": "长相思·山一程",
+      "meaning": "风雪声打碎了乡梦，使人难以入睡。",
+      "name": "乡梦难成",
+      "rules": [
+        "echo",
+        "return_home"
+      ],
+      "nonnumericKey": "echo|return_home",
+      "effects": [
+        "记下目标接下来受到的真实伤害，片刻后将一部分伤害化为回响",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "故园无此声",
+      "title": "长相思·山一程",
+      "meaning": "故乡的夜晚，可没有这样的风雪之声。",
+      "name": "故园异声",
+      "rules": [
+        "memory",
+        "silence_watch"
+      ],
+      "nonnumericKey": "memory|silence_watch",
+      "effects": [
+        "记住场内倒下的敌人种类，再遇同类时提前揭示弱点",
+        "静听敌人的行动，只在敌人开始蓄力时施加缄默"
+      ]
+    },
+    {
+      "word": "西塞山前白鹭飞",
+      "title": "渔歌子·西塞山前白鹭飞",
+      "meaning": "西塞山前，白鹭轻盈地飞翔。",
+      "name": "西塞白鹭",
+      "rules": [
+        "geese",
+        "wall"
+      ],
+      "nonnumericKey": "geese|wall",
+      "effects": [
+        "雁阵从两翼合围，轮流截击前方、左翼与右翼的敌人",
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停"
+      ]
+    },
+    {
+      "word": "桃花流水鳜鱼肥",
+      "title": "渔歌子·西塞山前白鹭飞",
+      "meaning": "桃花映着流水，水中的鳜鱼正肥美。",
+      "name": "桃溪鱼跃",
+      "rules": [
+        "petals",
+        "river"
+      ],
+      "nonnumericKey": "petals|river",
+      "effects": [
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击",
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击"
+      ]
+    },
+    {
+      "word": "斜风细雨不须归",
+      "title": "渔歌子·西塞山前白鹭飞",
+      "meaning": "斜风细雨中的渔人，仍舍不得归去。",
+      "name": "细雨留舟",
+      "rules": [
+        "ferry",
+        "mist"
+      ],
+      "nonnumericKey": "ferry|mist",
+      "effects": [
+        "小舟为附近友塔摆渡攻击，周期性将一道友塔火力送向远处敌人",
+        "云雾掩护附近词塔，敌人优先转攻其他可攻击的塔；雾中蓄力的敌人会短暂减速"
+      ]
+    },
+    {
+      "word": "半亩方塘一鉴开",
+      "title": "观书有感二首·其一",
+      "meaning": "半亩池塘像一面镜子，被展露出来。",
+      "name": "方塘映鉴",
+      "rules": [
+        "deep_pool",
+        "book"
+      ],
+      "nonnumericKey": "book|deep_pool",
+      "effects": [
+        "留下深潭；地面敌人停留越久下沉越深，每停留 0.7 秒加深一层，最多减速 45%；离开水域后恢复",
+        "观察不同敌人的行动，认出三种敌人后标明同类弱点"
+      ]
+    },
+    {
+      "word": "天光云影共徘徊",
+      "title": "观书有感二首·其一",
+      "meaning": "天空的光与云影，一起在水中移动。",
+      "name": "天光云徊",
+      "rules": [
+        "cloud",
+        "moon"
+      ],
+      "nonnumericKey": "cloud|moon",
+      "effects": [
+        "云影沿路线漂移，遮住经过的敌人视线，延缓其首次攻塔",
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人"
+      ]
+    },
+    {
+      "word": "问渠那得清如许",
+      "title": "观书有感二首·其一",
+      "meaning": "为什么池水，能够这样清澈呢？",
+      "name": "清渠问源",
+      "rules": [
+        "purity",
+        "book"
+      ],
+      "nonnumericKey": "book|purity",
+      "effects": [
+        "清气在友塔间流转，持续清除腐蚀、冰滞和封禁",
+        "观察不同敌人的行动，认出三种敌人后标明同类弱点"
+      ]
+    },
+    {
+      "word": "为有源头活水来",
+      "title": "观书有感二首·其一",
+      "meaning": "因为不断有，源头的活水流入。",
+      "name": "活水溯源",
+      "rules": [
+        "river",
+        "renewal"
+      ],
+      "nonnumericKey": "renewal|river",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "在废墟旁长出临时草木幻身协战；废墟仍需付费重建"
+      ]
+    },
+    {
+      "word": "昨夜江边春水生",
+      "title": "观书有感二首·其二",
+      "meaning": "昨夜江边，春水又涨起来了。",
+      "name": "夜涨春江",
+      "rules": [
+        "river",
+        "spring_back"
+      ],
+      "nonnumericKey": "river|spring_back",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "记住一处落点，等来敌移走后再次开花，拦截后续敌人"
+      ]
+    },
+    {
+      "word": "艨艟巨舰一毛轻",
+      "title": "观书有感二首·其二",
+      "meaning": "大船得了水力，仿佛羽毛一样轻。",
+      "name": "巨舰轻行",
+      "rules": [
+        "ferry",
+        "updraft"
+      ],
+      "nonnumericKey": "ferry|updraft",
+      "effects": [
+        "小舟为附近友塔摆渡攻击，周期性将一道友塔火力送向远处敌人",
+        "托起靠近的地面敌人，打断进攻；落下时冲击周围敌人"
+      ]
+    },
+    {
+      "word": "向来枉费推移力",
+      "title": "观书有感二首·其二",
+      "meaning": "以前费尽力量，也无法推动它。",
+      "name": "静候借势",
+      "rules": [
+        "lullaby",
+        "undertow"
+      ],
+      "nonnumericKey": "lullaby|undertow",
+      "effects": [
+        "让尚未受击的来敌暂歇；被攻击时醒来并承受苏醒冲击",
+        "逆流沿路线回卷，把撞上波头的敌人向来路拉回"
+      ]
+    },
+    {
+      "word": "此日中流自在行",
+      "title": "观书有感二首·其二",
+      "meaning": "如今顺着江流，却能轻松自在前进。",
+      "name": "中流自在",
+      "rules": [
+        "river",
+        "guest",
+        "mist"
+      ],
+      "nonnumericKey": "guest|mist|river",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位",
+        "云雾掩护附近词塔，敌人优先转攻其他可攻击的塔；雾中蓄力的敌人会短暂减速"
+      ]
+    },
+    {
+      "word": "昼出耘田夜绩麻",
+      "title": "四时田园杂兴·其三十一",
+      "meaning": "白天下田除草，晚上回家搓麻。",
+      "name": "昼耕夜织",
+      "rules": [
+        "clock",
+        "weave"
+      ],
+      "nonnumericKey": "clock|weave",
+      "effects": [
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔",
+        "在两座词塔之间织出丝线，敌人穿线时受伤并被丝线牵缓"
+      ]
+    },
+    {
+      "word": "村庄儿女各当家",
+      "title": "四时田园杂兴·其三十一",
+      "meaning": "村里的男女，各自分担家中的事务。",
+      "name": "各家相护",
+      "rules": [
+        "return_home",
+        "chorus"
+      ],
+      "nonnumericKey": "chorus|return_home",
+      "effects": [
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾",
+        "三座词塔结成共鸣三角；跨越连线的敌人受击，参与的塔分享护盾"
+      ]
+    },
+    {
+      "word": "童孙未解供耕织",
+      "title": "四时田园杂兴·其三十一",
+      "meaning": "小孩子还不会，耕地织布。",
+      "name": "童孙学艺",
+      "rules": [
+        "book",
+        "weave"
+      ],
+      "nonnumericKey": "book|weave",
+      "effects": [
+        "观察不同敌人的行动，认出三种敌人后标明同类弱点",
+        "在两座词塔之间织出丝线，敌人穿线时受伤并被丝线牵缓"
+      ]
+    },
+    {
+      "word": "也傍桑阴学种瓜",
+      "title": "四时田园杂兴·其三十一",
+      "meaning": "也在桑树的荫下，学着种瓜。",
+      "name": "桑阴种瓜",
+      "rules": [
+        "sprout",
+        "cocoon"
+      ],
+      "nonnumericKey": "cocoon|sprout",
+      "effects": [
+        "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人",
+        "丝茧保护一座友塔，保护结束时依照吸收的伤害化蝶反击"
+      ]
+    },
+    {
+      "word": "稚子金盆脱晓冰",
+      "title": "稚子弄冰",
+      "meaning": "清晨，小孩从金属盆中取出一块冰。",
+      "name": "晓冰脱盆",
+      "rules": [
+        "pearl",
+        "snowdrift"
+      ],
+      "nonnumericKey": "pearl|snowdrift",
+      "effects": [
+        "将护盾承受的伤害收成珠子；珠子满三颗后飞向前排来敌",
+        "积雪随时间变厚，后来踏入的地面敌人会受到更强的阻碍"
+      ]
+    },
+    {
+      "word": "彩丝穿取当银钲",
+      "title": "稚子弄冰",
+      "meaning": "把彩线穿过冰块，提起来当作银钲。",
+      "name": "彩丝银钲",
+      "rules": [
+        "weave",
+        "bell"
+      ],
+      "nonnumericKey": "bell|weave",
+      "effects": [
+        "在两座词塔之间织出丝线，敌人穿线时受伤并被丝线牵缓",
+        "钟波逐圈传开；碰到正在攻塔或施法的敌人时打断蓄力"
+      ]
+    },
+    {
+      "word": "敲成玉磬穿林响",
+      "title": "稚子弄冰",
+      "meaning": "敲冰的声音像玉磬，穿过树林。",
+      "name": "玉磬林响",
+      "rules": [
+        "bell",
+        "afterglow"
+      ],
+      "nonnumericKey": "afterglow|bell",
+      "effects": [
+        "钟波逐圈传开；碰到正在攻塔或施法的敌人时打断蓄力",
+        "余光从目标处折返，照到背后的来敌时追加一次回照"
+      ]
+    },
+    {
+      "word": "忽作玻璃碎地声",
+      "title": "稚子弄冰",
+      "meaning": "忽然冰块落地，发出如玻璃碎裂的声响。",
+      "name": "碎冰落响",
+      "rules": [
+        "snowdrift",
+        "scatter"
+      ],
+      "nonnumericKey": "scatter|snowdrift",
+      "effects": [
+        "积雪随时间变厚，后来踏入的地面敌人会受到更强的阻碍",
+        "一束光先聚于目标，目标倒下或走远后散成星点迎击后续敌人"
+      ]
+    },
+    {
+      "word": "草满池塘水满陂",
+      "title": "村晚",
+      "meaning": "青草长满池边，池水涨满堤岸。",
+      "name": "草塘盈水",
+      "rules": [
+        "grass",
+        "eddy"
+      ],
+      "nonnumericKey": "eddy|grass",
+      "effects": [
+        "草地照料受伤友塔，只有耐久不足一半时才会持续修复",
+        "在目标处留下旋涡；进入后走得过远会被拉回一次"
+      ]
+    },
+    {
+      "word": "山衔落日浸寒漪",
+      "title": "村晚",
+      "meaning": "山仿佛衔着落日，倒影浸在清凉水波里。",
+      "name": "落日寒漪",
+      "rules": [
+        "afterglow",
+        "deep_pool"
+      ],
+      "nonnumericKey": "afterglow|deep_pool",
+      "effects": [
+        "余光从目标处折返，照到背后的来敌时追加一次回照",
+        "留下深潭；地面敌人停留越久下沉越深，每停留 0.7 秒加深一层，最多减速 45%；离开水域后恢复"
+      ]
+    },
+    {
+      "word": "牧童归去横牛背",
+      "title": "村晚",
+      "meaning": "牧童横坐在牛背上，慢慢归家。",
+      "name": "横笛归牧",
+      "rules": [
+        "guest",
+        "return_home"
+      ],
+      "nonnumericKey": "guest|return_home",
+      "effects": [
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "短笛无腔信口吹",
+      "title": "村晚",
+      "meaning": "短笛不成曲调，随意地吹着。",
+      "name": "随兴短笛",
+      "rules": [
+        "song",
+        "compass"
+      ],
+      "nonnumericKey": "compass|song",
+      "effects": [
+        "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人"
+      ]
+    },
+    {
+      "word": "人闲桂花落",
+      "title": "鸟鸣涧",
+      "meaning": "人心闲静，便能觉察桂花轻轻落下。",
+      "name": "闲庭桂落",
+      "rules": [
+        "petals",
+        "solitude"
+      ],
+      "nonnumericKey": "petals|solitude",
+      "effects": [
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击",
+        "追踪落单的敌人；它与同伴距离足够远时承受额外独守打击"
+      ]
+    },
+    {
+      "word": "夜静春山空",
+      "title": "鸟鸣涧",
+      "meaning": "夜晚宁静，春山显得格外空旷。",
+      "name": "春山夜静",
+      "rules": [
+        "lullaby",
+        "wall"
+      ],
+      "nonnumericKey": "lullaby|wall",
+      "effects": [
+        "让尚未受击的来敌暂歇；被攻击时醒来并承受苏醒冲击",
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停"
+      ]
+    },
+    {
+      "word": "月出惊山鸟",
+      "title": "鸟鸣涧",
+      "meaning": "月亮升起，把山中的鸟惊醒了。",
+      "name": "月出惊羽",
+      "rules": [
+        "moon",
+        "grounding"
+      ],
+      "nonnumericKey": "grounding|moon",
+      "effects": [
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人",
+        "将范围内的飞行敌人短暂压落，地面攻击也能命中；Boss 落地时间较短"
+      ]
+    },
+    {
+      "word": "时鸣春涧中",
+      "title": "鸟鸣涧",
+      "meaning": "鸟声不时响起，回荡在春天的溪涧间。",
+      "name": "春涧时鸣",
+      "rules": [
+        "echo",
+        "river"
+      ],
+      "nonnumericKey": "echo|river",
+      "effects": [
+        "记下目标接下来受到的真实伤害，片刻后将一部分伤害化为回响",
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击"
+      ]
+    },
+    {
+      "word": "青海长云暗雪山",
+      "title": "从军行",
+      "meaning": "青海上空的长云，让雪山显得昏暗。",
+      "name": "云暗雪岭",
+      "rules": [
+        "cloud",
+        "snowdrift"
+      ],
+      "nonnumericKey": "cloud|snowdrift",
+      "effects": [
+        "云影沿路线漂移，遮住经过的敌人视线，延缓其首次攻塔",
+        "积雪随时间变厚，后来踏入的地面敌人会受到更强的阻碍"
+      ]
+    },
+    {
+      "word": "孤城遥望玉门关",
+      "title": "从军行",
+      "meaning": "站在孤城中，遥望远方的玉门关。",
+      "name": "孤城远望",
+      "rules": [
+        "bastion",
+        "horizon"
+      ],
+      "nonnumericKey": "bastion|horizon",
+      "effects": [
+        "耐久危急时化为孤城，暂时减伤并吸引附近来敌的攻击",
+        "锁定最远的来敌，期间普攻能越过原射程追踪这一名目标"
+      ]
+    },
+    {
+      "word": "黄沙百战穿金甲",
+      "title": "从军行",
+      "meaning": "在黄沙里屡经征战，连金甲都磨穿了。",
+      "name": "沙战锤甲",
+      "rules": [
+        "sand",
+        "forge"
+      ],
+      "nonnumericKey": "forge|sand",
+      "effects": [
+        "让地面来敌裹上流沙；它移动时抖落沙粒，后方敌人踩中沙粒受阻",
+        "将附近词塔遭受的伤害锤炼成铁屑，蓄足后击碎敌人的护甲"
+      ]
+    },
+    {
+      "word": "不破楼兰终不还",
+      "title": "从军行",
+      "meaning": "不战胜敌人，就决不回还。",
+      "name": "誓破楼兰",
+      "rules": [
+        "oath",
+        "forge"
+      ],
+      "nonnumericKey": "forge|oath",
+      "effects": [
+        "与一个目标立下挑战；目标仍在场时专注追击，倒下后护佑附近友塔",
+        "将附近词塔遭受的伤害锤炼成铁屑，蓄足后击碎敌人的护甲"
+      ]
+    },
+    {
+      "word": "渭城朝雨浥轻尘",
+      "title": "送元二使安西",
+      "meaning": "渭城清晨的雨，润湿了轻尘。",
+      "name": "朝雨洗尘",
+      "rules": [
+        "dew",
+        "purity"
+      ],
+      "nonnumericKey": "dew|purity",
+      "effects": [
+        "清露凝在友塔上，第一次受击时化为修复，并向附近敌人溅开",
+        "清气在友塔间流转，持续清除腐蚀、冰滞和封禁"
+      ]
+    },
+    {
+      "word": "客舍青青柳色新",
+      "title": "送元二使安西",
+      "meaning": "旅舍旁的柳树，经雨后格外青翠。",
+      "name": "客舍新柳",
+      "rules": [
+        "willow",
+        "guest"
+      ],
+      "nonnumericKey": "guest|willow",
+      "effects": [
+        "柳丝来回摆扫；进入扫线的敌人受到伤害和短暂减速",
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位"
+      ]
+    },
+    {
+      "word": "劝君更尽一杯酒",
+      "title": "送元二使安西",
+      "meaning": "请朋友再喝完一杯送别的酒。",
+      "name": "临行赠酌",
+      "rules": [
+        "wine",
+        "offering"
+      ],
+      "nonnumericKey": "offering|wine",
+      "effects": [
+        "给友塔一杯短暂振奋；连续攻击后稍歇，再送出一记蓄势打击",
+        "贡献自身最多 6% 最大耐久，以 125% 效率照料最虚弱的友塔；自身耐久不足时停止贡献"
+      ]
+    },
+    {
+      "word": "西出阳关无故人",
+      "title": "送元二使安西",
+      "meaning": "出了阳关向西走，就难遇故交了。",
+      "name": "阳关惜别",
+      "rules": [
+        "gate",
+        "farewell"
+      ],
+      "nonnumericKey": "farewell|gate",
+      "effects": [
+        "设下一道关隘；越过关口的前排敌人会受到守关重击",
+        "为离开射程的敌人留下一道送别攻击，追至原射程之外"
+      ]
+    },
+    {
+      "word": "三万里河东入海",
+      "title": "秋夜将晓出篱门迎凉有感",
+      "meaning": "黄河奔流数万里，向东汇入大海。",
+      "name": "万里河东",
+      "rules": [
+        "river",
+        "compass"
+      ],
+      "nonnumericKey": "compass|river",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人"
+      ]
+    },
+    {
+      "word": "五千仞岳上摩天",
+      "title": "秋夜将晓出篱门迎凉有感",
+      "meaning": "高高的华山，仿佛能接触到天际。",
+      "name": "摩天高岳",
+      "rules": [
+        "ascend",
+        "updraft"
+      ],
+      "nonnumericKey": "ascend|updraft",
+      "effects": [
+        "每次安稳站立都会升高一层视野；受击时退回地面，重新登高",
+        "托起靠近的地面敌人，打断进攻；落下时冲击周围敌人"
+      ]
+    },
+    {
+      "word": "遗民泪尽胡尘里",
+      "title": "秋夜将晓出篱门迎凉有感",
+      "meaning": "身处异族统治下的百姓，已流尽眼泪。",
+      "name": "尘里相济",
+      "rules": [
+        "sand",
+        "medicine"
+      ],
+      "nonnumericKey": "medicine|sand",
+      "effects": [
+        "让地面来敌裹上流沙；它移动时抖落沙粒，后方敌人踩中沙粒受阻",
+        "药香轮流照顾最虚弱的友塔；溢出的修复会凝成短暂护盾"
+      ]
+    },
+    {
+      "word": "南望王师又一年",
+      "title": "秋夜将晓出篱门迎凉有感",
+      "meaning": "向南盼望王师，一年又一年。",
+      "name": "南望援军",
+      "rules": [
+        "beacon",
+        "guest"
+      ],
+      "nonnumericKey": "beacon|guest",
+      "effects": [
+        "标记最接近山门的来敌，沿各入口燃起烽火接力拦截",
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位"
+      ]
+    },
+    {
+      "word": "黄河远上白云间",
+      "title": "凉州词",
+      "meaning": "黄河仿佛，从遥远的白云之间流出。",
+      "name": "黄河入云",
+      "rules": [
+        "river",
+        "cloud"
+      ],
+      "nonnumericKey": "cloud|river",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "云影沿路线漂移，遮住经过的敌人视线，延缓其首次攻塔"
+      ]
+    },
+    {
+      "word": "一片孤城万仞山",
+      "title": "凉州词",
+      "meaning": "一座孤城，立在高山环绕之中。",
+      "name": "万仞孤城",
+      "rules": [
+        "bastion",
+        "ascend"
+      ],
+      "nonnumericKey": "ascend|bastion",
+      "effects": [
+        "耐久危急时化为孤城，暂时减伤并吸引附近来敌的攻击",
+        "每次安稳站立都会升高一层视野；受击时退回地面，重新登高"
+      ]
+    },
+    {
+      "word": "羌笛何须怨杨柳",
+      "title": "凉州词",
+      "meaning": "羌笛为何要吹起，哀怨的杨柳曲？",
+      "name": "羌笛折柳",
+      "rules": [
+        "song",
+        "leaves"
+      ],
+      "nonnumericKey": "leaves|song",
+      "effects": [
+        "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
+        "落叶贴附经过的敌人；敌人施法时叶片碎裂，削去护盾并打断蓄力"
+      ]
+    },
+    {
+      "word": "春风不度玉门关",
+      "title": "凉州词",
+      "meaning": "春风似乎，也不愿吹过玉门关。",
+      "name": "玉关留风",
+      "rules": [
+        "gate",
+        "eddy"
+      ],
+      "nonnumericKey": "eddy|gate",
+      "effects": [
+        "设下一道关隘；越过关口的前排敌人会受到守关重击",
+        "在目标处留下旋涡；进入后走得过远会被拉回一次"
+      ]
+    },
+    {
+      "word": "故人西辞黄鹤楼",
+      "title": "黄鹤楼送孟浩然之广陵",
+      "meaning": "老朋友向西告别黄鹤楼。",
+      "name": "鹤楼西别",
+      "rules": [
+        "farewell",
+        "ascend"
+      ],
+      "nonnumericKey": "ascend|farewell",
+      "effects": [
+        "为离开射程的敌人留下一道送别攻击，追至原射程之外",
+        "每次安稳站立都会升高一层视野；受击时退回地面，重新登高"
+      ]
+    },
+    {
+      "word": "烟花三月下扬州",
+      "title": "黄鹤楼送孟浩然之广陵",
+      "meaning": "在繁花如烟的三月，顺江去往扬州。",
+      "name": "三月烟花",
+      "rules": [
+        "petals",
+        "mist"
+      ],
+      "nonnumericKey": "mist|petals",
+      "effects": [
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击",
+        "云雾掩护附近词塔，敌人优先转攻其他可攻击的塔；雾中蓄力的敌人会短暂减速"
+      ]
+    },
+    {
+      "word": "孤帆远影碧空尽",
+      "title": "黄鹤楼送孟浩然之广陵",
+      "meaning": "远去的孤帆，渐渐消失在碧空尽头。",
+      "name": "孤帆远影",
+      "rules": [
+        "horizon",
+        "farewell"
+      ],
+      "nonnumericKey": "farewell|horizon",
+      "effects": [
+        "锁定最远的来敌，期间普攻能越过原射程追踪这一名目标",
+        "为离开射程的敌人留下一道送别攻击，追至原射程之外"
+      ]
+    },
+    {
+      "word": "唯见长江天际流",
+      "title": "黄鹤楼送孟浩然之广陵",
+      "meaning": "眼前只剩长江，在天边不住地流淌。",
+      "name": "天际江流",
+      "rules": [
+        "horizon",
+        "river"
+      ],
+      "nonnumericKey": "horizon|river",
+      "effects": [
+        "锁定最远的来敌，期间普攻能越过原射程追踪这一名目标",
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击"
+      ]
+    },
+    {
+      "word": "绿遍山原白满川",
+      "title": "乡村四月",
+      "meaning": "草木绿遍山野，田间水色明亮。",
+      "name": "绿野白川",
+      "rules": [
+        "grass",
+        "rainbow"
+      ],
+      "nonnumericKey": "grass|rainbow",
+      "effects": [
+        "草地照料受伤友塔，只有耐久不足一半时才会持续修复",
+        "附近属性不同的词塔一起架起彩虹，虹桥依次连向不同种类的来敌"
+      ]
+    },
+    {
+      "word": "子规声里雨如烟",
+      "title": "乡村四月",
+      "meaning": "杜鹃啼叫，细雨像轻烟一样飘着。",
+      "name": "子规烟雨",
+      "rules": [
+        "song",
+        "mist"
+      ],
+      "nonnumericKey": "mist|song",
+      "effects": [
+        "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
+        "云雾掩护附近词塔，敌人优先转攻其他可攻击的塔；雾中蓄力的敌人会短暂减速"
+      ]
+    },
+    {
+      "word": "乡村四月闲人少",
+      "title": "乡村四月",
+      "meaning": "乡村四月，几乎人人都在忙碌。",
+      "name": "四月勤耕",
+      "rules": [
+        "harvest_field",
+        "rally"
+      ],
+      "nonnumericKey": "harvest_field|rally",
+      "effects": [
+        "将路边开垦成小田；敌人走过时松土，累计经过三名敌人便长出一束谷刺",
+        "附近友塔受伤后得到短暂鼓舞；再次受伤不会重复叠加"
+      ]
+    },
+    {
+      "word": "才了蚕桑又插田",
+      "title": "乡村四月",
+      "meaning": "刚忙完蚕桑，又赶着去插秧。",
+      "name": "蚕桑接耕",
+      "rules": [
+        "cocoon",
+        "harvest_field"
+      ],
+      "nonnumericKey": "cocoon|harvest_field",
+      "effects": [
+        "丝茧保护一座友塔，保护结束时依照吸收的伤害化蝶反击",
+        "将路边开垦成小田；敌人走过时松土，累计经过三名敌人便长出一束谷刺"
+      ]
+    },
+    {
+      "word": "移舟泊烟渚",
+      "title": "宿建德江",
+      "meaning": "把船移近，停在烟雾中的小洲旁。",
+      "name": "烟渚泊舟",
+      "rules": [
+        "ferry",
+        "shroud"
+      ],
+      "nonnumericKey": "ferry|shroud",
+      "effects": [
+        "小舟为附近友塔摆渡攻击，周期性将一道友塔火力送向远处敌人",
+        "隐去受伤友塔的踪迹；来敌转攻他塔时，原塔送出伏击"
+      ]
+    },
+    {
+      "word": "日暮客愁新",
+      "title": "宿建德江",
+      "meaning": "暮色来临，游子的愁绪又添了一层。",
+      "name": "日暮客思",
+      "rules": [
+        "guest",
+        "clock"
+      ],
+      "nonnumericKey": "clock|guest",
+      "effects": [
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位",
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔"
+      ]
+    },
+    {
+      "word": "野旷天低树",
+      "title": "宿建德江",
+      "meaning": "原野空旷，天空低垂，仿佛比树还低。",
+      "name": "旷野低天",
+      "rules": [
+        "horizon",
+        "umbrella"
+      ],
+      "nonnumericKey": "horizon|umbrella",
+      "effects": [
+        "锁定最远的来敌，期间普攻能越过原射程追踪这一名目标",
+        "撑起雨盖，将附近词塔接下来的三次受击伤害削减 35%，并向攻击来源落下水珠"
+      ]
+    },
+    {
+      "word": "江清月近人",
+      "title": "宿建德江",
+      "meaning": "江水清澈，月影仿佛靠近了人。",
+      "name": "清江月近",
+      "rules": [
+        "moon",
+        "medicine"
+      ],
+      "nonnumericKey": "medicine|moon",
+      "effects": [
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人",
+        "药香轮流照顾最虚弱的友塔；溢出的修复会凝成短暂护盾"
+      ]
+    },
+    {
+      "word": "黑云翻墨未遮山",
+      "title": "六月二十七日望湖楼醉书",
+      "meaning": "乌云像泼翻的墨，还没遮住山峰。",
+      "name": "翻墨黑云",
+      "rules": [
+        "cloud",
+        "ink_wash"
+      ],
+      "nonnumericKey": "cloud|ink_wash",
+      "effects": [
+        "云影沿路线漂移，遮住经过的敌人视线，延缓其首次攻塔",
+        "淡墨浸染一名敌人，周围同伴接触时染上墨迹；染色不递归扩散"
+      ]
+    },
+    {
+      "word": "白雨跳珠乱入船",
+      "title": "六月二十七日望湖楼醉书",
+      "meaning": "白亮的雨点像跳动的珍珠，乱落进船中。",
+      "name": "白雨跳珠",
+      "rules": [
+        "dew",
+        "scatter"
+      ],
+      "nonnumericKey": "dew|scatter",
+      "effects": [
+        "清露凝在友塔上，第一次受击时化为修复，并向附近敌人溅开",
+        "一束光先聚于目标，目标倒下或走远后散成星点迎击后续敌人"
+      ]
+    },
+    {
+      "word": "卷地风来忽吹散",
+      "title": "六月二十七日望湖楼醉书",
+      "meaning": "卷地的大风吹来，忽然吹散了乌云。",
+      "name": "卷地散云",
+      "rules": [
+        "river",
+        "grounding"
+      ],
+      "nonnumericKey": "grounding|river",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "将范围内的飞行敌人短暂压落，地面攻击也能命中；Boss 落地时间较短"
+      ]
+    },
+    {
+      "word": "望湖楼下水如天",
+      "title": "六月二十七日望湖楼醉书",
+      "meaning": "望湖楼下的水，清亮得与天空相连。",
+      "name": "湖天一镜",
+      "rules": [
+        "horizon",
+        "mirror"
+      ],
+      "nonnumericKey": "horizon|mirror",
+      "effects": [
+        "锁定最远的来敌，期间普攻能越过原射程追踪这一名目标",
+        "明镜保护附近词塔，将下一次来袭的一部分伤害反射给攻击者"
+      ]
+    },
+    {
+      "word": "明月别枝惊鹊",
+      "title": "西江月·夜行黄沙道中",
+      "meaning": "明月照着横斜的树枝，惊起了鹊鸟。",
+      "name": "月枝惊鹊",
+      "rules": [
+        "moon",
+        "kite"
+      ],
+      "nonnumericKey": "kite|moon",
+      "effects": [
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人",
+        "纸鸢绕塔盘旋，经过敌人上方时俯冲，优先拦截飞行敌人"
+      ]
+    },
+    {
+      "word": "清风半夜鸣蝉",
+      "title": "西江月·夜行黄沙道中",
+      "meaning": "清风在深夜吹过，传来阵阵蝉鸣。",
+      "name": "半夜清蝉",
+      "rules": [
+        "clock",
+        "echo"
+      ],
+      "nonnumericKey": "clock|echo",
+      "effects": [
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔",
+        "记下目标接下来受到的真实伤害，片刻后将一部分伤害化为回响"
+      ]
+    },
+    {
+      "word": "稻花香里说丰年",
+      "title": "西江月·夜行黄沙道中",
+      "meaning": "稻花香里，人们谈论着丰收的年景。",
+      "name": "稻香丰年",
+      "rules": [
+        "scent",
+        "harvest"
+      ],
+      "nonnumericKey": "harvest|scent",
+      "effects": [
+        "香气跟随一名敌人，逐渐吸引周围同伴靠近，再一同被花香减速",
+        "留下收获印记，只有真实掉落墨点的敌人倒下时才可额外采收"
+      ]
+    },
+    {
+      "word": "听取蛙声一片",
+      "title": "西江月·夜行黄沙道中",
+      "meaning": "四处可以听到，一片青蛙的叫声。",
+      "name": "群蛙合唱",
+      "rules": [
+        "song",
+        "chorus"
+      ],
+      "nonnumericKey": "chorus|song",
+      "effects": [
+        "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
+        "三座词塔结成共鸣三角；跨越连线的敌人受击，参与的塔分享护盾"
+      ]
+    },
+    {
+      "word": "七八个星天外",
+      "title": "西江月·夜行黄沙道中",
+      "meaning": "天空远处，散布着几颗星星。",
+      "name": "天外疏星",
+      "rules": [
+        "stars",
+        "horizon"
+      ],
+      "nonnumericKey": "horizon|stars",
+      "effects": [
+        "布下三颗悬星；敌人靠近时星子逐颗坠落，覆盖不同落点",
+        "锁定最远的来敌，期间普攻能越过原射程追踪这一名目标"
+      ]
+    },
+    {
+      "word": "两三点雨山前",
+      "title": "西江月·夜行黄沙道中",
+      "meaning": "山前落下了，两三点细雨。",
+      "name": "山前疏雨",
+      "rules": [
+        "dew",
+        "wall"
+      ],
+      "nonnumericKey": "dew|wall",
+      "effects": [
+        "清露凝在友塔上，第一次受击时化为修复，并向附近敌人溅开",
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停"
+      ]
+    },
+    {
+      "word": "旧时茅店社林边",
+      "title": "西江月·夜行黄沙道中",
+      "meaning": "记忆中的茅店，就在土地庙旁的林边。",
+      "name": "旧店寻归",
+      "rules": [
+        "memory",
+        "guest",
+        "lantern"
+      ],
+      "nonnumericKey": "guest|lantern|memory",
+      "effects": [
+        "记住场内倒下的敌人种类，再遇同类时提前揭示弱点",
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位",
+        "灯火照亮附近来敌，发现敌人准备攻塔时打断其蓄力"
+      ]
+    },
+    {
+      "word": "路转溪桥忽见",
+      "title": "西江月·夜行黄沙道中",
+      "meaning": "小路一转，溪桥旁的茅店忽然出现了。",
+      "name": "路转见桥",
+      "rules": [
+        "turning",
+        "bridge"
+      ],
+      "nonnumericKey": "bridge|turning",
+      "effects": [
+        "监视道路转折，敌人在转角现身时受到一记折返攻击",
+        "在路段立起渡桥，过桥敌人会引来最近友塔的一次援击"
+      ]
+    },
+    {
+      "word": "故人具鸡黍",
+      "title": "过故人庄",
+      "meaning": "老朋友备好，鸡肉与黄米饭。",
+      "name": "鸡黍待友",
+      "rules": [
+        "offering",
+        "guest"
+      ],
+      "nonnumericKey": "guest|offering",
+      "effects": [
+        "贡献自身最多 6% 最大耐久，以 125% 效率照料最虚弱的友塔；自身耐久不足时停止贡献",
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位"
+      ]
+    },
+    {
+      "word": "邀我至田家",
+      "title": "过故人庄",
+      "meaning": "邀请我到，他的田舍做客。",
+      "name": "田家邀客",
+      "rules": [
+        "guest",
+        "harvest_field"
+      ],
+      "nonnumericKey": "guest|harvest_field",
+      "effects": [
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位",
+        "将路边开垦成小田；敌人走过时松土，累计经过三名敌人便长出一束谷刺"
+      ]
+    },
+    {
+      "word": "绿树村边合",
+      "title": "过故人庄",
+      "meaning": "绿树围绕着村庄生长。",
+      "name": "村边绿合",
+      "rules": [
+        "vine",
+        "return_home"
+      ],
+      "nonnumericKey": "return_home|vine",
+      "effects": [
+        "用藤蔓连接两名敌人；它们拉开距离时，领先者会被牵回",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "青山郭外斜",
+      "title": "过故人庄",
+      "meaning": "青山在村外，斜斜地伸展开。",
+      "name": "郭外青山",
+      "rules": [
+        "wall",
+        "turning"
+      ],
+      "nonnumericKey": "turning|wall",
+      "effects": [
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停",
+        "监视道路转折，敌人在转角现身时受到一记折返攻击"
+      ]
+    },
+    {
+      "word": "开轩面场圃",
+      "title": "过故人庄",
+      "meaning": "打开窗户，面前就是打谷场与菜圃。",
+      "name": "开轩望圃",
+      "rules": [
+        "gate",
+        "harvest_field"
+      ],
+      "nonnumericKey": "gate|harvest_field",
+      "effects": [
+        "设下一道关隘；越过关口的前排敌人会受到守关重击",
+        "将路边开垦成小田；敌人走过时松土，累计经过三名敌人便长出一束谷刺"
+      ]
+    },
+    {
+      "word": "把酒话桑麻",
+      "title": "过故人庄",
+      "meaning": "举杯闲谈，聊起桑树和庄稼。",
+      "name": "桑麻共酌",
+      "rules": [
+        "wine",
+        "cocoon"
+      ],
+      "nonnumericKey": "cocoon|wine",
+      "effects": [
+        "给友塔一杯短暂振奋；连续攻击后稍歇，再送出一记蓄势打击",
+        "丝茧保护一座友塔，保护结束时依照吸收的伤害化蝶反击"
+      ]
+    },
+    {
+      "word": "待到重阳日",
+      "title": "过故人庄",
+      "meaning": "等到重阳佳节到来的时候。",
+      "name": "重阳相约",
+      "rules": [
+        "clock",
+        "oath"
+      ],
+      "nonnumericKey": "clock|oath",
+      "effects": [
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔",
+        "与一个目标立下挑战；目标仍在场时专注追击，倒下后护佑附近友塔"
+      ]
+    },
+    {
+      "word": "还来就菊花",
+      "title": "过故人庄",
+      "meaning": "还要再来，一同观赏菊花。",
+      "name": "重来菊畔",
+      "rules": [
+        "spring_back",
+        "guest"
+      ],
+      "nonnumericKey": "guest|spring_back",
+      "effects": [
+        "记住一处落点，等来敌移走后再次开花，拦截后续敌人",
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位"
+      ]
+    },
+    {
+      "word": "胜日寻芳泗水滨",
+      "title": "春日",
+      "meaning": "在晴朗的日子，来到泗水边寻找春光。",
+      "name": "晴日寻芳",
+      "rules": [
+        "sun",
+        "scent"
+      ],
+      "nonnumericKey": "scent|sun",
+      "effects": [
+        "日轮照射前方，周期性消磨护盾；护盾消失时爆发一次日光",
+        "香气跟随一名敌人，逐渐吸引周围同伴靠近，再一同被花香减速"
+      ]
+    },
+    {
+      "word": "无边光景一时新",
+      "title": "春日",
+      "meaning": "无边的景色，仿佛一下子焕然一新。",
+      "name": "一时新景",
+      "rules": [
+        "renewal",
+        "rainbow"
+      ],
+      "nonnumericKey": "rainbow|renewal",
+      "effects": [
+        "在废墟旁长出临时草木幻身协战；废墟仍需付费重建",
+        "附近属性不同的词塔一起架起彩虹，虹桥依次连向不同种类的来敌"
+      ]
+    },
+    {
+      "word": "等闲识得东风面",
+      "title": "春日",
+      "meaning": "轻易就能，认出春风带来的变化。",
+      "name": "东风识面",
+      "rules": [
+        "book",
+        "leaves"
+      ],
+      "nonnumericKey": "book|leaves",
+      "effects": [
+        "观察不同敌人的行动，认出三种敌人后标明同类弱点",
+        "落叶贴附经过的敌人；敌人施法时叶片碎裂，削去护盾并打断蓄力"
+      ]
+    },
+    {
+      "word": "万紫千红总是春",
+      "title": "春日",
+      "meaning": "万紫千红的鲜花，到处都是春天。",
+      "name": "万色同春",
+      "rules": [
+        "petals",
+        "rainbow"
+      ],
+      "nonnumericKey": "petals|rainbow",
+      "effects": [
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击",
+        "附近属性不同的词塔一起架起彩虹，虹桥依次连向不同种类的来敌"
+      ]
+    },
+    {
+      "word": "少小离家老大回",
+      "title": "回乡偶书",
+      "meaning": "年少时离乡，年老了才归来。",
+      "name": "少小归来",
+      "rules": [
+        "memory",
+        "clock"
+      ],
+      "nonnumericKey": "clock|memory",
+      "effects": [
+        "记住场内倒下的敌人种类，再遇同类时提前揭示弱点",
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔"
+      ]
+    },
+    {
+      "word": "乡音无改鬓毛衰",
+      "title": "回乡偶书",
+      "meaning": "乡音依然没变，鬓发却已稀疏变白。",
+      "name": "乡音长存",
+      "rules": [
+        "echo",
+        "memory"
+      ],
+      "nonnumericKey": "echo|memory",
+      "effects": [
+        "记下目标接下来受到的真实伤害，片刻后将一部分伤害化为回响",
+        "记住场内倒下的敌人种类，再遇同类时提前揭示弱点"
+      ]
+    },
+    {
+      "word": "儿童相见不相识",
+      "title": "回乡偶书",
+      "meaning": "儿童看见我，却不认识我。",
+      "name": "童问来客",
+      "rules": [
+        "book",
+        "guest"
+      ],
+      "nonnumericKey": "book|guest",
+      "effects": [
+        "观察不同敌人的行动，认出三种敌人后标明同类弱点",
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位"
+      ]
+    },
+    {
+      "word": "笑问客从何处来",
+      "title": "回乡偶书",
+      "meaning": "笑着问我，这位客人从哪里来。",
+      "name": "笑问归程",
+      "rules": [
+        "compass",
+        "guest",
+        "call"
+      ],
+      "nonnumericKey": "call|compass|guest",
+      "effects": [
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人",
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位",
+        "向最远的友塔发出呼唤，友塔回赠一道援击并得到少量修复"
+      ]
+    },
+    {
+      "word": "九曲黄河万里沙",
+      "title": "浪淘沙·九曲黄河万里沙",
+      "meaning": "黄河曲折流转，从万里之外带来泥沙。",
+      "name": "九曲流沙",
+      "rules": [
+        "river",
+        "sand"
+      ],
+      "nonnumericKey": "river|sand",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "让地面来敌裹上流沙；它移动时抖落沙粒，后方敌人踩中沙粒受阻"
+      ]
+    },
+    {
+      "word": "浪淘风簸自天涯",
+      "title": "浪淘沙·九曲黄河万里沙",
+      "meaning": "波浪翻滚，风吹水簸，仿佛来自天涯。",
+      "name": "浪淘千沙",
+      "rules": [
+        "undertow",
+        "sand"
+      ],
+      "nonnumericKey": "sand|undertow",
+      "effects": [
+        "逆流沿路线回卷，把撞上波头的敌人向来路拉回",
+        "让地面来敌裹上流沙；它移动时抖落沙粒，后方敌人踩中沙粒受阻"
+      ]
+    },
+    {
+      "word": "如今直上银河去",
+      "title": "浪淘沙·九曲黄河万里沙",
+      "meaning": "现在仿佛可以，沿着黄河直上银河。",
+      "name": "飞渡银河",
+      "rules": [
+        "updraft",
+        "stars"
+      ],
+      "nonnumericKey": "stars|updraft",
+      "effects": [
+        "托起靠近的地面敌人，打断进攻；落下时冲击周围敌人",
+        "布下三颗悬星；敌人靠近时星子逐颗坠落，覆盖不同落点"
+      ]
+    },
+    {
+      "word": "同到牵牛织女家",
+      "title": "浪淘沙·九曲黄河万里沙",
+      "meaning": "一起去到，牛郎织女的家。",
+      "name": "星家同聚",
+      "rules": [
+        "reunion",
+        "stars"
+      ],
+      "nonnumericKey": "reunion|stars",
+      "effects": [
+        "连接分散的两名敌人，等它们靠近时引发相逢冲击",
+        "布下三颗悬星；敌人靠近时星子逐颗坠落，覆盖不同落点"
+      ]
+    },
+    {
+      "word": "千里莺啼绿映红",
+      "title": "江南春",
+      "meaning": "千里江南，莺啼声声，绿叶映着红花。",
+      "name": "莺啼映彩",
+      "rules": [
+        "song",
+        "rainbow"
+      ],
+      "nonnumericKey": "rainbow|song",
+      "effects": [
+        "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
+        "附近属性不同的词塔一起架起彩虹，虹桥依次连向不同种类的来敌"
+      ]
+    },
+    {
+      "word": "水村山郭酒旗风",
+      "title": "江南春",
+      "meaning": "水乡山城里，酒旗在春风中招展。",
+      "name": "酒旗村郭",
+      "rules": [
+        "wine",
+        "wall"
+      ],
+      "nonnumericKey": "wall|wine",
+      "effects": [
+        "给友塔一杯短暂振奋；连续攻击后稍歇，再送出一记蓄势打击",
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停"
+      ]
+    },
+    {
+      "word": "南朝四百八十寺",
+      "title": "江南春",
+      "meaning": "南朝以来，曾建过许许多多的寺院。",
+      "name": "层寺钟鸣",
+      "rules": [
+        "gate",
+        "chorus"
+      ],
+      "nonnumericKey": "chorus|gate",
+      "effects": [
+        "设下一道关隘；越过关口的前排敌人会受到守关重击",
+        "三座词塔结成共鸣三角；跨越连线的敌人受击，参与的塔分享护盾"
+      ]
+    },
+    {
+      "word": "多少楼台烟雨中",
+      "title": "江南春",
+      "meaning": "不知多少楼台，隐现在朦胧烟雨之中。",
+      "name": "烟雨楼台",
+      "rules": [
+        "ascend",
+        "mist"
+      ],
+      "nonnumericKey": "ascend|mist",
+      "effects": [
+        "每次安稳站立都会升高一层视野；受击时退回地面，重新登高",
+        "云雾掩护附近词塔，敌人优先转攻其他可攻击的塔；雾中蓄力的敌人会短暂减速"
+      ]
+    },
+    {
+      "word": "茅檐长扫净无苔",
+      "title": "书湖阴先生壁",
+      "meaning": "茅屋的庭院经常打扫，洁净得没有青苔。",
+      "name": "茅檐清扫",
+      "rules": [
+        "purity",
+        "return_home"
+      ],
+      "nonnumericKey": "purity|return_home",
+      "effects": [
+        "清气在友塔间流转，持续清除腐蚀、冰滞和封禁",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "花木成畦手自栽",
+      "title": "书湖阴先生壁",
+      "meaning": "成行成垄的花木，都是主人亲手栽种。",
+      "name": "花畦手植",
+      "rules": [
+        "petals",
+        "harvest_field",
+        "sprout"
+      ],
+      "nonnumericKey": "harvest_field|petals|sprout",
+      "effects": [
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击",
+        "将路边开垦成小田；敌人走过时松土，累计经过三名敌人便长出一束谷刺",
+        "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人"
+      ]
+    },
+    {
+      "word": "一水护田将绿绕",
+      "title": "书湖阴先生壁",
+      "meaning": "一条小河护着田地，把绿意环绕。",
+      "name": "绕田护水",
+      "rules": [
+        "river",
+        "fellowship"
+      ],
+      "nonnumericKey": "fellowship|river",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "连接两座受伤词塔，为两者分担部分受击并储存一道反击"
+      ]
+    },
+    {
+      "word": "两山排闼送青来",
+      "title": "书湖阴先生壁",
+      "meaning": "两座青山像推开门，送来苍翠山色。",
+      "name": "双山开闼",
+      "rules": [
+        "wall",
+        "horizon_gate"
+      ],
+      "nonnumericKey": "horizon_gate|wall",
+      "effects": [
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停",
+        "在道路两侧张开双门；从不同入口来的敌人在门前分别被截击"
+      ]
+    },
+    {
+      "word": "春城无处不飞花",
+      "title": "寒食",
+      "meaning": "春天的京城，到处都有柳絮飞舞。",
+      "name": "春城飞花",
+      "rules": [
+        "petals",
+        "gate"
+      ],
+      "nonnumericKey": "gate|petals",
+      "effects": [
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击",
+        "设下一道关隘；越过关口的前排敌人会受到守关重击"
+      ]
+    },
+    {
+      "word": "寒食东风御柳斜",
+      "title": "寒食",
+      "meaning": "寒食时的春风，把宫中柳枝吹斜。",
+      "name": "东风御柳",
+      "rules": [
+        "willow",
+        "compass"
+      ],
+      "nonnumericKey": "compass|willow",
+      "effects": [
+        "柳丝来回摆扫；进入扫线的敌人受到伤害和短暂减速",
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人"
+      ]
+    },
+    {
+      "word": "日暮汉宫传蜡烛",
+      "title": "寒食",
+      "meaning": "日暮时，宫中传出赏赐的蜡烛。",
+      "name": "暮宫传烛",
+      "rules": [
+        "lantern_chain",
+        "gate"
+      ],
+      "nonnumericKey": "gate|lantern_chain",
+      "effects": [
+        "灯火从友塔向另一座友塔依次点亮；每亮一盏，照击连线旁的一名来敌",
+        "设下一道关隘；越过关口的前排敌人会受到守关重击"
+      ]
+    },
+    {
+      "word": "轻烟散入五侯家",
+      "title": "寒食",
+      "meaning": "轻烟散入，得宠权贵的家中。",
+      "name": "轻烟入户",
+      "rules": [
+        "mist",
+        "return_home"
+      ],
+      "nonnumericKey": "mist|return_home",
+      "effects": [
+        "云雾掩护附近词塔，敌人优先转攻其他可攻击的塔；雾中蓄力的敌人会短暂减速",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "迢迢牵牛星",
+      "title": "迢迢牵牛星",
+      "meaning": "遥远的天边，有一颗牵牛星。",
+      "name": "迢迢星引",
+      "rules": [
+        "stars",
+        "call"
+      ],
+      "nonnumericKey": "call|stars",
+      "effects": [
+        "布下三颗悬星；敌人靠近时星子逐颗坠落，覆盖不同落点",
+        "向最远的友塔发出呼唤，友塔回赠一道援击并得到少量修复"
+      ]
+    },
+    {
+      "word": "皎皎河汉女",
+      "title": "迢迢牵牛星",
+      "meaning": "银河另一边，是明亮的织女星。",
+      "name": "皎皎河光",
+      "rules": [
+        "moon",
+        "weave",
+        "stars"
+      ],
+      "nonnumericKey": "moon|stars|weave",
+      "effects": [
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人",
+        "在两座词塔之间织出丝线，敌人穿线时受伤并被丝线牵缓",
+        "布下三颗悬星；敌人靠近时星子逐颗坠落，覆盖不同落点"
+      ]
+    },
+    {
+      "word": "纤纤擢素手",
+      "title": "迢迢牵牛星",
+      "meaning": "她伸出纤细洁白的双手。",
+      "name": "素手引丝",
+      "rules": [
+        "weave",
+        "offering"
+      ],
+      "nonnumericKey": "offering|weave",
+      "effects": [
+        "在两座词塔之间织出丝线，敌人穿线时受伤并被丝线牵缓",
+        "贡献自身最多 6% 最大耐久，以 125% 效率照料最虚弱的友塔；自身耐久不足时停止贡献"
+      ]
+    },
+    {
+      "word": "札札弄机杼",
+      "title": "迢迢牵牛星",
+      "meaning": "织机发出，札札的织布声。",
+      "name": "机杼织声",
+      "rules": [
+        "weave",
+        "echo"
+      ],
+      "nonnumericKey": "echo|weave",
+      "effects": [
+        "在两座词塔之间织出丝线，敌人穿线时受伤并被丝线牵缓",
+        "记下目标接下来受到的真实伤害，片刻后将一部分伤害化为回响"
+      ]
+    },
+    {
+      "word": "终日不成章",
+      "title": "迢迢牵牛星",
+      "meaning": "整日织布，却始终织不成完整的布匹。",
+      "name": "待成锦章",
+      "rules": [
+        "weave",
+        "clock",
+        "book"
+      ],
+      "nonnumericKey": "book|clock|weave",
+      "effects": [
+        "在两座词塔之间织出丝线，敌人穿线时受伤并被丝线牵缓",
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔",
+        "观察不同敌人的行动，认出三种敌人后标明同类弱点"
+      ]
+    },
+    {
+      "word": "泣涕零如雨",
+      "title": "迢迢牵牛星",
+      "meaning": "眼泪像雨水一样，不停地落下。",
+      "name": "泪雨相思",
+      "rules": [
+        "dew",
+        "return_home"
+      ],
+      "nonnumericKey": "dew|return_home",
+      "effects": [
+        "清露凝在友塔上，第一次受击时化为修复，并向附近敌人溅开",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "河汉清且浅",
+      "title": "迢迢牵牛星",
+      "meaning": "银河看起来，又清又浅。",
+      "name": "清浅星河",
+      "rules": [
+        "purity",
+        "river",
+        "stars"
+      ],
+      "nonnumericKey": "purity|river|stars",
+      "effects": [
+        "清气在友塔间流转，持续清除腐蚀、冰滞和封禁",
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "布下三颗悬星；敌人靠近时星子逐颗坠落，覆盖不同落点"
+      ]
+    },
+    {
+      "word": "相去复几许",
+      "title": "迢迢牵牛星",
+      "meaning": "两边究竟，相隔着多远呢？",
+      "name": "近望相隔",
+      "rules": [
+        "horizon",
+        "reunion"
+      ],
+      "nonnumericKey": "horizon|reunion",
+      "effects": [
+        "锁定最远的来敌，期间普攻能越过原射程追踪这一名目标",
+        "连接分散的两名敌人，等它们靠近时引发相逢冲击"
+      ]
+    },
+    {
+      "word": "盈盈一水间",
+      "title": "迢迢牵牛星",
+      "meaning": "虽然只有，一条清浅的银河隔在中间。",
+      "name": "盈水相望",
+      "rules": [
+        "deep_pool",
+        "reunion"
+      ],
+      "nonnumericKey": "deep_pool|reunion",
+      "effects": [
+        "留下深潭；地面敌人停留越久下沉越深，每停留 0.7 秒加深一层，最多减速 45%；离开水域后恢复",
+        "连接分散的两名敌人，等它们靠近时引发相逢冲击"
+      ]
+    },
+    {
+      "word": "脉脉不得语",
+      "title": "迢迢牵牛星",
+      "meaning": "彼此含情相望，却不能说话。",
+      "name": "无言相系",
+      "rules": [
+        "silence_watch",
+        "fellowship"
+      ],
+      "nonnumericKey": "fellowship|silence_watch",
+      "effects": [
+        "静听敌人的行动，只在敌人开始蓄力时施加缄默",
+        "连接两座受伤词塔，为两者分担部分受击并储存一道反击"
+      ]
+    },
+    {
+      "word": "中庭地白树栖鸦",
+      "title": "十五夜望月",
+      "meaning": "庭院像铺满白霜，乌鸦栖在树上。",
+      "name": "庭月栖鸦",
+      "rules": [
+        "moon",
+        "shroud"
+      ],
+      "nonnumericKey": "moon|shroud",
+      "effects": [
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人",
+        "隐去受伤友塔的踪迹；来敌转攻他塔时，原塔送出伏击"
+      ]
+    },
+    {
+      "word": "冷露无声湿桂花",
+      "title": "十五夜望月",
+      "meaning": "清凉露水，悄悄润湿了桂花。",
+      "name": "冷露桂香",
+      "rules": [
+        "dew",
+        "scent"
+      ],
+      "nonnumericKey": "dew|scent",
+      "effects": [
+        "清露凝在友塔上，第一次受击时化为修复，并向附近敌人溅开",
+        "香气跟随一名敌人，逐渐吸引周围同伴靠近，再一同被花香减速"
+      ]
+    },
+    {
+      "word": "今夜月明人尽望",
+      "title": "十五夜望月",
+      "meaning": "今夜明月当空，许多人都在仰望。",
+      "name": "万人望月",
+      "rules": [
+        "moon",
+        "rainbow"
+      ],
+      "nonnumericKey": "moon|rainbow",
+      "effects": [
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人",
+        "附近属性不同的词塔一起架起彩虹，虹桥依次连向不同种类的来敌"
+      ]
+    },
+    {
+      "word": "不知秋思落谁家",
+      "title": "十五夜望月",
+      "meaning": "不知道秋日的思念，落在了谁的心上。",
+      "name": "秋思入户",
+      "rules": [
+        "clock",
+        "return_home",
+        "memory"
+      ],
+      "nonnumericKey": "clock|memory|return_home",
+      "effects": [
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾",
+        "记住场内倒下的敌人种类，再遇同类时提前揭示弱点"
+      ]
+    },
+    {
+      "word": "青青园中葵",
+      "title": "长歌行",
+      "meaning": "园中的葵菜，长得郁郁青青。",
+      "name": "园葵向阳",
+      "rules": [
+        "sprout",
+        "sun"
+      ],
+      "nonnumericKey": "sprout|sun",
+      "effects": [
+        "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人",
+        "日轮照射前方，周期性消磨护盾；护盾消失时爆发一次日光"
+      ]
+    },
+    {
+      "word": "朝露待日晞",
+      "title": "长歌行",
+      "meaning": "清晨的露水，等待太阳出来晒干。",
+      "name": "朝露向日",
+      "rules": [
+        "dew",
+        "sun"
+      ],
+      "nonnumericKey": "dew|sun",
+      "effects": [
+        "清露凝在友塔上，第一次受击时化为修复，并向附近敌人溅开",
+        "日轮照射前方，周期性消磨护盾；护盾消失时爆发一次日光"
+      ]
+    },
+    {
+      "word": "阳春布德泽",
+      "title": "长歌行",
+      "meaning": "温暖的春光，向万物施予恩泽。",
+      "name": "阳春润泽",
+      "rules": [
+        "medicine",
+        "sprout"
+      ],
+      "nonnumericKey": "medicine|sprout",
+      "effects": [
+        "药香轮流照顾最虚弱的友塔；溢出的修复会凝成短暂护盾",
+        "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人"
+      ]
+    },
+    {
+      "word": "万物生光辉",
+      "title": "长歌行",
+      "meaning": "万物都生机勃勃，焕发光彩。",
+      "name": "万物辉映",
+      "rules": [
+        "rainbow",
+        "sun"
+      ],
+      "nonnumericKey": "rainbow|sun",
+      "effects": [
+        "附近属性不同的词塔一起架起彩虹，虹桥依次连向不同种类的来敌",
+        "日轮照射前方，周期性消磨护盾；护盾消失时爆发一次日光"
+      ]
+    },
+    {
+      "word": "常恐秋节至",
+      "title": "长歌行",
+      "meaning": "常常担心，秋天转眼就会到来。",
+      "name": "惜时待秋",
+      "rules": [
+        "clock",
+        "harvest"
+      ],
+      "nonnumericKey": "clock|harvest",
+      "effects": [
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔",
+        "留下收获印记，只有真实掉落墨点的敌人倒下时才可额外采收"
+      ]
+    },
+    {
+      "word": "焜黄华叶衰",
+      "title": "长歌行",
+      "meaning": "叶子变得枯黄，花草也将衰败。",
+      "name": "秋叶枯黄",
+      "rules": [
+        "leaves",
+        "offering"
+      ],
+      "nonnumericKey": "leaves|offering",
+      "effects": [
+        "落叶贴附经过的敌人；敌人施法时叶片碎裂，削去护盾并打断蓄力",
+        "贡献自身最多 6% 最大耐久，以 125% 效率照料最虚弱的友塔；自身耐久不足时停止贡献"
+      ]
+    },
+    {
+      "word": "百川东到海",
+      "title": "长歌行",
+      "meaning": "许多江河，都向东奔流入海。",
+      "name": "百川赴海",
+      "rules": [
+        "river",
+        "lantern_chain"
+      ],
+      "nonnumericKey": "lantern_chain|river",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "灯火从友塔向另一座友塔依次点亮；每亮一盏，照击连线旁的一名来敌"
+      ]
+    },
+    {
+      "word": "何时复西归",
+      "title": "长歌行",
+      "meaning": "什么时候，它们才能重新向西流回？",
+      "name": "江潮西归",
+      "rules": [
+        "undertow",
+        "return_home"
+      ],
+      "nonnumericKey": "return_home|undertow",
+      "effects": [
+        "逆流沿路线回卷，把撞上波头的敌人向来路拉回",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "少壮不努力",
+      "title": "长歌行",
+      "meaning": "年少时，如果不抓紧时光努力。",
+      "name": "少壮惜时",
+      "rules": [
+        "clock",
+        "seed"
+      ],
+      "nonnumericKey": "clock|seed",
+      "effects": [
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔",
+        "敌人在种子区倒下后留下嫩芽，下一名靠近的敌人会触发芽刺"
+      ]
+    },
+    {
+      "word": "老大徒伤悲",
+      "title": "长歌行",
+      "meaning": "到了年老，便只能徒然悲伤。",
+      "name": "迟暮惜光",
+      "rules": [
+        "clock",
+        "afterglow"
+      ],
+      "nonnumericKey": "afterglow|clock",
+      "effects": [
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔",
+        "余光从目标处折返，照到背后的来敌时追加一次回照"
+      ]
+    },
+    {
+      "word": "大漠沙如雪",
+      "title": "马诗",
+      "meaning": "大漠的沙地，在月下像一片白雪。",
+      "name": "漠沙映雪",
+      "rules": [
+        "sand",
+        "snowdrift"
+      ],
+      "nonnumericKey": "sand|snowdrift",
+      "effects": [
+        "让地面来敌裹上流沙；它移动时抖落沙粒，后方敌人踩中沙粒受阻",
+        "积雪随时间变厚，后来踏入的地面敌人会受到更强的阻碍"
+      ]
+    },
+    {
+      "word": "燕山月似钩",
+      "title": "马诗",
+      "meaning": "燕山上方的月亮，弯得像一把钩。",
+      "name": "燕山月钩",
+      "rules": [
+        "moon",
+        "vine"
+      ],
+      "nonnumericKey": "moon|vine",
+      "effects": [
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人",
+        "用藤蔓连接两名敌人；它们拉开距离时，领先者会被牵回"
+      ]
+    },
+    {
+      "word": "何当金络脑",
+      "title": "马诗",
+      "meaning": "什么时候，才能戴上名马的金饰呢？",
+      "name": "金络待骏",
+      "rules": [
+        "forge",
+        "guest"
+      ],
+      "nonnumericKey": "forge|guest",
+      "effects": [
+        "将附近词塔遭受的伤害锤炼成铁屑，蓄足后击碎敌人的护甲",
+        "邀请一道临时友塔幻身协战；幻身使用受邀友塔的火力，不占阵位"
+      ]
+    },
+    {
+      "word": "快走踏清秋",
+      "title": "马诗",
+      "meaning": "在清朗的秋天，飞快驰骋。",
+      "name": "踏秋疾行",
+      "rules": [
+        "drum",
+        "trail"
+      ],
+      "nonnumericKey": "drum|trail",
+      "effects": [
+        "沿路追随来敌的脚步；敌人每前进一段距离便遭鼓声震击",
+        "敌人走过的路留下短暂墨迹，后来经过的敌人会踩中墨痕"
+      ]
+    },
+    {
+      "word": "千锤万凿出深山",
+      "title": "石灰吟",
+      "meaning": "石灰石经过反复锤击开凿，才从深山采出。",
+      "name": "锤凿破山",
+      "rules": [
+        "forge",
+        "wall"
+      ],
+      "nonnumericKey": "forge|wall",
+      "effects": [
+        "将附近词塔遭受的伤害锤炼成铁屑，蓄足后击碎敌人的护甲",
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停"
+      ]
+    },
+    {
+      "word": "烈火焚烧若等闲",
+      "title": "石灰吟",
+      "meaning": "经受烈火焚烧，也像平常事一样从容。",
+      "name": "烈焰锤心",
+      "rules": [
+        "ember",
+        "resolve"
+      ],
+      "nonnumericKey": "ember|resolve",
+      "effects": [
+        "余烬等待敌人的护盾破裂，随后化作一团会蔓延一次的火焰",
+        "词塔耐久低于一半时，记住下一次受到的伤害并还击攻击者"
+      ]
+    },
+    {
+      "word": "粉骨碎身浑不怕",
+      "title": "石灰吟",
+      "meaning": "即使粉碎身体，也丝毫不害怕。",
+      "name": "碎骨留志",
+      "rules": [
+        "offering",
+        "resolve"
+      ],
+      "nonnumericKey": "offering|resolve",
+      "effects": [
+        "贡献自身最多 6% 最大耐久，以 125% 效率照料最虚弱的友塔；自身耐久不足时停止贡献",
+        "词塔耐久低于一半时，记住下一次受到的伤害并还击攻击者"
+      ]
+    },
+    {
+      "word": "要留清白在人间",
+      "title": "石灰吟",
+      "meaning": "只愿把清白与正直，留在人间。",
+      "name": "人间清白",
+      "rules": [
+        "purity",
+        "renewal",
+        "offering"
+      ],
+      "nonnumericKey": "offering|purity|renewal",
+      "effects": [
+        "清气在友塔间流转，持续清除腐蚀、冰滞和封禁",
+        "在废墟旁长出临时草木幻身协战；废墟仍需付费重建",
+        "贡献自身最多 6% 最大耐久，以 125% 效率照料最虚弱的友塔；自身耐久不足时停止贡献"
+      ]
+    },
+    {
+      "word": "咬定青山不放松",
+      "title": "竹石",
+      "meaning": "竹子紧紧抓住青山，毫不放松。",
+      "name": "青山咬定",
+      "rules": [
+        "bamboo",
+        "vine"
+      ],
+      "nonnumericKey": "bamboo|vine",
+      "effects": [
+        "竹节记住附近词塔受到的打击，每攒满三次便向来敌反击",
+        "用藤蔓连接两名敌人；它们拉开距离时，领先者会被牵回"
+      ]
+    },
+    {
+      "word": "立根原在破岩中",
+      "title": "竹石",
+      "meaning": "根扎在，破裂的岩石缝中。",
+      "name": "破岩深根",
+      "rules": [
+        "bamboo",
+        "sprout"
+      ],
+      "nonnumericKey": "bamboo|sprout",
+      "effects": [
+        "竹节记住附近词塔受到的打击，每攒满三次便向来敌反击",
+        "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人"
+      ]
+    },
+    {
+      "word": "千磨万击还坚劲",
+      "title": "竹石",
+      "meaning": "经历无数磨炼与打击，依然坚韧挺拔。",
+      "name": "千磨竹劲",
+      "rules": [
+        "bamboo",
+        "forge"
+      ],
+      "nonnumericKey": "bamboo|forge",
+      "effects": [
+        "竹节记住附近词塔受到的打击，每攒满三次便向来敌反击",
+        "将附近词塔遭受的伤害锤炼成铁屑，蓄足后击碎敌人的护甲"
+      ]
+    },
+    {
+      "word": "任尔东西南北风",
+      "title": "竹石",
+      "meaning": "不管从哪个方向来的风，都不能使它屈服。",
+      "name": "四风不折",
+      "rules": [
+        "bamboo",
+        "compass"
+      ],
+      "nonnumericKey": "bamboo|compass",
+      "effects": [
+        "竹节记住附近词塔受到的打击，每攒满三次便向来敌反击",
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人"
+      ]
+    },
+    {
+      "word": "好雨知时节",
+      "title": "春夜喜雨",
+      "meaning": "好雨懂得，适时到来的节气。",
+      "name": "应时好雨",
+      "rules": [
+        "medicine",
+        "clock"
+      ],
+      "nonnumericKey": "clock|medicine",
+      "effects": [
+        "药香轮流照顾最虚弱的友塔；溢出的修复会凝成短暂护盾",
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔"
+      ]
+    },
+    {
+      "word": "当春乃发生",
+      "title": "春夜喜雨",
+      "meaning": "当春天来到时，它就滋润万物生长。",
+      "name": "逢春萌发",
+      "rules": [
+        "sprout",
+        "seasons"
+      ],
+      "nonnumericKey": "seasons|sprout",
+      "effects": [
+        "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人",
+        "按春夏秋冬轮换：萌发、日照、落叶、霜圈，每次施法进入下一季"
+      ]
+    },
+    {
+      "word": "随风潜入夜",
+      "title": "春夜喜雨",
+      "meaning": "细雨随着春风，在夜里悄悄到来。",
+      "name": "夜风潜润",
+      "rules": [
+        "mist",
+        "clock"
+      ],
+      "nonnumericKey": "clock|mist",
+      "effects": [
+        "云雾掩护附近词塔，敌人优先转攻其他可攻击的塔；雾中蓄力的敌人会短暂减速",
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔"
+      ]
+    },
+    {
+      "word": "润物细无声",
+      "title": "春夜喜雨",
+      "meaning": "默默地滋润万物，不发出声响。",
+      "name": "无声润物",
+      "rules": [
+        "medicine",
+        "purity"
+      ],
+      "nonnumericKey": "medicine|purity",
+      "effects": [
+        "药香轮流照顾最虚弱的友塔；溢出的修复会凝成短暂护盾",
+        "清气在友塔间流转，持续清除腐蚀、冰滞和封禁"
+      ]
+    },
+    {
+      "word": "野径云俱黑",
+      "title": "春夜喜雨",
+      "meaning": "田野的小路与云层，都显得漆黑。",
+      "name": "云黑野径",
+      "rules": [
+        "cloud",
+        "trail"
+      ],
+      "nonnumericKey": "cloud|trail",
+      "effects": [
+        "云影沿路线漂移，遮住经过的敌人视线，延缓其首次攻塔",
+        "敌人走过的路留下短暂墨迹，后来经过的敌人会踩中墨痕"
+      ]
+    },
+    {
+      "word": "江船火独明",
+      "title": "春夜喜雨",
+      "meaning": "江上的船，只有一盏灯火明亮。",
+      "name": "江舟独火",
+      "rules": [
+        "ferry",
+        "lantern"
+      ],
+      "nonnumericKey": "ferry|lantern",
+      "effects": [
+        "小舟为附近友塔摆渡攻击，周期性将一道友塔火力送向远处敌人",
+        "灯火照亮附近来敌，发现敌人准备攻塔时打断其蓄力"
+      ]
+    },
+    {
+      "word": "晓看红湿处",
+      "title": "春夜喜雨",
+      "meaning": "天亮后，看见湿润鲜红的花朵。",
+      "name": "晓露花湿",
+      "rules": [
+        "dew",
+        "petals"
+      ],
+      "nonnumericKey": "dew|petals",
+      "effects": [
+        "清露凝在友塔上，第一次受击时化为修复，并向附近敌人溅开",
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击"
+      ]
+    },
+    {
+      "word": "花重锦官城",
+      "title": "春夜喜雨",
+      "meaning": "锦官城的花朵，沾满雨水而沉甸甸的。",
+      "name": "锦城花重",
+      "rules": [
+        "petals",
+        "bastion"
+      ],
+      "nonnumericKey": "bastion|petals",
+      "effects": [
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击",
+        "耐久危急时化为孤城，暂时减伤并吸引附近来敌的攻击"
+      ]
+    },
+    {
+      "word": "剑外忽传收蓟北",
+      "title": "闻官军收河南河北",
+      "meaning": "忽然听到，蓟北已经收复的消息。",
+      "name": "捷报北来",
+      "rules": [
+        "beacon",
+        "compass"
+      ],
+      "nonnumericKey": "beacon|compass",
+      "effects": [
+        "标记最接近山门的来敌，沿各入口燃起烽火接力拦截",
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人"
+      ]
+    },
+    {
+      "word": "初闻涕泪满衣裳",
+      "title": "闻官军收河南河北",
+      "meaning": "刚一听见，激动的眼泪就沾满了衣裳。",
+      "name": "闻捷泪衣",
+      "rules": [
+        "dew",
+        "rally"
+      ],
+      "nonnumericKey": "dew|rally",
+      "effects": [
+        "清露凝在友塔上，第一次受击时化为修复，并向附近敌人溅开",
+        "附近友塔受伤后得到短暂鼓舞；再次受伤不会重复叠加"
+      ]
+    },
+    {
+      "word": "却看妻子愁何在",
+      "title": "闻官军收河南河北",
+      "meaning": "回头看看妻儿，他们的愁容也消失了。",
+      "name": "阖家释愁",
+      "rules": [
+        "purity",
+        "fellowship"
+      ],
+      "nonnumericKey": "fellowship|purity",
+      "effects": [
+        "清气在友塔间流转，持续清除腐蚀、冰滞和封禁",
+        "连接两座受伤词塔，为两者分担部分受击并储存一道反击"
+      ]
+    },
+    {
+      "word": "漫卷诗书喜欲狂",
+      "title": "闻官军收河南河北",
+      "meaning": "随手卷起诗书，高兴得难以自制。",
+      "name": "卷书喜狂",
+      "rules": [
+        "book",
+        "rally"
+      ],
+      "nonnumericKey": "book|rally",
+      "effects": [
+        "观察不同敌人的行动，认出三种敌人后标明同类弱点",
+        "附近友塔受伤后得到短暂鼓舞；再次受伤不会重复叠加"
+      ]
+    },
+    {
+      "word": "白日放歌须纵酒",
+      "title": "闻官军收河南河北",
+      "meaning": "白日里放声高歌，尽情庆祝这份喜悦。",
+      "name": "白日纵歌",
+      "rules": [
+        "song",
+        "wine",
+        "sun"
+      ],
+      "nonnumericKey": "song|sun|wine",
+      "effects": [
+        "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
+        "给友塔一杯短暂振奋；连续攻击后稍歇，再送出一记蓄势打击",
+        "日轮照射前方，周期性消磨护盾；护盾消失时爆发一次日光"
+      ]
+    },
+    {
+      "word": "青春作伴好还乡",
+      "title": "闻官军收河南河北",
+      "meaning": "有美好的春光相伴，正好一同还乡。",
+      "name": "青春伴归",
+      "rules": [
+        "fellowship",
+        "return_home"
+      ],
+      "nonnumericKey": "fellowship|return_home",
+      "effects": [
+        "连接两座受伤词塔，为两者分担部分受击并储存一道反击",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "即从巴峡穿巫峡",
+      "title": "闻官军收河南河北",
+      "meaning": "立刻从巴峡，穿过巫峡。",
+      "name": "穿峡前行",
+      "rules": [
+        "turning",
+        "horizon_gate"
+      ],
+      "nonnumericKey": "horizon_gate|turning",
+      "effects": [
+        "监视道路转折，敌人在转角现身时受到一记折返攻击",
+        "在道路两侧张开双门；从不同入口来的敌人在门前分别被截击"
+      ]
+    },
+    {
+      "word": "便下襄阳向洛阳",
+      "title": "闻官军收河南河北",
+      "meaning": "顺流去往襄阳，再奔向故乡洛阳。",
+      "name": "顺流还乡",
+      "rules": [
+        "river",
+        "return_home",
+        "compass"
+      ],
+      "nonnumericKey": "compass|return_home|river",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾",
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人"
+      ]
+    },
+    {
+      "word": "天街小雨润如酥",
+      "title": "早春呈水部张十八员外",
+      "meaning": "京城街头的春雨，滋润得像酥酪一样细柔。",
+      "name": "天街酥雨",
+      "rules": [
+        "dew",
+        "medicine"
+      ],
+      "nonnumericKey": "dew|medicine",
+      "effects": [
+        "清露凝在友塔上，第一次受击时化为修复，并向附近敌人溅开",
+        "药香轮流照顾最虚弱的友塔；溢出的修复会凝成短暂护盾"
+      ]
+    },
+    {
+      "word": "草色遥看近却无",
+      "title": "早春呈水部张十八员外",
+      "meaning": "远看草色青绿，走近却又若有若无。",
+      "name": "远草隐现",
+      "rules": [
+        "horizon",
+        "shroud"
+      ],
+      "nonnumericKey": "horizon|shroud",
+      "effects": [
+        "锁定最远的来敌，期间普攻能越过原射程追踪这一名目标",
+        "隐去受伤友塔的踪迹；来敌转攻他塔时，原塔送出伏击"
+      ]
+    },
+    {
+      "word": "最是一年春好处",
+      "title": "早春呈水部张十八员外",
+      "meaning": "这正是一年当中，最美好的春光。",
+      "name": "春时正好",
+      "rules": [
+        "seasons",
+        "sprout",
+        "sun"
+      ],
+      "nonnumericKey": "seasons|sprout|sun",
+      "effects": [
+        "按春夏秋冬轮换：萌发、日照、落叶、霜圈，每次施法进入下一季",
+        "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人",
+        "日轮照射前方，周期性消磨护盾；护盾消失时爆发一次日光"
+      ]
+    },
+    {
+      "word": "绝胜烟柳满皇都",
+      "title": "早春呈水部张十八员外",
+      "meaning": "远胜过，全城杨柳浓密如烟的时候。",
+      "name": "皇都烟柳",
+      "rules": [
+        "willow",
+        "mist",
+        "gate"
+      ],
+      "nonnumericKey": "gate|mist|willow",
+      "effects": [
+        "柳丝来回摆扫；进入扫线的敌人受到伤害和短暂减速",
+        "云雾掩护附近词塔，敌人优先转攻其他可攻击的塔；雾中蓄力的敌人会短暂减速",
+        "设下一道关隘；越过关口的前排敌人会受到守关重击"
+      ]
+    },
+    {
+      "word": "江上往来人",
+      "title": "江上渔者",
+      "meaning": "江边来来往往的许多人。",
+      "name": "江上往来",
+      "rules": [
+        "river",
+        "companions"
+      ],
+      "nonnumericKey": "companions|river",
+      "effects": [
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "找出混编敌群；相邻的敌人种类越不同，越容易触发破阵冲击"
+      ]
+    },
+    {
+      "word": "但爱鲈鱼美",
+      "title": "江上渔者",
+      "meaning": "只是喜爱，鲈鱼的鲜美滋味。",
+      "name": "鲈美知劳",
+      "rules": [
+        "harvest",
+        "fellowship"
+      ],
+      "nonnumericKey": "fellowship|harvest",
+      "effects": [
+        "留下收获印记，只有真实掉落墨点的敌人倒下时才可额外采收",
+        "连接两座受伤词塔，为两者分担部分受击并储存一道反击"
+      ]
+    },
+    {
+      "word": "君看一叶舟",
+      "title": "江上渔者",
+      "meaning": "请看看，江上那一叶小船。",
+      "name": "一叶浮舟",
+      "rules": [
+        "ferry",
+        "solitude"
+      ],
+      "nonnumericKey": "ferry|solitude",
+      "effects": [
+        "小舟为附近友塔摆渡攻击，周期性将一道友塔火力送向远处敌人",
+        "追踪落单的敌人；它与同伴距离足够远时承受额外独守打击"
+      ]
+    },
+    {
+      "word": "出没风波里",
+      "title": "江上渔者",
+      "meaning": "渔人的小船，在风波里时隐时现。",
+      "name": "风波浮沉",
+      "rules": [
+        "ferry",
+        "eddy"
+      ],
+      "nonnumericKey": "eddy|ferry",
+      "effects": [
+        "小舟为附近友塔摆渡攻击，周期性将一道友塔火力送向远处敌人",
+        "在目标处留下旋涡；进入后走得过远会被拉回一次"
+      ]
+    },
+    {
+      "word": "京口瓜洲一水间",
+      "title": "泊船瓜洲",
+      "meaning": "京口与瓜洲之间，只隔着一条江。",
+      "name": "京瓜一水",
+      "rules": [
+        "bridge",
+        "ferry"
+      ],
+      "nonnumericKey": "bridge|ferry",
+      "effects": [
+        "在路段立起渡桥，过桥敌人会引来最近友塔的一次援击",
+        "小舟为附近友塔摆渡攻击，周期性将一道友塔火力送向远处敌人"
+      ]
+    },
+    {
+      "word": "钟山只隔数重山",
+      "title": "泊船瓜洲",
+      "meaning": "钟山与这里，也只隔着几重山峦。",
+      "name": "重山相望",
+      "rules": [
+        "horizon",
+        "wall"
+      ],
+      "nonnumericKey": "horizon|wall",
+      "effects": [
+        "锁定最远的来敌，期间普攻能越过原射程追踪这一名目标",
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停"
+      ]
+    },
+    {
+      "word": "春风又绿江南岸",
+      "title": "泊船瓜洲",
+      "meaning": "春风又把，江南的岸边吹绿了。",
+      "name": "春岸再绿",
+      "rules": [
+        "sprout",
+        "grass",
+        "renewal"
+      ],
+      "nonnumericKey": "grass|renewal|sprout",
+      "effects": [
+        "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人",
+        "草地照料受伤友塔，只有耐久不足一半时才会持续修复",
+        "在废墟旁长出临时草木幻身协战；废墟仍需付费重建"
+      ]
+    },
+    {
+      "word": "明月何时照我还",
+      "title": "泊船瓜洲",
+      "meaning": "明月什么时候，才能照着我回到故乡？",
+      "name": "月照归途",
+      "rules": [
+        "moon",
+        "return_home"
+      ],
+      "nonnumericKey": "moon|return_home",
+      "effects": [
+        "月光绕塔扫过，照见潜行并标记被光束扫中的敌人",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "应怜屐齿印苍苔",
+      "title": "游园不值",
+      "meaning": "或许园主爱惜青苔，不愿让木屐留下脚印。",
+      "name": "苔上屐痕",
+      "rules": [
+        "footprints",
+        "grass",
+        "trail"
+      ],
+      "nonnumericKey": "footprints|grass|trail",
+      "effects": [
+        "跟随来敌的脚印逐次显形，脚印越过转角时追加追踪打击",
+        "草地照料受伤友塔，只有耐久不足一半时才会持续修复",
+        "敌人走过的路留下短暂墨迹，后来经过的敌人会踩中墨痕"
+      ]
+    },
+    {
+      "word": "小扣柴扉久不开",
+      "title": "游园不值",
+      "meaning": "轻轻敲着柴门，许久都没有人开门。",
+      "name": "轻扣柴门",
+      "rules": [
+        "gate",
+        "silence_watch"
+      ],
+      "nonnumericKey": "gate|silence_watch",
+      "effects": [
+        "设下一道关隘；越过关口的前排敌人会受到守关重击",
+        "静听敌人的行动，只在敌人开始蓄力时施加缄默"
+      ]
+    },
+    {
+      "word": "春色满园关不住",
+      "title": "游园不值",
+      "meaning": "满园的春光，终究无法被围墙关住。",
+      "name": "满园春溢",
+      "rules": [
+        "sprout",
+        "gate",
+        "river"
+      ],
+      "nonnumericKey": "gate|river|sprout",
+      "effects": [
+        "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人",
+        "设下一道关隘；越过关口的前排敌人会受到守关重击",
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击"
+      ]
+    },
+    {
+      "word": "一枝红杏出墙来",
+      "title": "游园不值",
+      "meaning": "一枝红杏，已经伸出了围墙。",
+      "name": "红杏越墙",
+      "rules": [
+        "petals",
+        "wall",
+        "horizon"
+      ],
+      "nonnumericKey": "horizon|petals|wall",
+      "effects": [
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击",
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停",
+        "锁定最远的来敌，期间普攻能越过原射程追踪这一名目标"
+      ]
+    },
+    {
+      "word": "水是眼波横",
+      "title": "卜算子·送鲍浩然之浙东",
+      "meaning": "水流像，横着的明亮眼波。",
+      "name": "眼波横澜",
+      "rules": [
+        "deep_pool",
+        "afterglow",
+        "mirror"
+      ],
+      "nonnumericKey": "afterglow|deep_pool|mirror",
+      "effects": [
+        "留下深潭；地面敌人停留越久下沉越深，每停留 0.7 秒加深一层，最多减速 45%；离开水域后恢复",
+        "余光从目标处折返，照到背后的来敌时追加一次回照",
+        "明镜保护附近词塔，将下一次来袭的一部分伤害反射给攻击者"
+      ]
+    },
+    {
+      "word": "山是眉峰聚",
+      "title": "卜算子·送鲍浩然之浙东",
+      "meaning": "山峦像，聚起的眉峰。",
+      "name": "眉峰聚岭",
+      "rules": [
+        "wall",
+        "reunion"
+      ],
+      "nonnumericKey": "reunion|wall",
+      "effects": [
+        "沿来路筑起一道矮壁，最先撞上的地面敌人会被短暂拦停",
+        "连接分散的两名敌人，等它们靠近时引发相逢冲击"
+      ]
+    },
+    {
+      "word": "欲问行人去那边",
+      "title": "卜算子·送鲍浩然之浙东",
+      "meaning": "想问远行的人，将要去哪里？",
+      "name": "问人归路",
+      "rules": [
+        "compass",
+        "footprints"
+      ],
+      "nonnumericKey": "compass|footprints",
+      "effects": [
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人",
+        "跟随来敌的脚印逐次显形，脚印越过转角时追加追踪打击"
+      ]
+    },
+    {
+      "word": "眉眼盈盈处",
+      "title": "卜算子·送鲍浩然之浙东",
+      "meaning": "是去山水秀美、眉眼含笑的地方。",
+      "name": "眉眼含情",
+      "rules": [
+        "mirror",
+        "fellowship"
+      ],
+      "nonnumericKey": "fellowship|mirror",
+      "effects": [
+        "明镜保护附近词塔，将下一次来袭的一部分伤害反射给攻击者",
+        "连接两座受伤词塔，为两者分担部分受击并储存一道反击"
+      ]
+    },
+    {
+      "word": "才始送春归",
+      "title": "卜算子·送鲍浩然之浙东",
+      "meaning": "才刚送走了春天。",
+      "name": "送春暂别",
+      "rules": [
+        "seasons",
+        "farewell"
+      ],
+      "nonnumericKey": "farewell|seasons",
+      "effects": [
+        "按春夏秋冬轮换：萌发、日照、落叶、霜圈，每次施法进入下一季",
+        "为离开射程的敌人留下一道送别攻击，追至原射程之外"
+      ]
+    },
+    {
+      "word": "又送君归去",
+      "title": "卜算子·送鲍浩然之浙东",
+      "meaning": "又要送你，离开这里。",
+      "name": "送君归程",
+      "rules": [
+        "farewell",
+        "return_home"
+      ],
+      "nonnumericKey": "farewell|return_home",
+      "effects": [
+        "为离开射程的敌人留下一道送别攻击，追至原射程之外",
+        "守护最虚弱的友塔；它被攻击时，最近同伴会送来援击和护盾"
+      ]
+    },
+    {
+      "word": "若到江南赶上春",
+      "title": "卜算子·送鲍浩然之浙东",
+      "meaning": "如果到江南时，还能赶上春天。",
+      "name": "江南逢春",
+      "rules": [
+        "compass",
+        "spring_back"
+      ],
+      "nonnumericKey": "compass|spring_back",
+      "effects": [
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人",
+        "记住一处落点，等来敌移走后再次开花，拦截后续敌人"
+      ]
+    },
+    {
+      "word": "千万和春住",
+      "title": "卜算子·送鲍浩然之浙东",
+      "meaning": "请一定把春光，长久地留在身旁。",
+      "name": "留春同住",
+      "rules": [
+        "oath",
+        "sprout"
+      ],
+      "nonnumericKey": "oath|sprout",
+      "effects": [
+        "与一个目标立下挑战；目标仍在场时专注追击，倒下后护佑附近友塔",
+        "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人"
+      ]
+    },
+    {
+      "word": "山下兰芽短浸溪",
+      "title": "浣溪沙·游蕲水清泉寺",
+      "meaning": "山下的兰草嫩芽，短短地伸入溪水。",
+      "name": "兰芽浸溪",
+      "rules": [
+        "sprout",
+        "river",
+        "medicine"
+      ],
+      "nonnumericKey": "medicine|river|sprout",
+      "effects": [
+        "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人",
+        "水波沿敌人路线向前推进，每名经过波头的敌人受到一次冲击",
+        "药香轮流照顾最虚弱的友塔；溢出的修复会凝成短暂护盾"
+      ]
+    },
+    {
+      "word": "松间沙路净无泥",
+      "title": "浣溪沙·游蕲水清泉寺",
+      "meaning": "松林间的沙路，洁净得没有泥土。",
+      "name": "松沙净径",
+      "rules": [
+        "sand",
+        "purity"
+      ],
+      "nonnumericKey": "purity|sand",
+      "effects": [
+        "让地面来敌裹上流沙；它移动时抖落沙粒，后方敌人踩中沙粒受阻",
+        "清气在友塔间流转，持续清除腐蚀、冰滞和封禁"
+      ]
+    },
+    {
+      "word": "萧萧暮雨子规啼",
+      "title": "浣溪沙·游蕲水清泉寺",
+      "meaning": "傍晚细雨沙沙，杜鹃在远处啼叫。",
+      "name": "暮雨啼归",
+      "rules": [
+        "clock",
+        "song",
+        "dew"
+      ],
+      "nonnumericKey": "clock|dew|song",
+      "effects": [
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔",
+        "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
+        "清露凝在友塔上，第一次受击时化为修复，并向附近敌人溅开"
+      ]
+    },
+    {
+      "word": "谁道人生无再少",
+      "title": "浣溪沙·游蕲水清泉寺",
+      "meaning": "谁说人生，再也不能回到青春的状态？",
+      "name": "再少新生",
+      "rules": [
+        "renewal",
+        "clock"
+      ],
+      "nonnumericKey": "clock|renewal",
+      "effects": [
+        "在废墟旁长出临时草木幻身协战；废墟仍需付费重建",
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔"
+      ]
+    },
+    {
+      "word": "门前流水尚能西",
+      "title": "浣溪沙·游蕲水清泉寺",
+      "meaning": "门前的流水，仍然可以向西流去。",
+      "name": "门前西水",
+      "rules": [
+        "undertow",
+        "gate"
+      ],
+      "nonnumericKey": "gate|undertow",
+      "effects": [
+        "逆流沿路线回卷，把撞上波头的敌人向来路拉回",
+        "设下一道关隘；越过关口的前排敌人会受到守关重击"
+      ]
+    },
+    {
+      "word": "休将白发唱黄鸡",
+      "title": "浣溪沙·游蕲水清泉寺",
+      "meaning": "不要因为白发，就只顾着感叹时光流逝。",
+      "name": "白发惜晨",
+      "rules": [
+        "song",
+        "clock",
+        "resolve"
+      ],
+      "nonnumericKey": "clock|resolve|song",
+      "effects": [
+        "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔",
+        "词塔耐久低于一半时，记住下一次受到的伤害并还击攻击者"
+      ]
+    },
+    {
+      "word": "寂寞无行路",
+      "title": "清平乐·春归何处",
+      "meaning": "春天离去之后，路上寂寞而冷清。",
+      "name": "寂径寻踪",
+      "rules": [
+        "solitude",
+        "footprints"
+      ],
+      "nonnumericKey": "footprints|solitude",
+      "effects": [
+        "追踪落单的敌人；它与同伴距离足够远时承受额外独守打击",
+        "跟随来敌的脚印逐次显形，脚印越过转角时追加追踪打击"
+      ]
+    },
+    {
+      "word": "若有人知春去处",
+      "title": "清平乐·春归何处",
+      "meaning": "如果有人，知道春天去了何处。",
+      "name": "问人寻春",
+      "rules": [
+        "book",
+        "spring_back"
+      ],
+      "nonnumericKey": "book|spring_back",
+      "effects": [
+        "观察不同敌人的行动，认出三种敌人后标明同类弱点",
+        "记住一处落点，等来敌移走后再次开花，拦截后续敌人"
+      ]
+    },
+    {
+      "word": "唤取归来同住",
+      "title": "清平乐·春归何处",
+      "meaning": "请把春天叫回来，和我们一起生活。",
+      "name": "唤春同归",
+      "rules": [
+        "call",
+        "sprout"
+      ],
+      "nonnumericKey": "call|sprout",
+      "effects": [
+        "向最远的友塔发出呼唤，友塔回赠一道援击并得到少量修复",
+        "嫩芽先安静生长，成熟后伏击第一名闯入的地面敌人"
+      ]
+    },
+    {
+      "word": "春无踪迹谁知",
+      "title": "清平乐·春归何处",
+      "meaning": "春天没有留下痕迹，又有谁知道它去了哪里？",
+      "name": "春迹难寻",
+      "rules": [
+        "footprints",
+        "mist"
+      ],
+      "nonnumericKey": "footprints|mist",
+      "effects": [
+        "跟随来敌的脚印逐次显形，脚印越过转角时追加追踪打击",
+        "云雾掩护附近词塔，敌人优先转攻其他可攻击的塔；雾中蓄力的敌人会短暂减速"
+      ]
+    },
+    {
+      "word": "除非问取黄鹂",
+      "title": "清平乐·春归何处",
+      "meaning": "除非去，询问那只黄鹂。",
+      "name": "问鹂知春",
+      "rules": [
+        "song",
+        "book"
+      ],
+      "nonnumericKey": "book|song",
+      "effects": [
+        "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
+        "观察不同敌人的行动，认出三种敌人后标明同类弱点"
+      ]
+    },
+    {
+      "word": "百啭无人能解",
+      "title": "清平乐·春归何处",
+      "meaning": "黄鹂叫得婉转动听，却没人能听懂。",
+      "name": "百啭待知",
+      "rules": [
+        "echo",
+        "book"
+      ],
+      "nonnumericKey": "book|echo",
+      "effects": [
+        "记下目标接下来受到的真实伤害，片刻后将一部分伤害化为回响",
+        "观察不同敌人的行动，认出三种敌人后标明同类弱点"
+      ]
+    },
+    {
+      "word": "因风飞过蔷薇",
+      "title": "清平乐·春归何处",
+      "meaning": "黄鹂随着风，飞过了蔷薇花丛。",
+      "name": "风过蔷薇",
+      "rules": [
+        "swallow",
+        "petals"
+      ],
+      "nonnumericKey": "petals|swallow",
+      "effects": [
+        "飞燕沿塔与目标之间往返，去程与回程分别掠击经过的敌人",
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击"
+      ]
+    },
+    {
+      "word": "常记溪亭日暮",
+      "title": "如梦令·常记溪亭日暮",
+      "meaning": "常常想起，溪边亭子日暮时的景色。",
+      "name": "溪亭暮忆",
+      "rules": [
+        "memory",
+        "deep_pool"
+      ],
+      "nonnumericKey": "deep_pool|memory",
+      "effects": [
+        "记住场内倒下的敌人种类，再遇同类时提前揭示弱点",
+        "留下深潭；地面敌人停留越久下沉越深，每停留 0.7 秒加深一层，最多减速 45%；离开水域后恢复"
+      ]
+    },
+    {
+      "word": "沉醉不知归路",
+      "title": "如梦令·常记溪亭日暮",
+      "meaning": "沉浸在欢乐里，连归路都忘记了。",
+      "name": "醉里寻归",
+      "rules": [
+        "wine",
+        "compass",
+        "mist"
+      ],
+      "nonnumericKey": "compass|mist|wine",
+      "effects": [
+        "给友塔一杯短暂振奋；连续攻击后稍歇，再送出一记蓄势打击",
+        "按东西南北依次寻找来敌，攻击方向轮换，照见不同入口的敌人",
+        "云雾掩护附近词塔，敌人优先转攻其他可攻击的塔；雾中蓄力的敌人会短暂减速"
+      ]
+    },
+    {
+      "word": "兴尽晚回舟",
+      "title": "如梦令·常记溪亭日暮",
+      "meaning": "游兴尽了，到傍晚才划船回去。",
+      "name": "晚兴归舟",
+      "rules": [
+        "clock",
+        "ferry"
+      ],
+      "nonnumericKey": "clock|ferry",
+      "effects": [
+        "晨光与夜色交替，白天追击前方敌人，入夜保护受伤词塔",
+        "小舟为附近友塔摆渡攻击，周期性将一道友塔火力送向远处敌人"
+      ]
+    },
+    {
+      "word": "误入藕花深处",
+      "title": "如梦令·常记溪亭日暮",
+      "meaning": "却不小心，划进茂密的荷花深处。",
+      "name": "藕花迷舟",
+      "rules": [
+        "lotus",
+        "mist"
+      ],
+      "nonnumericKey": "lotus|mist",
+      "effects": [
+        "莲叶护盾游向受伤友塔；护盾破碎或消失后转向另一座受伤词塔",
+        "云雾掩护附近词塔，敌人优先转攻其他可攻击的塔；雾中蓄力的敌人会短暂减速"
+      ]
+    },
+    {
+      "word": "惊起一滩鸥鹭",
+      "title": "如梦令·常记溪亭日暮",
+      "meaning": "一番划动，惊起了水边一群鸥鸟。",
+      "name": "鸥鹭惊飞",
+      "rules": [
+        "grounding",
+        "geese"
+      ],
+      "nonnumericKey": "geese|grounding",
+      "effects": [
+        "将范围内的飞行敌人短暂压落，地面攻击也能命中；Boss 落地时间较短",
+        "雁阵从两翼合围，轮流截击前方、左翼与右翼的敌人"
+      ]
+    },
+    {
+      "word": "桃红复含宿雨",
+      "title": "田园乐·其六",
+      "meaning": "红红的桃花，还含着昨夜留下的雨水。",
+      "name": "宿雨桃红",
+      "rules": [
+        "dew",
+        "petals",
+        "spring_back"
+      ],
+      "nonnumericKey": "dew|petals|spring_back",
+      "effects": [
+        "清露凝在友塔上，第一次受击时化为修复，并向附近敌人溅开",
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击",
+        "记住一处落点，等来敌移走后再次开花，拦截后续敌人"
+      ]
+    },
+    {
+      "word": "柳绿更带朝烟",
+      "title": "田园乐·其六",
+      "meaning": "碧绿的柳枝，还带着清晨薄薄的烟雾。",
+      "name": "朝烟绿柳",
+      "rules": [
+        "willow",
+        "cloud"
+      ],
+      "nonnumericKey": "cloud|willow",
+      "effects": [
+        "柳丝来回摆扫；进入扫线的敌人受到伤害和短暂减速",
+        "云影沿路线漂移，遮住经过的敌人视线，延缓其首次攻塔"
+      ]
+    },
+    {
+      "word": "花落家童未扫",
+      "title": "田园乐·其六",
+      "meaning": "花瓣落在地上，家童还没来打扫。",
+      "name": "未扫落花",
+      "rules": [
+        "petals",
+        "trail"
+      ],
+      "nonnumericKey": "petals|trail",
+      "effects": [
+        "花瓣逐圈向外绽开；同一敌人被不同花圈碰到时逐次受击",
+        "敌人走过的路留下短暂墨迹，后来经过的敌人会踩中墨痕"
+      ]
+    },
+    {
+      "word": "莺啼山客犹眠",
+      "title": "田园乐·其六",
+      "meaning": "黄莺啼叫，山中的客人还在安静酣眠。",
+      "name": "莺啼客眠",
+      "rules": [
+        "song",
+        "lullaby"
+      ],
+      "nonnumericKey": "lullaby|song",
+      "effects": [
+        "附近不同属性的词塔轮流应和，每一种属性加入时带来一道音击",
+        "让尚未受击的来敌暂歇；被攻击时醒来并承受苏醒冲击"
+      ]
+    }
+  ]
+}

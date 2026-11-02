@@ -14,12 +14,12 @@ test('missed familiar idioms use their whole meaning and original phrases are no
  assert.equal(wordCategory('木牛流马'),'phrase');assert.equal(wordCategory('科学技术'),'phrase');assert.equal(getWord('清澈见底').type,'pulse');assert.match(wordLearning('莘莘学子').meaning,/众多/);
 });
 test('true v8 saved games retain their investment, hand, wallet, injury and received shield proportions after reclassification',()=>{
- for(const f of fixture('basic-four-v8.json')){const g=Game.restore(f.data),t=g.towers[0],max=towerDefense(t).maxHp;near(t.hp/max,.37);near(t.lessonShield/max,.1);assert.equal(t.level,f.level);assert.equal(t.spent,f.data.towers[0].spent);assert.equal(g.ink,f.data.ink);assert.deepEqual(g.hand,f.data.hand);assert.equal(g.export().version,10);const h=Game.restore(g.export());near(h.towers[0].hp,t.hp);}
+ for(const f of fixture('basic-four-v8.json')){const g=Game.restore(f.data),t=g.towers[0],max=towerDefense(t).maxHp;near(t.hp/max,.37);near(t.lessonShield/max,.1);assert.equal(t.level,f.level);assert.equal(t.spent,f.data.towers[0].spent);assert.equal(g.ink,f.data.ink);assert.deepEqual(g.hand,f.data.hand);assert.equal(g.export().version,11);const h=Game.restore(g.export());near(h.towers[0].hp,t.hp);}
 });
 test('every reclassified word migrates all three tower levels using its frozen v8 durability, including growth and defensive shapes',()=>{
  const source=fixture('basic-four-v8.json')[0].data;
  for(const old of fixture('basic-four-panels-v8.json'))for(const{level,maxHp}of old.maxima){const save=structuredClone(source);Object.assign(save.towers[0],{word:old.word,level,hp:maxHp*.37,lessonShield:maxHp*.1});const g=Game.restore(save),t=g.towers[0],max=towerDefense(t).maxHp;near(t.hp/max,.37);near(t.lessonShield/max,.1);assert.equal(g.ink,save.ink);assert.equal(t.spent,save.towers[0].spent);}
- const bad=structuredClone(source);bad.towers[0].lessonShield=100000;assert.throws(()=>Game.restore(bad));assert.throws(()=>Game.restore({...source,version:11}));
+ const bad=structuredClone(source);bad.towers[0].lessonShield=100000;assert.throws(()=>Game.restore(bad));assert.throws(()=>Game.restore({...source,version:12}));
 });
 test('all twelve earthly-branch zodiac pairs are playable learning words with correct cultural explanations and exact forging costs',()=>{
  for(const word of'子鼠 丑牛 寅虎 卯兔 辰龙 巳蛇 午马 未羊 申猴 酉鸡 戌狗 亥猪'.split(' ')){const w=getWord(word),g=new Game(0,42);g.ink=1000;stock(g,word);assert.equal(matchWord([...word]).word,word);assert.equal(w.type,'learning');assert.equal(w.special,'beast');assert.equal(w.idiomMove,undefined);assert.match(wordLearning(word).meaning,new RegExp(word[0]+'.*相配'));const before=g.ink;assert.ok(g.build(word,2));assert.equal(g.ink,before-w.cost);assert.equal(g.hand.filter(t=>t.used).length,2);assert.equal(Game.restore(g.export()).towers[0].word,word);}

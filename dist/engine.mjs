@@ -1,3 +1,4 @@
+import{updatePoetryScenes,recordPoetryHit,recordPoetryDeath,shelterPoetryHit,poetryThreat,clearPoetryScenes,clonePoetryScenes,validatePoetryScenes}from'./poetry-scenes.mjs';
 import {POETRY_WORDS,POEMS,POEM_LINES,POEM_INDEX,VERSE_INDEX,MAX_WORD_LENGTH,POETRY_DRAW_CHANCE,FIELD_INTERVALS,verseDescription,verseStatus,POETRY_CONTROL_NOTE} from './poetry-rules.mjs';
 import {attackPoetry} from './poetry-combat.mjs';
 export {POEMS,POEM_LINES,POEM_INDEX,VERSE_INDEX,MAX_WORD_LENGTH,POETRY_DRAW_CHANCE,verseStatus,POETRY_CONTROL_NOTE} from './poetry-rules.mjs';
@@ -378,7 +379,7 @@ export function drawHandWords(random){
  for(let i=0;i<remaining;i++){const pool=pick(POEM_LINES),chars=[...pool.word];plan.push(pick(chars));}
  return plan;
 }
-export function towerStats(t){const w=getTowerWord(t.word),up=t.level-w.tier;return {damage:Math.round(w.damage*(1+up*(.65+(hasRune(w,'growth')?.1:0)))),range:w.range+up*15,rate:w.rate/(1+up*.14),aura:w.aura,income:Math.round(w.income*(1+up*.5))};}
+export function towerStats(t){const w=getTowerWord(t.word),up=t.level-w.tier;return {damage:Math.round(w.damage*(1+up*(.65+(hasRune(w,'growth')?.1:0)))),range:w.range+up*15+(w.poem?Math.min(3,t.verseElevation||0)*18:0),rate:w.rate/(1+up*.14),aura:w.aura,income:Math.round(w.income*(1+up*.5))};}
 export const towerActive=t=>(t.hp??1)>0;
 export const TOWER_DEFENSES={
  poetry:{health:1.18,role:'卷轴守备：每轮结束恢复自身最大耐久的 30%；损毁后可花费墨点重建。'},
@@ -465,14 +466,14 @@ export function enemyWeapon(kind){
 export function matchWord(chars){if(chars.length<1||chars.length>MAX_WORD_LENGTH)return null;return getWord(chars.join(''))||null;}
 const LEGACY_CHAPTER_ROUNDS=[6,8,10,8,9,9,10,10,11,12];
 export const CHAPTERS=[
- {name:'青山初试',area:'青山道',rounds:8,hp:20,ink:200,difficulty:0,intro:'墨影初现，试以文字守住山门。'},
- {name:'竹海听风',area:'竹隐谷',rounds:10,hp:20,ink:250,difficulty:.4,intro:'竹径回环，留意飞羽与护送阵。'},
- {name:'长夜守卷',area:'藏书阁',rounds:12,hp:26,ink:320,difficulty:.8,intro:'墨潮席卷长夜，守住最后一卷光。'},
- {name:'双溪合流',area:'双溪渡',rounds:10,hp:26,ink:320,difficulty:.95,intro:'两路墨影轮番而来，在汇合处设阵。'},
- {name:'云关夹击',area:'云中关',rounds:11,hp:28,ink:350,difficulty:1.1,intro:'上下入口同时进军，兼顾两翼。'},
- {name:'回廊迷阵',area:'千折廊',rounds:12,hp:28,ink:350,difficulty:1.25,intro:'曲折回廊，借交叉火力拦截重阵。'},
- {name:'霜河两岸',area:'霜河岸',rounds:13,hp:30,ink:380,difficulty:1.4,intro:'两岸交替来敌，寒域与飞羽相随。'},
- {name:'镜城围攻',area:'镜中城',rounds:14,hp:30,ink:390,difficulty:1.55,intro:'东西分路绕行，南侧汇合；两翼布阵，门前补防。'},
+ {name:'青山初试',area:'青山道',rounds:8,hp:20,ink:400,difficulty:0,intro:'墨影初现，试以文字守住山门。'},
+ {name:'竹海听风',area:'竹隐谷',rounds:10,hp:20,ink:400,difficulty:.4,intro:'竹径回环，留意飞羽与护送阵。'},
+ {name:'长夜守卷',area:'藏书阁',rounds:12,hp:26,ink:400,difficulty:.8,intro:'墨潮席卷长夜，守住最后一卷光。'},
+ {name:'双溪合流',area:'双溪渡',rounds:10,hp:26,ink:400,difficulty:.95,intro:'两路墨影轮番而来，在汇合处设阵。'},
+ {name:'云关夹击',area:'云中关',rounds:11,hp:28,ink:400,difficulty:1.1,intro:'上下入口同时进军，兼顾两翼。'},
+ {name:'回廊迷阵',area:'千折廊',rounds:12,hp:28,ink:400,difficulty:1.25,intro:'曲折回廊，借交叉火力拦截重阵。'},
+ {name:'霜河两岸',area:'霜河岸',rounds:13,hp:30,ink:400,difficulty:1.4,intro:'两岸交替来敌，寒域与飞羽相随。'},
+ {name:'镜城围攻',area:'镜中城',rounds:14,hp:30,ink:400,difficulty:1.55,intro:'东西分路绕行，南侧汇合；两翼布阵，门前补防。'},
  {name:'三门烽火',area:'三门岭',rounds:15,hp:32,ink:410,difficulty:1.7,intro:'三路轮番试探，支援怪组合压境。'},
  {name:'万象归卷',area:'万象台',rounds:16,hp:34,ink:440,difficulty:1.85,intro:'三门同时开启，以完整词阵迎战墨君。'}
 ].map(ch=>({...ch,wavesPerRound:3,waves:ch.rounds*3}));
@@ -739,8 +740,9 @@ export const astralPhase=(e,time)=>e.astralMode!==undefined?e.astralMode:Math.fl
 const PHYSICAL_TYPES=new Set(['fast','heavy','sniper','pierce']);
 export const damageClass=w=>PHYSICAL_TYPES.has(w.type)?'兵器':'法术';
 export const AIR_LENGTH=MAPS[0].air[0].length;
-export const isAir=e=>e.kind==='flying'||ENEMIES[e.kind]?.air===true;
-const routeFor=e=>(getMap(e.map??0,e.mirrorLayout)[isAir(e)?'air':'ground'])[e.route??0];
+export const nativeAir=e=>e.kind==='flying'||ENEMIES[e.kind]?.air===true;
+export const isAir=e=>e.verseLifted===true||nativeAir(e)&&e.verseGrounded!==true;
+const routeFor=e=>(getMap(e.map??0,e.mirrorLayout)[nativeAir(e)?'air':'ground'])[e.route??0];
 export const enemyLength=e=>routeFor(e).length;
 export const enemyPosition=e=>along(e.d,routeFor(e));
 const FORMATIONS=[
@@ -774,6 +776,7 @@ export function enemyHealthScale(chapter,wave,kind){
  const growth=boss?1.95+round*.13:1+pressure*(.045+.005*ramp);
  return(1+(round-1)*.36+pressure*.065*ramp+part*.08+CHAPTERS[chapter].difficulty)*1.25*(1+Math.max(0,round-5)*.02)*opening*growth*(boss?BOSS_HEALTH_BOOST:1);
 }
+const POETRY_API={position:enemyPosition,length:enemyLength,isAir,nativeAir,enemy:ENEMIES,iceShell:hasIceShell,shellLimit,getWord:getTowerWord,towerStats,towerDefense,astralPhase,bossPower};
 export class Game {
  get campaignWaves(){return this.campaignRounds*3;}
  get pads(){return getMap(this.chapter,this.mirrorLayout).pads;}
@@ -793,16 +796,17 @@ export class Game {
   if(boost&&weapon.style==='stalker'&&!(enemy.lightUntil>this.time||enemy.markUntil>this.time))raw*=1.15;
   const armor=Math.max(0,defense.armor-(t.corrodedUntil>this.time?.1:0));
   let damage=Math.min(defense.maxHp*.22,raw*(1-weaken)*(1-Math.min(.5,armor+cover)));
+  if(boost)damage=shelterPoetryHit(this,t,enemy,damage);let absorbedPoetryShield=0;
   if(damage>0&&t.idiomGuardUntil>this.time){damage*=.65;t.idiomGuardUntil=0;if(w.idiomMove==='borrow'){t.idiomPower=Math.max(t.idiomPowerUntil>this.time?t.idiomPower||0:0,.45);t.idiomPowerUntil=this.time+3;}}
   const blocking=boost&&w.special==='counter'&&!(t.lessonDefenseReady>this.time);if(blocking){damage*=.8;t.lessonDefenseReady=this.time+4;}
   if(w.special==='decoy'&&!(t.lessonDefenseReady>this.time)){damage*=.65;t.lessonDefenseReady=this.time+6;this.lessonFx(t,t,'decoy');}
   if(w.special==='escape'&&(t.hp??defense.maxHp)/defense.maxHp<.35&&!(t.lessonDefenseReady>this.time)){damage*=.4;t.lessonDefenseReady=this.time+12;this.lessonFx(t,t,'escape');}
   if(t.verseGuardUntil>this.time)damage*=1-(t.verseGuardPower||0);
-  if(t.verseShieldUntil>this.time&&t.verseShield>0){const absorbed=Math.min(damage,t.verseShield);damage-=absorbed;t.verseShield-=absorbed;}
-  if(t.lessonShieldUntil>this.time&&t.lessonShield>0){const absorbed=Math.min(damage,t.lessonShield);damage-=absorbed;t.lessonShield-=absorbed;}
+  if(t.verseShieldUntil>this.time&&t.verseShield>0){const absorbed=Math.min(damage,t.verseShield);damage-=absorbed;t.verseShield-=absorbed;absorbedPoetryShield+=absorbed;}
+  if(t.lessonShieldUntil>this.time&&t.lessonShield>0){const absorbed=Math.min(damage,t.lessonShield);damage-=absorbed;t.lessonShield-=absorbed;absorbedPoetryShield+=absorbed;}
   if(damage>0&&w.special==='borrow'&&!(t.lessonDefenseReady>this.time)){t.lessonStored=true;t.lessonDefenseReady=this.time+4;this.lessonFx(t,t,'borrow');}
   if(blocking&&damage>0){let back=Math.min(damage*.4,towerStats(t).damage*(.1+learningRank(w)*.05)),shield=Math.min(enemy.shield||0,back);enemy.shield=Math.max(0,(enemy.shield||0)-shield);enemy.hp-=back-shield;this.lessonFx(t,t,'counter');}
-  t.hp=Math.max(0,(t.hp??defense.maxHp)-damage);t.hitUntil=this.time+.55;
+  t.hp=Math.max(0,(t.hp??defense.maxHp)-damage);t.hitUntil=this.time+.55;if(boost)recordPoetryHit(this,t,enemy,damage,absorbedPoetryShield);
   const hit=this.effects.find(f=>f.kind==='tower-hit'&&f.pad===t.pad&&f.max-f.life<.18);
   if(hit){hit.damage+=damage;if(ENEMIES[enemy.kind].boss){hit.boss=true;hit.color=weapon.color;}}else this.effects.push({kind:'tower-hit',pad:t.pad,to:{...p},damage,enemy:enemy.kind,visual:weapon.visual,boss:!!ENEMIES[enemy.kind].boss,life:.85,max:.85,color:weapon.color});
   this.emit('tower-hit',{pad:t.pad,word:t.word,damage,enemy:enemy.kind});
@@ -847,7 +851,7 @@ export class Game {
    cancel();e.bossReadyAt=this.time+p.interval*(e.enraged?.75:1);e.towerAttackAt=this.time+1;return true;
   }
   if(this.time<e.bossReadyAt)return false;
-  const options=this.activeTowers.filter(near).sort((a,b)=>Number(towerDefense(b).guard)-Number(towerDefense(a).guard)||Math.hypot(this.pads[a.pad].x-origin.x,this.pads[a.pad].y-origin.y)-Math.hypot(this.pads[b.pad].x-origin.x,this.pads[b.pad].y-origin.y)||a.id-b.id);
+  const options=this.activeTowers.filter(near).sort((a,b)=>poetryThreat(a,this.time)-poetryThreat(b,this.time)||Number(towerDefense(b).guard)-Number(towerDefense(a).guard)||Math.hypot(this.pads[a.pad].x-origin.x,this.pads[a.pad].y-origin.y)-Math.hypot(this.pads[b.pad].x-origin.x,this.pads[b.pad].y-origin.y)||a.id-b.id);
   if(!options.length){e.bossReadyAt=this.time+.5;return false;}
   e.bossTargets=options.slice(0,p.targets+(e.enraged?1:0)).map(t=>t.id);e.bossStrikeAt=this.time+p.windup;
   delete e.towerTarget;delete e.towerStrikeAt;delete e.towerLastTarget;return true;
@@ -876,12 +880,12 @@ export class Game {
    if(this.time<e.towerAttackAt)continue;
    const options=this.activeTowers.map(t=>({t,d:Math.hypot(this.pads[t.pad].x-p.x,this.pads[t.pad].y-p.y)})).filter(x=>x.d<=weapon.range);
    const rank=x=>towerDefense(x.t).guard&&x.d<=weapon.range*.82?0:weapon.style==='stalker'&&['aura','income'].includes(getTowerWord(x.t.word).type)?1:2;
-   const choice=options.sort((a,b)=>(assigned.get(a.t.id)||0)-(assigned.get(b.t.id)||0)||rank(a)-rank(b)||a.d-b.d||a.t.id-b.t.id)[0];
+   const choice=options.sort((a,b)=>poetryThreat(a.t,this.time)-poetryThreat(b.t,this.time)||(assigned.get(a.t.id)||0)-(assigned.get(b.t.id)||0)||rank(a)-rank(b)||a.d-b.d||a.t.id-b.t.id)[0];
    if(choice){e.towerTarget=choice.t.id;e.towerStrikeAt=this.time+weapon.windup+(getTowerWord(choice.t.word).type==='echo'?.18:0);assigned.set(choice.t.id,(assigned.get(choice.t.id)||0)+1);}
   }
  }
  escortKinds(boss){
-  const air=isAir(boss),round=Math.max(1,Math.ceil((boss.wave||1)/3));
+  const air=nativeAir(boss),round=Math.max(1,Math.ceil((boss.wave||1)/3));
   const themed=round>=4?MAP_MINION_POOLS[this.chapter].filter(kind=>isAir({kind})===air):[];
   return air?(themed.length?['flying','flying',...themed]:['flying']):['normal','normal',...(themed.length?themed:['swift'])];
  }
@@ -899,7 +903,7 @@ export class Game {
    t.hp=Math.min(max,before+max*(.3+extra+(getTowerWord(t.word).type==='basic'?.05:0)));recovered+=t.hp-before;
   }return recovered;
  }
- constructor(chapter=0,seed=(Math.random()*4294967296)>>>0){this.chapter=chapter;this.campaignRounds=CHAPTERS[chapter].rounds;this.wave=0;this.endless=false;this.unlockedPads=Array.from({length:FREE_PAD_COUNT},(_,i)=>i);this.hp=CHAPTERS[chapter].hp;this.ink=CHAPTERS[chapter].ink;this.towers=[];this.enemies=[];this.effects=[];this.zones=[];this.queue=[];this.time=0;this.spawnTime=0;this.autoWaveAt=0;this.pendingWaves=null;this.phase='prepare';this.kills=0;this.nextId=1;this.skillReady=0;this.skillUses=0;this.hintUses=0;this.killInkRemainder=0;this.totalEarned=0;this.bountyEarned=0;this.barrierSpent=0;this.soulHealed=0;this.reviveUsed=false;this.bossDraws=[];this.bossBreachedRound=0;this.events=[];this.rngState=(seed>>>0)||1;this.refreshes=0;this.handSerial=0;this.hand=[];if(chapter===7)this.mirrorLayout=2;for(let i=0;i<4;i++)this.random();this.drawHand();}
+ constructor(chapter=0,seed=(Math.random()*4294967296)>>>0){this.chapter=chapter;this.campaignRounds=CHAPTERS[chapter].rounds;this.wave=0;this.endless=false;this.unlockedPads=Array.from({length:FREE_PAD_COUNT},(_,i)=>i);this.hp=CHAPTERS[chapter].hp;this.ink=CHAPTERS[chapter].ink;this.towers=[];this.enemies=[];this.effects=[];this.zones=[];this.poetryScenes=[];this.poetryBonusEarned=0;this.queue=[];this.time=0;this.spawnTime=0;this.autoWaveAt=0;this.pendingWaves=null;this.phase='prepare';this.kills=0;this.nextId=1;this.skillReady=0;this.skillUses=0;this.hintUses=0;this.killInkRemainder=0;this.totalEarned=0;this.bountyEarned=0;this.barrierSpent=0;this.soulHealed=0;this.reviveUsed=false;this.bossDraws=[];this.bossBreachedRound=0;this.events=[];this.rngState=(seed>>>0)||1;this.refreshes=0;this.handSerial=0;this.hand=[];if(chapter===7)this.mirrorLayout=2;for(let i=0;i<4;i++)this.random();this.drawHand();}
  emit(type,data={}){this.events.push({type,...data});}
  random(){let x=this.rngState;x^=x<<13;x^=x>>>17;x^=x<<5;this.rngState=x>>>0;return this.rngState/4294967296;}
  drawHand(){
@@ -943,6 +947,7 @@ export class Game {
  spawn(kind,distance=0,route=0,wave=this.wave){const st=ENEMIES[kind],scale=enemyHealthScale(this.chapter,wave,kind),id=this.nextId++;const e={map:this.chapter,...(this.chapter===7?{mirrorLayout:this.mirrorLayout}:{}),route,wave,bornAt:this.time,id,kind,towerAttackAt:this.time+1.1+(id%8)*.08,hp:st.hp*scale,maxHp:st.hp*scale,speed:st.speed*(1+Math.min(this.chapter,4)*.05),reward:st.reward,harm:st.harm,d:Math.max(0,distance),slowUntil:0};if(kind==='shield'||st.shield){e.shield=(st.shield||55)*scale;e.maxShield=e.shield;}const behavior=st.behavior||kind;if(['healer','broodqueen','hillrunner','scrollguard','tideshaper','cloudraptor','rallyboss'].includes(behavior))e.abilityAt=this.time+({healer:4,broodqueen:8,hillrunner:st.boss?8:6,scrollguard:st.boss?9:8,tideshaper:st.boss?8:6,cloudraptor:st.boss?8:7,rallyboss:8}[behavior]);if(st.boss&&e.abilityAt!==undefined)e.abilityAt=Math.min(e.abilityAt,this.time+4);const pulse=enemyPulse(e);if(pulse)e.pulseAt=this.time+(st.boss?Math.min(3,pulse.interval):pulse.interval);if(st.initialPhase!==undefined)e.astralMode=st.initialPhase;if(st.boss){e.bossReadyAt=this.time+4;e.escortReadyAt=this.time+8;this.effects.push({kind:'boss-arrival',to:enemyPosition(e),color:enemyWeapon(kind).color,life:2,max:2});this.emit('boss-arrive',{enemy:kind,name:st.name});}this.enemies.push(e);return e;}
  skillCost(){return SKILL_BASE_COST+this.skillUses*SKILL_COST_STEP;}
  skill(){const cost=this.skillCost();if(this.phase!=='battle'||this.time<this.skillReady||this.ink<cost)return false;this.ink-=cost;this.skillUses++;this.skillReady=this.time+SKILL_COOLDOWN;for(const e of this.enemies){e.hp-=100;if(!(hasIceShell(e)))e.slowUntil=this.time+3;}this.effects.push({kind:'rain',life:1,max:1});this.emit('skill',{cost,nextCost:this.skillCost()});return true;}
+ updatePoetryScenes(dt){updatePoetryScenes(this,dt,POETRY_API);}
  step(dt){dt=Math.max(0,Math.min(dt,.1));for(const fx of this.effects)fx.life-=dt;this.effects=this.effects.filter(f=>f.life>0);if(this.phase==='intermission'){this.phase='battle';this.pendingWaves=[];}
  if(this.phase!=='battle')return;
  this.pendingWaves??=this.wave>0?[this.wave]:[];
@@ -953,12 +958,13 @@ export class Game {
  // Older saves and handcrafted states may still contain an unscheduled spawn queue.
  if(this.queue.length&&this.queue[0].at===undefined&&this.spawnTime<=0){const batch=getMap(this.chapter,this.mirrorLayout).mode==='simultaneous'?getMap(this.chapter,this.mirrorLayout).routes.length:1;for(const next of this.queue.splice(0,batch))this.spawnEntry(next);this.spawnTime=Math.max(.4,1.03-Math.ceil(this.wave/3)*.035)*batch;}
 
+ this.updatePoetryScenes(dt);
  this.updateZones();
  this.updateEnemies(dt);
  this.updateTowerAttacks();
  for(const t of this.activeTowers)this.attack(t,dt);
  const leaders=new Set(this.enemies.filter(e=>ENEMIES[e.kind].boss&&e.hp>0&&e.d<enemyLength(e)).map(e=>e.id));this.enemies=this.enemies.filter(e=>!e.escortSummoned||leaders.has(e.escortBossId));
- for(const e of this.enemies){if(e.hp<=0){const cap=Math.max(this.activeTowers.some(t=>hasRune(getTowerWord(t.word),'luck')||getTowerWord(t.word).special==='fortune'||['bounty','seasons'].includes(getTowerWord(t.word).idiomMove))?10:0,...this.activeTowers.filter(t=>getTowerWord(t.word).type==='income').map(t=>getTowerWord(t.word).tier>=4?35:getTowerWord(t.word).tier>=3?25:15));const bounty=e.bountyUntil>this.time?Math.min(e.bounty||0,Math.max(0,cap-this.bountyEarned)):0;this.bountyEarned+=bounty;const earned=this.killInk(e)+bounty;this.ink+=earned;this.totalEarned+=earned;if(bounty)this.effects.push({kind:'coin',to:enemyPosition(e),amount:bounty,life:.8,max:.8});if(e.soulUntil>this.time&&this.soulHealed<1&&this.hp<CHAPTERS[this.chapter].hp){this.hp++;this.soulHealed++;}this.kills++;if(ENEMIES[e.kind].boss)this.emit('boss-defeated',{name:ENEMIES[e.kind].name,enemy:e.kind,to:{...enemyPosition(e)},portrait:{...e,shield:0,fallen:true,...(e.bossTargets?{bossTargets:[...e.bossTargets]}:{})}});this.effects.push({kind:'pop',to:enemyPosition(e),color:'#556b58',life:.45,max:.45});if(e.kind==='beaconrunner'){const p=enemyPosition(e);for(const ally of this.enemies)if(ally!==e&&ally.hp>0&&Math.hypot(enemyPosition(ally).x-p.x,enemyPosition(ally).y-p.y)<110)ally.rallyUntil=Math.max(ally.rallyUntil||0,this.time+3);this.effects.push({kind:'blast',to:p,color:'#bd7a43',life:.5,max:.5});}if(e.kind==='split'){this.spawn('small',e.d,e.route,e.wave);this.spawn('small',e.d-12,e.route,e.wave);}}else if(e.d>=enemyLength(e)){const harm=e.escortSummoned?0:Math.max(1,e.harm-(e.weakenUntil>this.time?1:0)),blocked=Math.min(harm,this.barrierRemaining());this.barrierSpent+=blocked;this.hp=Math.max(0,this.hp-harm+blocked);if(this.hp===0&&!this.reviveUsed&&this.activeTowers.some(t=>hasRune(getTowerWord(t.word),'revive'))){this.hp=1;this.reviveUsed=true;this.emit('revive');}if(ENEMIES[e.kind].boss&&harm>blocked)this.bossBreachedRound=Math.ceil((e.wave||this.wave)/3);this.emit('leak',{blocked,damage:harm-blocked,enemy:e.kind,boss:!!ENEMIES[e.kind].boss});}}
+ for(const e of this.enemies){if(e.hp<=0){const cap=Math.max(this.activeTowers.some(t=>hasRune(getTowerWord(t.word),'luck')||getTowerWord(t.word).special==='fortune'||['bounty','seasons'].includes(getTowerWord(t.word).idiomMove))?10:0,...this.activeTowers.filter(t=>getTowerWord(t.word).type==='income').map(t=>getTowerWord(t.word).tier>=4?35:getTowerWord(t.word).tier>=3?25:15));const bounty=e.bountyUntil>this.time?Math.min(e.bounty||0,Math.max(0,cap-this.bountyEarned)):0;this.bountyEarned+=bounty;const earned=this.killInk(e)+bounty;recordPoetryDeath(this,e,earned,enemyPosition);this.ink+=earned;this.totalEarned+=earned;if(bounty)this.effects.push({kind:'coin',to:enemyPosition(e),amount:bounty,life:.8,max:.8});if(e.soulUntil>this.time&&this.soulHealed<1&&this.hp<CHAPTERS[this.chapter].hp){this.hp++;this.soulHealed++;}this.kills++;if(ENEMIES[e.kind].boss)this.emit('boss-defeated',{name:ENEMIES[e.kind].name,enemy:e.kind,to:{...enemyPosition(e)},portrait:{...e,shield:0,fallen:true,...(e.bossTargets?{bossTargets:[...e.bossTargets]}:{})}});this.effects.push({kind:'pop',to:enemyPosition(e),color:'#556b58',life:.45,max:.45});if(e.kind==='beaconrunner'){const p=enemyPosition(e);for(const ally of this.enemies)if(ally!==e&&ally.hp>0&&Math.hypot(enemyPosition(ally).x-p.x,enemyPosition(ally).y-p.y)<110)ally.rallyUntil=Math.max(ally.rallyUntil||0,this.time+3);this.effects.push({kind:'blast',to:p,color:'#bd7a43',life:.5,max:.5});}if(e.kind==='split'){this.spawn('small',e.d,e.route,e.wave);this.spawn('small',e.d-12,e.route,e.wave);}}else if(e.d>=enemyLength(e)){const harm=e.escortSummoned?0:Math.max(1,e.harm-(e.weakenUntil>this.time?1:0)),blocked=Math.min(harm,this.barrierRemaining());this.barrierSpent+=blocked;this.hp=Math.max(0,this.hp-harm+blocked);if(this.hp===0&&!this.reviveUsed&&this.activeTowers.some(t=>hasRune(getTowerWord(t.word),'revive'))){this.hp=1;this.reviveUsed=true;this.emit('revive');}if(ENEMIES[e.kind].boss&&harm>blocked)this.bossBreachedRound=Math.ceil((e.wave||this.wave)/3);this.emit('leak',{blocked,damage:harm-blocked,enemy:e.kind,boss:!!ENEMIES[e.kind].boss});}}
  this.enemies=this.enemies.filter(e=>e.hp>0&&e.d<enemyLength(e));if(this.hp<=0){this.phase='lost';this.emit('lost');}else this.settleWaves();
  }
  settleWaves(){
@@ -970,7 +976,7 @@ export class Game {
   const round=this.wave/3,incomeCap=Math.max(80,...this.activeTowers.filter(t=>getTowerWord(t.word).type==='income').map(t=>getTowerWord(t.word).tier>=4?100:getTowerWord(t.word).tier>=3?90:80));
   const income=Math.min(incomeCap,this.activeTowers.filter(t=>getTowerWord(t.word).type==='income').reduce((sum,t)=>sum+towerStats(t).income,0));
   const extra=Math.min(10,this.activeTowers.filter(t=>hasRune(getTowerWord(t.word),'prosper')).reduce((v,t)=>v+getTowerWord(t.word).tier,0));const baseReward=roundInk(round,this.endless),reward=baseReward+income+extra;this.ink+=reward;this.refreshes=0;this.bountyEarned=0;this.barrierSpent=0;this.soulHealed=0;this.autoWaveAt=0;
-  const repaired=this.restoreTowers();this.zones=[];this.phase=!this.endless&&this.wave>=this.campaignWaves?'won':'prepare';this.emit(this.phase==='won'?'won':'clear',{wave:this.wave,reward,income,baseReward,extraIncome:extra,repaired,roundEnd:true});
+  const repaired=this.restoreTowers();this.zones=[];clearPoetryScenes(this);this.poetryBonusEarned=0;this.phase=!this.endless&&this.wave>=this.campaignWaves?'won':'prepare';this.emit(this.phase==='won'?'won':'clear',{wave:this.wave,reward,income,baseReward,extraIncome:extra,repaired,roundEnd:true});
  }
 
  addZone(t,kind,target,damage){
@@ -1054,7 +1060,7 @@ export class Game {
     this.spawn('small',e.d-12,e.route,e.wave);this.spawn('small',e.d-24,e.route,e.wave);e.summons=(e.summons||0)+1;e.abilityAt=this.time+(e.hp<e.maxHp*.5?5:8);
    }
    const guarded=this.activeTowers.some(t=>getTowerWord(t.word).trait==='ward'&&Math.hypot(this.pads[t.pad].x-enemyPosition(e).x,this.pads[t.pad].y-enemyPosition(e).y)<=towerStats(t).range*.65);
-   let movement=e.slowUntil>this.time?(e.slowFactor??.55):1;
+   let movement=(e.slowUntil>this.time?(e.slowFactor??.55):1)*(e.verseMove??1);
    if(guarded&&!(hasIceShell(e)))movement=Math.min(movement,.9);
    if(e.freezeUntil>this.time)movement=0;
    movement*=1+support.haste;
@@ -1198,7 +1204,7 @@ export class Game {
  }
  attack(t,dt){
   if(!towerActive(t)||t.disruptedUntil>this.time)return;
-  const poetry=getTowerWord(t.word);if(poetry.poem){attackPoetry(this,t,dt,{word:poetry,stats:towerStats(t),defense:towerDefense(t),position:enemyPosition,length:enemyLength,isAir,enemy:ENEMIES,iceShell:hasIceShell,shellLimit,getWord:getTowerWord,towerStats,towerDefense,astralPhase,bossPower});return;}
+  const poetry=getTowerWord(t.word);if(poetry.poem){attackPoetry(this,t,dt,{...POETRY_API,word:poetry,stats:towerStats(t),defense:towerDefense(t)});return;}
   const w=getTowerWord(t.word),p=this.pads[t.pad],stats=towerStats(t),rules=wordRules(w),trait=WORD_TRAITS[w.trait];
   t.cooldown-=dt;if(t.cooldown>0)return;
   const inRange=e=>Math.hypot(enemyPosition(e).x-p.x,enemyPosition(e).y-p.y)<=stats.range;
@@ -1333,10 +1339,10 @@ export class Game {
   if(w.idiomMove)this.idiomAttack(t,w,target,targets,hit,slow,damage,shotNumber,empowered);
   t.cooldown=stats.rate/(w.special==='rhythm'?1+streak*(.01+learningRank(w)*.01):1)*(w.special==='resolve'&&(t.hp??towerDefense(t).maxHp)/towerDefense(t).maxHp<.4?.9:1)*(w.special==='bargain'&&shotNumber%4===0?1.4:1)*(hasRune(w,'tempo')&&t.shots%4===0?.88:1)*(1+disruption)/(1+haste);
  }
- export(){const {effects,events,_wordCacheKey,_wordCache,...data}=this;return {...data,towers:this.towers.map(t=>({...t})),enemies:this.enemies.map(e=>({...e,...(e.bossTargets?{bossTargets:[...e.bossTargets]}:{})})),queue:this.queue.map(e=>({...e})),hand:this.hand.map(t=>({...t})),unlockedPads:[...this.unlockedPads],bossDraws:this.bossDraws.map(x=>({...x})),zones:this.zones.map(z=>({...z})),poetryFieldReady:{...(this.poetryFieldReady||{})},pendingWaves:this.pendingWaves?[...this.pendingWaves]:this.phase==='battle'&&this.wave>0?[this.wave]:[],version:10};}
+ export(){const {effects,events,_wordCacheKey,_wordCache,...data}=this;return {...data,towers:this.towers.map(t=>({...t})),enemies:this.enemies.map(e=>({...e,...(e.bossTargets?{bossTargets:[...e.bossTargets]}:{})})),queue:this.queue.map(e=>({...e})),hand:this.hand.map(t=>({...t})),unlockedPads:[...this.unlockedPads],bossDraws:this.bossDraws.map(x=>({...x})),zones:this.zones.map(z=>({...z})),poetryFieldReady:{...(this.poetryFieldReady||{})},poetryScenes:clonePoetryScenes(this.poetryScenes||[]),poetryBonusEarned:this.poetryBonusEarned||0,pendingWaves:this.pendingWaves?[...this.pendingWaves]:this.phase==='battle'&&this.wave>0?[this.wave]:[],version:11};}
  static restore(data){
  const finite=n=>typeof n==='number'&&Number.isFinite(n),int=n=>Number.isInteger(n)&&n>=0,kind=k=>Object.hasOwn(ENEMIES,k);
- if(!data||![1,2,3,4,5,6,7,8,9,10].includes(data.version)||!int(data.chapter)||!CHAPTERS[data.chapter]||!int(data.wave)||(data.endless!==undefined&&typeof data.endless!=='boolean')||(!data.endless&&data.version<5&&data.wave>(data.version<3?CHAPTERS[data.chapter].rounds:CHAPTERS[data.chapter].waves))||!['prepare','battle','intermission','won','lost'].includes(data.phase)||!['ink','hp','time','skillReady','totalEarned'].every(k=>finite(data[k])&&data[k]>=0)||data.hp>CHAPTERS[data.chapter].hp||!['kills','nextId'].every(k=>int(data[k]))||!finite(data.spawnTime)||!Array.isArray(data.towers)||!Array.isArray(data.enemies)||!Array.isArray(data.queue))throw Error('Invalid save');
+ if(!data||![1,2,3,4,5,6,7,8,9,10,11].includes(data.version)||!int(data.chapter)||!CHAPTERS[data.chapter]||!int(data.wave)||(data.endless!==undefined&&typeof data.endless!=='boolean')||(!data.endless&&data.version<5&&data.wave>(data.version<3?CHAPTERS[data.chapter].rounds:CHAPTERS[data.chapter].waves))||!['prepare','battle','intermission','won','lost'].includes(data.phase)||!['ink','hp','time','skillReady','totalEarned'].every(k=>finite(data[k])&&data[k]>=0)||data.hp>CHAPTERS[data.chapter].hp||!['kills','nextId'].every(k=>int(data[k]))||!finite(data.spawnTime)||!Array.isArray(data.towers)||!Array.isArray(data.enemies)||!Array.isArray(data.queue))throw Error('Invalid save');
  if(data.mirrorLayout!==undefined&&(data.chapter!==7||![1,2].includes(data.mirrorLayout)))throw Error('Invalid mirror layout');
  if(data.enemies.some(e=>e.mirrorLayout!==undefined&&(data.chapter!==7||e.mirrorLayout!==(data.mirrorLayout??1))))throw Error('Invalid enemy layout');
  const completedRounds=data.phase==='won'&&data.wave>0?(data.version<3?data.wave:Math.ceil(data.wave/3)):LEGACY_CHAPTER_ROUNDS[data.chapter];
@@ -1375,7 +1381,8 @@ export class Game {
  if(data.autoWaveAt!==undefined&&(!finite(data.autoWaveAt)||data.autoWaveAt<0))throw Error('Invalid wave timer');
  if(data.poetryFieldReady!==undefined&&(!data.poetryFieldReady||typeof data.poetryFieldReady!=='object'||Array.isArray(data.poetryFieldReady)||Object.entries(data.poetryFieldReady).some(([key,value])=>!Object.hasOwn(FIELD_INTERVALS,key)||!finite(value)||value<0)))throw Error('Invalid poetry field cooldown');
  if(data.towers.some(t=>['verseReadyAt','verseShieldUntil','verseGuardUntil','verseHasteUntil'].some(k=>t[k]!==undefined&&(!finite(t[k])||t[k]<0))||(t.verseCharge!==undefined&&(!getTowerWord(t.word).poem||!int(t.verseCharge)||t.verseCharge>4))||(t.verseCasts!==undefined&&(!getTowerWord(t.word).poem||!int(t.verseCasts)))||(t.verseShield!==undefined&&(!finite(t.verseShield)||t.verseShield<0||t.verseShield>towerDefense(t).maxHp*.2+1e-6))||(t.verseGuardPower!==undefined&&(!finite(t.verseGuardPower)||t.verseGuardPower<0||t.verseGuardPower>.2))||(t.verseHastePower!==undefined&&(!finite(t.verseHastePower)||t.verseHastePower<0||t.verseHastePower>.25))))throw Error('Invalid verse state');
- const g=new Game(data.chapter);g.poetryFieldReady={...(data.poetryFieldReady||{})};if(data.chapter===7)g.mirrorLayout=data.mirrorLayout??1;g.campaignRounds=campaignRounds;g.bossBreachedRound=data.bossBreachedRound??0;g.bossDraws=(data.bossDraws||[]).map(x=>({...x}));g.zones=(data.zones||[]).map(z=>({...z}));g.reviveUsed=data.reviveUsed??false;g.barrierSpent=data.barrierSpent??0;g.soulHealed=data.soulHealed??0;g.bountyEarned=data.bountyEarned??0;g.autoWaveAt=data.autoWaveAt??0;g.endless=data.endless===true;g.skillUses=data.skillUses??0;g.hintUses=data.hintUses??0;g.killInkRemainder=data.killInkRemainder??0;for(const k of ['wave','hp','ink','towers','enemies','queue','time','spawnTime','phase','kills','nextId','skillReady','totalEarned'])g[k]=data[k];
+ validatePoetryScenes(data,{...POETRY_API,line:word=>VERSE_INDEX.get(word),routes:(ch,layout)=>getMap(ch,layout).routes.length});
+ const g=new Game(data.chapter);g.poetryScenes=clonePoetryScenes(data.poetryScenes||[]);g.poetryBonusEarned=data.poetryBonusEarned||0;g.poetryFieldReady={...(data.poetryFieldReady||{})};if(data.chapter===7)g.mirrorLayout=data.mirrorLayout??1;g.campaignRounds=campaignRounds;g.bossBreachedRound=data.bossBreachedRound??0;g.bossDraws=(data.bossDraws||[]).map(x=>({...x}));g.zones=(data.zones||[]).map(z=>({...z}));g.reviveUsed=data.reviveUsed??false;g.barrierSpent=data.barrierSpent??0;g.soulHealed=data.soulHealed??0;g.bountyEarned=data.bountyEarned??0;g.autoWaveAt=data.autoWaveAt??0;g.endless=data.endless===true;g.skillUses=data.skillUses??0;g.hintUses=data.hintUses??0;g.killInkRemainder=data.killInkRemainder??0;for(const k of ['wave','hp','ink','towers','enemies','queue','time','spawnTime','phase','kills','nextId','skillReady','totalEarned'])g[k]=data[k];
  if(data.version>=2){
   const chars=SAVED_WORD_CHARACTERS;
   if(!int(data.rngState)||data.rngState===0||data.rngState>4294967295||!int(data.refreshes)||!int(data.handSerial)||!Array.isArray(data.hand)||![16,HAND_SIZE].includes(data.hand.length)||new Set(data.hand.map(t=>t?.id)).size!==data.hand.length||data.hand.some(t=>!t||!int(t.id)||t.id===0||t.id>data.handSerial||!chars.has(t.ch)||typeof t.used!=='boolean')||data.towers.some(t=>!finite(t.spent)||t.spent<0)||data.enemies.some(e=>(e.poisonDps!==undefined&&(!finite(e.poisonDps)||e.poisonDps<0))||(e.poisonUntil!==undefined&&(!finite(e.poisonUntil)||!finite(e.poisonDps)))))throw Error('Invalid word tray');

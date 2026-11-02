@@ -4,7 +4,7 @@ import {createHash}from'node:crypto';
 import {Game,CHAPTERS,ENEMIES,enemyLength,enemyPosition} from '../dist/engine.mjs';
 import {invest,investEfficient,investFormation} from './strategy.mjs';
 const hashFile=path=>createHash('sha256').update(readFileSync(new URL(path,import.meta.url))).digest('hex');
-const sourceHashes={poetryCombatHash:hashFile('../dist/poetry-combat.mjs'),poetryRulesHash:hashFile('../dist/poetry-rules.mjs'),poetryDataHash:hashFile('../dist/poetry-data.mjs'),engineHash:hashFile('../dist/engine.mjs'),specialsHash:hashFile('../dist/specials.mjs'),lexiconHash:hashFile('../dist/lexicon.mjs'),strategyHash:hashFile('./strategy.mjs')};
+const sourceHashes={poetryScenesHash:hashFile('../dist/poetry-scenes.mjs'),poetryImpactHash:hashFile('../dist/poetry-impact.mjs'),poetrySceneRulesHash:hashFile('../dist/poetry-scene-rules.mjs'),poetryCombatHash:hashFile('../dist/poetry-combat.mjs'),poetryRulesHash:hashFile('../dist/poetry-rules.mjs'),poetryDataHash:hashFile('../dist/poetry-data.mjs'),engineHash:hashFile('../dist/engine.mjs'),specialsHash:hashFile('../dist/specials.mjs'),lexiconHash:hashFile('../dist/lexicon.mjs'),strategyHash:hashFile('./strategy.mjs')};
 const spend=process.argv.includes('--formation')?investFormation:process.argv.includes('--efficient')?investEfficient:invest;
 const n=Number(process.argv[2]||40),skills=process.argv.includes('--skills'),pressure=process.argv.includes('--pressure');
 const onlyChapter=Number(process.argv.find(x=>x.startsWith('--chapter='))?.split('=')[1]||0)-1;
@@ -45,6 +45,7 @@ for(let ch=0;ch<CHAPTERS.length;ch++){
  console.log({chapter:ch+1,skills,wins,total:n,minHP:Math.min(...hps),meanHP:Math.round(hps.reduce((a,b)=>a+b,0)/n*10)/10,minRound:Math.min(...rounds),failedRounds:rounds.filter((_,i)=>hps[i]===0),timeouts,...(pressure?{pressure:{...audit,minionDamage:Math.round(audit.minionDamage),bossDamage:Math.round(audit.bossDamage)}}:{})});
 }
 
+for(const [key,path]of[['poetryScenesHash','../dist/poetry-scenes.mjs'],['poetryImpactHash','../dist/poetry-impact.mjs'],['poetrySceneRulesHash','../dist/poetry-scene-rules.mjs']])assert.equal(hashFile(path),sourceHashes[key],'Poetry scene sources changed during simulation');
 assert.equal(hashFile('../dist/poetry-combat.mjs'),sourceHashes.poetryCombatHash,'Poetry combat changed during simulation');
 assert.equal(hashFile('../dist/poetry-rules.mjs'),sourceHashes.poetryRulesHash,'Poetry rules changed during simulation');
 assert.equal(hashFile('../dist/engine.mjs'),sourceHashes.engineHash,'Engine changed during simulation');

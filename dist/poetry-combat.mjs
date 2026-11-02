@@ -1,3 +1,5 @@
+import{poetryImpact}from'./poetry-impact.mjs';
+import{createPoetryScenes}from'./poetry-scenes.mjs';
 import {VERSE_INDEX,FIELD_INTERVALS,POETRY_TECHNIQUE_POWER} from './poetry-rules.mjs';
 const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y),clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 // Independent poetry combat. It shares the battlefield's actual enemies,
@@ -7,9 +9,10 @@ export function attackPoetry(g,t,dt,api){
  const l=VERSE_INDEX.get(w.word),p=g.pads[t.pad],now=g.time;
  const living=g.enemies.filter(e=>e.hp>0&&e.d<length(e));if(!living.length)return;
  const points=new Map(living.map(e=>[e.id,position(e)])),at=e=>points.get(e.id)||position(e);
- const local=living.filter(e=>distance(p,at(e))<=stats.range);
+ const local=living.filter(e=>(distance(p,at(e))<=stats.range||t.verseHorizonUntil>now&&t.verseHorizonTarget===e.id));
  const progress=e=>e.d/length(e);
  const rank=xs=>xs.slice().sort((a,b)=>{
+  if(t.verseHorizonUntil>now&&t.verseHorizonTarget&&(a.id===t.verseHorizonTarget||b.id===t.verseHorizonTarget))return Number(b.id===t.verseHorizonTarget)-Number(a.id===t.verseHorizonTarget);
   if(l.aim==='boss')return Number(!!enemy[b.kind].boss)-Number(!!enemy[a.kind].boss)||b.maxHp-a.maxHp;
   if(l.aim==='shield')return(b.shield||0)-(a.shield||0)||progress(b)-progress(a);
   if(l.aim==='weak')return a.hp/a.maxHp-b.hp/b.maxHp;
@@ -24,22 +27,7 @@ export function attackPoetry(g,t,dt,api){
  const lights=g.activeTowers.filter(a=>a.id!==t.id&&api.getWord(a.word).type==='aura'&&distance(g.pads[a.pad],p)<=api.towerStats(a).range);
  const buff=Math.max(0,...lights.map(a=>api.towerStats(a).aura));
  const damage=stats.damage*(1+buff),affected=new Set();let technique=false,attackPower=1;
- const hit=(e,ratio=1)=>{
-  if(!e||e.hp<=0)return;affected.add(e);
-  const revealed=e.lightUntil>now||e.markUntil>now||e.breakUntil>now;
-  let armor=e.kind==='armor'?.3:e.kind==='ironboss'?(e.enraged?0:.4):(enemy[e.kind].armor||0);if(e.breakUntil>now)armor=0;
-  let resist=1;const behavior=enemy[e.kind].behavior||e.kind;
-  if(behavior==='bamboostalker'&&!revealed&&distance(p,at(e))>(enemy[e.kind].stealthDistance||130))resist*=.7;
-  if(behavior==='clockwork'&&!revealed&&!(enemy[e.kind].boss&&e.enraged)){const here=at(e),ahead=position({...e,d:e.d+4});if((p.x-here.x)*(ahead.x-here.x)+(p.y-here.y)*(ahead.y-here.y)>0)resist*=.55;}
-  if(behavior==='astral'&&!revealed&&api.astralPhase(e,now)===1)resist*=.65;
-  if(iceShell(e)){resist*=enemy[e.kind].boss?.8:.85;e.shellHits=Math.min(shellLimit(e),(e.shellHits||0)+1);}
-  const ward=!revealed&&living.some(a=>a!==e&&a.kind==='ward'&&a.hp>0&&distance(at(a),at(e))<110);
-  const guard=Math.max(g.bossSupport(e).guard,ward?.12:0,!revealed&&e.guardUntil>now?e.guardPower||0:0);
-  let amount=damage*ratio*attackPower*(technique?POETRY_TECHNIQUE_POWER:1)*(1-armor)*(1-guard)*resist*(e.markUntil>now?1+e.markPower:1);
-  const absorbed=Math.min(e.shield||0,amount);e.shield=Math.max(0,(e.shield||0)-absorbed);amount-=absorbed;e.hp-=Math.max(0,amount);
-  const reflect=Math.max(g.bossSupport(e).reflect,enemy[e.kind].boss&&api.bossPower(e.kind).reflect&&(e.bossStrikeAt>now||e.reflectUntil>now)?.12:0);
-  if(e.hp>0&&amount>0&&reflect&&!(t.reflectReadyAt>now)){t.reflectReadyAt=now+.8;g.damageTower(t,Math.min(amount*reflect,defense.maxHp*.03),e,false);g.effects.push({kind:'reflected',from:at(e),to:p,color:w.color,life:.6,max:.6});}
- };
+ const hit=(e,ratio=1)=>{if(!e||e.hp<=0)return;affected.add(e);poetryImpact(g,t,e,damage*ratio*attackPower*(technique?POETRY_TECHNIQUE_POWER:1),api,p);};
  const slow=(e,factor,seconds)=>{if(iceShell(e))return;e.slowFactor=Math.min(e.slowUntil>now?e.slowFactor??1:1,factor);e.slowUntil=Math.max(e.slowUntil||0,now+seconds);};
  const freeze=(e,seconds)=>{if(iceShell(e)||e.freezeReady>now)return;e.freezeUntil=Math.max(e.freezeUntil||0,now+seconds*(enemy[e.kind].boss?.25:1));e.freezeReady=now+6;};
  const silence=(e,seconds)=>{if(e.silenceReady>now)return;e.silencedUntil=Math.max(e.silencedUntil||0,now+seconds*(enemy[e.kind].boss?.25:1));e.silenceReady=now+4;};
@@ -90,6 +78,7 @@ export function attackPoetry(g,t,dt,api){
    if(k==='push'&&!(e.recoilReady>now)){e.d=Math.max(0,e.d-a*(enemy[e.kind].boss?.2:1));e.recoilReady=now+3;}
   }
  }
+ createPoetryScenes(g,t,l,target,api);
  for(const key of l.field)g.poetryFieldReady[key]=now+FIELD_INTERVALS[key];
  t.verseCharge=0;t.verseReadyAt=now+l.cooldown;t.verseCasts=(t.verseCasts||0)+1;
  const field=l.field.length>0;g.effects.push({kind:'poem-cast',word:w.word,art:l.art,color:w.color,from:{...p},to:{...q},aim:l.aim,field,shot:t.verseCasts,allyPoints:field?g.activeTowers.map(a=>({...g.pads[a.pad]})):[],points:[...affected].slice(0,16).map(e=>({...at(e)})),life:field?2.1:1.35,max:field?2.1:1.35});g.emit('poem-cast',{word:w.word,poem:w.poem,art:l.art,field});

@@ -34,5 +34,9 @@
   "poetry-rules.mjs",
   "poetry-combat.mjs",
   "poetry-art.mjs",
-  "poetry.css"
+  "poetry.css",
+  "poetry-scene-rules.mjs",
+  "poetry-impact.mjs",
+  "poetry-scenes.mjs",
+  "poetry-scene-art.mjs"
 ]
