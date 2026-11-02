@@ -1,7 +1,7 @@
 import test from'node:test';import assert from'node:assert/strict';import{readFileSync}from'node:fs';import{Game,drawHandWords,getWord,matchWord,HAND_SIZE}from'../dist/engine.mjs';
 const frequencies=letters=>{const out={};for(const ch of letters)out[ch]=(out[ch]||0)+1;return out;};
 function predict(state){const rng=Object.create(Game.prototype);rng.rngState=state;return drawHandWords(()=>rng.random());}
-function check(g){assert.equal(g.hand.length,32);assert.equal(new Set(g.hand.map(t=>t.id)).size,32);const ws=g.availableWords();for(const[tier,min]of[[2,3],[3,2],[4,1]])assert.ok(ws.filter(w=>w.tier===tier).length>=min,`tier ${tier}`);assert.ok(ws.some(w=>w.tier===1&&w.damage>0&&w.cost<=37));}
+function check(g){assert.equal(g.hand.length,32);assert.equal(new Set(g.hand.map(t=>t.id)).size,32);const ws=g.availableWords();assert.ok(ws.some(w=>w.poem),'every initial and paid-refreshed hand has a complete poem');for(const[tier,min]of[[2,3],[3,2],[4,1]])assert.ok(ws.filter(w=>w.tier===tier).length>=min,`tier ${tier}`);assert.ok(ws.some(w=>w.tier===1&&w.damage>0&&w.cost<=37));}
 test('2000 initial and paid-refreshed hands guarantee 1 four, 2 distinct three, 3 distinct two character words in a 32-card tray',()=>{
  const unique=new Set();for(let seed=1;seed<=500;seed++){const g=new Game((seed-1)%10,seed);g.ink=10000;for(let n=0;n<4;n++){if(n){const before=g.ink,serial=g.handSerial;assert.ok(g.refreshHand());assert.equal(g.ink,before-50);assert.equal(g.handSerial,serial+32);assert.ok(g.hand.every(t=>!t.used));}check(g);unique.add(g.hand.map(t=>t.ch).join(''));}}assert.ok(unique.size>1990);
 });
@@ -13,4 +13,8 @@ test('repeat-heavy random streams finish with distinct words and a full valid mu
 });
 test('existing v9 letters, consumption and random state remain intact until the next paid refresh; no default word hints are exported',()=>{
  const old=JSON.parse(readFileSync(new URL('./fixtures/ranged-save-v9.json',import.meta.url))),g=Game.restore(old);assert.deepEqual(g.hand,old.hand);assert.equal(g.rngState,old.rngState);assert.equal(g.ink,old.ink);assert.equal(g.handSerial,old.handSerial);const plan=predict(g.rngState),before=g.ink;assert.ok(g.refreshHand());assert.equal(g.ink,before-50);check(g);assert.deepEqual(frequencies(g.hand.map(t=>t.ch)),frequencies(plan.join('')));assert.equal(g.hintWord,null);const saved=g.export();assert.equal(saved.version,10);for(const key of['guaranteedWords','handWords','_prototypeSeeds'])assert.equal(Object.hasOwn(saved,key),false);const copy=Game.restore(saved);assert.deepEqual(copy.hand,g.hand);assert.equal(copy.rngState,g.rngState);g.refreshHand();copy.refreshHand();assert.deepEqual(copy.hand,g.hand);
+});
+
+test('the guaranteed poem and six ordinary words can all be built in either order without sharing a physical card',()=>{
+ for(let seed=1;seed<=50;seed++)for(const reverse of[false,true]){const g=new Game(0,seed);g.ink=10000;const fullPlan=predict(g.rngState),plan=fullPlan.slice(0,7);assert.ok(getWord(plan[6]).poem);assert.equal(fullPlan.join('').length,32);assert.ok(g.refreshHand());const ordered=reverse?plan.slice().reverse():plan,before=g.ink;for(let i=0;i<7;i++)assert.ok(g.build(ordered[i],i),ordered[i]);assert.equal(g.ink,before-plan.reduce((sum,w)=>sum+getWord(w).cost,0));assert.equal(g.hand.filter(t=>t.used).length,16+plan[6].length);assert.equal(new Set(g.hand.map(t=>t.id)).size,32);}
 });

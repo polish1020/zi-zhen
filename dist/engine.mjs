@@ -373,7 +373,8 @@ const POETRY_POOLS=Object.fromEntries([5,6,7].map(n=>[n,{all:POEM_LINES.filter(l
 export function drawHandWords(random){
  const plan=drawShortHandWords(random),pick=xs=>xs[Math.min(xs.length-1,Math.floor(random()*xs.length))];let remaining=HAND_SIZE-16;
  if(random()<POETRY_DRAW_CHANCE){const length=pick([5,6,7]),pool=POETRY_POOLS[length],preferred=random()<.7&&pool.early.length?pool.early:pool.all,verse=pick(preferred).word;plan.push(verse);remaining-=length;}
- // Spare cards are sampled individually rather than quietly guaranteeing poems.
+ // The complete verse uses its own cards, separately from the six short words.
+ // Sample the remaining spare cards individually for cross-combinations.
  for(let i=0;i<remaining;i++){const pool=pick(POEM_LINES),chars=[...pool.word];plan.push(pick(chars));}
  return plan;
 }

@@ -4,7 +4,7 @@ export const POEM_INDEX=new Map(POEMS.map(p=>[p.id,p]));
 export const VERSE_INDEX=new Map(POEM_LINES.map(l=>[l.word,l]));
 export const MAX_WORD_LENGTH=7;
 export const POETRY_TECHNIQUE_POWER=1.5;
-export const POETRY_DRAW_CHANCE=.28;
+export const POETRY_DRAW_CHANCE=1;
 export const FIELD_INTERVALS={allShield:16,allFreeze:18,allMend:18,allHaste:14,allSlow:12,allSilence:14,allWeaken:12,allReveal:10};
 export const POETRY_PALETTES={snow:'#88adbc',ice:'#89adb9',frost:'#93a9b9',moon:'#a49ac3',stars:'#b19e6b',star:'#b8a878',sun:'#b69857',sunset:'#c28c67',dawn:'#c5a464',river:'#588f9c',water:'#639ca3',waterfall:'#619eaf',wave:'#527d9c',ripple:'#78a8a9',rain:'#729e98',spring:'#78a079',leaf:'#7e9873',grass:'#8ba376',petal:'#c08b9f',peach:'#c89399',plum:'#b38b9c',lotus:'#b18fa1',bamboo:'#76916d',mountain:'#8a9685',rock:'#9c947e',fire:'#bc7f54',firecracker:'#b97f56',storm:'#a5915e',jade:'#81a397',heart:'#be9990',resolve:'#b69b70',ink:'#7f91a2',scroll:'#aa9c74'};
 export const poemPalette=l=>POETRY_PALETTES[l.art]||'#9e9173';
