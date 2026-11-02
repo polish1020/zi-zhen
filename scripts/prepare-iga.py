@@ -15,9 +15,9 @@ stage.mkdir(parents=True,exist_ok=True)
 for old in ['app.mjs','engine.mjs']:
  (stage/old).unlink(missing_ok=True)
 for name in json.loads((root/'data/static-assets.json').read_text()):
- text=(root/'dist'/name).read_text()
- if name.endswith(('.mjs','.html')):text=re.sub(r'''(['"]\./[^'"]+)\.mjs(?=['"])''',r'\1.js',text)
- (stage/name.replace('.mjs','.js')).write_text(text)
+ content=(root/'dist'/name).read_bytes()
+ if name.endswith(('.mjs','.html')):content=re.sub(r'''(['"]\./[^'"]+)\.mjs(?=['"])''',r'\1.js',content.decode('utf-8')).encode('utf-8')
+ (stage/name.replace('.mjs','.js')).write_bytes(content)
 shutil.copy2(identity,stage/'.iga/project.json')
 (stage/'iga.json').write_text(json.dumps({'outputDirectory':'.'},indent=2)+'\n')
 (stage/'.gitignore').write_text('.iga/\n')

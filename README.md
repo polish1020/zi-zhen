@@ -41,7 +41,7 @@ node --test tests/engine.test.mjs tests/combat.test.mjs tests/maps.test.mjs test
 
 ## 发布
 
-当前生产域名为 https://game.polishwb1020.com 。将经过测试的精确提交推送到关联的 GitHub `main` 后，现有 Vercel 项目自动执行 `node scripts/build-static.mjs`，从统一清单生成 26 个静态资源并发布。客户端不需要账号、数据库或密钥。历史 IGA 配置和资源打包方式仍保留。
+当前生产域名为 https://game.polishwb1020.com 。将经过测试的精确提交推送到关联的 GitHub `main` 后，现有 Vercel 项目自动执行 `node scripts/build-static.mjs`，从统一清单生成 31 个静态资源并发布。客户端不需要账号、数据库或密钥。历史 IGA 配置和资源打包方式仍保留。
 
 ## 存档
 
@@ -114,3 +114,9 @@ Boss 现从每波前中段入场，带后续军队推进。四类护军光环提
 补充 4,851 个双元素、灵兽和新形态技能词，包括冰雷斩、火麒麟、冰火剑、寒冰连斩及雷冰剑阵；相近组合共用现有机制，原有词的配置保持。详见 [ELEMENTAL-SKILLS.md](docs/ELEMENTAL-SKILLS.md)。
 
 敌情改为本波要点、特色兵小图和分类图鉴，长规则按需展开；另补齐 8,304 个元素同义与技能词根组合，支持冰冻锤、毒素之力、冰锥之力等，旧提示不是唯一答案。详见 [INTEL-AND-SKILL-ROOTS.md](docs/INTEL-AND-SKILL-ROOTS.md)。
+
+## 图标
+
+整站图标以可拼合的墨绿「字」形和鼠尾草绿、赭色部件为主体。只参考拾境与衣境的纸色、配色和安静气质，使用独立的组字与布阵图形，不沿用山水或书册主体。生成的原始画稿保留在 `design/wordward-icon-master.png`；各尺寸 PNG 由 `node scripts/build-icons.cjs` 做标准缩放，常规部署不需要运行图像工具。
+
+网站图标为 64px，iOS 桌面图标为 180px，PWA 提供 192px 和 512px 不透明图标。旧 `icon.svg` 地址封装同一张位图以兼容旧链接，并非纯矢量原稿。首页、自由造物和练字小径使用同一标识；应用的 manifest id、start_url 和 scope 保持原样。

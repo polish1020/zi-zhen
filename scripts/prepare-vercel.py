@@ -12,10 +12,10 @@ root = Path(__file__).resolve().parents[1]
 public = stage / 'public'
 public.mkdir(parents=True, exist_ok=True)
 for name in json.loads((root / 'data/static-assets.json').read_text()):
-    content = (root / 'dist' / name).read_text(encoding='utf-8')
+    content = (root / 'dist' / name).read_bytes()
     if name.endswith(('.mjs', '.html')):
-        content = re.sub(r'''(['"]\./[^'"]+)\.mjs(?=['"])''', r'\1.js', content)
-    (public / name.replace('.mjs', '.js')).write_text(content, encoding='utf-8')
+        content = re.sub(r'''(['"]\./[^'"]+)\.mjs(?=['"])''', r'\1.js', content.decode('utf-8')).encode('utf-8')
+    (public / name.replace('.mjs', '.js')).write_bytes(content)
 (stage / 'vercel.json').write_text(json.dumps({
     'version': 2, 'framework': None, 'outputDirectory': 'public',
 }, indent=2) + '\n', encoding='utf-8')

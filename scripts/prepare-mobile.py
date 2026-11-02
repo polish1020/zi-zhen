@@ -9,8 +9,8 @@ target.mkdir(parents=True, exist_ok=True)
 for asset in json.loads((root / 'data/static-assets.json').read_text()):
     source = root / 'dist' / asset
     name = source.name.replace('.mjs', '.js')
-    content = source.read_text(encoding='utf-8')
+    content = source.read_bytes()
     if source.suffix in ('.mjs', '.html'):
-        content = re.sub(r'''(['"]\./[^'"]+)\.mjs(?=['"])''', r'\1.js', content)
-    (target / name).write_text(content, encoding='utf-8')
+        content = re.sub(r'''(['"]\./[^'"]+)\.mjs(?=['"])''', r'\1.js', content.decode('utf-8')).encode('utf-8')
+    (target / name).write_bytes(content)
 print(f'Prepared bundled app assets: {target}')

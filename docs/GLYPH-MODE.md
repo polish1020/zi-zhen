@@ -30,7 +30,7 @@
 
 场景为项目绘制的 SVG，字形配方、拼音、短释义和关卡提示为项目编写。笔顺原始资料来自 Hanzi Writer Data（固定提交 `68d10a4b21150cae5e1ebbd223eed289cf32d90c`），上游为 Make Me a Hanzi 和 Arphic Technology 字体，按 Arphic Public License 分发。原笔画路径和中线未修改；子集聚合说明写在 `glyph-strokes.json`，原许可 `ARPHICPL.TXT` 随站点及原生资源一起分发。
 
-`data/static-assets.json` 是 Vercel、IGA 与原生资源的共同清单，当前 26 个文件。`.mjs` 在打包时改为 `.js` 并同步修改相对导入，避免静态平台 MIME 问题。笔顺 JSON 按需读取，不增加塔防主页面的笔顺下载。
+`data/static-assets.json` 是 Vercel、IGA 与原生资源的共同清单，当前 31 个文件。`.mjs` 在打包时改为 `.js` 并同步修改相对导入，避免静态平台 MIME 问题。笔顺 JSON 按需读取，不增加塔防主页面的笔顺下载。
 
 ## 验证
 
