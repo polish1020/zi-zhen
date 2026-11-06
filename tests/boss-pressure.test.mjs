@@ -16,7 +16,7 @@ test('bosses gain substantial health while early minions retain their previous c
  assert.ok(wavePlan(0,36).count>Math.min(80,8+12*3+4+Math.floor(8*1.2)));
 });
 
-test('all 42 bosses cast their distinct active skill at three seconds, with saved finite limits',()=>{
+test('all 102 bosses cast their distinct active skill at three seconds, with saved finite limits',()=>{
  const seen=new Set();
  for(const [kind,meta]of Object.entries(ENEMIES).filter(([,e])=>e.boss)){
   const {g,e}=arena(kind),p=meta.pulse;assert.ok(p,kind);seen.add(p.kind);

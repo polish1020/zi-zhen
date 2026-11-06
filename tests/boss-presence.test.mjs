@@ -12,7 +12,7 @@ function arena(kind='boss',chapter=0){
 test('boss enters with an escort instead of at the tail, exactly once per planned wave',()=>{
  for(let ch=0;ch<10;ch++){const g=new Game(ch,42);g.wave=8;g.startWave();const index=g.queue.findIndex(e=>ENEMIES[e.kind].boss);assert.equal(index,Math.floor(g.queue.length*.35));assert.ok(g.queue.length-index>g.queue.length*.5);assert.equal(g.events.filter(e=>e.type==='boss-arrive').length,0);const entry=g.queue[index];g.spawn(entry.kind,0,entry.route,entry.wave);assert.equal(g.events.filter(e=>e.type==='boss-arrive').length,1);}
 });
-test('all 42 bosses telegraph and actually damage multiple legal towers with their own themed power',()=>{
+test('all 102 bosses telegraph and actually damage multiple legal towers with their own themed power',()=>{
  const forms=new Set();for(const kind of Object.keys(ENEMIES).filter(k=>ENEMIES[k].boss)){
   const {g,e}=arena(kind),power=bossPower(kind);assert.ok(g.towers.length>=2,kind);forms.add(enemyWeapon(kind).visual);
   const before=g.towers.map(t=>t.hp);g.updateTowerAttacks();assert.ok(e.bossStrikeAt>g.time);assert.equal(e.bossTargets.length,Math.min(power.targets,g.towers.length));assert.deepEqual(g.towers.map(t=>t.hp),before);

@@ -4,8 +4,8 @@ import {Game,CHAPTERS,ENEMIES,wavePlan} from '../dist/engine.mjs';
 const oldRounds=[6,8,10,8,9,9,10,10,11,12];
 function legacy(g){const save=JSON.parse(JSON.stringify(g.export()));save.version=4;delete save.campaignRounds;return save;}
 test('all ten chapters gain two to four rounds and keep three waves per round',()=>{
- assert.deepEqual(CHAPTERS.map(c=>c.rounds),[8,10,12,10,11,12,13,14,15,16]);
- CHAPTERS.forEach((c,i)=>{assert.ok(c.rounds-oldRounds[i]>=2&&c.rounds-oldRounds[i]<=4);assert.equal(c.waves,c.rounds*3);const g=new Game(i);assert.equal(g.campaignRounds,c.rounds);assert.equal(g.campaignWaves,c.waves);});
+ assert.deepEqual(CHAPTERS.slice(0,10).map(c=>c.rounds),[8,10,12,10,11,12,13,14,15,16]);
+ CHAPTERS.slice(0,10).forEach((c,i)=>{assert.ok(c.rounds-oldRounds[i]>=2&&c.rounds-oldRounds[i]<=4);assert.equal(c.waves,c.rounds*3);const g=new Game(i);assert.equal(g.campaignRounds,c.rounds);assert.equal(g.campaignWaves,c.waves);});
 });
 test('first boss is round three, next are five and seven, then every round with no bosses in the earlier waves',()=>{
  for(let ch=0;ch<10;ch++){const rounds=[];for(let wave=1;wave<=CHAPTERS[ch].waves;wave++){const p=wavePlan(ch,wave);if(p.boss){assert.equal(p.part,3);rounds.push(p.round);}}assert.deepEqual(rounds,[3,5,7,...Array.from({length:CHAPTERS[ch].rounds-7},(_,i)=>i+8)]);}

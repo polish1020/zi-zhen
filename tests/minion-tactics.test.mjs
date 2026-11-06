@@ -5,9 +5,9 @@ function battle(wave=18){const g=new Game(0,42);g.ink=2000;g.wave=wave;g.phase='
 function add(g,word){const chars=[...word];while(chars.length<16)chars.push('文');g.hand=chars.map(ch=>({id:++g.handSerial,ch,used:false}));assert.ok(g.build(word,0));return g.towers[0];}
 function target(g,kind,d=130){const e=g.spawn(kind,d);e.hp=e.maxHp=10000;e.speed=1;return e;}
 
-test('sixteen new minion casts unlock gradually and do not alter the first three rounds',()=>{
+test('thirty-three minion casts unlock gradually and do not alter the first three rounds',()=>{
  const variants=Object.entries(ENEMIES).filter(([,e])=>!e.boss&&e.pulseFromRound);
- assert.equal(variants.length,16);
+ assert.equal(variants.length,33);
  for(const [kind,data]of variants){
   const early=battle(9),e=target(early,kind);assert.equal(enemyPulse(e),null,kind);
   e.pulseAt=0;early.step(.01);assert.equal(e.pulses,undefined,kind);
@@ -47,9 +47,9 @@ test('air leaders support flying neighbors only and slow can stop a new shadow s
  const d=stalker.d;h.step(.1);assert.ok(stalker.d-d<1);assert.equal(stalker.pulses,1);
 });
 
-test('six late half-health reactions occur once and preserve their state through reload',()=>{
+test('twelve late half-health reactions occur once and preserve their state through reload',()=>{
  const variants=Object.entries(ENEMIES).filter(([,e])=>!e.boss&&e.phaseFromRound);
- assert.equal(variants.length,6);
+ assert.equal(variants.length,12);
  for(const [kind]of variants){
   const early=battle(9),a=target(early,kind);a.hp=4900;early.step(.01);assert.equal(a.enraged,undefined,kind);
   const g=battle(),e=target(g,kind);e.hp=4900;g.step(.01);assert.equal(e.enraged,true,kind);

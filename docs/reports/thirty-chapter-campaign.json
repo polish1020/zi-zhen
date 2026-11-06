@@ -1,0 +1,2594 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-06T13:34:09.603606+00:00",
+  "method": "Two unchanged existing strategies, each using seeds 1–10 in every chapter. Full main campaigns; debug off, real costs, normal skills enabled. A win requires remaining hearts; ruined towers are allowed. These automatic-strategy samples are not human win rates.",
+  "sourceHashes": {
+    "campaignExpansionHash": "e22a7210c3ec5084e3b78fe49828790377e6ee97645b4c1635657a692f0213b8",
+    "poetryScenesHash": "6bb80c0d31a8f9a1e093ad1def3212818855d1ad3c9766a1b7a8391ddd76274b",
+    "poetryImpactHash": "6a1948153db8e5b214b73a8d512b52974b28b7344aa155c003276931a961691b",
+    "poetrySceneRulesHash": "1a3db93796b67dfcd1ebfdaf997c626d45ea70dc447f0c25bfd82bfdcc7b231d",
+    "poetryCombatHash": "ebed11ca88f3a0480ffb86d2114062db5ee3ccb59fae839a5e65a2970643fa39",
+    "poetryRulesHash": "df0b5bf2a5bb41b32fd8a7f52e653aa74401c3bfd9b8d49f912aa01461aedcb6",
+    "poetryDataHash": "b5accdb3cfb093ed3ac5f5c3ed11566a5e5830f3f4b540b87cb6231c3f76c719",
+    "engineHash": "0e82fd83371ade38e1972d8156be93337f1ef5e0c14bce1bea2c782f9f958c9f",
+    "specialsHash": "7e70298ab8214e98ffc0965e0a5125ebaf5e6c28be741074836d3309299cf945",
+    "lexiconHash": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
+    "strategyHash": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a"
+  },
+  "chapterInputHashes": [
+    "e1586b73ac453edf39d5cf31fbcc6372e9fca8faa394016af9f93b872ee74e2b",
+    "61cb82d5ac7ad6b467bd054629203ad5a20d4280a306458b1cadc0ab4e44641b",
+    "f77fc95121d94d4de818a27fb4d3ff9052ad004153fbfc805d131091ef8b33e3",
+    "01d695b4fb352d6f216d3a86236b2ad41139f8a678551aa3b67ec967b7acc8c4",
+    "9afb376d793d7962e2e041b488f375a429b321ee9364acad8e98511f081770ab",
+    "98e04a34270a51976a5f3a5c12de4f537a6f54db43f4e5dd2703e5c8eb7b6209",
+    "c91bf405124844da3dbb50bfbb607dcbc38004938d9102afe9fc2bcce25379be",
+    "70704dc567150363b329e8a60ceb7220fc00b735e37e0d6d843d5b996145a34f",
+    "b671900394ac6c23fffd0c8b7e7f53d0c4b2c374276fcd9af90961feafe94fca",
+    "aa7d9ad88434d9afdcc3125f51b892ab9b2a81f7dc70f03faba6ae7e483eef8c",
+    "0cf4cc494dae462bd12ca2324429d297f0025bd91eb838bffe7e6017a69501fd",
+    "4564147a7545a3e3213f2f08c00f25de3e84e5caf37e9f86bb6f154efe1caede",
+    "86485fa4267727c6512eb007e590c6ec33d55162b45e9b9247c116e169db9c14",
+    "9bd400f3e4cfb969e4752e723ce02a2304a0c0f9445ef4d3b8aa4b8b0dd7da52",
+    "a7752b0e9ab4427d214d3c8d2646e9c173a4e37c39f2169668cebd05afd10fd7",
+    "a99424831250036fd3d573c00550ae47e8011cd50854213e379506a3826b556a",
+    "5fd16afe4f1e8d1fa26f8f34374eed8b70505d7af8ef51a0e9eec2baf6ac204c",
+    "e725c99d2e4835f9830b24e5e083a11405e9d01551d40d44b6f84bbcba7cfb6c",
+    "840bb8843c818b535af6f1f243409afce10e07cdf260363410cadc39505f1302",
+    "e07a8c08c1b84ae12d1cd4c7219bde37a877d05b3b219b4f7c1569ae323527aa",
+    "60950dc5d0bd46f30fb12ff48dd009803e3d090d14b39064ed45b323c58d0f58",
+    "b04fdc994b228ecb8bf547f9278496ba338732982d82863661113e9925ce7fd9",
+    "e5908024d12c8094282617bfd823b13b14d828011870678bac6c8f22bad76369",
+    "e67f32d64ebb50b430b0bb63df4bbb326ae369faea09daccd5be50054d2f3a93",
+    "7ed7bff5ebaf68cc3253628465a17c2544ddfc7a2977142bc8d3d17e4480c356",
+    "17de0b19722df1987995982cf5dffe30ad199a6152c196b1504dbf606a2eb4ed",
+    "e8ccb997b80117f3d2e7de449386df896ebc99297c6cc4473b9fb34c6149691c",
+    "23386575be5ae7b08dd1860c902d0bcc9c24a6f896caa4de225f77c35836720b",
+    "bd72f6146e4d538c14fe21a081d3bb30e6dba980c3440c63ac40f71baea541b3",
+    "5a185829802b6c1495a27df6177aacb6af8a56548418f16237d31d1c5f58b4ca"
+  ],
+  "verification": {
+    "totalSimulated": 640,
+    "retainedCurrentCases": 600,
+    "discardedOutdatedChapter29Cases": 40,
+    "onlyChangedCombatInput": "chapter 29 routes, air corridors, pads and campaign length",
+    "unchangedChapterInputHashesVerified": true
+  },
+  "summary": {
+    "games": 600,
+    "wins": 391,
+    "rate": 0.6516666666666666,
+    "timeouts": 0
+  },
+  "volumes": [
+    {
+      "volume": 1,
+      "name": "初识山河",
+      "wins": 155,
+      "total": 200,
+      "rate": 0.775
+    },
+    {
+      "volume": 2,
+      "name": "行遍四时",
+      "wins": 157,
+      "total": 200,
+      "rate": 0.785
+    },
+    {
+      "volume": 3,
+      "name": "万卷归藏",
+      "wins": 79,
+      "total": 200,
+      "rate": 0.395
+    }
+  ],
+  "chapters": [
+    {
+      "chapter": 1,
+      "name": "青山初试",
+      "wins": 20,
+      "total": 20,
+      "rate": 1.0,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 1,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 16,
+          "meanHP": 19.6,
+          "minRound": 8,
+          "failedRounds": [],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 1,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 18,
+          "meanHP": 19.8,
+          "minRound": 8,
+          "failedRounds": [],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 2,
+      "name": "竹海听风",
+      "wins": 18,
+      "total": 20,
+      "rate": 0.9,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 2,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 16.2,
+          "minRound": 9,
+          "failedRounds": [
+            9
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 2,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 16.5,
+          "minRound": 10,
+          "failedRounds": [
+            10
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 3,
+      "name": "长夜守卷",
+      "wins": 17,
+      "total": 20,
+      "rate": 0.85,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 3,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 19.2,
+          "minRound": 11,
+          "failedRounds": [
+            11
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 3,
+          "skills": true,
+          "wins": 8,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 18.2,
+          "minRound": 11,
+          "failedRounds": [
+            12,
+            11
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 4,
+      "name": "双溪合流",
+      "wins": 19,
+      "total": 20,
+      "rate": 0.95,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 4,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 20.9,
+          "minRound": 7,
+          "failedRounds": [
+            7
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 4,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 18,
+          "meanHP": 22.6,
+          "minRound": 10,
+          "failedRounds": [],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 5,
+      "name": "云关夹击",
+      "wins": 20,
+      "total": 20,
+      "rate": 1.0,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 5,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 10,
+          "meanHP": 16.8,
+          "minRound": 11,
+          "failedRounds": [],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 5,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 8,
+          "meanHP": 15.4,
+          "minRound": 11,
+          "failedRounds": [],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 6,
+      "name": "回廊迷阵",
+      "wins": 16,
+      "total": 20,
+      "rate": 0.8,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 6,
+          "skills": true,
+          "wins": 7,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 19.2,
+          "minRound": 11,
+          "failedRounds": [
+            12,
+            11,
+            11
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 6,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 23,
+          "minRound": 12,
+          "failedRounds": [
+            12
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 7,
+      "name": "霜河两岸",
+      "wins": 16,
+      "total": 20,
+      "rate": 0.8,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 7,
+          "skills": true,
+          "wins": 7,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 15.3,
+          "minRound": 10,
+          "failedRounds": [
+            13,
+            11,
+            10
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 7,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 20.5,
+          "minRound": 11,
+          "failedRounds": [
+            11
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 8,
+      "name": "镜城围攻",
+      "wins": 9,
+      "total": 20,
+      "rate": 0.45,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 8,
+          "skills": true,
+          "wins": 3,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 6.1,
+          "minRound": 6,
+          "failedRounds": [
+            6,
+            11,
+            12,
+            14,
+            10,
+            14,
+            13
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 8,
+          "skills": true,
+          "wins": 6,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 15.5,
+          "minRound": 7,
+          "failedRounds": [
+            12,
+            12,
+            7,
+            14
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 9,
+      "name": "三门烽火",
+      "wins": 17,
+      "total": 20,
+      "rate": 0.85,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 9,
+          "skills": true,
+          "wins": 7,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 22,
+          "minRound": 14,
+          "failedRounds": [
+            15,
+            15,
+            14
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 9,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 24,
+          "meanHP": 31.2,
+          "minRound": 15,
+          "failedRounds": [],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 10,
+      "name": "万象归卷",
+      "wins": 3,
+      "total": 20,
+      "rate": 0.15,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 10,
+          "skills": true,
+          "wins": 0,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 0,
+          "minRound": 11,
+          "failedRounds": [
+            16,
+            15,
+            14,
+            11,
+            13,
+            14,
+            15,
+            15,
+            14,
+            15
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 10,
+          "skills": true,
+          "wins": 3,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 8.7,
+          "minRound": 10,
+          "failedRounds": [
+            10,
+            13,
+            15,
+            15,
+            15,
+            16,
+            16
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 11,
+      "name": "桃源春渡",
+      "wins": 19,
+      "total": 20,
+      "rate": 0.95,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 11,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 29.9,
+          "minRound": 13,
+          "failedRounds": [
+            13
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 11,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 26,
+          "meanHP": 33.2,
+          "minRound": 15,
+          "failedRounds": [],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 12,
+      "name": "荷塘月色",
+      "wins": 20,
+      "total": 20,
+      "rate": 1.0,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 12,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 17,
+          "meanHP": 28.6,
+          "minRound": 15,
+          "failedRounds": [],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 12,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 17,
+          "meanHP": 30.3,
+          "minRound": 15,
+          "failedRounds": [],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 13,
+      "name": "杏林听雨",
+      "wins": 18,
+      "total": 20,
+      "rate": 0.9,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 13,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 24.9,
+          "minRound": 15,
+          "failedRounds": [
+            15
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 13,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 29.1,
+          "minRound": 16,
+          "failedRounds": [
+            16
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 14,
+      "name": "黄沙古道",
+      "wins": 16,
+      "total": 20,
+      "rate": 0.8,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 14,
+          "skills": true,
+          "wins": 6,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 19.4,
+          "minRound": 13,
+          "failedRounds": [
+            16,
+            14,
+            15,
+            13
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 14,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 16,
+          "meanHP": 30.1,
+          "minRound": 16,
+          "failedRounds": [],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 15,
+      "name": "断崖栈道",
+      "wins": 11,
+      "total": 20,
+      "rate": 0.55,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 15,
+          "skills": true,
+          "wins": 3,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 6.8,
+          "minRound": 12,
+          "failedRounds": [
+            16,
+            17,
+            16,
+            15,
+            17,
+            13,
+            12
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 15,
+          "skills": true,
+          "wins": 8,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 22.6,
+          "minRound": 12,
+          "failedRounds": [
+            12,
+            13
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 16,
+      "name": "松涛古寺",
+      "wins": 15,
+      "total": 20,
+      "rate": 0.75,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 16,
+          "skills": true,
+          "wins": 6,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 17.9,
+          "minRound": 15,
+          "failedRounds": [
+            16,
+            15,
+            15,
+            16
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 16,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 31.2,
+          "minRound": 16,
+          "failedRounds": [
+            16
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 17,
+      "name": "莲灯夜市",
+      "wins": 12,
+      "total": 20,
+      "rate": 0.6,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 17,
+          "skills": true,
+          "wins": 3,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 10,
+          "minRound": 14,
+          "failedRounds": [
+            15,
+            15,
+            14,
+            15,
+            15,
+            15,
+            16
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 17,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 28.4,
+          "minRound": 15,
+          "failedRounds": [
+            15
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 18,
+      "name": "沧浪渡海",
+      "wins": 15,
+      "total": 20,
+      "rate": 0.75,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 18,
+          "skills": true,
+          "wins": 5,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 11.2,
+          "minRound": 12,
+          "failedRounds": [
+            17,
+            12,
+            13,
+            13,
+            17
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 18,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 2,
+          "meanHP": 26.8,
+          "minRound": 17,
+          "failedRounds": [],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 19,
+      "name": "赤焰丹炉",
+      "wins": 12,
+      "total": 20,
+      "rate": 0.6,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 19,
+          "skills": true,
+          "wins": 3,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 11.4,
+          "minRound": 16,
+          "failedRounds": [
+            17,
+            18,
+            16,
+            18,
+            18,
+            16,
+            18
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 19,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 32,
+          "minRound": 13,
+          "failedRounds": [
+            13
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 20,
+      "name": "龙门听瀑",
+      "wins": 19,
+      "total": 20,
+      "rate": 0.95,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 20,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 28.8,
+          "minRound": 18,
+          "failedRounds": [
+            18
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 20,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 26,
+          "meanHP": 35,
+          "minRound": 18,
+          "failedRounds": [],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 21,
+      "name": "稻香秋收",
+      "wins": 18,
+      "total": 20,
+      "rate": 0.9,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 21,
+          "skills": true,
+          "wins": 8,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 22.5,
+          "minRound": 15,
+          "failedRounds": [
+            15,
+            15
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 21,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 16,
+          "meanHP": 32.7,
+          "minRound": 17,
+          "failedRounds": [],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 22,
+      "name": "残月孤城",
+      "wins": 5,
+      "total": 20,
+      "rate": 0.25,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 22,
+          "skills": true,
+          "wins": 3,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 9.2,
+          "minRound": 12,
+          "failedRounds": [
+            12,
+            16,
+            17,
+            14,
+            16,
+            13,
+            18
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 22,
+          "skills": true,
+          "wins": 2,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 6.8,
+          "minRound": 11,
+          "failedRounds": [
+            17,
+            16,
+            11,
+            13,
+            17,
+            18,
+            17,
+            12
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 23,
+      "name": "梅岭踏雪",
+      "wins": 11,
+      "total": 20,
+      "rate": 0.55,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 23,
+          "skills": true,
+          "wins": 4,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 14.2,
+          "minRound": 15,
+          "failedRounds": [
+            17,
+            16,
+            15,
+            18,
+            16,
+            17
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 23,
+          "skills": true,
+          "wins": 7,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 24.2,
+          "minRound": 16,
+          "failedRounds": [
+            17,
+            16,
+            17
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 24,
+      "name": "长风驿路",
+      "wins": 13,
+      "total": 20,
+      "rate": 0.65,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 24,
+          "skills": true,
+          "wins": 6,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 13.7,
+          "minRound": 16,
+          "failedRounds": [
+            18,
+            18,
+            18,
+            16
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 24,
+          "skills": true,
+          "wins": 7,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 20.9,
+          "minRound": 16,
+          "failedRounds": [
+            18,
+            16,
+            16
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 25,
+      "name": "古琴幽谷",
+      "wins": 4,
+      "total": 20,
+      "rate": 0.2,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 25,
+          "skills": true,
+          "wins": 1,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 3.6,
+          "minRound": 14,
+          "failedRounds": [
+            19,
+            14,
+            14,
+            19,
+            18,
+            14,
+            14,
+            14,
+            18
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 25,
+          "skills": true,
+          "wins": 3,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 6.1,
+          "minRound": 12,
+          "failedRounds": [
+            18,
+            14,
+            13,
+            18,
+            19,
+            14,
+            12
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 26,
+      "name": "青瓷迷窑",
+      "wins": 3,
+      "total": 20,
+      "rate": 0.15,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 26,
+          "skills": true,
+          "wins": 1,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 3.6,
+          "minRound": 15,
+          "failedRounds": [
+            17,
+            18,
+            16,
+            18,
+            17,
+            17,
+            16,
+            17,
+            15
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 26,
+          "skills": true,
+          "wins": 2,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 7.2,
+          "minRound": 16,
+          "failedRounds": [
+            18,
+            18,
+            17,
+            16,
+            18,
+            17,
+            17,
+            18
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 27,
+      "name": "金阙云阶",
+      "wins": 3,
+      "total": 20,
+      "rate": 0.15,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 27,
+          "skills": true,
+          "wins": 0,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 0,
+          "minRound": 14,
+          "failedRounds": [
+            19,
+            17,
+            19,
+            16,
+            16,
+            14,
+            16,
+            18,
+            14,
+            16
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 27,
+          "skills": true,
+          "wins": 3,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 6.9,
+          "minRound": 14,
+          "failedRounds": [
+            18,
+            16,
+            19,
+            19,
+            14,
+            18,
+            15
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 28,
+      "name": "深渊星海",
+      "wins": 10,
+      "total": 20,
+      "rate": 0.5,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 28,
+          "skills": true,
+          "wins": 3,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 5.9,
+          "minRound": 15,
+          "failedRounds": [
+            19,
+            18,
+            19,
+            17,
+            17,
+            18,
+            15
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 28,
+          "skills": true,
+          "wins": 7,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 24.4,
+          "minRound": 18,
+          "failedRounds": [
+            18,
+            18,
+            18
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 29,
+      "name": "山河会盟",
+      "wins": 6,
+      "total": 20,
+      "rate": 0.3,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 29,
+          "skills": true,
+          "wins": 1,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 1.7,
+          "minRound": 15,
+          "failedRounds": [
+            17,
+            18,
+            16,
+            16,
+            16,
+            15,
+            18,
+            16,
+            16
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 29,
+          "skills": true,
+          "wins": 5,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 11.7,
+          "minRound": 17,
+          "failedRounds": [
+            17,
+            18,
+            18,
+            17,
+            17
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "chapter": 30,
+      "name": "万卷终章",
+      "wins": 6,
+      "total": 20,
+      "rate": 0.3,
+      "strategies": [
+        {
+          "strategy": "skills",
+          "chapter": 30,
+          "skills": true,
+          "wins": 1,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 4.2,
+          "minRound": 16,
+          "failedRounds": [
+            19,
+            19,
+            19,
+            17,
+            19,
+            19,
+            17,
+            16,
+            16
+          ],
+          "timeouts": 0
+        },
+        {
+          "strategy": "formation",
+          "chapter": 30,
+          "skills": true,
+          "wins": 5,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 10.4,
+          "minRound": 18,
+          "failedRounds": [
+            20,
+            18,
+            19,
+            19,
+            19
+          ],
+          "timeouts": 0
+        }
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "strategy": "skills",
+      "chapterStart": 1,
+      "chapterEnd": 10,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "sourceHashes": {
+        "campaignExpansionHash": "d9952ecc641913cf887428440437c6d5bb2b1bd57fc61aac5250b930bad69629",
+        "poetryScenesHash": "6bb80c0d31a8f9a1e093ad1def3212818855d1ad3c9766a1b7a8391ddd76274b",
+        "poetryImpactHash": "6a1948153db8e5b214b73a8d512b52974b28b7344aa155c003276931a961691b",
+        "poetrySceneRulesHash": "1a3db93796b67dfcd1ebfdaf997c626d45ea70dc447f0c25bfd82bfdcc7b231d",
+        "poetryCombatHash": "ebed11ca88f3a0480ffb86d2114062db5ee3ccb59fae839a5e65a2970643fa39",
+        "poetryRulesHash": "df0b5bf2a5bb41b32fd8a7f52e653aa74401c3bfd9b8d49f912aa01461aedcb6",
+        "poetryDataHash": "b5accdb3cfb093ed3ac5f5c3ed11566a5e5830f3f4b540b87cb6231c3f76c719",
+        "engineHash": "0e82fd83371ade38e1972d8156be93337f1ef5e0c14bce1bea2c782f9f958c9f",
+        "specialsHash": "7e70298ab8214e98ffc0965e0a5125ebaf5e6c28be741074836d3309299cf945",
+        "lexiconHash": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
+        "strategyHash": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a"
+      },
+      "chapterInputHashes": {
+        "1": "e1586b73ac453edf39d5cf31fbcc6372e9fca8faa394016af9f93b872ee74e2b",
+        "2": "61cb82d5ac7ad6b467bd054629203ad5a20d4280a306458b1cadc0ab4e44641b",
+        "3": "f77fc95121d94d4de818a27fb4d3ff9052ad004153fbfc805d131091ef8b33e3",
+        "4": "01d695b4fb352d6f216d3a86236b2ad41139f8a678551aa3b67ec967b7acc8c4",
+        "5": "9afb376d793d7962e2e041b488f375a429b321ee9364acad8e98511f081770ab",
+        "6": "98e04a34270a51976a5f3a5c12de4f537a6f54db43f4e5dd2703e5c8eb7b6209",
+        "7": "c91bf405124844da3dbb50bfbb607dcbc38004938d9102afe9fc2bcce25379be",
+        "8": "70704dc567150363b329e8a60ceb7220fc00b735e37e0d6d843d5b996145a34f",
+        "9": "b671900394ac6c23fffd0c8b7e7f53d0c4b2c374276fcd9af90961feafe94fca",
+        "10": "aa7d9ad88434d9afdcc3125f51b892ab9b2a81f7dc70f03faba6ae7e483eef8c"
+      },
+      "excludedChapters": [],
+      "chapters": [
+        {
+          "chapter": 1,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 16,
+          "meanHP": 19.6,
+          "minRound": 8,
+          "failedRounds": [],
+          "timeouts": 0
+        },
+        {
+          "chapter": 2,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 16.2,
+          "minRound": 9,
+          "failedRounds": [
+            9
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 3,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 19.2,
+          "minRound": 11,
+          "failedRounds": [
+            11
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 4,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 20.9,
+          "minRound": 7,
+          "failedRounds": [
+            7
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 5,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 10,
+          "meanHP": 16.8,
+          "minRound": 11,
+          "failedRounds": [],
+          "timeouts": 0
+        },
+        {
+          "chapter": 6,
+          "skills": true,
+          "wins": 7,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 19.2,
+          "minRound": 11,
+          "failedRounds": [
+            12,
+            11,
+            11
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 7,
+          "skills": true,
+          "wins": 7,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 15.3,
+          "minRound": 10,
+          "failedRounds": [
+            13,
+            11,
+            10
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 8,
+          "skills": true,
+          "wins": 3,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 6.1,
+          "minRound": 6,
+          "failedRounds": [
+            6,
+            11,
+            12,
+            14,
+            10,
+            14,
+            13
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 9,
+          "skills": true,
+          "wins": 7,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 22,
+          "minRound": 14,
+          "failedRounds": [
+            15,
+            15,
+            14
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 10,
+          "skills": true,
+          "wins": 0,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 0,
+          "minRound": 11,
+          "failedRounds": [
+            16,
+            15,
+            14,
+            11,
+            13,
+            14,
+            15,
+            15,
+            14,
+            15
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "strategy": "formation",
+      "chapterStart": 1,
+      "chapterEnd": 10,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "sourceHashes": {
+        "campaignExpansionHash": "d9952ecc641913cf887428440437c6d5bb2b1bd57fc61aac5250b930bad69629",
+        "poetryScenesHash": "6bb80c0d31a8f9a1e093ad1def3212818855d1ad3c9766a1b7a8391ddd76274b",
+        "poetryImpactHash": "6a1948153db8e5b214b73a8d512b52974b28b7344aa155c003276931a961691b",
+        "poetrySceneRulesHash": "1a3db93796b67dfcd1ebfdaf997c626d45ea70dc447f0c25bfd82bfdcc7b231d",
+        "poetryCombatHash": "ebed11ca88f3a0480ffb86d2114062db5ee3ccb59fae839a5e65a2970643fa39",
+        "poetryRulesHash": "df0b5bf2a5bb41b32fd8a7f52e653aa74401c3bfd9b8d49f912aa01461aedcb6",
+        "poetryDataHash": "b5accdb3cfb093ed3ac5f5c3ed11566a5e5830f3f4b540b87cb6231c3f76c719",
+        "engineHash": "0e82fd83371ade38e1972d8156be93337f1ef5e0c14bce1bea2c782f9f958c9f",
+        "specialsHash": "7e70298ab8214e98ffc0965e0a5125ebaf5e6c28be741074836d3309299cf945",
+        "lexiconHash": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
+        "strategyHash": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a"
+      },
+      "chapterInputHashes": {
+        "1": "e1586b73ac453edf39d5cf31fbcc6372e9fca8faa394016af9f93b872ee74e2b",
+        "2": "61cb82d5ac7ad6b467bd054629203ad5a20d4280a306458b1cadc0ab4e44641b",
+        "3": "f77fc95121d94d4de818a27fb4d3ff9052ad004153fbfc805d131091ef8b33e3",
+        "4": "01d695b4fb352d6f216d3a86236b2ad41139f8a678551aa3b67ec967b7acc8c4",
+        "5": "9afb376d793d7962e2e041b488f375a429b321ee9364acad8e98511f081770ab",
+        "6": "98e04a34270a51976a5f3a5c12de4f537a6f54db43f4e5dd2703e5c8eb7b6209",
+        "7": "c91bf405124844da3dbb50bfbb607dcbc38004938d9102afe9fc2bcce25379be",
+        "8": "70704dc567150363b329e8a60ceb7220fc00b735e37e0d6d843d5b996145a34f",
+        "9": "b671900394ac6c23fffd0c8b7e7f53d0c4b2c374276fcd9af90961feafe94fca",
+        "10": "aa7d9ad88434d9afdcc3125f51b892ab9b2a81f7dc70f03faba6ae7e483eef8c"
+      },
+      "excludedChapters": [],
+      "chapters": [
+        {
+          "chapter": 1,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 18,
+          "meanHP": 19.8,
+          "minRound": 8,
+          "failedRounds": [],
+          "timeouts": 0
+        },
+        {
+          "chapter": 2,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 16.5,
+          "minRound": 10,
+          "failedRounds": [
+            10
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 3,
+          "skills": true,
+          "wins": 8,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 18.2,
+          "minRound": 11,
+          "failedRounds": [
+            12,
+            11
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 4,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 18,
+          "meanHP": 22.6,
+          "minRound": 10,
+          "failedRounds": [],
+          "timeouts": 0
+        },
+        {
+          "chapter": 5,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 8,
+          "meanHP": 15.4,
+          "minRound": 11,
+          "failedRounds": [],
+          "timeouts": 0
+        },
+        {
+          "chapter": 6,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 23,
+          "minRound": 12,
+          "failedRounds": [
+            12
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 7,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 20.5,
+          "minRound": 11,
+          "failedRounds": [
+            11
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 8,
+          "skills": true,
+          "wins": 6,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 15.5,
+          "minRound": 7,
+          "failedRounds": [
+            12,
+            12,
+            7,
+            14
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 9,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 24,
+          "meanHP": 31.2,
+          "minRound": 15,
+          "failedRounds": [],
+          "timeouts": 0
+        },
+        {
+          "chapter": 10,
+          "skills": true,
+          "wins": 3,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 8.7,
+          "minRound": 10,
+          "failedRounds": [
+            10,
+            13,
+            15,
+            15,
+            15,
+            16,
+            16
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "strategy": "skills",
+      "chapterStart": 11,
+      "chapterEnd": 20,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "sourceHashes": {
+        "campaignExpansionHash": "d9952ecc641913cf887428440437c6d5bb2b1bd57fc61aac5250b930bad69629",
+        "poetryScenesHash": "6bb80c0d31a8f9a1e093ad1def3212818855d1ad3c9766a1b7a8391ddd76274b",
+        "poetryImpactHash": "6a1948153db8e5b214b73a8d512b52974b28b7344aa155c003276931a961691b",
+        "poetrySceneRulesHash": "1a3db93796b67dfcd1ebfdaf997c626d45ea70dc447f0c25bfd82bfdcc7b231d",
+        "poetryCombatHash": "ebed11ca88f3a0480ffb86d2114062db5ee3ccb59fae839a5e65a2970643fa39",
+        "poetryRulesHash": "df0b5bf2a5bb41b32fd8a7f52e653aa74401c3bfd9b8d49f912aa01461aedcb6",
+        "poetryDataHash": "b5accdb3cfb093ed3ac5f5c3ed11566a5e5830f3f4b540b87cb6231c3f76c719",
+        "engineHash": "0e82fd83371ade38e1972d8156be93337f1ef5e0c14bce1bea2c782f9f958c9f",
+        "specialsHash": "7e70298ab8214e98ffc0965e0a5125ebaf5e6c28be741074836d3309299cf945",
+        "lexiconHash": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
+        "strategyHash": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a"
+      },
+      "chapterInputHashes": {
+        "11": "0cf4cc494dae462bd12ca2324429d297f0025bd91eb838bffe7e6017a69501fd",
+        "12": "4564147a7545a3e3213f2f08c00f25de3e84e5caf37e9f86bb6f154efe1caede",
+        "13": "86485fa4267727c6512eb007e590c6ec33d55162b45e9b9247c116e169db9c14",
+        "14": "9bd400f3e4cfb969e4752e723ce02a2304a0c0f9445ef4d3b8aa4b8b0dd7da52",
+        "15": "a7752b0e9ab4427d214d3c8d2646e9c173a4e37c39f2169668cebd05afd10fd7",
+        "16": "a99424831250036fd3d573c00550ae47e8011cd50854213e379506a3826b556a",
+        "17": "5fd16afe4f1e8d1fa26f8f34374eed8b70505d7af8ef51a0e9eec2baf6ac204c",
+        "18": "e725c99d2e4835f9830b24e5e083a11405e9d01551d40d44b6f84bbcba7cfb6c",
+        "19": "840bb8843c818b535af6f1f243409afce10e07cdf260363410cadc39505f1302",
+        "20": "e07a8c08c1b84ae12d1cd4c7219bde37a877d05b3b219b4f7c1569ae323527aa"
+      },
+      "excludedChapters": [],
+      "chapters": [
+        {
+          "chapter": 11,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 29.9,
+          "minRound": 13,
+          "failedRounds": [
+            13
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 12,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 17,
+          "meanHP": 28.6,
+          "minRound": 15,
+          "failedRounds": [],
+          "timeouts": 0
+        },
+        {
+          "chapter": 13,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 24.9,
+          "minRound": 15,
+          "failedRounds": [
+            15
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 14,
+          "skills": true,
+          "wins": 6,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 19.4,
+          "minRound": 13,
+          "failedRounds": [
+            16,
+            14,
+            15,
+            13
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 15,
+          "skills": true,
+          "wins": 3,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 6.8,
+          "minRound": 12,
+          "failedRounds": [
+            16,
+            17,
+            16,
+            15,
+            17,
+            13,
+            12
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 16,
+          "skills": true,
+          "wins": 6,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 17.9,
+          "minRound": 15,
+          "failedRounds": [
+            16,
+            15,
+            15,
+            16
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 17,
+          "skills": true,
+          "wins": 3,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 10,
+          "minRound": 14,
+          "failedRounds": [
+            15,
+            15,
+            14,
+            15,
+            15,
+            15,
+            16
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 18,
+          "skills": true,
+          "wins": 5,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 11.2,
+          "minRound": 12,
+          "failedRounds": [
+            17,
+            12,
+            13,
+            13,
+            17
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 19,
+          "skills": true,
+          "wins": 3,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 11.4,
+          "minRound": 16,
+          "failedRounds": [
+            17,
+            18,
+            16,
+            18,
+            18,
+            16,
+            18
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 20,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 28.8,
+          "minRound": 18,
+          "failedRounds": [
+            18
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "strategy": "formation",
+      "chapterStart": 11,
+      "chapterEnd": 20,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "sourceHashes": {
+        "campaignExpansionHash": "d9952ecc641913cf887428440437c6d5bb2b1bd57fc61aac5250b930bad69629",
+        "poetryScenesHash": "6bb80c0d31a8f9a1e093ad1def3212818855d1ad3c9766a1b7a8391ddd76274b",
+        "poetryImpactHash": "6a1948153db8e5b214b73a8d512b52974b28b7344aa155c003276931a961691b",
+        "poetrySceneRulesHash": "1a3db93796b67dfcd1ebfdaf997c626d45ea70dc447f0c25bfd82bfdcc7b231d",
+        "poetryCombatHash": "ebed11ca88f3a0480ffb86d2114062db5ee3ccb59fae839a5e65a2970643fa39",
+        "poetryRulesHash": "df0b5bf2a5bb41b32fd8a7f52e653aa74401c3bfd9b8d49f912aa01461aedcb6",
+        "poetryDataHash": "b5accdb3cfb093ed3ac5f5c3ed11566a5e5830f3f4b540b87cb6231c3f76c719",
+        "engineHash": "0e82fd83371ade38e1972d8156be93337f1ef5e0c14bce1bea2c782f9f958c9f",
+        "specialsHash": "7e70298ab8214e98ffc0965e0a5125ebaf5e6c28be741074836d3309299cf945",
+        "lexiconHash": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
+        "strategyHash": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a"
+      },
+      "chapterInputHashes": {
+        "11": "0cf4cc494dae462bd12ca2324429d297f0025bd91eb838bffe7e6017a69501fd",
+        "12": "4564147a7545a3e3213f2f08c00f25de3e84e5caf37e9f86bb6f154efe1caede",
+        "13": "86485fa4267727c6512eb007e590c6ec33d55162b45e9b9247c116e169db9c14",
+        "14": "9bd400f3e4cfb969e4752e723ce02a2304a0c0f9445ef4d3b8aa4b8b0dd7da52",
+        "15": "a7752b0e9ab4427d214d3c8d2646e9c173a4e37c39f2169668cebd05afd10fd7",
+        "16": "a99424831250036fd3d573c00550ae47e8011cd50854213e379506a3826b556a",
+        "17": "5fd16afe4f1e8d1fa26f8f34374eed8b70505d7af8ef51a0e9eec2baf6ac204c",
+        "18": "e725c99d2e4835f9830b24e5e083a11405e9d01551d40d44b6f84bbcba7cfb6c",
+        "19": "840bb8843c818b535af6f1f243409afce10e07cdf260363410cadc39505f1302",
+        "20": "e07a8c08c1b84ae12d1cd4c7219bde37a877d05b3b219b4f7c1569ae323527aa"
+      },
+      "excludedChapters": [],
+      "chapters": [
+        {
+          "chapter": 11,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 26,
+          "meanHP": 33.2,
+          "minRound": 15,
+          "failedRounds": [],
+          "timeouts": 0
+        },
+        {
+          "chapter": 12,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 17,
+          "meanHP": 30.3,
+          "minRound": 15,
+          "failedRounds": [],
+          "timeouts": 0
+        },
+        {
+          "chapter": 13,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 29.1,
+          "minRound": 16,
+          "failedRounds": [
+            16
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 14,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 16,
+          "meanHP": 30.1,
+          "minRound": 16,
+          "failedRounds": [],
+          "timeouts": 0
+        },
+        {
+          "chapter": 15,
+          "skills": true,
+          "wins": 8,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 22.6,
+          "minRound": 12,
+          "failedRounds": [
+            12,
+            13
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 16,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 31.2,
+          "minRound": 16,
+          "failedRounds": [
+            16
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 17,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 28.4,
+          "minRound": 15,
+          "failedRounds": [
+            15
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 18,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 2,
+          "meanHP": 26.8,
+          "minRound": 17,
+          "failedRounds": [],
+          "timeouts": 0
+        },
+        {
+          "chapter": 19,
+          "skills": true,
+          "wins": 9,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 32,
+          "minRound": 13,
+          "failedRounds": [
+            13
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 20,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 26,
+          "meanHP": 35,
+          "minRound": 18,
+          "failedRounds": [],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "strategy": "skills",
+      "chapterStart": 21,
+      "chapterEnd": 30,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "sourceHashes": {
+        "campaignExpansionHash": "d9952ecc641913cf887428440437c6d5bb2b1bd57fc61aac5250b930bad69629",
+        "poetryScenesHash": "6bb80c0d31a8f9a1e093ad1def3212818855d1ad3c9766a1b7a8391ddd76274b",
+        "poetryImpactHash": "6a1948153db8e5b214b73a8d512b52974b28b7344aa155c003276931a961691b",
+        "poetrySceneRulesHash": "1a3db93796b67dfcd1ebfdaf997c626d45ea70dc447f0c25bfd82bfdcc7b231d",
+        "poetryCombatHash": "ebed11ca88f3a0480ffb86d2114062db5ee3ccb59fae839a5e65a2970643fa39",
+        "poetryRulesHash": "df0b5bf2a5bb41b32fd8a7f52e653aa74401c3bfd9b8d49f912aa01461aedcb6",
+        "poetryDataHash": "b5accdb3cfb093ed3ac5f5c3ed11566a5e5830f3f4b540b87cb6231c3f76c719",
+        "engineHash": "0e82fd83371ade38e1972d8156be93337f1ef5e0c14bce1bea2c782f9f958c9f",
+        "specialsHash": "7e70298ab8214e98ffc0965e0a5125ebaf5e6c28be741074836d3309299cf945",
+        "lexiconHash": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
+        "strategyHash": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a"
+      },
+      "chapterInputHashes": {
+        "21": "60950dc5d0bd46f30fb12ff48dd009803e3d090d14b39064ed45b323c58d0f58",
+        "22": "b04fdc994b228ecb8bf547f9278496ba338732982d82863661113e9925ce7fd9",
+        "23": "e5908024d12c8094282617bfd823b13b14d828011870678bac6c8f22bad76369",
+        "24": "e67f32d64ebb50b430b0bb63df4bbb326ae369faea09daccd5be50054d2f3a93",
+        "25": "7ed7bff5ebaf68cc3253628465a17c2544ddfc7a2977142bc8d3d17e4480c356",
+        "26": "17de0b19722df1987995982cf5dffe30ad199a6152c196b1504dbf606a2eb4ed",
+        "27": "e8ccb997b80117f3d2e7de449386df896ebc99297c6cc4473b9fb34c6149691c",
+        "28": "23386575be5ae7b08dd1860c902d0bcc9c24a6f896caa4de225f77c35836720b",
+        "30": "5a185829802b6c1495a27df6177aacb6af8a56548418f16237d31d1c5f58b4ca"
+      },
+      "excludedChapters": [
+        29
+      ],
+      "chapters": [
+        {
+          "chapter": 21,
+          "skills": true,
+          "wins": 8,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 22.5,
+          "minRound": 15,
+          "failedRounds": [
+            15,
+            15
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 22,
+          "skills": true,
+          "wins": 3,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 9.2,
+          "minRound": 12,
+          "failedRounds": [
+            12,
+            16,
+            17,
+            14,
+            16,
+            13,
+            18
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 23,
+          "skills": true,
+          "wins": 4,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 14.2,
+          "minRound": 15,
+          "failedRounds": [
+            17,
+            16,
+            15,
+            18,
+            16,
+            17
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 24,
+          "skills": true,
+          "wins": 6,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 13.7,
+          "minRound": 16,
+          "failedRounds": [
+            18,
+            18,
+            18,
+            16
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 25,
+          "skills": true,
+          "wins": 1,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 3.6,
+          "minRound": 14,
+          "failedRounds": [
+            19,
+            14,
+            14,
+            19,
+            18,
+            14,
+            14,
+            14,
+            18
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 26,
+          "skills": true,
+          "wins": 1,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 3.6,
+          "minRound": 15,
+          "failedRounds": [
+            17,
+            18,
+            16,
+            18,
+            17,
+            17,
+            16,
+            17,
+            15
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 27,
+          "skills": true,
+          "wins": 0,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 0,
+          "minRound": 14,
+          "failedRounds": [
+            19,
+            17,
+            19,
+            16,
+            16,
+            14,
+            16,
+            18,
+            14,
+            16
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 28,
+          "skills": true,
+          "wins": 3,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 5.9,
+          "minRound": 15,
+          "failedRounds": [
+            19,
+            18,
+            19,
+            17,
+            17,
+            18,
+            15
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 30,
+          "skills": true,
+          "wins": 1,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 4.2,
+          "minRound": 16,
+          "failedRounds": [
+            19,
+            19,
+            19,
+            17,
+            19,
+            19,
+            17,
+            16,
+            16
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "strategy": "formation",
+      "chapterStart": 21,
+      "chapterEnd": 30,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "sourceHashes": {
+        "campaignExpansionHash": "d9952ecc641913cf887428440437c6d5bb2b1bd57fc61aac5250b930bad69629",
+        "poetryScenesHash": "6bb80c0d31a8f9a1e093ad1def3212818855d1ad3c9766a1b7a8391ddd76274b",
+        "poetryImpactHash": "6a1948153db8e5b214b73a8d512b52974b28b7344aa155c003276931a961691b",
+        "poetrySceneRulesHash": "1a3db93796b67dfcd1ebfdaf997c626d45ea70dc447f0c25bfd82bfdcc7b231d",
+        "poetryCombatHash": "ebed11ca88f3a0480ffb86d2114062db5ee3ccb59fae839a5e65a2970643fa39",
+        "poetryRulesHash": "df0b5bf2a5bb41b32fd8a7f52e653aa74401c3bfd9b8d49f912aa01461aedcb6",
+        "poetryDataHash": "b5accdb3cfb093ed3ac5f5c3ed11566a5e5830f3f4b540b87cb6231c3f76c719",
+        "engineHash": "0e82fd83371ade38e1972d8156be93337f1ef5e0c14bce1bea2c782f9f958c9f",
+        "specialsHash": "7e70298ab8214e98ffc0965e0a5125ebaf5e6c28be741074836d3309299cf945",
+        "lexiconHash": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
+        "strategyHash": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a"
+      },
+      "chapterInputHashes": {
+        "21": "60950dc5d0bd46f30fb12ff48dd009803e3d090d14b39064ed45b323c58d0f58",
+        "22": "b04fdc994b228ecb8bf547f9278496ba338732982d82863661113e9925ce7fd9",
+        "23": "e5908024d12c8094282617bfd823b13b14d828011870678bac6c8f22bad76369",
+        "24": "e67f32d64ebb50b430b0bb63df4bbb326ae369faea09daccd5be50054d2f3a93",
+        "25": "7ed7bff5ebaf68cc3253628465a17c2544ddfc7a2977142bc8d3d17e4480c356",
+        "26": "17de0b19722df1987995982cf5dffe30ad199a6152c196b1504dbf606a2eb4ed",
+        "27": "e8ccb997b80117f3d2e7de449386df896ebc99297c6cc4473b9fb34c6149691c",
+        "28": "23386575be5ae7b08dd1860c902d0bcc9c24a6f896caa4de225f77c35836720b",
+        "30": "5a185829802b6c1495a27df6177aacb6af8a56548418f16237d31d1c5f58b4ca"
+      },
+      "excludedChapters": [
+        29
+      ],
+      "chapters": [
+        {
+          "chapter": 21,
+          "skills": true,
+          "wins": 10,
+          "total": 10,
+          "minHP": 16,
+          "meanHP": 32.7,
+          "minRound": 17,
+          "failedRounds": [],
+          "timeouts": 0
+        },
+        {
+          "chapter": 22,
+          "skills": true,
+          "wins": 2,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 6.8,
+          "minRound": 11,
+          "failedRounds": [
+            17,
+            16,
+            11,
+            13,
+            17,
+            18,
+            17,
+            12
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 23,
+          "skills": true,
+          "wins": 7,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 24.2,
+          "minRound": 16,
+          "failedRounds": [
+            17,
+            16,
+            17
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 24,
+          "skills": true,
+          "wins": 7,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 20.9,
+          "minRound": 16,
+          "failedRounds": [
+            18,
+            16,
+            16
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 25,
+          "skills": true,
+          "wins": 3,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 6.1,
+          "minRound": 12,
+          "failedRounds": [
+            18,
+            14,
+            13,
+            18,
+            19,
+            14,
+            12
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 26,
+          "skills": true,
+          "wins": 2,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 7.2,
+          "minRound": 16,
+          "failedRounds": [
+            18,
+            18,
+            17,
+            16,
+            18,
+            17,
+            17,
+            18
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 27,
+          "skills": true,
+          "wins": 3,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 6.9,
+          "minRound": 14,
+          "failedRounds": [
+            18,
+            16,
+            19,
+            19,
+            14,
+            18,
+            15
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 28,
+          "skills": true,
+          "wins": 7,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 24.4,
+          "minRound": 18,
+          "failedRounds": [
+            18,
+            18,
+            18
+          ],
+          "timeouts": 0
+        },
+        {
+          "chapter": 30,
+          "skills": true,
+          "wins": 5,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 10.4,
+          "minRound": 18,
+          "failedRounds": [
+            20,
+            18,
+            19,
+            19,
+            19
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "strategy": "skills",
+      "chapterStart": 29,
+      "chapterEnd": 29,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "sourceHashes": {
+        "campaignExpansionHash": "e22a7210c3ec5084e3b78fe49828790377e6ee97645b4c1635657a692f0213b8",
+        "poetryScenesHash": "6bb80c0d31a8f9a1e093ad1def3212818855d1ad3c9766a1b7a8391ddd76274b",
+        "poetryImpactHash": "6a1948153db8e5b214b73a8d512b52974b28b7344aa155c003276931a961691b",
+        "poetrySceneRulesHash": "1a3db93796b67dfcd1ebfdaf997c626d45ea70dc447f0c25bfd82bfdcc7b231d",
+        "poetryCombatHash": "ebed11ca88f3a0480ffb86d2114062db5ee3ccb59fae839a5e65a2970643fa39",
+        "poetryRulesHash": "df0b5bf2a5bb41b32fd8a7f52e653aa74401c3bfd9b8d49f912aa01461aedcb6",
+        "poetryDataHash": "b5accdb3cfb093ed3ac5f5c3ed11566a5e5830f3f4b540b87cb6231c3f76c719",
+        "engineHash": "0e82fd83371ade38e1972d8156be93337f1ef5e0c14bce1bea2c782f9f958c9f",
+        "specialsHash": "7e70298ab8214e98ffc0965e0a5125ebaf5e6c28be741074836d3309299cf945",
+        "lexiconHash": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
+        "strategyHash": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a"
+      },
+      "chapterInputHashes": {
+        "29": "bd72f6146e4d538c14fe21a081d3bb30e6dba980c3440c63ac40f71baea541b3"
+      },
+      "chapters": [
+        {
+          "chapter": 29,
+          "skills": true,
+          "wins": 1,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 1.7,
+          "minRound": 15,
+          "failedRounds": [
+            17,
+            18,
+            16,
+            16,
+            16,
+            15,
+            18,
+            16,
+            16
+          ],
+          "timeouts": 0
+        }
+      ]
+    },
+    {
+      "strategy": "formation",
+      "chapterStart": 29,
+      "chapterEnd": 29,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "sourceHashes": {
+        "campaignExpansionHash": "e22a7210c3ec5084e3b78fe49828790377e6ee97645b4c1635657a692f0213b8",
+        "poetryScenesHash": "6bb80c0d31a8f9a1e093ad1def3212818855d1ad3c9766a1b7a8391ddd76274b",
+        "poetryImpactHash": "6a1948153db8e5b214b73a8d512b52974b28b7344aa155c003276931a961691b",
+        "poetrySceneRulesHash": "1a3db93796b67dfcd1ebfdaf997c626d45ea70dc447f0c25bfd82bfdcc7b231d",
+        "poetryCombatHash": "ebed11ca88f3a0480ffb86d2114062db5ee3ccb59fae839a5e65a2970643fa39",
+        "poetryRulesHash": "df0b5bf2a5bb41b32fd8a7f52e653aa74401c3bfd9b8d49f912aa01461aedcb6",
+        "poetryDataHash": "b5accdb3cfb093ed3ac5f5c3ed11566a5e5830f3f4b540b87cb6231c3f76c719",
+        "engineHash": "0e82fd83371ade38e1972d8156be93337f1ef5e0c14bce1bea2c782f9f958c9f",
+        "specialsHash": "7e70298ab8214e98ffc0965e0a5125ebaf5e6c28be741074836d3309299cf945",
+        "lexiconHash": "279cdab447a3b168c28aa9c9f28ff0cfd97bbeeb3ff89ac8ffdf28a828a6aa52",
+        "strategyHash": "3a6fdd27e5169dbea58ffa03cbe5c08bd7eadc44fdd570706d64ed02e7a51d8a"
+      },
+      "chapterInputHashes": {
+        "29": "bd72f6146e4d538c14fe21a081d3bb30e6dba980c3440c63ac40f71baea541b3"
+      },
+      "chapters": [
+        {
+          "chapter": 29,
+          "skills": true,
+          "wins": 5,
+          "total": 10,
+          "minHP": 0,
+          "meanHP": 11.7,
+          "minRound": 17,
+          "failedRounds": [
+            17,
+            18,
+            18,
+            17,
+            17
+          ],
+          "timeouts": 0
+        }
+      ]
+    }
+  ]
+}

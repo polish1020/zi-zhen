@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {Game,ENEMIES,enemyPosition,enemyLength,towerStats} from '../dist/engine.mjs';
 
-test('all 42 bosses emit one detached defeat portrait at the actual death location',()=>{
- const bosses=Object.keys(ENEMIES).filter(k=>ENEMIES[k].boss);assert.equal(bosses.length,42);
+test('all 102 bosses emit one detached defeat portrait at the actual death location',()=>{
+ const bosses=Object.keys(ENEMIES).filter(k=>ENEMIES[k].boss);assert.equal(bosses.length,102);
  for(const [i,kind]of bosses.entries()){
   const g=new Game(i%10,42);g.phase='battle';g.wave=9;g.pendingWaves=[9];
   const keep=g.spawn('normal',0);keep.hp=keep.maxHp=1e6;keep.speed=.01;

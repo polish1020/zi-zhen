@@ -1,3 +1,4 @@
+import {CAMPAIGN_ADDITIONS,createCampaignEnemies} from './campaign-expansion.mjs';
 import{updatePoetryScenes,recordPoetryHit,recordPoetryDeath,shelterPoetryHit,poetryThreat,clearPoetryScenes,clonePoetryScenes,validatePoetryScenes}from'./poetry-scenes.mjs';
 import {POETRY_WORDS,POEMS,POEM_LINES,POEM_INDEX,VERSE_INDEX,MAX_WORD_LENGTH,POETRY_DRAW_CHANCE,POETRY_GRADES,validPoetryGrade,poemWithinGrade,FIELD_INTERVALS,verseDescription,verseStatus,POETRY_CONTROL_NOTE} from './poetry-rules.mjs';
 import {attackPoetry} from './poetry-combat.mjs';
@@ -459,7 +460,9 @@ export const rebuildPercent=t=>Math.min(100,50+15*(t.rebuilds||0));
 const ENEMY_WEAPON_CACHE=new Map();
 export function enemyWeapon(kind){
  if(ENEMY_WEAPON_CACHE.has(kind))return ENEMY_WEAPON_CACHE.get(kind);
- const data=ENEMIES[kind],weapon=siegeBaseWeapon(kind),base=data.sprite||data.behavior||kind;
+ const data=ENEMIES[kind];
+ if(data.campaignBase){const result=Object.freeze({...enemyWeapon(data.campaignBase),color:data.color});ENEMY_WEAPON_CACHE.set(kind,result);return result;}
+ const weapon=siegeBaseWeapon(kind),base=data.sprite||data.behavior||kind;
  const visual=/ember|beacon/.test(kind)||weapon.debuff==='flame'?'flame':/frost|ice|glacier/.test(kind)?'frost':/thunder|stormboss/.test(kind)?'thunder':/tide|river|pearl/.test(kind)?'tide':/lifetree|bambooent|bamboowitch/.test(kind)?'vine':/mirror|glass|dream/.test(kind)?'prism':/scroll|inkarchivist|silence/.test(kind)?'seal':/astral|sunsovereign|moonsovereign/.test(kind)?'star':/gear|clockwork|ballista/.test(kind)?'cannon':weapon.debuff==='corrode'||/plague/.test(kind)?'acid':weapon.style==='air'?'dive':weapon.style==='stalker'?'shadow':weapon.style==='spell'||kind==='inkking'?'ink':weapon.style==='cleave'?'quake':['swift','lancer','beaconrunner','banner','hillrunner'].includes(base)?'rush':'claw';
  const profile={...weapon};
  if(data.boss&&['ink','vine','acid'].includes(visual)&&profile.style==='cleave')Object.assign(profile,{style:'spell',range:145,damage:11,interval:4.6,windup:.85});
@@ -489,7 +492,7 @@ export const CHAPTERS=[
  {name:'镜城围攻',area:'镜中城',rounds:14,hp:30,ink:400,difficulty:1.55,intro:'东西分路绕行，南侧汇合；两翼布阵，门前补防。'},
  {name:'三门烽火',area:'三门岭',rounds:15,hp:32,ink:410,difficulty:1.7,intro:'三路轮番试探，支援怪组合压境。'},
  {name:'万象归卷',area:'万象台',rounds:16,hp:34,ink:440,difficulty:1.85,intro:'三门同时开启，以完整词阵迎战墨君。'}
-].map(ch=>({...ch,wavesPerRound:3,waves:ch.rounds*3}));
+].concat(CAMPAIGN_ADDITIONS.map(({name,area,rounds,hp,ink,difficulty,intro})=>({name,area,rounds,hp,ink,difficulty,intro}))).map(ch=>({...ch,wavesPerRound:3,waves:ch.rounds*3}));
 export const PATH=[{x:-30,y:150},{x:190,y:150},{x:190,y:340},{x:440,y:340},{x:440,y:145},{x:690,y:145},{x:690,y:370},{x:940,y:370}];
 export const FREE_PAD_COUNT=12;
 export const PADS=[{x:100,y:78},{x:110,y:240},{x:265,y:228},{x:277,y:420},{x:360,y:265},{x:365,y:78},{x:520,y:225},{x:600,y:75},{x:610,y:305},{x:770,y:230},{x:783,y:445},{x:855,y:292},{x:250,y:75},{x:480,y:430},{x:620,y:460},{x:800,y:85}];
@@ -506,10 +509,11 @@ export const MAPS=[
  {name:'三门轮阵',mode:'staggered',routes:[points([[-30,100],[200,100],[200,260],[450,260],[700,260],[700,430],[180,430],[180,340],[940,340]]),points([[-30,470],[70,470],[70,260],[450,260],[700,260],[700,430],[180,430],[180,340],[940,340]]),points([[450,-30],[450,260],[700,260],[700,430],[180,430],[180,340],[940,340]])],pads:points([[110,170],[280,185],[370,330],[520,190],[610,330],[770,270],[780,410],[600,490],[430,490],[250,490],[110,365],[850,280],[300,50],[520,60],[30,340],[850,430]]),color:'#ece2db'},
  {name:'万象三门',mode:'simultaneous',routes:[points([[-30,160],[180,160],[180,240],[350,240],[350,80],[650,80],[650,400],[850,400],[850,240],[940,240]]),points([[100,550],[100,360],[350,360],[350,240],[350,80],[650,80],[650,400],[850,400],[850,240],[940,240]]),points([[450,-30],[450,240],[350,240],[350,80],[650,80],[650,400],[850,400],[850,240],[940,240]])],pads:points([[100,240],[260,180],[260,290],[410,330],[520,160],[565,310],[730,180],[730,325],[780,470],[470,450],[30,420],[530,30],[250,30],[180,470],[720,30],[900,330]]),color:'#34344c'}
 ];
+MAPS.push(...CAMPAIGN_ADDITIONS.map(ch=>({name:ch.area,mode:ch.mode,routes:ch.routes.map(points),pads:points(ch.pads),color:ch.color,theme:ch.theme,night:ch.night,accent:ch.accent,...(ch.airRoutes?{airRoutes:ch.airRoutes.map(points)}:{})})));
 // Keep existing mirror-city campaigns on their original geometry until restart.
 const LEGACY_MIRROR_MAP={name:'镜城东西门',mode:'simultaneous',routes:[points([[-30,90],[180,90],[180,220],[450,220],[450,430],[760,430],[760,300],[450,300],[450,550]]),points([[930,90],[720,90],[720,220],[450,220],[450,430],[760,430],[760,300],[450,300],[450,550]])],pads:points([[100,160],[270,145],[370,280],[535,150],[635,280],[815,170],[530,365],[650,365],[830,365],[365,445],[610,490],[535,490],[100,30],[810,30],[300,365],[850,480]]),color:'#e9e2ee'};
 const metrics=path=>{const segments=path.slice(1).map((p,i)=>Math.hypot(p.x-path[i].x,p.y-path[i].y));return{path,segments,length:segments.reduce((a,b)=>a+b,0)};};
-for(const [i,map] of MAPS.entries()){map.theme=['mountain','bamboo','archive','river','cloud','corridor','frost','mirror','beacon','cosmos'][i];map.ground=map.routes.map(metrics);map.air=map.routes.map((path,i)=>metrics([i===0&&map===MAPS[0]?{x:-30,y:85}:path[0],path.at(-1)]));}
+for(const [i,map] of MAPS.entries()){map.theme??=['mountain','bamboo','archive','river','cloud','corridor','frost','mirror','beacon','cosmos'][i];map.ground=map.routes.map(metrics);map.air=map.routes.map((path,i)=>metrics(map.airRoutes?.[i]||[i===0&&map===MAPS[0]?{x:-30,y:85}:path[0],path.at(-1)]));}
 LEGACY_MIRROR_MAP.theme='mirror';LEGACY_MIRROR_MAP.ground=LEGACY_MIRROR_MAP.routes.map(metrics);LEGACY_MIRROR_MAP.air=LEGACY_MIRROR_MAP.routes.map(path=>metrics([path[0],path.at(-1)]));
 export const getMap=(chapter,mirrorLayout=2)=>chapter===7&&mirrorLayout===1?LEGACY_MIRROR_MAP:MAPS[chapter];
 export const LENGTH=MAPS[0].ground[0].length;
@@ -701,6 +705,7 @@ const BOSS_EXTRA_PULSES={
  moonsovereign:{kind:'heal',interval:10,limit:3,ratio:.04,targets:3,radius:120}
 };
 for(const [kind,pulse]of Object.entries(BOSS_EXTRA_PULSES))ENEMIES[kind].pulse=pulse;
+Object.assign(ENEMIES,createCampaignEnemies(ENEMIES));
 export const bossSkillName=kind=>({shield:'凝盾',heal:'回春',haste:'战吼',summon:'召援',blink:'闪进'}[ENEMIES[kind]?.pulse?.kind]||'');
 export function bossSkillText(kind){
  const p=ENEMIES[kind]?.pulse;if(!p||!ENEMIES[kind].boss)return'';
@@ -729,8 +734,10 @@ export const COMMON_BOSSES=['boss','ironboss','broodqueen','stormboss','frostbos
 export const MAP_BOSS_POOLS=[
  ['hillboss','stonewarden','peakelder'],['bambooboss','bambooswords','bamboowitch'],['scrollboss','inkarchivist','silencewarden'],['tideboss','pearlclam','riverturtle'],['cloudboss','thunderkite','cloudwhale'],['gearboss','ballistalord','pendulumlord'],['frostlord','icephoenix','glaciergolem'],['mirrorqueen','glasswyrm','dreamweaver'],['beaconlord','embermarshal','emberbeast'],['astralboss','sunsovereign','moonsovereign']
 ];
+MAP_BOSS_POOLS.push(...CAMPAIGN_ADDITIONS.map(ch=>ch.bosses.map(e=>e.kind)));
 export const MAP_BOSSES=MAP_BOSS_POOLS.flat();
 export const bossChapter=kind=>MAP_BOSS_POOLS.findIndex(pool=>pool.includes(kind));
+const enemyIdentity=e=>ENEMIES[e.kind].campaignBase||e.kind;
 export const enemyBehavior=e=>ENEMIES[e.kind].behavior||e.kind;
 export const shellLimit=e=>ENEMIES[e.kind].shellLimit||3;
 export const hasIceShell=e=>(enemyBehavior(e)==='frostbeast'||ENEMIES[e.kind].shellLimit>0)&&(e.shellHits||0)<shellLimit(e);
@@ -746,8 +753,10 @@ export const THEME_UNITS=[
  {kind:'beaconrunner',counter:'远程提前击败传令使，用减速应对冲锋'},
  {kind:'astral',counter:'兵器与法术混搭，用光、咒或毒应对换相'}
 ];
+THEME_UNITS.push(...CAMPAIGN_ADDITIONS.map(ch=>({kind:ch.minions[0].kind,counter:ch.intro})));
 export const COMMON_MINIONS=['shieldscout','ironvanguard','duskwing','shellmite','hornacolyte','emberscout','plaguebeetle','pennantguard'];
 export const MAP_MINION_POOLS=[['hillrunner','stonebadger','hillkite'],['bamboostalker','bambooent','bamboodart'],['scrollguard','scrollwisp','scrollscribe'],['tideshaper','tideskipper','tideclam'],['cloudraptor','cloudmender','thunderchick'],['clockwork','gearroller','gearglider'],['frostbeast','frostshade','frostcrab'],['mirrorling','mirrorbird','mirrorguard'],['beaconrunner','beaconguard','beaconkite'],['astral','astralbat','astralweaver']];
+MAP_MINION_POOLS.push(...CAMPAIGN_ADDITIONS.map(ch=>ch.minions.map(e=>e.kind)));
 export const minionChapter=kind=>MAP_MINION_POOLS.findIndex(pool=>pool.includes(kind));
 export const astralPhase=(e,time)=>e.astralMode!==undefined?e.astralMode:Math.floor(Math.max(0,time-(e.bornAt??0))/(e.astralPeriod||5))%2;
 const PHYSICAL_TYPES=new Set(['fast','heavy','sniper','pierce']);
@@ -768,11 +777,14 @@ const FORMATIONS=[
  {name:'空陆合围',pool:['flying','split','shield','regen','lancer','brood'],counter:'对空、范围、持续伤害协同'}
 ];
 export const campaignBossRound=round=>[3,5,7].includes(round)||round>=8;
+// Preserve the first volume exactly; later volumes add authored composition and modest pressure.
+export const chapterPressure=chapter=>chapter<10?chapter:9+(chapter-9)*.12;
 export function wavePlan(chapter,wave,campaignRounds=CHAPTERS[chapter].rounds,forceEndless=false){
  const round=Math.max(1,Math.ceil(wave/3)),part=(Math.max(1,wave)-1)%3+1;
  const endlessRound=Math.max(forceEndless?1:0,round-campaignRounds);
  const boss=endlessRound>0||part===3&&(campaignBossRound(round)||round===campaignRounds);
  const finale=round===campaignRounds;
+ const troopRound=chapter>=10&&endlessRound===0&&round>10?10+(round-10)*.7:round;
  const bossPool=[...COMMON_BOSSES,...MAP_BOSS_POOLS[chapter]],bossKind=null;
  const stage=round+Math.min(3,Math.floor(chapter/2),Math.max(0,round-2));
  let pool=['normal','normal','normal','swift'],formation='墨影来袭',counter='先布攻击塔，保留墨点补强';
@@ -780,14 +792,15 @@ export function wavePlan(chapter,wave,campaignRounds=CHAPTERS[chapter].rounds,fo
  if(stage===3){pool=['normal','swift','armor','tank','shield',...(chapter>0?['lancer']:[])];formation='重阵推进';counter='雷霆破盾、山石迎击重甲';}
  if(stage>=4){const f=FORMATIONS[(stage-4+part-1+chapter*2)%FORMATIONS.length];pool=[...f.pool,'normal','normal','swift'];formation=f.name;counter=f.counter;if(round>=7)pool.push(...FORMATIONS[(round+part+chapter)%FORMATIONS.length].pool.slice(0,2));if(round>=9)pool.push('ward','healer');}
  const signature=round>=4?MAP_MINION_POOLS[chapter][(round-4+part-1)%3]:THEME_UNITS[chapter].kind;if(round>=2)pool.push(signature);if(round>=4){pool.push(COMMON_MINIONS[(round+part+chapter)%COMMON_MINIONS.length],...MAP_MINION_POOLS[chapter]);}
- return{bossPool,endlessRound,signature,round,part,stage,pool,boss,bossKind,formation,counter,count:Math.min(80,Math.floor((8+round*3+chapter*2+(part-1)*2+Math.floor(Math.max(0,round-4)*1.8))*(boss?(getMap(chapter).bossEscortBudget??1):1))),title:boss?'随机 Boss · '+formation:formation};
+ return{bossPool,endlessRound,signature,round,part,stage,pool,boss,bossKind,formation,counter,count:Math.min(chapter>=10&&endlessRound===0?76:80,Math.floor((8+troopRound*3+chapterPressure(chapter)*2+(part-1)*2+Math.floor(Math.max(0,troopRound-4)*1.8))*(boss?(getMap(chapter).bossEscortBudget??1):1))),title:boss?'随机 Boss · '+formation:formation};
 }
 export function enemyHealthScale(chapter,wave,kind){
  const round=Math.max(1,Math.ceil(wave/3)),part=(Math.max(1,wave)-1)%3,boss=!!ENEMIES[kind].boss;
  const opening=!boss?(chapter===6&&round<=6?.8:chapter>=3&&round<=3?.9:1):1;
- const pressure=Math.max(0,round-3),ramp=Math.min(1,pressure/3);
- const growth=boss?1.95+round*.13:1+pressure*(.045+.005*ramp);
- return(1+(round-1)*.36+pressure*.065*ramp+part*.08+CHAPTERS[chapter].difficulty)*1.25*(1+Math.max(0,round-5)*.02)*opening*growth*(boss?BOSS_HEALTH_BOOST:1);
+ const combatRound=chapter<10||round<=10?round:10+(round-10)*.7;
+ const pressure=Math.max(0,combatRound-3),ramp=Math.min(1,pressure/3);
+ const growth=boss?1.95+combatRound*.13:1+pressure*(.045+.005*ramp);
+ return(1+(combatRound-1)*.36+pressure*.065*ramp+part*.08+CHAPTERS[chapter].difficulty)*1.25*(1+Math.max(0,combatRound-5)*.02)*opening*growth*(boss?BOSS_HEALTH_BOOST:1);
 }
 const POETRY_API={position:enemyPosition,length:enemyLength,isAir,nativeAir,enemy:ENEMIES,iceShell:hasIceShell,shellLimit,getWord:getTowerWord,towerStats,towerDefense,astralPhase,bossPower};
 export class Game {
@@ -852,7 +865,7 @@ export class Game {
    const targets=this.towers.filter(t=>e.bossTargets.includes(t.id)&&near(t));
    if(!targets.length){cancel();e.bossReadyAt=this.time+2;return false;}
    if(this.time+1e-9<e.bossStrikeAt)return true;
-   const w=enemyWeapon(e.kind),round=Math.max(1,Math.ceil((e.wave||1)/3)),scale=(1+(round-1)*.035+this.chapter*.02)*(round<=3?.5:.7)*(e.enraged?1.25:1);
+   const w=enemyWeapon(e.kind),round=Math.max(1,Math.ceil((e.wave||1)/3)),scale=(1+(round-1)*.035+chapterPressure(this.chapter)*.02)*(round<=3?.5:.7)*(e.enraged?1.25:1);
    for(const t of targets){
     this.effects.push({kind:'siege',from:{...origin},to:{...this.pads[t.pad]},style:w.style,visual:w.visual,color:w.color,sigil:w.sigil,name:p.name,boss:true,power:true,enemy:e.kind,life:1,max:1});
     this.damageTower(t,w.damage*scale*p.ratio+towerDefense(t).maxHp*p.durability,e);
@@ -881,7 +894,7 @@ export class Game {
     const t=this.towers.find(t=>t.id===e.towerTarget);
     if(!t||!towerActive(t)||Math.hypot(this.pads[t.pad].x-p.x,this.pads[t.pad].y-p.y)>weapon.range+22){cancel();e.towerAttackAt=this.time+1;continue;}
     if(this.time+1e-9<e.towerStrikeAt)continue;
-    const round=Math.max(1,Math.ceil((e.wave||1)/3)),scale=(1+(round-1)*(boss?.035:.065)+this.chapter*.02)*(round<=3?.5:.7)*(boss?1:Math.min(1,.5+Math.max(0,round-6)*.1))*(boss&&e.enraged?1.25:1)*(e.escortBossId!==undefined?1.2:1);
+    const round=Math.max(1,Math.ceil((e.wave||1)/3)),scale=(1+(round-1)*(boss?.035:.065)+chapterPressure(this.chapter)*.02)*(round<=3?.5:.7)*(boss?1:Math.min(1,.5+Math.max(0,round-6)*.1))*(boss&&e.enraged?1.25:1)*(e.escortBossId!==undefined?1.2:1);
     this.effects.push({kind:'siege',from:{...p},to:{...this.pads[t.pad]},style:weapon.style,visual:weapon.visual,color:weapon.color,sigil:weapon.sigil,name:weapon.name,boss,enemy:e.kind,life:.65,max:.65});
     this.damageTower(t,weapon.damage*scale,e);
     if(weapon.sideRatio){
@@ -982,7 +995,7 @@ export class Game {
  this.updateTowerAttacks();
  for(const t of this.activeTowers)this.attack(t,dt);
  const leaders=new Set(this.enemies.filter(e=>ENEMIES[e.kind].boss&&e.hp>0&&e.d<enemyLength(e)).map(e=>e.id));this.enemies=this.enemies.filter(e=>!e.escortSummoned||leaders.has(e.escortBossId));
- for(const e of this.enemies){if(e.hp<=0){const cap=Math.max(this.activeTowers.some(t=>hasRune(getTowerWord(t.word),'luck')||getTowerWord(t.word).special==='fortune'||['bounty','seasons'].includes(getTowerWord(t.word).idiomMove))?10:0,...this.activeTowers.filter(t=>getTowerWord(t.word).type==='income').map(t=>getTowerWord(t.word).tier>=4?35:getTowerWord(t.word).tier>=3?25:15));const bounty=e.bountyUntil>this.time?Math.min(e.bounty||0,Math.max(0,cap-this.bountyEarned)):0;this.bountyEarned+=bounty;const earned=this.killInk(e)+bounty;recordPoetryDeath(this,e,earned,enemyPosition);this.ink+=earned;this.totalEarned+=earned;if(bounty)this.effects.push({kind:'coin',to:enemyPosition(e),amount:bounty,life:.8,max:.8});if(e.soulUntil>this.time&&this.soulHealed<1&&this.hp<CHAPTERS[this.chapter].hp){this.hp++;this.soulHealed++;}this.kills++;if(ENEMIES[e.kind].boss)this.emit('boss-defeated',{name:ENEMIES[e.kind].name,enemy:e.kind,to:{...enemyPosition(e)},portrait:{...e,shield:0,fallen:true,...(e.bossTargets?{bossTargets:[...e.bossTargets]}:{})}});this.effects.push({kind:'pop',to:enemyPosition(e),color:'#556b58',life:.45,max:.45});if(e.kind==='beaconrunner'){const p=enemyPosition(e);for(const ally of this.enemies)if(ally!==e&&ally.hp>0&&Math.hypot(enemyPosition(ally).x-p.x,enemyPosition(ally).y-p.y)<110)ally.rallyUntil=Math.max(ally.rallyUntil||0,this.time+3);this.effects.push({kind:'blast',to:p,color:'#bd7a43',life:.5,max:.5});}if(e.kind==='split'){this.spawn('small',e.d,e.route,e.wave);this.spawn('small',e.d-12,e.route,e.wave);}}else if(e.d>=enemyLength(e)){const harm=e.escortSummoned?0:Math.max(1,e.harm-(e.weakenUntil>this.time?1:0)),blocked=Math.min(harm,this.barrierRemaining());this.barrierSpent+=blocked;this.hp=Math.max(0,this.hp-harm+blocked);if(this.hp===0&&!this.reviveUsed&&this.activeTowers.some(t=>hasRune(getTowerWord(t.word),'revive'))){this.hp=1;this.reviveUsed=true;this.emit('revive');}if(ENEMIES[e.kind].boss&&harm>blocked)this.bossBreachedRound=Math.ceil((e.wave||this.wave)/3);this.emit('leak',{blocked,damage:harm-blocked,enemy:e.kind,boss:!!ENEMIES[e.kind].boss});}}
+ for(const e of this.enemies){if(e.hp<=0){const cap=Math.max(this.activeTowers.some(t=>hasRune(getTowerWord(t.word),'luck')||getTowerWord(t.word).special==='fortune'||['bounty','seasons'].includes(getTowerWord(t.word).idiomMove))?10:0,...this.activeTowers.filter(t=>getTowerWord(t.word).type==='income').map(t=>getTowerWord(t.word).tier>=4?35:getTowerWord(t.word).tier>=3?25:15));const bounty=e.bountyUntil>this.time?Math.min(e.bounty||0,Math.max(0,cap-this.bountyEarned)):0;this.bountyEarned+=bounty;const earned=this.killInk(e)+bounty;recordPoetryDeath(this,e,earned,enemyPosition);this.ink+=earned;this.totalEarned+=earned;if(bounty)this.effects.push({kind:'coin',to:enemyPosition(e),amount:bounty,life:.8,max:.8});if(e.soulUntil>this.time&&this.soulHealed<1&&this.hp<CHAPTERS[this.chapter].hp){this.hp++;this.soulHealed++;}this.kills++;if(ENEMIES[e.kind].boss)this.emit('boss-defeated',{name:ENEMIES[e.kind].name,enemy:e.kind,to:{...enemyPosition(e)},portrait:{...e,shield:0,fallen:true,...(e.bossTargets?{bossTargets:[...e.bossTargets]}:{})}});this.effects.push({kind:'pop',to:enemyPosition(e),color:'#556b58',life:.45,max:.45});if(enemyIdentity(e)==='beaconrunner'){const p=enemyPosition(e);for(const ally of this.enemies)if(ally!==e&&ally.hp>0&&Math.hypot(enemyPosition(ally).x-p.x,enemyPosition(ally).y-p.y)<110)ally.rallyUntil=Math.max(ally.rallyUntil||0,this.time+3);this.effects.push({kind:'blast',to:p,color:'#bd7a43',life:.5,max:.5});}if(enemyIdentity(e)==='split'){this.spawn('small',e.d,e.route,e.wave);this.spawn('small',e.d-12,e.route,e.wave);}}else if(e.d>=enemyLength(e)){const harm=e.escortSummoned?0:Math.max(1,e.harm-(e.weakenUntil>this.time?1:0)),blocked=Math.min(harm,this.barrierRemaining());this.barrierSpent+=blocked;this.hp=Math.max(0,this.hp-harm+blocked);if(this.hp===0&&!this.reviveUsed&&this.activeTowers.some(t=>hasRune(getTowerWord(t.word),'revive'))){this.hp=1;this.reviveUsed=true;this.emit('revive');}if(ENEMIES[e.kind].boss&&harm>blocked)this.bossBreachedRound=Math.ceil((e.wave||this.wave)/3);this.emit('leak',{blocked,damage:harm-blocked,enemy:e.kind,boss:!!ENEMIES[e.kind].boss});}}
  this.enemies=this.enemies.filter(e=>e.hp>0&&e.d<enemyLength(e));if(this.hp<=0){this.phase='lost';this.emit('lost');}else this.settleWaves();
  }
  settleWaves(){
@@ -1012,7 +1025,7 @@ export class Game {
   const living=this.enemies.filter(e=>e.hp>0&&e.d<enemyLength(e));
   for(const e of living){
    const behavior=enemyBehavior(e),boss=ENEMIES[e.kind].boss,canAct=!(e.silencedUntil>this.time||e.freezeUntil>this.time);
-   const support=this.bossSupport(e),wasEnraged=e.enraged;const data=ENEMIES[e.kind],regen=Math.max(support.regen,data.regenRate||(e.kind==='regen'?.02:0));if(regen&&!(e.poisonUntil>this.time||e.healBlockUntil>this.time))e.hp=Math.min(e.maxHp,e.hp+e.maxHp*regen*dt);
+   const support=this.bossSupport(e),wasEnraged=e.enraged;const data=ENEMIES[e.kind],regen=Math.max(support.regen,data.regenRate||(enemyIdentity(e)==='regen'?.02:0));if(regen&&!(e.poisonUntil>this.time||e.healBlockUntil>this.time))e.hp=Math.min(e.maxHp,e.hp+e.maxHp*regen*dt);
    if(e.poisonUntil>this.time-dt)e.hp-=Math.min(dt,Math.max(0,e.poisonUntil-(this.time-dt)))*e.poisonDps*(1-support.guard)*(1-((e.lightUntil>this.time||e.markUntil>this.time)?0:(data.poisonResist||0)));
    if(e.bleedUntil>this.time-dt)e.hp-=Math.min(dt,Math.max(0,e.bleedUntil-(this.time-dt)))*e.bleedDps*(1-support.guard);
    if(e.burnUntil>this.time-dt)e.hp-=Math.min(dt,Math.max(0,e.burnUntil-(this.time-dt)))*e.burnDps*(1-support.guard)*(1-(data.burnResist||0));
@@ -1026,10 +1039,10 @@ export class Game {
      }else e.escortReadyAt=this.time+1;
     }
    }
-   if(['brood','ironboss','inkking'].includes(e.kind)&&e.hp<=e.maxHp*.5&&!e.enraged){
+   if(['brood','ironboss','inkking'].includes(enemyIdentity(e))&&e.hp<=e.maxHp*.5&&!e.enraged){
     e.enraged=true;
-    if(e.kind==='brood'){this.spawn('small',e.d,e.route,e.wave);this.spawn('small',e.d-14,e.route,e.wave);}
-    if(e.kind==='inkking'){e.shield=e.maxShield=e.maxHp*.18;this.spawn('swift',e.d-12,e.route,e.wave);this.spawn('swift',e.d-24,e.route,e.wave);}
+    if(enemyIdentity(e)==='brood'){this.spawn('small',e.d,e.route,e.wave);this.spawn('small',e.d-14,e.route,e.wave);}
+    if(enemyIdentity(e)==='inkking'){e.shield=e.maxShield=e.maxHp*.18;this.spawn('swift',e.d-12,e.route,e.wave);this.spawn('swift',e.d-24,e.route,e.wave);}
     if(ENEMIES[e.kind].boss)this.emit('boss-phase',{name:ENEMIES[e.kind].name});
    }
    if(data.phase&&Math.max(1,Math.ceil((e.wave||1)/3))>=(data.phaseFromRound||1)&&!e.enraged&&e.hp<=e.maxHp*.5){
@@ -1057,7 +1070,7 @@ export class Game {
     e.pulses=(e.pulses||0)+1;e.pulseAt=this.time+(boss?bossPulseInterval(e.kind,!!e.enraged):pulse.interval);this.effects.push({kind:'enemy-skill',to:enemyPosition(e),color:enemyWeapon(e.kind).color,skill:pulse.kind,boss,enemy:e.kind,name:boss?bossSkillName(e.kind):data.name,life:.8,max:.8});
    }
    if(behavior==='rallyboss'&&canAct&&this.time>=e.abilityAt&&(e.charges||0)<3){for(const ally of living)if(ally!==e&&ally.hp>0&&nearby(e,ally,150))ally.rallyUntil=Math.max(ally.rallyUntil||0,this.time+3);e.charges=(e.charges||0)+1;e.abilityAt=this.time+(e.enraged?6:8);this.effects.push({kind:'blast',to:enemyPosition(e),color:'#c68b46',life:.5,max:.5});}
-   if(e.kind==='mirrorling'&&!e.mirrored&&e.hp<=e.maxHp*.5){
+   if(enemyIdentity(e)==='mirrorling'&&!e.mirrored&&e.hp<=e.maxHp*.5){
     e.mirrored=true;const copy=this.spawn('mirrorling',e.d-18,e.route,e.wave);copy.mirrored=true;copy.isCopy=true;copy.hp=copy.maxHp=e.maxHp*.35;copy.reward=1;
     this.effects.push({kind:'blast',to:enemyPosition(e),color:ENEMIES.mirrorling.color,life:.5,max:.5});
    }
@@ -1069,12 +1082,12 @@ export class Game {
    }
    if(behavior==='cloudraptor'&&(e.slowUntil>this.time||e.freezeUntil>this.time))e.diveUntil=Math.min(e.diveUntil||0,this.time);
    if(behavior==='cloudraptor'&&canAct&&this.time>=e.abilityAt){e.diveUntil=e.slowUntil>this.time||e.freezeUntil>this.time?this.time:this.time+2;e.abilityAt=this.time+(boss?(e.enraged?6:8):7);}
-   if(e.kind==='healer'&&canAct&&this.time>=e.abilityAt&&(e.charges||0)<4){
+   if(enemyIdentity(e)==='healer'&&canAct&&this.time>=e.abilityAt&&(e.charges||0)<4){
     const patients=living.filter(a=>a.hp>0&&nearby(e,a,110)&&!(a.poisonUntil>this.time||a.healBlockUntil>this.time)).sort((a,b)=>a.hp/a.maxHp-b.hp/b.maxHp).slice(0,3);
     for(const ally of patients)ally.hp=Math.min(ally.maxHp,ally.hp+ally.maxHp*.05);
     e.charges=(e.charges||0)+1;e.abilityAt=this.time+4;this.effects.push({kind:'blast',to:enemyPosition(e),color:'#719b65',life:.5,max:.5});
    }
-   if(e.kind==='broodqueen'&&canAct&&this.time>=e.abilityAt&&(e.summons||0)<3){
+   if(enemyIdentity(e)==='broodqueen'&&canAct&&this.time>=e.abilityAt&&(e.summons||0)<3){
     this.spawn('small',e.d-12,e.route,e.wave);this.spawn('small',e.d-24,e.route,e.wave);e.summons=(e.summons||0)+1;e.abilityAt=this.time+(e.hp<e.maxHp*.5?5:8);
    }
    const guarded=this.activeTowers.some(t=>getTowerWord(t.word).trait==='ward'&&Math.hypot(this.pads[t.pad].x-enemyPosition(e).x,this.pads[t.pad].y-enemyPosition(e).y)<=towerStats(t).range*.65);
@@ -1084,11 +1097,11 @@ export class Game {
    movement*=1+support.haste;
    if(e.rallyUntil>this.time)movement*=1.3;
    if(behavior==='cloudraptor'&&e.diveUntil>this.time&&!(e.slowUntil>this.time))movement*=1.55;
-   if(e.kind==='lancer'&&e.hp<=e.maxHp*.5)movement*=1.35;
+   if(enemyIdentity(e)==='lancer'&&e.hp<=e.maxHp*.5)movement*=1.35;
    if(e.enraged&&data.phase?.haste)movement*=1+data.phase.haste;
-   if(e.kind==='ironboss'&&e.enraged)movement*=1.2;
-   if(e.kind==='inkking'&&e.enraged)movement*=1.15;
-   if(!isAir(e)&&living.some(a=>a.kind==='banner'&&a.id!==e.id&&a.hp>0&&nearby(e,a,110)))movement*=1.15;
+   if(enemyIdentity(e)==='ironboss'&&e.enraged)movement*=1.2;
+   if(enemyIdentity(e)==='inkking'&&e.enraged)movement*=1.15;
+   if(!isAir(e)&&living.some(a=>enemyIdentity(a)==='banner'&&a.id!==e.id&&a.hp>0&&nearby(e,a,110)))movement*=1.15;
    if(!boss)movement*=1+Math.min(.2,Math.max(0,Math.ceil((e.wave||1)/3)-6)*.0125);
    if(e.escortBossId!==undefined){const leader=this.enemies.find(a=>a.id===e.escortBossId&&a.hp>0&&a.d<enemyLength(a));if(leader&&leader.route===e.route&&isAir(leader)===isAir(e)){if(e.d>leader.d+35+(e.id%3)*12)movement=0;else if(e.d<leader.d-80&&!(e.slowUntil>this.time||e.freezeUntil>this.time))movement=Math.max(movement,Math.min(2,leader.speed/e.speed*1.2));}}
    if(e.towerStrikeAt>this.time||e.bossStrikeAt>this.time)movement*=.45;
@@ -1255,7 +1268,7 @@ export class Game {
   const hit=(e,m=1)=>{
    if(e.hp<=0)return;const behavior=enemyBehavior(e);
    if(['precision','far','watch','dawn'].includes(w.special))e.lightUntil=Math.max(e.lightUntil||0,this.time+2);
-   let armor=e.kind==='armor'?.3:e.kind==='ironboss'?(e.enraged?0:.4):(ENEMIES[e.kind].armor||0);
+   let armor=enemyIdentity(e)==='armor'?.3:enemyIdentity(e)==='ironboss'?(e.enraged?0:.4):(ENEMIES[e.kind].armor||0);
    if(['heavy','pierce'].includes(w.type)||e.breakUntil>this.time)armor=0;else armor=Math.max(0,armor-(trait.armorPierce||0)-(hasRune(w,'edge')?.05:0)-(w.special==='precision'||w.special==='puzzle'&&shotNumber%3===1?.15:w.special==='penetrate'?.1:w.special==='patient'?.1:w.special==='erosion'?Math.min(4,streak)*.05:w.special==='balance'&&shotNumber%2===1?.15:0));
    const revealed=e.lightUntil>this.time||e.markUntil>this.time||e.breakUntil>this.time;
    let special=1;
@@ -1264,7 +1277,7 @@ export class Game {
    if(hasIceShell(e)){special*=ENEMIES[e.kind].boss?.8:.85;e.shellHits=Math.min(shellLimit(e),(e.shellHits||0)+(['splash','heavy'].includes(w.type)?2:1));}
    if(behavior==='astral'&&!revealed&&!(w.type==='heavy'&&astralPhase(e,this.time)===0)&&PHYSICAL_TYPES.has(w.type)===(astralPhase(e,this.time)===0))special*=.65;
    if(ENEMIES[e.kind].resistTypes?.includes(w.type)&&!revealed)special*=1-(ENEMIES[e.kind].resistance||0);
-   const protectedByWard=!revealed&&this.enemies.some(a=>a.hp>0&&a.kind==='ward'&&a.id!==e.id&&Math.hypot(enemyPosition(a).x-enemyPosition(e).x,enemyPosition(a).y-enemyPosition(e).y)<110);
+   const protectedByWard=!revealed&&this.enemies.some(a=>a.hp>0&&enemyIdentity(a)==='ward'&&a.id!==e.id&&Math.hypot(enemyPosition(a).x-enemyPosition(e).x,enemyPosition(a).y-enemyPosition(e).y)<110);
    const protection=Math.max(this.bossSupport(e).guard,protectedByWard?.12:0,!revealed&&e.guardUntil>this.time?(e.guardPower||0):0);
    let amount=damage*m*special*(1-armor)*(1-protection)*(e.markUntil>this.time?1+e.markPower:1);
    if(w.special==='watch'&&isAir(e))amount*=1.05+learningRank(w)*.05;
@@ -1365,8 +1378,8 @@ export class Game {
  if(!data||![1,2,3,4,5,6,7,8,9,10,11].includes(data.version)||!int(data.chapter)||!CHAPTERS[data.chapter]||!int(data.wave)||(data.endless!==undefined&&typeof data.endless!=='boolean')||(!data.endless&&data.version<5&&data.wave>(data.version<3?CHAPTERS[data.chapter].rounds:CHAPTERS[data.chapter].waves))||!['prepare','battle','intermission','won','lost'].includes(data.phase)||!['ink','hp','time','skillReady','totalEarned'].every(k=>finite(data[k])&&data[k]>=0)||data.hp>CHAPTERS[data.chapter].hp||!['kills','nextId'].every(k=>int(data[k]))||!finite(data.spawnTime)||!Array.isArray(data.towers)||!Array.isArray(data.enemies)||!Array.isArray(data.queue))throw Error('Invalid save');
  if(data.mirrorLayout!==undefined&&(data.chapter!==7||![1,2].includes(data.mirrorLayout)))throw Error('Invalid mirror layout');
  if(data.enemies.some(e=>e.mirrorLayout!==undefined&&(data.chapter!==7||e.mirrorLayout!==(data.mirrorLayout??1))))throw Error('Invalid enemy layout');
- const completedRounds=data.phase==='won'&&data.wave>0?(data.version<3?data.wave:Math.ceil(data.wave/3)):LEGACY_CHAPTER_ROUNDS[data.chapter];
- const campaignRounds=data.version>=5?data.campaignRounds:data.endless?LEGACY_CHAPTER_ROUNDS[data.chapter]:data.phase==='won'?completedRounds:CHAPTERS[data.chapter].rounds;
+ const completedRounds=data.phase==='won'&&data.wave>0?(data.version<3?data.wave:Math.ceil(data.wave/3)):(LEGACY_CHAPTER_ROUNDS[data.chapter]??CHAPTERS[data.chapter].rounds);
+ const campaignRounds=data.version>=5?data.campaignRounds:data.endless?(LEGACY_CHAPTER_ROUNDS[data.chapter]??CHAPTERS[data.chapter].rounds):data.phase==='won'?completedRounds:CHAPTERS[data.chapter].rounds;
  if(!Number.isSafeInteger(campaignRounds)||campaignRounds<1||campaignRounds>100||(!data.endless&&(data.version<3?data.wave*3:data.wave)>campaignRounds*3))throw Error('Invalid campaign length');
  if(data.towers.length>PADS.length||new Set(data.towers.map(t=>t?.pad)).size!==data.towers.length||data.towers.some(t=>!t||!getTowerWord(t.word)||!int(t.pad)||!PADS[t.pad]||(!Number.isInteger(t.level)||(data.version===1?![1,2,3].includes(t.level):t.level<getTowerWord(t.word).tier||t.level>getTowerWord(t.word).maxLevel))||!int(t.id)||!finite(t.cooldown))||data.enemies.some(e=>!e||!kind(e.kind)||!int(e.id)||!['hp','maxHp','speed','reward','harm','d','slowUntil'].every(k=>finite(e[k]))||e.maxHp<=0||e.speed<=0||e.d<0)||data.queue.some(e=>!e||!kind(e.kind)))throw Error('Invalid save');
  if(data.enemies.some(e=>(e.shield!==undefined&&(!finite(e.shield)||e.shield<0))||(e.maxShield!==undefined&&(!finite(e.maxShield)||e.maxShield<0))))throw Error('Invalid shield state');

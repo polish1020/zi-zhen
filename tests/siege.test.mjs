@@ -9,13 +9,13 @@ function pair(g,range=120){for(let d=50;d<1200;d+=5){const e={kind:'normal',map:
 function supportPads(g){const pairs=[];for(let i=0;i<12;i++)for(let j=i+1;j<12;j++)pairs.push({i,j,d:Math.hypot(g.pads[i].x-g.pads[j].x,g.pads[i].y-g.pads[j].y)});const p=pairs.sort((a,b)=>a.d-b.d)[0];assert.ok(p.d<getWord('光').range);return{pads:[{i:p.i},{i:p.j}],d:110};}
 
 
-test('every word has valid grade/level defense and all 94 monsters have an explicit siege profile',()=>{
+test('every word has valid grade/level defense and all 214 monsters have an explicit siege profile',()=>{
  assert.equal(Object.keys(TOWER_DEFENSES).length,16);
  for(const w of WORDS){const a=towerDefense({word:w.word,level:w.tier}),b=towerDefense({word:w.word,level:w.maxLevel});assert.ok(a.maxHp>100&&b.maxHp>a.maxHp,w.word);assert.ok(a.armor>=0&&a.armor<=.32);assert.ok(a.role);}
  for(const [kind]of Object.entries(ENEMIES)){const w=enemyWeapon(kind);assert.ok(w.name&&w.range>0&&w.damage>0&&w.interval>w.windup&&w.windup>0,kind);}
  assert.ok(towerDefense({word:'石',level:1}).maxHp>towerDefense({word:'弓',level:1}).maxHp);
 });
-test('all 94 enemies can land a real attack on a legal tower in every chapter',()=>{
+test('all 214 enemies can land a real attack on a legal tower in every chapter',()=>{
  const forms=new Set();
  for(let chapter=0;chapter<10;chapter++)for(const kind of Object.keys(ENEMIES)){
   const g=new Game(chapter,42),w=enemyWeapon(kind);let nearest={distance:Infinity};
@@ -157,7 +157,7 @@ test('durability, attack recovery slots and repairs survive reload and reject ma
  const legacy=Game.restore(old);assert.equal(legacy.towers[0].hp,towerDefense(legacy.towers[0]).maxHp);assert.ok(legacy.enemies[0].towerAttackAt>=legacy.time);
 });
 
-test('all 42 bosses cast their own finite active skill with visible skill metadata',()=>{
+test('all 102 bosses cast their own finite active skill with visible skill metadata',()=>{
  const kinds=new Set();for(const [kind,data]of Object.entries(ENEMIES).filter(([,e])=>e.boss)){
   const {g,e}=arena('文',kind);e.pulseAt=0;e.abilityAt=e.towerAttackAt=1e6;g.step(.1);
   assert.equal(e.pulses,1,kind);const fx=g.effects.find(f=>f.kind==='enemy-skill'&&f.enemy===kind);assert.ok(fx?.boss&&fx.name&&fx.color,kind);assert.equal(fx.skill,data.pulse.kind);kinds.add(fx.skill);

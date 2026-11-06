@@ -398,3 +398,9 @@ html[data-standalone="true"].game-open body.playing .forge-panel { padding-botto
 .poetry-grade-setting select{font:inherit;color:inherit;min-height:44px;max-width:100%;border:1px solid #ced6bc;border-radius:3px;background:#f5f4e9;padding:9px 8px;flex:0 0 auto;}
 .poetry-grade-setting>div{min-width:0;}
 @media(max-width:420px){.poetry-grade-setting{align-items:flex-start;flex-wrap:wrap;}.poetry-grade-setting select{width:100%;font-size:16px;}}
+
+/* Three compact volumes keep thirty chapters easy to scan on a phone. */
+.chapter-volume{margin-top:28px}.chapter-volume>h3{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:19px;color:var(--ink,#304c3d);margin:0 0 6px}.chapter-volume>h3 small{font-size:12px;font-weight:400;white-space:nowrap}.chapter-volume>p{font-size:13px;color:#7b856f;margin:0 0 12px}.chapter-volume .chapter-card>span{min-width:34px;font-variant-numeric:tabular-nums}.chapter-volume .chapter-card{scroll-margin:14px}
+@media(max-width:420px){.chapter-volume>h3{font-size:17px}.chapter-volume>h3 small{font-size:11px}}
+
+.canvas-wrap[data-night="true"] .map-label span{color:#dad6bd}.canvas-wrap[data-night="true"] .map-label small,.canvas-wrap[data-night="true"] .map-bottom-note{color:#b6c0b7}

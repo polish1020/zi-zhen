@@ -38,5 +38,7 @@
   "poetry-scene-rules.mjs",
   "poetry-impact.mjs",
   "poetry-scenes.mjs",
-  "poetry-scene-art.mjs"
+  "poetry-scene-art.mjs",
+  "campaign-expansion.mjs",
+  "campaign-art.mjs"
 ]

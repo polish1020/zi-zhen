@@ -78,7 +78,7 @@ test('ambush, finish, relief, adaptation, pivot, patient and balance effects fol
  ['五谷丰登',({g,t,w,e})=>{fire(g,t,4);assert.ok(e.bountyUntil>g.time);assert.equal(e.bounty,1);}]
  ])isolated(word,ctx=>{const e=enemy(ctx.g);assertion({...ctx,e});});
 });
-test('all learning families remain valid in mixed formations containing all 94 enemy types',()=>{
+test('all learning families remain valid in mixed formations containing all 214 enemy types',()=>{
  for(const id of Object.keys(SPECIAL_EFFECTS)){const word=Object.keys(SPECIAL_WORDS).find(w=>SPECIAL_WORDS[w]===id),{g,t}=arena(word);for(const kind of Object.keys(enemies))enemy(g,kind);const shield=g.enemies.reduce((s,e)=>s+(e.shield||0),0);fire(g,t,4);assert.ok(t.cooldown>0,id);assert.ok(g.enemies.some(e=>e.hp<e.maxHp)||g.enemies.reduce((s,e)=>s+(e.shield||0),0)<shield,id);assert.ok(g.effects.length<180,id);const h=Game.restore(JSON.parse(JSON.stringify(g.export())));assert.deepEqual(h.export(),g.export());}
 });
 // Imported below to keep the family matrix readable.
