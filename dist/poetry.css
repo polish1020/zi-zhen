@@ -1,5 +1,14 @@
 /* Seven selected glyphs, thirty-two distinct physical cards, one viewport. */
-.forge-slots{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.forge-slot{min-width:0;width:100%;height:38px;font-size:23px}.character-grid{grid-template-columns:repeat(8,minmax(0,1fr));gap:5px}.char{min-width:0;font-size:25px}.grade-5,.grade-6,.grade-7{background:#f1e7c9;color:#8f7644;border-color:#c8b57e}.poem-reading{margin:10px 0 0;padding:8px 10px;border:1px solid #bdad7b66;border-radius:4px;background:#e9e1c712}.poem-reading summary{font-size:11px;color:#ac945c;cursor:pointer}.poem-original{margin:9px 0;font-family:'Noto Serif SC','Songti SC',serif;line-height:1.9}.poem-reading .poem-original p{margin:3px 0;font-size:12px}.poem-reading>small{display:block;line-height:1.7;font-size:9px;color:#8a987c}.poetry-live{font-size:11px;padding:7px 9px;border:1px solid #c2aa6e66;background:#b39f6520;border-radius:4px;color:#e4d4a2}.codex-filters{flex-wrap:wrap}.codex-card h3{overflow-wrap:anywhere}.recipe-title .recipe-details{overflow-wrap:anywhere}
+.forge-slots{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.forge-slot{min-width:0;width:100%;height:38px;font-size:23px}.character-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}.char{min-width:0;font-size:25px}.grade-5,.grade-6,.grade-7{background:#f1e7c9;color:#8f7644;border-color:#c8b57e}.poem-reading{margin:10px 0 0;padding:8px 10px;border:1px solid #bdad7b66;border-radius:4px;background:#e9e1c712}.poem-reading summary{font-size:11px;color:#ac945c;cursor:pointer}.poem-original{margin:9px 0;font-family:'Noto Serif SC','Songti SC',serif;line-height:1.9}.poem-reading .poem-original p{margin:3px 0;font-size:12px}.poem-reading>small{display:block;line-height:1.7;font-size:9px;color:#8a987c}.poetry-live{font-size:11px;padding:7px 9px;border:1px solid #c2aa6e66;background:#b39f6520;border-radius:4px;color:#e4d4a2}.codex-filters{flex-wrap:wrap}.codex-card h3{overflow-wrap:anywhere}.recipe-title .recipe-details{overflow-wrap:anywhere}
+/* A desktop sidebar needs readable four-column cards, not the wide mobile grid. */
+@media(min-width:901px) and (pointer:fine){
+ body.playing .forge-panel:not(.inspecting) h2,body.playing .forge-panel:not(.inspecting) .forge-subtitle,body.playing .forge-panel:not(.inspecting) .forge-footnote{display:none}
+ body.playing .forge-panel:not(.inspecting) .forge-slots{margin:14px 0}
+ body.playing .forge-panel:not(.inspecting) .character-grid{grid-auto-rows:38px}
+ body.playing .forge-panel:not(.inspecting) .char{height:38px;aspect-ratio:auto;padding:0;font-size:24px;line-height:1}
+ body.playing .forge-panel:not(.inspecting) .recipe-preview{min-height:66px}
+ body.playing .forge-panel:not(.inspecting) .recipe-title .recipe-details{font-size:15px;letter-spacing:0;white-space:nowrap}
+}
 @media(max-width:900px),(pointer:coarse),(display-mode:standalone){
  body.playing .game-layout{grid-template-rows:minmax(0,1.05fr) minmax(284px,1fr)}
  body.playing .forge-panel:not(.inspecting){grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:16px 32px 34px minmax(116px,1fr) 44px;gap:4px 7px;padding:6px}

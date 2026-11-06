@@ -31,7 +31,7 @@
 
 桌面端展开地图和组字工坊；手机竖屏将战场与字库放在一屏里，短横屏自动调整布局。
 
-![桌面端战场：竹隐谷地图、词塔、怪物与右侧组字工坊](docs/screenshots/desktop-battle.webp)
+![桌面端战场：竹隐谷地图、词塔、怪物与四列字库](docs/screenshots/desktop-gameplay.webp)
 
 <table>
   <tr>
